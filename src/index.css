@@ -8,3 +8,9 @@
     font-family: 'Arial', sans-serif;
 }
 
+.gradient-text {
+  background: linear-gradient(45deg, #09009f, rgb(78,184,212) 80%);
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+}

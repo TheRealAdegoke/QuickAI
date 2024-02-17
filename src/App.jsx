@@ -1,12 +1,16 @@
+import Main from "./Pages/LandingPages/Main/Main";
+import {BrowserRouter, Route, Routes} from "react-router-dom"
 
 
 function App() {
 
   return (
     <>
-      <div className="radial h-screen">
-        <h1>QuickUI</h1>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Main />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
