@@ -51,11 +51,11 @@ const Nav = () => {
               </div>
 
               <div className="flex mobile:flex-col mobile:gap-3 mobile:px-3 gap-5">
-                <Link className="block text-center border border-[rgba(255,255,255,0.2)] py-2 px-8 rounded-[8px] transition-all duration-300 ease-in-out hover:bg-[rgba(255,255,255,0.2)]">
+                <Link to="/login" className="block text-center border border-[rgba(255,255,255,0.2)] py-2 px-8 rounded-[8px] transition-all duration-300 ease-in-out hover:bg-[rgba(255,255,255,0.2)]">
                   <span>Login</span>
                 </Link>
 
-                <Link className="block text-center border border-[rgba(255,255,255,0.2)] py-2 px-4 rounded-[8px] transition-all duration-300 ease-in-out hover:bg-[rgba(255,255,255,0.2)]">
+                <Link to="/register" className="block text-center border border-[rgba(255,255,255,0.2)] py-2 px-4 rounded-[8px] transition-all duration-300 ease-in-out hover:bg-[rgba(255,255,255,0.2)]">
                   <span className="flex justify-center items-center gap-2">
                     Sign Up <TiArrowRightOutline />
                   </span>
