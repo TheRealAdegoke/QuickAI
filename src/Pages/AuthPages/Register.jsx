@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Register = () => {
   return (
     <>
-      <main className="bg-[rgb(9,11,14)] h-screen text-white">
+      <main className="bg-[rgb(9,11,14)] min-h-screen text-white">
         <div className="flex items-center py-5">
           <img
             src={NavLogo}
@@ -86,7 +86,7 @@ const Register = () => {
             </span>
           </div>
 
-          <div className="w-[350px] mx-auto text-center my-4 hover:bg-[rgb(42,42,47)] py-2 rounded-[5px] flex items-center justify-center gap-2 cursor-pointer border border-[rgb(64,65,67)]">
+          <div className="w-4/5 PC:w-[350px] mx-auto text-center my-4 hover:bg-[rgb(42,42,47)] py-2 rounded-[5px] flex items-center justify-center gap-2 cursor-pointer border border-[rgb(64,65,67)]">
             <FcGoogle className="text-[1.4rem]" />
             <span className="font-medium text-[rgb(201,209,217)]">
               Sign up with Google
