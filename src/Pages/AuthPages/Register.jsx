@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Register = () => {
   return (
     <>
-      <main className="bg-[rgb(9,11,14)] min-h-screen text-white">
+      <main className="bg-[rgb(3,11,21)] min-h-screen text-white">
         <div className="flex items-center py-5">
           <img
             src={NavLogo}
@@ -15,7 +15,7 @@ const Register = () => {
           />
         </div>
 
-        <div className="bg-[rgb(20,21,24)] w-4/5 PC:max-w-[400px] h-[500px] w mx-auto border border-[rgb(64,65,67)] rounded-[8px]">
+        <div className="bg-[rgb(2,8,16)] w-4/5 PC:max-w-[400px] h-[500px] w mx-auto border border-[rgb(64,65,67)] rounded-[8px]">
           <form className="px-6">
             <div className="mt-4 mb-6">
               <h1 className="text-[rgb(201,209,217)] text-2xl font-bold">
@@ -80,7 +80,7 @@ const Register = () => {
 
           <div className="relative text-[rgb(201,209,217)]">
             <hr className="my-5 border-[rgb(64,65,67)]" />
-            <span className="absolute-center bg-[rgb(20,21,24)] flex items-center justify-center rounded-full  w-[40px] text-center h-[40px] text-[1.2rem]">
+            <span className="absolute-center bg-[rgb(2,8,16)] flex items-center justify-center rounded-full  w-[40px] text-center h-[40px] text-[1.2rem]">
               or
             </span>
           </div>

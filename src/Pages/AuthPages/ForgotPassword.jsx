@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const ForgotPassword = () => {
   return (
     <>
-      <main className="bg-[rgb(9,11,14)] min-h-screen text-white">
+      <main className="bg-[rgb(3,11,21)] min-h-screen text-white">
         <div className="flex items-center py-5">
           <img
             src={NavLogo}
@@ -15,7 +15,7 @@ const ForgotPassword = () => {
           />
         </div>
 
-        <div className="bg-[rgb(20,21,24)] w-4/5 PC:max-w-[400px] w mx-auto pb-8 border border-[rgb(64,65,67)] rounded-[8px]">
+        <div className="bg-[rgb(2,8,16)] w-4/5 PC:max-w-[400px] w mx-auto pb-8 border border-[rgb(64,65,67)] rounded-[8px]">
           <form className="px-6">
             <div className="mt-4 mb-6">
               <h1 className="text-[rgb(201,209,217)] text-2xl font-bold">
