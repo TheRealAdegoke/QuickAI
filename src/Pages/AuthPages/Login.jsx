@@ -3,7 +3,7 @@ import NavLogo from "../../assets/NavLogo.png";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 
-const Register = () => {
+const Login = () => {
   return (
     <>
       <main className="bg-[rgb(9,11,14)] min-h-screen text-white">
@@ -19,28 +19,14 @@ const Register = () => {
           <form className="px-6">
             <div className="mt-4 mb-6">
               <h1 className="text-[rgb(201,209,217)] text-2xl font-bold">
-                Create Account
+                Welcome Back! 
               </h1>
               <p className="text-[rgb(161,167,171)] font-semibold">
-                Get started for free
+                Login to continue editing
               </p>
             </div>
 
             <div>
-              <div className="flex flex-col my-4">
-                <label
-                  htmlFor="name"
-                  className="text-[rgb(161,167,171)] font-semibold"
-                >
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  className="bg-[rgb(42,42,47)] border border-[rgb(64,65,67)] rounded-[5px] h-[40px] px-3 focus:border-[rgb(54,116,220)] outline-none"
-                  placeholder="John Doe"
-                />
-              </div>
-
               <div className="flex flex-col my-4">
                 <label
                   htmlFor="email"
@@ -72,11 +58,15 @@ const Register = () => {
 
             <button
               type="submit"
-              className="text-black bg-white hover:bg-[rgba(255,255,255,0.9)] block mx-auto p-3 rounded-[5px] font-medium w-[200px]"
+              className="text-black bg-white hover:bg-[rgba(255,255,255,0.9)] block mx-auto p-3 rounded-[5px] font-medium w-full"
             >
-              Create Account
+              Login
             </button>
           </form>
+
+          <div className="my-5 text-center text-[1rem] font-medium">
+            <Link to="/forgotpassword">I forgot my password</Link>
+          </div>
 
           <div className="relative text-[rgb(201,209,217)]">
             <hr className="my-5 border-[rgb(64,65,67)]" />
@@ -88,14 +78,14 @@ const Register = () => {
           <div className="w-4/5 PC:w-[350px] mx-auto text-center my-4 hover:bg-[rgb(42,42,47)] py-2 rounded-[5px] flex items-center justify-center gap-2 cursor-pointer border border-[rgb(64,65,67)]">
             <FcGoogle className="text-[1.4rem]" />
             <span className="font-medium text-[rgb(201,209,217)]">
-              Sign up with Google
+              Sign in with Google
             </span>
           </div>
         </div>
 
         <div className="w-[250px] mx-auto text-center my-4 bg-[rgb(42,42,47)] py-2 rounded-[5px] text-[rgb(201,209,217)]">
-          <Link to="/login" className=" hover:underline">
-            I already have an account
+          <Link to="/register" className=" hover:underline">
+            I don't have an account
           </Link>
         </div>
       </main>
@@ -103,4 +93,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
