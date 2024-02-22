@@ -4,18 +4,15 @@ import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { message } from "antd";
-import { useGoogleLogin } from "@react-oauth/google";
 
 const Register = () => {
   const [fullName, setFullName] = useState("")
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState([]);
 
-  const login = useGoogleLogin({
-    onSuccess: (codeResponse) => setUser(codeResponse),
-    onError: (error) => console.log("Login Failed:", error),
-  });
+  const login = () => {
+    window.open("http://localhost:3000/auth/google/callback", "_self");
+  }
 
   const handleRegistration = async (e) => {
     e.preventDefault()
