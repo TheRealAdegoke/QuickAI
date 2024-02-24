@@ -1,39 +1,55 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavLogo from "../../assets/NavLogo.png";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import { message } from "antd";
 
 const Register = () => {
-  const [fullName, setFullName] = useState("")
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const location = useLocation();
 
   const login = () => {
     window.open("http://localhost:3000/auth/google/callback", "_self");
-  }
+  };
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const error = params.get("error");
+
+    if (error === "userExists") {
+      setErrorMessage("User already exists.");
+    }
+  }, [location]);
 
   const handleRegistration = async (e) => {
-    e.preventDefault()
-      const postData = {
-        fullName, email, password
-      };
-      try {
-        const response = await axios.post("http://localhost:3000/auth/register", postData);
-        message.success(response.data.message);
+    e.preventDefault();
+    const postData = {
+      fullName,
+      email,
+      password,
+    };
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/auth/register",
+        postData
+      );
+      message.success(response.data.message);
 
-        console.log(response.data);
-      } catch (error) {
-        console.error(error.response.data.error)
-        message.error(error.response.data.error);
-      }
-  }
+      console.log(response.data);
+    } catch (error) {
+      console.error(error.response.data.error);
+      message.error(error.response.data.error);
+    }
+  };
 
   return (
     <>
-      <main className="bg-[rgb(3,11,21)] min-h-screen text-white">
-        <div className="flex items-center py-5">
+      <main className="bg-[rgb(3,11,21)] min-h-screen text-white py-5">
+        <div className="flex items-center pb-5">
           <img
             src={NavLogo}
             alt="Quick UI Image."
@@ -41,7 +57,7 @@ const Register = () => {
           />
         </div>
 
-        <div className="bg-[rgb(2,8,16)] w-4/5 PC:max-w-[400px] h-[500px] w mx-auto border border-[rgb(64,65,67)] rounded-[8px]">
+        <div className="bg-[rgb(2,8,16)] w-4/5 PC:max-w-[400px] h-auto w mx-auto border border-[rgb(64,65,67)] rounded-[8px]">
           <form className="px-6" onSubmit={handleRegistration}>
             <div className="mt-4 mb-6">
               <h1 className="text-[rgb(201,209,217)] text-2xl font-bold">
@@ -129,6 +145,11 @@ const Register = () => {
               Sign up with Google
             </span>
           </div>
+          {errorMessage && (
+            <div className="w-[350px] mx-auto text-center my-4 bg-[rgb(253,236,234)] py-2 rounded-[5px] text-[rgb(97,62,55)]">
+              {errorMessage}
+            </div>
+          )}
         </div>
 
         <div className="w-[250px] mx-auto text-center my-4 bg-[rgb(42,42,47)] py-2 rounded-[5px] text-[rgb(201,209,217)]">
