@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import NavLogo from "../../assets/NavLogo.png";
 import { FcGoogle } from "react-icons/fc";
+import { ImSpinner6 } from "react-icons/im";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import { message } from "antd";
@@ -10,11 +11,30 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
   const location = useLocation();
 
   const login = () => {
+    setGoogleLoading(true);
     window.open("http://localhost:3000/auth/google/callback", "_self");
   };
+
+  function getCookie(name) {
+    const cookies = document.cookie.split("; ");
+
+    for (const cookie of cookies) {
+      const [cookieName, cookieValue] = cookie.split("=");
+
+      if (cookieName === name) {
+        return cookieValue;
+      }
+    }
+
+    return null;
+  }
+
+  const myCookieValue = getCookie("token");
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -22,13 +42,29 @@ const Register = () => {
 
     if (error === "userExists") {
       setErrorMessage("User already exists.");
+
+      // Clear the error message after 4 seconds
+      const timeoutId = setTimeout(() => {
+        setErrorMessage("");
+      }, 3000);
+
+      return () => clearTimeout(timeoutId); 
     }
+
+    sessionStorage.setItem("token", myCookieValue);
   }, [location]);
 
   const handleRegistration = async (e) => {
     e.preventDefault();
+    message.config({
+      duration: 2,
+      maxCount: 1,
+    });
+
+    setLoading(true);
+    const trimmedFullName = fullName.trim();
     const postData = {
-      fullName,
+      fullName: trimmedFullName,
       email,
       password,
     };
@@ -38,11 +74,11 @@ const Register = () => {
         postData
       );
       message.success(response.data.message);
-
-      console.log(response.data);
     } catch (error) {
       console.error(error.response.data.error);
       message.error(error.response.data.error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -125,7 +161,13 @@ const Register = () => {
               type="submit"
               className="text-black bg-white hover:bg-[rgba(255,255,255,0.9)] block mx-auto p-3 rounded-[5px] font-medium w-[200px]"
             >
-              Create Account
+              {loading ? (
+                <div>
+                  <ImSpinner6 className="animate-spin text-2xl text-black block mx-auto" />
+                </div>
+              ) : (
+                "Create Account"
+              )}
             </button>
           </form>
 
@@ -144,11 +186,14 @@ const Register = () => {
             <span className="font-medium text-[rgb(201,209,217)]">
               Sign up with Google
             </span>
+            {googleLoading && (
+              <ImSpinner6 className="animate-spin text-2xl text-white" />
+            )}
           </div>
           {errorMessage && (
             <div className="w-[350px] mx-auto text-center my-4 bg-[rgb(253,236,234)] py-2 rounded-[5px] text-[rgb(97,62,55)]">
-              {errorMessage}
-            </div>
+                {errorMessage}
+              </div>
           )}
         </div>
 
