@@ -1,3 +1,4 @@
+import Dashboard from "./Dashboard/Dashboard";
 import Page404 from "./Page404";
 import ForgotPassword from "./Pages/AuthPages/ForgotPassword";
 import Login from "./Pages/AuthPages/Login";
@@ -13,12 +14,13 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+          <Route path="*" element={<Page404 />} />
           <Route path="/" element={<Main />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
-          <Route path="*" element={<Page404/>} />
+          <Route path="/dashboard" element={<Dashboard/>} />
         </Routes>
       </BrowserRouter>
     </>
