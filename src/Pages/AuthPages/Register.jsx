@@ -20,22 +20,6 @@ const Register = () => {
     window.open("http://localhost:3000/auth/google/callback", "_self");
   };
 
-  function getCookie(name) {
-    const cookies = document.cookie.split("; ");
-
-    for (const cookie of cookies) {
-      const [cookieName, cookieValue] = cookie.split("=");
-
-      if (cookieName === name) {
-        return cookieValue;
-      }
-    }
-
-    return null;
-  }
-
-  const myCookieValue = getCookie("token");
-
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const error = params.get("error");
@@ -50,8 +34,6 @@ const Register = () => {
 
       return () => clearTimeout(timeoutId); 
     }
-
-    sessionStorage.setItem("token", myCookieValue);
   }, [location]);
 
   const handleRegistration = async (e) => {
