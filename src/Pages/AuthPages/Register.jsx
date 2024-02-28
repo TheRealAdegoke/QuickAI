@@ -75,7 +75,7 @@ const Register = () => {
           />
         </div>
 
-        <div className="bg-[rgb(2,8,16)] w-4/5 PC:max-w-[400px] h-auto w mx-auto border border-[rgb(64,65,67)] rounded-[8px]">
+        <div className="bg-[rgb(2,8,16)] w-4/5 max-w-[400px] h-auto mx-auto border border-[rgb(64,65,67)] rounded-[8px]">
           <form className="px-6" onSubmit={handleRegistration}>
             <div className="mt-4 mb-6">
               <h1 className="text-[rgb(201,209,217)] text-2xl font-bold">
