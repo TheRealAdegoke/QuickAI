@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavLogo from "../../assets/NavLogo.png";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { ImSpinner6 } from "react-icons/im";
 import axios from "axios";
 import { message } from "antd";
@@ -10,6 +10,9 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [googleLoading, setGoogleLoading] = useState(false);
+  const location = useLocation();
   const navigate = useNavigate()
 
   const handleLogin = async (e) => {
@@ -39,8 +42,26 @@ const Login = () => {
   };
 
   const login = () => {
+    setGoogleLoading(true);
     window.open("http://localhost:3000/auth/google/login", "_self");
   };
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const error = params.get("error");
+
+    if (error === "invalidUser") {
+      setErrorMessage("Invalid User");
+
+      // Clear the error message after 4 seconds
+      const timeoutId = setTimeout(() => {
+        setErrorMessage("");
+      }, 3000);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [location]);
+
   return (
     <>
       <main className="bg-[rgb(3,11,21)] min-h-screen text-white">
@@ -128,11 +149,25 @@ const Login = () => {
             className="w-4/5 PC:w-[350px] mx-auto text-center my-4 hover:bg-[rgb(42,42,47)] py-2 rounded-[5px] flex items-center justify-center gap-2 cursor-pointer border border-[rgb(64,65,67)]"
             onClick={login}
           >
-            <FcGoogle className="text-[1.4rem]" />
-            <span className="font-medium text-[rgb(201,209,217)]">
-              Sign in with Google
-            </span>
+            {googleLoading ? (
+              <div className="flex justify-center items-center">
+                <ImSpinner6 className="animate-spin text-2xl text-white" />
+              </div>
+            ) : (
+              <div className="flex items-center justify-center gap-2 ">
+                <FcGoogle className="text-[1.4rem]" />
+                <span className="font-medium text-[rgb(201,209,217)]">
+                  Sign up with Google
+                </span>
+              </div>
+            )}
           </div>
+
+          {errorMessage && (
+            <div className="w-[350px] mx-auto text-center my-4 bg-[rgb(253,236,234)] py-2 rounded-[5px] text-[rgb(97,62,55)]">
+              {errorMessage}
+            </div>
+          )}
         </div>
 
         <div className="w-[250px] mx-auto text-center my-4 bg-[rgb(42,42,47)] py-2 rounded-[5px] text-[rgb(201,209,217)]">
