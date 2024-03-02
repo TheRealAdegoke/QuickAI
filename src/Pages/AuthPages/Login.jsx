@@ -157,7 +157,7 @@ const Login = () => {
               <div className="flex items-center justify-center gap-2 ">
                 <FcGoogle className="text-[1.4rem]" />
                 <span className="font-medium text-[rgb(201,209,217)]">
-                  Sign up with Google
+                  Sign in with Google
                 </span>
               </div>
             )}
