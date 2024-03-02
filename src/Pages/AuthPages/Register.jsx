@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import NavLogo from "../../assets/NavLogo.png";
 import { FcGoogle } from "react-icons/fc";
 import { ImSpinner6 } from "react-icons/im";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { message } from "antd";
 
@@ -14,10 +14,11 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate()
 
   const login = () => {
     setGoogleLoading(true);
-    window.open("http://localhost:3000/auth/google/callback", "_self");
+    window.open("http://localhost:3000/auth/google/signup", "_self");
   };
 
   useEffect(() => {
@@ -55,6 +56,8 @@ const Register = () => {
         "http://localhost:3000/auth/register",
         postData
       );
+      sessionStorage.setItem("token", response.data.token);
+      navigate("/dashboard")
       message.success(response.data.message);
     } catch (error) {
       console.error(error.response.data.error);
