@@ -1,12 +1,10 @@
 import React, { useContext, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../Pages/AuthPages/AuthChecker/AuthContext";
-import DashNav from "./DashNav";
+import { AuthContext } from "./AuthContext";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
-const Dashboard = ({children}) => {
+const ProtectedRoute = ({ element, ...rest }) => {
   const { isAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
-  const location = useLocation()
 
   useEffect(() => {
     const getCookie = (name) => {
@@ -37,16 +35,10 @@ const Dashboard = ({children}) => {
   }
 
   return (
-    <>
-      <DashNav />
-      <main className={`${location.pathname === "/dashboard" ? "block" : "hidden"}`}>
-        <div className="flex justify-center mt-[200px]">
-          <h1 className=" text-5xl font-medium">DashBoard</h1>
-        </div>
-      </main>
-      {children}
-    </>
+    <Routes>
+      <Route element={element} {...rest} />
+    </Routes>
   );
 };
 
-export default Dashboard;
+export default ProtectedRoute;
