@@ -1,4 +1,6 @@
 import Dashboard from "./Dashboard/Dashboard";
+import Edit from "./Dashboard/Edit";
+import Generate from "./Dashboard/Generate";
 import Page404 from "./Page404";
 import { AuthProvider } from "./Pages/AuthPages/AuthChecker/AuthContext";
 import ForgotPassword from "./Pages/AuthPages/ForgotPassword";
@@ -22,7 +24,9 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/forgotpassword" element={<ForgotPassword />} />
             <Route path="/resetpassword" element={<ResetPassword />} />
-            <Route path="/dashboard" element={<Dashboard /> } />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/edit" element={<Edit/>} />
+            <Route path="/generate" element={<Generate/>} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>
