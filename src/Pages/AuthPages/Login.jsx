@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import NavLogo from "../../assets/NavLogo.png";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { ImSpinner6 } from "react-icons/im";
 import axios from "axios";
 import { message } from "antd";
+import { AuthContext } from "./AuthChecker/AuthContext";
 
 const Login = () => {
+  const { getLoggedIn, isAuthenticated } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [googleLoading, setGoogleLoading] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -21,23 +23,24 @@ const Login = () => {
       duration: 2,
       maxCount: 1,
     });
-    setLoading(true)
+    setLoading(true);
     const postData = {
       email,
       password,
     };
     try {
-      const response = await axios.post("http://localhost:3000/auth/login", postData);
-
-      console.log(response.data);
+      const response = await axios.post(
+        "http://localhost:3000/auth/login",
+        postData, {withCredentials: true}
+      );
       message.success(response.data.message);
-      sessionStorage.setItem("token", response.data.token);
-      navigate("/dashboard")
+      await getLoggedIn();
+      navigate("/dashboard");
     } catch (error) {
       console.error(error.response.data.error);
       message.error(error.response.data.error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   };
 
@@ -61,6 +64,17 @@ const Login = () => {
       return () => clearTimeout(timeoutId);
     }
   }, [location]);
+
+  useEffect(() => {
+  getLoggedIn()
+    if (
+      isAuthenticated === true &&
+      (location.pathname === "/login" || location.pathname === "/register")
+    ) {
+      navigate("/dashboard");
+    }
+  }, [isAuthenticated, navigate]);
+
 
   return (
     <>
@@ -140,12 +154,12 @@ const Login = () => {
 
           <div className="relative text-[rgb(201,209,217)]">
             <hr className="my-5 border-[rgb(64,65,67)]" />
-            <span className="absolute-center bg-[rgb(2,8,16)] flex items-center justify-center rounded-full  w-[40px] text-center h-[40px] text-[1.2rem]">
+            <span className="absolute-center bg-[rgb(2,8,16)] flex items-center justify-center rounded-full  w-[35px] text-center h-[30px] text-[1.2rem]">
               or
             </span>
           </div>
 
-          <div
+          <button
             className="w-4/5 PC:w-[350px] mx-auto text-center my-4 hover:bg-[rgb(42,42,47)] py-2 rounded-[5px] flex items-center justify-center gap-2 cursor-pointer border border-[rgb(64,65,67)]"
             onClick={login}
           >
@@ -161,7 +175,7 @@ const Login = () => {
                 </span>
               </div>
             )}
-          </div>
+          </button>
 
           {errorMessage && (
             <div className="w-[350px] mx-auto text-center my-4 bg-[rgb(253,236,234)] py-2 rounded-[5px] text-[rgb(97,62,55)]">
@@ -170,8 +184,11 @@ const Login = () => {
           )}
         </div>
 
-        <div className="w-[250px] mx-auto text-center my-4 bg-[rgb(42,42,47)] py-2 rounded-[5px] text-[rgb(201,209,217)]">
-          <Link to="/register" className=" hover:underline">
+        <div className="">
+          <Link
+            to="/register"
+            className="block w-[250px] mx-auto text-center my-4 bg-[rgb(42,42,47)] py-2 rounded-[5px] text-[rgb(201,209,217)] hover:underline"
+          >
             I don't have an account
           </Link>
         </div>
@@ -181,3 +198,13 @@ const Login = () => {
 };
 
 export default Login;
+
+
+// useEffect(() => {
+//   if (
+//     isAuthenticated &&
+//     (location.pathname === "/login" || location.pathname === "/register")
+//   ) {
+//     navigate("/dashboard");
+//   }
+// }, [isAuthenticated, location, navigate]);
