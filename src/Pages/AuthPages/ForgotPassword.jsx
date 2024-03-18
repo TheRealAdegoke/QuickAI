@@ -6,31 +6,31 @@ import axios from "axios";
 import { message } from "antd";
 
 const ForgotPassword = () => {
-  const [email, setEmail] = useState("")
-  const [loading, setLoading] = useState(false)
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleReset = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const postData = {
       email: email,
     };
 
-    setLoading(true)
+    setLoading(true);
     try {
       const response = await axios.post(
         "http://localhost:3000/auth/forgotpassword",
         postData
       );
       console.log(response.data);
-      message.success(response.data.message)
-      sessionStorage.setItem("token", response.data.token)
+      message.success(response.data.message);
+      localStorage.setItem("token", response.data.token);
     } catch (error) {
       console.log(error.response.data.error);
       message.error(error.response.data.error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
   return (
     <>
       <main className="bg-[rgb(3,11,21)] min-h-screen text-white">
@@ -87,8 +87,11 @@ const ForgotPassword = () => {
           </form>
         </div>
 
-        <div className="w-[250px] mx-auto text-center my-4 bg-[rgb(42,42,47)] py-2 rounded-[5px] text-[rgb(201,209,217)]">
-          <Link to="/login" className=" hover:underline">
+        <div className="">
+          <Link
+            to="/login"
+            className="block w-[250px] mx-auto text-center my-4 bg-[rgb(42,42,47)] py-2 rounded-[5px] text-[rgb(201,209,217)] hover:underline"
+          >
             Back to Login
           </Link>
         </div>

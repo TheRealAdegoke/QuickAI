@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import NavLogo from "../../assets/NavLogo.png";
 import { FcGoogle } from "react-icons/fc";
 import { ImSpinner6 } from "react-icons/im";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { message } from "antd";
+import { AuthContext } from "./AuthChecker/AuthContext";
 
 const Register = () => {
+  const { getLoggedIn, isAuthenticated } = useContext(AuthContext);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,7 +16,7 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const login = () => {
     setGoogleLoading(true);
@@ -33,7 +35,7 @@ const Register = () => {
         setErrorMessage("");
       }, 3000);
 
-      return () => clearTimeout(timeoutId); 
+      return () => clearTimeout(timeoutId);
     }
   }, [location]);
 
@@ -54,10 +56,11 @@ const Register = () => {
     try {
       const response = await axios.post(
         "http://localhost:3000/auth/register",
-        postData
+        postData,
+        { withCredentials: true }
       );
-      sessionStorage.setItem("token", response.data.token);
-      navigate("/dashboard")
+        await getLoggedIn()
+      navigate("/dashboard");
       message.success(response.data.message);
     } catch (error) {
       console.error(error.response.data.error);
@@ -66,6 +69,16 @@ const Register = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    getLoggedIn()
+    if (
+      isAuthenticated === true &&
+      (location.pathname === "/login" || location.pathname === "/register")
+    ) {
+      navigate("/dashboard");
+    }
+  }, [isAuthenticated, navigate]);
 
   return (
     <>
