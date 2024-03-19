@@ -20,7 +20,7 @@ const Dashboard = ({ children,  }) => {
       <main
         className={`${location.pathname === "/dashboard" ? "block" : "hidden"}`}
       >
-        <div className="flex justify-center mt-[200px]">
+        <div className="flex justify-center mt-[200px] font">
           <h1 className="text-5xl font-medium">DashBoard</h1>
         </div>
       </main>
