@@ -5,6 +5,7 @@ import { HiMiniBars2 } from "react-icons/hi2";
 import { TiArrowRightOutline } from "react-icons/ti";
 import { IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import WebLogo from "../../../assets/WebLogo";
 
 const Nav = () => {
   const [toggleNav, setToggleNav] = useState(false);
@@ -15,11 +16,7 @@ const Nav = () => {
         <nav className="flex items-center justify-between px-3 py-2 border-b border-[rgba(255,255,255,0.2)] bg-transparent fixed w-full">
           <div>
             <Link to="/" className="cursor-pointer">
-              <img
-                src={NavLogo}
-                alt="Quick UI Image."
-                className="w-32 block select-none"
-              />
+              <WebLogo/>
             </Link>
           </div>
 
@@ -40,7 +37,7 @@ const Nav = () => {
             <div
               className={`${
                 toggleNav ? "mobile:block" : "mobile:hidden"
-              } mobile:absolute top-[64px] top right-0 border-[rgba(255,255,255,0.2)] mobile:border mobile:w-[300px] mobile:h-[300px] rounded-[8px] mobile:bg-black`}
+              } mobile:absolute top-[85px] top right-0 border-[rgba(255,255,255,0.2)] mobile:border mobile:w-[300px] mobile:h-[300px] rounded-[8px] mobile:bg-black`}
             >
               <div className="flex justify-center PC:hidden">
                 <img

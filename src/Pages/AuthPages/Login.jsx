@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import NavLogo from "../../assets/NavLogo.png";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { ImSpinner6 } from "react-icons/im";
 import axios from "axios";
 import { message } from "antd";
 import { AuthContext } from "./AuthChecker/AuthContext";
+import WebLogo from "../../assets/WebLogo";
 
 const Login = () => {
   const { getLoggedIn, isAuthenticated } = useContext(AuthContext);
@@ -79,15 +79,11 @@ const Login = () => {
   return (
     <>
       <main className="bg-[rgb(3,11,21)] min-h-screen text-white">
-        <div className="flex items-center py-5">
-          <img
-            src={NavLogo}
-            alt="Quick UI Image."
-            className="w-32 block select-none mx-auto"
-          />
+        <div className="flex justify-center items-center py-5">
+          <WebLogo/>
         </div>
 
-        <div className="bg-[rgb(2,8,16)] w-4/5 max-w-[400px] h-[500px] mx-auto border border-[rgb(64,65,67)] rounded-[8px]">
+        <div className="bg-[rgb(2,8,16)] w-4/5 max-w-[400px] h-auto mx-auto border border-[rgb(64,65,67)] rounded-[8px]">
           <form className="px-6" onSubmit={handleLogin}>
             <div className="mt-4 mb-6">
               <h1 className="text-[rgb(201,209,217)] text-2xl font-bold">
@@ -198,13 +194,3 @@ const Login = () => {
 };
 
 export default Login;
-
-
-// useEffect(() => {
-//   if (
-//     isAuthenticated &&
-//     (location.pathname === "/login" || location.pathname === "/register")
-//   ) {
-//     navigate("/dashboard");
-//   }
-// }, [isAuthenticated, location, navigate]);

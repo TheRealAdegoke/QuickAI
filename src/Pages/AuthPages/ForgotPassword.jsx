@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import NavLogo from "../../assets/NavLogo.png";
 import { Link } from "react-router-dom";
 import { ImSpinner6 } from "react-icons/im";
 import axios from "axios";
 import { message } from "antd";
+import WebLogo from "../../assets/WebLogo";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -34,12 +34,8 @@ const ForgotPassword = () => {
   return (
     <>
       <main className="bg-[rgb(3,11,21)] min-h-screen text-white">
-        <div className="flex items-center py-5">
-          <img
-            src={NavLogo}
-            alt="Quick UI Image."
-            className="w-32 block select-none mx-auto"
-          />
+        <div className="flex justify-center items-center py-5">
+          <WebLogo />
         </div>
 
         <div className="bg-[rgb(2,8,16)] w-4/5 max-w-[400px] mx-auto pb-8 border border-[rgb(64,65,67)] rounded-[8px]">

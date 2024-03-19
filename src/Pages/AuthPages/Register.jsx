@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import NavLogo from "../../assets/NavLogo.png";
 import { FcGoogle } from "react-icons/fc";
 import { ImSpinner6 } from "react-icons/im";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { message } from "antd";
 import { AuthContext } from "./AuthChecker/AuthContext";
+import WebLogo from "../../assets/WebLogo";
 
 const Register = () => {
   const { getLoggedIn, isAuthenticated } = useContext(AuthContext);
@@ -17,6 +17,7 @@ const Register = () => {
   const [googleLoading, setGoogleLoading] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const baseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
 
   const login = () => {
     setGoogleLoading(true);
@@ -83,12 +84,8 @@ const Register = () => {
   return (
     <>
       <main className="bg-[rgb(3,11,21)] min-h-screen text-white py-5">
-        <div className="flex items-center pb-5">
-          <img
-            src={NavLogo}
-            alt="Quick UI Image."
-            className="w-32 block select-none mx-auto"
-          />
+        <div className="flex justify-center items-center pb-5">
+          <WebLogo/>
         </div>
 
         <div className="bg-[rgb(2,8,16)] w-4/5 max-w-[400px] h-auto mx-auto border border-[rgb(64,65,67)] rounded-[8px]">
