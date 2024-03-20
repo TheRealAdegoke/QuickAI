@@ -18,7 +18,7 @@ const ForgotPassword = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:3000/auth/forgotpassword",
+        "https://quickui-backend.onrender.com/auth/forgotpassword",
         postData
       );
       console.log(response.data);

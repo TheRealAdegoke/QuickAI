@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
 
   const getLoggedIn = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/loggedIn", {
+      const response = await axios.get("https://quickui-backend.onrender.com/loggedIn", {
         withCredentials: true,
       });
       setIsAuthenticated(response.data);
@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
   const refreshToken = async () => {
     try {
       await axios.post(
-        "http://localhost:3000/refresh",
+        "https://quickui-backend.onrender.com/refresh",
         {},
         {
           withCredentials: true,
