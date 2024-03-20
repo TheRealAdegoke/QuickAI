@@ -1,9 +1,11 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 const AIGenerator = () => {
+  const location = useLocation()
   return (
     <>
-      <section className="text-center mt-80 phone:mt-52 text-[rgb(201,209,217)]">
+      <section className={`${location.pathname !== "/home" ? "hidden" : "block"} text-center mt-80 phone:mt-52 text-[rgb(201,209,217)]`}>
         <p className="font-bold text-2xl ">
           Tell us what you need a website for!
         </p>

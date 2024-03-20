@@ -25,7 +25,7 @@ const Dashboard = ({ children }) => {
         <section
           className={`${
             location.pathname === "/home"
-              ? "bg-Quick bg-no-repeat bg-center "
+              ? "bg-Quick bg-no-repeat bg-center"
               : ""
           } w-full dashboard-navigation-darkmode rounded-[25px] my-1 mx-2 phone:rounded-none phone:m-0`}
         >
