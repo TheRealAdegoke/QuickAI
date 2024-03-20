@@ -1,10 +1,10 @@
 import React from 'react'
-import NavLogo from "../assets/NavLogo.png";
+import NavLogo from "../assets/Quick-logo-white.png";
 
 const WebLogo = () => {
   return (
     <>
-      <div className='flex items-center'>
+      <div className='flex items-center select-none'>
         <img
           src={NavLogo}
           alt="Quick UI Image."

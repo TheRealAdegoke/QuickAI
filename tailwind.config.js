@@ -9,6 +9,12 @@ export default {
         mobile: { max: "1023px" },
         PC: { min: "1024px" },
       },
+      backgroundImage: {
+        Quick: "url('./src/assets/Quick-logo-black.png')",
+      },
+      backgroundPosition: {
+        center: "center top 13rem"
+      }
     },
   },
   plugins: [],

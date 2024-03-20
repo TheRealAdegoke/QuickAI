@@ -5,6 +5,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(undefined);
+  const [closeSideNav, setCloseSideNav] = useState(false);
 
   const getLoggedIn = async () => {
     try {
@@ -44,7 +45,9 @@ export const AuthProvider = ({ children }) => {
   }, [refreshToken]);
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, getLoggedIn }}>
+    <AuthContext.Provider
+      value={{ isAuthenticated, getLoggedIn, closeSideNav, setCloseSideNav }}
+    >
       {children}
     </AuthContext.Provider>
   );
