@@ -30,7 +30,7 @@ const Login = () => {
     };
     try {
       const response = await axios.post(
-        "https://quickui-backend.onrender.com",
+        "https://quickui-backend.onrender.com/auth/login",
         postData,
         { withCredentials: true }
       );
@@ -47,7 +47,10 @@ const Login = () => {
 
   const login = () => {
     setGoogleLoading(true);
-    window.open("http://localhost:3000/auth/google/login", "_self");
+    window.open(
+      "https://quickui-backend.onrender.com/auth/google/login",
+      "_self"
+    );
   };
 
   useEffect(() => {
