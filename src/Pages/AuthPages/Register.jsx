@@ -56,7 +56,7 @@ const Register = () => {
     };
     try {
       const response = await axios.post(
-        "http://localhost:3000/auth/register",
+        "https://quickui-backend.onrender.com/auth/register",
         postData,
         { withCredentials: true }
       );
