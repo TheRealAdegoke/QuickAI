@@ -30,12 +30,13 @@ const Login = () => {
     };
     try {
       const response = await axios.post(
-        "http://localhost:3000/auth/login",
-        postData, {withCredentials: true}
+        "https://quickui-backend.onrender.com",
+        postData,
+        { withCredentials: true }
       );
       message.success(response.data.message);
       await getLoggedIn();
-      navigate("/dashboard");
+      navigate("/home");
     } catch (error) {
       console.error(error.response.data.error);
       message.error(error.response.data.error);
@@ -71,7 +72,7 @@ const Login = () => {
       isAuthenticated === true &&
       (location.pathname === "/login" || location.pathname === "/register")
     ) {
-      navigate("/dashboard");
+      navigate("/home");
     }
   }, [isAuthenticated, navigate]);
 

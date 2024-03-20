@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import NavLogo from "../../../assets/NavLogo.png";
 import transparentQ from "../../../assets/transparentQ.png";
 import { HiMiniBars2 } from "react-icons/hi2";
 import { TiArrowRightOutline } from "react-icons/ti";

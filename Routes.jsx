@@ -10,8 +10,7 @@ import ResetPassword from "./src/Pages/AuthPages/ResetPassword";
 import Main from "./src/Pages/LandingPages/Main/Main";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./src/Dashboard/Dashboard";
-import Generate from "./src/Dashboard/Generate";
-import Edit from "./src/Dashboard/Edit";
+import Generate from "./src/Dashboard/DashBoardChildren/Generate/Generate";
 
 const AppRoutes = () => {
   return (
@@ -24,12 +23,8 @@ const AppRoutes = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
-          <Route
-            path="/dashboard"
-            element={<Dashboard />}
-          />
-          <Route path="/edit" element={<Edit />} />
-          <Route path="/generate" element={<Generate />} />
+          <Route path="/home" element={<Dashboard />} />
+          <Route path="/generate" element={<Generate/>} />
         </Routes>
       </BrowserRouter>
     </>

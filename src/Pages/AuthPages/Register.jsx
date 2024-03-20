@@ -61,7 +61,7 @@ const Register = () => {
         { withCredentials: true }
       );
         await getLoggedIn()
-      navigate("/dashboard");
+      navigate("/home");
       message.success(response.data.message);
     } catch (error) {
       console.error(error.response.data.error);
@@ -77,7 +77,7 @@ const Register = () => {
       isAuthenticated === true &&
       (location.pathname === "/login" || location.pathname === "/register")
     ) {
-      navigate("/dashboard");
+      navigate("/home");
     }
   }, [isAuthenticated, navigate]);
 
