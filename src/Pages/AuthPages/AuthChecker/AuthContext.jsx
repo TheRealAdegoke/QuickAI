@@ -6,10 +6,11 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(undefined);
   const [closeSideNav, setCloseSideNav] = useState(false);
+  const baseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
 
   const getLoggedIn = async () => {
     try {
-      const response = await axios.get("https://quickui-backend.onrender.com/loggedIn", {
+      const response = await axios.get(`${baseUrl}/loggedIn`, {
         withCredentials: true,
       });
       setIsAuthenticated(response.data);
@@ -21,7 +22,7 @@ export const AuthProvider = ({ children }) => {
   const refreshToken = async () => {
     try {
       await axios.post(
-        "https://quickui-backend.onrender.com/refresh",
+        `${baseUrl}/refresh`,
         {},
         {
           withCredentials: true,
@@ -37,16 +38,16 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     getLoggedIn();
-  }, []);
+  }, [getLoggedIn, refreshToken]);
 
   useEffect(() => {
     const interval = setInterval(refreshToken, 300000);
     return () => clearInterval(interval);
-  }, [refreshToken]);
+  }, [getLoggedIn, refreshToken]);
 
   return (
     <AuthContext.Provider
-      value={{ isAuthenticated, getLoggedIn, closeSideNav, setCloseSideNav }}
+      value={{ isAuthenticated, getLoggedIn, refreshToken, closeSideNav, setCloseSideNav }}
     >
       {children}
     </AuthContext.Provider>

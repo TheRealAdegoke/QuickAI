@@ -33,3 +33,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.bg-image {
+  background-image: url("./assets/Quick-logo-black.png");
+  background-repeat: no-repeat;
+  background-position: center top 250px;
+}

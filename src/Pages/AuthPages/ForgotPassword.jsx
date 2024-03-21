@@ -8,6 +8,7 @@ import WebLogo from "../../assets/WebLogo";
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
+  const baseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
 
   const handleReset = async (e) => {
     e.preventDefault();
@@ -18,7 +19,7 @@ const ForgotPassword = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "https://quickui-backend.onrender.com/auth/forgotpassword",
+        `${baseUrl}/auth/forgotpassword`,
         postData
       );
       console.log(response.data);
