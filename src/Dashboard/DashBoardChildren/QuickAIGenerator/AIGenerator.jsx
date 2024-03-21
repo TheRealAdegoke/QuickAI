@@ -11,7 +11,7 @@ const AIGenerator = () => {
           location.pathname !== "/home" ? "hidden" : "block"
         } text-center mt-80 phone:mt-52 text-[rgb(201,209,217)]`}
       >
-        <div className="absolute bottom-[-23%] transform -translate-x-1/2 -translate-y-1/2 left-1/2 smallDevice:bottom-[-20%] input-container border-zinc-600 w-full max-w-[800px] mx-auto py-5">
+        <div className="absolute bottom-[-23%] transform -translate-x-1/2 -translate-y-1/2 left-1/2 smallDevice:bottom-[-6%] input-container border-zinc-600 w-full max-w-[800px] mx-auto py-5">
           <p className="font-bold text-2xl phone:text-xl mb-8">
             Tell us what you need a website for!
           </p>
