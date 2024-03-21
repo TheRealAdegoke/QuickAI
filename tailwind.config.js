@@ -8,12 +8,6 @@ export default {
         tablet: { min: "767px", max: "1023px" },
         mobile: { max: "1023px" },
         PC: { min: "1024px" },
-      },
-      backgroundImage: {
-        Quick: "url('./src/assets/Quick-logo-black.png')",
-      },
-      backgroundPosition: {
-        center: "center top 13rem"
       }
     },
   },

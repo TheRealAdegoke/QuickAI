@@ -16,6 +16,7 @@ const Login = () => {
   const [googleLoading, setGoogleLoading] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const baseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -30,7 +31,7 @@ const Login = () => {
     };
     try {
       const response = await axios.post(
-        "https://quickui-backend.onrender.com/auth/login",
+        `${baseUrl}/auth/login`,
         postData,
         { withCredentials: true }
       );
@@ -48,7 +49,7 @@ const Login = () => {
   const login = () => {
     setGoogleLoading(true);
     window.open(
-      "https://quickui-backend.onrender.com/auth/google/login",
+      `${baseUrl}/auth/google/login`,
       "_self"
     );
   };

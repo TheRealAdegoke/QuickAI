@@ -12,6 +12,7 @@ const ResetPassword = () => {
   const searchParams = new URLSearchParams(location.search);
   const token = searchParams.get("token");
   const navigate = useNavigate()
+  const baseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
 
   const handleCreatePassword = async (e) => {
     e.preventDefault();
@@ -22,7 +23,7 @@ const ResetPassword = () => {
     };
     try {
       const response = await axios.post(
-        "https://quickui-backend.onrender.com/auth/resetpassword",
+        `${baseUrl}https://quickui-backend.onrender.com/auth/resetpassword`,
         postData
       );
       console.log(response.data);

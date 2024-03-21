@@ -6,7 +6,7 @@ const AIGenerator = () => {
   return (
     <>
       <section className={`${location.pathname !== "/home" ? "hidden" : "block"} text-center mt-80 phone:mt-52 text-[rgb(201,209,217)]`}>
-        <p className="font-bold text-2xl ">
+        <p className="font-bold text-2xl phone:text-xl">
           Tell us what you need a website for!
         </p>
 

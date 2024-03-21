@@ -21,7 +21,7 @@ const Register = () => {
 
   const login = () => {
     setGoogleLoading(true);
-    window.open("http://localhost:3000/auth/google/signup", "_self");
+    window.open(`${baseUrl}/auth/google/signup`, "_self");
   };
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const Register = () => {
     };
     try {
       const response = await axios.post(
-        "https://quickui-backend.onrender.com/auth/register",
+        `${baseUrl}/auth/register`,
         postData,
         { withCredentials: true }
       );
