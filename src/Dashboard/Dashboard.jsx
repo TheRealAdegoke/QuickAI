@@ -30,7 +30,7 @@ const Dashboard = ({ children }) => {
         <section
           className={`${
             location.pathname === "/home" ? "bg-image phone:bg-none" : ""
-          } w-full dashboard-navigation-darkmode rounded-[25px] my-1 mx-2 phone:rounded-none phone:m-0`}
+          } w-full dashboard-navigation-darkmode rounded-[25px] my-1 mx-2 phone:rounded-none phone:m-0 relative`}
         >
           {" "}
           <div

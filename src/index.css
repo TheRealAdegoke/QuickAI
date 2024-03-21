@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+}
+}
+
 .dashboard-background {
   background-color: rgb(26,26,26);
 }
@@ -39,3 +47,26 @@
   background-repeat: no-repeat;
   background-position: center top 250px;
 }
+
+.glowing-light {
+    box-shadow: 0 0 10px #33a9ff; /* Initial color */
+    animation: glowlight 4s infinite alternate;
+  }
+
+  @keyframes glowlight {
+    0% {
+      box-shadow: 0 0 10px #4b2fa4;
+    }
+    25% {
+      box-shadow: 0 0 10px #c18fff;
+    }
+    50% {
+      box-shadow: 0 0 10px #33a9ff;
+    }
+    75% {
+      box-shadow: 0 0 10px #c18fff;
+    }
+    100% {
+      box-shadow: 0 0 10px #4b2fa4;
+    }
+  }
