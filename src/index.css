@@ -2,14 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --rotate {
-    syntax: "<angle>";
-    initial-value: 132deg;
-    inherits: false;
-}
-}
-
 .dashboard-background {
   background-color: rgb(26,26,26);
 }
@@ -40,6 +32,18 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.bottom-container {
+  position: fixed; /* or absolute depending on your layout needs */
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  z-index: 9999; /* optional: adjust z-index */
 }
 
 .bg-image {

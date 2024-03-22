@@ -3,8 +3,9 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Pages/AuthPages/AuthChecker/AuthContext";
 import SideBar from "./NavigationComponents/SideBar";
 import TopNav from "./NavigationComponents/TopNav";
-import { FaChevronLeft } from "react-icons/fa";
 import AIGenerator from "./DashBoardChildren/QuickAIGenerator/AIGenerator";
+import { FaChevronLeft } from "react-icons/fa6";
+import { FaChevronRight } from "react-icons/fa6";
 
 const Dashboard = ({ children }) => {
   const {
@@ -17,11 +18,11 @@ const Dashboard = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  useEffect(() => {
-    if (isAuthenticated === false) {
-      navigate("/login");
-    }
-  }, [isAuthenticated, getLoggedIn, refreshToken, navigate]);
+  // useEffect(() => {
+  //   if (isAuthenticated === false) {
+  //     navigate("/login");
+  //   }
+  // }, [isAuthenticated, getLoggedIn, refreshToken, navigate]);
 
   return (
     <>
@@ -33,15 +34,18 @@ const Dashboard = ({ children }) => {
           } w-full dashboard-navigation-darkmode rounded-[25px] my-1 mx-2 phone:rounded-none phone:m-0 relative`}
         >
           {" "}
-          <div
+          <TopNav />
+          <button
+            className="absolute top-1/2 left-3 text-xl text-[rgb(95,95,95)] block cursor-pointer z-50 phone:hidden"
             onClick={() => {
               setCloseSideNav(!closeSideNav);
             }}
           >
-            close
+            {closeSideNav ? <FaChevronLeft /> : <FaChevronRight />}
+          </button>
+          <div className="flex justify-center ">
+            <AIGenerator />
           </div>
-          <TopNav />
-          <AIGenerator />
           {children}
         </section>
       </main>
