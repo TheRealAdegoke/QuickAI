@@ -1,44 +1,132 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { AuthContext } from "../../../Pages/AuthPages/AuthChecker/AuthContext";
+import { IoMdArrowRoundUp } from "react-icons/io";
+import { WiStars } from "react-icons/wi";
+import { useTypewriter } from "react-simple-typewriter";
+import { placeholderText, randomIdeas } from "../../Arrays/Arrays";
 
 const AIGenerator = () => {
-  const location = useLocation()
-  // absolute transform -translate-x-1/2 -translate-y-1/2 left-1/2 bottom-0
+  const { closeSideNav } = useContext(AuthContext);
+  const location = useLocation();
+  const [ideas, setIdeas] = useState([]);
+  const [selectedIdea, setSelectedIdea] = useState("");
+  const [userInput, setUserInput] = useState("");
+  const [text] = useTypewriter({
+    words: placeholderText,
+    loop: {},
+  });
+
+  useEffect(() => {
+    const randomIndices = Array.from({ length: 20 }, () =>
+      Math.floor(Math.random() * randomIdeas.length)
+    );
+    const randomIdeasArray = randomIndices.map((index) => randomIdeas[index]);
+    setIdeas(randomIdeasArray);
+  }, []);
+
+  const handleIdeaClick = (idea) => {
+    setSelectedIdea(idea);
+    setUserInput("");
+  };
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    if (value.length >= selectedIdea.length) {
+      setUserInput(value);
+    } else {
+      setSelectedIdea("");
+      setUserInput(value);
+    }
+  };
+
+
   return (
     <>
       <section
         className={`${
           location.pathname !== "/home" ? "hidden" : "block"
-        } text-center mt-80 phone:mt-52 text-[rgb(201,209,217)]`}
+        } text-center mt-80 phone:mt-52 text-[rgb(201,209,217)] fixed max-w-[800px] w-[90%] bottom-5`}
       >
-        <div className="absolute bottom-[-23%] transform -translate-x-1/2 -translate-y-1/2 left-1/2 smallDevice:bottom-[-6%] input-container border-zinc-600 w-full max-w-[800px] mx-auto py-5">
-          <p className="font-bold text-2xl phone:text-xl mb-8">
-            Tell us what you need a website for!
-          </p>
-          <div className="flex flex-row flex-wrap justify-evenly gap-3 mb-8">
-            <button className="block border-zinc-600 border-[1px] p-4 rounded-t-[20px] w-[350px] hover:bg-[rgb(20,21,24)] cursor-pointer phone:rounded-[10px]">
-              <p className="text-[15px] font-medium">Smart Weeding Robot</p>
-            </button>
+        <div className="input-container">
+          <div className="">
+            <p
+              className={`${
+                closeSideNav &&
+                window.innerWidth > 766 &&
+                window.innerWidth < 960
+                  ? "hidden"
+                  : ""
+              } font-bold text-2xl phone:text-xl mb-8`}
+            >
+              Tell us what you need a website for!
+            </p>
+            <div
+              className={`${
+                closeSideNav &&
+                window.innerWidth > 766 &&
+                window.innerWidth < 960
+                  ? "flex-col items-center"
+                  : ""
+              } flex flex-row flex-wrap justify-evenly gap-3 mb-8`}
+            >
+              <button
+                className="block border-zinc-600 border-[1px] p-4 rounded-t-[20px] w-[90%] max-w-[350px] smallDevice:max-w-[800px] hover:bg-[rgb(20,21,24)] cursor-pointer phone:rounded-[10px]"
+                onClick={() => handleIdeaClick(ideas[0])}
+              >
+                <p className="text-[15px] font-medium">{ideas[0]}</p>
+              </button>
 
-            <button className="block border-zinc-600 border-[1px] p-4 rounded-t-[20px] w-[350px] hover:bg-[rgb(20,21,24)] cursor-pointer phone:rounded-[10px]">
-              <p className="text-[15px] font-medium">
-                AI-Powered Personal Assistant App
-              </p>
-            </button>
+              <button
+                className="block border-zinc-600 border-[1px] p-4 rounded-t-[20px] w-[90%] max-w-[350px] smallDevice:max-w-[800px] hover:bg-[rgb(20,21,24)] cursor-pointer phone:rounded-[10px]"
+                onClick={() => handleIdeaClick(ideas[1])}
+              >
+                <p className="text-[15px] font-medium">{ideas[1]}</p>
+              </button>
 
-            <button className="block border-zinc-600 border-[1px] p-4 rounded-b-[20px] w-[350px] hover:bg-[rgb(20,21,24)] cursor-pointer phone:hidden">
-              <p className="text-[15px] font-medium">Online Coding Bootcamp</p>
-            </button>
+              <button
+                className="block border-zinc-600 border-[1px] p-4 rounded-b-[20px] w-[90%] max-w-[350px] smallDevice:max-w-[800px] hover:bg-[rgb(20,21,24)] cursor-pointer phone:hidden"
+                onClick={() => handleIdeaClick(ideas[2])}
+              >
+                <p className="text-[15px] font-medium">{ideas[2]}</p>
+              </button>
 
-            <button className="block border-zinc-600 border-[1px] p-4 rounded-b-[20px] w-[350px] hover:bg-[rgb(20,21,24)] cursor-pointer phone:hidden">
-              <p className="text-[15px] font-medium">
-                Virtual Reality Fitness Classes
-              </p>
-            </button>
-          </div>
+              <button
+                className="block border-zinc-600 border-[1px] p-4 rounded-b-[20px] w-[90%] max-w-[350px] smallDevice:max-w-[800px] hover:bg-[rgb(20,21,24)] cursor-pointer phone:hidden"
+                onClick={() => handleIdeaClick(ideas[3])}
+              >
+                <p className="text-[15px] font-medium">{ideas[3]}</p>
+              </button>
+            </div>
 
-          <div className="glowing-light w-[90%] max-w-[800px] mx-auto border-zinc-600 border-[1px] p-4 rounded-[10px]">
-            <span>House</span>
+            <div
+              className={`${
+                closeSideNav ? "tablet:max-w-[500px]" : ""
+              } glowing-light w-[90%] max-w-[800px] phone:max-w-[500px] mx-auto border-zinc-600 border-[1px] rounded-[10px] flex justify-between items-center pr-3`}
+            >
+              <form action="" className="relative w-[80%] phone:w-[90%]">
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  value={userInput || selectedIdea}
+                  onChange={handleChange}
+                  placeholder={text}
+                  className="bg-transparent border-none outline-none text-xl w-full h-[66px] pl-4 rounded-[8px]"
+                />
+              </form>
+              <button className={`my-2 ml-2`}>
+                {window.innerWidth < 766 ? (
+                  <span className="block bg-[rgb(201,209,217)] rounded-[8px] p-2 text-[rgb(9,11,14)]">
+                    <IoMdArrowRoundUp />
+                  </span>
+                ) : (
+                  <span className="flex items-center gap-[2px] bg-[rgb(201,209,217)] rounded-[8px] py-3 px-3 text-[rgb(9,11,14)] text-lg font-semibold">
+                    Generate <WiStars className="text-2xl" />
+                  </span>
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </section>
