@@ -3,38 +3,43 @@ import { useLocation } from "react-router-dom";
 import { AuthContext } from "../../../Pages/AuthPages/AuthChecker/AuthContext";
 import { IoMdArrowRoundUp } from "react-icons/io";
 import { WiStars } from "react-icons/wi";
+import { useTypewriter } from "react-simple-typewriter";
+import { placeholderText, randomIdeas } from "../../Arrays/Arrays";
 
 const AIGenerator = () => {
   const { closeSideNav } = useContext(AuthContext);
   const location = useLocation();
-  const [typedText, setTypedText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [ideas, setIdeas] = useState([]);
+  const [selectedIdea, setSelectedIdea] = useState("");
+  const [userInput, setUserInput] = useState("");
+  const [text] = useTypewriter({
+    words: placeholderText,
+    loop: {},
+  });
 
   useEffect(() => {
-    const typewriterStrings = [
-      "Dating App for people who love to travel",
-      "Craft Coffee Shop and Roastery",
-      "Dog sitting app for corgis",
-      "Drone Photography Service",
-    ];
+    const randomIndices = Array.from({ length: 20 }, () =>
+      Math.floor(Math.random() * randomIdeas.length)
+    );
+    const randomIdeasArray = randomIndices.map((index) => randomIdeas[index]);
+    setIdeas(randomIdeasArray);
+  }, []);
 
-    const intervalId = setInterval(() => {
-      const currentString = typewriterStrings[currentIndex];
-      if (typedText !== currentString) {
-        const nextChar = currentString.charAt(typedText.length);
-        setTypedText((prevTypedText) => prevTypedText + nextChar);
-      } else {
-        setTimeout(() => {
-          setCurrentIndex(
-            (prevIndex) => (prevIndex + 1) % typewriterStrings.length
-          );
-          setTypedText("");
-        }, 450); // Delay before moving to the next string
-      }
-    }, 100); // Typing speed
+  const handleIdeaClick = (idea) => {
+    setSelectedIdea(idea);
+    setUserInput("");
+  };
 
-    return () => clearInterval(intervalId);
-  }, [currentIndex, typedText]);
+  const handleChange = (e) => {
+    const value = e.target.value;
+    if (value.length >= selectedIdea.length) {
+      setUserInput(value);
+    } else {
+      setSelectedIdea("");
+      setUserInput(value);
+    }
+  };
+
 
   return (
     <>
@@ -65,26 +70,32 @@ const AIGenerator = () => {
                   : ""
               } flex flex-row flex-wrap justify-evenly gap-3 mb-8`}
             >
-              <button className="block border-zinc-600 border-[1px] p-4 rounded-t-[20px] w-[90%] max-w-[350px] smallDevice:max-w-[800px] hover:bg-[rgb(20,21,24)] cursor-pointer phone:rounded-[10px]">
-                <p className="text-[15px] font-medium">Smart Weeding Robot</p>
+              <button
+                className="block border-zinc-600 border-[1px] p-4 rounded-t-[20px] w-[90%] max-w-[350px] smallDevice:max-w-[800px] hover:bg-[rgb(20,21,24)] cursor-pointer phone:rounded-[10px]"
+                onClick={() => handleIdeaClick(ideas[0])}
+              >
+                <p className="text-[15px] font-medium">{ideas[0]}</p>
               </button>
 
-              <button className="block border-zinc-600 border-[1px] p-4 rounded-t-[20px] w-[90%] max-w-[350px] smallDevice:max-w-[800px] hover:bg-[rgb(20,21,24)] cursor-pointer phone:rounded-[10px]">
-                <p className="text-[15px] font-medium">
-                  AI-Powered Personal Assistant App
-                </p>
+              <button
+                className="block border-zinc-600 border-[1px] p-4 rounded-t-[20px] w-[90%] max-w-[350px] smallDevice:max-w-[800px] hover:bg-[rgb(20,21,24)] cursor-pointer phone:rounded-[10px]"
+                onClick={() => handleIdeaClick(ideas[1])}
+              >
+                <p className="text-[15px] font-medium">{ideas[1]}</p>
               </button>
 
-              <button className="block border-zinc-600 border-[1px] p-4 rounded-b-[20px] w-[90%] max-w-[350px] smallDevice:max-w-[800px] hover:bg-[rgb(20,21,24)] cursor-pointer phone:hidden">
-                <p className="text-[15px] font-medium">
-                  Online Coding Bootcamp
-                </p>
+              <button
+                className="block border-zinc-600 border-[1px] p-4 rounded-b-[20px] w-[90%] max-w-[350px] smallDevice:max-w-[800px] hover:bg-[rgb(20,21,24)] cursor-pointer phone:hidden"
+                onClick={() => handleIdeaClick(ideas[2])}
+              >
+                <p className="text-[15px] font-medium">{ideas[2]}</p>
               </button>
 
-              <button className="block border-zinc-600 border-[1px] p-4 rounded-b-[20px] w-[90%] max-w-[350px] smallDevice:max-w-[800px] hover:bg-[rgb(20,21,24)] cursor-pointer phone:hidden">
-                <p className="text-[15px] font-medium">
-                  Virtual Reality Fitness Classes
-                </p>
+              <button
+                className="block border-zinc-600 border-[1px] p-4 rounded-b-[20px] w-[90%] max-w-[350px] smallDevice:max-w-[800px] hover:bg-[rgb(20,21,24)] cursor-pointer phone:hidden"
+                onClick={() => handleIdeaClick(ideas[3])}
+              >
+                <p className="text-[15px] font-medium">{ideas[3]}</p>
               </button>
             </div>
 
@@ -98,7 +109,9 @@ const AIGenerator = () => {
                   type="text"
                   name=""
                   id=""
-                  placeholder={typedText}
+                  value={userInput || selectedIdea}
+                  onChange={handleChange}
+                  placeholder={text}
                   className="bg-transparent border-none outline-none text-xl w-full h-[66px] pl-4 rounded-[8px]"
                 />
               </form>
