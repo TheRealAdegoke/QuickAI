@@ -6,6 +6,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(undefined);
   const [closeSideNav, setCloseSideNav] = useState(false);
+  const [userModal, setUserModal] = useState(false);
   const baseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
 
   const getLoggedIn = async () => {
@@ -47,7 +48,15 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ isAuthenticated, getLoggedIn, refreshToken, closeSideNav, setCloseSideNav }}
+      value={{
+        isAuthenticated,
+        getLoggedIn,
+        refreshToken,
+        closeSideNav,
+        setCloseSideNav,
+        userModal,
+        setUserModal,
+      }}
     >
       {children}
     </AuthContext.Provider>
