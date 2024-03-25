@@ -18,11 +18,11 @@ const Dashboard = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // useEffect(() => {
-  //   if (isAuthenticated === false) {
-  //     navigate("/login");
-  //   }
-  // }, [isAuthenticated, getLoggedIn, refreshToken, navigate]);
+  useEffect(() => {
+    if (isAuthenticated === false) {
+      navigate("/login");
+    }
+  }, [isAuthenticated, getLoggedIn, refreshToken, navigate]);
 
   return (
     <>
