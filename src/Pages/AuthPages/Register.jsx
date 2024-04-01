@@ -19,9 +19,9 @@ const Register = () => {
   const navigate = useNavigate();
   const baseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
 
-  const login = () => {
+  const googleRegister = () => {
     setGoogleLoading(true);
-    window.open(`${baseUrl}/auth/google/signup`, "_self");
+    window.open(`${baseUrl}/auth/googlesignup`, "_self");
   };
 
   useEffect(() => {
@@ -85,7 +85,7 @@ const Register = () => {
     <>
       <main className="bg-[rgb(3,11,21)] min-h-screen text-white py-5">
         <div className="flex justify-center items-center pb-5">
-          <WebLogo/>
+          <WebLogo />
         </div>
 
         <div className="bg-[rgb(2,8,16)] w-4/5 max-w-[400px] h-auto mx-auto border border-[rgb(64,65,67)] rounded-[8px]">
@@ -175,7 +175,7 @@ const Register = () => {
 
           <div
             className="w-4/5 PC:w-[350px] mx-auto text-center my-4 hover:bg-[rgb(42,42,47)] py-2 rounded-[5px] cursor-pointer border border-[rgb(64,65,67)]"
-            onClick={login}
+            onClick={googleRegister}
           >
             {googleLoading ? (
               <div className="flex justify-center items-center">

@@ -46,12 +46,9 @@ const Login = () => {
     }
   };
 
-  const login = () => {
+  const googleLogin = () => {
     setGoogleLoading(true);
-    window.open(
-      `${baseUrl}/auth/google/login`,
-      "_self"
-    );
+    window.open(`${baseUrl}/auth/googlelogin`, "_self");
   };
 
   useEffect(() => {
@@ -85,7 +82,7 @@ const Login = () => {
     <>
       <main className="bg-[rgb(3,11,21)] min-h-screen text-white">
         <div className="flex justify-center items-center py-5">
-          <WebLogo/>
+          <WebLogo />
         </div>
 
         <div className="bg-[rgb(2,8,16)] w-4/5 max-w-[400px] h-auto mx-auto border border-[rgb(64,65,67)] rounded-[8px]">
@@ -162,7 +159,7 @@ const Login = () => {
 
           <button
             className="w-4/5 PC:w-[350px] mx-auto text-center my-4 hover:bg-[rgb(42,42,47)] py-2 rounded-[5px] flex items-center justify-center gap-2 cursor-pointer border border-[rgb(64,65,67)]"
-            onClick={login}
+            onClick={googleLogin}
           >
             {googleLoading ? (
               <div className="flex justify-center items-center">
