@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
 
   const getLoggedIn = async () => {
     try {
-      const response = await axios.get(`${baseUrl}/loggedIn`, {
+      const response = await axios.get(`${baseUrl}/auth/loggedIn`, {
         withCredentials: true,
       });
       setIsAuthenticated(response.data);
@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
   const refreshToken = async () => {
     try {
       await axios.post(
-        `${baseUrl}/refresh`,
+        `${baseUrl}/auth/refresh`,
         {},
         {
           withCredentials: true,
