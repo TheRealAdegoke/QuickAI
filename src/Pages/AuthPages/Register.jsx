@@ -21,7 +21,7 @@ const Register = () => {
 
   const googleRegister = () => {
     setGoogleLoading(true);
-    window.open(`${baseUrl}/auth/googlesignup`, "_self");
+    window.open(`${baseUrl}/auth/google/signup`, "_self");
   };
 
   useEffect(() => {
