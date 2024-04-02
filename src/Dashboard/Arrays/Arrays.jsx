@@ -1,4 +1,10 @@
-// Texts for the generate input placeholder
+import {
+  NavOne,
+  NavTwo,
+  NavThree,
+} from "../AI-Designed-Component/AI-Nav-Components/customNav";
+
+// Texts for input placeholder
 export const placeholderText = [
   "I need a website for my...",
   "Photography Studio",
@@ -43,3 +49,6 @@ export const randomIdeas = [
   "Home Cleaning Subscription",
   "Virtual Language Exchange",
 ];
+
+// Array of all Nav components
+export const navComponents = [NavOne, NavTwo, NavThree];

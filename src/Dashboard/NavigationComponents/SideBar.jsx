@@ -10,8 +10,13 @@ import { MdOutlineManageAccounts } from "react-icons/md";
 import { CiLogout } from "react-icons/ci";
 
 const SideBar = () => {
-  const { closeSideNav, setCloseSideNav, userModal, setUserModal } =
-    useContext(AuthContext);
+  const {
+    closeSideNav,
+    setCloseSideNav,
+    userModal,
+    setUserModal,
+    setShowDesignModal,
+  } = useContext(AuthContext);
 
   useEffect(() => {
     const handleResize = () => {
@@ -35,7 +40,9 @@ const SideBar = () => {
           closeSideNav ? "block" : "hidden"
         } dashboard-navigation-darkmode w-[250px] h-screen phone:border-r-[1px] phone:border-[rgb(26,26,26)] phone:fixed z-50 p-2`}
       >
-        <button className="block w-full mb-4">
+        <button className="block w-full mb-4" onClick={() => {
+          setShowDesignModal(false)
+        }}>
           <div className="flex justify-between items-center cursor-pointer select-none">
             <WebLogo />
             <FaRegEdit className="text-[rgb(236,236,236)] text-xl" />

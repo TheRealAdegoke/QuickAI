@@ -1,11 +1,15 @@
 import axios from "axios";
 import React, { createContext, useEffect, useState } from "react";
+import { navComponents } from "../../../Dashboard/Arrays/Arrays";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(undefined);
   const [closeSideNav, setCloseSideNav] = useState(false);
+  const [closeAINav, setCloseAINav] = useState(false);
+  const [showDesignModal, setShowDesignModal] = useState(false)
+  const [randomNav, setRandomNav] = useState(null);
   const [userModal, setUserModal] = useState(false);
   const baseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
 
@@ -46,6 +50,11 @@ export const AuthProvider = ({ children }) => {
     return () => clearInterval(interval);
   }, [getLoggedIn, refreshToken]);
 
+  const handleGenerate = () => {
+    const randomIndex = Math.floor(Math.random() * navComponents.length)
+    setRandomNav(randomIndex)
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -56,6 +65,13 @@ export const AuthProvider = ({ children }) => {
         setCloseSideNav,
         userModal,
         setUserModal,
+        showDesignModal,
+        setShowDesignModal,
+        closeAINav,
+        setCloseAINav,
+        handleGenerate,
+        randomNav,
+        setRandomNav,
       }}
     >
       {children}
