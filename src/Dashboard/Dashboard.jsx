@@ -6,6 +6,7 @@ import TopNav from "./NavigationComponents/TopNav";
 import AIGenerator from "./DashBoardChildren/QuickAIGenerator/AIGenerator";
 import { FaChevronLeft } from "react-icons/fa6";
 import { FaChevronRight } from "react-icons/fa6";
+import DesignModal from "./AI-Designed-Component/AI-Design-Modal/DesignModal";
 
 const Dashboard = ({ children }) => {
   const {
@@ -14,15 +15,17 @@ const Dashboard = ({ children }) => {
     refreshToken,
     closeSideNav,
     setCloseSideNav,
+    showDesignModal,
+    setShowDesignModal,
   } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
-  useEffect(() => {
-    if (isAuthenticated === false) {
-      navigate("/login");
-    }
-  }, [isAuthenticated, getLoggedIn, refreshToken, navigate]);
+  // useEffect(() => {
+  //   if (isAuthenticated === false) {
+  //     navigate("/login");
+  //   }
+  // }, [isAuthenticated, getLoggedIn, refreshToken, navigate]);
 
   return (
     <>
@@ -33,18 +36,19 @@ const Dashboard = ({ children }) => {
             location.pathname === "/home" ? "bg-image phone:bg-none" : ""
           } w-full dashboard-navigation-darkmode rounded-[25px] my-1 mx-2 phone:rounded-none phone:m-0 relative`}
         >
-          {" "}
           <TopNav />
           <button
-            className="absolute top-1/2 left-3 text-xl text-[rgb(95,95,95)] block cursor-pointer z-50 phone:hidden"
+            className={`${
+              showDesignModal ? "" : ""
+            } absolute top-1/2 left-3 text-xl text-[rgb(95,95,95)] block cursor-pointer z-50 phone:hidden`}
             onClick={() => {
               setCloseSideNav(!closeSideNav);
             }}
           >
             {closeSideNav ? <FaChevronLeft /> : <FaChevronRight />}
           </button>
-          <div className="flex justify-center ">
-            <AIGenerator />
+          <div className="flex justify-center">
+            {showDesignModal ? <DesignModal /> : <AIGenerator />}
           </div>
           {children}
         </section>
