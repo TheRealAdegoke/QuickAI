@@ -20,11 +20,11 @@ const ForgotPassword = () => {
     try {
       const response = await axios.post(
         `${baseUrl}/auth/forgotpassword`,
-        postData
+        postData,
+        { withCredentials: true }
       );
       console.log(response.data);
       message.success(response.data.message);
-      localStorage.setItem("token", response.data.token);
     } catch (error) {
       console.log(error.response.data.error);
       message.error(error.response.data.error);

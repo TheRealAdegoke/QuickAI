@@ -6,36 +6,34 @@ import { message } from "antd";
 import WebLogo from "../../assets/WebLogo";
 
 const ResetPassword = () => {
-  const [password, setPassword] = useState("")
-  const [loading, setLoading] = useState(false)
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const token = searchParams.get("token");
-  const navigate = useNavigate()
-  const baseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
 
   const handleCreatePassword = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const postData = {
-      token: token,
-      password: password,
-    };
+
     try {
       const response = await axios.post(
         `${baseUrl}/auth/resetpassword`,
-        postData
+        { password },
+        { withCredentials: true }
       );
-      console.log(response.data);
-      message.success(response.data.message)
-      navigate("/login")
+
+      // Handle success
+      setLoading(false);
+      message.success(response.data.message);
+      navigate("/login"); // Redirect to login page or any other page as needed
     } catch (error) {
-      console.error(error.response.data.error);
-      message.error(error.data.error);
-    } finally {
-      setLoading(false)
+      // Handle error
+      setLoading(false);
+      message.error(error.response.data.error || "Something went wrong");
     }
-  }
+  };
+
+
   return (
     <>
       <main className="bg-[rgb(3,11,21)] min-h-screen text-white">

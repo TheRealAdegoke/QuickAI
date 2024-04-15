@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(undefined);
   const [closeSideNav, setCloseSideNav] = useState(false);
   const [closeAINav, setCloseAINav] = useState(false);
-  const [showDesignModal, setShowDesignModal] = useState(false)
+  const [showDesignModal, setShowDesignModal] = useState(false);
   const [randomNav, setRandomNav] = useState(null);
   const [userModal, setUserModal] = useState(false);
   const baseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
       const response = await axios.get(`${baseUrl}/auth/loggedIn`, {
         withCredentials: true,
       });
-      setIsAuthenticated(response.data);
+      setIsAuthenticated(response.data.authenticated);
     } catch (error) {
       setIsAuthenticated(false);
     }
@@ -42,18 +42,14 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    getLoggedIn();
-  }, [getLoggedIn, refreshToken]);
-
-  useEffect(() => {
     const interval = setInterval(refreshToken, 300000);
     return () => clearInterval(interval);
   }, [getLoggedIn, refreshToken]);
 
   const handleGenerate = () => {
-    const randomIndex = Math.floor(Math.random() * navComponents.length)
-    setRandomNav(randomIndex)
-  }
+    const randomIndex = Math.floor(Math.random() * navComponents.length);
+    setRandomNav(randomIndex);
+  };
 
   return (
     <AuthContext.Provider
