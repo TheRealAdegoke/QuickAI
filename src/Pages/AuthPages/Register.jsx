@@ -8,7 +8,8 @@ import { AuthContext } from "./AuthChecker/AuthContext";
 import WebLogo from "../../assets/WebLogo";
 
 const Register = () => {
-  const { getLoggedIn, isAuthenticated } = useContext(AuthContext);
+  const { getLoggedIn, isAuthenticated, handleAuthentication } =
+    useContext(AuthContext);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -55,11 +56,9 @@ const Register = () => {
       password,
     };
     try {
-      const response = await axios.post(
-        `${baseUrl}/auth/register`,
-        postData,
-        { withCredentials: true }
-      );
+      const response = await axios.post(`${baseUrl}/auth/register`, postData, {
+        withCredentials: true,
+      });
         await getLoggedIn()
       navigate("/home");
       message.success(response.data.message);
@@ -71,15 +70,16 @@ const Register = () => {
     }
   };
 
-  useEffect(() => {
+   useEffect(() => {
     getLoggedIn()
-    if (
-      isAuthenticated === true &&
-      (location.pathname === "/login" || location.pathname === "/register")
-    ) {
-      navigate("/home");
-    }
-  }, [isAuthenticated, navigate]);
+     if (
+       isAuthenticated === true &&
+       (location.pathname === "/login" || location.pathname === "/register")
+     ) {
+       navigate("/home");
+       console.log(isAuthenticated);
+     }
+   }, [isAuthenticated, navigate]);
 
   return (
     <>

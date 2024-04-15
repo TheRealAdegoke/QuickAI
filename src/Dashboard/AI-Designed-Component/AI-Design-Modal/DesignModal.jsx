@@ -14,9 +14,10 @@ const DesignModal = () => {
           showDesignModal ? "block" : "hidden"
         } bg-white w-full mt-5 phone:mt-0 mx-10 h-[93vh] phone:h-[89vh] smallDevice:mx-4 rounded-lg overflow-scroll overflow-x-hidden`}
       >
-        {randomNav !== null && React.createElement(navComponents[randomNav])}
+        {randomNav !== undefined &&
+          React.createElement(navComponents[randomNav])}
 
-        <HeroOne/>
+        <HeroOne />
       </header>
     </>
   );

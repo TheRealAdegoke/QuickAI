@@ -30,11 +30,9 @@ const Login = () => {
       password,
     };
     try {
-      const response = await axios.post(
-        `${baseUrl}/auth/login`,
-        postData,
-        { withCredentials: true }
-      );
+      const response = await axios.post(`${baseUrl}/auth/login`, postData, {
+        withCredentials: true,
+      });
       message.success(response.data.message);
       await getLoggedIn();
       navigate("/home");
