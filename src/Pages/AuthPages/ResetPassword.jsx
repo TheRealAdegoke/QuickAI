@@ -23,7 +23,7 @@ const ResetPassword = () => {
     };
     try {
       const response = await axios.post(
-        `${baseUrl}https://quickui-backend.onrender.com/auth/resetpassword`,
+        `${baseUrl}https://quickui-backend.onrender.com/api/auth/resetpassword`,
         postData
       );
       console.log(response.data);

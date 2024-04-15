@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Adamina&family=Roboto:wght@500&display=swap');
+
 .dashboard-background {
   background-color: rgb(26,26,26);
 }
