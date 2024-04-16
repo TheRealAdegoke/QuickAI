@@ -9,7 +9,7 @@ const ResetPassword = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();
+  const baseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
 
   const handleCreatePassword = async (e) => {
     e.preventDefault();
@@ -21,13 +21,10 @@ const ResetPassword = () => {
         { password },
         { withCredentials: true }
       );
-
-      // Handle success
       setLoading(false);
       message.success(response.data.message);
-      navigate("/login"); // Redirect to login page or any other page as needed
+      navigate("/login");
     } catch (error) {
-      // Handle error
       setLoading(false);
       message.error(error.response.data.error || "Something went wrong");
     }

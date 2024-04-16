@@ -10,14 +10,20 @@ import DesignModal from "./AI-Designed-Component/AI-Design-Modal/DesignModal";
 
 const Dashboard = ({ children }) => {
   const {
-    isAuthenticated,
     closeSideNav,
     setCloseSideNav,
     showDesignModal,
     setShowDesignModal,
+    isAuthenticated,
   } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    if (isAuthenticated === false) {
+      navigate("/login");
+    }
+  }, [isAuthenticated, navigate]);
 
   return (
     <>

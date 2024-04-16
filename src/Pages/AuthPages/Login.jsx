@@ -8,7 +8,7 @@ import { AuthContext } from "./AuthChecker/AuthContext";
 import WebLogo from "../../assets/WebLogo";
 
 const Login = () => {
-  const { getLoggedIn, isAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated, handleAuthentication } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -34,7 +34,7 @@ const Login = () => {
         withCredentials: true,
       });
       message.success(response.data.message);
-      await getLoggedIn();
+      await handleAuthentication()
       navigate("/home");
     } catch (error) {
       console.error(error.response.data.error);
@@ -66,7 +66,6 @@ const Login = () => {
   }, [location]);
 
   useEffect(() => {
-  getLoggedIn()
     if (
       isAuthenticated === true &&
       (location.pathname === "/login" || location.pathname === "/register")
@@ -74,7 +73,6 @@ const Login = () => {
       navigate("/home");
     }
   }, [isAuthenticated, navigate]);
-
 
   return (
     <>
