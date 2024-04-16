@@ -8,8 +8,13 @@ import { MdOutlineManageAccounts } from "react-icons/md";
 import { CiLogout } from "react-icons/ci";
 
 const TopNav = () => {
-  const { closeSideNav, setCloseSideNav, userModal, setUserModal } =
-    useContext(AuthContext);
+  const {
+    closeSideNav,
+    setCloseSideNav,
+    userModal,
+    setUserModal,
+    unAuthenticate,
+  } = useContext(AuthContext);
   return (
     <>
       <nav>
@@ -24,9 +29,12 @@ const TopNav = () => {
           <div className={`${closeSideNav ? "hidden" : "block"}`}>
             <WebLogo />
           </div>
-          <button className="bg-[rgb(9,23,56)] flex justify-center items-center p-[0.5rem] rounded-full" onClick={() => {
-            setUserModal(!userModal)
-          }}>
+          <button
+            className="bg-[rgb(9,23,56)] flex justify-center items-center p-[0.5rem] rounded-full"
+            onClick={() => {
+              setUserModal(!userModal);
+            }}
+          >
             AD
           </button>
 
@@ -47,7 +55,12 @@ const TopNav = () => {
               Themes
             </button>
             <hr className="w-full" />
-            <button className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">
+            <button
+              className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]"
+              onClick={() => {
+                unAuthenticate();
+              }}
+            >
               <CiLogout />
               Logout
             </button>

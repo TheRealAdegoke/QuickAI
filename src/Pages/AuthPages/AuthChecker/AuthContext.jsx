@@ -42,6 +42,16 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const unAuthenticate = async () => {
+    try {
+      await axios.post(`${baseUrl}/auth/logout`, "", {withCredentials: true});
+      handleAuthentication()
+      console.log("Logged Out");
+    } catch (error) {
+      console.error("Error: ", error);
+    }
+  }
+
   useEffect(() => {
     handleAuthentication()
     const interval = setInterval(refreshAccessToken, 5 * 60 * 1000);
@@ -70,6 +80,7 @@ export const AuthProvider = ({ children }) => {
         handleAuthentication,
         isAuthenticated,
         refreshAccessToken,
+        unAuthenticate,
       }}
     >
       {children}
