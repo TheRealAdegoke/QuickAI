@@ -50,6 +50,7 @@ const Login = () => {
   const googleLogin = () => {
     setGoogleLoading(true);
     window.open(`${baseUrl}/auth/google/login`, "_self");
+    handleUserData();
   };
 
   useEffect(() => {

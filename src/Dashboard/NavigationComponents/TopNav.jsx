@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import WebLogo from "../../assets/WebLogo";
 import { HiMiniBars3BottomLeft } from "react-icons/hi2";
@@ -9,12 +9,11 @@ import { CiLogout } from "react-icons/ci";
 import { DashContext } from "../DashboardChecker/DashboardContext";
 
 const TopNav = () => {
-  const {
-  unAuthenticate,
-  } = useContext(AuthContext);
-
+  const { unAuthenticate } =
+    useContext(AuthContext);
   const { closeSideNav, setCloseSideNav, userModal, setUserModal, userData } =
     useContext(DashContext);
+
   return (
     <>
       <nav>
@@ -30,12 +29,12 @@ const TopNav = () => {
             <WebLogo />
           </div>
           <button
-            className="bg-[rgb(9,23,56)] flex justify-center items-center py-[0.5rem] px-[0.6rem] rounded-full"
+            className="bg-[rgb(9,23,56)] flex justify-center items-center py-[0.5rem] px-[0.6rem] rounded-full uppercase"
             onClick={() => {
               setUserModal(!userModal);
             }}
           >
-            {userData && userData.fullname.slice(0,2)}
+            {userData && userData.fullname.slice(0, 2)}
           </button>
 
           <div
@@ -59,6 +58,7 @@ const TopNav = () => {
               className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]"
               onClick={() => {
                 unAuthenticate();
+                setUserModal(false);
               }}
             >
               <CiLogout />

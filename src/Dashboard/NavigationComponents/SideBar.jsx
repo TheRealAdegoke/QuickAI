@@ -107,6 +107,7 @@ const SideBar = () => {
             className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]"
             onClick={() => {
               unAuthenticate();
+              setUserModal(false);
             }}
           >
             <CiLogout />
