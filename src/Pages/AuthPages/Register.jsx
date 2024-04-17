@@ -8,7 +8,7 @@ import { AuthContext } from "./AuthChecker/AuthContext";
 import WebLogo from "../../assets/WebLogo";
 
 const Register = () => {
-  const { isAuthenticated, handleAuthentication, handleUserData } = useContext(AuthContext);
+  const { isAuthenticated, handleAuthentication,} = useContext(AuthContext);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,10 +19,15 @@ const Register = () => {
   const navigate = useNavigate();
   const baseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
 
-  const googleRegister = () => {
+  const googleRegister = async () => {
     setGoogleLoading(true);
-    window.open(`${baseUrl}/auth/google/signup`, "_self");
-    handleUserData();
+    try {
+      window.open(`${baseUrl}/auth/google/signup`, "_self");
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setGoogleLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -61,7 +66,6 @@ const Register = () => {
       });
       message.success(response.data.message);
       await handleAuthentication()
-      await handleUserData();
       navigate("/home");
     } catch (error) {
       console.error(error.response.data.error);

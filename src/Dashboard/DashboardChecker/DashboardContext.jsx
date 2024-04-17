@@ -22,13 +22,8 @@ export const DashboardProvider = ({ children }) => {
     const response = await axios.get(`${baseUrl}/auth/user-data`, {
       withCredentials: true,
     });
-    console.log(response.data);
     setUserData(response.data);
   };
-
-  useEffect(() => {
-    handleUserData()
-  }, [])
 
 
   return (
