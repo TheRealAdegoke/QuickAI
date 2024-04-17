@@ -21,6 +21,7 @@ const SideBar = () => {
     userModal,
     setUserModal,
     setShowDesignModal,
+    userData
   } = useContext(DashContext);
 
   useEffect(() => {
@@ -45,9 +46,12 @@ const SideBar = () => {
           closeSideNav ? "block" : "hidden"
         } dashboard-navigation-darkmode w-[250px] h-screen phone:border-r-[1px] phone:border-[rgb(26,26,26)] phone:fixed z-50 p-2`}
       >
-        <button className="block w-full mb-4" onClick={() => {
-          setShowDesignModal(false)
-        }}>
+        <button
+          className="block w-full mb-4"
+          onClick={() => {
+            setShowDesignModal(false);
+          }}
+        >
           <div className="flex justify-between items-center cursor-pointer select-none">
             <WebLogo />
             <FaRegEdit className="text-[rgb(236,236,236)] text-xl" />
@@ -95,11 +99,16 @@ const SideBar = () => {
             <IoSettingsOutline />
             Settings
           </button>
-          <button className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">Themes</button>
+          <button className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">
+            Themes
+          </button>
           <hr className="w-full" />
-          <button className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]" onClick={() => {
-            unAuthenticate()
-          }}>
+          <button
+            className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]"
+            onClick={() => {
+              unAuthenticate();
+            }}
+          >
             <CiLogout />
             Logout
           </button>
@@ -111,10 +120,10 @@ const SideBar = () => {
             setUserModal(!userModal);
           }}
         >
-          <span className="bg-[rgb(9,23,56)] flex justify-center items-center p-[0.5rem] rounded-full">
-            AD
+          <span className="bg-[rgb(9,23,56)] flex justify-center items-center py-[0.5rem] px-[0.6rem] rounded-full uppercase">
+            {userData &&  userData.fullname.slice(0, 2)}
           </span>
-          <p>Adegoke Adewale</p>
+          <p>{userData && userData.fullname}</p>
         </button>
       </aside>
     </>

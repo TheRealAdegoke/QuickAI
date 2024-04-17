@@ -1,5 +1,6 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { navComponents } from "../../Dashboard/Arrays/Arrays";
+import axios from "axios";
 
 export const DashContext = createContext();
 
@@ -9,11 +10,26 @@ export const DashboardProvider = ({ children }) => {
   const [showDesignModal, setShowDesignModal] = useState(false);
   const [randomNav, setRandomNav] = useState(null);
   const [userModal, setUserModal] = useState(false);
+  const [userData, setUserData] = useState("")
+  const baseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
 
   const handleGenerate = () => {
     const randomIndex = Math.floor(Math.random() * navComponents.length);
     setRandomNav(randomIndex);
   };
+
+  const handleUserData = async () => {
+    const response = await axios.get(`${baseUrl}/auth/user-data`, {
+      withCredentials: true,
+    });
+    console.log(response.data);
+    setUserData(response.data);
+  };
+
+  useEffect(() => {
+    handleUserData()
+  }, [])
+
 
   return (
     <DashContext.Provider
@@ -29,6 +45,8 @@ export const DashboardProvider = ({ children }) => {
         handleGenerate,
         randomNav,
         setRandomNav,
+        userData,
+        handleUserData
       }}
     >
       {children}

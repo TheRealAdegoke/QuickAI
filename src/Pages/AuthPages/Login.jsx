@@ -6,9 +6,11 @@ import axios from "axios";
 import { message } from "antd";
 import { AuthContext } from "./AuthChecker/AuthContext";
 import WebLogo from "../../assets/WebLogo";
+import { DashContext } from "../../Dashboard/DashboardChecker/DashboardContext";
 
 const Login = () => {
   const { isAuthenticated, handleAuthentication } = useContext(AuthContext);
+  const { handleUserData } = useContext(DashContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -35,6 +37,7 @@ const Login = () => {
       });
       message.success(response.data.message);
       await handleAuthentication()
+      await handleUserData()
       navigate("/home");
     } catch (error) {
       console.error(error.response.data.error);

@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { createContext, useEffect, useState } from "react";
-import { navComponents } from "../../../Dashboard/Arrays/Arrays";
 
 export const AuthContext = createContext();
 
@@ -26,7 +25,7 @@ export const AuthProvider = ({ children }) => {
 
   const refreshAccessToken = async () => {
     try {
-      const response = await axios.post(`${baseUrl}/auth/refresh`, "", {
+      await axios.post(`${baseUrl}/auth/refresh`, "", {
         withCredentials: true,
       });
     } catch (error) {
@@ -36,7 +35,9 @@ export const AuthProvider = ({ children }) => {
 
   const unAuthenticate = async () => {
     try {
-      await axios.post(`${baseUrl}/auth/logout`, "", {withCredentials: true});
+      await axios.post(`${baseUrl}/auth/logout`, "", {
+        withCredentials: true,
+      });
       handleAuthentication()
     } catch (error) {
       console.error("Error: ", error);
