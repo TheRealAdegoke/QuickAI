@@ -49,10 +49,19 @@ const Login = () => {
 
   const googleLogin = async () => {
     setGoogleLoading(true);
+
     try {
-      window.open(`${baseUrl}/auth/google/login`, "_self");
+      const response = await window.open(
+        `${baseUrl}/auth/google/login`,
+        "_self"
+      );
+      if (response) {
+        await handleUserData();
+        navigate("/home");
+      }
     } catch (error) {
-      console.error("Error logging in with Google:", error);
+      console.error(error);
+      // Handle error if needed
     } finally {
       setGoogleLoading(false);
     }
