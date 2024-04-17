@@ -7,12 +7,19 @@ import WebLogo from "../../assets/WebLogo";
 
 const ResetPassword = () => {
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const baseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
 
   const handleCreatePassword = async (e) => {
     e.preventDefault();
+
+    if (password !== confirmPassword) {
+      message.error("Passwords do not match");
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -29,7 +36,6 @@ const ResetPassword = () => {
       message.error(error.response.data.error || "Something went wrong");
     }
   };
-
 
   return (
     <>
@@ -78,6 +84,8 @@ const ResetPassword = () => {
                   type="password"
                   className="bg-[rgb(42,42,47)] border border-[rgb(64,65,67)] rounded-[5px] h-[40px] px-3 focus:border-[rgb(54,116,220)] outline-none"
                   placeholder="123456789"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </div>
             </div>
