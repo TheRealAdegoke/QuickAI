@@ -51,9 +51,6 @@ const Login = () => {
     setGoogleLoading(true);
     try {
       window.open(`${baseUrl}/auth/google/login`, "_self");
-      await handleUserData();
-
-      navigate("/home");
     } catch (error) {
       console.error("Error logging in with Google:", error);
     } finally {

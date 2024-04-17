@@ -11,12 +11,18 @@ import { DashContext } from "./DashboardChecker/DashboardContext";
 
 const Dashboard = ({ children }) => {
   const { isAuthenticated } = useContext(AuthContext);
-  const { closeSideNav, setCloseSideNav, showDesignModal, setShowDesignModal } =
-    useContext(DashContext);
+  const {
+    closeSideNav,
+    setCloseSideNav,
+    showDesignModal,
+    setShowDesignModal,
+    handleUserData,
+  } = useContext(DashContext);
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
+     handleUserData()
     if (isAuthenticated === false) {
       navigate("/login");
     }
