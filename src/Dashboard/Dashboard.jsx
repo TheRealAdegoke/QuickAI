@@ -22,7 +22,6 @@ const Dashboard = ({ children }) => {
   const location = useLocation();
 
   useEffect(() => {
-     handleUserData()
     if (isAuthenticated === false) {
       navigate("/login");
     }
