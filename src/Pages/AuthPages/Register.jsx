@@ -8,7 +8,7 @@ import { AuthContext } from "./AuthChecker/AuthContext";
 import WebLogo from "../../assets/WebLogo";
 
 const Register = () => {
-  const { isAuthenticated, handleAuthentication } = useContext(AuthContext);
+  const { isAuthenticated, handleAuthentication, handleUserData } = useContext(AuthContext);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,6 +22,7 @@ const Register = () => {
   const googleRegister = () => {
     setGoogleLoading(true);
     window.open(`${baseUrl}/auth/google/signup`, "_self");
+    handleUserData();
   };
 
   useEffect(() => {
@@ -60,6 +61,7 @@ const Register = () => {
       });
       message.success(response.data.message);
       await handleAuthentication()
+      await handleUserData();
       navigate("/home");
     } catch (error) {
       console.error(error.response.data.error);
