@@ -49,9 +49,18 @@ const Login = () => {
 
   const googleLogin = async () => {
     setGoogleLoading(true);
-    window.open(`${baseUrl}/auth/google/login`, "_self");
-    await handleUserData();
+    try {
+      window.open(`${baseUrl}/auth/google/login`, "_self");
+      await handleUserData();
+
+      navigate("/home");
+    } catch (error) {
+      console.error("Error logging in with Google:", error);
+    } finally {
+      setGoogleLoading(false);
+    }
   };
+
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
