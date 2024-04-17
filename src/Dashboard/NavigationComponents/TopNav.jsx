@@ -13,12 +13,8 @@ const TopNav = () => {
   unAuthenticate,
   } = useContext(AuthContext);
 
-  const {
-    closeSideNav,
-    setCloseSideNav,
-    userModal,
-    setUserModal
-  } = useContext(DashContext);
+  const { closeSideNav, setCloseSideNav, userModal, setUserModal, userData } =
+    useContext(DashContext);
   return (
     <>
       <nav>
@@ -34,12 +30,12 @@ const TopNav = () => {
             <WebLogo />
           </div>
           <button
-            className="bg-[rgb(9,23,56)] flex justify-center items-center p-[0.5rem] rounded-full"
+            className="bg-[rgb(9,23,56)] flex justify-center items-center py-[0.5rem] px-[0.6rem] rounded-full"
             onClick={() => {
               setUserModal(!userModal);
             }}
           >
-            AD
+            {userData && userData.fullname.slice(0,2)}
           </button>
 
           <div
