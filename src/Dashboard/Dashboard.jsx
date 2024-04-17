@@ -24,6 +24,8 @@ const Dashboard = ({ children }) => {
   useEffect(() => {
     if (isAuthenticated === false) {
       navigate("/login");
+    } else {
+      handleUserData();
     }
   }, [isAuthenticated, navigate]);
 

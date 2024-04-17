@@ -6,11 +6,9 @@ import axios from "axios";
 import { message } from "antd";
 import { AuthContext } from "./AuthChecker/AuthContext";
 import WebLogo from "../../assets/WebLogo";
-import { DashContext } from "../../Dashboard/DashboardChecker/DashboardContext";
 
 const Login = () => {
   const { isAuthenticated, handleAuthentication } = useContext(AuthContext);
-  const { handleUserData } = useContext(DashContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -36,8 +34,7 @@ const Login = () => {
         withCredentials: true,
       });
       message.success(response.data.message);
-      await handleAuthentication()
-      await handleUserData()
+      await handleAuthentication();
       navigate("/home");
     } catch (error) {
       console.error(error.response.data.error);
@@ -49,24 +46,14 @@ const Login = () => {
 
   const googleLogin = async () => {
     setGoogleLoading(true);
-
     try {
-      const response = await window.open(
-        `${baseUrl}/auth/google/login`,
-        "_self"
-      );
-      if (response) {
-        await handleUserData();
-        navigate("/home");
-      }
+      window.open(`${baseUrl}/auth/google/login`, "_self");
     } catch (error) {
       console.error(error);
-      // Handle error if needed
     } finally {
       setGoogleLoading(false);
     }
   };
-
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
