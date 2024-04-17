@@ -188,7 +188,7 @@ const Register = () => {
             )}
           </div>
           {errorMessage && (
-            <div className="w-[350px] mx-auto text-center my-4 bg-[rgb(253,236,234)] py-2 rounded-[5px] text-[rgb(97,62,55)]">
+            <div className="w-4/5 PC:w-[350px] mx-auto text-center my-4 bg-[rgb(253,236,234)] py-2 rounded-[5px] text-[rgb(97,62,55)]">
               {errorMessage}
             </div>
           )}

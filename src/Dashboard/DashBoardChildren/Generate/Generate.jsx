@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import Dashboard from '../../Dashboard'
-import { AuthContext } from '../../../Pages/AuthPages/AuthChecker/AuthContext';
+import { DashContext } from '../../DashboardChecker/DashboardContext';
 
 const Generate = () => {
-  const { setCloseSideNav } = useContext(AuthContext);
+  const { setCloseSideNav } = useContext(DashContext);
   return (
     <Dashboard>
       <div>Generate</div>

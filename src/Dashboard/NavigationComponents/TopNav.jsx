@@ -6,15 +6,19 @@ import { AuthContext } from "../../Pages/AuthPages/AuthChecker/AuthContext";
 import { IoSettingsOutline } from "react-icons/io5";
 import { MdOutlineManageAccounts } from "react-icons/md";
 import { CiLogout } from "react-icons/ci";
+import { DashContext } from "../DashboardChecker/DashboardContext";
 
 const TopNav = () => {
+  const {
+  unAuthenticate,
+  } = useContext(AuthContext);
+
   const {
     closeSideNav,
     setCloseSideNav,
     userModal,
-    setUserModal,
-    unAuthenticate,
-  } = useContext(AuthContext);
+    setUserModal
+  } = useContext(DashContext);
   return (
     <>
       <nav>

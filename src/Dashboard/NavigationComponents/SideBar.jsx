@@ -8,16 +8,20 @@ import { FaChevronRight } from "react-icons/fa6";
 import { IoSettingsOutline } from "react-icons/io5";
 import { MdOutlineManageAccounts } from "react-icons/md";
 import { CiLogout } from "react-icons/ci";
+import { DashContext } from "../DashboardChecker/DashboardContext";
 
 const SideBar = () => {
+  const {
+    unAuthenticate,
+  } = useContext(AuthContext);
+
   const {
     closeSideNav,
     setCloseSideNav,
     userModal,
     setUserModal,
     setShowDesignModal,
-    unAuthenticate,
-  } = useContext(AuthContext);
+  } = useContext(DashContext);
 
   useEffect(() => {
     const handleResize = () => {

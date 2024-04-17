@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Pages/AuthPages/AuthChecker/AuthContext";
 import {navComponents} from "../../Arrays/Arrays"
 import HeroOne from "../AI-Hero-Section-Component/HeroOne";
+import { DashContext } from "../../DashboardChecker/DashboardContext";
 
 const DesignModal = () => {
   const { showDesignModal, randomNav} =
-    useContext(AuthContext);
+    useContext(DashContext);
 
   return (
     <>

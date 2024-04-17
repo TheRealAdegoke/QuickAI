@@ -1,11 +1,14 @@
 import { AuthProvider } from "./Pages/AuthPages/AuthChecker/AuthContext";
 import AppRoutes from "../Routes";
+import { DashboardProvider } from "./Dashboard/DashboardChecker/DashboardContext";
 
 function App() {
   return (
     <>
       <AuthProvider>
-        <AppRoutes />
+        <DashboardProvider>
+          <AppRoutes />
+        </DashboardProvider>
       </AuthProvider>
     </>
   );
