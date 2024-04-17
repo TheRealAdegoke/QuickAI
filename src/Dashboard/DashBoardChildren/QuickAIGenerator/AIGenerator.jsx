@@ -5,10 +5,11 @@ import { IoMdArrowRoundUp } from "react-icons/io";
 import { WiStars } from "react-icons/wi";
 import { useTypewriter } from "react-simple-typewriter";
 import { placeholderText, randomIdeas } from "../../Arrays/Arrays";
+import { DashContext } from "../../DashboardChecker/DashboardContext";
 
 const AIGenerator = () => {
   const { closeSideNav, showDesignModal, setShowDesignModal, handleGenerate } =
-    useContext(AuthContext);
+    useContext(DashContext);
   const location = useLocation();
   const [ideas, setIdeas] = useState([]);
   const [selectedIdea, setSelectedIdea] = useState("");
@@ -41,13 +42,12 @@ const AIGenerator = () => {
     }
   };
 
-
   return (
     <>
       <section
-        className={`${
-          location.pathname !== "/home" ? "hidden" : "block"
-        } ${showDesignModal ? "hidden" : "block"} text-center mt-80 phone:mt-52 text-[rgb(201,209,217)] fixed max-w-[800px] w-[90%] bottom-5`}
+        className={`${location.pathname !== "/home" ? "hidden" : "block"} ${
+          showDesignModal ? "hidden" : "block"
+        } text-center mt-80 phone:mt-52 text-[rgb(201,209,217)] fixed max-w-[800px] w-[90%] bottom-5`}
       >
         <div className="input-container">
           <div className="">
@@ -116,10 +116,13 @@ const AIGenerator = () => {
                   className="bg-transparent border-none outline-none text-xl w-full h-[66px] pl-4 rounded-[8px]"
                 />
               </form>
-              <button className={`my-2 ml-2`} onClick={() => {
-                setShowDesignModal(true)
-                handleGenerate()
-              }}>
+              <button
+                className={`my-2 ml-2`}
+                onClick={() => {
+                  setShowDesignModal(true);
+                  handleGenerate();
+                }}
+              >
                 {window.innerWidth < 766 ? (
                   <span className="block bg-[rgb(201,209,217)] rounded-[8px] p-2 text-[rgb(9,11,14)]">
                     <IoMdArrowRoundUp />

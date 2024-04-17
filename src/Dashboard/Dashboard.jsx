@@ -7,15 +7,12 @@ import AIGenerator from "./DashBoardChildren/QuickAIGenerator/AIGenerator";
 import { FaChevronLeft } from "react-icons/fa6";
 import { FaChevronRight } from "react-icons/fa6";
 import DesignModal from "./AI-Designed-Component/AI-Design-Modal/DesignModal";
+import { DashContext } from "./DashboardChecker/DashboardContext";
 
 const Dashboard = ({ children }) => {
-  const {
-    closeSideNav,
-    setCloseSideNav,
-    showDesignModal,
-    setShowDesignModal,
-    isAuthenticated,
-  } = useContext(AuthContext);
+  const { isAuthenticated } = useContext(AuthContext);
+  const { closeSideNav, setCloseSideNav, showDesignModal, setShowDesignModal } =
+    useContext(DashContext);
   const navigate = useNavigate();
   const location = useLocation();
 

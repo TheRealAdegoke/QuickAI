@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { FaBars } from "react-icons/fa";
-import { AuthContext } from "../../../Pages/AuthPages/AuthChecker/AuthContext";
 import ModalWebLogo from "../../../assets/ModalWebLogo";
+import { DashContext } from "../../DashboardChecker/DashboardContext";
 
 export const NavOne = () => {
-  const { closeAINav, setCloseAINav } = useContext(AuthContext);
+  const { closeAINav, setCloseAINav } = useContext(DashContext);
   return (
     <>
       <nav className={`bg-white w-full shadow-xl relative`}>
@@ -49,7 +49,7 @@ export const NavOne = () => {
 };
 
 export const NavTwo = () => {
-  const { closeAINav, setCloseAINav } = useContext(AuthContext);
+  const { closeAINav, setCloseAINav } = useContext(DashContext);
   return (
     <>
       <nav className={`bg-white w-full shadow-xl relative`}>
@@ -100,7 +100,7 @@ export const NavTwo = () => {
 };
 
 export const NavThree = () => {
-  const { closeAINav, setCloseAINav } = useContext(AuthContext);
+  const { closeAINav, setCloseAINav } = useContext(DashContext);
   return (
     <>
       <nav
