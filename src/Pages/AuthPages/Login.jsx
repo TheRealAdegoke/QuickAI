@@ -47,10 +47,10 @@ const Login = () => {
     }
   };
 
-  const googleLogin = () => {
+  const googleLogin = async () => {
     setGoogleLoading(true);
     window.open(`${baseUrl}/auth/google/login`, "_self");
-    handleUserData();
+    await handleUserData();
   };
 
   useEffect(() => {
