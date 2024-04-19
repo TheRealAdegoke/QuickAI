@@ -25,6 +25,7 @@ const SideBar = () => {
     setHeroPrompt,
     setUserInput,
     setSelectedIdea,
+    setImagePrompt,
   } = useContext(DashContext);
 
   useEffect(() => {
@@ -55,6 +56,8 @@ const SideBar = () => {
             setShowDesignModal(false);
             setUserInput("")
             setSelectedIdea("")
+            setImagePrompt([])
+            setHeroPrompt("")
           }}
         >
           <div className="flex justify-between items-center cursor-pointer select-none">

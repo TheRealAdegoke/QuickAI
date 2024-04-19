@@ -1,11 +1,18 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from "react";
 import DefaultImage from "../../../assets/Default-Card.jpg";
-import { DashContext } from '../../DashboardChecker/DashboardContext';
+import { DashContext } from "../../DashboardChecker/DashboardContext";
 import { useTypewriter, Typewriter } from "react-simple-typewriter";
 
 const HeroOne = () => {
-  const { heroPrompt, heroDescription } =
-    useContext(DashContext);
+  const { heroPrompt, heroDescription, imagePrompt } = useContext(DashContext);
+  const [randomImage, setRandomImage] = useState(DefaultImage);
+
+  useEffect(() => {
+    if (Array.isArray(imagePrompt) && imagePrompt.length > 0) {
+      const randomIndex = Math.floor(Math.random() * imagePrompt.length);
+      setRandomImage(imagePrompt[randomIndex]);
+    }
+  }, [imagePrompt]);
 
   return (
     <>
@@ -36,7 +43,7 @@ const HeroOne = () => {
 
         <div className="bg-[rgb(24,24,27)] w-[90%] max-w-[800px] h-[400px] mx-auto my-5 p-3 rounded-lg">
           <img
-            src={DefaultImage}
+            src={randomImage}
             alt=""
             className="block w-full max-w-[800px] h-[375px] rounded-lg object-cover"
           />
@@ -44,6 +51,6 @@ const HeroOne = () => {
       </main>
     </>
   );
-}
+};
 
-export default HeroOne
+export default HeroOne;
