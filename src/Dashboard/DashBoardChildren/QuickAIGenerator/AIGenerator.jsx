@@ -1,19 +1,30 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { AuthContext } from "../../../Pages/AuthPages/AuthChecker/AuthContext";
 import { IoMdArrowRoundUp } from "react-icons/io";
 import { WiStars } from "react-icons/wi";
 import { useTypewriter } from "react-simple-typewriter";
 import { placeholderText, randomIdeas } from "../../Arrays/Arrays";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
+import { ImSpinner6 } from "react-icons/im";
 
 const AIGenerator = () => {
-  const { closeSideNav, showDesignModal, setShowDesignModal, handleGenerate } =
-    useContext(DashContext);
+  const {
+    closeSideNav,
+    showDesignModal,
+    handleGenerate,
+    handleHeroPrompt,
+    userInput,
+    setUserInput,
+    selectedIdea,
+    setSelectedIdea,
+    loading,
+    handleHeroDescription,
+    handleImagePrompt,
+    setLoading,
+    setShowDesignModal,
+  } = useContext(DashContext);
   const location = useLocation();
   const [ideas, setIdeas] = useState([]);
-  const [selectedIdea, setSelectedIdea] = useState("");
-  const [userInput, setUserInput] = useState("");
   const [text] = useTypewriter({
     words: placeholderText,
     loop: {},
@@ -41,6 +52,19 @@ const AIGenerator = () => {
       setUserInput(value);
     }
   };
+
+  const handlePrompt = async (e) => {
+    e.preventDefault();
+    try {
+      await handleHeroPrompt();
+      await handleHeroDescription();
+      await handleImagePrompt();
+      await handleGenerate();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 
   return (
     <>
@@ -100,12 +124,14 @@ const AIGenerator = () => {
               </button>
             </div>
 
-            <div
-              className={`${
-                closeSideNav ? "tablet:max-w-[500px]" : ""
-              } glowing-light w-[90%] max-w-[800px] phone:max-w-[500px] mx-auto border-zinc-600 border-[1px] rounded-[10px] flex justify-between items-center pr-3`}
-            >
-              <form action="" className="relative w-[80%] phone:w-[90%]">
+            <div className="">
+              <form
+                action=""
+                className={`${
+                  closeSideNav ? "tablet:max-w-[500px]" : ""
+                } glowing-light w-[90%] max-w-[800px] phone:max-w-[500px] mx-auto border-zinc-600 border-[1px] rounded-[10px] flex justify-between items-center pr-3`}
+                onSubmit={handlePrompt}
+              >
                 <input
                   type="text"
                   name=""
@@ -115,24 +141,33 @@ const AIGenerator = () => {
                   placeholder={text}
                   className="bg-transparent border-none outline-none text-xl w-full h-[66px] pl-4 rounded-[8px]"
                 />
+
+                <button className={`my-2 ml-2`} type="submit">
+                  {window.innerWidth < 766 ? (
+                    <div className="block bg-[rgb(201,209,217)] rounded-[8px] p-2 text-[rgb(9,11,14)]">
+                      {loading ? (
+                        <span>
+                          <ImSpinner6 className="animate-spin text-2xl text-black block mx-auto" />
+                        </span>
+                      ) : (
+                        <IoMdArrowRoundUp />
+                      )}
+                    </div>
+                  ) : (
+                    <div className="bg-[rgb(201,209,217)] rounded-[8px] py-3 px-3 text-[rgb(9,11,14)] text-lg font-semibold w-[120px]">
+                      {loading ? (
+                        <span>
+                          <ImSpinner6 className="animate-spin text-2xl text-black block mx-auto" />
+                        </span>
+                      ) : (
+                        <span className="flex items-center gap-[2px]">
+                          Generate <WiStars className="text-2xl" />
+                        </span>
+                      )}
+                    </div>
+                  )}
+                </button>
               </form>
-              <button
-                className={`my-2 ml-2`}
-                onClick={() => {
-                  setShowDesignModal(true);
-                  handleGenerate();
-                }}
-              >
-                {window.innerWidth < 766 ? (
-                  <span className="block bg-[rgb(201,209,217)] rounded-[8px] p-2 text-[rgb(9,11,14)]">
-                    <IoMdArrowRoundUp />
-                  </span>
-                ) : (
-                  <span className="flex items-center gap-[2px] bg-[rgb(201,209,217)] rounded-[8px] py-3 px-3 text-[rgb(9,11,14)] text-lg font-semibold">
-                    Generate <WiStars className="text-2xl" />
-                  </span>
-                )}
-              </button>
             </div>
           </div>
         </div>

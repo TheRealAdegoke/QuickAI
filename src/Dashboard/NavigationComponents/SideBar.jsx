@@ -21,7 +21,11 @@ const SideBar = () => {
     userModal,
     setUserModal,
     setShowDesignModal,
-    userData
+    userData,
+    setHeroPrompt,
+    setUserInput,
+    setSelectedIdea,
+    setImagePrompt,
   } = useContext(DashContext);
 
   useEffect(() => {
@@ -47,9 +51,13 @@ const SideBar = () => {
         } dashboard-navigation-darkmode w-[250px] h-screen phone:border-r-[1px] phone:border-[rgb(26,26,26)] phone:fixed z-50 p-2`}
       >
         <button
-          className="block w-full mb-4"
+          className="block w-full mb-4 hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] hover:px-2 border-zinc-600 px-2 py-1"
           onClick={() => {
             setShowDesignModal(false);
+            setUserInput("")
+            setSelectedIdea("")
+            setImagePrompt([])
+            setHeroPrompt("")
           }}
         >
           <div className="flex justify-between items-center cursor-pointer select-none">
@@ -122,7 +130,7 @@ const SideBar = () => {
           }}
         >
           <span className="bg-[rgb(9,23,56)] flex justify-center items-center py-[0.5rem] px-[0.6rem] rounded-full uppercase">
-            {userData &&  userData.fullname.slice(0, 2)}
+            {userData && userData.fullname.slice(0, 2)}
           </span>
           <p>{userData && userData.fullname}</p>
         </button>
