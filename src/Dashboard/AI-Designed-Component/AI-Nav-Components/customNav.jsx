@@ -104,7 +104,7 @@ export const NavThree = () => {
   return (
     <>
       <nav
-        className={`bg-white w-[90%] border-[1px] max-w-[800px] my-[20px] rounded-xl mx-auto shadow-xl relative left-0`}
+        className={`bg-white w-[90%] border-[1px] max-w-[800px] mt-[20px] rounded-xl mx-auto shadow-xl relative left-0`}
       >
         <div className={`flex justify-between items-center px-5`}>
           <div className="w-[20%] flex py-3">

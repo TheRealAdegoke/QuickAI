@@ -11,7 +11,7 @@ const AIGenerator = () => {
   const {
     closeSideNav,
     showDesignModal,
-    handleGenerate,
+    handleGenerateNav,
     handleHeroPrompt,
     userInput,
     setUserInput,
@@ -20,8 +20,7 @@ const AIGenerator = () => {
     loading,
     handleHeroDescription,
     handleImagePrompt,
-    setLoading,
-    setShowDesignModal,
+    handleGenerateHero
   } = useContext(DashContext);
   const location = useLocation();
   const [ideas, setIdeas] = useState([]);
@@ -59,7 +58,8 @@ const AIGenerator = () => {
       await handleHeroPrompt();
       await handleHeroDescription();
       await handleImagePrompt();
-      await handleGenerate();
+      await handleGenerateNav();
+      await handleGenerateHero()
     } catch (error) {
       console.error(error);
     }
