@@ -20,12 +20,8 @@ const SideBar = () => {
     setCloseSideNav,
     userModal,
     setUserModal,
-    setShowDesignModal,
     userData,
-    setHeroPrompt,
-    setUserInput,
-    setSelectedIdea,
-    setImagePrompt,
+    clearDesigns,
   } = useContext(DashContext);
 
   useEffect(() => {
@@ -53,11 +49,7 @@ const SideBar = () => {
         <button
           className="block w-full mb-4 hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] hover:px-2 border-zinc-600 px-2 py-1"
           onClick={() => {
-            setShowDesignModal(false);
-            setUserInput("")
-            setSelectedIdea("")
-            setImagePrompt([])
-            setHeroPrompt("")
+            clearDesigns()
           }}
         >
           <div className="flex justify-between items-center cursor-pointer select-none">
@@ -116,6 +108,7 @@ const SideBar = () => {
             onClick={() => {
               unAuthenticate();
               setUserModal(false);
+              clearDesigns();
             }}
           >
             <CiLogout />

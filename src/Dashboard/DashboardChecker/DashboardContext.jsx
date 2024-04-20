@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { navComponents } from "../../Dashboard/Arrays/Arrays";
+import { heroComponents, navComponents } from "../../Dashboard/Arrays/Arrays";
 import axios from "axios";
 import { message } from "antd";
 
@@ -10,6 +10,7 @@ export const DashboardProvider = ({ children }) => {
   const [closeAINav, setCloseAINav] = useState(false);
   const [showDesignModal, setShowDesignModal] = useState(false);
   const [randomNav, setRandomNav] = useState(undefined);
+  const [randomHero, setRandomHero] = useState(undefined);
   const [userModal, setUserModal] = useState(false);
   const [userData, setUserData] = useState("");
   const [userInput, setUserInput] = useState("");
@@ -20,9 +21,14 @@ export const DashboardProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const baseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
 
-  const handleGenerate = () => {
+  const handleGenerateNav = () => {
     const randomIndex = Math.floor(Math.random() * navComponents.length);
     setRandomNav(randomIndex);
+  };
+
+  const handleGenerateHero = () => {
+    const randomIndex = Math.floor(Math.random() * heroComponents.length);
+    setRandomHero(randomIndex);
   };
 
   const handleUserData = async () => {
@@ -44,13 +50,11 @@ export const DashboardProvider = ({ children }) => {
       });
       setImagePrompt(response.data.imageUrls);
 
-      if (response.data.imageUrls === 400 || heroPrompt.response.data === 400) {
+      if (response.data.imageUrls === 400) {
         setShowDesignModal(false);
       } else {
         setShowDesignModal(true);
       }
-
-      console.log(response.data.imageUrls);
     } catch (error) {
       console.error(error.response.data.error);
       message.error(error.response.data.error);
@@ -77,8 +81,6 @@ export const DashboardProvider = ({ children }) => {
       } else {
         setShowDesignModal(true);
       }
-
-      console.log(response.data.promptResponse);
     } catch (error) {
       console.error(error.response.data.error);
       message.error(error.response.data.error);
@@ -105,8 +107,6 @@ export const DashboardProvider = ({ children }) => {
       } else {
         setShowDesignModal(true);
       }
-
-      console.log(response.data.promptResponse);
     } catch (error) {
       console.error(error.response.data.error);
       message.error(error.response.data.error);
@@ -114,6 +114,14 @@ export const DashboardProvider = ({ children }) => {
       setLoading(false);
     }
   };
+
+  const clearDesigns = () => {
+    setShowDesignModal(false);
+    setUserInput("");
+    setSelectedIdea("");
+    setImagePrompt([]);
+    setHeroPrompt("");
+  }
 
   return (
     <DashContext.Provider
@@ -126,7 +134,7 @@ export const DashboardProvider = ({ children }) => {
         setShowDesignModal,
         closeAINav,
         setCloseAINav,
-        handleGenerate,
+        handleGenerateNav,
         randomNav,
         setRandomNav,
         userData,
@@ -144,7 +152,12 @@ export const DashboardProvider = ({ children }) => {
         handleHeroDescription,
         handleImagePrompt,
         imagePrompt,
-        setImagePrompt
+        setImagePrompt,
+        navComponents,
+        handleGenerateHero,
+        randomHero,
+        heroComponents,
+        clearDesigns,
       }}
     >
       {children}

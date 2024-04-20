@@ -1,4 +1,9 @@
 import {
+  HeroOne,
+  HeroThree,
+  HeroTwo,
+} from "../AI-Designed-Component/AI-Hero-Section-Component/customHero";
+import {
   NavOne,
   NavTwo,
   NavThree,
@@ -52,3 +57,5 @@ export const randomIdeas = [
 
 // Array of all Nav components
 export const navComponents = [NavOne, NavTwo, NavThree];
+
+export const heroComponents = [HeroOne, HeroTwo, HeroThree]
