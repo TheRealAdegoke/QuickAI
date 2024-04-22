@@ -39,7 +39,7 @@ export const DashboardProvider = ({ children }) => {
     });
     setLoading(true);
     try {
-      const response = await axios.post(`${baseUrl}/api/quick-ai`, {
+      const response = await axios.post(`${baseUrl}/quick-ai`, {
         prompt: userInput || selectedIdea,
       });
       setGeminiResponses(response.data);
