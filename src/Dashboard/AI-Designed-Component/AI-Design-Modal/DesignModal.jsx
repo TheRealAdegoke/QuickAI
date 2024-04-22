@@ -7,13 +7,8 @@ import {
 } from "../../AI-Designed-Component/AI-Hero-Section-Component/customHero";
 
 const DesignModal = () => {
-  const {
-    showDesignModal,
-    randomNav,
-    navComponents,
-    heroComponents,
-    randomHero,
-  } = useContext(DashContext);
+  const { showDesignModal, randomIndex, navComponents, heroComponents } =
+    useContext(DashContext);
 
   return (
     <>
@@ -22,11 +17,11 @@ const DesignModal = () => {
           showDesignModal ? "block" : "hidden"
         } bg-white w-full mt-5 phone:mt-0 mx-10 h-[93vh] phone:h-[89vh] smallDevice:mx-4 rounded-lg overflow-scroll overflow-x-hidden`}
       >
-        {randomNav !== undefined &&
-          React.createElement(navComponents[randomNav])}
+        {randomIndex !== undefined &&
+          React.createElement(navComponents[randomIndex])}
 
-        {randomHero !== undefined &&
-          React.createElement(heroComponents[randomHero])}
+        {randomIndex !== undefined &&
+          React.createElement(heroComponents[randomIndex])}
       </main>
     </>
   );

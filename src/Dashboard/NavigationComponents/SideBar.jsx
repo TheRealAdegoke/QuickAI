@@ -46,25 +46,25 @@ const SideBar = () => {
           closeSideNav ? "block" : "hidden"
         } dashboard-navigation-darkmode w-[250px] h-screen phone:border-r-[1px] phone:border-[rgb(26,26,26)] phone:fixed z-50 p-2`}
       >
-        <button
-          className="block w-full mb-4 hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] hover:px-2 border-zinc-600 px-2 py-1"
-          onClick={() => {
-            clearDesigns()
-          }}
-        >
-          <div className="flex justify-between items-center cursor-pointer select-none">
+        <div className="">
+          <button
+            className="flex justify-between items-center cursor-pointer select-none w-full mb-4 hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] hover:px-2 border-zinc-600 px-2 py-1"
+            onClick={() => {
+              clearDesigns();
+            }}
+          >
             <WebLogo />
             <FaRegEdit className="text-[rgb(236,236,236)] text-xl" />
-          </div>
-          <div
+          </button>
+          <button
             className="absolute top-[15px] right-[-40px] hidden phone:block border-[2px] cursor-pointer"
             onClick={() => {
               setCloseSideNav(false);
             }}
           >
             <IoCloseSharp className="text-[1.6rem]" />
-          </div>
-        </button>
+          </button>
+        </div>
 
         <button className="flex w-full mb-4 border-zinc-600 border-[1px] px-3 py-1 rounded-[5px] bg-[rgba(9,9,9,0.5)] capitalize">
           Manually create site

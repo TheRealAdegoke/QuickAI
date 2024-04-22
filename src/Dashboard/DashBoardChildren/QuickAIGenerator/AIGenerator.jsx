@@ -12,15 +12,12 @@ const AIGenerator = () => {
     closeSideNav,
     showDesignModal,
     handleGenerateNav,
-    handleHeroPrompt,
+    handleGeminiResponses,
     userInput,
     setUserInput,
     selectedIdea,
     setSelectedIdea,
     loading,
-    handleHeroDescription,
-    handleImagePrompt,
-    handleGenerateHero
   } = useContext(DashContext);
   const location = useLocation();
   const [ideas, setIdeas] = useState([]);
@@ -55,11 +52,8 @@ const AIGenerator = () => {
   const handlePrompt = async (e) => {
     e.preventDefault();
     try {
-      await handleHeroPrompt();
-      await handleHeroDescription();
-      await handleImagePrompt();
+      await handleGeminiResponses();
       await handleGenerateNav();
-      await handleGenerateHero()
     } catch (error) {
       console.error(error);
     }

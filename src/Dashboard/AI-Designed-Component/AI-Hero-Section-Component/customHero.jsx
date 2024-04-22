@@ -1,31 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
+import PromptUpdater from "../Prompt-Updater/PromptUpdater";
 
 export const HeroOne = () => {
-  const { heroPrompt, heroDescription, imagePrompt } = useContext(DashContext);
-  const [randomImage, setRandomImage] = useState("");
-  const [text, setText] = useState({
-    prompt: "",
-    description: "",
-  });
-
-  useEffect(() => {
-    if (Array.isArray(imagePrompt) && imagePrompt.length > 0) {
-      const randomIndex = Math.floor(Math.random() * imagePrompt.length);
-      setRandomImage(imagePrompt[randomIndex]);
-    }
-  }, [imagePrompt]);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setText((prevText) => ({
-        ...prevText,
-        prompt: heroPrompt.slice(0, prevText.prompt.length + 1),
-        description: heroDescription.slice(0, prevText.description.length + 1),
-      }));
-    }, 100);
-    return () => clearTimeout(timeout);
-  }, [heroPrompt, heroDescription, text]);
+  const text = PromptUpdater();
 
   return (
     <>
@@ -40,7 +18,7 @@ export const HeroOne = () => {
 
         <div className="bg-[rgb(24,24,27)] w-[90%] max-w-[800px] h-[400px] mx-auto my-5 p-3 rounded-lg">
           <img
-            src={randomImage}
+            src={text.images}
             alt=""
             className="block w-full max-w-[800px] h-[375px] rounded-lg object-cover"
           />
@@ -51,30 +29,7 @@ export const HeroOne = () => {
 };
 
 export const HeroTwo = () => {
-  const { heroPrompt, heroDescription, imagePrompt } = useContext(DashContext);
-  const [randomImage, setRandomImage] = useState("");
-  const [text, setText] = useState({
-    prompt: "",
-    description: "",
-  });
-
-  useEffect(() => {
-    if (Array.isArray(imagePrompt) && imagePrompt.length > 0) {
-      const randomIndex = Math.floor(Math.random() * imagePrompt.length);
-      setRandomImage(imagePrompt[randomIndex]);
-    }
-  }, [imagePrompt]);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setText((prevText) => ({
-        ...prevText,
-        prompt: heroPrompt.slice(0, prevText.prompt.length + 1),
-        description: heroDescription.slice(0, prevText.description.length + 1),
-      }));
-    }, 100);
-    return () => clearTimeout(timeout);
-  }, [heroPrompt, heroDescription, text]);
+  const text = PromptUpdater();
 
   return (
     <>
@@ -91,7 +46,7 @@ export const HeroTwo = () => {
 
         <div className="bg-[rgb(24,24,27)] w-[45%] mobile:w-full h-[400px] my-5 p-3 rounded-lg">
           <img
-            src={randomImage}
+            src={text.images}
             alt=""
             className="block w-full max-w-[800px] h-[375px] rounded-lg object-cover"
           />
@@ -102,30 +57,7 @@ export const HeroTwo = () => {
 };
 
 export const HeroThree = () => {
-  const { heroPrompt, heroDescription, imagePrompt } = useContext(DashContext);
-  const [randomImage, setRandomImage] = useState("");
-  const [text, setText] = useState({
-    prompt: "",
-    description: "",
-  });
-
-  useEffect(() => {
-    if (Array.isArray(imagePrompt) && imagePrompt.length > 0) {
-      const randomIndex = Math.floor(Math.random() * imagePrompt.length);
-      setRandomImage(imagePrompt[randomIndex]);
-    }
-  }, [imagePrompt]);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setText((prevText) => ({
-        ...prevText,
-        prompt: heroPrompt.slice(0, prevText.prompt.length + 1),
-        description: heroDescription.slice(0, prevText.description.length + 1),
-      }));
-    }, 100);
-    return () => clearTimeout(timeout);
-  }, [heroPrompt, heroDescription, text]);
+  const text = PromptUpdater();
 
   return (
     <>
@@ -142,7 +74,7 @@ export const HeroThree = () => {
 
         <div className="bg-[rgb(24,24,27)] w-[45%] mobile:w-full h-[400px] my-5 p-3 rounded-lg">
           <img
-            src={randomImage}
+            src={text.images}
             alt=""
             className="block w-full max-w-[800px] h-[375px] rounded-lg object-cover"
           />

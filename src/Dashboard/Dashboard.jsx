@@ -15,7 +15,6 @@ const Dashboard = ({ children }) => {
     closeSideNav,
     setCloseSideNav,
     showDesignModal,
-    setShowDesignModal,
     handleUserData,
   } = useContext(DashContext);
   const navigate = useNavigate();
