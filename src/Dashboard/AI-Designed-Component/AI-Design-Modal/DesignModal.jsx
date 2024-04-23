@@ -31,8 +31,8 @@ const DesignModal = () => {
 
         {randomIndex !== undefined &&
           React.createElement(heroComponents[randomIndex])}
-        <HeroFour />
-        <FeaturesOne/>
+        {/* <HeroFour />
+        <FeaturesOne/> */}
       </main>
     </>
   );
