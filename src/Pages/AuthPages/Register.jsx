@@ -177,7 +177,7 @@ const Register = () => {
           </div>
 
           <div
-            className="w-4/5 PC:w-[350px] mx-auto text-center my-4 hover:bg-[rgb(42,42,47)] py-2 rounded-[5px] cursor-pointer border border-[rgb(64,65,67)]"
+            className="w-4/5 lg:w-[350px] mx-auto text-center my-4 hover:bg-[rgb(42,42,47)] py-2 rounded-[5px] cursor-pointer border border-[rgb(64,65,67)]"
             onClick={googleRegister}
           >
             {googleLoading ? (
@@ -194,7 +194,7 @@ const Register = () => {
             )}
           </div>
           {errorMessage && (
-            <div className="w-4/5 PC:w-[350px] mx-auto text-center my-4 bg-[rgb(253,236,234)] py-2 rounded-[5px] text-[rgb(97,62,55)]">
+            <div className="w-4/5 lg:w-[350px] mx-auto text-center my-4 bg-[rgb(253,236,234)] py-2 rounded-[5px] text-[rgb(97,62,55)]">
               {errorMessage}
             </div>
           )}

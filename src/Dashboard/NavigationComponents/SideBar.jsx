@@ -44,7 +44,7 @@ const SideBar = () => {
       <aside
         className={`${
           closeSideNav ? "block" : "hidden"
-        } dashboard-navigation-darkmode w-[250px] h-screen phone:border-r-[1px] phone:border-[rgb(26,26,26)] phone:fixed z-50 p-2`}
+        } dashboard-navigation-darkmode w-[250px] h-screen max-md:border-r-[1px] max-md:border-[rgb(26,26,26)] max-md:fixed z-50 p-2`}
       >
         <div className="">
           <button
@@ -57,7 +57,7 @@ const SideBar = () => {
             <FaRegEdit className="text-[rgb(236,236,236)] text-xl" />
           </button>
           <button
-            className="absolute top-[15px] right-[-40px] hidden phone:block border-[2px] cursor-pointer"
+            className="absolute top-[15px] right-[-40px] hidden max-md:block border-[2px] cursor-pointer"
             onClick={() => {
               setCloseSideNav(false);
             }}
@@ -89,7 +89,7 @@ const SideBar = () => {
         <div
           className={`${
             userModal ? "flex" : "hidden"
-          } bg-[rgb(36,37,40)] w-full max-w-[190px] tablet:max-w-[175px] mx-auto flex-col items-start gap-2 border-zinc-600 border-[1px] px-2 py-1 rounded-[5px] phone:hidden font-semibold fixed left-[0.7%] tablet:left-[0.8%] bottom-20`}
+          } bg-[rgb(36,37,40)] w-full max-w-[190px] max-lg:max-w-[175px] mx-auto flex-col items-start gap-2 border-zinc-600 border-[1px] px-2 py-1 rounded-[5px] max-md:hidden font-semibold fixed left-[0.7%] max-lg:left-[0.8%] bottom-20`}
         >
           <button className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">
             <MdOutlineManageAccounts />
@@ -117,7 +117,7 @@ const SideBar = () => {
         </div>
 
         <button
-          className="flex items-center fixed left-2 tablet:left-1 bottom-5 gap-2 px-2 py-1 hover:bg-[rgb(33,33,33)] phone:w-full phone:max-w-[230px] hover:px-2 border-zinc-600 hover:border-[1px] rounded-[5px]"
+          className="flex items-center fixed left-2 max-lg:left-1 bottom-5 gap-2 px-2 py-1 hover:bg-[rgb(33,33,33)] max-md:w-full max-md:max-w-[230px] hover:px-2 border-zinc-600 hover:border-[1px] rounded-[5px]"
           onClick={() => {
             setUserModal(!userModal);
           }}

@@ -20,13 +20,13 @@ const Dashboard = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  useEffect(() => {
-    if (isAuthenticated === false) {
-      navigate("/login");
-    } else {
-      handleUserData();
-    }
-  }, [isAuthenticated, navigate]);
+  // useEffect(() => {
+  //   if (isAuthenticated === false) {
+  //     navigate("/login");
+  //   } else {
+  //     handleUserData();
+  //   }
+  // }, [isAuthenticated, navigate]);
 
   return (
     <>
@@ -34,14 +34,14 @@ const Dashboard = ({ children }) => {
         <SideBar />
         <section
           className={`${
-            location.pathname === "/home" ? "bg-image phone:bg-none" : ""
-          } w-full dashboard-navigation-darkmode rounded-[25px] my-1 mx-2 phone:rounded-none phone:m-0 relative`}
+            location.pathname === "/home" ? "bg-image max-md:bg-none" : ""
+          } w-full dashboard-navigation-darkmode rounded-[25px] my-1 mx-2 max-md:rounded-none max-md:m-0 relative`}
         >
           <TopNav />
           <button
             className={`${
               showDesignModal ? "" : ""
-            } absolute top-1/2 left-3 text-xl text-[rgb(95,95,95)] block cursor-pointer z-50 phone:hidden`}
+            } absolute top-1/2 left-3 text-xl text-[rgb(95,95,95)] block cursor-pointer z-50 max-md:hidden`}
             onClick={() => {
               setCloseSideNav(!closeSideNav);
             }}

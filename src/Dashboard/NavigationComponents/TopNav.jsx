@@ -17,7 +17,7 @@ const TopNav = () => {
   return (
     <>
       <nav>
-        <div className="phone:flex items-center justify-between m-3 hidden">
+        <div className="max-md:flex items-center justify-between m-3 hidden">
           <button
             onClick={() => {
               setCloseSideNav(true);
@@ -39,7 +39,7 @@ const TopNav = () => {
 
           <div
             className={`${
-              userModal ? "phone:flex" : "hidden"
+              userModal ? "max-md:flex" : "hidden"
             } bg-[rgb(36,37,40)] w-full max-w-[190px] mx-auto flex-col items-start gap-2 border-zinc-600 border-[1px] px-2 py-1 rounded-[5px] font-semibold fixed top-16 right-[0.7%] z-50`}
           >
             <button className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">
