@@ -8,7 +8,7 @@ export const DashContext = createContext();
 export const DashboardProvider = ({ children }) => {
   const [closeSideNav, setCloseSideNav] = useState(false);
   const [closeAINav, setCloseAINav] = useState(false);
-  const [showDesignModal, setShowDesignModal] = useState(true);
+  const [showDesignModal, setShowDesignModal] = useState(false);
   const [randomIndex, setRandomIndex] = useState(undefined); 
   const [userModal, setUserModal] = useState(false);
   const [userData, setUserData] = useState("");
@@ -39,7 +39,7 @@ export const DashboardProvider = ({ children }) => {
     });
     setLoading(true);
     try {
-      const response = await axios.post(`http://localhost:3000/api/quick-ai`, {
+      const response = await axios.post(`${baseUrl}/quick-ai`, {
         prompt: userInput || selectedIdea,
       });
       setGeminiResponses(response.data);
