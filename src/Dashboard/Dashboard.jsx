@@ -20,13 +20,13 @@ const Dashboard = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // useEffect(() => {
-  //   if (isAuthenticated === false) {
-  //     navigate("/login");
-  //   } else {
-  //     handleUserData();
-  //   }
-  // }, [isAuthenticated, navigate]);
+  useEffect(() => {
+    if (isAuthenticated === false) {
+      navigate("/login");
+    } else {
+      handleUserData();
+    }
+  }, [isAuthenticated, navigate]);
 
   return (
     <>
