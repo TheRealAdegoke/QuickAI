@@ -3,8 +3,17 @@ import { DashContext } from "../../DashboardChecker/DashboardContext";
 import {
   HeroOne,
   HeroTwo,
-  HeroThree
+  HeroThree,
+  HeroFour,
 } from "../../AI-Designed-Component/AI-Hero-Section-Component/customHero";
+import {
+  NavOne,
+  NavTwo,
+  NavThree
+} from "../../AI-Designed-Component/AI-Nav-Components/customNav";
+import {
+ FeaturesOne
+} from "../../AI-Designed-Component/AI-Features-Components/customFeatures";
 
 const DesignModal = () => {
   const { showDesignModal, randomIndex, navComponents, heroComponents } =
@@ -15,13 +24,15 @@ const DesignModal = () => {
       <main
         className={`${
           showDesignModal ? "block" : "hidden"
-        } bg-white w-full mt-5 phone:mt-0 mx-10 h-[93vh] phone:h-[89vh] smallDevice:mx-4 rounded-lg overflow-scroll overflow-x-hidden`}
+        } bg-white w-full mt-5 max-md:mt-0 mx-10 h-[93vh] max-md:h-[89vh] max-[499px]:mx-4 overflow-scroll overflow-x-hidden`}
       >
         {randomIndex !== undefined &&
           React.createElement(navComponents[randomIndex])}
 
         {randomIndex !== undefined &&
           React.createElement(heroComponents[randomIndex])}
+        <HeroFour />
+        <FeaturesOne/>
       </main>
     </>
   );

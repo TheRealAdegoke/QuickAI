@@ -65,7 +65,7 @@ const AIGenerator = () => {
       <section
         className={`${location.pathname !== "/home" ? "hidden" : "block"} ${
           showDesignModal ? "hidden" : "block"
-        } text-center mt-80 phone:mt-52 text-[rgb(201,209,217)] fixed max-w-[800px] w-[90%] bottom-5`}
+        } text-center mt-80 max-md:mt-52 text-[rgb(201,209,217)] fixed max-w-[800px] w-[90%] bottom-5`}
       >
         <div className="input-container">
           <div className="">
@@ -76,7 +76,7 @@ const AIGenerator = () => {
                 window.innerWidth < 960
                   ? "hidden"
                   : ""
-              } font-bold text-2xl phone:text-xl mb-8`}
+              } font-bold text-2xl max-md:text-xl mb-8`}
             >
               Tell us what you need a website for!
             </p>
@@ -90,28 +90,28 @@ const AIGenerator = () => {
               } flex flex-row flex-wrap justify-evenly gap-3 mb-8`}
             >
               <button
-                className="block border-zinc-600 border-[1px] p-4 rounded-t-[20px] w-[90%] max-w-[350px] smallDevice:max-w-[800px] hover:bg-[rgb(20,21,24)] cursor-pointer phone:rounded-[10px]"
+                className="block border-zinc-600 border-[1px] p-4 rounded-t-[20px] w-[90%] max-w-[350px] max-[499px]:max-w-[800px] hover:bg-[rgb(20,21,24)] cursor-pointer max-md:rounded-[10px]"
                 onClick={() => handleIdeaClick(ideas[0])}
               >
                 <p className="text-[15px] font-medium">{ideas[0]}</p>
               </button>
 
               <button
-                className="block border-zinc-600 border-[1px] p-4 rounded-t-[20px] w-[90%] max-w-[350px] smallDevice:max-w-[800px] hover:bg-[rgb(20,21,24)] cursor-pointer phone:rounded-[10px]"
+                className="block border-zinc-600 border-[1px] p-4 rounded-t-[20px] w-[90%] max-w-[350px] max-[499px]:max-w-[800px] hover:bg-[rgb(20,21,24)] cursor-pointer max-md:rounded-[10px]"
                 onClick={() => handleIdeaClick(ideas[1])}
               >
                 <p className="text-[15px] font-medium">{ideas[1]}</p>
               </button>
 
               <button
-                className="block border-zinc-600 border-[1px] p-4 rounded-b-[20px] w-[90%] max-w-[350px] smallDevice:max-w-[800px] hover:bg-[rgb(20,21,24)] cursor-pointer phone:hidden"
+                className="block border-zinc-600 border-[1px] p-4 rounded-b-[20px] w-[90%] max-w-[350px] max-[499px]:max-w-[800px] hover:bg-[rgb(20,21,24)] cursor-pointer max-md:hidden"
                 onClick={() => handleIdeaClick(ideas[2])}
               >
                 <p className="text-[15px] font-medium">{ideas[2]}</p>
               </button>
 
               <button
-                className="block border-zinc-600 border-[1px] p-4 rounded-b-[20px] w-[90%] max-w-[350px] smallDevice:max-w-[800px] hover:bg-[rgb(20,21,24)] cursor-pointer phone:hidden"
+                className="block border-zinc-600 border-[1px] p-4 rounded-b-[20px] w-[90%] max-w-[350px] max-[499px]:max-w-[800px] hover:bg-[rgb(20,21,24)] cursor-pointer max-md:hidden"
                 onClick={() => handleIdeaClick(ideas[3])}
               >
                 <p className="text-[15px] font-medium">{ideas[3]}</p>
@@ -122,8 +122,8 @@ const AIGenerator = () => {
               <form
                 action=""
                 className={`${
-                  closeSideNav ? "tablet:max-w-[500px]" : ""
-                } glowing-light w-[90%] max-w-[800px] phone:max-w-[500px] mx-auto border-zinc-600 border-[1px] rounded-[10px] flex justify-between items-center pr-3`}
+                  closeSideNav ? "max-lg:max-w-[550px]" : ""
+                } glowing-light w-[90%] max-w-[800px] max-md:max-w-[500px] mx-auto border-zinc-600 border-[1px] rounded-[10px] flex justify-between items-center pr-3`}
                 onSubmit={handlePrompt}
               >
                 <input

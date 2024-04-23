@@ -15,13 +15,13 @@ const Nav = () => {
         <nav className="flex items-center justify-between px-3 py-2 border-b border-[rgba(255,255,255,0.2)] bg-transparent fixed w-full">
           <div>
             <Link to="/" className="cursor-pointer">
-              <WebLogo/>
+              <WebLogo />
             </Link>
           </div>
 
           <div>
             <button
-              className="hidden mobile:block"
+              className="hidden max-lg:block"
               onClick={() => {
                 setToggleNav(!toggleNav);
               }}
@@ -35,10 +35,10 @@ const Nav = () => {
 
             <div
               className={`${
-                toggleNav ? "mobile:block" : "mobile:hidden"
-              } mobile:absolute top-[85px] top right-0 border-[rgba(255,255,255,0.2)] mobile:border mobile:w-[300px] mobile:h-[300px] rounded-[8px] mobile:bg-black`}
+                toggleNav ? "max-lg:block" : "max-lg:hidden"
+              } max-lg:absolute top-[85px] top right-0 border-[rgba(255,255,255,0.2)] max-lg:border max-lg:w-[300px] max-lg:h-[300px] rounded-[8px] max-lg:bg-black`}
             >
-              <div className="flex justify-center PC:hidden">
+              <div className="flex justify-center lg:hidden">
                 <img
                   src={transparentQ}
                   alt="Quick UI Image."
@@ -46,12 +46,18 @@ const Nav = () => {
                 />
               </div>
 
-              <div className="flex mobile:flex-col mobile:gap-3 mobile:px-3 gap-5">
-                <Link to="/login" className="block text-center border border-[rgba(255,255,255,0.2)] py-2 px-8 rounded-[8px] transition-all duration-300 ease-in-out hover:bg-[rgba(255,255,255,0.2)]">
+              <div className="flex max-lg:flex-col max-lg:gap-3 max-lg:px-3 gap-5">
+                <Link
+                  to="/login"
+                  className="block text-center border border-[rgba(255,255,255,0.2)] py-2 px-8 rounded-[8px] transition-all duration-300 ease-in-out hover:bg-[rgba(255,255,255,0.2)]"
+                >
                   <span>Login</span>
                 </Link>
 
-                <Link to="/register" className="block text-center border border-[rgba(255,255,255,0.2)] py-2 px-4 rounded-[8px] transition-all duration-300 ease-in-out hover:bg-[rgba(255,255,255,0.2)]">
+                <Link
+                  to="/register"
+                  className="block text-center border border-[rgba(255,255,255,0.2)] py-2 px-4 rounded-[8px] transition-all duration-300 ease-in-out hover:bg-[rgba(255,255,255,0.2)]"
+                >
                   <span className="flex justify-center items-center gap-2">
                     Sign Up <TiArrowRightOutline />
                   </span>
