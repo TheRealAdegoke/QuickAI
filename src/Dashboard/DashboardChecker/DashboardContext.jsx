@@ -9,6 +9,7 @@ export const DashboardProvider = ({ children }) => {
   const [closeSideNav, setCloseSideNav] = useState(false);
   const [closeAINav, setCloseAINav] = useState(false);
   const [showDesignModal, setShowDesignModal] = useState(false);
+  const [testDesignModal, setTestDesignModal] = useState(false);
   const [randomIndex, setRandomIndex] = useState(undefined); 
   const [userModal, setUserModal] = useState(false);
   const [userData, setUserData] = useState("");
@@ -90,6 +91,8 @@ export const DashboardProvider = ({ children }) => {
         navComponents,
         heroComponents,
         clearDesigns,
+        testDesignModal,
+        setTestDesignModal,
       }}
     >
       {children}
