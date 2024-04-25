@@ -18,6 +18,7 @@ const AIGenerator = () => {
     selectedIdea,
     setSelectedIdea,
     loading,
+    testDesignModal,
   } = useContext(DashContext);
   const location = useLocation();
   const [ideas, setIdeas] = useState([]);
@@ -65,7 +66,7 @@ const AIGenerator = () => {
       <section
         className={`${location.pathname !== "/home" ? "hidden" : "block"} ${
           showDesignModal ? "hidden" : "block"
-        } text-center mt-80 max-md:mt-52 text-[rgb(201,209,217)] fixed max-w-[800px] w-[90%] bottom-5`}
+        } ${testDesignModal ? "hidden" : "block"} text-center mt-80 max-md:mt-52 text-[rgb(201,209,217)] fixed max-w-[800px] w-[90%] bottom-5`}
       >
         <div className="input-container">
           <div className="">

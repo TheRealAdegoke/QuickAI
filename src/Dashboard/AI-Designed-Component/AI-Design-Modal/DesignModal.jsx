@@ -1,19 +1,5 @@
 import React, { useContext } from "react";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
-import {
-  HeroOne,
-  HeroTwo,
-  HeroThree,
-  
-} from "../../AI-Designed-Component/AI-Hero-Section-Component/customHero";
-import {
-  NavOne,
-  NavTwo,
-  NavThree
-} from "../../AI-Designed-Component/AI-Nav-Components/customNav";
-import {
- FeaturesOne
-} from "../../AI-Designed-Component/AI-Features-Components/customFeatures";
 
 const DesignModal = () => {
   const { showDesignModal, randomIndex, navComponents, heroComponents } =
@@ -31,8 +17,6 @@ const DesignModal = () => {
 
         {randomIndex !== undefined &&
           React.createElement(heroComponents[randomIndex])}
-        {/* <HeroFour />
-        <FeaturesOne/> */}
       </main>
     </>
   );

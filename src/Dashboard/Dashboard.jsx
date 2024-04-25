@@ -8,6 +8,7 @@ import { FaChevronLeft } from "react-icons/fa6";
 import { FaChevronRight } from "react-icons/fa6";
 import DesignModal from "./AI-Designed-Component/AI-Design-Modal/DesignModal";
 import { DashContext } from "./DashboardChecker/DashboardContext";
+import TestDesignModal from "./Test Modal/TestDesignModal";
 
 const Dashboard = ({ children }) => {
   const { isAuthenticated } = useContext(AuthContext);
@@ -16,6 +17,7 @@ const Dashboard = ({ children }) => {
     setCloseSideNav,
     showDesignModal,
     handleUserData,
+    testDesignModal,
   } = useContext(DashContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -50,6 +52,11 @@ const Dashboard = ({ children }) => {
           </button>
           <div className="flex justify-center">
             {showDesignModal ? <DesignModal /> : <AIGenerator />}
+          </div>
+
+          {/* please always comment the code below when not working on the TestDesignModal component */}
+          <div className="flex justify-center">
+            {testDesignModal && <TestDesignModal />}
           </div>
           {children}
         </section>
