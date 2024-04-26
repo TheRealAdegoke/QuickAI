@@ -1,13 +1,12 @@
 import {
-  HeroOne,
-  HeroThree,
-  HeroTwo,
-} from "../AI-Designed-Component/AI-Hero-Section-Component/customHero";
-import {
   NavOne,
   NavTwo,
   NavThree,
 } from "../AI-Designed-Component/AI-Nav-Components/customNav";
+import {
+ HeroOne,
+ HeroTwo
+} from "../AI-Designed-Component/AI-Hero-Section-Component/customHero";
 
 // Texts for input placeholder
 export const placeholderText = [
@@ -58,4 +57,4 @@ export const randomIdeas = [
 // Array of all Nav components
 export const navComponents = [NavOne, NavTwo, NavThree];
 
-export const heroComponents = [HeroOne, HeroTwo, HeroThree]
+export const heroComponents = [HeroOne, HeroTwo]
