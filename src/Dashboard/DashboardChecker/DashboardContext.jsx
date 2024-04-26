@@ -24,6 +24,7 @@ export const DashboardProvider = ({ children }) => {
       Math.random() * Math.max(navComponents.length, heroComponents.length)
     );
     setRandomIndex(randomIndex);
+    console.log(randomIndex);
   };
 
   const handleUserData = async () => {
@@ -50,6 +51,7 @@ export const DashboardProvider = ({ children }) => {
       } else {
         setShowDesignModal(true);
       }
+      console.log(response.data);
     } catch (error) {
       console.error(error.response.data.error);
       message.error(error.response.data.error);

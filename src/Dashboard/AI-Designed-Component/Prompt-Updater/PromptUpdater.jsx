@@ -7,16 +7,9 @@ const PromptUpdater = () => {
     prompt: "",
     description: "",
     images: [],
+    webLogo: ""
   });
-  const [randomImageIndex, setRandomImageIndex] = useState(0);
 
-  useEffect(() => {
-    // Select a random image index once when the component mounts
-    const randomIndex = Math.floor(
-      Math.random() * geminiResponses.imageUrls.length
-    );
-    setRandomImageIndex(randomIndex);
-  }, [geminiResponses]);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -28,6 +21,7 @@ const PromptUpdater = () => {
           prevText.description.length + 1
         ),
         images: geminiResponses.imageUrls,
+        webLogo: geminiResponses.logo.slice(0, prevText.webLogo.length + 1),
       }));
     }, 100);
 
@@ -38,7 +32,8 @@ const PromptUpdater = () => {
   return {
     prompt: text.prompt,
     description: text.description,
-    images: text.images[randomImageIndex],
+    images: text.images,
+    webLogo: text.webLogo
   };
 };
 

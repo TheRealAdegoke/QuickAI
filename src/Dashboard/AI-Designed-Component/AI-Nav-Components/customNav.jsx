@@ -2,15 +2,19 @@ import React, { useContext } from "react";
 import { FaBars } from "react-icons/fa";
 import ModalWebLogo from "../../../assets/ModalWebLogo";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
+import PromptUpdater from "../Prompt-Updater/PromptUpdater";
+import modalLogo from "../../../assets/quickModalLogo.png";
 
 export const NavOne = () => {
   const { closeAINav, setCloseAINav } = useContext(DashContext);
+  const text = PromptUpdater()
   return (
     <>
       <nav className={`bg-white w-full shadow-xl relative`}>
         <div className={`flex justify-between items-center px-5`}>
-          <div className="w-1/5 max-md:w-[30%] flex  py-3">
-            <ModalWebLogo />
+          <div className="w-1/5 max-md:w-[30%] flex items-center gap-1 py-3">
+            <img src={modalLogo} alt={modalLogo} className="w-[40px]" />
+            <h1 className="font-semibold text-black">{text.webLogo}</h1>
           </div>
 
           <button
@@ -50,12 +54,14 @@ export const NavOne = () => {
 
 export const NavTwo = () => {
   const { closeAINav, setCloseAINav } = useContext(DashContext);
+  const text = PromptUpdater();
   return (
     <>
       <nav className={`bg-white w-full shadow-xl relative`}>
         <div className={`flex justify-between items-center px-5`}>
-          <div className="w-[20%] flex py-3">
-            <ModalWebLogo />
+          <div className="w-[20%] flex items-center gap-1 py-3">
+            <img src={modalLogo} alt={modalLogo} className="w-[40px]" />
+            <h1 className="font-semibold text-black">{text.webLogo}</h1>
           </div>
 
           <button
@@ -101,14 +107,16 @@ export const NavTwo = () => {
 
 export const NavThree = () => {
   const { closeAINav, setCloseAINav } = useContext(DashContext);
+  const text = PromptUpdater();
   return (
     <>
       <nav
-        className={`bg-white w-[90%] border-[1px] max-w-[800px] mt-[20px] rounded-xl mx-auto shadow-xl relative left-0`}
+        className={`bg-white w-[90%] border-[1px] max-w-[800px] my-[20px] rounded-xl mx-auto shadow-xl relative left-0`}
       >
         <div className={`flex justify-between items-center px-5`}>
-          <div className="w-[20%] flex py-3">
-            <ModalWebLogo />
+          <div className="w-[20%] flex items-center gap-1 py-3">
+            <img src={modalLogo} alt={modalLogo} className="w-[40px]" />
+            <h1 className="font-semibold text-black">{text.webLogo}</h1>
           </div>
 
           <button

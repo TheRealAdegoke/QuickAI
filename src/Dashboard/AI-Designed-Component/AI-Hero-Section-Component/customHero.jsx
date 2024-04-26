@@ -4,29 +4,59 @@ import PromptUpdater from "../Prompt-Updater/PromptUpdater";
 import modalLogo from "../../../assets/quickModalLogo.png";
 import testImage from "../../../assets/Default-Card.jpg";
 import { Link } from "react-router-dom";
-import { FaBarsStaggered } from "react-icons/fa6";
-import { IoClose } from "react-icons/io5";
 
 export const HeroOne = () => {
   const text = PromptUpdater();
-
   return (
     <>
-      <section className="text-black my-5">
-        <h1 className="text-5xl text-[rgb(33,37,41)] lg:text-6xl font-extrabold text-center  max-[499px]:text-4xl phone:max-w-[350px] max-lg:max-w-[400px] max-w-[500px] mx-auto my-3">
-          {text.prompt}
-        </h1>
+      <section
+        className="text-black py-8 max-lg:block flex justify-evenly rounded-[8px] w-[95%] mx-auto my-[20px]"
+        style={{
+          background:
+            "radial-gradient(circle at 100% 100%, rgba(241,209,160,1) 21%, rgba(186,170,233,1) 50%, #e2dcf6 75%, rgba(183,178,238,1) 100%)",
+        }}
+      >
+        <div className="max-lg:w-[95%] w-[40%] max-lg:pb-10 max-lg:mx-auto rounded-[8px] lg:px-5">
+          <h1 className="text-5xl max-lg:text-center font-bold">
+            {text.prompt}
+          </h1>
+          <p className="max-lg:text-center my-6 max-lg: max-lg:max-w-[400px] lg:max-w-[500px] max-lg:mx-auto max-lg:px-3">
+            {text.description}
+          </p>
+          <button className="flex items-center gap-1 bg-[rgb(76,48,246)] p-4 max-lg:mx-auto rounded-[8px] text-white font-semibold">
+            Register now
+          </button>
+        </div>
 
-        <p className="text-xl text-[rgb(52,58,64)] font-medium text-center phone:max-w-[350px] max-lg:max-w-[400px] max-w-[500px] mx-auto">
-          {text.description}
-        </p>
-
-        <div className="bg-[rgb(24,24,27)] w-[90%] max-w-[800px] h-[400px] mx-auto my-5 p-3 rounded-lg">
-          <img
-            src={text.images}
-            alt=""
-            className="block w-full max-w-[800px] h-[375px] rounded-lg object-cover"
-          />
+        <div className="max-lg:hidden w-[55%] m-auto grid grid-cols-3 gap-4">
+          <div className="bg-white shadow-md h-[200px]  p-3 rounded-[8px] col-span-2">
+            <img
+              src={text.images[0]}
+              alt={text.images[0]}
+              className="rounded-[8px] w-full h-full object-cover"
+            />
+          </div>
+          <div className="bg-white shadow-md h-[200px]  p-3 rounded-[8px]">
+            <img
+              src={text.images[1]}
+              alt={text.images[1]}
+              className="rounded-[8px] w-full h-full object-cover"
+            />
+          </div>
+          <div className="bg-white shadow-md h-[200px]  p-3 rounded-[8px]">
+            <img
+              src={text.images[2]}
+              alt={text.images[2]}
+              className="rounded-[8px] w-full h-full object-cover"
+            />
+          </div>
+          <div className="bg-white shadow-md h-[200px]  p-3 rounded-[8px] col-span-2">
+            <img
+              src={text.images[3]}
+              alt={text.images[3]}
+              className="rounded-[8px] w-full h-full object-cover"
+            />
+          </div>
         </div>
       </section>
     </>
@@ -38,23 +68,64 @@ export const HeroTwo = () => {
 
   return (
     <>
-      <section className="text-black mb-3 flex justify-between max-lg:flex-col px-5">
-        <div className="w-[45%] max-lg:w-full mt-9">
-          <h1 className="text-5xl text-[rgb(33,37,41)] font-extrabold text-center max-[499px]:text-4xl phone:max-w-[350px] max-lg:max-w-[400px] max-w-[500px] mx-auto mb-3">
-            {text.prompt}
-          </h1>
+      <section className="mb-[20px] py-10 px-5 bg-[rgb(26,26,26)]">
+        <div className="flex justify-center gap-10 max-lg:flex-col lg:max-w-[]">
+          <div className="max-lg:hidden w-[50%]">
+            <h1 className="text-6xl text-white font-bold max-w-[500px]">
+              {text.prompt}
+            </h1>
 
-          <p className="text-xl text-[rgb(52,58,64)] font-medium text-center phone:max-w-[350px] max-lg:max-w-[400px] max-w-[500px] mx-auto">
-            {text.description}
-          </p>
-        </div>
-
-        <div className="bg-[rgb(24,24,27)] w-[45%] max-lg:w-full h-[400px] my-5 p-3 rounded-lg">
-          <img
-            src={text.images}
-            alt=""
-            className="block w-full max-w-[800px] h-[375px] rounded-lg object-cover"
-          />
+            <div className="w-[85%] grid grid-cols-3 gap-4 my-10">
+              <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[250px]  p-3 rounded-[8px] col-span-3">
+                <img
+                  src={text.images[0]}
+                  alt={text.images[0]}
+                  className="rounded-[8px] w-full h-full object-cover"
+                />
+              </div>
+              <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[200px]  p-3 rounded-[8px]">
+                <img
+                  src={text.images[1]}
+                  alt={text.images[1]}
+                  className="rounded-[8px] w-full h-full object-cover"
+                />
+              </div>
+              <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[200px]  p-3 rounded-[8px]">
+                <img
+                  src={text.images[2]}
+                  alt={text.images[2]}
+                  className="rounded-[8px] w-full h-full object-cover"
+                />
+              </div>
+              <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[200px]  p-3 rounded-[8px]">
+                <img
+                  src={text.images[3]}
+                  alt={text.images[3]}
+                  className="rounded-[8px] w-full h-full object-cover"
+                />
+              </div>
+              <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[250px]  p-3 rounded-[8px] col-span-3">
+                <img
+                  src={text.images[4]}
+                  alt={text.images[4]}
+                  className="rounded-[8px] w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="max-lg:max-w-[800px] max-lg:w-[95%] max-lg:mx-auto w-[50%]">
+            <img
+              src={text.images[5]}
+              alt={text.images[5]}
+              className="block max-lg:w-[95%] w-full h-[600px] max-lg:h-[400px] max-lg:max-w-[800px]"
+            />
+            <p className="my-5 max-lg:max-w-[400px]">
+              {text.description}
+            </p>
+            <button className="flex items-center gap-1 border-[2px] rounded-full px-8 py-2 text-white font-semibold hover:bg-white hover:text-black">
+              contact us
+            </button>
+          </div>
         </div>
       </section>
     </>
@@ -67,171 +138,8 @@ export const HeroThree = () => {
   return (
     <>
       <section className="text-black mb-3 flex flex-row-reverse justify-between max-lg:flex-col px-5">
-        <div className="w-[45%] max-lg:w-full mt-9">
-          <h1 className="text-4xl text-[rgb(33,37,41)] font-extrabold text-center max-[499px]:text-4xl phone:max-w-[350px] max-lg:max-w-[400px] max-w-[500px] mx-auto mb-3">
-            {text.prompt}
-          </h1>
-
-          <p className="text-xl text-[rgb(52,58,64)] font-medium text-center phone:max-w-[350px] max-lg:max-w-[400px] max-w-[500px] mx-auto">
-            {text.description}
-          </p>
-        </div>
-
-        <div className="bg-[rgb(24,24,27)] w-[45%] max-lg:w-full h-[400px] my-5 p-3 rounded-lg">
-          <img
-            src={text.images}
-            alt=""
-            className="block w-full max-w-[800px] h-[375px] rounded-lg object-cover"
-          />
-        </div>
       </section>
     </>
   );
 };
 
-export const HeroFour = () => {
-  const [toggleNav, setToggleNav] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 1024);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  return (
-    <>
-      <section
-        className="text-black py-5"
-        style={{
-          background: isMobile
-            ? `linear-gradient(to bottom, rgb(26,46,53) 30%, rgb(28,187,180) 70%)`
-            : `linear-gradient(to right, rgb(26,46,53) 50%, rgb(28,187,180) 50%)`,
-        }}
-      >
-        <header>
-          <nav className="bg-transparent relative">
-            <div className="flex justify-between items-center px-5">
-              <Link to="/" className="flex items-center gap-3">
-                <img
-                  src={modalLogo}
-                  alt={modalLogo}
-                  className="block w-[35px]"
-                />
-                <h3 className="text-white font-bold text-2xl">Spering</h3>
-              </Link>
-
-              <div
-                className={`${
-                  toggleNav
-                    ? "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                    : "left-full"
-                } absolute max-lg:hidden transform transition-transform duration-300 ease-out`}
-              >
-                <ul className={`flex gap-5 text-white font-medium`}>
-                  <li>
-                    <Link>Home</Link>
-                  </li>
-                  <li>
-                    <Link>About</Link>
-                  </li>
-                  <li>
-                    <Link>Work</Link>
-                  </li>
-                  <li>
-                    <Link>Category</Link>
-                  </li>
-                </ul>
-              </div>
-
-              <button
-                className="text-white text-3xl cursor-pointer z-50"
-                onClick={() => {
-                  setToggleNav(!toggleNav);
-                }}
-              >
-                {toggleNav ? <IoClose /> : <FaBarsStaggered />}
-              </button>
-            </div>
-
-            <div className="">
-              <ul
-                className={`${
-                  toggleNav ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-                } flex flex-col justify-center items-center gap-5 text-white font-medium lg:hidden transition-all duration-500 my-10`}
-              >
-                <li className={`${toggleNav ? "block" : "hidden"}`}>
-                  <Link>Home</Link>
-                </li>
-                <li className={`${toggleNav ? "block" : "hidden"}`}>
-                  <Link>About</Link>
-                </li>
-                <li className={`${toggleNav ? "block" : "hidden"}`}>
-                  <Link>Work</Link>
-                </li>
-                <li className={`${toggleNav ? "block" : "hidden"}`}>
-                  <Link>Category</Link>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        </header>
-
-        <div className="my-8 flex items-center  max-lg:flex-col gap-8 lg:px-5">
-          <div className="flex flex-col max-lg:text-center max-lg:max-w-[300px] gap-5 w-1/2 max-lg:w-full px-4">
-            <h1 className="text-white text-[2.5rem] max-lg:text-[2.2rem] font-bold">
-              YOU CAN HIRE FREELANCER HERE
-            </h1>
-            <p className="text-white font-medium">
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page
-            </p>
-            <div className="flex gap-4 max-lg:flex-col items-center">
-              <button className="bg-[rgb(255,79,90)] p-3 text-white w-[200px] hover:bg-transparent hover:border-[rgb(255,79,90)] border-[rgb(255,79,90)] hover:border-[1px] hover:text-[rgb(255,79,90)] duration-300 ease-in-out">
-                About Us
-              </button>
-              <button className="bg-white p-3 text-black w-[200px] hover:bg-transparent hover:border-white border-white hover:border-[1px] hover:text-white duration-300 ease-in-out">
-                Get A Quote
-              </button>
-            </div>
-          </div>
-
-          <div className="bg-[rgba(0,0,0,0.8)] w-1/2 max-lg:w-[95%] max-lg:max-w-[450px] p-3 rounded-lg">
-            <img src={testImage} alt={testImage} />
-          </div>
-        </div>
-      </section>
-    </>
-  );
-};
-
-export const HeroFive = () => {
-  return (
-    <>
-      <section
-        className="text-black py-8"
-      >
-        <h1 className="text-center text-[3rem] font-light">
-          Homemade Restaurant
-        </h1>
-        <div
-          className="h-[400px] my-5 bg-cover"
-          style={{ backgroundImage: `url(${testImage})` }}
-        ></div>
-        <p className="text-center text-xl max-w-[700px] mx-auto font-normal mt-5">
-          Make it something to look forward to with stacks of pancakes, healthy
-          smoothie bowls or perfect poached eggs.{" "}
-        </p>
-
-        <button className="font-bold block w-[200px] my-12 mx-auto border-black border-[2px] py-4 text-xl hover:bg-black hover:text-white">
-          Learn More
-        </button>
-      </section>
-    </>
-  );
-};
