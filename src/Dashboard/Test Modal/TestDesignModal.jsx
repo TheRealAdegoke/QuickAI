@@ -27,10 +27,8 @@ NB: <TestDesignModal/> should be completely removed from the Dashboard.jsx compo
 
 */
 
-import React, { useContext } from "react";
-import { DashContext } from "../DashboardChecker/DashboardContext";
 import {
-  HeroTwo,
+  HeroThree
 } from "../AI-Designed-Component/AI-Hero-Section-Component/customHero";
 import {
   NavOne,
@@ -40,14 +38,21 @@ import {
 import { FeaturesOne } from "../AI-Designed-Component/AI-Features-Components/customFeatures";
 
 const TestDesignModal = () => {
-  const { showDesignModal, randomIndex, navComponents, heroComponents } =
-    useContext(DashContext);
+  
   return (
     <main
       className={`bg-white w-full mt-5 max-md:mt-0 mx-10 h-[93vh] max-md:h-[89vh] max-[499px]:mx-4 overflow-scroll overflow-x-hidden`}
     >
-      <NavThree />
-      <HeroTwo/>
+      <NavTwo />
+      <HeroThree/>
+      <div className=" bg-emerald-500">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad accusamus
+          sequi voluptate minus earum voluptatem autem obcaecati inventore
+          nostrum tenetur, cumque laborum, atque facilis cum laudantium velit
+          pariatur in quis.
+        </p>
+      </div>
     </main>
   );
 };

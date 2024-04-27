@@ -10,21 +10,24 @@ export const DashboardProvider = ({ children }) => {
   const [closeAINav, setCloseAINav] = useState(false);
   const [showDesignModal, setShowDesignModal] = useState(false);
   const [testDesignModal, setTestDesignModal] = useState(false);
-  const [randomIndex, setRandomIndex] = useState(undefined); 
   const [userModal, setUserModal] = useState(false);
   const [userData, setUserData] = useState("");
   const [userInput, setUserInput] = useState("");
   const [selectedIdea, setSelectedIdea] = useState("");
   const [geminiResponses, setGeminiResponses] = useState("");
   const [loading, setLoading] = useState(false);
+  const [navIndex, setNavIndex] = useState(undefined);
+  const [heroIndex, setHeroIndex] = useState(undefined);
   const baseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
 
+
   const handleGenerateNav = () => {
-    const randomIndex = Math.floor(
-      Math.random() * Math.max(navComponents.length, heroComponents.length)
-    );
-    setRandomIndex(randomIndex);
-    console.log(randomIndex);
+    const navIndex = Math.floor(Math.random() * navComponents.length);
+    const heroIndex = Math.floor(Math.random() * heroComponents.length);
+
+    setNavIndex(navIndex);
+    setHeroIndex(heroIndex);
+    console.log("Nav Index: ", navIndex, "Hero Index: ", heroIndex);
   };
 
   const handleUserData = async () => {
@@ -79,7 +82,6 @@ export const DashboardProvider = ({ children }) => {
         closeAINav,
         setCloseAINav,
         handleGenerateNav,
-        randomIndex,
         userData,
         handleUserData,
         geminiResponses,
@@ -95,6 +97,8 @@ export const DashboardProvider = ({ children }) => {
         clearDesigns,
         testDesignModal,
         setTestDesignModal,
+        navIndex,
+        heroIndex,
       }}
     >
       {children}
