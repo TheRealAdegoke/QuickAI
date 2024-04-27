@@ -119,9 +119,7 @@ export const HeroTwo = () => {
               alt={text.images[5]}
               className="block max-lg:w-[95%] w-full h-[600px] max-lg:h-[400px] max-lg:max-w-[800px]"
             />
-            <p className="my-5 max-lg:max-w-[400px]">
-              {text.description}
-            </p>
+            <p className="my-5 max-lg:max-w-[400px]">{text.description}</p>
             <button className="flex items-center gap-1 border-[2px] rounded-full px-8 py-2 text-white font-semibold hover:bg-white hover:text-black">
               contact us
             </button>
@@ -137,9 +135,60 @@ export const HeroThree = () => {
 
   return (
     <>
-      <section className="text-black mb-3 flex flex-row-reverse justify-between max-lg:flex-col px-5">
+      <section
+        className="max-md:h-[600px] bg-cover bg-no-repeat lg:mb-40 mb-5"
+        style={{ backgroundImage: `url(${text.images[0]})` }}
+      >
+        <div className="bg-[rgba(0,0,0,0.5)] h-full relative pb-[10%]">
+          <div className="flex flex-col justify-center lg:justify-start items-center lg:items-start">
+            <div className="bg-[rgba(30,72,111,0.8)] w-[80%] max-w-[500px] max-md:h-[450px] lg:min-h-[350px] lg:ml-20 px-6 py-12 my-8">
+              <h1 className="text-5xl max-md:text-3xl text-white font-bold">
+                {text.prompt}
+              </h1>
+              <p className="py-4 max-w-[400px] font-medium">
+                {text.description}
+              </p>
+              <button className="flex items-center gap-1 border-[2px] rounded-full px-16 py-4 text-white font-semibold hover:bg-white hover:text-[rgb(30,72,111)]">
+                contact us
+              </button>
+            </div>
+          </div>
+
+          <div className="max-lg:hidden flex gap-5 justify-center absolute bottom-[-25%] w-full">
+            <div className="bg-white shadow-lg text-black w-[20%] p-2 rounded-md  min-h-[150px] max-h-[200px]">
+              <img
+                src={text.images[1]}
+                alt={text.images[1]}
+                className="w-full rounded-md h-full"
+              />
+            </div>
+
+            <div className="bg-white shadow-lg text-black w-[20%] p-2 rounded-md  min-h-[150px] max-h-[200px]">
+              <img
+                src={text.images[2]}
+                alt={text.images[2]}
+                className="w-full rounded-md h-full"
+              />
+            </div>
+
+            <div className="bg-white shadow-lg text-black w-[20%] p-2 rounded-md  min-h-[150px] max-h-[200px]">
+              <img
+                src={text.images[3]}
+                alt={text.images[3]}
+                className="w-full rounded-md h-full"
+              />
+            </div>
+
+            <div className="bg-white shadow-lg text-black w-[20%] p-2 rounded-md  min-h-[150px] max-h-[200px]">
+              <img
+                src={text.images[4]}
+                alt={text.images[4]}
+                className="w-full rounded-md h-full"
+              />
+            </div>
+          </div>
+        </div>
       </section>
     </>
   );
 };
-

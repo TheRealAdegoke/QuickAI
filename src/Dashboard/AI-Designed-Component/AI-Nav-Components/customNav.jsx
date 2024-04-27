@@ -10,7 +10,7 @@ export const NavOne = () => {
   const text = PromptUpdater()
   return (
     <>
-      <nav className={`bg-white w-full shadow-xl relative`}>
+      <nav className={`bg-white w-full shadow-xl relative z-50`}>
         <div className={`flex justify-between items-center px-5`}>
           <div className="w-1/5 max-md:w-[30%] flex items-center gap-1 py-3">
             <img src={modalLogo} alt={modalLogo} className="w-[40px]" />
@@ -57,7 +57,7 @@ export const NavTwo = () => {
   const text = PromptUpdater();
   return (
     <>
-      <nav className={`bg-white w-full shadow-xl relative`}>
+      <nav className={`bg-white w-full shadow-xl relative z-50`}>
         <div className={`flex justify-between items-center px-5`}>
           <div className="w-[20%] flex items-center gap-1 py-3">
             <img src={modalLogo} alt={modalLogo} className="w-[40px]" />
@@ -111,7 +111,7 @@ export const NavThree = () => {
   return (
     <>
       <nav
-        className={`bg-white w-[90%] border-[1px] max-w-[800px] my-[20px] rounded-xl mx-auto shadow-xl relative left-0`}
+        className={`bg-white w-[90%] border-[1px] max-w-[800px] my-[20px] rounded-xl mx-auto shadow-xl relative left-0 z-50`}
       >
         <div className={`flex justify-between items-center px-5`}>
           <div className="w-[20%] flex items-center gap-1 py-3">
