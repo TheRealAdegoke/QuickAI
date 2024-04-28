@@ -192,3 +192,232 @@ export const HeroThree = () => {
     </>
   );
 };
+
+export const HeroFour = () => {
+  const text = PromptUpdater();
+  return (
+    <>
+      <section className="h-[600px] max-lg:h-[750px] my-5 flex lg:gap-8 lg:justify-evenly max-lg:flex-col max-w-[1200px] mx-auto lg:pl-5">
+        <div className="text-[rgb(33,37,41)] w-[40%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16">
+          <h1 className="font-bold xl:text-5xl text-3xl mb-4">{text.prompt}</h1>
+          <p className="font-medium">
+            {text.description}
+          </p>
+        </div>
+        <div className="relative w-[55%] h-full max-lg:w-full max-lg:max-w-[500px] max-lg:mx-auto">
+          <div className="w-[250px] h-[400px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3 mb-4 absolute top-2 max-lg:left-[35%] max-lg:transform max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:top-1/2 max-xl:top-2 max-xl:right-32 z-20">
+            <img
+              src={text.images[0]}
+              alt={text.images[0]}
+              className="h-[350px] rounded-[35px] object-cover"
+            />
+          </div>
+          <div className="w-[260px] h-[480px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3 absolute max-lg:left-[60%] max-lg:transform max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:top-1/2 top-[7%] right-0 xl:right-[28%] z-10">
+            <img
+              src={text.images[1]}
+              alt={text.images[1]}
+              className="h-[420px] rounded-[35px] object-cover"
+            />
+          </div>
+          <div className="w-[260px] h-[450px] bg-[rgb(33,37,41)] rounded-[35px] px-3 py-3 absolute top-14 right-5 max-xl:hidden">
+            <img
+              src={text.images[2]}
+              alt={text.images[2]}
+              className="h-full rounded-[35px] object-cover"
+            />
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export const HeroFive = () => {
+  const text = PromptUpdater();
+  return (
+    <>
+      <section className="my-5 max-w-[1200px] mx-auto flex justify-center max-lg:flex-col">
+        <div className="text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16">
+          <h1 className="font-bold xl:text-5xl text-3xl mb-4">
+            {text.prompt}
+          </h1>
+          <p className="font-medium">
+            {text.description}
+          </p>
+          <div className="my-3 flex gap-3">
+            <button className="py-3 px-4 bg-[rgb(240,240,240)] rounded-full font-semibold">
+              Try for free
+            </button>
+            <button className="py-3 px-4 bg-[rgb(240,240,240)] rounded-full font-semibold">
+              Watch Demo
+            </button>
+          </div>
+        </div>
+
+        <div className="w-[45%] max-lg:w-full mt-10">
+          <div className="w-[260px] mx-auto h-[480px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3">
+            <img
+              src={text.images[0]}
+              alt={text.images[0]}
+              className="h-[420px] rounded-[35px] object-cover"
+            />
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+export const HeroSix = () => {
+  const text = PromptUpdater();
+  return (
+    <>
+      <section className="my-5 max-w-[1200px] mx-auto flex flex-row-reverse justify-center max-lg:flex-col">
+        <div className="text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16">
+          <h1 className="font-bold xl:text-5xl text-3xl mb-4">
+            {text.prompt}
+          </h1>
+          <p className="font-medium">
+            {text.description}
+          </p>
+          <div className="my-3 flex gap-3">
+            <button className="py-3 px-4 bg-[rgb(240,240,240)] rounded-full font-semibold">
+              Try for free
+            </button>
+            <button className="py-3 px-4 bg-[rgb(240,240,240)] rounded-full font-semibold">
+              Watch Demo
+            </button>
+          </div>
+        </div>
+
+        <div className="w-[45%] max-lg:w-full mt-10">
+          <div className="w-[260px] mx-auto h-[480px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3">
+            <img
+              src={text.images[0]}
+              alt={text.images[0]}
+              className="h-[420px] rounded-[35px] object-cover"
+            />
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export const HeroSeven = () => {
+  const text = PromptUpdater();
+  return (
+    <>
+      <section className="my-5 max-w-[1200px] mx-auto flex justify-center max-lg:flex-col-reverse">
+        <div className="text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16">
+          <h1 className="font-bold xl:text-5xl text-3xl mb-4">
+            {text.prompt}
+          </h1>
+          <p className="font-medium">
+            {text.description}
+          </p>
+          <div className="my-3 flex gap-3">
+            <button className="py-3 px-4 bg-[rgb(240,240,240)] rounded-full font-semibold">
+              Try for free
+            </button>
+            <button className="py-3 px-4 bg-[rgb(240,240,240)] rounded-full font-semibold">
+              Watch Demo
+            </button>
+          </div>
+        </div>
+
+        <div className="w-[45%] max-lg:w-full mb-10">
+          <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
+            <img
+              src={text.images[0]}
+              alt={text.images[0]}
+              className="object-cover h-full"
+            />
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export const HeroEight = () => {
+  const text = PromptUpdater();
+  return (
+    <>
+      <section className="my-5 max-w-[1200px] mx-auto flex flex-row-reverse justify-center max-lg:flex-col-reverse">
+        <div className="text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16">
+          <h1 className="font-bold xl:text-5xl text-3xl mb-4">
+            {text.prompt}
+          </h1>
+          <p className="font-medium">
+            {text.description}
+          </p>
+          <div className="my-3 flex gap-3">
+            <button className="py-3 px-4 bg-[rgb(240,240,240)] rounded-full font-semibold">
+              Try for free
+            </button>
+            <button className="py-3 px-4 bg-[rgb(240,240,240)] rounded-full font-semibold">
+              Watch Demo
+            </button>
+          </div>
+        </div>
+
+        <div className="w-[45%] max-lg:w-full mb-10">
+          <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
+            <img
+              src={text.images[0]}
+              alt={text.images[0]}
+              className="object-cover h-full"
+            />
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export const HeroNine = () => {
+  const text = PromptUpdater();
+  return (
+    <>
+      <section className="my-5 max-w-[1200px] mx-auto flex justify-center gap-5 max-lg:flex-col">
+        <div className="w-[45%] max-lg:w-full">
+          <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
+            <img
+              src={text.images[0]}
+              alt={text.images[0]}
+              className="object-cover h-full w-full"
+            />
+          </div>
+        </div>
+
+        <div className="text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16 max-lg:my-10">
+          <h1 className="font-bold xl:text-4xl xl:text-center text-3xl mb-4">
+            {text.prompt}
+          </h1>
+          <p className="font-medium">
+            {text.description}
+          </p>
+          <div className="my-3 flex gap-3">
+            <button className="py-3 px-4 bg-[rgb(240,240,240)] rounded-full font-semibold">
+              Try for free
+            </button>
+            <button className="py-3 px-4 bg-[rgb(240,240,240)] rounded-full font-semibold">
+              Watch Demo
+            </button>
+          </div>
+        </div>
+
+        <div className="w-[45%] max-lg:w-full mb-10">
+          <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
+            <img
+              src={text.images[1]}
+              alt={text.images[1]}
+              className="object-cover h-full w-full"
+            />
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
