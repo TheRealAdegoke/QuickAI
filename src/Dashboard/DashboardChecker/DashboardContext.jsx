@@ -51,7 +51,8 @@ export const DashboardProvider = ({ children }) => {
         `https://quickui-backend.onrender.com/api/quick-ai`,
         {
           prompt: userInput || selectedIdea,
-        }
+        },
+        {withCredentials: true}
       );
       setGeminiResponses(response.data);
 
