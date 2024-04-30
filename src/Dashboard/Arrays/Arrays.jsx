@@ -14,6 +14,7 @@ import {
   HeroThree,
   HeroTwo,
 } from "../AI-Designed-Component/AI-Hero-Section-Component/customHero";
+import { ButtonFive, ButtonFour, ButtonOne, ButtonThree, ButtonTwo } from "../AI-Designed-Component/WebButtons/WebButtons";
 
 // Texts for input placeholder
 export const placeholderText = [
@@ -75,5 +76,7 @@ export const heroComponents = [
   HeroEight,
   HeroNine,
 ];
+
+export const WebButtonsArray = [ButtonOne, ButtonTwo, ButtonThree, ButtonFour, ButtonFive]
 
 

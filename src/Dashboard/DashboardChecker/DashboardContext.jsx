@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { heroComponents, navComponents } from "../../Dashboard/Arrays/Arrays";
+import { WebButtonsArray, heroComponents, navComponents } from "../../Dashboard/Arrays/Arrays";
 import axios from "axios";
 import { message } from "antd";
 
@@ -16,18 +16,21 @@ export const DashboardProvider = ({ children }) => {
   const [selectedIdea, setSelectedIdea] = useState("");
   const [geminiResponses, setGeminiResponses] = useState("");
   const [loading, setLoading] = useState(false);
+  const [buttonIndex, setButtonIndex] = useState(undefined);
   const [navIndex, setNavIndex] = useState(undefined);
   const [heroIndex, setHeroIndex] = useState(undefined);
   const baseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
 
 
   const handleGenerateNav = () => {
-    const navIndex = Math.floor(Math.random() * navComponents.length);
-    const heroIndex = Math.floor(Math.random() * heroComponents.length);
+    const randomNavIndex = Math.floor(Math.random() * navComponents.length);
+    const randomHeroIndex = Math.floor(Math.random() * heroComponents.length);
+    const randomButtonsIndex = Math.floor(Math.random() * WebButtonsArray.length)
 
-    setNavIndex(navIndex);
-    setHeroIndex(heroIndex);
-    console.log("Nav Index: ", navIndex, "Hero Index: ", heroIndex);
+    setNavIndex(randomNavIndex);
+    setHeroIndex(randomHeroIndex);
+    setButtonIndex(randomButtonsIndex)
+    console.log("Nav Index: ", randomNavIndex, "Hero Index: ", randomHeroIndex, "Button Index: ", randomButtonsIndex);
   };
 
   const handleUserData = async () => {
@@ -44,9 +47,12 @@ export const DashboardProvider = ({ children }) => {
     });
     setLoading(true);
     try {
-      const response = await axios.post(`${baseUrl}/quick-ai`, {
-        prompt: userInput || selectedIdea,
-      });
+      const response = await axios.post(
+        `https://quickui-backend.onrender.com/api/quick-ai`,
+        {
+          prompt: userInput || selectedIdea,
+        }
+      );
       setGeminiResponses(response.data);
 
       if (response.data === 400) {
@@ -92,11 +98,13 @@ export const DashboardProvider = ({ children }) => {
         selectedIdea,
         setSelectedIdea,
         loading,
+        WebButtonsArray,
         navComponents,
         heroComponents,
         clearDesigns,
         testDesignModal,
         setTestDesignModal,
+        buttonIndex,
         navIndex,
         heroIndex,
       }}
