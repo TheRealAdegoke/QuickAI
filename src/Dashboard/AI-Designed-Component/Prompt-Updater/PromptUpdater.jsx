@@ -7,9 +7,35 @@ const PromptUpdater = () => {
     prompt: "",
     description: "",
     images: [],
-    webLogo: ""
+    webLogo: "",
+    buttonTexts: [],
   });
 
+  const [shuffled, setShuffled] = useState(false); // State to track shuffling
+
+  useEffect(() => {
+    if (!shuffled) {
+      // Shuffle the buttonTexts array when component mounts
+      const shuffuleButtonTextArray = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      };
+
+      const shuffledButtonTexts = shuffuleButtonTextArray(
+        geminiResponses.randomButtonText
+      );
+
+      setText((text) => ({
+        ...text,
+        buttonTexts: shuffledButtonTexts,
+      }));
+
+      setShuffled(true);
+    }
+  }, [geminiResponses, text, shuffled]);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -23,7 +49,7 @@ const PromptUpdater = () => {
         images: geminiResponses.imageUrls,
         webLogo: geminiResponses.logo.slice(0, prevText.webLogo.length + 1),
       }));
-    }, 100);
+    }, 30);
 
     // Clear timeout on component unmount
     return () => clearTimeout(timeout);
@@ -33,7 +59,8 @@ const PromptUpdater = () => {
     prompt: text.prompt,
     description: text.description,
     images: text.images,
-    webLogo: text.webLogo
+    webLogo: text.webLogo,
+    buttonTexts: text.buttonTexts,
   };
 };
 

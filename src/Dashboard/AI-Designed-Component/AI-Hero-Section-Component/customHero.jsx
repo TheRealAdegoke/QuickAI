@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, createElement } from "react";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
 import PromptUpdater from "../Prompt-Updater/PromptUpdater";
 import modalLogo from "../../../assets/quickModalLogo.png";
@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 export const HeroOne = () => {
   const text = PromptUpdater();
+  const { buttonIndex, WebButtonsArray } = useContext(DashContext);
   return (
     <>
       <section
@@ -23,9 +24,10 @@ export const HeroOne = () => {
           <p className="max-lg:text-center my-6 max-lg: max-lg:max-w-[400px] lg:max-w-[500px] max-lg:mx-auto max-lg:px-3">
             {text.description}
           </p>
-          <button className="flex items-center gap-1 bg-[rgb(76,48,246)] p-4 max-lg:mx-auto rounded-[8px] text-white font-semibold">
-            Register now
-          </button>
+          <div className="max-lg:flex justify-center">
+            {buttonIndex !== undefined &&
+              createElement(WebButtonsArray[buttonIndex])}
+          </div>
         </div>
 
         <div className="max-lg:hidden w-[55%] m-auto grid grid-cols-3 gap-4">
@@ -65,7 +67,7 @@ export const HeroOne = () => {
 
 export const HeroTwo = () => {
   const text = PromptUpdater();
-
+  const { buttonIndex, WebButtonsArray } = useContext(DashContext);
   return (
     <>
       <section className="mb-[20px] py-10 px-5 bg-[rgb(26,26,26)]">
@@ -120,9 +122,8 @@ export const HeroTwo = () => {
               className="block max-lg:w-[95%] w-full h-[600px] max-lg:h-[400px] max-lg:max-w-[800px]"
             />
             <p className="my-5 max-lg:max-w-[400px]">{text.description}</p>
-            <button className="flex items-center gap-1 border-[2px] rounded-full px-8 py-2 text-white font-semibold hover:bg-white hover:text-black">
-              contact us
-            </button>
+            {buttonIndex !== undefined &&
+              createElement(WebButtonsArray[buttonIndex])}
           </div>
         </div>
       </section>
@@ -132,7 +133,7 @@ export const HeroTwo = () => {
 
 export const HeroThree = () => {
   const text = PromptUpdater();
-
+  const { buttonIndex, WebButtonsArray } = useContext(DashContext);
   return (
     <>
       <section
@@ -148,9 +149,8 @@ export const HeroThree = () => {
               <p className="py-4 max-w-[400px] font-medium">
                 {text.description}
               </p>
-              <button className="flex items-center gap-1 border-[2px] rounded-full px-16 py-4 text-white font-semibold hover:bg-white hover:text-[rgb(30,72,111)]">
-                contact us
-              </button>
+              {buttonIndex !== undefined &&
+                createElement(WebButtonsArray[buttonIndex])}
             </div>
           </div>
 
@@ -195,14 +195,15 @@ export const HeroThree = () => {
 
 export const HeroFour = () => {
   const text = PromptUpdater();
+  const { buttonIndex, WebButtonsArray } = useContext(DashContext);
   return (
     <>
       <section className="h-[600px] max-lg:h-[750px] my-5 flex lg:gap-8 lg:justify-evenly max-lg:flex-col max-w-[1200px] mx-auto lg:pl-5">
         <div className="text-[rgb(33,37,41)] w-[40%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16">
           <h1 className="font-bold xl:text-5xl text-3xl mb-4">{text.prompt}</h1>
-          <p className="font-medium">
-            {text.description}
-          </p>
+          <p className="font-medium">{text.description}</p>
+          {buttonIndex !== undefined &&
+            createElement(WebButtonsArray[buttonIndex])}
         </div>
         <div className="relative w-[55%] h-full max-lg:w-full max-lg:max-w-[500px] max-lg:mx-auto">
           <div className="w-[250px] h-[400px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3 mb-4 absolute top-2 max-lg:left-[35%] max-lg:transform max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:top-1/2 max-xl:top-2 max-xl:right-32 z-20">
@@ -234,24 +235,15 @@ export const HeroFour = () => {
 
 export const HeroFive = () => {
   const text = PromptUpdater();
+  const { buttonIndex, WebButtonsArray } = useContext(DashContext);
   return (
     <>
-      <section className="my-5 max-w-[1200px] mx-auto flex justify-center max-lg:flex-col">
+      <section className="my-5 max-w-[1000px] mx-auto flex justify-center max-lg:flex-col">
         <div className="text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16">
-          <h1 className="font-bold xl:text-5xl text-3xl mb-4">
-            {text.prompt}
-          </h1>
-          <p className="font-medium">
-            {text.description}
-          </p>
-          <div className="my-3 flex gap-3">
-            <button className="py-3 px-4 bg-[rgb(240,240,240)] rounded-full font-semibold">
-              Try for free
-            </button>
-            <button className="py-3 px-4 bg-[rgb(240,240,240)] rounded-full font-semibold">
-              Watch Demo
-            </button>
-          </div>
+          <h1 className="font-bold xl:text-5xl text-3xl mb-4">{text.prompt}</h1>
+          <p className="font-medium">{text.description}</p>
+          {buttonIndex !== undefined &&
+            createElement(WebButtonsArray[buttonIndex])}
         </div>
 
         <div className="w-[45%] max-lg:w-full mt-10">
@@ -270,24 +262,15 @@ export const HeroFive = () => {
 
 export const HeroSix = () => {
   const text = PromptUpdater();
+  const { buttonIndex, WebButtonsArray } = useContext(DashContext);
   return (
     <>
-      <section className="my-5 max-w-[1200px] mx-auto flex flex-row-reverse justify-center max-lg:flex-col">
+      <section className="my-5 max-w-[1000px] mx-auto flex flex-row-reverse justify-center max-lg:flex-col">
         <div className="text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16">
-          <h1 className="font-bold xl:text-5xl text-3xl mb-4">
-            {text.prompt}
-          </h1>
-          <p className="font-medium">
-            {text.description}
-          </p>
-          <div className="my-3 flex gap-3">
-            <button className="py-3 px-4 bg-[rgb(240,240,240)] rounded-full font-semibold">
-              Try for free
-            </button>
-            <button className="py-3 px-4 bg-[rgb(240,240,240)] rounded-full font-semibold">
-              Watch Demo
-            </button>
-          </div>
+          <h1 className="font-bold xl:text-5xl text-3xl mb-4">{text.prompt}</h1>
+          <p className="font-medium">{text.description}</p>
+          {buttonIndex !== undefined &&
+            createElement(WebButtonsArray[buttonIndex])}
         </div>
 
         <div className="w-[45%] max-lg:w-full mt-10">
@@ -295,7 +278,7 @@ export const HeroSix = () => {
             <img
               src={text.images[0]}
               alt={text.images[0]}
-              className="h-[420px] rounded-[35px] object-cover"
+              className="h-[420px] w-full rounded-[35px] object-cover"
             />
           </div>
         </div>
@@ -306,24 +289,15 @@ export const HeroSix = () => {
 
 export const HeroSeven = () => {
   const text = PromptUpdater();
+  const { buttonIndex, WebButtonsArray } = useContext(DashContext);
   return (
     <>
       <section className="my-5 max-w-[1200px] mx-auto flex justify-center max-lg:flex-col-reverse">
         <div className="text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16">
-          <h1 className="font-bold xl:text-5xl text-3xl mb-4">
-            {text.prompt}
-          </h1>
-          <p className="font-medium">
-            {text.description}
-          </p>
-          <div className="my-3 flex gap-3">
-            <button className="py-3 px-4 bg-[rgb(240,240,240)] rounded-full font-semibold">
-              Try for free
-            </button>
-            <button className="py-3 px-4 bg-[rgb(240,240,240)] rounded-full font-semibold">
-              Watch Demo
-            </button>
-          </div>
+          <h1 className="font-bold xl:text-5xl text-3xl mb-4">{text.prompt}</h1>
+          <p className="font-medium">{text.description}</p>
+          {buttonIndex !== undefined &&
+            createElement(WebButtonsArray[buttonIndex])}
         </div>
 
         <div className="w-[45%] max-lg:w-full mb-10">
@@ -331,7 +305,7 @@ export const HeroSeven = () => {
             <img
               src={text.images[0]}
               alt={text.images[0]}
-              className="object-cover h-full"
+              className="object-cover h-full w-full"
             />
           </div>
         </div>
@@ -342,24 +316,15 @@ export const HeroSeven = () => {
 
 export const HeroEight = () => {
   const text = PromptUpdater();
+  const { buttonIndex, WebButtonsArray } = useContext(DashContext);
   return (
     <>
       <section className="my-5 max-w-[1200px] mx-auto flex flex-row-reverse justify-center max-lg:flex-col-reverse">
         <div className="text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16">
-          <h1 className="font-bold xl:text-5xl text-3xl mb-4">
-            {text.prompt}
-          </h1>
-          <p className="font-medium">
-            {text.description}
-          </p>
-          <div className="my-3 flex gap-3">
-            <button className="py-3 px-4 bg-[rgb(240,240,240)] rounded-full font-semibold">
-              Try for free
-            </button>
-            <button className="py-3 px-4 bg-[rgb(240,240,240)] rounded-full font-semibold">
-              Watch Demo
-            </button>
-          </div>
+          <h1 className="font-bold xl:text-5xl text-3xl mb-4">{text.prompt}</h1>
+          <p className="font-medium">{text.description}</p>
+          {buttonIndex !== undefined &&
+            createElement(WebButtonsArray[buttonIndex])}
         </div>
 
         <div className="w-[45%] max-lg:w-full mb-10">
@@ -367,7 +332,7 @@ export const HeroEight = () => {
             <img
               src={text.images[0]}
               alt={text.images[0]}
-              className="object-cover h-full"
+              className="object-cover h-full w-full"
             />
           </div>
         </div>
@@ -378,6 +343,7 @@ export const HeroEight = () => {
 
 export const HeroNine = () => {
   const text = PromptUpdater();
+  const { buttonIndex, WebButtonsArray } = useContext(DashContext);
   return (
     <>
       <section className="my-5 max-w-[1200px] mx-auto flex justify-center gap-5 max-lg:flex-col">
@@ -398,14 +364,7 @@ export const HeroNine = () => {
           <p className="font-medium">
             {text.description}
           </p>
-          <div className="my-3 flex gap-3">
-            <button className="py-3 px-4 bg-[rgb(240,240,240)] rounded-full font-semibold">
-              Try for free
-            </button>
-            <button className="py-3 px-4 bg-[rgb(240,240,240)] rounded-full font-semibold">
-              Watch Demo
-            </button>
-          </div>
+          {buttonIndex !== undefined && createElement(WebButtonsArray[buttonIndex])}
         </div>
 
         <div className="w-[45%] max-lg:w-full mb-10">
