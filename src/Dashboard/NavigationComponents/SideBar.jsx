@@ -9,11 +9,10 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { MdOutlineManageAccounts } from "react-icons/md";
 import { CiLogout } from "react-icons/ci";
 import { DashContext } from "../DashboardChecker/DashboardContext";
+import { ImSpinner6 } from "react-icons/im";
 
 const SideBar = () => {
-  const {
-    unAuthenticate,
-  } = useContext(AuthContext);
+  const { unAuthenticate } = useContext(AuthContext);
 
   const {
     closeSideNav,
@@ -39,51 +38,181 @@ const SideBar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const history = userData && userData.history ? userData.history : [];
+  const sortedHistory = history.sort((a, b) => {
+    return new Date(b.createdAt) - new Date(a.createdAt);
+  });
+
+  const currentTime = new Date();
+  const twentyFourHoursAgo = new Date(
+    currentTime.getTime() - 24 * 60 * 60 * 1000
+  );
+  const pastSevenDays = new Date(
+    currentTime.getTime() - 2 * 24 * 60 * 60 * 1000
+  );
+  const pastThirtyDays = new Date(
+    currentTime.getTime() - 8 * 24 * 60 * 60 * 1000
+  );
   return (
     <>
       <aside
         className={`${
           closeSideNav ? "block" : "hidden"
-        } dashboard-navigation-darkmode w-[250px] h-screen max-md:border-r-[1px] max-md:border-[rgb(26,26,26)] max-md:fixed z-50 p-2`}
+        } dashboard-navigation-darkmode w-[250px] h-screen max-md:border-r-[1px] max-md:border-[rgb(26,26,26)] max-md:fixed z-50 p-2 flex flex-col justify-between`}
       >
-        <div className="">
-          <button
-            className="flex justify-between items-center cursor-pointer select-none w-full mb-4 hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] hover:px-2 border-zinc-600 px-2 py-1"
-            onClick={() => {
-              clearDesigns();
-            }}
-          >
-            <WebLogo />
-            <FaRegEdit className="text-[rgb(236,236,236)] text-xl" />
+        <div>
+          <div className="">
+            <button
+              className="flex justify-between items-center cursor-pointer select-none w-full mb-4 hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] hover:px-2 border-zinc-600 px-2 py-1"
+              onClick={() => {
+                clearDesigns();
+              }}
+            >
+              <WebLogo />
+              <FaRegEdit className="text-[rgb(236,236,236)] text-xl" />
+            </button>
+            <button
+              className="absolute top-[15px] right-[-40px] hidden max-md:block border-[2px] cursor-pointer"
+              onClick={() => {
+                setCloseSideNav(false);
+              }}
+            >
+              <IoCloseSharp className="text-[1.6rem]" />
+            </button>
+          </div>
+
+          <button className="flex w-full mb-4 border-zinc-600 border-[1px] px-3 py-1 rounded-[5px] bg-[rgba(9,9,9,0.5)] capitalize">
+            Manually create site
           </button>
-          <button
-            className="absolute top-[15px] right-[-40px] hidden max-md:block border-[2px] cursor-pointer"
-            onClick={() => {
-              setCloseSideNav(false);
-            }}
+
+          <Link
+            to=""
+            className="font-semibold text-xl ml-2 flex justify-between items-center text-[rgb(201,209,217)] hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] hover:px-2 border-zinc-600 px-2 py-1"
           >
-            <IoCloseSharp className="text-[1.6rem]" />
-          </button>
+            Site <FaChevronRight className="text-lg" />
+          </Link>
         </div>
 
-        <button className="flex w-full mb-4 border-zinc-600 border-[1px] px-3 py-1 rounded-[5px] bg-[rgba(9,9,9,0.5)] capitalize">
-          Manually create site
-        </button>
+        <div className="h-full overflow-y-scroll">
+          {userData === undefined ? (
+            <div className="flex justify-center items-center h-full">
+              <ImSpinner6 className="animate-spin text-2xl text-white" />
+            </div>
+          ) : history.length === 0 ? (
+            <div className="flex justify-center items-center h-full">
+              <p>No History</p>
+            </div>
+          ) : (
+            <div className="history mt-4 h-[300px] overflow-y-hidden hover:overflow-y-scroll">
+              {sortedHistory.some(
+                (item) =>
+                  new Date(item.createdAt) > twentyFourHoursAgo &&
+                  new Date(item.createdAt) <= currentTime
+              ) && (
+                <div className="mb-3">
+                  <p className="text-sm font-semibold text-[rgb(201,209,217)] mb-2">
+                    Today
+                  </p>
+                  <ul>
+                    {sortedHistory
+                      .filter(
+                        (item) =>
+                          new Date(item.createdAt) > twentyFourHoursAgo &&
+                          new Date(item.createdAt) <= currentTime
+                      )
+                      .map((item) => (
+                        <li
+                          key={item._id}
+                          className="my-2 w-[90%] overflow-hidden text-sm text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-1 cursor-pointer"
+                        >
+                          {item.prompt}
+                        </li>
+                      ))}
+                  </ul>
+                </div>
+              )}
 
-        <Link
-          to=""
-          className="font-semibold text-xl ml-2 flex justify-between items-center text-[rgb(201,209,217)]"
-        >
-          Site <FaChevronRight className="text-lg" />
-        </Link>
+              {sortedHistory.some(
+                (item) =>
+                  new Date(item.createdAt) <= twentyFourHoursAgo &&
+                  new Date(item.createdAt) > pastSevenDays
+              ) && (
+                <div className="mb-3">
+                  <p className="text-sm font-semibold text-[rgb(201,209,217)] mb-2">
+                    yesterday
+                  </p>
+                  <ul>
+                    {sortedHistory
+                      .filter(
+                        (item) =>
+                          new Date(item.createdAt) <= twentyFourHoursAgo &&
+                          new Date(item.createdAt) > pastSevenDays
+                      )
+                      .map((item) => (
+                        <li
+                          key={item._id}
+                          className="my-2 w-[90%] overflow-hidden text-sm text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-1 cursor-pointer"
+                        >
+                          {item.prompt}
+                        </li>
+                      ))}
+                  </ul>
+                </div>
+              )}
 
-        <div className="history mt-4">
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis
-            aliquam sint non dolores nisi, omnis quaerat? Saepe incidunt natus
-            expedita dolorum nihil excepturi modi ex, quos nam laudantium,
-            beatae facilis.
-          </p>
+              {sortedHistory.some(
+                (item) =>
+                  new Date(item.createdAt) <= pastSevenDays &&
+                  new Date(item.createdAt) > pastThirtyDays
+              ) && (
+                <div className="mb-3">
+                  <p className="text-sm font-semibold text-[rgb(201,209,217)]">
+                    Past 7 days
+                  </p>
+                  <ul>
+                    {sortedHistory
+                      .filter(
+                        (item) =>
+                          new Date(item.createdAt) <= pastSevenDays &&
+                          new Date(item.createdAt) > pastThirtyDays
+                      )
+                      .map((item) => (
+                        <li
+                          key={item._id}
+                          className="my-2 w-[90%] overflow-hidden text-sm text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-1 cursor-pointer"
+                        >
+                          {item.prompt}
+                        </li>
+                      ))}
+                  </ul>
+                </div>
+              )}
+
+              {sortedHistory.some(
+                (item) => new Date(item.createdAt) <= pastThirtyDays
+              ) && (
+                <div className="mb-3">
+                  <p className="text-sm font-semibold text-[rgb(201,209,217)]">
+                    Past 30 days
+                  </p>
+                  <ul>
+                    {sortedHistory
+                      .filter(
+                        (item) => new Date(item.createdAt) <= pastThirtyDays
+                      )
+                      .map((item) => (
+                        <li
+                          key={item._id}
+                          className="my-2 w-[90%] overflow-hidden text-sm text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-1 cursor-pointer"
+                        >
+                          {item.prompt}
+                        </li>
+                      ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         <div
@@ -117,15 +246,17 @@ const SideBar = () => {
         </div>
 
         <button
-          className="flex items-center fixed left-2 max-lg:left-1 bottom-5 gap-2 px-2 py-1 hover:bg-[rgb(33,33,33)] max-md:w-full max-md:max-w-[230px] hover:px-2 border-zinc-600 hover:border-[1px] rounded-[5px]"
+          className="flex items-center gap-2 my-1 px-2 py-1 hover:bg-[rgb(33,33,33)] hover:px-2 border-zinc-600 hover:border-[1px] rounded-[5px]"
           onClick={() => {
             setUserModal(!userModal);
           }}
         >
-          <span className="bg-[rgb(9,23,56)] flex justify-center items-center py-[0.5rem] px-[0.6rem] rounded-full uppercase">
+          <span className="bg-[rgb(9,23,56)] flex justify-center items-center py-[0.4rem] px-[0.5rem] rounded-full uppercase">
             {userData && userData.fullname.slice(0, 2)}
           </span>
-          <p>{userData && userData.fullname}</p>
+          <p className="w-[90%] md:w-full overflow-hidden text-ellipsis text-nowrap text-white">
+            {userData && userData.fullname}
+          </p>
         </button>
       </aside>
     </>
@@ -133,3 +264,5 @@ const SideBar = () => {
 };
 
 export default SideBar;
+
+// fixed left-2 max-lg:left-1 bottom-5

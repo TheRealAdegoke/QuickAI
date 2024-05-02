@@ -11,7 +11,7 @@ export const DashboardProvider = ({ children }) => {
   const [showDesignModal, setShowDesignModal] = useState(false);
   const [testDesignModal, setTestDesignModal] = useState(false);
   const [userModal, setUserModal] = useState(false);
-  const [userData, setUserData] = useState("");
+  const [userData, setUserData] = useState(undefined);
   const [userInput, setUserInput] = useState("");
   const [selectedIdea, setSelectedIdea] = useState("");
   const [geminiResponses, setGeminiResponses] = useState("");
@@ -34,10 +34,14 @@ export const DashboardProvider = ({ children }) => {
   };
 
   const handleUserData = async () => {
-    const response = await axios.get(`${baseUrl}/auth/user-data`, {
-      withCredentials: true,
-    });
-    setUserData(response.data);
+    try {
+      const response = await axios.get(`${baseUrl}/auth/user-data`, {
+        withCredentials: true,
+      });
+      setUserData(response.data);
+    } catch (error) {
+      console.error(error.response.data.error);
+    }
   };
 
   const handleGeminiResponses = async () => {
@@ -48,7 +52,7 @@ export const DashboardProvider = ({ children }) => {
     setLoading(true);
     try {
       const response = await axios.post(
-        `https://quickui-backend.onrender.com/api/quick-ai`,
+        `${baseUrl}/quick-ai`,
         {
           prompt: userInput || selectedIdea,
         },
@@ -61,7 +65,7 @@ export const DashboardProvider = ({ children }) => {
       } else {
         setShowDesignModal(true);
       }
-      console.log(response.data);
+      handleUserData()
     } catch (error) {
       console.error(error.response.data.error);
       message.error(error.response.data.error);
