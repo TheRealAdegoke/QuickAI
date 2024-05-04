@@ -66,15 +66,7 @@ export const randomIdeas = [
 export const navComponents = [NavOne, NavTwo, NavThree];
 
 export const heroComponents = [
-  HeroOne,
-  HeroTwo,
-  HeroThree,
-  HeroFour,
-  HeroFive,
-  HeroSix,
-  HeroSeven,
-  HeroEight,
-  HeroNine,
+  HeroFour
 ];
 
 export const WebButtonsArray = [ButtonOne, ButtonTwo, ButtonThree, ButtonFour, ButtonFive]

@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ImSpinner6 } from "react-icons/im";
-import axios from "axios";
 import { message } from "antd";
 import WebLogo from "../../assets/WebLogo";
+import { axiosInstance } from "./AuthChecker/axiosInstance";
 
 const ResetPassword = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const baseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
 
   const handleCreatePassword = async (e) => {
     e.preventDefault();
@@ -23,11 +22,9 @@ const ResetPassword = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post(
-        `${baseUrl}/auth/resetpassword`,
-        { password },
-        { withCredentials: true }
-      );
+      const response = await axiosInstance.post("/auth/resetpassword", {
+        password,
+      });
       setLoading(false);
       message.success(response.data.message);
       navigate("/login");

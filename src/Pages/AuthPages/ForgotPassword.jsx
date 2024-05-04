@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ImSpinner6 } from "react-icons/im";
-import axios from "axios";
 import { message } from "antd";
 import WebLogo from "../../assets/WebLogo";
+import { axiosInstance } from "./AuthChecker/axiosInstance";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
-  const baseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
 
   const handleReset = async (e) => {
     e.preventDefault();
@@ -18,11 +17,7 @@ const ForgotPassword = () => {
 
     setLoading(true);
     try {
-      const response = await axios.post(
-        `${baseUrl}/auth/forgotpassword`,
-        postData,
-        { withCredentials: true }
-      );
+      const response = await axiosInstance.post("/auth/forgotpassword", postData);
       console.log(response.data);
       message.success(response.data.message);
     } catch (error) {
