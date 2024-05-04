@@ -1,7 +1,8 @@
 import React, { createContext, useEffect, useState } from "react";
 import { WebButtonsArray, heroComponents, navComponents } from "../../Dashboard/Arrays/Arrays";
-import axios from "axios";
+import { axiosInstance } from "../../Pages/AuthPages/AuthChecker/axiosInstance";
 import { message } from "antd";
+
 
 export const DashContext = createContext();
 
@@ -14,12 +15,17 @@ export const DashboardProvider = ({ children }) => {
   const [userData, setUserData] = useState(undefined);
   const [userInput, setUserInput] = useState("");
   const [selectedIdea, setSelectedIdea] = useState("");
-  const [geminiResponses, setGeminiResponses] = useState("");
+  const [geminiResponses, setGeminiResponses] = useState({
+    randomButtonText: [],
+    logo: "",
+    heroHeader: "",
+    heroDescription: "",
+    imageUrls: [],
+  });
   const [loading, setLoading] = useState(false);
   const [buttonIndex, setButtonIndex] = useState(undefined);
   const [navIndex, setNavIndex] = useState(undefined);
   const [heroIndex, setHeroIndex] = useState(undefined);
-  const baseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
 
 
   const handleGenerateNav = () => {
@@ -30,14 +36,11 @@ export const DashboardProvider = ({ children }) => {
     setNavIndex(randomNavIndex);
     setHeroIndex(randomHeroIndex);
     setButtonIndex(randomButtonsIndex)
-    console.log("Nav Index: ", randomNavIndex, "Hero Index: ", randomHeroIndex, "Button Index: ", randomButtonsIndex);
   };
 
   const handleUserData = async () => {
     try {
-      const response = await axios.get(`${baseUrl}/auth/user-data`, {
-        withCredentials: true,
-      });
+      const response = await axiosInstance.get("/auth/user-data");
       setUserData(response.data);
     } catch (error) {
       console.error(error.response.data.error);
@@ -51,15 +54,17 @@ export const DashboardProvider = ({ children }) => {
     });
     setLoading(true);
     try {
-      const response = await axios.post(
-        `${baseUrl}/quick-ai`,
+      const response = await axiosInstance.post("/quick-ai",
         {
           prompt: userInput || selectedIdea,
-        },
-        {withCredentials: true}
-      );
-      setGeminiResponses(response.data);
-
+        })
+      setGeminiResponses({
+        randomButtonText: response.data.randomButtonText,
+        logo: response.data.logo,
+        heroHeader: response.data.heroHeader,
+        heroDescription: response.data.heroDescription,
+        imageUrls: response.data.imageUrls,
+      });
       if (response.data === 400) {
         setShowDesignModal(false);
       } else {
@@ -69,6 +74,7 @@ export const DashboardProvider = ({ children }) => {
     } catch (error) {
       console.error(error.response.data.error);
       message.error(error.response.data.error);
+      setLoading(false);
     } finally {
       setLoading(false);
     }
@@ -103,6 +109,7 @@ export const DashboardProvider = ({ children }) => {
         selectedIdea,
         setSelectedIdea,
         loading,
+        setLoading,
         WebButtonsArray,
         navComponents,
         heroComponents,

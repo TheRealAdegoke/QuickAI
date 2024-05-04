@@ -11,7 +11,7 @@ const PromptUpdater = () => {
     buttonTexts: [],
   });
 
-  const [shuffled, setShuffled] = useState(false); // State to track shuffling
+  const [shuffled, setShuffled] = useState(false);
 
   useEffect(() => {
     if (!shuffled) {

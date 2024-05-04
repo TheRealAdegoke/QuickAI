@@ -6,6 +6,11 @@ import { useTypewriter } from "react-simple-typewriter";
 import { placeholderText, randomIdeas } from "../../Arrays/Arrays";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
 import { ImSpinner6 } from "react-icons/im";
+import { plugins, format as prettyFormat } from "pretty-format";
+import renderer from "react-test-renderer";
+import { HeroFour, HeroTen } from "../../AI-Designed-Component/AI-Hero-Section-Component/customHero";
+import { axiosInstance } from "../../../Pages/AuthPages/AuthChecker/axiosInstance";
+const { ReactTestComponent } = plugins;
 
 const AIGenerator = () => {
   const {
@@ -13,12 +18,17 @@ const AIGenerator = () => {
     showDesignModal,
     handleGenerateNav,
     handleGeminiResponses,
+    heroIndex,
+    heroComponents,
+    geminiResponses,
     userInput,
     setUserInput,
     selectedIdea,
     setSelectedIdea,
     loading,
+    setLoading,
     testDesignModal,
+    setGeminiResponses
   } = useContext(DashContext);
   const location = useLocation();
   const [ideas, setIdeas] = useState([]);
@@ -50,9 +60,11 @@ const AIGenerator = () => {
     }
   };
 
+
   const handlePrompt = async (e) => {
     e.preventDefault();
     try {
+      
       await handleGeminiResponses();
       await handleGenerateNav();
     } catch (error) {
@@ -61,12 +73,19 @@ const AIGenerator = () => {
   };
 
 
+  // useEffect(() => {
+  //   console.log("from dash", geminiResponses);
+  // }, [geminiResponses, showDesignModal]);
+
+
   return (
     <>
       <section
         className={`${location.pathname !== "/home" ? "hidden" : "block"} ${
           showDesignModal ? "hidden" : "block"
-        } ${testDesignModal ? "hidden" : "block"} text-center mt-80 max-md:mt-52 text-[rgb(201,209,217)] fixed max-w-[800px] w-[90%] bottom-5`}
+        } ${
+          testDesignModal ? "hidden" : "block"
+        } text-center mt-80 max-md:mt-52 text-[rgb(201,209,217)] fixed max-w-[800px] w-[90%] bottom-5`}
       >
         <div className="input-container">
           <div className="">
@@ -88,6 +107,8 @@ const AIGenerator = () => {
                 window.innerWidth < 960
                   ? "flex-col items-center"
                   : ""
+              } ${
+                closeSideNav ? "max-lg:max-w-[600px] mx-auto" : ""
               } flex flex-row flex-wrap justify-evenly gap-3 mb-8`}
             >
               <button
@@ -123,7 +144,7 @@ const AIGenerator = () => {
               <form
                 action=""
                 className={`${
-                  closeSideNav ? "max-lg:max-w-[550px]" : ""
+                  closeSideNav ? "max-lg:max-w-[500px]" : ""
                 } glowing-light w-[90%] max-w-[800px] max-md:max-w-[500px] mx-auto border-zinc-600 border-[1px] rounded-[10px] flex justify-between items-center pr-3`}
                 onSubmit={handlePrompt}
               >

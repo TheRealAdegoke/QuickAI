@@ -2,10 +2,10 @@ import React, { useState, useEffect, useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { ImSpinner6 } from "react-icons/im";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { message } from "antd";
 import { AuthContext } from "./AuthChecker/AuthContext";
 import WebLogo from "../../assets/WebLogo";
+import { axiosInstance } from "./AuthChecker/axiosInstance";
 
 const Register = () => {
   const { isAuthenticated, handleAuthentication,} = useContext(AuthContext);
@@ -61,9 +61,7 @@ const Register = () => {
       password,
     };
     try {
-      const response = await axios.post(`${baseUrl}/auth/register`, postData, {
-        withCredentials: true,
-      });
+      const response = await axiosInstance.post("/auth/register", postData);
       message.success(response.data.message);
       await handleAuthentication()
       navigate("/home");

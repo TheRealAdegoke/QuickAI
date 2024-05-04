@@ -2,10 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { ImSpinner6 } from "react-icons/im";
-import axios from "axios";
 import { message } from "antd";
 import { AuthContext } from "./AuthChecker/AuthContext";
 import WebLogo from "../../assets/WebLogo";
+import { axiosInstance } from "./AuthChecker/axiosInstance";
 
 const Login = () => {
   const { isAuthenticated, handleAuthentication } = useContext(AuthContext);
@@ -30,9 +30,7 @@ const Login = () => {
       password,
     };
     try {
-      const response = await axios.post(`${baseUrl}/auth/login`, postData, {
-        withCredentials: true,
-      });
+      const response = await axiosInstance.post("/auth/login", postData);
       message.success(response.data.message);
       await handleAuthentication();
       navigate("/home");

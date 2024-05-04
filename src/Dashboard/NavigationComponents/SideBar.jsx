@@ -53,6 +53,7 @@ const SideBar = () => {
   const pastThirtyDays = new Date(
     currentTime.getTime() - 8 * 24 * 60 * 60 * 1000
   );
+  
   return (
     <>
       <aside
@@ -81,7 +82,7 @@ const SideBar = () => {
             </button>
           </div>
 
-          <button className="flex w-full mb-4 border-zinc-600 border-[1px] px-3 py-1 rounded-[5px] bg-[rgba(9,9,9,0.5)] capitalize">
+          <button className="flex w-full mb-4 border-zinc-600 border-[1px] px-3 py-2 rounded-[5px] bg-[rgba(9,9,9,0.5)] capitalize">
             Manually create site
           </button>
 
@@ -93,7 +94,7 @@ const SideBar = () => {
           </Link>
         </div>
 
-        <div className="h-full overflow-y-scroll">
+        <div className="h-full overflow-y-hidden hover:overflow-y-scroll">
           {userData === undefined ? (
             <div className="flex justify-center items-center h-full">
               <ImSpinner6 className="animate-spin text-2xl text-white" />
@@ -103,17 +104,17 @@ const SideBar = () => {
               <p>No History</p>
             </div>
           ) : (
-            <div className="history mt-4 h-[300px] overflow-y-hidden hover:overflow-y-scroll">
+            <div className="history my-4">
               {sortedHistory.some(
                 (item) =>
                   new Date(item.createdAt) > twentyFourHoursAgo &&
                   new Date(item.createdAt) <= currentTime
               ) && (
-                <div className="mb-3">
+                <div className="mb-5">
                   <p className="text-sm font-semibold text-[rgb(201,209,217)] mb-2">
                     Today
                   </p>
-                  <ul>
+                  <div>
                     {sortedHistory
                       .filter(
                         (item) =>
@@ -121,14 +122,14 @@ const SideBar = () => {
                           new Date(item.createdAt) <= currentTime
                       )
                       .map((item) => (
-                        <li
+                        <button
                           key={item._id}
-                          className="my-2 w-[90%] overflow-hidden text-sm text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-1 cursor-pointer"
+                          className="my-2 w-[90%] overflow-hidden text-sm text-left text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-1 cursor-pointer block"
                         >
                           {item.prompt}
-                        </li>
+                        </button>
                       ))}
-                  </ul>
+                  </div>
                 </div>
               )}
 
@@ -137,11 +138,11 @@ const SideBar = () => {
                   new Date(item.createdAt) <= twentyFourHoursAgo &&
                   new Date(item.createdAt) > pastSevenDays
               ) && (
-                <div className="mb-3">
+                <div className="mb-5">
                   <p className="text-sm font-semibold text-[rgb(201,209,217)] mb-2">
                     yesterday
                   </p>
-                  <ul>
+                  <div>
                     {sortedHistory
                       .filter(
                         (item) =>
@@ -149,14 +150,14 @@ const SideBar = () => {
                           new Date(item.createdAt) > pastSevenDays
                       )
                       .map((item) => (
-                        <li
+                        <button
                           key={item._id}
-                          className="my-2 w-[90%] overflow-hidden text-sm text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-1 cursor-pointer"
+                          className="my-2 w-[90%] overflow-hidden text-sm text-left text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-1 cursor-pointer block"
                         >
                           {item.prompt}
-                        </li>
+                        </button>
                       ))}
-                  </ul>
+                  </div>
                 </div>
               )}
 
@@ -165,11 +166,11 @@ const SideBar = () => {
                   new Date(item.createdAt) <= pastSevenDays &&
                   new Date(item.createdAt) > pastThirtyDays
               ) && (
-                <div className="mb-3">
+                <div className="mb-5">
                   <p className="text-sm font-semibold text-[rgb(201,209,217)]">
                     Past 7 days
                   </p>
-                  <ul>
+                  <div>
                     {sortedHistory
                       .filter(
                         (item) =>
@@ -177,38 +178,38 @@ const SideBar = () => {
                           new Date(item.createdAt) > pastThirtyDays
                       )
                       .map((item) => (
-                        <li
+                        <button
                           key={item._id}
-                          className="my-2 w-[90%] overflow-hidden text-sm text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-1 cursor-pointer"
+                          className="my-2 w-[90%] overflow-hidden text-sm text-left text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-1 cursor-pointer block"
                         >
                           {item.prompt}
-                        </li>
+                        </button>
                       ))}
-                  </ul>
+                  </div>
                 </div>
               )}
 
               {sortedHistory.some(
                 (item) => new Date(item.createdAt) <= pastThirtyDays
               ) && (
-                <div className="mb-3">
+                <div className="mb-5">
                   <p className="text-sm font-semibold text-[rgb(201,209,217)]">
                     Past 30 days
                   </p>
-                  <ul>
+                  <div>
                     {sortedHistory
                       .filter(
                         (item) => new Date(item.createdAt) <= pastThirtyDays
                       )
                       .map((item) => (
-                        <li
+                        <button
                           key={item._id}
-                          className="my-2 w-[90%] overflow-hidden text-sm text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-1 cursor-pointer"
+                          className="my-2 w-[90%] overflow-hidden text-sm text-left text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-1 cursor-pointer block"
                         >
                           {item.prompt}
-                        </li>
+                        </button>
                       ))}
-                  </ul>
+                  </div>
                 </div>
               )}
             </div>
@@ -264,5 +265,3 @@ const SideBar = () => {
 };
 
 export default SideBar;
-
-// fixed left-2 max-lg:left-1 bottom-5

@@ -1,17 +1,14 @@
-import axios from "axios";
+import { axiosInstance } from "../AuthChecker/axiosInstance";
 import React, { createContext, useEffect, useState } from "react";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(undefined)
-  const baseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
 
   const handleAuthentication = async () => {
     try {
-        const response = await axios.get(`${baseUrl}/auth/loggedIn`, {
-          withCredentials: true,
-        });
+        const response = await axiosInstance.get("/auth/loggedIn");
         if (response.data.authenticated) {
           setIsAuthenticated(true);
         } else {
@@ -25,9 +22,7 @@ export const AuthProvider = ({ children }) => {
 
   const refreshAccessToken = async () => {
     try {
-      await axios.post(`${baseUrl}/auth/refresh`, "", {
-        withCredentials: true,
-      });
+      await axiosInstance.post("/auth/refresh");
     } catch (error) {
       console.error(error.response.data);
     }
@@ -35,9 +30,7 @@ export const AuthProvider = ({ children }) => {
 
   const unAuthenticate = async () => {
     try {
-      await axios.post(`${baseUrl}/auth/logout`, "", {
-        withCredentials: true,
-      });
+      await axiosInstance.post("/auth/logout");
       handleAuthentication()
     } catch (error) {
       console.error("Error: ", error);

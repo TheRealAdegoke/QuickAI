@@ -3,7 +3,6 @@ import { DashContext } from "../../DashboardChecker/DashboardContext";
 import PromptUpdater from "../Prompt-Updater/PromptUpdater";
 import modalLogo from "../../../assets/quickModalLogo.png";
 import testImage from "../../../assets/Default-Card.jpg";
-import { Link } from "react-router-dom";
 
 export const HeroOne = () => {
   const text = PromptUpdater();
@@ -200,7 +199,9 @@ export const HeroFour = () => {
     <>
       <section className="h-[600px] max-lg:h-[750px] my-5 flex lg:gap-8 lg:justify-evenly max-lg:flex-col max-w-[1200px] mx-auto lg:pl-5">
         <div className="text-[rgb(33,37,41)] w-[40%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16">
-          <h1 className="font-bold xl:text-5xl text-3xl mb-4">{text.prompt}</h1>
+            <h1 className="font-bold xl:text-5xl text-3xl mb-4">
+              {text.prompt}
+            </h1>
           <p className="font-medium">{text.description}</p>
           {buttonIndex !== undefined &&
             createElement(WebButtonsArray[buttonIndex])}
@@ -373,6 +374,59 @@ export const HeroNine = () => {
               src={text.images[1]}
               alt={text.images[1]}
               className="object-cover h-full w-full"
+            />
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export const HeroTen = () => {
+  return (
+    <>
+      <section
+        className="text-black py-8 max-lg:block flex justify-evenly rounded-[8px] w-[95%] mx-auto my-[20px]"
+        style={{
+          background:
+            "radial-gradient(circle at 100% 100%, rgba(241,209,160,1) 21%, rgba(186,170,233,1) 50%, #e2dcf6 75%, rgba(183,178,238,1) 100%)",
+        }}
+      >
+        <div className="max-lg:w-[95%] w-[40%] max-lg:pb-10 max-lg:mx-auto rounded-[8px] lg:px-5">
+          <h1 className="text-5xl max-lg:text-center font-bold">QuickUI</h1>
+          <p className="max-lg:text-center my-6 max-lg: max-lg:max-w-[400px] lg:max-w-[500px] max-lg:mx-auto max-lg:px-3">
+            QuickUI
+          </p>
+          <div className="max-lg:flex justify-center">QuickUI</div>
+        </div>
+
+        <div className="max-lg:hidden w-[55%] m-auto grid grid-cols-3 gap-4">
+          <div className="bg-white shadow-md h-[200px]  p-3 rounded-[8px] col-span-2">
+            <img
+              src={testImage}
+              alt={testImage}
+              className="rounded-[8px] w-full h-full object-cover"
+            />
+          </div>
+          <div className="bg-white shadow-md h-[200px]  p-3 rounded-[8px]">
+            <img
+              src={testImage}
+              alt={testImage}
+              className="rounded-[8px] w-full h-full object-cover"
+            />
+          </div>
+          <div className="bg-white shadow-md h-[200px]  p-3 rounded-[8px]">
+            <img
+              src={testImage}
+              alt={testImage}
+              className="rounded-[8px] w-full h-full object-cover"
+            />
+          </div>
+          <div className="bg-white shadow-md h-[200px]  p-3 rounded-[8px] col-span-2">
+            <img
+              src={testImage}
+              alt={testImage}
+              className="rounded-[8px] w-full h-full object-cover"
             />
           </div>
         </div>
