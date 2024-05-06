@@ -1,13 +1,5 @@
 import React, { useContext, createElement, useEffect } from "react";
-import { DashContext, DashboardProvider } from "../../DashboardChecker/DashboardContext";
-import ReactDOMServer from "react-dom/server";
-import reactElementToJSXString from "react-element-to-jsx-string";
-import { plugins, format as prettyFormat } from "pretty-format";
-import renderer from "react-test-renderer";
-import { NavFour } from "../AI-Nav-Components/customNav";
-import { HeroFour } from "../AI-Hero-Section-Component/customHero";
-
-const { ReactElement, ReactTestComponent } = plugins;
+import { DashContext } from "../../DashboardChecker/DashboardContext";
 
 const DesignModal = () => {
   const {
@@ -17,14 +9,24 @@ const DesignModal = () => {
     navComponents,
     heroComponents,
   } = useContext(DashContext);
-  
-    // const HeroComponent = heroComponents[heroIndex];
-    // console.log(
-    //   prettyFormat(renderer.create(<HeroComponent />).toJSON(), {
-    //     plugins: [ReactTestComponent],
-    //     printFunctionName: true,
-    //   })
-    // );
+
+   const saveComponentReturnToLocalStorage = () => {
+     if (heroIndex !== undefined) {
+       const selectedComponentCode = heroComponents[heroIndex].toString();
+       const startIndex = selectedComponentCode.indexOf("return");
+       const endIndex = selectedComponentCode.lastIndexOf("}");
+       const selectedReturnStatement = selectedComponentCode.substring(
+         startIndex,
+         endIndex + 1
+       );
+       localStorage.setItem("selectedComponentReturn", selectedReturnStatement);
+       console.log(
+         "Return statement saved to localStorage:",
+         selectedReturnStatement
+       );
+     }
+   };
+
 
   return (
     <>
@@ -35,21 +37,13 @@ const DesignModal = () => {
       >
         {/* {navIndex !== undefined && createElement(navComponents[navIndex])} */}
         {heroIndex !== undefined && createElement(heroComponents[heroIndex])}
-        {/* {prettyFormat(
-          renderer
-            .create(
-              <DashboardProvider>
-                <div className="text-black">
-                  <HeroFour />
-                </div>
-              </DashboardProvider>
-            )
-            .toJSON(),
-          {
-            plugins: [ReactTestComponent],
-            printFunctionName: true,
-          }
-        )} */}
+
+        <button
+          className="text-black p-5"
+          onClick={saveComponentReturnToLocalStorage}
+        >
+          Save
+        </button>
       </main>
     </>
   );

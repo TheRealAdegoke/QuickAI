@@ -195,13 +195,21 @@ export const HeroThree = () => {
 export const HeroFour = () => {
   const text = PromptUpdater();
   const { buttonIndex, WebButtonsArray } = useContext(DashContext);
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Check if prompt and description are not empty strings
+  useEffect(() => {
+    if (prompt !== "" && description !== "") {
+      setIsLoading(false);
+    }
+  }, [prompt, description]);
+
   return (
     <>
       <section className="h-[600px] max-lg:h-[750px] my-5 flex lg:gap-8 lg:justify-evenly max-lg:flex-col max-w-[1200px] mx-auto lg:pl-5">
         <div className="text-[rgb(33,37,41)] w-[40%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16">
-            <h1 className="font-bold xl:text-5xl text-3xl mb-4">
-              {text.prompt}
-            </h1>
+          <h1 className="font-bold xl:text-5xl text-3xl mb-4">{text.prompt}</h1>
           <p className="font-medium">{text.description}</p>
           {buttonIndex !== undefined &&
             createElement(WebButtonsArray[buttonIndex])}
@@ -383,17 +391,28 @@ export const HeroNine = () => {
 };
 
 export const HeroTen = () => {
+  const { userData } = useContext(DashContext);
+  const [fullname, setFullname] = useState("");
+
+  useEffect(() => {
+    const userDataString = localStorage.getItem("userData");
+    if (userDataString) {
+      const parsedUserData = JSON.parse(userDataString);
+      setFullname(parsedUserData.fullname);
+      console.log(parsedUserData.fullname);
+    }
+  }, []);
   return (
     <>
       <section
-        className="text-black py-8 max-lg:block flex justify-evenly rounded-[8px] w-[95%] mx-auto my-[20px]"
+        className="section-content text-black py-8 max-lg:block flex justify-evenly rounded-[8px] w-[95%] mx-auto my-[20px]"
         style={{
           background:
             "radial-gradient(circle at 100% 100%, rgba(241,209,160,1) 21%, rgba(186,170,233,1) 50%, #e2dcf6 75%, rgba(183,178,238,1) 100%)",
         }}
       >
         <div className="max-lg:w-[95%] w-[40%] max-lg:pb-10 max-lg:mx-auto rounded-[8px] lg:px-5">
-          <h1 className="text-5xl max-lg:text-center font-bold">QuickUI</h1>
+          <h1 className="text-5xl max-lg:text-center font-bold">{fullname}</h1>
           <p className="max-lg:text-center my-6 max-lg: max-lg:max-w-[400px] lg:max-w-[500px] max-lg:mx-auto max-lg:px-3">
             QuickUI
           </p>
@@ -431,6 +450,7 @@ export const HeroTen = () => {
           </div>
         </div>
       </section>
+      <button className="text-black">Log</button>
     </>
   );
 };

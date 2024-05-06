@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@babel/standalone": "^7.24.3",
+    "@testing-library/react": "^15.0.6",
     "antd": "^5.14.1",
     "axios": "^1.6.7",
     "jwt-decode": "^4.0.0",
