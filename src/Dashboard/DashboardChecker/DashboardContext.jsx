@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState, createElement } from "react";
 import { WebButtonsArray, heroComponents, navComponents } from "../../Dashboard/Arrays/Arrays";
 import { axiosInstance } from "../../Pages/AuthPages/AuthChecker/axiosInstance";
 import { message } from "antd";
@@ -15,13 +15,7 @@ export const DashboardProvider = ({ children }) => {
   const [userData, setUserData] = useState(undefined);
   const [userInput, setUserInput] = useState("");
   const [selectedIdea, setSelectedIdea] = useState("");
-  const [geminiResponses, setGeminiResponses] = useState({
-    randomButtonText: [],
-    logo: "",
-    heroHeader: "",
-    heroDescription: "",
-    imageUrls: [],
-  });
+  const [geminiResponses, setGeminiResponses] = useState({});
   const [loading, setLoading] = useState(false);
   const [buttonIndex, setButtonIndex] = useState(undefined);
   const [navIndex, setNavIndex] = useState(undefined);
@@ -70,6 +64,7 @@ export const DashboardProvider = ({ children }) => {
       } else {
         setShowDesignModal(true);
       }
+      handleGenerateNav()
       handleUserData()
     } catch (error) {
       console.error(error.response.data.error);
@@ -98,7 +93,6 @@ export const DashboardProvider = ({ children }) => {
         setShowDesignModal,
         closeAINav,
         setCloseAINav,
-        handleGenerateNav,
         userData,
         handleUserData,
         geminiResponses,

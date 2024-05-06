@@ -6,29 +6,18 @@ import { useTypewriter } from "react-simple-typewriter";
 import { placeholderText, randomIdeas } from "../../Arrays/Arrays";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
 import { ImSpinner6 } from "react-icons/im";
-import { plugins, format as prettyFormat } from "pretty-format";
-import renderer from "react-test-renderer";
-import { HeroFour, HeroTen } from "../../AI-Designed-Component/AI-Hero-Section-Component/customHero";
-import { axiosInstance } from "../../../Pages/AuthPages/AuthChecker/axiosInstance";
-const { ReactTestComponent } = plugins;
 
 const AIGenerator = () => {
   const {
     closeSideNav,
     showDesignModal,
-    handleGenerateNav,
     handleGeminiResponses,
-    heroIndex,
-    heroComponents,
-    geminiResponses,
     userInput,
     setUserInput,
     selectedIdea,
     setSelectedIdea,
     loading,
-    setLoading,
     testDesignModal,
-    setGeminiResponses
   } = useContext(DashContext);
   const location = useLocation();
   const [ideas, setIdeas] = useState([]);
@@ -64,18 +53,11 @@ const AIGenerator = () => {
   const handlePrompt = async (e) => {
     e.preventDefault();
     try {
-      
       await handleGeminiResponses();
-      await handleGenerateNav();
     } catch (error) {
       console.error(error);
     }
   };
-
-
-  // useEffect(() => {
-  //   console.log("from dash", geminiResponses);
-  // }, [geminiResponses, showDesignModal]);
 
 
   return (
