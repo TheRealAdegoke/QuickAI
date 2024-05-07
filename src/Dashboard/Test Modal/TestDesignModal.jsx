@@ -27,22 +27,12 @@ NB: <TestDesignModal/> should be completely removed from the Dashboard.jsx compo
 
 */
 
-import { HeroEight, HeroFive, HeroNine, HeroSeven, HeroSix, HeroTen } from "../AI-Designed-Component/AI-Hero-Section-Component/customHero";
-import { FeaturesOne } from "../AI-Designed-Component/AI-Features-Components/customFeatures";
-import { TestNavOne, TestNavTwo, TestNavThree } from "./TestNav";
-import { ButtonFive, ButtonFour, ButtonOne, ButtonThree, ButtonTwo } from "../AI-Designed-Component/WebButtons/WebButtons";
 
 const TestDesignModal = () => {
   return (
     <main
       className={`bg-white w-full mt-5 max-md:mt-0 mx-10 h-[93vh] max-md:h-[89vh] max-[499px]:mx-4 overflow-scroll overflow-x-hidden`}
     >
-      <TestNavTwo />
-      <ButtonOne/>
-      <ButtonTwo/>
-      <ButtonThree/>
-      <ButtonFour/>
-      <ButtonFive/>
       <div className=" bg-emerald-500">
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad accusamus
@@ -51,7 +41,6 @@ const TestDesignModal = () => {
           pariatur in quis.
         </p>
       </div>
-      <HeroTen/>
     </main>
   );
 };
