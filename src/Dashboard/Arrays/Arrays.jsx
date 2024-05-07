@@ -1,21 +1,3 @@
-import {
-  NavOne,
-  NavTwo,
-  NavThree,
-} from "../AI-Designed-Component/AI-Nav-Components/customNav";
-import {
-  HeroEight,
-  HeroFive,
-  HeroFour,
-  HeroNine,
-  HeroOne,
-  HeroSeven,
-  HeroSix,
-  HeroThree,
-  HeroTwo,
-} from "../AI-Designed-Component/AI-Hero-Section-Component/customHero";
-import { ButtonFive, ButtonFour, ButtonOne, ButtonThree, ButtonTwo } from "../AI-Designed-Component/WebButtons/WebButtons";
-
 // Texts for input placeholder
 export const placeholderText = [
   "I need a website for my...",
@@ -61,14 +43,5 @@ export const randomIdeas = [
   "Home Cleaning Subscription",
   "Virtual Language Exchange",
 ];
-
-// Array of all Nav components
-export const navComponents = [NavOne, NavTwo, NavThree];
-
-export const heroComponents = [
-  HeroFour
-];
-
-export const WebButtonsArray = [ButtonOne, ButtonTwo, ButtonThree, ButtonFour, ButtonFive]
 
 
