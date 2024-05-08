@@ -44,4 +44,3 @@ export const randomIdeas = [
   "Virtual Language Exchange",
 ];
 
-

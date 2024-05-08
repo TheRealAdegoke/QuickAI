@@ -1,6 +1,7 @@
 import React, { useContext, createElement, useEffect } from "react";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
 import reactElementToJSXString from "react-element-to-jsx-string";
+import { axiosInstance } from "../../../Pages/AuthPages/AuthChecker/axiosInstance";
 
 const DesignModal = () => {
   const {
@@ -9,14 +10,33 @@ const DesignModal = () => {
     navIndex,
     navComponents,
     heroComponents,
+    userInput,
+    selectedIdea,
+    handleUserData,
   } = useContext(DashContext);
 
-   const saveComponentReturnToLocalStorage = () => {
-     if (heroIndex !== undefined) {
-       const navString = reactElementToJSXString(navComponents[navIndex]);
-       const heroString = reactElementToJSXString(heroComponents[heroIndex]);
-       console.log(navString);
-       console.log(heroString);
+   const saveComponentReturnToLocalStorage = async () => {
+    const postData = {
+      prompt: userInput || selectedIdea,
+      navStyle: {
+        index: navIndex,
+        style: reactElementToJSXString(navComponents[navIndex]),
+      },
+      heroStyle: {
+        index: heroIndex,
+        style: reactElementToJSXString(heroComponents[heroIndex]),
+      },
+    };
+     try {
+        const response = await axiosInstance.post(
+          "save-landing-styles",
+          postData
+        );
+        console.log(response.data.message);
+        handleUserData()
+     } catch (error) {
+      console.error(error.response.data.error);
+      message.error(error.response.data.error);
      }
    };
 
