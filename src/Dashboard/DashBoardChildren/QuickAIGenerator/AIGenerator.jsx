@@ -49,7 +49,6 @@ const AIGenerator = () => {
     }
   };
 
-
   const handlePrompt = async (e) => {
     e.preventDefault();
     try {

@@ -575,7 +575,6 @@ export const DashboardProvider = ({ children }) => {
         setShowDesignModal(true);
       }
       handleGenerateNav();
-      handleUserData();
     } catch (error) {
       console.error(error.response.data.error);
       message.error(error.response.data.error);
