@@ -43,17 +43,14 @@ const SideBar = () => {
     return new Date(b.createdAt) - new Date(a.createdAt);
   });
 
-  const currentTime = new Date();
-  const twentyFourHoursAgo = new Date(
-    currentTime.getTime() - 24 * 60 * 60 * 1000
-  );
-  const pastSevenDays = new Date(
-    currentTime.getTime() - 2 * 24 * 60 * 60 * 1000
-  );
-  const pastThirtyDays = new Date(
-    currentTime.getTime() - 8 * 24 * 60 * 60 * 1000
-  );
-  
+  // Calculate day boundaries
+  const todayBoundary = new Date();
+  todayBoundary.setHours(0, 0, 0, 0); // Set to midnight
+  const yesterdayBoundary = new Date(todayBoundary);
+  yesterdayBoundary.setDate(todayBoundary.getDate() - 1);
+  const pastSevenDaysBoundary = new Date(todayBoundary);
+  pastSevenDaysBoundary.setDate(todayBoundary.getDate() - 7);
+
   return (
     <>
       <aside
@@ -63,7 +60,8 @@ const SideBar = () => {
       >
         <div>
           <div className="">
-            <button
+            <Link
+              to="/home"
               className="flex justify-between items-center cursor-pointer select-none w-full mb-4 hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] hover:px-2 border-zinc-600 px-2 py-1"
               onClick={() => {
                 clearDesigns();
@@ -71,7 +69,7 @@ const SideBar = () => {
             >
               <WebLogo />
               <FaRegEdit className="text-[rgb(236,236,236)] text-xl" />
-            </button>
+            </Link>
             <button
               className="absolute top-[15px] right-[-40px] hidden max-md:block border-[2px] cursor-pointer"
               onClick={() => {
@@ -82,13 +80,13 @@ const SideBar = () => {
             </button>
           </div>
 
-          <button className="flex w-full mb-4 border-zinc-600 border-[1px] px-3 py-2 rounded-[5px] bg-[rgba(9,9,9,0.5)] capitalize">
+          <button className="flex w-full mb-4 border-zinc-600 border-[1px] px-2 py-2 rounded-[5px] bg-[rgba(9,9,9,0.5)] capitalize">
             Manually create site
           </button>
 
           <Link
-            to=""
-            className="font-semibold text-xl ml-2 flex justify-between items-center text-[rgb(201,209,217)] hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] hover:px-2 border-zinc-600 px-2 py-1"
+            to="/site"
+            className="font-semibold text-xl flex justify-between items-center text-[rgb(201,209,217)] hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] hover:px-2 border-zinc-600 px-2 py-1"
           >
             Site <FaChevronRight className="text-lg" />
           </Link>
@@ -106,9 +104,7 @@ const SideBar = () => {
           ) : (
             <div className="history my-4">
               {sortedHistory.some(
-                (item) =>
-                  new Date(item.createdAt) > twentyFourHoursAgo &&
-                  new Date(item.createdAt) <= currentTime
+                (item) => new Date(item.createdAt) >= todayBoundary
               ) && (
                 <div className="mb-5">
                   <p className="text-sm font-semibold text-[rgb(201,209,217)] mb-2">
@@ -117,9 +113,7 @@ const SideBar = () => {
                   <div>
                     {sortedHistory
                       .filter(
-                        (item) =>
-                          new Date(item.createdAt) > twentyFourHoursAgo &&
-                          new Date(item.createdAt) <= currentTime
+                        (item) => new Date(item.createdAt) >= todayBoundary
                       )
                       .map((item) => (
                         <button
@@ -135,19 +129,19 @@ const SideBar = () => {
 
               {sortedHistory.some(
                 (item) =>
-                  new Date(item.createdAt) <= twentyFourHoursAgo &&
-                  new Date(item.createdAt) > pastSevenDays
+                  new Date(item.createdAt) < todayBoundary &&
+                  new Date(item.createdAt) >= yesterdayBoundary
               ) && (
                 <div className="mb-5">
                   <p className="text-sm font-semibold text-[rgb(201,209,217)] mb-2">
-                    yesterday
+                    Yesterday
                   </p>
                   <div>
                     {sortedHistory
                       .filter(
                         (item) =>
-                          new Date(item.createdAt) <= twentyFourHoursAgo &&
-                          new Date(item.createdAt) > pastSevenDays
+                          new Date(item.createdAt) < todayBoundary &&
+                          new Date(item.createdAt) >= yesterdayBoundary
                       )
                       .map((item) => (
                         <button
@@ -163,8 +157,8 @@ const SideBar = () => {
 
               {sortedHistory.some(
                 (item) =>
-                  new Date(item.createdAt) <= pastSevenDays &&
-                  new Date(item.createdAt) > pastThirtyDays
+                  new Date(item.createdAt) < yesterdayBoundary &&
+                  new Date(item.createdAt) >= pastSevenDaysBoundary
               ) && (
                 <div className="mb-5">
                   <p className="text-sm font-semibold text-[rgb(201,209,217)]">
@@ -174,8 +168,8 @@ const SideBar = () => {
                     {sortedHistory
                       .filter(
                         (item) =>
-                          new Date(item.createdAt) <= pastSevenDays &&
-                          new Date(item.createdAt) > pastThirtyDays
+                          new Date(item.createdAt) < yesterdayBoundary &&
+                          new Date(item.createdAt) >= pastSevenDaysBoundary
                       )
                       .map((item) => (
                         <button
@@ -190,7 +184,8 @@ const SideBar = () => {
               )}
 
               {sortedHistory.some(
-                (item) => new Date(item.createdAt) <= pastThirtyDays
+                (item) =>
+                  new Date(item.createdAt) <= pastSevenDaysBoundary
               ) && (
                 <div className="mb-5">
                   <p className="text-sm font-semibold text-[rgb(201,209,217)]">
@@ -199,7 +194,8 @@ const SideBar = () => {
                   <div>
                     {sortedHistory
                       .filter(
-                        (item) => new Date(item.createdAt) <= pastThirtyDays
+                        (item) =>
+                          new Date(item.createdAt) <= pastSevenDaysBoundary
                       )
                       .map((item) => (
                         <button
