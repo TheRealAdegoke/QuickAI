@@ -23,7 +23,7 @@ const AIGenerator = () => {
   const [ideas, setIdeas] = useState([]);
   const [text] = useTypewriter({
     words: placeholderText,
-    loop: {},
+    loop: 0,
   });
 
   useEffect(() => {

@@ -11,6 +11,7 @@ import Main from "./src/Pages/LandingPages/Main/Main";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./src/Dashboard/Dashboard";
 import Generate from "./src/Dashboard/DashBoardChildren/Generate/Generate";
+import Sites from "./src/Dashboard/DashBoardChildren/Sites/Sites";
 
 const AppRoutes = () => {
   return (
@@ -24,7 +25,8 @@ const AppRoutes = () => {
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
           <Route path="/home" element={<Dashboard />} />
-          <Route path="/generate" element={<Generate/>} />
+          <Route path="/generate" element={<Generate />} />
+          <Route path="/site" element={<Sites/>} />
         </Routes>
       </BrowserRouter>
     </>
