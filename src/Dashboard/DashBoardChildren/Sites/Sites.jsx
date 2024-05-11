@@ -2,9 +2,8 @@ import React, { createElement, useContext } from "react";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
 import Dashboard from "../../Dashboard";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import PreDisplaySite from "./PreDisplaySite";
-import parse from "html-react-parser";
 import { ImSpinner6 } from "react-icons/im";
+import { Link } from "react-router-dom";
 
 const Sites = () => {
   const { userData } = useContext(DashContext);
@@ -48,24 +47,28 @@ const Sites = () => {
                         (item) => new Date(item.createdAt) >= todayBoundary
                       )
                       .map((item) => (
-                        <figure
+                        <Link
+                          to={`/site/preview/${item._id}`}
                           key={item._id}
-                          className="my-2 bg-white w-full max-w-[800px] max-lg:w-[98%] max-lg:max-w-[500px] lg:h-[350px] h-[500px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden"
+                          className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden"
                         >
                           <div className="cursor-pointer">
-                            {parse(item.navStyle.style)}
-                            {parse(item.heroStyle.style)}
+                            <img
+                              src={item.webDesignImagePreview}
+                              alt=""
+                              className="w-full block"
+                            />
                           </div>
 
-                          <figcaption className="bg-[rgb(9,11,14)] px-5 rounded-b-[3px] absolute bottom-0 w-full py-5 flex justify-between gap-5 items-center">
+                          <div className="bg-[rgb(9,11,14)] px-5 rounded-b-[3px] absolute bottom-0 w-full py-5 flex justify-between gap-5 items-center">
                             <span className="w-[80%] overflow-hidden text-ellipsis text-nowrap">
                               {item.prompt}
                             </span>
                             <span className="bg-[rgb(29,29,29)] flex items-center justify-center py-3 px-5 rounded-md cursor-pointer">
                               <BsThreeDotsVertical />
                             </span>
-                          </figcaption>
-                        </figure>
+                          </div>
+                        </Link>
                       ))}
                   </div>
                 </div>
@@ -91,24 +94,28 @@ const Sites = () => {
                           new Date(item.createdAt) >= yesterdayBoundary
                       )
                       .map((item) => (
-                        <figure
+                        <Link
+                          to={`/site/preview/${item._id}`}
                           key={item._id}
-                          className="my-2 bg-white w-full max-w-[800px] max-lg:w-[98%] max-lg:max-w-[500px] lg:h-[350px] h-[500px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden"
+                          className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden"
                         >
                           <div className="cursor-pointer">
-                            {parse(item.navStyle.style)}
-                            {parse(item.heroStyle.style)}
+                            <img
+                              src={item.webDesignImagePreview}
+                              alt=""
+                              className="w-full block"
+                            />
                           </div>
 
-                          <figcaption className="bg-[rgb(9,11,14)] px-5 rounded-b-[3px] absolute bottom-0 w-full py-5 flex justify-between gap-5 items-center">
+                          <div className="bg-[rgb(9,11,14)] px-5 rounded-b-[3px] absolute bottom-0 w-full py-5 flex justify-between gap-5 items-center">
                             <span className="w-[80%] overflow-hidden text-ellipsis text-nowrap">
                               {item.prompt}
                             </span>
                             <span className="bg-[rgb(29,29,29)] flex items-center justify-center py-3 px-5 rounded-md cursor-pointer">
                               <BsThreeDotsVertical />
                             </span>
-                          </figcaption>
-                        </figure>
+                          </div>
+                        </Link>
                       ))}
                   </div>
                 </div>
@@ -134,24 +141,28 @@ const Sites = () => {
                           new Date(item.createdAt) >= pastSevenDaysBoundary
                       )
                       .map((item) => (
-                        <figure
+                        <Link
+                          to={`/site/preview/${item._id}`}
                           key={item._id}
-                          className="my-2 bg-white w-full max-w-[800px] max-lg:w-[98%] max-lg:max-w-[500px] lg:h-[350px] h-[500px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden"
+                          className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden"
                         >
                           <div className="cursor-pointer">
-                            {parse(item.navStyle.style)}
-                            {parse(item.heroStyle.style)}
+                            <img
+                              src={item.webDesignImagePreview}
+                              alt=""
+                              className="w-full block"
+                            />
                           </div>
 
-                          <figcaption className="bg-[rgb(9,11,14)] px-5 rounded-b-[3px] absolute bottom-0 w-full py-5 flex justify-between gap-5 items-center">
+                          <div className="bg-[rgb(9,11,14)] px-5 rounded-b-[3px] absolute bottom-0 w-full py-5 flex justify-between gap-5 items-center">
                             <span className="w-[80%] overflow-hidden text-ellipsis text-nowrap">
                               {item.prompt}
                             </span>
                             <span className="bg-[rgb(29,29,29)] flex items-center justify-center py-3 px-5 rounded-md cursor-pointer">
                               <BsThreeDotsVertical />
                             </span>
-                          </figcaption>
-                        </figure>
+                          </div>
+                        </Link>
                       ))}
                   </div>
                 </div>
@@ -174,24 +185,28 @@ const Sites = () => {
                           new Date(item.createdAt) <= pastSevenDaysBoundary
                       )
                       .map((item) => (
-                        <figure
+                        <Link
+                          to={`/site/preview/${item._id}`}
                           key={item._id}
-                          className="my-2 bg-white w-full max-w-[800px] max-lg:w-[98%] max-lg:max-w-[500px] lg:h-[350px] h-[500px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden"
+                          className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden"
                         >
                           <div className="cursor-pointer">
-                            {parse(item.navStyle.style)}
-                            {parse(item.heroStyle.style)}
+                            <img
+                              src={item.webDesignImagePreview}
+                              alt=""
+                              className="w-full block"
+                            />
                           </div>
 
-                          <figcaption className="bg-[rgb(9,11,14)] px-5 rounded-b-[3px] absolute bottom-0 w-full py-5 flex justify-between gap-5 items-center">
+                          <div className="bg-[rgb(9,11,14)] px-5 rounded-b-[3px] absolute bottom-0 w-full py-5 flex justify-between gap-5 items-center">
                             <span className="w-[80%] overflow-hidden text-ellipsis text-nowrap">
                               {item.prompt}
                             </span>
                             <span className="bg-[rgb(29,29,29)] flex items-center justify-center py-3 px-5 rounded-md cursor-pointer">
                               <BsThreeDotsVertical />
                             </span>
-                          </figcaption>
-                        </figure>
+                          </div>
+                        </Link>
                       ))}
                   </div>
                 </div>

@@ -35,7 +35,7 @@ const TopNav = () => {
             <WebLogo />
           </div>
           <button
-            className="bg-[rgb(9,23,56)] flex justify-center items-center py-[0.5rem] px-[0.6rem] rounded-full uppercase"
+            className="bg-[rgb(9,23,56)] flex justify-center items-center py-[0.5rem] px-[0.6rem] rounded-full uppercase text-white"
             onClick={() => {
               setUserModal(!userModal);
             }}

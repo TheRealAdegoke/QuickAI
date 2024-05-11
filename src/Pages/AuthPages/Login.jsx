@@ -135,6 +135,7 @@ const Login = () => {
             <button
               type="submit"
               className="text-black bg-white hover:bg-[rgba(255,255,255,0.9)] block mx-auto p-3 rounded-[5px] font-medium w-full"
+              disabled={loading}
             >
               {loading ? (
                 <div>
@@ -160,6 +161,7 @@ const Login = () => {
           <button
             className="w-4/5 lg:w-[350px] mx-auto text-center my-4 hover:bg-[rgb(42,42,47)] py-2 rounded-[5px] flex items-center justify-center gap-2 cursor-pointer border border-[rgb(64,65,67)]"
             onClick={googleLogin}
+            disabled={googleLoading}
           >
             {googleLoading ? (
               <div className="flex justify-center items-center">
