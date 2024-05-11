@@ -67,6 +67,7 @@ const ForgotPassword = () => {
             <button
               type="submit"
               className="text-black bg-white hover:bg-[rgba(255,255,255,0.9)] block mx-auto p-3 rounded-[5px] font-medium w-full"
+              disabled={loading}
             >
               {loading ? (
                 <div>

@@ -10,7 +10,7 @@ const WebLogo = () => {
           alt="Quick UI Image."
           className="w-[2.5rem] block select-none"
         />
-        <p className='mt-[10px] ml-[-5px] font-bold'>uickUI</p>
+        <p className='mt-[10px] ml-[-5px] font-bold text-white'>uickUI</p>
       </div>
     </>
   );

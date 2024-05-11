@@ -1,8 +1,4 @@
-import { useContext, useEffect, useRef } from "react";
 import Page404 from "./src/Page404";
-import {
-  AuthContext,
-} from "./src/Pages/AuthPages/AuthChecker/AuthContext";
 import ForgotPassword from "./src/Pages/AuthPages/ForgotPassword";
 import Login from "./src/Pages/AuthPages/Login";
 import Register from "./src/Pages/AuthPages/Register";
@@ -12,6 +8,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./src/Dashboard/Dashboard";
 import Generate from "./src/Dashboard/DashBoardChildren/Generate/Generate";
 import Sites from "./src/Dashboard/DashBoardChildren/Sites/Sites";
+import WebPreview from "./src/Dashboard/DashBoardChildren/Sites/WebPreview";
 
 const AppRoutes = () => {
   return (
@@ -26,7 +23,8 @@ const AppRoutes = () => {
           <Route path="/resetpassword" element={<ResetPassword />} />
           <Route path="/home" element={<Dashboard />} />
           <Route path="/generate" element={<Generate />} />
-          <Route path="/site" element={<Sites/>} />
+          <Route path="/site" element={<Sites />} />
+          <Route path="/site/preview/:id" element={<WebPreview/>} />
         </Routes>
       </BrowserRouter>
     </>

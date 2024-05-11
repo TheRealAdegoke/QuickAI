@@ -1,9 +1,10 @@
-import React, { useContext, createElement, useEffect, useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
 import reactElementToJSXString from "react-element-to-jsx-string";
 import { axiosInstance } from "../../../Pages/AuthPages/AuthChecker/axiosInstance";
 import html2canvas from "html2canvas";
-import { useScreenshot } from "use-react-screenshot";
+import { ImSpinner6 } from "react-icons/im";
+import axios from "axios";
 
 const DesignModal = () => {
   const {
@@ -15,77 +16,83 @@ const DesignModal = () => {
     userInput,
     selectedIdea,
     handleUserData,
+    clearDesigns,
   } = useContext(DashContext);
   const ref = useRef(null);
-  // const [image, takeScreenshot] = useScreenshot();
-  const [image, setImage] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-   const saveComponentReturnToLocalStorage = async () => {
-    const postData = {
-      prompt: userInput || selectedIdea,
-      navStyle: {
-        index: navIndex,
-        style: reactElementToJSXString(navComponents[navIndex]),
-      },
-      heroStyle: {
-        index: heroIndex,
-        style: reactElementToJSXString(heroComponents[heroIndex]),
-      },
-    };
+
+   const saveDesign = async () => {
+    setLoading(true);
      try {
-        const response = await axiosInstance.post(
-          "save-landing-styles",
-          postData
-        );
-        console.log(response.data.message);
-        handleUserData()
+       const canvas = await html2canvas(ref.current, { useCORS: true });
+       const dataURL = canvas.toDataURL();
+       const formData = new FormData();
+       formData.append("file", dataURL);
+       formData.append("upload_preset", "bgoegsr5");
+
+       const cloudinaryResponse = await axios.post(
+         "https://api.cloudinary.com/v1_1/dpyp7innp/image/upload",
+         formData
+       );
+       const cloudinaryURL = cloudinaryResponse.data.secure_url;
+
+       const postData = {
+         prompt: userInput || selectedIdea,
+         navStyle: {
+           index: navIndex,
+           style: reactElementToJSXString(navComponents[navIndex]),
+         },
+         heroStyle: {
+           index: heroIndex,
+           style: reactElementToJSXString(heroComponents[heroIndex]),
+         },
+         webDesignImagePreview: cloudinaryURL,
+       };
+
+       await axiosInstance.post(
+         "save-landing-styles",
+         postData
+       );
+
+       clearDesigns()
+       handleUserData();
      } catch (error) {
-      console.error(error.response.data.error);
-      message.error(error.response.data.error);
+       console.error(error);
+     } finally {
+       setLoading(false);
      }
    };
-
-   const captureScreenshot = async () => {
-      html2canvas(ref.current).then((canvas) => {
-        // Convert canvas to data URL
-        const dataURL = canvas.toDataURL();
-        // Set image state with data URL
-        setImage(dataURL);
-        console.log(dataURL);
-      });
-   };
-
 
 
   return (
     <>
-      <main
-        ref={ref}
+      <div
         className={`${
           showDesignModal ? "block" : "hidden"
-        } bg-white w-full mt-5 max-md:mt-0 mx-10 h-[93vh] max-md:h-[89vh] max-[499px]:mx-4 overflow-scroll overflow-x-hidden`}
+        } w-full mt-5 max-md:mt-0 mx-10 h-[93vh] max-md:h-[89vh] max-[499px]:mx-4 overflow-hidden`}
       >
-        {navIndex !== undefined && navComponents[navIndex]}
-        {heroIndex !== undefined && heroComponents[heroIndex]}
-
-        {image && <img src={image} alt="Captured screenshot" />}
-
-        <button
-          className="text-black p-5"
-          onClick={saveComponentReturnToLocalStorage}
-        >
-          Save
-        </button>
-
-        <button
-          className="text-black p-5"
-          onClick={() => {
-            captureScreenshot();
-          }}
-        >
-          Save Image
-        </button>
-      </main>
+        <div className="mb-5 flex justify-end items-end">
+          <button
+            type="submit"
+            className="text-black bg-white w-[200px] hover:bg-[rgba(255,255,255,0.9)] block p-3 rounded-[5px] font-medium"
+            onClick={saveDesign}
+            disabled={loading}
+          >
+            {loading ? (
+              <div>
+                <ImSpinner6 className="animate-spin text-2xl text-black block mx-auto" />
+              </div>
+            ) : (
+              "Save"
+            )}
+          </button>
+        </div>
+        <main ref={ref} className="bg-white h-[90%] overflow-y-scroll">
+          {navIndex !== undefined && navComponents[navIndex]}
+          {heroIndex !== undefined && heroComponents[heroIndex]}
+        </main>
+      </div>
     </>
   );
 };

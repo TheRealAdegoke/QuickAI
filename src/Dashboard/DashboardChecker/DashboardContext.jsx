@@ -345,7 +345,9 @@ export const DashboardProvider = ({ children }) => {
             alt={text.images[5]}
             className="block max-lg:w-[95%] w-full h-[600px] max-lg:h-[400px] max-lg:max-w-[800px]"
           />
-          <p className="my-5 max-lg:max-w-[400px]">{text.description}</p>
+          <p className="my-5 max-lg:max-w-[400px] text-white">
+            {text.description}
+          </p>
           {buttonIndex !== undefined && WebButtonsArray[buttonIndex]}
         </div>
       </div>

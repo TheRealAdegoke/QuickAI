@@ -87,6 +87,9 @@ const SideBar = () => {
           <Link
             to="/site"
             className="font-semibold text-xl flex justify-between items-center text-[rgb(201,209,217)] hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] hover:px-2 border-zinc-600 px-2 py-1"
+            onClick={() => {
+              clearDesigns();
+            }}
           >
             Site <FaChevronRight className="text-lg" />
           </Link>
@@ -116,12 +119,16 @@ const SideBar = () => {
                         (item) => new Date(item.createdAt) >= todayBoundary
                       )
                       .map((item) => (
-                        <button
+                        <Link
+                          to={`/site/preview/${item._id}`}
                           key={item._id}
                           className="my-2 w-[90%] overflow-hidden text-sm text-left text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-1 cursor-pointer block"
+                          onClick={() => {
+                            clearDesigns();
+                          }}
                         >
                           {item.prompt}
-                        </button>
+                        </Link>
                       ))}
                   </div>
                 </div>
@@ -144,12 +151,16 @@ const SideBar = () => {
                           new Date(item.createdAt) >= yesterdayBoundary
                       )
                       .map((item) => (
-                        <button
+                        <Link
+                          to={`/site/preview/${item._id}`}
                           key={item._id}
                           className="my-2 w-[90%] overflow-hidden text-sm text-left text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-1 cursor-pointer block"
+                          onClick={() => {
+                            clearDesigns();
+                          }}
                         >
                           {item.prompt}
-                        </button>
+                        </Link>
                       ))}
                   </div>
                 </div>
@@ -172,20 +183,23 @@ const SideBar = () => {
                           new Date(item.createdAt) >= pastSevenDaysBoundary
                       )
                       .map((item) => (
-                        <button
+                        <Link
+                          to={`/site/preview/${item._id}`}
                           key={item._id}
                           className="my-2 w-[90%] overflow-hidden text-sm text-left text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-1 cursor-pointer block"
+                          onClick={() => {
+                            clearDesigns();
+                          }}
                         >
                           {item.prompt}
-                        </button>
+                        </Link>
                       ))}
                   </div>
                 </div>
               )}
 
               {sortedHistory.some(
-                (item) =>
-                  new Date(item.createdAt) <= pastSevenDaysBoundary
+                (item) => new Date(item.createdAt) <= pastSevenDaysBoundary
               ) && (
                 <div className="mb-5">
                   <p className="text-sm font-semibold text-[rgb(201,209,217)]">
@@ -198,12 +212,16 @@ const SideBar = () => {
                           new Date(item.createdAt) <= pastSevenDaysBoundary
                       )
                       .map((item) => (
-                        <button
+                        <Link
+                          to={`/site/preview/${item._id}`}
                           key={item._id}
                           className="my-2 w-[90%] overflow-hidden text-sm text-left text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-1 cursor-pointer block"
+                          onClick={() => {
+                            clearDesigns();
+                          }}
                         >
                           {item.prompt}
-                        </button>
+                        </Link>
                       ))}
                   </div>
                 </div>

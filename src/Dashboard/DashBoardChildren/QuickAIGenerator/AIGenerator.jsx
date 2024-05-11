@@ -127,7 +127,6 @@ const AIGenerator = () => {
                 className={`${
                   closeSideNav ? "max-lg:max-w-[500px]" : ""
                 } glowing-light w-[90%] max-w-[800px] max-md:max-w-[500px] mx-auto border-zinc-600 border-[1px] rounded-[10px] flex justify-between items-center pr-3`}
-                onSubmit={handlePrompt}
               >
                 <input
                   type="text"
@@ -139,7 +138,12 @@ const AIGenerator = () => {
                   className="bg-transparent border-none outline-none text-xl w-full h-[66px] pl-4 rounded-[8px]"
                 />
 
-                <button className={`my-2 ml-2`} type="submit">
+                <button
+                  className={`my-2 ml-2`}
+                  type="submit"
+                  onClick={handlePrompt}
+                  disabled={loading}
+                >
                   {window.innerWidth < 766 ? (
                     <div className="block bg-[rgb(201,209,217)] rounded-[8px] p-2 text-[rgb(9,11,14)]">
                       {loading ? (
