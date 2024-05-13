@@ -5,8 +5,6 @@ import React, {
 } from "react";
 import { axiosInstance } from "../../Pages/AuthPages/AuthChecker/axiosInstance";
 import { message } from "antd";
-import { FaBars } from "react-icons/fa";
-import modalLogo from "../../assets/quickModalLogo.png";
 
 export const DashContext = createContext();
 export const DashboardProvider = ({ children }) => {
@@ -82,17 +80,17 @@ export const DashboardProvider = ({ children }) => {
     <nav className={`bg-white w-full shadow-xl relative z-40`}>
       <div className={`flex justify-between items-center px-5`}>
         <div className="w-1/5 max-md:w-[30%] flex items-center gap-1 py-3">
-          <img src={modalLogo} alt={modalLogo} className="w-[40px]" />
+          <img src="https://res.cloudinary.com/dpyp7innp/image/upload/v1715591674/ad53c5d6-b066-455b-a840-7c1c3538e430.png" alt="Web logo" className="w-[40px]" />
           <h1 className="font-semibold text-black">{text.webLogo}</h1>
         </div>
 
         <button
-          className="text-[rgba(0,0,0,0.8)] hidden max-lg:block  text-xl cursor-pointer"
+          className="text-[rgba(0,0,0,0.8)] hidden max-lg:block text-xl cursor-pointer"
           onClick={() => {
             setCloseAINav(!closeAINav);
           }}
         >
-          <FaBars />
+          Icon
         </button>
 
         <div
@@ -120,7 +118,7 @@ export const DashboardProvider = ({ children }) => {
     <nav className={`bg-white w-full shadow-xl relative z-40`}>
       <div className={`flex justify-between items-center px-5`}>
         <div className="w-[20%] flex items-center gap-1 py-3">
-          <img src={modalLogo} alt={modalLogo} className="w-[40px]" />
+          <img src="https://res.cloudinary.com/dpyp7innp/image/upload/v1715591674/ad53c5d6-b066-455b-a840-7c1c3538e430.png" alt="Web logo" className="w-[40px]" />
           <h1 className="font-semibold text-black">{text.webLogo}</h1>
         </div>
 
@@ -130,7 +128,7 @@ export const DashboardProvider = ({ children }) => {
             setCloseAINav(!closeAINav);
           }}
         >
-          <FaBars />
+          Icon
         </button>
 
         <div
@@ -166,7 +164,7 @@ export const DashboardProvider = ({ children }) => {
     >
       <div className={`flex justify-between items-center px-5`}>
         <div className="w-[20%] flex items-center gap-1 py-3">
-          <img src={modalLogo} alt={modalLogo} className="w-[40px]" />
+          <img src="https://res.cloudinary.com/dpyp7innp/image/upload/v1715591674/ad53c5d6-b066-455b-a840-7c1c3538e430.png" alt="Web logo" className="w-[40px]" />
           <h1 className="font-semibold text-black">{text.webLogo}</h1>
         </div>
 
@@ -176,7 +174,7 @@ export const DashboardProvider = ({ children }) => {
             setCloseAINav(!closeAINav);
           }}
         >
-          <FaBars />
+          Icon
         </button>
 
         <div

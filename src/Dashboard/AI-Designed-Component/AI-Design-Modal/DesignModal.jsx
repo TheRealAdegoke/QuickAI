@@ -5,6 +5,7 @@ import { axiosInstance } from "../../../Pages/AuthPages/AuthChecker/axiosInstanc
 import html2canvas from "html2canvas";
 import { ImSpinner6 } from "react-icons/im";
 import axios from "axios";
+import { TestNavOne } from "../../Test Modal/TestNav";
 
 const DesignModal = () => {
   const {
@@ -21,49 +22,55 @@ const DesignModal = () => {
   const ref = useRef(null);
   const [loading, setLoading] = useState(false);
 
-
-   const saveDesign = async () => {
+  const saveDesign = async () => {
     setLoading(true);
-     try {
-       const canvas = await html2canvas(ref.current, { useCORS: true });
-       const dataURL = canvas.toDataURL();
-       const formData = new FormData();
-       formData.append("file", dataURL);
-       formData.append("upload_preset", "bgoegsr5");
+    try {
+      const canvas = await html2canvas(ref.current, { useCORS: true });
+      const dataURL = canvas.toDataURL();
+      const formData = new FormData();
+      formData.append("file", dataURL);
+      formData.append("upload_preset", "bgoegsr5");
 
-       const cloudinaryResponse = await axios.post(
-         "https://api.cloudinary.com/v1_1/dpyp7innp/image/upload",
-         formData
-       );
-       const cloudinaryURL = cloudinaryResponse.data.secure_url;
+      const cloudinaryResponse = await axios.post(
+        "https://api.cloudinary.com/v1_1/dpyp7innp/image/upload",
+        formData
+      );
+      const cloudinaryURL = cloudinaryResponse.data.secure_url;
 
-       const postData = {
-         prompt: userInput || selectedIdea,
-         navStyle: {
-           index: navIndex,
-           style: reactElementToJSXString(navComponents[navIndex]),
-         },
-         heroStyle: {
-           index: heroIndex,
-           style: reactElementToJSXString(heroComponents[heroIndex]),
-         },
-         webDesignImagePreview: cloudinaryURL,
-       };
+      const postData = {
+        prompt: userInput || selectedIdea,
+        navStyle: {
+          index: navIndex,
+          style: reactElementToJSXString(navComponents[navIndex], {
+            showFunctions: true,
+            functionValue: (fn) => fn,
+            showDefaultProps: false
+          }),
+        },
+        heroStyle: {
+          index: heroIndex,
+          style: reactElementToJSXString(heroComponents[heroIndex], {
+            showFunctions: true,
+            functionValue: (fn) => fn,
+          }),
+        },
+        webDesignImagePreview: cloudinaryURL,
+      };
 
-       await axiosInstance.post(
-         "save-landing-styles",
-         postData
-       );
+      await axiosInstance.post("save-landing-styles", postData);
 
-       clearDesigns()
-       handleUserData();
-     } catch (error) {
-       console.error(error);
-     } finally {
-       setLoading(false);
-     }
-   };
+      clearDesigns();
+      handleUserData();
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  const logy = async () => {
+    console.log(<TestNavOne/>);
+  }
 
   return (
     <>
@@ -91,6 +98,9 @@ const DesignModal = () => {
         <main ref={ref} className="bg-white h-[90%] overflow-y-scroll">
           {navIndex !== undefined && navComponents[navIndex]}
           {heroIndex !== undefined && heroComponents[heroIndex]}
+          <button className="text-black p-4" onClick={logy}>
+            Log
+          </button>
         </main>
       </div>
     </>

@@ -12,11 +12,15 @@ import WebLogo from "../../../assets/WebLogo";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
 
 const WebPreview = () => {
-  const { userData } = useContext(DashContext);
+  const { userData, closeAINav, setCloseAINav } = useContext(DashContext);
   const { id } = useParams();
   const [historyData, setHistoryData] = useState("");
   const [loading, setLoading] = useState(true);
   const [itemsDropdown, setItemsDropdown] = useState(false)
+
+  const handleToggleAINav = () => {
+    setCloseAINav(!closeAINav);
+  };
 
   useEffect(() => {
     const fetchHistoryItem = async () => {
@@ -48,19 +52,28 @@ const WebPreview = () => {
               </Link>
             </div>
             <WebLogo />
-            <button className="bg-[rgb(9,23,56)] flex justify-center items-center py-[0.5rem] px-[0.6rem] rounded-full uppercase text-white" onClick={() => {
-              setItemsDropdown(!itemsDropdown)
-            }}>
+            <button
+              className="bg-[rgb(9,23,56)] flex justify-center items-center py-[0.5rem] px-[0.6rem] rounded-full uppercase text-white"
+              onClick={() => {
+                setItemsDropdown(!itemsDropdown);
+              }}
+            >
               {userData && userData.fullname.slice(0, 2)}
             </button>
           </div>
           <div>
-            <JsxParser jsx={historyData.navStyle.style} />
+            <JsxParser
+              jsx={historyData.navStyle.style}
+              components={{ button: "button" }}
+              onClick={handleToggleAINav}
+            />
             <JsxParser jsx={historyData.heroStyle.style} />
           </div>
 
           <div
-            className={`${itemsDropdown ? "block" : "hidden"} dashboard-navigation-darkmode w-full max-w-[190px] mx-auto flex-col items-start gap-2 border-zinc-600 border-[1px] px-2 py-1 rounded-[5px] font-semibold fixed top-16 right-[0.7%] z-50 text-white`}
+            className={`${
+              itemsDropdown ? "block" : "hidden"
+            } dashboard-navigation-darkmode w-full max-w-[190px] mx-auto flex-col items-start gap-2 border-zinc-600 border-[1px] px-2 py-1 rounded-[5px] font-semibold fixed top-16 right-[0.7%] z-50 text-white`}
           >
             <button className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">
               <MdOutlineManageAccounts />
