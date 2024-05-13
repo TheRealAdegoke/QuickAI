@@ -122,7 +122,7 @@ const SideBar = () => {
                         <Link
                           to={`/site/preview/${item._id}`}
                           key={item._id}
-                          className="my-2 w-[90%] overflow-hidden text-sm text-left text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-1 cursor-pointer block"
+                          className="my-2 w-[90%] overflow-hidden text-sm text-left text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-2 cursor-pointer block"
                           onClick={() => {
                             clearDesigns();
                           }}
@@ -154,7 +154,7 @@ const SideBar = () => {
                         <Link
                           to={`/site/preview/${item._id}`}
                           key={item._id}
-                          className="my-2 w-[90%] overflow-hidden text-sm text-left text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-1 cursor-pointer block"
+                          className="my-2 w-[90%] overflow-hidden text-sm text-left text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-2 cursor-pointer block"
                           onClick={() => {
                             clearDesigns();
                           }}
@@ -186,7 +186,7 @@ const SideBar = () => {
                         <Link
                           to={`/site/preview/${item._id}`}
                           key={item._id}
-                          className="my-2 w-[90%] overflow-hidden text-sm text-left text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-1 cursor-pointer block"
+                          className="my-2 w-[90%] overflow-hidden text-sm text-left text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-2 cursor-pointer block"
                           onClick={() => {
                             clearDesigns();
                           }}
@@ -215,7 +215,7 @@ const SideBar = () => {
                         <Link
                           to={`/site/preview/${item._id}`}
                           key={item._id}
-                          className="my-2 w-[90%] overflow-hidden text-sm text-left text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-1 cursor-pointer block"
+                          className="my-2 w-[90%] overflow-hidden text-sm text-left text-ellipsis text-nowrap hover:bg-[rgb(33,33,33)] hover:border-[1px] rounded-[5px] border-zinc-600 px-2 py-2 cursor-pointer block"
                           onClick={() => {
                             clearDesigns();
                           }}
