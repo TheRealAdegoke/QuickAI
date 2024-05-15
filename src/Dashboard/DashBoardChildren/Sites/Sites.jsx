@@ -47,18 +47,18 @@ const Sites = () => {
                         (item) => new Date(item.createdAt) >= todayBoundary
                       )
                       .map((item) => (
-                        <Link
-                          to={`/site/preview/${item._id}`}
-                          key={item._id}
-                          className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden"
-                        >
-                          <div className="cursor-pointer">
+                        <div className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden">
+                          <Link
+                            to={`/site/preview/${item._id}`}
+                            key={item._id}
+                            className="cursor-pointer"
+                          >
                             <img
                               src={item.webDesignImagePreview}
                               alt=""
                               className="w-full block"
                             />
-                          </div>
+                          </Link>
 
                           <div className="bg-[rgb(9,11,14)] px-5 rounded-b-[3px] absolute bottom-0 w-full py-5 flex justify-between gap-5 items-center">
                             <span className="w-[80%] overflow-hidden text-ellipsis text-nowrap">
@@ -68,7 +68,7 @@ const Sites = () => {
                               <BsThreeDotsVertical />
                             </span>
                           </div>
-                        </Link>
+                        </div>
                       ))}
                   </div>
                 </div>
@@ -94,18 +94,18 @@ const Sites = () => {
                           new Date(item.createdAt) >= yesterdayBoundary
                       )
                       .map((item) => (
-                        <Link
-                          to={`/site/preview/${item._id}`}
-                          key={item._id}
-                          className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden"
-                        >
-                          <div className="cursor-pointer">
+                        <div className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden">
+                          <Link
+                            to={`/site/preview/${item._id}`}
+                            key={item._id}
+                            className="cursor-pointer"
+                          >
                             <img
                               src={item.webDesignImagePreview}
                               alt=""
                               className="w-full block"
                             />
-                          </div>
+                          </Link>
 
                           <div className="bg-[rgb(9,11,14)] px-5 rounded-b-[3px] absolute bottom-0 w-full py-5 flex justify-between gap-5 items-center">
                             <span className="w-[80%] overflow-hidden text-ellipsis text-nowrap">
@@ -115,7 +115,7 @@ const Sites = () => {
                               <BsThreeDotsVertical />
                             </span>
                           </div>
-                        </Link>
+                        </div>
                       ))}
                   </div>
                 </div>
@@ -141,18 +141,18 @@ const Sites = () => {
                           new Date(item.createdAt) >= pastSevenDaysBoundary
                       )
                       .map((item) => (
-                        <Link
-                          to={`/site/preview/${item._id}`}
-                          key={item._id}
-                          className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden"
-                        >
-                          <div className="cursor-pointer">
+                        <div className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden">
+                          <Link
+                            to={`/site/preview/${item._id}`}
+                            key={item._id}
+                            className="cursor-pointer"
+                          >
                             <img
                               src={item.webDesignImagePreview}
                               alt=""
                               className="w-full block"
                             />
-                          </div>
+                          </Link>
 
                           <div className="bg-[rgb(9,11,14)] px-5 rounded-b-[3px] absolute bottom-0 w-full py-5 flex justify-between gap-5 items-center">
                             <span className="w-[80%] overflow-hidden text-ellipsis text-nowrap">
@@ -162,7 +162,7 @@ const Sites = () => {
                               <BsThreeDotsVertical />
                             </span>
                           </div>
-                        </Link>
+                        </div>
                       ))}
                   </div>
                 </div>
@@ -185,18 +185,18 @@ const Sites = () => {
                           new Date(item.createdAt) <= pastSevenDaysBoundary
                       )
                       .map((item) => (
-                        <Link
-                          to={`/site/preview/${item._id}`}
-                          key={item._id}
-                          className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden"
-                        >
-                          <div className="cursor-pointer">
+                        <div className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden">
+                          <Link
+                            to={`/site/preview/${item._id}`}
+                            key={item._id}
+                            className="cursor-pointer"
+                          >
                             <img
                               src={item.webDesignImagePreview}
                               alt=""
                               className="w-full block"
                             />
-                          </div>
+                          </Link>
 
                           <div className="bg-[rgb(9,11,14)] px-5 rounded-b-[3px] absolute bottom-0 w-full py-5 flex justify-between gap-5 items-center">
                             <span className="w-[80%] overflow-hidden text-ellipsis text-nowrap">
@@ -206,7 +206,7 @@ const Sites = () => {
                               <BsThreeDotsVertical />
                             </span>
                           </div>
-                        </Link>
+                        </div>
                       ))}
                   </div>
                 </div>

@@ -42,7 +42,7 @@ const WebPreview = () => {
         </div>
       ) : (
         <main>
-          <div className="dashboard-navigation-darkmode py-2 flex justify-between items-center px-3">
+          <div className="dashboard-navigation-darkmode py-2 flex justify-between items-center px-3 fixed w-full top-0 z-50">
             <div>
               <Link to="/home">
                 <FaChevronLeft className="text-white text-2xl" />
@@ -58,7 +58,7 @@ const WebPreview = () => {
               {userData && userData.fullname.slice(0, 2)}
             </button>
           </div>
-          <div>
+          <div className="pt-14">
             {parse(historyData.navStyle.style)}
             <JsxParser jsx={historyData.heroStyle.style} />
           </div>
