@@ -27,12 +27,15 @@ NB: <TestDesignModal/> should be completely removed from the Dashboard.jsx compo
 
 */
 
+import { TestNavOne } from "./TestNav";
+
 
 const TestDesignModal = () => {
   return (
     <main
       className={`bg-white w-full mt-5 max-md:mt-0 mx-10 h-[93vh] max-md:h-[89vh] max-[499px]:mx-4 overflow-scroll overflow-x-hidden`}
     >
+      <TestNavOne/>
       <div className=" bg-emerald-500">
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad accusamus

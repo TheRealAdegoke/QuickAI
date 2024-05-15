@@ -8,19 +8,16 @@ import { MdOutlineManageAccounts } from "react-icons/md";
 import { CiLogout } from "react-icons/ci";
 import { ImSpinner6 } from "react-icons/im";
 import JsxParser from "react-jsx-parser";
+import parse from "html-react-parser";
 import WebLogo from "../../../assets/WebLogo";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
 
 const WebPreview = () => {
-  const { userData, closeAINav, setCloseAINav } = useContext(DashContext);
+  const { userData } = useContext(DashContext);
   const { id } = useParams();
   const [historyData, setHistoryData] = useState("");
   const [loading, setLoading] = useState(true);
   const [itemsDropdown, setItemsDropdown] = useState(false)
-
-  const handleToggleAINav = () => {
-    setCloseAINav(!closeAINav);
-  };
 
   useEffect(() => {
     const fetchHistoryItem = async () => {
@@ -62,11 +59,7 @@ const WebPreview = () => {
             </button>
           </div>
           <div>
-            <JsxParser
-              jsx={historyData.navStyle.style}
-              components={{ button: "button" }}
-              onClick={handleToggleAINav}
-            />
+            {parse(historyData.navStyle.style)}
             <JsxParser jsx={historyData.heroStyle.style} />
           </div>
 
