@@ -5,7 +5,6 @@ import { axiosInstance } from "../../../Pages/AuthPages/AuthChecker/axiosInstanc
 import html2canvas from "html2canvas";
 import { ImSpinner6 } from "react-icons/im";
 import axios from "axios";
-import { TestNavOne } from "../../Test Modal/TestNav";
 
 const DesignModal = () => {
   const {
@@ -68,10 +67,6 @@ const DesignModal = () => {
     }
   };
 
-  const logy = async () => {
-    console.log(<TestNavOne/>);
-  }
-
   return (
     <>
       <div
@@ -98,9 +93,6 @@ const DesignModal = () => {
         <main ref={ref} className="bg-white h-[90%] overflow-y-scroll">
           {navIndex !== undefined && navComponents[navIndex]}
           {heroIndex !== undefined && heroComponents[heroIndex]}
-          <button className="text-black p-4" onClick={logy}>
-            Log
-          </button>
         </main>
       </div>
     </>
