@@ -17,6 +17,8 @@ const DesignModal = () => {
     selectedIdea,
     handleUserData,
     clearDesigns,
+    text,
+    buttonIndex,
   } = useContext(DashContext);
   const ref = useRef(null);
   const [loading, setLoading] = useState(false);
@@ -40,18 +42,21 @@ const DesignModal = () => {
         prompt: userInput || selectedIdea,
         navStyle: {
           index: navIndex,
-          style: reactElementToJSXString(navComponents[navIndex], {
+          style: reactElementToJSXString(navComponents({ text })[navIndex], {
             showFunctions: true,
             functionValue: (fn) => fn,
-            showDefaultProps: false
+            showDefaultProps: false,
           }),
         },
         heroStyle: {
           index: heroIndex,
-          style: reactElementToJSXString(heroComponents[heroIndex], {
-            showFunctions: true,
-            functionValue: (fn) => fn,
-          }),
+          style: reactElementToJSXString(
+            heroComponents({ text, buttonIndex })[heroIndex],
+            {
+              showFunctions: true,
+              functionValue: (fn) => fn,
+            }
+          ),
         },
         webDesignImagePreview: cloudinaryURL,
       };
@@ -66,6 +71,9 @@ const DesignModal = () => {
       setLoading(false);
     }
   };
+
+ const heroElement = heroComponents({ text, buttonIndex })[heroIndex];
+ const navElement = navComponents({ text, buttonIndex })[navIndex];
 
   return (
     <>
@@ -91,8 +99,8 @@ const DesignModal = () => {
           </button>
         </div>
         <main ref={ref} className="bg-white h-[90%] overflow-y-scroll">
-          {navIndex !== undefined && navComponents[navIndex]}
-          {heroIndex !== undefined && heroComponents[heroIndex]}
+          {navIndex !== undefined && navElement}
+          {heroIndex !== undefined && heroElement}
         </main>
       </div>
     </>
