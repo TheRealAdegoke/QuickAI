@@ -93,7 +93,6 @@ export const DashboardProvider = ({ children }) => {
     setNavIndex(randomNavIndex);
     setHeroIndex(randomHeroIndex);
     setButtonIndex(randomButtonsIndex);
-    console.log(randomHeroIndex);
   };
 
   const handleUserData = async () => {
