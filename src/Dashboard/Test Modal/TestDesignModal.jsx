@@ -27,7 +27,8 @@ NB: <TestDesignModal/> should be completely removed from the Dashboard.jsx compo
 
 */
 
-import { TestNavOne } from "./TestNav";
+import { TestNavOne, TestNavTwo, TestNavThree } from "./TestNav";
+import testCard from ".././../assets/Default-Card.jpg"
 
 
 const TestDesignModal = () => {
@@ -35,15 +36,41 @@ const TestDesignModal = () => {
     <main
       className={`bg-white w-full mt-5 max-md:mt-0 mx-10 h-[93vh] max-md:h-[89vh] max-[499px]:mx-4 overflow-scroll overflow-x-hidden`}
     >
-      <TestNavOne/>
-      <div className=" bg-emerald-500">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad accusamus
-          sequi voluptate minus earum voluptatem autem obcaecati inventore
-          nostrum tenetur, cumque laborum, atque facilis cum laudantium velit
-          pariatur in quis.
-        </p>
-      </div>
+      <TestNavThree />
+      <section className="mt-10 flex max-lg:flex-col max-lg:w-[90%] items-center justify-between lg:px-5 max-w-[1000px] mx-auto max-lg:max-w-[600px]">
+        <div className="mb-10 w-[50%] max-lg:w-full">
+          <h1 className="text-[#231e41] max-lg:text-center text-6xl max-sm:text-5xl max-w-[650px] max-sm:max-w-[400px] font-semibold mb-6 max-lg:mx-auto">
+            we create your emotions!
+          </h1>
+          <p className="text-[#231e41] text-sm max-lg:text-center max-w-[350px] max-lg:mx-auto font-medium mb-6">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex
+            repudiandae aspernatur veritatis
+          </p>
+          <div className="flex gap-5 max-lg:justify-center">
+            <button className="text-[#231e41] font-semibold bg-[#f5c332] px-7 py-2 flex items-center justify-center">
+              Our menu
+            </button>
+            <button className="text-[#231e41] font-semibold bg-white px-7 py-2 flex items-center justify-center gap-3">
+              <span className="bg-[#f8f9fa] rounded-full p-1">
+                <img
+                  src="https://starbelly-react.vercel.app/img/ui/icons/arrow.svg"
+                  alt=""
+                  className="w-[20px]"
+                />
+              </span>
+              About us
+            </button>
+          </div>
+        </div>
+
+        <div className="w-[45%] max-lg:w-full relative">
+          <img
+            src={testCard}
+            alt=""
+            className="block rounded-full w-[350px] h-[350px] mx-auto object-cover"
+          />
+        </div>
+      </section>
     </main>
   );
 };

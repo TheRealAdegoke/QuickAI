@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { axiosInstance } from "../../../Pages/AuthPages/AuthChecker/axiosInstance";
-import { FaBars } from "react-icons/fa";
 import { FaChevronLeft } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
 import { MdOutlineManageAccounts } from "react-icons/md";
 import { CiLogout } from "react-icons/ci";
 import { ImSpinner6 } from "react-icons/im";
-import JsxParser from "react-jsx-parser";
 import parse from "html-react-parser";
 import WebLogo from "../../../assets/WebLogo";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
@@ -60,7 +58,7 @@ const WebPreview = () => {
           </div>
           <div className="pt-14">
             {parse(historyData.navStyle.style)}
-            <JsxParser jsx={historyData.heroStyle.style} />
+            {parse(historyData.heroStyle.style)}
           </div>
 
           <div

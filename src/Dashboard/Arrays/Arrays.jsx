@@ -43,4 +43,3 @@ export const randomIdeas = [
   "Home Cleaning Subscription",
   "Virtual Language Exchange",
 ];
-

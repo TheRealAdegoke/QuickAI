@@ -95,29 +95,3 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555; /* Color of the scrollbar handle on hover */
 }
-
-.show-menu {
-  cursor: pointer;
-}
-
-input.checkbox-menu[type="checkbox"] {
-  display: none;
-  -webkit-appearance: none;
-}
-
-input.checkbox-menu[type="checkbox"]:checked ~ div.menu-block {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* .menu-block {
-  display: inline-block;
-  opacity: 0;
-  vertical-align: middle;
-  visibility: hidden;
-  -webkit-transition: all 0.25s;
-  -moz-transition: all 0.25s;
-  -ms-transition: all 0.25s;
-  -o-transition: all 0.25s;
-  transition: all 0.25s;
-} */
