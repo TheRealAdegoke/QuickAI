@@ -32,11 +32,11 @@ return [
     </button>
   </div>,
   <div className="flex flex-wrap gap-5 max-lg:justify-center mt-5">
-    <button className="text-[#231e41] font-semibold bg-[#f5c332] px-7 py-1 flex items-center justify-center">
+    <button className="text-[#231e41] font-semibold bg-[#f5c332] px-7 py-2 flex items-center justify-center">
       {text.buttonTexts[0]}
     </button>
-    <button className="text-[#231e41] font-semibold px-7 py-1 flex items-center justify-center gap-3">
-      <span className="bg-[#f8f9fa] rounded-full p-2">
+    <button className="text-[#231e41] font-semibold bg-white px-7 py-2 flex items-center justify-center gap-3">
+      <span className="bg-[#f8f9fa] rounded-full p-1">
         <img
           src="https://starbelly-react.vercel.app/img/ui/icons/arrow.svg"
           alt=""
