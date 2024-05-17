@@ -45,7 +45,6 @@ const DesignModal = () => {
           style: reactElementToJSXString(navComponents({ text })[navIndex], {
             showFunctions: true,
             functionValue: (fn) => fn,
-            showDefaultProps: false,
           }),
         },
         heroStyle: {
@@ -72,8 +71,8 @@ const DesignModal = () => {
     }
   };
 
- const heroElement = heroComponents({ text, buttonIndex })[heroIndex];
- const navElement = navComponents({ text, buttonIndex })[navIndex];
+  const heroElement = heroComponents({ text, buttonIndex })[heroIndex];
+  const navElement = navComponents({ text, buttonIndex })[navIndex];
 
   return (
     <>
