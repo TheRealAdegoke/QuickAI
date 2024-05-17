@@ -1,3 +1,5 @@
+import { FaBars } from "react-icons/fa6";
+
 export const navComponents = ({ text }) => {
   return [
     <nav className={`bg-white w-full shadow-xl relative z-40`}>
@@ -40,13 +42,13 @@ export const navComponents = ({ text }) => {
               <a href="">Home</a>
             </li>
             <li className="max-lg:border-t-[1px] py-3 cursor-pointer hover:underline">
-              <a href="">About</a>
+              <a href="">{text.buttonTexts[4]}</a>
             </li>
             <li className="max-lg:border-t-[1px] py-3 cursor-pointer hover:underline">
-              <a href="">Work</a>
+              <a href="">{text.buttonTexts[5]}</a>
             </li>
             <li className="max-lg:border-t-[1px] py-3 cursor-pointer hover:underline">
-              <a href="">Contact</a>
+              <a href="">{text.buttonTexts[6]}</a>
             </li>
           </ul>
         </div>
@@ -89,13 +91,13 @@ export const navComponents = ({ text }) => {
         >
           <ul className="flex max-lg:flex-col max-lg:items-center max-lg:gap-0 gap-4">
             <li className="hover:text-[rgba(255,0,0)] max-lg:mt-8">
-              <a href="">Home</a>
+              <a href="">{text.buttonTexts[4]}</a>
             </li>
             <li className="hover:text-[rgba(255,0,0)] max-lg:my-3">
-              <a href="">Pricing</a>
+              <a href="">{text.buttonTexts[5]}</a>
             </li>
             <li className="hover:text-[rgba(255,0,0)] max-lg:my-3">
-              <a href="">Features</a>
+              <a href="">{text.buttonTexts[6]}</a>
             </li>
           </ul>
 
@@ -149,13 +151,13 @@ export const navComponents = ({ text }) => {
         >
           <ul className="flex max-lg:flex-col max-lg:items-center max-lg:gap-0 gap-4">
             <li className="hover:text-[rgba(255,0,0)] max-lg:mt-8">
-              <a href="">Home</a>
+              <a href="">{text.buttonTexts[6]}</a>
             </li>
             <li className="hover:text-[rgba(255,0,0)] max-lg:my-3">
-              <a href="">Pricing</a>
+              <a href="">{text.buttonTexts[5]}</a>
             </li>
             <li className="hover:text-[rgba(255,0,0)] max-lg:my-3">
-              <a href="">Features</a>
+              <a href="">{text.buttonTexts[4]}</a>
             </li>
           </ul>
 
