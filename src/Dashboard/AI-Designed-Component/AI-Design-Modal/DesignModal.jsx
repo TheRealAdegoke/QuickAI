@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useRef, useState, useEffect } from "react";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
 import reactElementToJSXString from "react-element-to-jsx-string";
 import { axiosInstance } from "../../../Pages/AuthPages/AuthChecker/axiosInstance";
@@ -11,8 +11,14 @@ const DesignModal = () => {
     showDesignModal,
     heroIndex,
     navIndex,
+    featuresWithCardIndex,
+    featuresIndex,
+    testimonialIndex,
     navComponents,
     heroComponents,
+    featuresWithCardsComponent,
+    featuresComponents,
+    testimonialComponent,
     userInput,
     selectedIdea,
     handleUserData,
@@ -22,6 +28,13 @@ const DesignModal = () => {
   } = useContext(DashContext);
   const ref = useRef(null);
   const [loading, setLoading] = useState(false);
+  const [randomOrder, setRandomOrder] = useState(null);
+
+  useEffect(() => {
+    // Randomly set the order of elements
+    const order = Math.random() < 0.5 ? "featuresFirst" : "cardsFirst";
+    setRandomOrder(order);
+  }, []);
 
   const saveDesign = async () => {
     setLoading(true);
@@ -71,8 +84,24 @@ const DesignModal = () => {
     }
   };
 
+  const handleClicky = () => {
+    const elementOrder =
+      randomOrder === "featuresFirst"
+        ? [testimonialElement, featuresWithCardElement]
+        : [featuresWithCardElement, testimonialElement];
+
+    elementOrder.forEach((element) =>
+      console.log(reactElementToJSXString(element))
+    );
+  };
+
   const heroElement = heroComponents({ text, buttonIndex })[heroIndex];
   const navElement = navComponents({ text, buttonIndex })[navIndex];
+  const featuresWithCardElement = featuresWithCardsComponent({ text })[
+    featuresWithCardIndex
+  ];
+  const featuresElement = featuresComponents({ text })[featuresIndex];
+  const testimonialElement = testimonialComponent({ text })[testimonialIndex];
 
   return (
     <>
@@ -100,6 +129,21 @@ const DesignModal = () => {
         <main ref={ref} className="bg-white h-[90%] overflow-y-scroll">
           {navIndex !== undefined && navElement}
           {heroIndex !== undefined && heroElement}
+          {featuresWithCardIndex !== undefined && featuresWithCardElement}
+          {randomOrder === "featuresFirst" ? (
+            <>
+              {featuresIndex !== undefined && featuresElement}
+              {testimonialIndex !== undefined && testimonialElement}
+            </>
+          ) : (
+            <>
+              {testimonialIndex !== undefined && testimonialElement}
+              {featuresIndex !== undefined && featuresElement}
+            </>
+          )}
+          <button className="text-black p-5" onClick={handleClicky}>
+            Clicky
+          </button>
         </main>
       </div>
     </>

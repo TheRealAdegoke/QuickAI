@@ -8,6 +8,9 @@ import { message } from "antd";
 import { heroComponents } from "../Arrays/HeroSectionArray";
 import { WebButtonsArray } from "../Arrays/WebButtonsArray";
 import { navComponents } from "../Arrays/NavArray";
+import { featuresWithCardsComponent } from "../Arrays/FeaturesWithCardsArray";
+import { featuresComponents } from "../Arrays/FeaturesArray";
+import { testimonialComponent } from "../Arrays/TestimonialArray";
 
 export const DashContext = createContext();
 export const DashboardProvider = ({ children }) => {
@@ -24,6 +27,9 @@ export const DashboardProvider = ({ children }) => {
   const [buttonIndex, setButtonIndex] = useState(undefined);
   const [navIndex, setNavIndex] = useState(undefined);
   const [heroIndex, setHeroIndex] = useState(undefined);
+  const [featuresWithCardIndex, setFeaturesWithCardIndex] = useState(undefined);
+  const [featuresIndex, setFeaturesIndex] = useState(undefined);
+  const [testimonialIndex, setTestimonialIndex] = useState(undefined);
   const [shuffled, setShuffled] = useState(false);
   const [text, setText] = useState({
     prompt: "",
@@ -89,10 +95,22 @@ export const DashboardProvider = ({ children }) => {
     const randomButtonsIndex = Math.floor(
       Math.random() * WebButtonsArray({ text, buttonIndex }).length
     );
+    const randomfeaturesWithCardIndex = Math.floor(
+      Math.random() * featuresWithCardsComponent({ text }).length
+    );
+    const randomfeaturesIndex = Math.floor(
+      Math.random() * featuresComponents({text}).length
+    );
+    const randomTestimonialIndex = Math.floor(
+      Math.random() * testimonialComponent({ text }).length
+    );
 
     setNavIndex(randomNavIndex);
     setHeroIndex(randomHeroIndex);
     setButtonIndex(randomButtonsIndex);
+    setFeaturesWithCardIndex(randomfeaturesWithCardIndex)
+    setFeaturesIndex(randomfeaturesIndex);
+    setTestimonialIndex(randomTestimonialIndex)
   };
 
   const handleUserData = async () => {
@@ -172,12 +190,18 @@ export const DashboardProvider = ({ children }) => {
         WebButtonsArray,
         navComponents,
         heroComponents,
+        featuresWithCardsComponent,
+        featuresComponents,
+        testimonialComponent,
         clearDesigns,
         testDesignModal,
         setTestDesignModal,
         buttonIndex,
         navIndex,
         heroIndex,
+        featuresWithCardIndex,
+        featuresIndex,
+        testimonialIndex,
         text,
         setText,
       }}

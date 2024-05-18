@@ -70,153 +70,120 @@ const TestDesignModal = () => {
           />
         </div>
       </section>
-      <section className="text-black my-14 w-[90%] max-w-[1000px] mx-auto">
-        <div className="mb-10 text-center">
-          <h1 className="text-3xl font-bold text-[#212529] mb-2">OUR Team</h1>
-          <p>
-            Get to know an amazing group of People on a mission to make a
-            difference.
-          </p>
+      <section className="text-black w-[90%] mx-auto my-14 flex flex-row-reverse max-lg:flex-col justify-between max-w-[1000px]">
+        <div className="w-[50%] flex flex-col items-start gap-3 max-lg:w-full">
+          <div className="">
+            <h1 className="text-[#231e41] text-3xl font-bold mb-1">
+              Your Amazing Feature Goes Here
+            </h1>
+            <p className="text-[#231e41]">
+              Here's some more information about this amazing feature. You can
+              use basic formatting and also multiple paragraphs.
+            </p>
+          </div>
+
+          <div>
+            <div className="flex gap-3 max-w-[400px] mb-5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="#231e41"
+                width="50"
+                height="50"
+                viewBox="0 0 24 24"
+              >
+                <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"></path>
+              </svg>
+
+              <div className="mt-2">
+                <h2 className="capitalize text-xl font-semibold text-[#231e41]">
+                  Item One
+                </h2>
+                <p className="text-[#231e41]">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Laborum labore iure hic nemo ipsam totam veritatis provident
+                  et aut quae?
+                </p>
+              </div>
+            </div>
+
+            <div className="w-full max-lg:mt-5 max-lg:hidden">
+              <img
+                src={testCard}
+                alt={testCard}
+                className="block h-[300px] mx-auto object-cover rounded-xl"
+              />
+            </div>
+          </div>
+
+          <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
+            Learn more
+          </button>
         </div>
 
-        <div className="flex flex-wrap max-md:flex-col gap-4">
-          <div className="bg-white border-solid shadow-2xl text-black rounded-2xl w-[90%] lg:w-[30%] max-w-[350px] mx-auto py-5">
-            <div className="w-[90%] mx-auto">
-              <img
-                src={testCard}
-                alt=""
-                className="block w-full h-[250px] mx-auto object-cover rounded-lg"
-              />
+        <div className="w-[40%] max-lg:w-full max-lg:mt-5">
+          <img
+            src={testCard}
+            alt={testCard}
+            className="block h-[550px] mx-auto object-cover rounded-xl"
+          />
+        </div>
+      </section>
+      <section className="text-black w-[90%] mx-auto my-14 flex max-lg:flex-col justify-between max-w-[1000px]">
+        <div className="w-[50%] flex flex-col items-start gap-3 max-lg:w-full">
+          <div className="">
+            <h1 className="text-[#231e41] text-3xl font-bold mb-1">
+              Your Amazing Feature Goes Here
+            </h1>
+            <p className="text-[#231e41]">
+              Here's some more information about this amazing feature. You can
+              use basic formatting and also multiple paragraphs.
+            </p>
+          </div>
+
+          <div>
+            <div className="flex gap-3 max-w-[400px] mb-5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="#231e41"
+                width="50"
+                height="50"
+                viewBox="0 0 24 24"
+              >
+                <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"></path>
+              </svg>
+
+              <div className="mt-2">
+                <h2 className="capitalize text-xl font-semibold text-[#231e41]">
+                  Item One
+                </h2>
+                <p className="text-[#231e41]">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Laborum labore iure hic nemo ipsam totam veritatis provident
+                  et aut quae?
+                </p>
+              </div>
             </div>
 
-            <div className="text-left mt-4 px-8">
-              <h1 className="font-semibold">Gabriel</h1>
-              <p>Founder</p>
-              <div className="flex gap-3 justify-start my-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 448 512"
-                  width="24"
-                  height="24"
-                  class="um-icon _ed8fbb90"
-                >
-                  <path
-                    d="M416 32H31.9A32.1 32.1 0 0 0 0 64.3v383.4A32.1 32.1 0 0 0 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3A32.2 32.2 0 0 0 416 32zM135.4 416H69V202.2h66.5V416zm-33.2-243a38.5 38.5 0 1 1 0-77 38.5 38.5 0 0 1 0 77zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
-
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"
-                  width="24"
-                  height="24"
-                  class="um-icon _ed8fbb90"
-                >
-                  <path
-                    d="M459.4 151.7c.3 4.6.3 9.1.3 13.7 0 138.7-105.6 298.5-298.6 298.5A296.5 296.5 0 0 1 0 417a217 217 0 0 0 25.3 1.2c49 0 94.3-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8a111 111 0 0 0 47.4-2 105 105 0 0 1-84.1-103v-1.2c14 7.8 30.2 12.6 47.4 13.3A104.9 104.9 0 0 1 35.7 67.2a298.3 298.3 0 0 0 216.4 109.9 104.9 104.9 0 0 1 179-95.8 206.6 206.6 0 0 0 66.6-25.4 104.7 104.7 0 0 1-46.1 57.8c21-2.3 41.6-8.1 60.4-16.2a225.6 225.6 0 0 1-52.6 54.2z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
-              </div>
-              <p className="mt-6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
+            <div className="w-full max-lg:mt-5 max-lg:hidden">
+              <img
+                src={testCard}
+                alt={testCard}
+                className="block h-[300px] mx-auto object-cover rounded-xl"
+              />
             </div>
           </div>
 
-          <div className="bg-white border-solid shadow-2xl text-black rounded-2xl w-[90%] lg:w-[30%] max-w-[350px] mx-auto py-5">
-            <div className="w-[90%] mx-auto">
-              <img
-                src={testCard}
-                alt=""
-                className="block w-full h-[250px] mx-auto object-cover rounded-lg"
-              />
-            </div>
+          <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
+            leran more
+          </button>
+        </div>
 
-            <div className="text-left mt-4 px-8">
-              <h1 className="font-semibold">Gabriel</h1>
-              <p>Founder</p>
-              <div className="flex gap-3 justify-start my-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 448 512"
-                  width="24"
-                  height="24"
-                  class="um-icon _ed8fbb90"
-                >
-                  <path
-                    d="M416 32H31.9A32.1 32.1 0 0 0 0 64.3v383.4A32.1 32.1 0 0 0 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3A32.2 32.2 0 0 0 416 32zM135.4 416H69V202.2h66.5V416zm-33.2-243a38.5 38.5 0 1 1 0-77 38.5 38.5 0 0 1 0 77zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
-
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"
-                  width="24"
-                  height="24"
-                  class="um-icon _ed8fbb90"
-                >
-                  <path
-                    d="M459.4 151.7c.3 4.6.3 9.1.3 13.7 0 138.7-105.6 298.5-298.6 298.5A296.5 296.5 0 0 1 0 417a217 217 0 0 0 25.3 1.2c49 0 94.3-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8a111 111 0 0 0 47.4-2 105 105 0 0 1-84.1-103v-1.2c14 7.8 30.2 12.6 47.4 13.3A104.9 104.9 0 0 1 35.7 67.2a298.3 298.3 0 0 0 216.4 109.9 104.9 104.9 0 0 1 179-95.8 206.6 206.6 0 0 0 66.6-25.4 104.7 104.7 0 0 1-46.1 57.8c21-2.3 41.6-8.1 60.4-16.2a225.6 225.6 0 0 1-52.6 54.2z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
-              </div>
-              <p className="mt-6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-white border-solid shadow-2xl text-black rounded-2xl w-[90%] lg:w-[30%] max-w-[350px] mx-auto py-5">
-            <div className="w-[90%] mx-auto">
-              <img
-                src={testCard}
-                alt=""
-                className="block w-full h-[250px] mx-auto object-cover rounded-lg"
-              />
-            </div>
-
-            <div className="text-left mt-4 px-8">
-              <h1 className="font-semibold">Gabriel</h1>
-              <p>Founder</p>
-              <div className="flex gap-3 justify-start my-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 448 512"
-                  width="24"
-                  height="24"
-                  class="um-icon _ed8fbb90"
-                >
-                  <path
-                    d="M416 32H31.9A32.1 32.1 0 0 0 0 64.3v383.4A32.1 32.1 0 0 0 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3A32.2 32.2 0 0 0 416 32zM135.4 416H69V202.2h66.5V416zm-33.2-243a38.5 38.5 0 1 1 0-77 38.5 38.5 0 0 1 0 77zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
-
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"
-                  width="24"
-                  height="24"
-                  class="um-icon _ed8fbb90"
-                >
-                  <path
-                    d="M459.4 151.7c.3 4.6.3 9.1.3 13.7 0 138.7-105.6 298.5-298.6 298.5A296.5 296.5 0 0 1 0 417a217 217 0 0 0 25.3 1.2c49 0 94.3-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8a111 111 0 0 0 47.4-2 105 105 0 0 1-84.1-103v-1.2c14 7.8 30.2 12.6 47.4 13.3A104.9 104.9 0 0 1 35.7 67.2a298.3 298.3 0 0 0 216.4 109.9 104.9 104.9 0 0 1 179-95.8 206.6 206.6 0 0 0 66.6-25.4 104.7 104.7 0 0 1-46.1 57.8c21-2.3 41.6-8.1 60.4-16.2a225.6 225.6 0 0 1-52.6 54.2z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
-              </div>
-              <p className="mt-6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
-            </div>
-          </div>
+        <div className="w-[40%] max-lg:w-full max-lg:mt-5">
+          <img
+            src={testCard}
+            alt={testCard}
+            className="block h-[550px] mx-auto object-cover rounded-xl"
+          />
         </div>
       </section>
       ,
