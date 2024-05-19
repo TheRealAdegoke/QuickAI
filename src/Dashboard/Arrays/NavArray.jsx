@@ -147,7 +147,7 @@ export const navComponents = ({ text }) => {
         />
 
         <div
-          className={`text-black bg-white font-medium flex max-lg:flex-col items-center justify-between w-[65%] max-lg:absolute max-lg:left-0 top-20 max-lg:w-[250px] max-lg:h-[300px] max-lg:block max-lg:rounded-xl max-lg:shadow-xl opacity-0 align-middle invisible transition-all duration-75 peer-checked:visible peer-checked:opacity-100 lg:opacity-100 lg:visible`}
+          className={`text-black bg-white font-medium flex max-lg:flex-col items-center justify-between w-[75%] max-lg:absolute max-lg:left-0 top-20 max-lg:w-[250px] max-lg:h-[300px] max-lg:block max-lg:rounded-xl max-lg:shadow-xl opacity-0 align-middle invisible transition-all duration-75 peer-checked:visible peer-checked:opacity-100 lg:opacity-100 lg:visible`}
         >
           <ul className="flex max-lg:flex-col max-lg:items-center max-lg:gap-0 gap-4">
             <li className="hover:text-[rgba(255,0,0)] max-lg:mt-8">

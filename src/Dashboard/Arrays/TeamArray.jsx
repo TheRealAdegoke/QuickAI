@@ -1,6 +1,6 @@
-export const teamComponent = () => {
+export const teamComponent = ({text}) => {
     return [
-      <section className="text-black my-14 w-[90%] max-w-[1000px] mx-auto">
+      <section className="text-black my-24 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1 className="text-3xl font-bold text-[#212529] mb-2">OUR Team</h1>
           <p>
@@ -13,7 +13,7 @@ export const teamComponent = () => {
           <div className="bg-gradient-to-t from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-white rounded-2xl w-[90%] lg:w-[30%] max-w-[350px] mx-auto py-5">
             <div className="w-[90%] mx-auto">
               <img
-                src={testCard}
+                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
               />
@@ -59,7 +59,7 @@ export const teamComponent = () => {
           <div className="bg-gradient-to-t from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-white rounded-2xl w-[90%] lg:w-[30%] max-w-[350px] mx-auto py-5">
             <div className="w-[90%] mx-auto">
               <img
-                src={testCard}
+                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
               />
@@ -105,7 +105,7 @@ export const teamComponent = () => {
           <div className="bg-gradient-to-t from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-white rounded-2xl w-[90%] lg:w-[30%] max-w-[350px] mx-auto py-5">
             <div className="w-[90%] mx-auto">
               <img
-                src={testCard}
+                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
               />
@@ -149,7 +149,7 @@ export const teamComponent = () => {
           </div>
         </div>
       </section>,
-      <section className="text-black my-14 w-[90%] max-w-[1000px] mx-auto">
+      <section className="text-black my-24 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1 className="text-3xl font-bold text-[#212529] mb-2">OUR Team</h1>
           <p>
@@ -162,7 +162,7 @@ export const teamComponent = () => {
           <div className="bg-white border-solid shadow-2xl text-black rounded-2xl w-[90%] lg:w-[30%] max-w-[350px] mx-auto py-5">
             <div className="w-[90%] mx-auto">
               <img
-                src={testCard}
+                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
               />
@@ -208,7 +208,7 @@ export const teamComponent = () => {
           <div className="bg-white border-solid shadow-2xl text-black rounded-2xl w-[90%] lg:w-[30%] max-w-[350px] mx-auto py-5">
             <div className="w-[90%] mx-auto">
               <img
-                src={testCard}
+                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
               />
@@ -254,7 +254,7 @@ export const teamComponent = () => {
           <div className="bg-white border-solid shadow-2xl text-black rounded-2xl w-[90%] lg:w-[30%] max-w-[350px] mx-auto py-5">
             <div className="w-[90%] mx-auto">
               <img
-                src={testCard}
+                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
               />
@@ -298,7 +298,7 @@ export const teamComponent = () => {
           </div>
         </div>
       </section>,
-      <section className="text-black my-14 w-[90%] max-w-[1000px] mx-auto">
+      <section className="text-black my-24 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1 className="text-3xl font-bold text-[#212529] mb-2">OUR Team</h1>
           <p>
@@ -311,7 +311,7 @@ export const teamComponent = () => {
           <div className="bg-gradient-to-t from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-white rounded-2xl w-[90%] lg:w-[30%] max-w-[350px] mx-auto py-5">
             <div className="w-[90%] mx-auto">
               <img
-                src={testCard}
+                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 alt=""
                 className="block w-[150px] h-[150px] mx-auto object-cover rounded-full"
               />
@@ -357,7 +357,7 @@ export const teamComponent = () => {
           <div className="bg-gradient-to-t from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-white rounded-2xl w-[90%] lg:w-[30%] max-w-[350px] mx-auto py-5">
             <div className="w-[90%] mx-auto">
               <img
-                src={testCard}
+                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 alt=""
                 className="block w-[150px] h-[150px] mx-auto object-cover rounded-full"
               />
@@ -403,7 +403,7 @@ export const teamComponent = () => {
           <div className="bg-gradient-to-t from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-white rounded-2xl w-[90%] lg:w-[30%] max-w-[350px] mx-auto py-5">
             <div className="w-[90%] mx-auto">
               <img
-                src={testCard}
+                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 alt=""
                 className="block w-[150px] h-[150px] mx-auto object-cover rounded-full"
               />
@@ -447,7 +447,7 @@ export const teamComponent = () => {
           </div>
         </div>
       </section>,
-      <section className="text-black my-14 w-[90%] max-w-[1000px] mx-auto">
+      <section className="text-black my-24 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1 className="text-3xl font-bold text-[#212529] mb-2">OUR Team</h1>
           <p>
@@ -460,7 +460,7 @@ export const teamComponent = () => {
           <div className="bg-white border-solid shadow-2xl text-black rounded-2xl w-[90%] lg:w-[30%] max-w-[350px] mx-auto py-5">
             <div className="w-[90%] mx-auto">
               <img
-                src={testCard}
+                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 alt=""
                 className="block w-[150px] h-[150px] mx-auto object-cover rounded-full"
               />
@@ -506,7 +506,7 @@ export const teamComponent = () => {
           <div className="bg-white border-solid shadow-2xl text-black rounded-2xl w-[90%] lg:w-[30%] max-w-[350px] mx-auto py-5">
             <div className="w-[90%] mx-auto">
               <img
-                src={testCard}
+                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 alt=""
                 className="block w-[150px] h-[150px] mx-auto object-cover rounded-full"
               />
@@ -552,7 +552,7 @@ export const teamComponent = () => {
           <div className="bg-white border-solid shadow-2xl text-black rounded-2xl w-[90%] lg:w-[30%] max-w-[350px] mx-auto py-5">
             <div className="w-[90%] mx-auto">
               <img
-                src={testCard}
+                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 alt=""
                 className="block w-[150px] h-[150px] mx-auto object-cover rounded-full"
               />
@@ -596,7 +596,7 @@ export const teamComponent = () => {
           </div>
         </div>
       </section>,
-      <section className="text-black my-14 w-[90%] max-w-[1000px] mx-auto">
+      <section className="text-black my-24 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1 className="text-3xl font-bold text-[#212529] mb-2">OUR Team</h1>
           <p>
@@ -609,7 +609,7 @@ export const teamComponent = () => {
           <div className="bg-gradient-to-t from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-white rounded-2xl w-[90%] lg:w-[30%] max-w-[350px] mx-auto py-5">
             <div className="w-[90%] mx-auto">
               <img
-                src={testCard}
+                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
               />
@@ -655,7 +655,7 @@ export const teamComponent = () => {
           <div className="bg-gradient-to-t from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-white rounded-2xl w-[90%] lg:w-[30%] max-w-[350px] mx-auto py-5">
             <div className="w-[90%] mx-auto">
               <img
-                src={testCard}
+                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
               />
@@ -701,7 +701,7 @@ export const teamComponent = () => {
           <div className="bg-gradient-to-t from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-white rounded-2xl w-[90%] lg:w-[30%] max-w-[350px] mx-auto py-5">
             <div className="w-[90%] mx-auto">
               <img
-                src={testCard}
+                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
               />
@@ -745,7 +745,7 @@ export const teamComponent = () => {
           </div>
         </div>
       </section>,
-      <section className="text-black my-14 w-[90%] max-w-[1000px] mx-auto">
+      <section className="text-black my-24 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1 className="text-3xl font-bold text-[#212529] mb-2">OUR Team</h1>
           <p>
@@ -758,7 +758,7 @@ export const teamComponent = () => {
           <div className="bg-white border-solid shadow-2xl text-black rounded-2xl w-[90%] lg:w-[30%] max-w-[350px] mx-auto py-5">
             <div className="w-[90%] mx-auto">
               <img
-                src={testCard}
+                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
               />
@@ -804,7 +804,7 @@ export const teamComponent = () => {
           <div className="bg-white border-solid shadow-2xl text-black rounded-2xl w-[90%] lg:w-[30%] max-w-[350px] mx-auto py-5">
             <div className="w-[90%] mx-auto">
               <img
-                src={testCard}
+                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
               />
@@ -850,7 +850,7 @@ export const teamComponent = () => {
           <div className="bg-white border-solid shadow-2xl text-black rounded-2xl w-[90%] lg:w-[30%] max-w-[350px] mx-auto py-5">
             <div className="w-[90%] mx-auto">
               <img
-                src={testCard}
+                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
               />

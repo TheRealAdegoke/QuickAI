@@ -1,4 +1,4 @@
-export const faqComponent = () => {
+export const faqComponent = ({e}) => {
     return [
       <section className="text-black my-14 w-[90%] max-lg:max-w-[400px] mx-auto max-w-[1000px]">
         <div className="mb-10">

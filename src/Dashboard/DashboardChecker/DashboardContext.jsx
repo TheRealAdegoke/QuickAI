@@ -11,6 +11,8 @@ import { navComponents } from "../Arrays/NavArray";
 import { featuresWithCardsComponent } from "../Arrays/FeaturesWithCardsArray";
 import { featuresComponents } from "../Arrays/FeaturesArray";
 import { testimonialComponent } from "../Arrays/TestimonialArray";
+import { faqComponent } from "../Arrays/FAQArrays";
+import { teamComponent } from "../Arrays/TeamArray";
 
 export const DashContext = createContext();
 export const DashboardProvider = ({ children }) => {
@@ -30,6 +32,8 @@ export const DashboardProvider = ({ children }) => {
   const [featuresWithCardIndex, setFeaturesWithCardIndex] = useState(undefined);
   const [featuresIndex, setFeaturesIndex] = useState(undefined);
   const [testimonialIndex, setTestimonialIndex] = useState(undefined);
+  const [faqIndex, setFaqIndex] = useState(undefined);
+  const [teamIndex, setTeamIndex] = useState(undefined);
   const [shuffled, setShuffled] = useState(false);
   const [text, setText] = useState({
     prompt: "",
@@ -104,6 +108,12 @@ export const DashboardProvider = ({ children }) => {
     const randomTestimonialIndex = Math.floor(
       Math.random() * testimonialComponent({ text }).length
     );
+    const randomFaqIndex = Math.floor(
+      Math.random() * faqComponent({ text }).length
+    );
+    const randomTeamIndex = Math.floor(
+      Math.random() * teamComponent({ text }).length
+    );
 
     setNavIndex(randomNavIndex);
     setHeroIndex(randomHeroIndex);
@@ -111,6 +121,8 @@ export const DashboardProvider = ({ children }) => {
     setFeaturesWithCardIndex(randomfeaturesWithCardIndex)
     setFeaturesIndex(randomfeaturesIndex);
     setTestimonialIndex(randomTestimonialIndex)
+    setFaqIndex(randomFaqIndex)
+    setTeamIndex(randomTeamIndex);
   };
 
   const handleUserData = async () => {
@@ -193,6 +205,8 @@ export const DashboardProvider = ({ children }) => {
         featuresWithCardsComponent,
         featuresComponents,
         testimonialComponent,
+        faqComponent,
+        teamComponent,
         clearDesigns,
         testDesignModal,
         setTestDesignModal,
@@ -202,6 +216,8 @@ export const DashboardProvider = ({ children }) => {
         featuresWithCardIndex,
         featuresIndex,
         testimonialIndex,
+        faqIndex,
+        teamIndex,
         text,
         setText,
       }}
