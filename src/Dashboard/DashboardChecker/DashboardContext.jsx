@@ -13,6 +13,7 @@ import { featuresComponents } from "../Arrays/FeaturesArray";
 import { testimonialComponent } from "../Arrays/TestimonialArray";
 import { faqComponent } from "../Arrays/FAQArrays";
 import { teamComponent } from "../Arrays/TeamArray";
+import { contactComponent } from "../Arrays/ContactArray";
 
 export const DashContext = createContext();
 export const DashboardProvider = ({ children }) => {
@@ -34,6 +35,7 @@ export const DashboardProvider = ({ children }) => {
   const [testimonialIndex, setTestimonialIndex] = useState(undefined);
   const [faqIndex, setFaqIndex] = useState(undefined);
   const [teamIndex, setTeamIndex] = useState(undefined);
+  const [contactIndex, setContactIndex] = useState(undefined);
   const [shuffled, setShuffled] = useState(false);
   const [text, setText] = useState({
     prompt: "",
@@ -114,6 +116,9 @@ export const DashboardProvider = ({ children }) => {
     const randomTeamIndex = Math.floor(
       Math.random() * teamComponent({ text }).length
     );
+    const randomContactIndex = Math.floor(
+      Math.random() * contactComponent({ text }).length
+    );
 
     setNavIndex(randomNavIndex);
     setHeroIndex(randomHeroIndex);
@@ -123,6 +128,7 @@ export const DashboardProvider = ({ children }) => {
     setTestimonialIndex(randomTestimonialIndex)
     setFaqIndex(randomFaqIndex)
     setTeamIndex(randomTeamIndex);
+    setContactIndex(randomContactIndex);
   };
 
   const handleUserData = async () => {
@@ -207,6 +213,7 @@ export const DashboardProvider = ({ children }) => {
         testimonialComponent,
         faqComponent,
         teamComponent,
+        contactComponent,
         clearDesigns,
         testDesignModal,
         setTestDesignModal,
@@ -218,6 +225,7 @@ export const DashboardProvider = ({ children }) => {
         testimonialIndex,
         faqIndex,
         teamIndex,
+        contactIndex,
         text,
         setText,
       }}
