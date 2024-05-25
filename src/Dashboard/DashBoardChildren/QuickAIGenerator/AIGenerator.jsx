@@ -49,7 +49,7 @@ const AIGenerator = () => {
     }
   };
 
-  const handlePrompt = async (e) => {
+  const handleprompt = async (e) => {
     e.preventDefault();
     try {
       await handleGeminiResponses();
@@ -57,7 +57,6 @@ const AIGenerator = () => {
       console.error(error);
     }
   };
-
 
   return (
     <>
@@ -141,7 +140,7 @@ const AIGenerator = () => {
                 <button
                   className={`my-2 ml-2`}
                   type="submit"
-                  onClick={handlePrompt}
+                  onClick={handleprompt}
                   disabled={loading}
                 >
                   {window.innerWidth < 766 ? (
@@ -169,6 +168,7 @@ const AIGenerator = () => {
                   )}
                 </button>
               </form>
+              <p className="mt-4">QuickAI content generating is limited!</p>
             </div>
           </div>
         </div>

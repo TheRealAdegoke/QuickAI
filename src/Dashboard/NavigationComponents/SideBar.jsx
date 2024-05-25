@@ -80,9 +80,9 @@ const SideBar = () => {
             </button>
           </div>
 
-          <button className="flex w-full mb-4 border-zinc-600 border-[1px] px-2 py-2 rounded-[5px] bg-[rgba(9,9,9,0.5)] capitalize">
+          {/* <button className="flex w-full mb-4 border-zinc-600 border-[1px] px-2 py-2 rounded-[5px] bg-[rgba(9,9,9,0.5)] capitalize">
             Manually create site
-          </button>
+          </button> */}
 
           <Link
             to="/site"

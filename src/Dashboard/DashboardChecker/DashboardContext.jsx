@@ -1,8 +1,4 @@
-import React, {
-  createContext,
-  useEffect,
-  useState,
-} from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { axiosInstance } from "../../Pages/AuthPages/AuthChecker/axiosInstance";
 import { message } from "antd";
 import { heroComponents } from "../Arrays/HeroSectionArray";
@@ -14,6 +10,7 @@ import { testimonialComponent } from "../Arrays/TestimonialArray";
 import { faqComponent } from "../Arrays/FAQArrays";
 import { teamComponent } from "../Arrays/TeamArray";
 import { contactComponent } from "../Arrays/ContactArray";
+import { footerComponent } from "../Arrays/Footer";
 
 export const DashContext = createContext();
 export const DashboardProvider = ({ children }) => {
@@ -36,10 +33,24 @@ export const DashboardProvider = ({ children }) => {
   const [faqIndex, setFaqIndex] = useState(undefined);
   const [teamIndex, setTeamIndex] = useState(undefined);
   const [contactIndex, setContactIndex] = useState(undefined);
+  const [footerIndex, setFooterIndex] = useState(undefined);
   const [shuffled, setShuffled] = useState(false);
   const [text, setText] = useState({
-    prompt: "",
+    heroHeaderText: "",
     description: "",
+    featureHeader: [],
+    customerHeader: [],
+    customerParagraphText: [],
+    customerReviewText: [],
+    teamHeader: [],
+    teamParagraphTexts: [],
+    FAQsHeader: [],
+    faqParagraphText: [],
+    faqQuestion: [],
+    faqAnswer: [],
+    statsHeader: [],
+    partnerHeader: [],
+    contactHeader: [],
     images: [],
     webLogo: "",
     buttonTexts: [],
@@ -47,7 +58,7 @@ export const DashboardProvider = ({ children }) => {
 
   useEffect(() => {
     if (!shuffled && geminiResponses.randomButtonText) {
-      const shuffuleButtonTextArray = (array) => {
+      const shuffuleTextArray = (array) => {
         for (let i = array.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
           [array[i], array[j]] = [array[j], array[i]];
@@ -55,13 +66,63 @@ export const DashboardProvider = ({ children }) => {
         return array;
       };
 
-      const shuffledButtonTexts = shuffuleButtonTextArray(
+      const shuffledButtonTexts = shuffuleTextArray(
         geminiResponses.randomButtonText
+      );
+      const shuffledFeatureHeadersTexts = shuffuleTextArray(
+        geminiResponses.featureHeaders
+      );
+      const shuffledCustomersHeadersTexts = shuffuleTextArray(
+        geminiResponses.customerHeaders
+      );
+      const shuffledCustomerParagraphText = shuffuleTextArray(
+        geminiResponses.customerParagraphTexts
+      );
+      const shuffledCustomerReviewText = shuffuleTextArray(
+        geminiResponses.customerReviewTexts
+      );
+      const shuffledTeamHeader = shuffuleTextArray(
+        geminiResponses.teamHeaders
+      );
+      const shuffledTeamParagraphText = shuffuleTextArray(geminiResponses.teamParagraphTexts);
+      const shuffledFAQsHeaders = shuffuleTextArray(
+        geminiResponses.FAQsHeaders
+      );
+      const shuffledFAQParagraphTexts = shuffuleTextArray(
+        geminiResponses.faqParagraphTexts
+      );
+      const shuffledFAQQuestions = shuffuleTextArray(
+        geminiResponses.faqQuestions
+      );
+      const shuffledFAQAnswers = shuffuleTextArray(
+        geminiResponses.faqAnswers
+      );
+      const shuffledStatsHeaders = shuffuleTextArray(
+        geminiResponses.statsHeaders
+      );
+      const shuffledPartnerHeaders = shuffuleTextArray(
+        geminiResponses.partnerHeaders
+      );
+      const shuffledContactHeaders = shuffuleTextArray(
+        geminiResponses.contactHeaders
       );
 
       setText((text) => ({
         ...text,
         buttonTexts: shuffledButtonTexts,
+        featureHeader: shuffledFeatureHeadersTexts,
+        customerHeader: shuffledCustomersHeadersTexts,
+        customerParagraphText: shuffledCustomerParagraphText,
+        customerReviewText: shuffledCustomerReviewText,
+        teamHeader: shuffledTeamHeader,
+        teamParagraphTexts: shuffledTeamParagraphText,
+        FAQsHeader: shuffledFAQsHeaders,
+        faqParagraphText: shuffledFAQParagraphTexts,
+        faqQuestion: shuffledFAQQuestions,
+        faqAnswer: shuffledFAQAnswers,
+        statsHeader: shuffledStatsHeaders,
+        partnerHeader: shuffledPartnerHeaders,
+        contactHeader: shuffledContactHeaders
       }));
 
       setShuffled(true);
@@ -72,8 +133,11 @@ export const DashboardProvider = ({ children }) => {
     const timeout = setTimeout(() => {
       setText((prevText) => ({
         ...prevText,
-        prompt: geminiResponses.heroHeader
-          ? geminiResponses.heroHeader.slice(0, prevText.prompt.length + 1)
+        heroHeaderText: geminiResponses.heroHeader
+          ? geminiResponses.heroHeader.slice(
+              0,
+              prevText.heroHeaderText.length + 1
+            )
           : "",
         description: geminiResponses.heroDescription
           ? geminiResponses.heroDescription.slice(
@@ -105,7 +169,7 @@ export const DashboardProvider = ({ children }) => {
       Math.random() * featuresWithCardsComponent({ text }).length
     );
     const randomfeaturesIndex = Math.floor(
-      Math.random() * featuresComponents({text}).length
+      Math.random() * featuresComponents({ text }).length
     );
     const randomTestimonialIndex = Math.floor(
       Math.random() * testimonialComponent({ text }).length
@@ -119,16 +183,20 @@ export const DashboardProvider = ({ children }) => {
     const randomContactIndex = Math.floor(
       Math.random() * contactComponent({ text }).length
     );
+    const randomFooterIndex = Math.floor(
+      Math.random() * footerComponent({ text }).length
+    );
 
     setNavIndex(randomNavIndex);
     setHeroIndex(randomHeroIndex);
     setButtonIndex(randomButtonsIndex);
-    setFeaturesWithCardIndex(randomfeaturesWithCardIndex)
+    setFeaturesWithCardIndex(randomfeaturesWithCardIndex);
     setFeaturesIndex(randomfeaturesIndex);
-    setTestimonialIndex(randomTestimonialIndex)
-    setFaqIndex(randomFaqIndex)
+    setTestimonialIndex(randomTestimonialIndex);
+    setFaqIndex(randomFaqIndex);
     setTeamIndex(randomTeamIndex);
     setContactIndex(randomContactIndex);
+    setFooterIndex(randomFooterIndex)
   };
 
   const handleUserData = async () => {
@@ -155,6 +223,19 @@ export const DashboardProvider = ({ children }) => {
         logo: response.data.logo,
         heroHeader: response.data.heroHeader,
         heroDescription: response.data.heroDescription,
+        featureHeaders: response.data.featureHeaders,
+        customerHeaders: response.data.customerHeaders,
+        customerParagraphTexts: response.data.customerParagraphTexts,
+        customerReviewTexts: response.data.customerReviewTexts,
+        teamHeaders: response.data.teamHeaders,
+        teamParagraphTexts: response.data.teamParagraphTexts,
+        FAQsHeaders: response.data.FAQsHeaders,
+        faqParagraphTexts: response.data.faqParagraphTexts,
+        faqQuestions: response.data.faqQuestions,
+        faqAnswers: response.data.faqAnswers,
+        statsHeaders: response.data.statsHeaders,
+        partnerHeaders: response.data.partnerHeaders,
+        contactHeaders: response.data.contactHeaders,
         imageUrls: response.data.imageUrls,
       });
       if (response.data === 400) {
@@ -214,6 +295,7 @@ export const DashboardProvider = ({ children }) => {
         faqComponent,
         teamComponent,
         contactComponent,
+        footerComponent,
         clearDesigns,
         testDesignModal,
         setTestDesignModal,
@@ -226,6 +308,7 @@ export const DashboardProvider = ({ children }) => {
         faqIndex,
         teamIndex,
         contactIndex,
+        footerIndex,
         text,
         setText,
       }}

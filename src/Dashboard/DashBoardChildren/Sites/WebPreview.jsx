@@ -15,7 +15,7 @@ const WebPreview = () => {
   const { id } = useParams();
   const [historyData, setHistoryData] = useState("");
   const [loading, setLoading] = useState(true);
-  const [itemsDropdown, setItemsDropdown] = useState(false)
+  const [itemsDropdown, setItemsDropdown] = useState(false);
 
   useEffect(() => {
     const fetchHistoryItem = async () => {
@@ -30,7 +30,6 @@ const WebPreview = () => {
     };
     fetchHistoryItem();
   }, [id]);
-
 
   return (
     <>

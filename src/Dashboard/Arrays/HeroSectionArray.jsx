@@ -7,7 +7,7 @@ export const heroComponents = ({ text, buttonIndex }) => {
       <div className="flex justify-center gap-10 max-lg:flex-col lg:max-w-[]">
         <div className="max-lg:hidden w-[50%]">
           <h1 className="text-6xl text-white font-bold max-w-[500px]">
-            {text.prompt}
+            {text.heroHeaderText}
           </h1>
 
           <div className="w-[85%] grid grid-cols-3 gap-4 my-10">
@@ -63,7 +63,9 @@ export const heroComponents = ({ text, buttonIndex }) => {
     </section>,
     <section className="h-[600px] max-lg:h-[750px] my-5 flex lg:gap-8 lg:justify-evenly max-lg:flex-col max-w-[1200px] mx-auto lg:pl-5">
       <div className="text-[rgb(33,37,41)] w-[40%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16">
-        <h1 className="font-bold xl:text-5xl text-3xl mb-4">{text.prompt}</h1>
+        <h1 className="font-bold xl:text-5xl text-3xl mb-4">
+          {text.heroHeaderText}
+        </h1>
         <p className="font-medium">{text.description}</p>
         {buttonIndex !== undefined && buttonElement}
       </div>
@@ -93,7 +95,9 @@ export const heroComponents = ({ text, buttonIndex }) => {
     </section>,
     <section className="my-5 max-w-[1000px] mx-auto flex justify-center max-lg:flex-col">
       <div className="text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16">
-        <h1 className="font-bold xl:text-5xl text-3xl mb-4">{text.prompt}</h1>
+        <h1 className="font-bold xl:text-5xl text-3xl mb-4">
+          {text.heroHeaderText}
+        </h1>
         <p className="font-medium">{text.description}</p>
         {buttonIndex !== undefined && buttonElement}
       </div>
@@ -110,7 +114,9 @@ export const heroComponents = ({ text, buttonIndex }) => {
     </section>,
     <section className="my-5 max-w-[1000px] mx-auto flex flex-row-reverse justify-center max-lg:flex-col">
       <div className="text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16">
-        <h1 className="font-bold xl:text-5xl text-3xl mb-4">{text.prompt}</h1>
+        <h1 className="font-bold xl:text-5xl text-3xl mb-4">
+          {text.heroHeaderText}
+        </h1>
         <p className="font-medium">{text.description}</p>
         {buttonIndex !== undefined && buttonElement}
       </div>
@@ -127,7 +133,9 @@ export const heroComponents = ({ text, buttonIndex }) => {
     </section>,
     <section className="my-5 max-w-[1200px] mx-auto flex justify-center max-lg:flex-col-reverse">
       <div className="text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16">
-        <h1 className="font-bold xl:text-5xl text-3xl mb-4">{text.prompt}</h1>
+        <h1 className="font-bold xl:text-5xl text-3xl mb-4">
+          {text.heroHeaderText}
+        </h1>
         <p className="font-medium">{text.description}</p>
         {buttonIndex !== undefined && buttonElement}
       </div>
@@ -144,7 +152,9 @@ export const heroComponents = ({ text, buttonIndex }) => {
     </section>,
     <section className="my-5 max-w-[1200px] mx-auto flex flex-row-reverse justify-center max-lg:flex-col-reverse">
       <div className="text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16">
-        <h1 className="font-bold xl:text-5xl text-3xl mb-4">{text.prompt}</h1>
+        <h1 className="font-bold xl:text-5xl text-3xl mb-4">
+          {text.heroHeaderText}
+        </h1>
         <p className="font-medium">{text.description}</p>
         {buttonIndex !== undefined && buttonElement}
       </div>
@@ -172,7 +182,7 @@ export const heroComponents = ({ text, buttonIndex }) => {
 
       <div className="text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16 max-lg:my-10">
         <h1 className="font-bold xl:text-4xl xl:text-center text-3xl mb-4">
-          {text.prompt}
+          {text.heroHeaderText}
         </h1>
         <p className="font-medium">{text.description}</p>
         <div className="max-lg:mt-10 mt-5">
@@ -193,7 +203,7 @@ export const heroComponents = ({ text, buttonIndex }) => {
     <section className="mt-10 flex max-lg:flex-col max-lg:w-[90%] items-center justify-between lg:px-5 max-w-[1000px] mx-auto max-lg:max-w-[600px]">
       <div className="mb-10 w-[50%] max-lg:w-full">
         <h1 className="text-[#231e41] max-lg:text-center text-6xl max-sm:text-5xl max-w-[650px] max-sm:max-w-[400px] font-semibold mb-6 max-lg:mx-auto">
-          {text.prompt}
+          {text.heroHeaderText}
         </h1>
         <p className="text-[#231e41] text-sm max-lg:text-center max-w-[350px] max-lg:mx-auto font-medium mb-6">
           {text.description}

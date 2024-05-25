@@ -4,7 +4,7 @@ export const featuresWithCardsComponent = ({ text }) => {
       <div className="w-[50%] flex flex-col items-start gap-3 max-lg:w-full">
         <div className="">
           <h1 className="text-[#231e41] text-3xl font-bold mb-1">
-            Your Amazing Feature Goes Here
+            {text.featureHeader[0]}
           </h1>
           <p className="text-[#231e41]">
             Here's some more information about this amazing feature. You can use
@@ -100,7 +100,7 @@ export const featuresWithCardsComponent = ({ text }) => {
       <div className="w-[50%] flex flex-col items-start gap-3 max-lg:w-full">
         <div className="max-lg:mt-4">
           <h1 className="text-[#231e41] text-3xl font-bold mb-1">
-            Your Amazing Feature Goes Here
+            {text.featureHeader[0]}
           </h1>
           <p className="text-[#231e41]">
             Here's some more information about this amazing feature. You can use
@@ -196,7 +196,7 @@ export const featuresWithCardsComponent = ({ text }) => {
       <div className="w-[50%] flex flex-col items-start gap-3 max-lg:w-full">
         <div className="">
           <h1 className="text-[#231e41] text-3xl font-bold mb-1">
-            Your Amazing Feature Goes Here
+            {text.featureHeader[0]}
           </h1>
           <p className="text-[#231e41]">
             Here's some more information about this amazing feature. You can use
@@ -254,7 +254,7 @@ export const featuresWithCardsComponent = ({ text }) => {
       <div className="w-[50%] flex flex-col items-start gap-3 max-lg:w-full">
         <div className="">
           <h1 className="text-[#231e41] text-3xl font-bold mb-1">
-            Your Amazing Feature Goes Here
+            {text.featureHeader[0]}
           </h1>
           <p className="text-[#231e41]">
             Here's some more information about this amazing feature. You can use
@@ -312,7 +312,7 @@ export const featuresWithCardsComponent = ({ text }) => {
       <div className="w-[45%] flex flex-col items-start gap-3 max-lg:w-full">
         <div className="">
           <h1 className="text-[#231e41] text-3xl font-bold mb-1">
-            Your Amazing Feature Goes Here
+            {text.featureHeader[0]}
           </h1>
           <p className="text-[#231e41]">
             Here's some more information about this amazing feature. You can use

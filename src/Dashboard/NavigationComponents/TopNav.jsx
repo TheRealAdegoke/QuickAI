@@ -8,17 +8,10 @@ import { MdOutlineManageAccounts } from "react-icons/md";
 import { CiLogout } from "react-icons/ci";
 import { DashContext } from "../DashboardChecker/DashboardContext";
 
-
 const TopNav = () => {
-  const { unAuthenticate } =
-    useContext(AuthContext);
-  const {
-    closeSideNav,
-    setCloseSideNav,
-    userModal,
-    setUserModal,
-    userData,
-  } = useContext(DashContext);
+  const { unAuthenticate } = useContext(AuthContext);
+  const { closeSideNav, setCloseSideNav, userModal, setUserModal, userData } =
+    useContext(DashContext);
 
   return (
     <>

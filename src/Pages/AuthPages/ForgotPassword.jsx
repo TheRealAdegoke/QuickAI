@@ -17,7 +17,10 @@ const ForgotPassword = () => {
 
     setLoading(true);
     try {
-      const response = await axiosInstance.post("/auth/forgotpassword", postData);
+      const response = await axiosInstance.post(
+        "/auth/forgotpassword",
+        postData
+      );
       console.log(response.data);
       message.success(response.data.message);
     } catch (error) {
