@@ -7,7 +7,7 @@ import AIGenerator from "./DashBoardChildren/QuickAIGenerator/AIGenerator";
 import { FaChevronLeft } from "react-icons/fa6";
 import { FaChevronRight } from "react-icons/fa6";
 import DesignModal from "./AI-Designed-Component/AI-Design-Modal/DesignModal";
-import { DashContext } from "./DashboardChecker/DashboardContext"; 
+import { DashContext } from "./DashboardChecker/DashboardContext";
 import TestDesignModal from "./Test Modal/TestDesignModal";
 
 const Dashboard = ({ children }) => {
