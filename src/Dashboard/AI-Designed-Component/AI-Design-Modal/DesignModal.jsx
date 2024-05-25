@@ -48,7 +48,7 @@ const DesignModal = () => {
 
   const saveDesign = async () => {
     setLoading(true);
-    try {
+    try { 
       const canvas = await html2canvas(ref.current, { useCORS: true });
       const dataURL = canvas.toDataURL();
       const formData = new FormData();
