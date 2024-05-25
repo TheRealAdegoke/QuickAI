@@ -8,7 +8,7 @@ import WebLogo from "../../assets/WebLogo";
 import { axiosInstance } from "./AuthChecker/axiosInstance";
 
 const Register = () => {
-  const { isAuthenticated, handleAuthentication,} = useContext(AuthContext);
+  const { isAuthenticated, handleAuthentication } = useContext(AuthContext);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -63,7 +63,7 @@ const Register = () => {
     try {
       const response = await axiosInstance.post("/auth/register", postData);
       message.success(response.data.message);
-      await handleAuthentication()
+      await handleAuthentication();
       navigate("/home");
     } catch (error) {
       console.error(error.response.data.error);

@@ -14,7 +14,7 @@ export const navComponents = ({ text }) => {
         </div>
 
         <label htmlFor="id-show-menu" className="show-menu lg:hidden">
-          <div className="text-2xl text-black">
+          <div className="text-2xl text-black cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
@@ -66,7 +66,7 @@ export const navComponents = ({ text }) => {
         </div>
 
         <label htmlFor="id-show-menu" className="show-menu lg:hidden">
-          <div className="text-2xl text-black">
+          <div className="text-2xl text-black cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
@@ -126,7 +126,7 @@ export const navComponents = ({ text }) => {
         </div>
 
         <label htmlFor="id-show-menu" className="show-menu lg:hidden">
-          <div className="text-2xl text-black">
+          <div className="text-2xl text-black cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"

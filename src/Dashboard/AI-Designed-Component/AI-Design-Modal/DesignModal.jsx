@@ -17,6 +17,7 @@ const DesignModal = () => {
     faqIndex,
     teamIndex,
     contactIndex,
+    footerIndex,
     navComponents,
     heroComponents,
     featuresWithCardsComponent,
@@ -25,6 +26,7 @@ const DesignModal = () => {
     faqComponent,
     teamComponent,
     contactComponent,
+    footerComponent,
     userInput,
     selectedIdea,
     handleUserData,
@@ -35,6 +37,8 @@ const DesignModal = () => {
   const ref = useRef(null);
   const [loading, setLoading] = useState(false);
   const [randomOrder, setRandomOrder] = useState(null);
+  const cloudinaryBaseURL = import.meta.env.VITE_REACT_APP_CLOUDINARY_BASE_URL;
+  const cloudinaryFormDataAppend = import.meta.env.VITE_REACT_APP_CLOUDINARY_FORM_DATA_APPEND;
 
   useEffect(() => {
     // Randomly set the order of elements
@@ -49,10 +53,10 @@ const DesignModal = () => {
       const dataURL = canvas.toDataURL();
       const formData = new FormData();
       formData.append("file", dataURL);
-      formData.append("upload_preset", "bgoegsr5");
+      formData.append("upload_preset", `${cloudinaryFormDataAppend}`);
 
       const cloudinaryResponse = await axios.post(
-        "https://api.cloudinary.com/v1_1/dpyp7innp/image/upload",
+        `${cloudinaryBaseURL}`,
         formData
       );
       const cloudinaryURL = cloudinaryResponse.data.secure_url;
@@ -90,16 +94,16 @@ const DesignModal = () => {
     }
   };
 
-  const handleClicky = () => {
-    const elementOrder =
-      randomOrder === "featuresFirst"
-        ? [testimonialElement, featuresWithCardElement]
-        : [featuresWithCardElement, testimonialElement];
+  // const handleClicky = () => {
+  //   const elementOrder =
+  //     randomOrder === "featuresFirst"
+  //       ? [testimonialElement, featuresWithCardElement]
+  //       : [featuresWithCardElement, testimonialElement];
 
-    elementOrder.forEach((element) =>
-      console.log(reactElementToJSXString(element))
-    );
-  };
+  //   elementOrder.forEach((element) =>
+  //     console.log(reactElementToJSXString(element))
+  //   );
+  // };
 
   const heroElement = heroComponents({ text, buttonIndex })[heroIndex];
   const navElement = navComponents({ text, buttonIndex })[navIndex];
@@ -110,7 +114,8 @@ const DesignModal = () => {
   const testimonialElement = testimonialComponent({ text })[testimonialIndex];
   const faqElement = faqComponent({ text })[faqIndex];
   const teamElement = teamComponent({ text })[teamIndex];
-  const contactElement = contactComponent({text})[contactIndex]
+  const contactElement = contactComponent({ text })[contactIndex];
+  const footerElement = footerComponent({ text })[footerIndex];
 
   return (
     <>
@@ -144,6 +149,7 @@ const DesignModal = () => {
           {teamIndex !== undefined && teamElement}
           {faqIndex !== undefined && faqElement}
           {contactIndex !== undefined && contactElement}
+          {footerIndex !== undefined && footerElement}
           {/* <button className="text-black p-5" onClick={handleClicky}>
             Clicky
           </button> */}

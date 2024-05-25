@@ -2,13 +2,9 @@ export const testimonialComponent = ({ text }) => {
   return [
     <section className="my-24 text-black w-[90%] max-w-[1000px] mx-auto">
       <h1 className="text-center text-3xl font-semibold capitalize mb-5">
-        Customer review
+        {text.customerHeader[0]}
       </h1>
-      <p className="text-center text-xl">
-        "Umso is incredibly cool. The builder is easy to use and gets you
-        beautiful results. The team is also pretty cool. I might be a bit biased
-        so take a look for yourself!"
-      </p>
+      <p className="text-center text-xl">{text.customerReviewText[0]}</p>
 
       <div className="my-8 flex items-center justify-center gap-3">
         <img
@@ -24,53 +20,48 @@ export const testimonialComponent = ({ text }) => {
     </section>,
     <section className="my-24 text-black w-[90%] max-w-[1000px] mx-auto">
       <h1 className="text-3xl font-semibold capitalize mb-1">
-        Customer review
+        {text.customerHeader[0]}
       </h1>
-      <p className="text-base">See what your customers love about us.</p>
+      <p className="text-base">{text.customerParagraphText[0]}</p>
 
-      <div className="flex flex-wrap justify-evenly mt-10 max-[600px]:gap-5 max-[600px]:flex-col">
+      <div className="flex flex-wrap justify-evenly gap-8 mt-10 max-[600px]:gap-5 max-[600px]:flex-col">
         <div className="flex flex-col gap-1 w-[30%] max-[600px]:w-[90%]">
           <p>★★★★★</p>
           <h2 className="text-base font-semibold">
             The Most Amazing product ever
           </h2>
-          <p className="text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua
+          <p className="text-sm md:min-h-[9rem]">
+            {text.customerReviewText[0]}
           </p>
-          <p className="mt-3">Gabriel - Founder</p>
+          <p className="max-lg:mt-3">Gabriel - Founder</p>
         </div>
         <div className="flex flex-col gap-1 w-[30%] max-[600px]:w-[90%]">
           <p>★★★★★</p>
           <h2 className="text-base font-semibold">
             The Most Amazing product ever
           </h2>
-          <p className="text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua
+          <p className="text-sm md:min-h-[9rem]">
+            {text.customerReviewText[1]}
           </p>
-          <p className="mt-3">Gabriel - Founder</p>
+          <p className="max-md:mt-3">Gabriel - Founder</p>
         </div>
         <div className="flex flex-col gap-1 w-[30%] max-[600px]:w-[90%]">
           <p>★★★★★</p>
           <h2 className="text-base font-semibold">
             The Most Amazing product ever
           </h2>
-          <p className="text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua
+          <p className="text-sm md:min-h-[9rem]">
+            {text.customerReviewText[2]}
           </p>
-          <p className="mt-3">Gabriel - Founder</p>
+          <p className="max-lg:mt-3">Gabriel - Founder</p>
         </div>
       </div>
     </section>,
     <section className="my-24 text-black w-[90%] max-w-[1000px] mx-auto">
       <h1 className="text-3xl font-semibold capitalize mb-1 text-center">
-        Customer review
+        {text.customerHeader[0]}
       </h1>
-      <p className="text-base text-center">
-        See what your customers love about us.
-      </p>
+      <p className="text-base text-center">{text.customerParagraphText[0]}</p>
 
       <div className="flex flex-wrap justify-evenly mt-10 max-[600px]:gap-5 max-[600px]:flex-col text-center">
         <div className="flex flex-col gap-1 w-[30%] max-[600px]:w-[90%]">
@@ -78,45 +69,38 @@ export const testimonialComponent = ({ text }) => {
           <h2 className="text-base font-semibold">
             The Most Amazing product ever
           </h2>
-          <p className="text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua
+          <p className="text-sm md:min-h-[9rem]">
+            {text.customerReviewText[0]}
           </p>
-          <p className="mt-3">Gabriel - Founder</p>
+          <p className="max-lg:mt-3">Gabriel - Founder</p>
         </div>
         <div className="flex flex-col gap-1 w-[30%] max-[600px]:w-[90%]">
           <p>★★★★★</p>
           <h2 className="text-base font-semibold">
             The Most Amazing product ever
           </h2>
-          <p className="text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua
+          <p className="text-sm md:min-h-[9rem]">
+            {text.customerReviewText[1]}
           </p>
-          <p className="mt-3">Gabriel - Founder</p>
+          <p className="max-lg:mt-3">Gabriel - Founder</p>
         </div>
         <div className="flex flex-col gap-1 w-[30%] max-[600px]:w-[90%]">
           <p>★★★★★</p>
           <h2 className="text-base font-semibold">
             The Most Amazing product ever
           </h2>
-          <p className="text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua
+          <p className="text-sm md:min-h-[9rem]">
+            {text.customerReviewText[2]}
           </p>
-          <p className="mt-3">Gabriel - Founder</p>
+          <p className="max-lg:mt-3">Gabriel - Founder</p>
         </div>
       </div>
     </section>,
     <section className="my-24 text-black w-[90%] max-w-[1000px] mx-auto bg-white border-solid shadow-xl rounded-lg p-5">
       <h1 className="text-3xl font-semibold capitalize mb-5">
-        Customer review
+        {text.customerHeader[0]}
       </h1>
-      <p className="text-xl">
-        "QuickUI is incredibly cool. The builder is easy to use and gets you
-        beautiful results. The team is also pretty cool. I might be a bit biased
-        so take a look for yourself!"
-      </p>
+      <p className="text-xl">{text.customerReviewText[0]}</p>
 
       <div className="my-8 flex items-center gap-3">
         <img
@@ -132,12 +116,10 @@ export const testimonialComponent = ({ text }) => {
     </section>,
     <section className="my-24 text-black w-[90%] max-w-[1000px] mx-auto bg-white border-solid shadow-xl rounded-lg p-5">
       <h1 className="text-center text-3xl font-semibold capitalize mb-5">
-        Customer review
+        {text.customerHeader[0]}
       </h1>
-      <p className="text-center text-xl max-w-[800px]">
-        "Umso is incredibly cool. The builder is easy to use and gets you
-        beautiful results. The team is also pretty cool. I might be a bit biased
-        so take a look for yourself!"
+      <p className="text-center text-xl max-w-[800px] mx-auto">
+        {text.customerReviewText[0]}
       </p>
 
       <div className="my-8 flex items-center justify-center gap-3">
@@ -154,13 +136,9 @@ export const testimonialComponent = ({ text }) => {
     </section>,
     <section className="my-24 text-black w-[90%] max-w-[1000px] mx-auto">
       <h1 className="text-3xl font-semibold capitalize mb-5">
-        Customer review
+        {text.customerHeader[0]}
       </h1>
-      <p className="text-xl max-w-[800px]">
-        "QuickUI is incredibly cool. The builder is easy to use and gets you
-        beautiful results. The team is also pretty cool. I might be a bit biased
-        so take a look for yourself!"
-      </p>
+      <p className="text-xl max-w-[800px]">{text.customerReviewText[0]}</p>
 
       <div className="my-8 flex items-center gap-3">
         <img
@@ -184,13 +162,9 @@ export const testimonialComponent = ({ text }) => {
       </div>
       <div className="">
         <h1 className="text-3xl font-semibold capitalize mb-3">
-          Customer review
+          {text.customerHeader[0]}
         </h1>
-        <p className="text-xl max-w-[700px]">
-          "QuickUI is incredibly cool. The builder is easy to use and gets you
-          beautiful results. The team is also pretty cool. I might be a bit
-          biased so take a look for yourself!"
-        </p>
+        <p className="text-xl max-w-[700px]">{text.customerReviewText[0]}</p>
       </div>
     </section>,
     <section className="my-24 text-black w-[90%] max-md:max-w-[350px] max-w-[1000px] mx-auto flex max-md:flex-col gap-10 items-center max-md:items-start max-md:gap-5 bg-white border-solid shadow-xl rounded-lg p-5">
@@ -203,13 +177,9 @@ export const testimonialComponent = ({ text }) => {
       </div>
       <div className="">
         <h1 className="text-3xl font-semibold capitalize mb-3">
-          Customer review
+          {text.customerHeader[0]}
         </h1>
-        <p className="text-xl max-w-[700px]">
-          "QuickUI is incredibly cool. The builder is easy to use and gets you
-          beautiful results. The team is also pretty cool. I might be a bit
-          biased so take a look for yourself!"
-        </p>
+        <p className="text-xl max-w-[700px]">{text.customerReviewText[0]}</p>
       </div>
     </section>,
   ];

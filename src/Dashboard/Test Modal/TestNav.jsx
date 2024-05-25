@@ -65,7 +65,7 @@ export const TestNavTwo = () => {
       <nav className={`bg-white w-full shadow-xl relative z-50`}>
         <div className={`flex justify-between items-center px-5`}>
           <div className="w-[20%] flex items-center gap-1 py-3">
-            <ModalWebLogo/>
+            <ModalWebLogo />
           </div>
 
           <button
