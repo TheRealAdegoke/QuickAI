@@ -1,6 +1,6 @@
 export const faqComponent = ({ text }) => {
   return [
-    <section className="text-black my-24 w-[90%] max-lg:max-w-[400px] mx-auto max-w-[1000px]">
+    <section className="text-black my-40 w-[90%] max-lg:max-w-[400px] mx-auto max-w-[1000px]">
       <div className="mb-10">
         <h1 className="text-3xl font-bold text-[#212529] mb-2">
           {text.FAQsHeader[0]}
@@ -30,7 +30,7 @@ export const faqComponent = ({ text }) => {
         </div>
       </div>
     </section>,
-    <section className="text-black my-24 w-[90%] max-lg:max-w-[400px] mx-auto max-w-[1000px] bg-white border-solid shadow-2xl rounded-xl p-5">
+    <section className="text-black my-40 w-[90%] max-lg:max-w-[400px] mx-auto max-w-[1000px] bg-white border-solid shadow-2xl rounded-xl p-5">
       <div className="mb-10">
         <h1 className="text-3xl font-bold text-[#212529] mb-2">
           {text.FAQsHeader[0]}
@@ -60,7 +60,7 @@ export const faqComponent = ({ text }) => {
         </div>
       </div>
     </section>,
-    <section className="text-black my-24 w-[90%] max-lg:max-w-[400px] mx-auto max-w-[1000px]">
+    <section className="text-black my-40 w-[90%] max-lg:max-w-[400px] mx-auto max-w-[1000px]">
       <div className="mb-5">
         <h1 className="text-3xl font-bold text-[#212529] mb-2">
           {text.FAQsHeader[0]}
@@ -145,7 +145,7 @@ export const faqComponent = ({ text }) => {
         </div>
       </div>
     </section>,
-    <section className="text-black my-24 w-[90%] max-lg:max-w-[400px] mx-auto max-w-[1000px]">
+    <section className="text-black my-40 w-[90%] max-lg:max-w-[400px] mx-auto max-w-[1000px]">
       <div className="mb-5">
         <h1 className="text-3xl font-bold text-[#212529] mb-2">
           {text.FAQsHeader[0]}

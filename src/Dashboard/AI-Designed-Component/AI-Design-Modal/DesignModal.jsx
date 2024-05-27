@@ -46,6 +46,19 @@ const DesignModal = () => {
     setRandomOrder(order);
   }, []);
 
+  const heroElement = heroComponents({ text, buttonIndex })[heroIndex];
+  const navElement = navComponents({ text, buttonIndex })[navIndex];
+  const featuresWithCardElement = featuresWithCardsComponent({ text })[
+    featuresWithCardIndex
+  ];
+  const featuresElement = featuresComponents({ text })[featuresIndex];
+  const testimonialElement = testimonialComponent({ text })[testimonialIndex];
+  const faqElement = faqComponent({ text })[faqIndex];
+  const teamElement = teamComponent({ text })[teamIndex];
+  const contactElement = contactComponent({ text })[contactIndex];
+  const footerElement = footerComponent({ text })[footerIndex];
+
+
   const saveDesign = async () => {
     setLoading(true);
     try { 
@@ -65,25 +78,71 @@ const DesignModal = () => {
         prompt: userInput || selectedIdea,
         navStyle: {
           index: navIndex,
-          style: reactElementToJSXString(navComponents({ text })[navIndex], {
+          style: reactElementToJSXString(navElement, {
             showFunctions: true,
             functionValue: (fn) => fn,
           }),
         },
         heroStyle: {
           index: heroIndex,
-          style: reactElementToJSXString(
-            heroComponents({ text, buttonIndex })[heroIndex],
-            {
-              showFunctions: true,
-              functionValue: (fn) => fn,
-            }
-          ),
+          style: reactElementToJSXString(heroElement, {
+            showFunctions: true,
+            functionValue: (fn) => fn,
+          }),
+        },
+        sectionOneStyle: {
+          index: featuresWithCardIndex,
+          style: reactElementToJSXString(featuresWithCardElement, {
+            showFunctions: true,
+            functionValue: (fn) => fn,
+          }),
+        },
+        sectionTwoStyle: {
+          index: featuresIndex,
+          style: reactElementToJSXString(featuresElement, {
+            showFunctions: true,
+            functionValue: (fn) => fn,
+          }),
+        },
+        sectionThreeStyle: {
+          index: testimonialIndex,
+          style: reactElementToJSXString(testimonialElement, {
+            showFunctions: true,
+            functionValue: (fn) => fn,
+          }),
+        },
+        sectionFourStyle: {
+          index: teamIndex,
+          style: reactElementToJSXString(teamElement, {
+            showFunctions: true,
+            functionValue: (fn) => fn,
+          }),
+        },
+        sectionFiveStyle: {
+          index: faqIndex,
+          style: reactElementToJSXString(faqElement, {
+            showFunctions: true,
+            functionValue: (fn) => fn,
+          }),
+        },
+        // sectionSixStyle: {
+        //   index: contactIndex,
+        //   style: reactElementToJSXString(contactElement, {
+        //     showFunctions: true,
+        //     functionValue: (fn) => fn,
+        //   }),
+        // },
+        footerStyle: {
+          index: footerIndex,
+          style: reactElementToJSXString(footerElement, {
+            showFunctions: true,
+            functionValue: (fn) => fn,
+          }),
         },
         webDesignImagePreview: cloudinaryURL,
       };
 
-      await axiosInstance.post("save-landing-styles", postData);
+      await axiosInstance.post("/save-landing-styles", postData);
 
       clearDesigns();
       handleUserData();
@@ -105,18 +164,7 @@ const DesignModal = () => {
   //   );
   // };
 
-  const heroElement = heroComponents({ text, buttonIndex })[heroIndex];
-  const navElement = navComponents({ text, buttonIndex })[navIndex];
-  const featuresWithCardElement = featuresWithCardsComponent({ text })[
-    featuresWithCardIndex
-  ];
-  const featuresElement = featuresComponents({ text })[featuresIndex];
-  const testimonialElement = testimonialComponent({ text })[testimonialIndex];
-  const faqElement = faqComponent({ text })[faqIndex];
-  const teamElement = teamComponent({ text })[teamIndex];
-  const contactElement = contactComponent({ text })[contactIndex];
-  const footerElement = footerComponent({ text })[footerIndex];
-
+  
   return (
     <>
       <div
@@ -148,11 +196,7 @@ const DesignModal = () => {
           {testimonialIndex !== undefined && testimonialElement}
           {teamIndex !== undefined && teamElement}
           {faqIndex !== undefined && faqElement}
-          {contactIndex !== undefined && contactElement}
           {footerIndex !== undefined && footerElement}
-          {/* <button className="text-black p-5" onClick={handleClicky}>
-            Clicky
-          </button> */}
         </main>
       </div>
     </>

@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useRef, useState } from "react";
 import { axiosInstance } from "../../Pages/AuthPages/AuthChecker/axiosInstance";
 import { message } from "antd";
 import { heroComponents } from "../Arrays/HeroSectionArray";
@@ -18,7 +18,6 @@ export const DashboardProvider = ({ children }) => {
   const [closeAINav, setCloseAINav] = useState(true);
   const [showDesignModal, setShowDesignModal] = useState(false);
   const [testDesignModal, setTestDesignModal] = useState(false);
-  const [userModal, setUserModal] = useState(false);
   const [userData, setUserData] = useState(undefined);
   const [userInput, setUserInput] = useState("");
   const [selectedIdea, setSelectedIdea] = useState("");
@@ -269,8 +268,6 @@ export const DashboardProvider = ({ children }) => {
       value={{
         closeSideNav,
         setCloseSideNav,
-        userModal,
-        setUserModal,
         showDesignModal,
         setShowDesignModal,
         closeAINav,
