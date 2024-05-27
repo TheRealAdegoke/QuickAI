@@ -18,6 +18,7 @@ const Dashboard = ({ children }) => {
     showDesignModal,
     handleUserData,
     testDesignModal,
+    modalRef,
   } = useContext(DashContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -32,7 +33,9 @@ const Dashboard = ({ children }) => {
 
   return (
     <>
-      <main className={`dashboard-background h-screen flex text-white`}>
+      <main
+        className={`dashboard-background h-screen flex text-white`}
+      >
         <SideBar />
         <section
           className={`${

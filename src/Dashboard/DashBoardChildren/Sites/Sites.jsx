@@ -1,12 +1,25 @@
-import React, { createElement, useContext } from "react";
+import React, { useContext, useState } from "react";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
 import Dashboard from "../../Dashboard";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { ImSpinner6 } from "react-icons/im";
 import { Link } from "react-router-dom";
+import { Button, Popover } from "antd";
+import { IoIosCode } from "react-icons/io";
 
 const Sites = () => {
   const { userData } = useContext(DashContext);
+  const [popoverOpen, setPopoverOpen] = useState([]);
+
+  const togglePopover = (index) => {
+    const newPopoverOpen = [...popoverOpen];
+    newPopoverOpen[index] = !newPopoverOpen[index];
+    setPopoverOpen(newPopoverOpen);
+  };
+
+  const handleOpenChange = (newOpen) => {
+    setPopoverOpen(newOpen);
+  };
 
   const history = userData && userData.history ? userData.history : [];
   const sortedHistory = history.sort((a, b) => {
@@ -20,6 +33,8 @@ const Sites = () => {
   yesterdayBoundary.setDate(todayBoundary.getDate() - 1);
   const pastSevenDaysBoundary = new Date(todayBoundary);
   pastSevenDaysBoundary.setDate(todayBoundary.getDate() - 7);
+
+  
   return (
     <Dashboard>
       <main className="p-10 overflow-y-scroll h-[95%] max-sm:h-[90%]">
@@ -46,11 +61,13 @@ const Sites = () => {
                       .filter(
                         (item) => new Date(item.createdAt) >= todayBoundary
                       )
-                      .map((item) => (
-                        <div className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden">
+                      .map((item, index) => (
+                        <div
+                          key={item._id}
+                          className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden"
+                        >
                           <Link
                             to={`/site/preview/${item._id}`}
-                            key={item._id}
                             className="cursor-pointer"
                           >
                             <img
@@ -64,9 +81,41 @@ const Sites = () => {
                             <span className="w-[80%] overflow-hidden text-ellipsis text-nowrap">
                               {item.prompt}
                             </span>
-                            <span className="bg-[rgb(29,29,29)] flex items-center justify-center py-3 px-5 rounded-md cursor-pointer">
-                              <BsThreeDotsVertical />
-                            </span>
+                            <div>
+                              <Popover
+                                color="rgb(36,37,40)"
+                                content={
+                                  <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
+                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1">
+                                      Code <IoIosCode className="text-[20px]" />
+                                    </span>
+                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2">
+                                      Duplicate
+                                    </span>
+                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2">
+                                      Delete
+                                    </span>
+                                  </div>
+                                }
+                                title=""
+                                trigger="click"
+                                open={popoverOpen[index]}
+                                onOpenChange={handleOpenChange}
+                                overlayInnerStyle={{
+                                  backgroundColor: "rgb(36,37,40)",
+                                  width: "150px",
+                                  padding: "0",
+                                }}
+                              >
+                                <Button
+                                  type=""
+                                  className="bg-[rgb(29,29,29)] flex items-center justify-center py-3 px-5 rounded-md cursor-pointer text-[rgb(201,209,217)]"
+                                  onClick={() => togglePopover(index)}
+                                >
+                                  <BsThreeDotsVertical />
+                                </Button>
+                              </Popover>
+                            </div>
                           </div>
                         </div>
                       ))}
@@ -94,10 +143,12 @@ const Sites = () => {
                           new Date(item.createdAt) >= yesterdayBoundary
                       )
                       .map((item) => (
-                        <div className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden">
+                        <div
+                          key={item._id}
+                          className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden"
+                        >
                           <Link
                             to={`/site/preview/${item._id}`}
-                            key={item._id}
                             className="cursor-pointer"
                           >
                             <img
@@ -111,9 +162,41 @@ const Sites = () => {
                             <span className="w-[80%] overflow-hidden text-ellipsis text-nowrap">
                               {item.prompt}
                             </span>
-                            <span className="bg-[rgb(29,29,29)] flex items-center justify-center py-3 px-5 rounded-md cursor-pointer">
-                              <BsThreeDotsVertical />
-                            </span>
+                            <div>
+                              <Popover
+                                color="rgb(36,37,40)"
+                                content={
+                                  <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
+                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1">
+                                      Code <IoIosCode className="text-[20px]" />
+                                    </span>
+                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2">
+                                      Duplicate
+                                    </span>
+                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2">
+                                      Delete
+                                    </span>
+                                  </div>
+                                }
+                                title=""
+                                trigger="click"
+                                open={popoverOpen[index]}
+                                onOpenChange={handleOpenChange}
+                                overlayInnerStyle={{
+                                  backgroundColor: "rgb(36,37,40)",
+                                  width: "150px",
+                                  padding: "0",
+                                }}
+                              >
+                                <Button
+                                  type=""
+                                  className="bg-[rgb(29,29,29)] flex items-center justify-center py-3 px-5 rounded-md cursor-pointer text-[rgb(201,209,217)]"
+                                  onClick={() => togglePopover(index)}
+                                >
+                                  <BsThreeDotsVertical />
+                                </Button>
+                              </Popover>
+                            </div>
                           </div>
                         </div>
                       ))}
@@ -141,10 +224,12 @@ const Sites = () => {
                           new Date(item.createdAt) >= pastSevenDaysBoundary
                       )
                       .map((item) => (
-                        <div className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden">
+                        <div
+                          key={item._id}
+                          className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden"
+                        >
                           <Link
                             to={`/site/preview/${item._id}`}
-                            key={item._id}
                             className="cursor-pointer"
                           >
                             <img
@@ -158,9 +243,41 @@ const Sites = () => {
                             <span className="w-[80%] overflow-hidden text-ellipsis text-nowrap">
                               {item.prompt}
                             </span>
-                            <span className="bg-[rgb(29,29,29)] flex items-center justify-center py-3 px-5 rounded-md cursor-pointer">
-                              <BsThreeDotsVertical />
-                            </span>
+                            <div>
+                              <Popover
+                                color="rgb(36,37,40)"
+                                content={
+                                  <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
+                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1">
+                                      Code <IoIosCode className="text-[20px]" />
+                                    </span>
+                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2">
+                                      Duplicate
+                                    </span>
+                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2">
+                                      Delete
+                                    </span>
+                                  </div>
+                                }
+                                title=""
+                                trigger="click"
+                                open={popoverOpen[index]}
+                                onOpenChange={handleOpenChange}
+                                overlayInnerStyle={{
+                                  backgroundColor: "rgb(36,37,40)",
+                                  width: "150px",
+                                  padding: "0",
+                                }}
+                              >
+                                <Button
+                                  type=""
+                                  className="bg-[rgb(29,29,29)] flex items-center justify-center py-3 px-5 rounded-md cursor-pointer text-[rgb(201,209,217)]"
+                                  onClick={() => togglePopover(index)}
+                                >
+                                  <BsThreeDotsVertical />
+                                </Button>
+                              </Popover>
+                            </div>
                           </div>
                         </div>
                       ))}
@@ -185,10 +302,12 @@ const Sites = () => {
                           new Date(item.createdAt) <= pastSevenDaysBoundary
                       )
                       .map((item) => (
-                        <div className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden">
+                        <div
+                          key={item._id}
+                          className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden"
+                        >
                           <Link
                             to={`/site/preview/${item._id}`}
-                            key={item._id}
                             className="cursor-pointer"
                           >
                             <img
@@ -202,9 +321,41 @@ const Sites = () => {
                             <span className="w-[80%] overflow-hidden text-ellipsis text-nowrap">
                               {item.prompt}
                             </span>
-                            <span className="bg-[rgb(29,29,29)] flex items-center justify-center py-3 px-5 rounded-md cursor-pointer">
-                              <BsThreeDotsVertical />
-                            </span>
+                            <div>
+                              <Popover
+                                color="rgb(36,37,40)"
+                                content={
+                                  <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
+                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1">
+                                      Code <IoIosCode className="text-[20px]" />
+                                    </span>
+                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2">
+                                      Duplicate
+                                    </span>
+                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2">
+                                      Delete
+                                    </span>
+                                  </div>
+                                }
+                                title=""
+                                trigger="click"
+                                open={popoverOpen[index]}
+                                onOpenChange={handleOpenChange}
+                                overlayInnerStyle={{
+                                  backgroundColor: "rgb(36,37,40)",
+                                  width: "150px",
+                                  padding: "0",
+                                }}
+                              >
+                                <Button
+                                  type=""
+                                  className="bg-[rgb(29,29,29)] flex items-center justify-center py-3 px-5 rounded-md cursor-pointer text-[rgb(201,209,217)]"
+                                  onClick={() => togglePopover(index)}
+                                >
+                                  <BsThreeDotsVertical />
+                                </Button>
+                              </Popover>
+                            </div>
                           </div>
                         </div>
                       ))}

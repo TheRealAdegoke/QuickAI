@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import WebLogo from "../../assets/WebLogo";
 import { FaRegEdit } from "react-icons/fa";
@@ -12,16 +12,28 @@ import { DashContext } from "../DashboardChecker/DashboardContext";
 import { ImSpinner6 } from "react-icons/im";
 
 const SideBar = () => {
+  const [userModal, setUserModal] = useState(false);
   const { unAuthenticate } = useContext(AuthContext);
-
   const {
     closeSideNav,
     setCloseSideNav,
-    userModal,
-    setUserModal,
     userData,
     clearDesigns,
   } = useContext(DashContext);
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        setUserModal(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [setUserModal]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -94,7 +106,6 @@ const SideBar = () => {
             Site <FaChevronRight className="text-lg" />
           </Link>
         </div>
-
         <div className="h-full overflow-y-hidden hover:overflow-y-scroll">
           {userData === undefined ? (
             <div className="flex justify-center items-center h-full">
@@ -229,50 +240,47 @@ const SideBar = () => {
             </div>
           )}
         </div>
-
-        <div
-          className={`${
-            userModal ? "flex" : "hidden"
-          } bg-[rgb(36,37,40)] w-full max-w-[190px] max-lg:max-w-[175px] mx-auto flex-col items-start gap-2 border-zinc-600 border-[1px] px-2 py-1 rounded-[5px] max-md:hidden font-semibold fixed left-[0.7%] max-lg:left-[0.8%] bottom-20`}
-        >
-          <button className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">
-            <MdOutlineManageAccounts />
-            Account
-          </button>
-          <button className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">
-            <IoSettingsOutline />
-            Settings
-          </button>
-          <button className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">
-            Themes
-          </button>
-          <hr className="w-full" />
+        <div ref={modalRef} className="flex flex-col justify-between">
+          <div
+            className={`${
+              userModal ? "flex" : "hidden"
+            } bg-[rgb(36,37,40)] w-full max-w-[190px] max-lg:max-w-[175px] mx-auto flex-col items-start gap-2 border-zinc-600 border-[1px] px-2 py-1 rounded-[5px] max-md:hidden font-semibold fixed left-[0.7%] max-lg:left-[0.8%] bottom-20`}
+          >
+            <button className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">
+              <MdOutlineManageAccounts />
+              Account
+            </button>
+            <button className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">
+              <IoSettingsOutline />
+              Settings
+            </button>
+            <hr className="w-full" />
+            <button
+              className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]"
+              onClick={() => {
+                unAuthenticate();
+                setUserModal(false);
+                clearDesigns();
+              }}
+            >
+              <CiLogout />
+              Logout
+            </button>
+          </div>
           <button
-            className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]"
+            className="flex items-center gap-2 my-1 px-2 py-1 hover:bg-[rgb(33,33,33)] hover:px-2 border-zinc-600 hover:border-[1px] rounded-[5px]"
             onClick={() => {
-              unAuthenticate();
-              setUserModal(false);
-              clearDesigns();
+              setUserModal(!userModal);
             }}
           >
-            <CiLogout />
-            Logout
+            <span className="bg-[rgb(9,23,56)] flex justify-center items-center py-[0.4rem] px-[0.5rem] rounded-full uppercase">
+              {userData && userData.fullname.slice(0, 2)}
+            </span>
+            <p className="w-[90%] md:w-full overflow-hidden text-ellipsis text-nowrap text-white">
+              {userData && userData.fullname}
+            </p>
           </button>
         </div>
-
-        <button
-          className="flex items-center gap-2 my-1 px-2 py-1 hover:bg-[rgb(33,33,33)] hover:px-2 border-zinc-600 hover:border-[1px] rounded-[5px]"
-          onClick={() => {
-            setUserModal(!userModal);
-          }}
-        >
-          <span className="bg-[rgb(9,23,56)] flex justify-center items-center py-[0.4rem] px-[0.5rem] rounded-full uppercase">
-            {userData && userData.fullname.slice(0, 2)}
-          </span>
-          <p className="w-[90%] md:w-full overflow-hidden text-ellipsis text-nowrap text-white">
-            {userData && userData.fullname}
-          </p>
-        </button>
       </aside>
     </>
   );
