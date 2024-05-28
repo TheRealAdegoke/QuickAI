@@ -6,10 +6,14 @@ import { ImSpinner6 } from "react-icons/im";
 import { Link } from "react-router-dom";
 import { Button, Popover } from "antd";
 import { IoIosCode } from "react-icons/io";
+import { axiosInstance } from "../../../Pages/AuthPages/AuthChecker/axiosInstance";
+import { message } from "antd";
 
 const Sites = () => {
-  const { userData } = useContext(DashContext);
+  const { userData, handleUserData } = useContext(DashContext);
   const [popoverOpen, setPopoverOpen] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [loadingDelete, setLoadingDelete] = useState(false);
 
   const togglePopover = (index) => {
     const newPopoverOpen = [...popoverOpen];
@@ -34,7 +38,48 @@ const Sites = () => {
   const pastSevenDaysBoundary = new Date(todayBoundary);
   pastSevenDaysBoundary.setDate(todayBoundary.getDate() - 7);
 
-  
+  const handleHistoryDuplication = async (id) => {
+    message.config({
+      duration: 2,
+      maxCount: 1,
+    });
+    setLoading(true);
+    try {
+      const response = await axiosInstance.post(
+        `/auth/recreate-prompt-history/${id}`,
+        {}
+      );
+      message.success(response.data.message);
+      handleUserData();
+    } catch (error) {
+      console.error(error.response.data.error);
+      message.error(error.response.data.error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleHistoryDeletion = async (id) => {
+    message.config({
+      duration: 2,
+      maxCount: 1,
+    });
+    setLoadingDelete(true);
+    try {
+      const response = await axiosInstance.delete(
+        `/auth/delete-prompt-history/${id}`,
+        {}
+      );
+      message.success(response.data.message);
+      handleUserData();
+    } catch (error) {
+      console.error(error.response.data.error);
+      message.error(error.response.data.error);
+    } finally {
+      setLoadingDelete(false);
+    }
+  };
+
   return (
     <Dashboard>
       <main className="p-10 overflow-y-scroll h-[95%] max-sm:h-[90%]">
@@ -86,15 +131,37 @@ const Sites = () => {
                                 color="rgb(36,37,40)"
                                 content={
                                   <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
-                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1">
+                                    <button className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full">
                                       Code <IoIosCode className="text-[20px]" />
-                                    </span>
-                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2">
-                                      Duplicate
-                                    </span>
-                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2">
-                                      Delete
-                                    </span>
+                                    </button>
+                                    <button
+                                      className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
+                                      onClick={() => {
+                                        handleHistoryDuplication(item._id);
+                                      }}
+                                    >
+                                      {loading ? (
+                                        <div className="flex justify-center items-center text-center h-full">
+                                          <ImSpinner6 className="animate-spin text-2xl text-white" />
+                                        </div>
+                                      ) : (
+                                        "Duplicate"
+                                      )}
+                                    </button>
+                                    <button
+                                      className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
+                                      onClick={() => {
+                                        handleHistoryDeletion(item._id);
+                                      }}
+                                    >
+                                      {loadingDelete ? (
+                                        <div className="flex justify-center items-center text-center h-full">
+                                          <ImSpinner6 className="animate-spin text-2xl text-white" />
+                                        </div>
+                                      ) : (
+                                        "Delete"
+                                      )}
+                                    </button>
                                   </div>
                                 }
                                 title=""
@@ -142,7 +209,7 @@ const Sites = () => {
                           new Date(item.createdAt) < todayBoundary &&
                           new Date(item.createdAt) >= yesterdayBoundary
                       )
-                      .map((item) => (
+                      .map((item, index) => (
                         <div
                           key={item._id}
                           className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden"
@@ -167,15 +234,37 @@ const Sites = () => {
                                 color="rgb(36,37,40)"
                                 content={
                                   <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
-                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1">
+                                    <button className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full">
                                       Code <IoIosCode className="text-[20px]" />
-                                    </span>
-                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2">
-                                      Duplicate
-                                    </span>
-                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2">
-                                      Delete
-                                    </span>
+                                    </button>
+                                    <button
+                                      className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
+                                      onClick={() => {
+                                        handleHistoryDuplication(item._id);
+                                      }}
+                                    >
+                                      {loading ? (
+                                        <div className="flex justify-center items-center text-center h-full">
+                                          <ImSpinner6 className="animate-spin text-2xl text-white" />
+                                        </div>
+                                      ) : (
+                                        "Duplicate"
+                                      )}
+                                    </button>
+                                    <button
+                                      className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
+                                      onClick={() => {
+                                        handleHistoryDeletion(item._id);
+                                      }}
+                                    >
+                                      {loadingDelete ? (
+                                        <div className="flex justify-center items-center text-center h-full">
+                                          <ImSpinner6 className="animate-spin text-2xl text-white" />
+                                        </div>
+                                      ) : (
+                                        "Delete"
+                                      )}
+                                    </button>
                                   </div>
                                 }
                                 title=""
@@ -223,7 +312,7 @@ const Sites = () => {
                           new Date(item.createdAt) < yesterdayBoundary &&
                           new Date(item.createdAt) >= pastSevenDaysBoundary
                       )
-                      .map((item) => (
+                      .map((item, index) => (
                         <div
                           key={item._id}
                           className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden"
@@ -248,15 +337,37 @@ const Sites = () => {
                                 color="rgb(36,37,40)"
                                 content={
                                   <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
-                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1">
+                                    <button className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full">
                                       Code <IoIosCode className="text-[20px]" />
-                                    </span>
-                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2">
-                                      Duplicate
-                                    </span>
-                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2">
-                                      Delete
-                                    </span>
+                                    </button>
+                                    <button
+                                      className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
+                                      onClick={() => {
+                                        handleHistoryDuplication(item._id);
+                                      }}
+                                    >
+                                      {loading ? (
+                                        <div className="flex justify-center items-center text-center h-full">
+                                          <ImSpinner6 className="animate-spin text-2xl text-white" />
+                                        </div>
+                                      ) : (
+                                        "Duplicate"
+                                      )}
+                                    </button>
+                                    <button
+                                      className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
+                                      onClick={() => {
+                                        handleHistoryDeletion(item._id);
+                                      }}
+                                    >
+                                      {loadingDelete ? (
+                                        <div className="flex justify-center items-center text-center h-full">
+                                          <ImSpinner6 className="animate-spin text-2xl text-white" />
+                                        </div>
+                                      ) : (
+                                        "Delete"
+                                      )}
+                                    </button>
                                   </div>
                                 }
                                 title=""
@@ -301,7 +412,7 @@ const Sites = () => {
                         (item) =>
                           new Date(item.createdAt) <= pastSevenDaysBoundary
                       )
-                      .map((item) => (
+                      .map((item, index) => (
                         <div
                           key={item._id}
                           className="my-2 bg-white w-[30%] max-w-[350px] max-lg:w-[98%] max-lg:max-w-[400px] lg:h-[300px] h-[300px] rounded-[5px] border-[1px] border-[rgb(42,42,47)] relative overflow-hidden"
@@ -326,15 +437,37 @@ const Sites = () => {
                                 color="rgb(36,37,40)"
                                 content={
                                   <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
-                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1">
+                                    <button className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full">
                                       Code <IoIosCode className="text-[20px]" />
-                                    </span>
-                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2">
-                                      Duplicate
-                                    </span>
-                                    <span className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2">
-                                      Delete
-                                    </span>
+                                    </button>
+                                    <button
+                                      className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
+                                      onClick={() => {
+                                        handleHistoryDuplication(item._id);
+                                      }}
+                                    >
+                                      {loading ? (
+                                        <div className="flex justify-center items-center text-center h-full">
+                                          <ImSpinner6 className="animate-spin text-2xl text-white" />
+                                        </div>
+                                      ) : (
+                                        "Duplicate"
+                                      )}
+                                    </button>
+                                    <button
+                                      className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
+                                      onClick={() => {
+                                        handleHistoryDeletion(item._id);
+                                      }}
+                                    >
+                                      {loadingDelete ? (
+                                        <div className="flex justify-center items-center text-center h-full">
+                                          <ImSpinner6 className="animate-spin text-2xl text-white" />
+                                        </div>
+                                      ) : (
+                                        "Delete"
+                                      )}
+                                    </button>
                                   </div>
                                 }
                                 title=""
