@@ -53,7 +53,10 @@ const WebPreview = () => {
         </div>
       ) : (
         <main>
-          <div className="dashboard-navigation-darkmode py-2 flex justify-between items-center px-3 fixed w-full top-0 z-50 my">
+          <div
+            ref={modalRef}
+            className="dashboard-navigation-darkmode py-2 flex justify-between items-center px-3 fixed w-full top-0 z-50 my"
+          >
             <div>
               <Link to="/home">
                 <FaChevronLeft className="text-white text-2xl" />
@@ -68,32 +71,36 @@ const WebPreview = () => {
             >
               {userData && userData.fullname.slice(0, 2)}
             </button>
+
+            <div
+              className={`${
+                itemsDropdown ? "block" : "hidden"
+              } dashboard-navigation-darkmode w-full max-w-[190px] mx-auto flex-col items-start gap-2 border-zinc-600 border-[1px] px-2 py-1 rounded-[5px] font-semibold fixed top-16 right-[0.7%] z-50 text-white`}
+            >
+              <button className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">
+                <MdOutlineManageAccounts />
+                Account
+              </button>
+              <button className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">
+                <IoSettingsOutline />
+                Settings
+              </button>
+            </div>
           </div>
           <div className="pt-14">
-            {parse(historyData.navStyle.style)}
-            {parse(historyData.heroStyle.style)}
-            {parse(historyData.sectionOneStyle.style)}
-            {parse(historyData.sectionTwoStyle.style)}
-            {parse(historyData.sectionThreeStyle.style)}
-            {parse(historyData.sectionFourStyle.style)}
-            {parse(historyData.sectionFiveStyle.style)}
-            {parse(historyData.footerStyle.style)}
-          </div>
-
-          <div
-          ref={modalRef}
-            className={`${
-              itemsDropdown ? "block" : "hidden"
-            } dashboard-navigation-darkmode w-full max-w-[190px] mx-auto flex-col items-start gap-2 border-zinc-600 border-[1px] px-2 py-1 rounded-[5px] font-semibold fixed top-16 right-[0.7%] z-50 text-white`}
-          >
-            <button className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">
-              <MdOutlineManageAccounts />
-              Account
-            </button>
-            <button className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">
-              <IoSettingsOutline />
-              Settings
-            </button>
+            {historyData.navStyle && parse(historyData.navStyle.style)}
+            {historyData.heroStyle && parse(historyData.heroStyle.style)}
+            {historyData.sectionOneStyle &&
+              parse(historyData.sectionOneStyle.style)}
+            {historyData.sectionTwoStyle &&
+              parse(historyData.sectionTwoStyle.style)}
+            {historyData.sectionThreeStyle &&
+              parse(historyData.sectionThreeStyle.style)}
+            {historyData.sectionFourStyle &&
+              parse(historyData.sectionFourStyle.style)}
+            {historyData.sectionFiveStyle &&
+              parse(historyData.sectionFiveStyle.style)}
+            {historyData.footerStyle && parse(historyData.footerStyle.style)}
           </div>
         </main>
       )}

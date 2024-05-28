@@ -21,6 +21,7 @@ const SideBar = () => {
     clearDesigns,
   } = useContext(DashContext);
   const modalRef = useRef(null);
+  const sidebarRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -34,6 +35,19 @@ const SideBar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [setUserModal]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setCloseSideNav(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [setCloseSideNav]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -66,6 +80,7 @@ const SideBar = () => {
   return (
     <>
       <aside
+      ref={sidebarRef}
         className={`${
           closeSideNav ? "block" : "hidden"
         } dashboard-navigation-darkmode w-[250px] h-screen max-md:border-r-[1px] max-md:border-[rgb(26,26,26)] max-md:fixed z-50 p-2 flex flex-col justify-between`}
