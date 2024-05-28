@@ -80,7 +80,7 @@ const SideBar = () => {
   return (
     <>
       <aside
-      ref={sidebarRef}
+      ref={window.innerWidth > 767 ? null : sidebarRef}
         className={`${
           closeSideNav ? "block" : "hidden"
         } dashboard-navigation-darkmode w-[250px] h-screen max-md:border-r-[1px] max-md:border-[rgb(26,26,26)] max-md:fixed z-50 p-2 flex flex-col justify-between`}
