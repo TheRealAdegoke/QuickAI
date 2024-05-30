@@ -11,7 +11,13 @@
 }
 
 .radial {
-    background: radial-gradient(circle at 50% 10%, rgb(22, 23, 50), rgb(4, 6, 23), rgb(5, 8, 32));
+    background: radial-gradient(circle at 50% 10%, rgb(22, 23, 50), rgb(4, 6, 23), rgb(5, 8, 32), rgb(9,11,14));
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+.radial-nav {
+  background: radial-gradient(circle at 50% 10%, rgb(22, 23, 50), rgb(4, 6, 23), rgb(5, 8, 32));
     color: white;
     font-family: 'Arial', sans-serif;
 }

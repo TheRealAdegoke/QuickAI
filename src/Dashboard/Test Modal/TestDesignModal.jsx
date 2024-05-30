@@ -73,7 +73,7 @@ const TestDesignModal = () => {
         </div>
       </section>
 
-      <section className="my-40 text-black w-[90%] max-w-[800px] max-lg:max-w-[600px] mx-auto">
+      <section className="my-32 text-black w-[90%] max-w-[800px] max-lg:max-w-[600px] mx-auto">
         <div className="w-full bg-white text-black p-5  rounded-xl shadow-2xl">
           <h1 className="text-3xl font-semibold mb-5">Contact</h1>
 

@@ -12,7 +12,7 @@ const Nav = () => {
   return (
     <>
       <header>
-        <nav className="radial flex items-center justify-between px-3 py-2 border-b border-[rgba(255,255,255,0.2)] bg-transparent fixed w-full z-50">
+        <nav className="radial-nav flex items-center justify-between px-3 py-4 border-b border-[rgba(255,255,255,0.2)] bg-transparent fixed w-full z-50">
           <div>
             <Link to="/" className="cursor-pointer">
               <WebLogo />

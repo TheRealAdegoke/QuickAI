@@ -1,6 +1,6 @@
 export const contactComponent = ({ text }) => {
   return [
-    <section className="my-40 my text-black w-[90%] max-w-[1000px] max-lg:max-w-[600px] mx-auto flex max-lg:flex-col justify-between items-center">
+    <section className="my-32 my text-black w-[90%] max-w-[1000px] max-lg:max-w-[600px] mx-auto flex max-lg:flex-col justify-between items-center">
       <div className="mb-10 w-[45%] max-lg:w-full">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126082.63117777245!2d7.4985258706102815!3d9.056264578816574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e745f4cd62fd9%3A0x53bd17b4a20ea12b!2sAbuja%2C%20Federal%20Capital%20Territory!5e0!3m2!1sen!2sng!4v1716136585984!5m2!1sen!2sng"
@@ -46,7 +46,7 @@ export const contactComponent = ({ text }) => {
         </form>
       </div>
     </section>,
-    <section className="my-40 text-black w-[90%] max-w-[1000px] max-lg:max-w-[600px] mx-auto flex max-lg:flex-col-reverse flex-row-reverse items-center">
+    <section className="my-32 text-black w-[90%] max-w-[1000px] max-lg:max-w-[600px] mx-auto flex max-lg:flex-col-reverse flex-row-reverse items-center">
       <div className="w-[50%] h-[600px] max-lg:w-full bg-[#d9d9d9]">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126082.63117777245!2d7.4985258706102815!3d9.056264578816574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e745f4cd62fd9%3A0x53bd17b4a20ea12b!2sAbuja%2C%20Federal%20Capital%20Territory!5e0!3m2!1sen!2sng!4v1716136585984!5m2!1sen!2sng"
@@ -92,7 +92,7 @@ export const contactComponent = ({ text }) => {
         </form>
       </div>
     </section>,
-    <section className="my-40 text-black w-[90%] max-w-[1000px] max-lg:max-w-[600px] mx-auto">
+    <section className="my-32 text-black w-[90%] max-w-[1000px] max-lg:max-w-[600px] mx-auto">
       <div className="h-[600px] w-full bg-white rounded-xl shadow-2xl">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126082.63117777245!2d7.4985258706102815!3d9.056264578816574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e745f4cd62fd9%3A0x53bd17b4a20ea12b!2sAbuja%2C%20Federal%20Capital%20Territory!5e0!3m2!1sen!2sng!4v1716136585984!5m2!1sen!2sng"
@@ -106,7 +106,7 @@ export const contactComponent = ({ text }) => {
         ></iframe>
       </div>
     </section>,
-    <section className="my-40 text-black w-[90%] max-w-[800px] max-lg:max-w-[600px] mx-auto">
+    <section className="my-32 text-black w-[90%] max-w-[800px] max-lg:max-w-[600px] mx-auto">
       <div className="w-full bg-white text-black p-5  rounded-xl shadow-2xl">
         <h1 className="text-3xl font-semibold mb-5">{text.contactHeader[0]}</h1>
 
@@ -135,7 +135,7 @@ export const contactComponent = ({ text }) => {
         </form>
       </div>
     </section>,
-    <section className="my-40 text-black w-[90%] max-w-[1000px] max-lg:max-w-[600px] mx-auto flex max-lg:flex-col-reverse flex-row-reverse items-center gap-5">
+    <section className="my-32 text-black w-[90%] max-w-[1000px] max-lg:max-w-[600px] mx-auto flex max-lg:flex-col-reverse flex-row-reverse items-center gap-5">
       <div className="w-[50%] h-[600px] max-lg:w-full flex justify-center items-center">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126082.63117777245!2d7.4985258706102815!3d9.056264578816574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e745f4cd62fd9%3A0x53bd17b4a20ea12b!2sAbuja%2C%20Federal%20Capital%20Territory!5e0!3m2!1sen!2sng!4v1716136585984!5m2!1sen!2sng"

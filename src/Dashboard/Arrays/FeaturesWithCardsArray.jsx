@@ -1,6 +1,6 @@
 export const featuresWithCardsComponent = ({ text }) => {
   return [
-    <section className="text-black w-[90%] mx-auto my-40 flex max-lg:flex-col justify-between max-w-[1000px]">
+    <section className="text-black w-[90%] mx-auto my-24 flex max-lg:flex-col justify-between max-w-[1000px]">
       <div className="w-[50%] flex flex-col items-start gap-3 max-lg:w-full">
         <div className="">
           <h1 className="text-[#231e41] text-3xl font-bold mb-1">
@@ -96,7 +96,7 @@ export const featuresWithCardsComponent = ({ text }) => {
         />
       </div>
     </section>,
-    <section className="text-black w-[90%] mx-auto my-40 flex flex-row-reverse max-lg:flex-col-reverse justify-between max-w-[1000px]">
+    <section className="text-black w-[90%] mx-auto my-24 flex flex-row-reverse max-lg:flex-col-reverse justify-between max-w-[1000px]">
       <div className="w-[50%] flex flex-col items-start gap-3 max-lg:w-full">
         <div className="max-lg:mt-4">
           <h1 className="text-[#231e41] text-3xl font-bold mb-1">
@@ -192,7 +192,7 @@ export const featuresWithCardsComponent = ({ text }) => {
         />
       </div>
     </section>,
-    <section className="text-black w-[90%] mx-auto my-40 flex max-lg:flex-col justify-between max-w-[1000px]">
+    <section className="text-black w-[90%] mx-auto my-24 flex max-lg:flex-col justify-between max-w-[1000px]">
       <div className="w-[50%] flex flex-col items-start gap-3 max-lg:w-full">
         <div className="">
           <h1 className="text-[#231e41] text-3xl font-bold mb-1">
@@ -250,7 +250,7 @@ export const featuresWithCardsComponent = ({ text }) => {
         />
       </div>
     </section>,
-    <section className="text-black w-[90%] mx-auto my-40 flex flex-row-reverse max-lg:flex-col justify-between max-w-[1000px]">
+    <section className="text-black w-[90%] mx-auto my-24 flex flex-row-reverse max-lg:flex-col justify-between max-w-[1000px]">
       <div className="w-[50%] flex flex-col items-start gap-3 max-lg:w-full">
         <div className="">
           <h1 className="text-[#231e41] text-3xl font-bold mb-1">
@@ -308,7 +308,7 @@ export const featuresWithCardsComponent = ({ text }) => {
         />
       </div>
     </section>,
-    <section className="text-black w-[90%] mx-auto my-40 flex max-lg:flex-col justify-between max-w-[1000px]">
+    <section className="text-black w-[90%] mx-auto my-24 flex max-lg:flex-col justify-between max-w-[1000px]">
       <div className="w-[45%] flex flex-col items-start gap-3 max-lg:w-full">
         <div className="">
           <h1 className="text-[#231e41] text-3xl font-bold mb-1">
