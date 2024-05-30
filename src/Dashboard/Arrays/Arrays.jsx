@@ -22,7 +22,7 @@ export const randomIdeas = [
   "Smart Weeding Robot",
   "AI Personal Assistant App",
   "Online Coding Bootcamp",
-  "Virtual Fitness classNamees",
+  "Virtual Fitness classes",
   "Eco Packaging Solutions",
   "Blockchain Supply Chain",
   "Personalized Meal Planning",

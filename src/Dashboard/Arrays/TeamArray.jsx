@@ -1,6 +1,6 @@
 export const teamComponent = ({ text }) => {
   return [
-    <section className="text-black my-40 w-[90%] max-w-[1000px] mx-auto">
+    <section className="text-black my-32 w-[90%] max-w-[1000px] mx-auto">
       <div className="mb-10 text-center">
         <h1 className="text-3xl font-bold text-[#212529] mb-2">
           {text.teamHeader[0]}
@@ -148,7 +148,7 @@ export const teamComponent = ({ text }) => {
         </div>
       </div>
     </section>,
-    <section className="text-black my-40 w-[90%] max-w-[1000px] mx-auto">
+    <section className="text-black my-32 w-[90%] max-w-[1000px] mx-auto">
       <div className="mb-10 text-center">
         <h1 className="text-3xl font-bold text-[#212529] mb-2">
           {text.teamHeader[0]}
@@ -296,7 +296,7 @@ export const teamComponent = ({ text }) => {
         </div>
       </div>
     </section>,
-    <section className="text-black my-40 w-[90%] max-w-[1000px] mx-auto">
+    <section className="text-black my-32 w-[90%] max-w-[1000px] mx-auto">
       <div className="mb-10 text-center">
         <h1 className="text-3xl font-bold text-[#212529] mb-2">
           {text.teamHeader[0]}
@@ -444,7 +444,7 @@ export const teamComponent = ({ text }) => {
         </div>
       </div>
     </section>,
-    <section className="text-black my-40 w-[90%] max-w-[1000px] mx-auto">
+    <section className="text-black my-32 w-[90%] max-w-[1000px] mx-auto">
       <div className="mb-10 text-center">
         <h1 className="text-3xl font-bold text-[#212529] mb-2">
           {text.teamHeader[0]}
@@ -592,7 +592,7 @@ export const teamComponent = ({ text }) => {
         </div>
       </div>
     </section>,
-    <section className="text-black my-40 w-[90%] max-w-[1000px] mx-auto">
+    <section className="text-black my-32 w-[90%] max-w-[1000px] mx-auto">
       <div className="mb-10 text-center">
         <h1 className="text-3xl font-bold text-[#212529] mb-2">
           {text.teamHeader[0]}
@@ -740,7 +740,7 @@ export const teamComponent = ({ text }) => {
         </div>
       </div>
     </section>,
-    <section className="text-black my-40 w-[90%] max-w-[1000px] mx-auto">
+    <section className="text-black my-32 w-[90%] max-w-[1000px] mx-auto">
       <div className="mb-10 text-center">
         <h1 className="text-3xl font-bold text-[#212529] mb-2">
           {text.teamHeader[0]}
