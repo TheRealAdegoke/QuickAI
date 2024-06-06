@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import designExample from "../../../assets/QuickUIDesign.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const HomeSectionOne = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1500,
+    });
+  }, []);
+
+
   return (
     <>
-      <section className="my-44 max-lg:my-32 w-[90%] max-w-[1500px] mx-auto">
+      <section
+        data-aos="fade-up"
+        className="my-44 max-lg:my-32 w-[90%] max-w-[1500px] mx-auto"
+      >
         <div className="mb-14">
           <h2 className="text-center text-2xl sm:text-4xl font-semibold mb-4">
             Generate your website with AI
           </h2>
-          <p className="text-[rgb(189,189,189)] text-center font-semibold max-lg:text-center max-lg:max-w-[500px] max-lg:mx-auto">
+          <p className="text-[rgb(189,189,189)] text-xl text-center font-semibold max-lg:text-center max-lg:max-w-[500px] max-lg:mx-auto">
             Use AI to generate content for your website, including text and
             images
           </p>
