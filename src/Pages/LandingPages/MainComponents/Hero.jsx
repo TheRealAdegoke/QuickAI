@@ -7,6 +7,8 @@ import { IoMdArrowRoundUp } from "react-icons/io";
 import { WiStars } from "react-icons/wi";
 import { ImSpinner6 } from "react-icons/im";
 import HeroDesignModal from "./HeroDesignModal";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Hero = () => {
   const {
@@ -42,11 +44,21 @@ const Hero = () => {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1500
+    });
+  }, []);
+
   return (
     <>
       <section className="pt-[150px] max-lg:pt-[100px]">
         <div className="flex items-center justify-between max-lg:flex-col px-10 max-lg:max-w-[800px] mx-auto max-w-[1500px] mb-10">
-          <div className="w-[50%] max-lg:w-full max-lg:mb-10 max-w-[700px]">
+          <div
+            data-aos="fade-right"
+            className="w-[50%] max-lg:w-full max-lg:mb-10 max-w-[700px]"
+          >
             <div className="flex flex-col justify-center gap-4">
               <h1 className="text-left max-lg:text-center text-[2.85rem] max-lg:text-[2.85rem] max-md:text-[2rem] max-md:max-w-[600px] max-md:mx-auto capitalize font-extrabold max-[1305px]:text-[2rem]">
                 Create website designs 10X faster with{" "}
@@ -121,9 +133,9 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className={`w-[45%] max-lg:w-full`}>
+          <div data-aos="fade-left" className={`w-[45%] max-lg:w-full`}>
             {showDesignModal ? (
-              <div>
+              <div data-aos="zoom-in">
                 <Link
                   to="/register"
                   type="submit"
@@ -202,7 +214,10 @@ const Hero = () => {
         </div>
 
         {showDesignModal && (
-          <div className="max-lg:hidden w-[90%] max-w-[1450px] mx-auto h-[600px] flex flex-col items-end">
+          <div
+            data-aos="zoom-in"
+            className="max-lg:hidden w-[90%] max-w-[1450px] mx-auto h-[600px] flex flex-col items-end"
+          >
             <Link
               to="/register"
               type="submit"
