@@ -45,7 +45,7 @@ const HomeSectionTwo = () => {
               <FaCode className="text-lg" />
             </div>
             <h3 className="text-xl">Get Code</h3>
-            <p className="text-[rgb(189,189,189)] h-[100px] max-xl:h-[180px]">
+            <p className="text-[rgb(189,189,189)] h-[100px] max-md:h-auto max-xl:h-[180px]">
               Liked what you've designed? You can easily copy the code for your
               landing page. It's quick and simple to share or use it elsewhere.
             </p>
@@ -57,7 +57,7 @@ const HomeSectionTwo = () => {
               <FaCloudUploadAlt className="text-lg" />
             </div>
             <h3 className="text-xl">Publish Site</h3>
-            <p className="text-[rgb(189,189,189)] h-[100px] max-xl:h-[180px]">
+            <p className="text-[rgb(189,189,189)] h-[100px] max-md:h-auto max-xl:h-[180px]">
               Ready to show off your website to the world? With our publish
               feature, it's easy to make your site live. Share your site
               with others and make your mark online.
