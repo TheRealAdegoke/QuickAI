@@ -6,6 +6,8 @@ import { message } from "antd";
 import { AuthContext } from "./AuthChecker/AuthContext";
 import WebLogo from "../../assets/WebLogo";
 import { axiosInstance } from "./AuthChecker/axiosInstance";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Login = () => {
   const { isAuthenticated, handleAuthentication } = useContext(AuthContext);
@@ -17,6 +19,12 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const baseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
+
+  useEffect(() => {
+    AOS.init({
+      duration: 500,
+    });
+  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -81,11 +89,17 @@ const Login = () => {
   return (
     <>
       <main className="bg-[rgb(3,11,21)] min-h-screen text-white">
-        <div className="flex justify-center items-center py-5">
+        <div
+          data-aos="zoom-in"
+          className="flex justify-center items-center py-5"
+        >
           <WebLogo />
         </div>
 
-        <div className="bg-[rgb(2,8,16)] w-4/5 max-w-[400px] h-auto mx-auto border border-[rgb(64,65,67)] rounded-[8px]">
+        <div
+          data-aos="zoom-in"
+          className="bg-[rgb(2,8,16)] w-4/5 max-w-[400px] h-auto mx-auto border border-[rgb(64,65,67)] rounded-[8px]"
+        >
           <form className="px-6" onSubmit={handleLogin}>
             <div className="mt-4 mb-6">
               <h1 className="text-[rgb(201,209,217)] text-2xl font-bold">

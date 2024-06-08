@@ -1,15 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ImSpinner6 } from "react-icons/im";
 import { message } from "antd";
 import WebLogo from "../../assets/WebLogo";
 import { axiosInstance } from "./AuthChecker/axiosInstance";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const ResetPassword = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    AOS.init({
+      duration: 500,
+    });
+  }, []);
 
   const handleCreatePassword = async (e) => {
     e.preventDefault();
@@ -37,11 +45,17 @@ const ResetPassword = () => {
   return (
     <>
       <main className="bg-[rgb(3,11,21)] min-h-screen text-white">
-        <div className="flex justify-center items-center py-5">
+        <div
+          data-aos="zoom-in"
+          className="flex justify-center items-center py-5"
+        >
           <WebLogo />
         </div>
 
-        <div className="bg-[rgb(2,8,16)] w-4/5 max-w-[400px] mx-auto pb-8 border border-[rgb(64,65,67)] rounded-[8px]">
+        <div
+          data-aos="zoom-in"
+          className="bg-[rgb(2,8,16)] w-4/5 max-w-[400px] mx-auto pb-8 border border-[rgb(64,65,67)] rounded-[8px]"
+        >
           <form className="px-6" onSubmit={handleCreatePassword}>
             <div className="mt-4 mb-6">
               <h1 className="text-[rgb(201,209,217)] text-2xl font-bold">

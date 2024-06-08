@@ -53,7 +53,7 @@ const Hero = () => {
 
   return (
     <>
-      <section className="pt-[150px] max-lg:pt-[100px]">
+      <section className="">
         <div className="flex items-center justify-between max-lg:flex-col px-10 max-lg:max-w-[800px] mx-auto max-w-[1500px] mb-10">
           <div
             data-aos="fade-right"
@@ -103,7 +103,7 @@ const Hero = () => {
                     >
                       {loading ? (
                         <span>
-                          <ImSpinner6 className="animate-spin text-2xl text-black block mx-auto" />
+                          <ImSpinner6 className="animate-spin text-2xl text-white block mx-auto" />
                         </span>
                       ) : (
                         <IoMdArrowRoundUp />
@@ -119,7 +119,7 @@ const Hero = () => {
                     >
                       {loading ? (
                         <span>
-                          <ImSpinner6 className="animate-spin text-2xl text-black block mx-auto" />
+                          <ImSpinner6 className="animate-spin text-2xl text-white block mx-auto" />
                         </span>
                       ) : (
                         <span className="flex items-center gap-[2px]">
