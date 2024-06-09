@@ -107,3 +107,17 @@ const TestDesignModal = () => {
 };
 
 export default TestDesignModal;
+
+// {
+//   randomOrder === "featuresFirst" ? (
+//     <>
+//       {featuresIndex !== undefined && featuresElement}
+//       {testimonialIndex !== undefined && testimonialElement}
+//     </>
+//   ) : (
+//     <>
+//       {testimonialIndex !== undefined && testimonialElement}
+//       {featuresIndex !== undefined && featuresElement}
+//     </>
+//   );
+// }
