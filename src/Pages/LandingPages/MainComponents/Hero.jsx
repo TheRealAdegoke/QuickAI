@@ -26,6 +26,8 @@ const Hero = () => {
     loop: 0,
   });
 
+  const mainRef = useRef(null);
+
   const handleChange = (e) => {
     const value = e.target.value;
     if (value.length >= selectedIdea.length) {
@@ -47,7 +49,7 @@ const Hero = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 1500
+      duration: 1500,
     });
   }, []);
 
@@ -143,8 +145,11 @@ const Hero = () => {
                 >
                   Save Design
                 </Link>
-                <div className="overflow-y-auto w-full h-[600px] bg-white shadow-xl rounded-lg lg:hidden">
-                  <HeroDesignModal />
+                <div
+                  ref={mainRef}
+                  className="overflow-y-auto w-full h-[600px] bg-white shadow-xl rounded-lg lg:hidden"
+                >
+                  <HeroDesignModal mainRef={mainRef} />
                 </div>
               </div>
             ) : (
@@ -225,8 +230,11 @@ const Hero = () => {
             >
               Save Design
             </Link>
-            <div className="overflow-y-auto bg-white shadow-xl rounded-lg w-full">
-              <HeroDesignModal />
+            <div
+              ref={mainRef}
+              className="overflow-y-auto bg-white shadow-xl rounded-lg w-full"
+            >
+              <HeroDesignModal mainRef={mainRef} />
             </div>
           </div>
         )}

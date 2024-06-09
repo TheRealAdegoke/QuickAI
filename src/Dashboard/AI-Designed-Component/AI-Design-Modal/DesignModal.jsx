@@ -34,34 +34,66 @@ const DesignModal = () => {
     text,
     buttonIndex,
   } = useContext(DashContext);
+
   const ref = useRef(null);
+  const mainRef = useRef(null);
   const [loading, setLoading] = useState(false);
-  const [randomOrder, setRandomOrder] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [autoScroll, setAutoScroll] = useState(true);
+
   const cloudinaryBaseURL = import.meta.env.VITE_REACT_APP_CLOUDINARY_BASE_URL;
-  const cloudinaryFormDataAppend = import.meta.env.VITE_REACT_APP_CLOUDINARY_FORM_DATA_APPEND;
+  const cloudinaryFormDataAppend = import.meta.env
+    .VITE_REACT_APP_CLOUDINARY_FORM_DATA_APPEND;
+
+  const elements = [
+    {
+      index: navIndex,
+      element: navComponents({ text, buttonIndex })[navIndex],
+    },
+    {
+      index: heroIndex,
+      element: heroComponents({ text, buttonIndex })[heroIndex],
+    },
+    {
+      index: featuresWithCardIndex,
+      element: featuresWithCardsComponent({ text })[featuresWithCardIndex],
+    },
+    {
+      index: featuresIndex,
+      element: featuresComponents({ text })[featuresIndex],
+    },
+    {
+      index: testimonialIndex,
+      element: testimonialComponent({ text })[testimonialIndex],
+    },
+    { index: faqIndex, element: faqComponent({ text })[faqIndex] },
+    { index: teamIndex, element: teamComponent({ text })[teamIndex] },
+    { index: footerIndex, element: footerComponent({ text })[footerIndex] },
+  ];
 
   useEffect(() => {
-    // Randomly set the order of elements
-    const order = Math.random() < 0.5 ? "featuresFirst" : "cardsFirst";
-    setRandomOrder(order);
-  }, []);
+    const timer = setTimeout(() => {
+      setCurrentIndex((prevIndex) => prevIndex + 1);
+    }, 1500);
 
-  const heroElement = heroComponents({ text, buttonIndex })[heroIndex];
-  const navElement = navComponents({ text, buttonIndex })[navIndex];
-  const featuresWithCardElement = featuresWithCardsComponent({ text })[
-    featuresWithCardIndex
-  ];
-  const featuresElement = featuresComponents({ text })[featuresIndex];
-  const testimonialElement = testimonialComponent({ text })[testimonialIndex];
-  const faqElement = faqComponent({ text })[faqIndex];
-  const teamElement = teamComponent({ text })[teamIndex];
-  const contactElement = contactComponent({ text })[contactIndex];
-  const footerElement = footerComponent({ text })[footerIndex];
+    return () => clearTimeout(timer);
+  }, [currentIndex]);
 
+  useEffect(() => {
+    if (mainRef.current && autoScroll) {
+      mainRef.current.scrollTop = mainRef.current.scrollHeight;
+    }
+  }, [currentIndex, autoScroll]);
+
+  useEffect(() => {
+    if (currentIndex >= elements.length - 1) {
+      setAutoScroll(false);
+    }
+  }, [currentIndex]);
 
   const saveDesign = async () => {
     setLoading(true);
-    try { 
+    try {
       const canvas = await html2canvas(ref.current, { useCORS: true });
       const dataURL = canvas.toDataURL();
       const formData = new FormData();
@@ -78,63 +110,56 @@ const DesignModal = () => {
         prompt: userInput || selectedIdea,
         navStyle: {
           index: navIndex,
-          style: reactElementToJSXString(navElement, {
+          style: reactElementToJSXString(elements[0].element, {
             showFunctions: true,
             functionValue: (fn) => fn,
           }),
         },
         heroStyle: {
           index: heroIndex,
-          style: reactElementToJSXString(heroElement, {
+          style: reactElementToJSXString(elements[1].element, {
             showFunctions: true,
             functionValue: (fn) => fn,
           }),
         },
         sectionOneStyle: {
           index: featuresWithCardIndex,
-          style: reactElementToJSXString(featuresWithCardElement, {
+          style: reactElementToJSXString(elements[2].element, {
             showFunctions: true,
             functionValue: (fn) => fn,
           }),
         },
         sectionTwoStyle: {
           index: featuresIndex,
-          style: reactElementToJSXString(featuresElement, {
+          style: reactElementToJSXString(elements[3].element, {
             showFunctions: true,
             functionValue: (fn) => fn,
           }),
         },
         sectionThreeStyle: {
           index: testimonialIndex,
-          style: reactElementToJSXString(testimonialElement, {
+          style: reactElementToJSXString(elements[4].element, {
             showFunctions: true,
             functionValue: (fn) => fn,
           }),
         },
         sectionFourStyle: {
           index: teamIndex,
-          style: reactElementToJSXString(teamElement, {
+          style: reactElementToJSXString(elements[6].element, {
             showFunctions: true,
             functionValue: (fn) => fn,
           }),
         },
         sectionFiveStyle: {
           index: faqIndex,
-          style: reactElementToJSXString(faqElement, {
+          style: reactElementToJSXString(elements[5].element, {
             showFunctions: true,
             functionValue: (fn) => fn,
           }),
         },
-        // sectionSixStyle: {
-        //   index: contactIndex,
-        //   style: reactElementToJSXString(contactElement, {
-        //     showFunctions: true,
-        //     functionValue: (fn) => fn,
-        //   }),
-        // },
         footerStyle: {
           index: footerIndex,
-          style: reactElementToJSXString(footerElement, {
+          style: reactElementToJSXString(elements[8].element, {
             showFunctions: true,
             functionValue: (fn) => fn,
           }),
@@ -153,18 +178,8 @@ const DesignModal = () => {
     }
   };
 
-  // const handleClicky = () => {
-  //   const elementOrder =
-  //     randomOrder === "featuresFirst"
-  //       ? [testimonialElement, featuresWithCardElement]
-  //       : [featuresWithCardElement, testimonialElement];
+  const allElementsDisplayed = currentIndex >= elements.length - 1;
 
-  //   elementOrder.forEach((element) =>
-  //     console.log(reactElementToJSXString(element))
-  //   );
-  // };
-
-  
   return (
     <>
       <div
@@ -173,48 +188,36 @@ const DesignModal = () => {
         } w-full mt-5 max-md:mt-0 mx-10 h-[93vh] max-md:h-[89vh] max-[499px]:mx-4 overflow-hidden`}
       >
         <div className="mb-5 flex justify-end items-end">
-          <button
-            type="submit"
-            className="text-black bg-white w-[200px] hover:bg-[rgba(255,255,255,0.9)] block p-3 rounded-[5px] font-medium"
-            onClick={saveDesign}
-            disabled={loading}
-          >
-            {loading ? (
-              <div>
-                <ImSpinner6 className="animate-spin text-2xl text-black block mx-auto" />
-              </div>
-            ) : (
-              "Save"
-            )}
-          </button>
+          {allElementsDisplayed && (
+            <button
+              type="submit"
+              className="text-black bg-white w-[200px] hover:bg-[rgba(255,255,255,0.9)] block p-3 rounded-[5px] font-medium"
+              onClick={saveDesign}
+              disabled={loading}
+            >
+              {loading ? (
+                <div>
+                  <ImSpinner6 className="animate-spin text-2xl text-black block mx-auto" />
+                </div>
+              ) : (
+                "Save"
+              )}
+            </button>
+          )}
         </div>
-        <main ref={ref} className="bg-white h-[90%] overflow-y-scroll">
-          {navIndex !== undefined && navElement}
-          {heroIndex !== undefined && heroElement}
-          {featuresWithCardIndex !== undefined && featuresWithCardElement}
-          {featuresIndex !== undefined && featuresElement}
-          {testimonialIndex !== undefined && testimonialElement}
-          {teamIndex !== undefined && teamElement}
-          {faqIndex !== undefined && faqElement}
-          {footerIndex !== undefined && footerElement}
-        </main>
+        <section ref={mainRef} className="bg-white h-[90%] overflow-y-scroll">
+          {elements.slice(0, currentIndex + 1).map(
+            (item, idx) =>
+              item.index !== undefined && (
+                <div key={idx} className="animate-scaleIn">
+                  {item.element}
+                </div>
+              )
+          )}
+        </section>
       </div>
     </>
   );
 };
 
 export default DesignModal;
-
-// {
-//   randomOrder === "featuresFirst" ? (
-//     <>
-//       {featuresIndex !== undefined && featuresElement}
-//       {testimonialIndex !== undefined && testimonialElement}
-//     </>
-//   ) : (
-//     <>
-//       {testimonialIndex !== undefined && testimonialElement}
-//       {featuresIndex !== undefined && featuresElement}
-//     </>
-//   );
-// }
