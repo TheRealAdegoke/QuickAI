@@ -108,6 +108,10 @@ export const DashboardProvider = ({ children }) => {
 
       setText((text) => ({
         ...text,
+        heroHeaderText: geminiResponses.heroHeader,
+        description: geminiResponses.heroDescription,
+        images: geminiResponses.imageUrls || [],
+        webLogo: geminiResponses.logo,
         buttonTexts: shuffledButtonTexts,
         featureHeader: shuffledFeatureHeadersTexts,
         customerHeader: shuffledCustomersHeadersTexts,
@@ -121,38 +125,38 @@ export const DashboardProvider = ({ children }) => {
         faqAnswer: shuffledFAQAnswers,
         statsHeader: shuffledStatsHeaders,
         partnerHeader: shuffledPartnerHeaders,
-        contactHeader: shuffledContactHeaders
+        contactHeader: shuffledContactHeaders,
       }));
 
       setShuffled(true);
     }
   }, [geminiResponses, shuffled]);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setText((prevText) => ({
-        ...prevText,
-        heroHeaderText: geminiResponses.heroHeader
-          ? geminiResponses.heroHeader.slice(
-              0,
-              prevText.heroHeaderText.length + 1
-            )
-          : "",
-        description: geminiResponses.heroDescription
-          ? geminiResponses.heroDescription.slice(
-              0,
-              prevText.description.length + 1
-            )
-          : "",
-        images: geminiResponses.imageUrls || [],
-        webLogo: geminiResponses.logo
-          ? geminiResponses.logo.slice(0, prevText.webLogo.length + 1)
-          : "",
-      }));
-    }, 30);
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     setText((prevText) => ({
+  //       ...prevText,
+  //       heroHeaderText: geminiResponses.heroHeader
+  //         ? geminiResponses.heroHeader.slice(
+  //             0,
+  //             prevText.heroHeaderText.length + 1
+  //           )
+  //         : "",
+  //       description: geminiResponses.heroDescription
+  //         ? geminiResponses.heroDescription.slice(
+  //             0,
+  //             prevText.description.length + 1
+  //           )
+  //         : "",
+  //       images: geminiResponses.imageUrls || [],
+  //       webLogo: geminiResponses.logo
+  //         ? geminiResponses.logo.slice(0, prevText.webLogo.length + 1)
+  //         : "",
+  //     }));
+  //   }, 30);
 
-    return () => clearTimeout(timeout);
-  }, [geminiResponses, text]);
+  //   return () => clearTimeout(timeout);
+  // }, [geminiResponses, text]);
 
   const handleGenerateNav = () => {
     const randomNavIndex = Math.floor(

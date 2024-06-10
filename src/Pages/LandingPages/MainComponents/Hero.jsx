@@ -147,7 +147,7 @@ const Hero = () => {
                 </Link>
                 <div
                   ref={mainRef}
-                  className="overflow-y-auto w-full h-[600px] bg-white shadow-xl rounded-lg lg:hidden"
+                  className="overflow-y-auto bg-white h-[600px] shadow-xl rounded-lg w-full lg:hidden"
                 >
                   <HeroDesignModal mainRef={mainRef} />
                 </div>
@@ -232,7 +232,7 @@ const Hero = () => {
             </Link>
             <div
               ref={mainRef}
-              className="overflow-y-auto bg-white shadow-xl rounded-lg w-full"
+              className="overflow-y-auto bg-white h-[600px] shadow-xl rounded-lg w-full"
             >
               <HeroDesignModal mainRef={mainRef} />
             </div>

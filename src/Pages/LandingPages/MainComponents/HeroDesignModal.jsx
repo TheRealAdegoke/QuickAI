@@ -79,7 +79,7 @@ const HeroDesignModal = ({mainRef}) => {
         {elements.slice(0, currentIndex + 1).map(
           (item, idx) =>
             item.index !== undefined && (
-              <div key={idx} className="animate-scaleIn">
+              <div key={idx} className="">
                 {item.element}
               </div>
             )
