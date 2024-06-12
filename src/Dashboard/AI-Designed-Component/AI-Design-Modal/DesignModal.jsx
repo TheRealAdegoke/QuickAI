@@ -34,9 +34,8 @@ const DesignModal = () => {
     text,
     buttonIndex,
   } = useContext(DashContext);
-
-  const ref = useRef(null);
-  const mainRef = useRef(null);
+  const scrollRef = useRef(null);
+  const photoRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [autoScroll, setAutoScroll] = useState(true);
@@ -45,31 +44,17 @@ const DesignModal = () => {
   const cloudinaryFormDataAppend = import.meta.env
     .VITE_REACT_APP_CLOUDINARY_FORM_DATA_APPEND;
 
-  const elements = [
-    {
-      index: navIndex,
-      element: navComponents({ text, buttonIndex })[navIndex],
-    },
-    {
-      index: heroIndex,
-      element: heroComponents({ text, buttonIndex })[heroIndex],
-    },
-    {
-      index: featuresWithCardIndex,
-      element: featuresWithCardsComponent({ text })[featuresWithCardIndex],
-    },
-    {
-      index: featuresIndex,
-      element: featuresComponents({ text })[featuresIndex],
-    },
-    {
-      index: testimonialIndex,
-      element: testimonialComponent({ text })[testimonialIndex],
-    },
-    { index: faqIndex, element: faqComponent({ text })[faqIndex] },
-    { index: teamIndex, element: teamComponent({ text })[teamIndex] },
-    { index: footerIndex, element: footerComponent({ text })[footerIndex] },
+  const heroElement = heroComponents({ text, buttonIndex })[heroIndex];
+  const navElement = navComponents({ text, buttonIndex })[navIndex];
+  const featuresWithCardElement = featuresWithCardsComponent({ text })[
+    featuresWithCardIndex
   ];
+  const featuresElement = featuresComponents({ text })[featuresIndex];
+  const testimonialElement = testimonialComponent({ text })[testimonialIndex];
+  const faqElement = faqComponent({ text })[faqIndex];
+  const teamElement = teamComponent({ text })[teamIndex];
+  const contactElement = contactComponent({ text })[contactIndex];
+  const footerElement = footerComponent({ text })[footerIndex];
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -80,8 +65,8 @@ const DesignModal = () => {
   }, [currentIndex]);
 
   useEffect(() => {
-    if (mainRef.current && autoScroll) {
-      mainRef.current.scrollTop = mainRef.current.scrollHeight;
+    if (scrollRef.current && autoScroll) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [currentIndex, autoScroll]);
 
@@ -91,10 +76,37 @@ const DesignModal = () => {
     }
   }, [currentIndex]);
 
+
+  const elements = [
+    {
+      index: navIndex,
+      element: navElement,
+    },
+    {
+      index: heroIndex,
+      element: heroElement,
+    },
+    {
+      index: featuresWithCardIndex,
+      element: featuresWithCardElement,
+    },
+    {
+      index: featuresIndex,
+      element: featuresElement,
+    },
+    {
+      index: testimonialIndex,
+      element: testimonialElement,
+    },
+    { index: faqIndex, element: faqElement},
+    { index: teamIndex, element: teamElement},
+    { index: footerIndex, element: footerElement},
+  ];
+
   const saveDesign = async () => {
     setLoading(true);
     try {
-      const canvas = await html2canvas(ref.current, { useCORS: true });
+      const canvas = await html2canvas(photoRef.current, { useCORS: true });
       const dataURL = canvas.toDataURL();
       const formData = new FormData();
       formData.append("file", dataURL);
@@ -110,56 +122,56 @@ const DesignModal = () => {
         prompt: userInput || selectedIdea,
         navStyle: {
           index: navIndex,
-          style: reactElementToJSXString(elements[0].element, {
+          style: reactElementToJSXString(navElement, {
             showFunctions: true,
             functionValue: (fn) => fn,
           }),
         },
         heroStyle: {
           index: heroIndex,
-          style: reactElementToJSXString(elements[1].element, {
+          style: reactElementToJSXString(heroElement, {
             showFunctions: true,
             functionValue: (fn) => fn,
           }),
         },
         sectionOneStyle: {
           index: featuresWithCardIndex,
-          style: reactElementToJSXString(elements[2].element, {
+          style: reactElementToJSXString(featuresWithCardElement, {
             showFunctions: true,
             functionValue: (fn) => fn,
           }),
         },
         sectionTwoStyle: {
           index: featuresIndex,
-          style: reactElementToJSXString(elements[3].element, {
+          style: reactElementToJSXString(featuresElement, {
             showFunctions: true,
             functionValue: (fn) => fn,
           }),
         },
         sectionThreeStyle: {
           index: testimonialIndex,
-          style: reactElementToJSXString(elements[4].element, {
+          style: reactElementToJSXString(testimonialElement, {
             showFunctions: true,
             functionValue: (fn) => fn,
           }),
         },
         sectionFourStyle: {
           index: teamIndex,
-          style: reactElementToJSXString(elements[6].element, {
+          style: reactElementToJSXString(teamElement, {
             showFunctions: true,
             functionValue: (fn) => fn,
           }),
         },
         sectionFiveStyle: {
           index: faqIndex,
-          style: reactElementToJSXString(elements[5].element, {
+          style: reactElementToJSXString(faqElement, {
             showFunctions: true,
             functionValue: (fn) => fn,
           }),
         },
         footerStyle: {
           index: footerIndex,
-          style: reactElementToJSXString(elements[8].element, {
+          style: reactElementToJSXString(footerElement, {
             showFunctions: true,
             functionValue: (fn) => fn,
           }),
@@ -179,6 +191,7 @@ const DesignModal = () => {
   };
 
   const allElementsDisplayed = currentIndex >= elements.length - 1;
+
 
   return (
     <>
@@ -205,16 +218,19 @@ const DesignModal = () => {
             </button>
           )}
         </div>
-        <section ref={mainRef} className="bg-white h-[90%] overflow-y-scroll">
-          {elements.slice(0, currentIndex + 1).map(
-            (item, idx) =>
-              item.index !== undefined && (
-                <div key={idx} className="">
-                  {item.element}
-                </div>
-              )
-          )}
-        </section>
+        <main ref={scrollRef} className="bg-white h-[90%] overflow-y-scroll">
+          {elements
+            .slice(0, currentIndex + 1)
+            .map(
+              (item, idx) =>
+                item.index !== undefined && <div key={idx}>{item.element}</div>
+            )}
+        </main>
+
+        <div ref={photoRef} className="-z-50 relative">
+          {navElement}
+          {heroElement}
+        </div>
       </div>
     </>
   );
