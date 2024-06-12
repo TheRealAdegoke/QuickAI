@@ -230,6 +230,7 @@ const DesignModal = () => {
         <div ref={photoRef} className="-z-50 relative">
           {navElement}
           {heroElement}
+          {featuresWithCardElement}
         </div>
       </div>
     </>
