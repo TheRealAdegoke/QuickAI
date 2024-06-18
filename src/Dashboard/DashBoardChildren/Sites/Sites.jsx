@@ -98,7 +98,7 @@ const Sites = () => {
                 (item) => new Date(item.createdAt) >= todayBoundary
               ) && (
                 <div className="mb-5">
-                  <h1 className="text-lg font-semibold text-[rgb(201,209,217)] text-center">
+                  <h1 className="text-lg font-semibold text-[rgb(201,209,217)] text-center mb-5">
                     Today
                   </h1>
                   <div className="flex flex-wrap max-lg:flex-col justify-center items-center gap-3">
@@ -131,9 +131,9 @@ const Sites = () => {
                                 color="rgb(36,37,40)"
                                 content={
                                   <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
-                                    <button className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full">
+                                    <Link to={`/site/manage/${item._id}`} className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full">
                                       Code <IoIosCode className="text-[20px]" />
-                                    </button>
+                                    </Link>
                                     <button
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
                                       onClick={() => {
@@ -198,7 +198,7 @@ const Sites = () => {
                   new Date(item.createdAt) >= yesterdayBoundary
               ) && (
                 <div className="mb-5">
-                  <h1 className="text-lg font-semibold text-[rgb(201,209,217)] text-center">
+                  <h1 className="text-lg font-semibold text-[rgb(201,209,217)] text-center mb-5">
                     Yesterday
                   </h1>
 
@@ -234,9 +234,9 @@ const Sites = () => {
                                 color="rgb(36,37,40)"
                                 content={
                                   <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
-                                    <button className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full">
+                                    <Link to={`/site/manage/${item._id}`} className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full">
                                       Code <IoIosCode className="text-[20px]" />
-                                    </button>
+                                    </Link>
                                     <button
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
                                       onClick={() => {
@@ -301,7 +301,7 @@ const Sites = () => {
                   new Date(item.createdAt) >= pastSevenDaysBoundary
               ) && (
                 <div className="mb-5">
-                  <h1 className="text-lg font-semibold text-[rgb(201,209,217)] text-center">
+                  <h1 className="text-lg font-semibold text-[rgb(201,209,217)] text-center mb-5">
                     Past 7 Days
                   </h1>
 
@@ -337,9 +337,9 @@ const Sites = () => {
                                 color="rgb(36,37,40)"
                                 content={
                                   <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
-                                    <button className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full">
+                                    <Link to={`/site/manage/${item._id}`} className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full">
                                       Code <IoIosCode className="text-[20px]" />
-                                    </button>
+                                    </Link>
                                     <button
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
                                       onClick={() => {
@@ -402,7 +402,7 @@ const Sites = () => {
                 (item) => new Date(item.createdAt) <= pastSevenDaysBoundary
               ) && (
                 <div className="mb-5">
-                  <h1 className="text-lg font-semibold text-[rgb(201,209,217)] text-center">
+                  <h1 className="text-lg font-semibold text-[rgb(201,209,217)] text-center mb-5">
                     Past 30 days
                   </h1>
 
@@ -437,9 +437,9 @@ const Sites = () => {
                                 color="rgb(36,37,40)"
                                 content={
                                   <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
-                                    <button className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full">
+                                    <Link to={`/site/manage/${item._id}`} className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full">
                                       Code <IoIosCode className="text-[20px]" />
-                                    </button>
+                                    </Link>
                                     <button
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
                                       onClick={() => {

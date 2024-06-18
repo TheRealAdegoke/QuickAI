@@ -206,6 +206,7 @@ export const DashboardProvider = ({ children }) => {
     try {
       const response = await axiosInstance.get("/auth/user-data");
       setUserData(response.data);
+      console.log(response.data);
     } catch (error) {
       console.error(error.response.data.error);
     }
