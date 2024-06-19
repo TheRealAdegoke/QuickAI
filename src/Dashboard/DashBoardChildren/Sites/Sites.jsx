@@ -132,7 +132,7 @@ const Sites = () => {
                                 content={
                                   <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
                                     <Link to={`/site/manage/${item._id}`} className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full">
-                                      Code <IoIosCode className="text-[20px]" />
+                                      Manage <IoIosCode className="text-[20px]" />
                                     </Link>
                                     <button
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
@@ -235,7 +235,7 @@ const Sites = () => {
                                 content={
                                   <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
                                     <Link to={`/site/manage/${item._id}`} className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full">
-                                      Code <IoIosCode className="text-[20px]" />
+                                      Manage <IoIosCode className="text-[20px]" />
                                     </Link>
                                     <button
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
@@ -338,7 +338,7 @@ const Sites = () => {
                                 content={
                                   <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
                                     <Link to={`/site/manage/${item._id}`} className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full">
-                                      Code <IoIosCode className="text-[20px]" />
+                                      Manage <IoIosCode className="text-[20px]" />
                                     </Link>
                                     <button
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
@@ -438,7 +438,7 @@ const Sites = () => {
                                 content={
                                   <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
                                     <Link to={`/site/manage/${item._id}`} className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full">
-                                      Code <IoIosCode className="text-[20px]" />
+                                      Manage <IoIosCode className="text-[20px]" />
                                     </Link>
                                     <button
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
