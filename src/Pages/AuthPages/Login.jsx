@@ -26,7 +26,6 @@ const Login = () => {
     });
   }, []);
 
-  
   const handleLogin = async (e) => {
     e.preventDefault();
     message.config({
