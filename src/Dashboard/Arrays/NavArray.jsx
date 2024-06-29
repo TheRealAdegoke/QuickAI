@@ -39,16 +39,16 @@ export const navComponents = ({ text }) => {
         >
           <ul className="flex justify-evenly max-lg:flex-col w-full gap-5 max-lg:gap-0 text-[rgba(0,0,0,0.8)] text-lg text-center font-semibold">
             <li className="max-lg:border-t-[1px] py-3 cursor-pointer hover:underline">
-              <a href="">Home</a>
+              <a href="#">Home</a>
             </li>
             <li className="max-lg:border-t-[1px] py-3 cursor-pointer hover:underline">
-              <a href="">{text.buttonTexts[4]}</a>
+              <a href="#">{text.buttonTexts[4]}</a>
             </li>
             <li className="max-lg:border-t-[1px] py-3 cursor-pointer hover:underline">
-              <a href="">{text.buttonTexts[5]}</a>
+              <a href="#">{text.buttonTexts[5]}</a>
             </li>
             <li className="max-lg:border-t-[1px] py-3 cursor-pointer hover:underline">
-              <a href="">{text.buttonTexts[6]}</a>
+              <a href="#">{text.buttonTexts[6]}</a>
             </li>
           </ul>
         </div>
@@ -91,22 +91,22 @@ export const navComponents = ({ text }) => {
         >
           <ul className="flex max-lg:flex-col max-lg:items-center max-lg:gap-0 gap-4">
             <li className="hover:text-[rgba(255,0,0)] max-lg:mt-8">
-              <a href="">{text.buttonTexts[4]}</a>
+              <a href="#">{text.buttonTexts[4]}</a>
             </li>
             <li className="hover:text-[rgba(255,0,0)] max-lg:my-3">
-              <a href="">{text.buttonTexts[5]}</a>
+              <a href="#">{text.buttonTexts[5]}</a>
             </li>
             <li className="hover:text-[rgba(255,0,0)] max-lg:my-3">
-              <a href="">{text.buttonTexts[6]}</a>
+              <a href="#">{text.buttonTexts[6]}</a>
             </li>
           </ul>
 
           <ul className="flex max-lg:flex-col max-lg:items-center max-lg:gap-0 gap-4  lg:items-center">
             <li className="hover:text-[rgba(255,0,0)] max-lg:my-3">
-              <a href="">Login</a>
+              <a href="#">Login</a>
             </li>
             <li className="bg-[rgba(0,0,0,0.1)] py-2 px-5 max-lg:px-10 rounded hover:text-[rgba(255,0,0)] max-lg:my-3">
-              <a href="">Sign Up</a>
+              <a href="#">Sign Up</a>
             </li>
           </ul>
         </div>
@@ -151,22 +151,22 @@ export const navComponents = ({ text }) => {
         >
           <ul className="flex max-lg:flex-col max-lg:items-center max-lg:gap-0 gap-4">
             <li className="hover:text-[rgba(255,0,0)] max-lg:mt-8">
-              <a href="">{text.buttonTexts[6]}</a>
+              <a href="#">{text.buttonTexts[6]}</a>
             </li>
             <li className="hover:text-[rgba(255,0,0)] max-lg:my-3">
-              <a href="">{text.buttonTexts[5]}</a>
+              <a href="#">{text.buttonTexts[5]}</a>
             </li>
             <li className="hover:text-[rgba(255,0,0)] max-lg:my-3">
-              <a href="">{text.buttonTexts[4]}</a>
+              <a href="#">{text.buttonTexts[4]}</a>
             </li>
           </ul>
 
           <ul className="flex max-lg:flex-col max-lg:items-center max-lg:gap-0 gap-4  lg:items-center">
             <li className="hover:text-[rgba(255,0,0)] max-lg:my-3">
-              <a href="">Login</a>
+              <a href="#">Login</a>
             </li>
             <li className="bg-[rgba(0,0,0,0.1)] py-2 px-5 max-lg:px-10 rounded hover:text-[rgba(255,0,0)] max-lg:my-3">
-              <a href="">Sign Up</a>
+              <a href="#">Sign Up</a>
             </li>
           </ul>
         </div>
