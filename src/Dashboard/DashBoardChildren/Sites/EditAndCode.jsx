@@ -36,6 +36,7 @@ const EditAndCode = () => {
   const [sectionFiveDiv, setSectionFiveDiv] = useState("");
   const [footerDiv, setFooterDiv] = useState("");
   const [enabled, setEnabled] = useState(false);
+  const [isCopied, setIsCopied] = useState(false)
   const [visibleSections, setVisibleSections] = useState({
     navDiv: true,
     heroDiv: true,
@@ -200,6 +201,22 @@ const EditAndCode = () => {
     }));
   };
 
+  const handleCopy = () => {
+    const activeContent = getActiveContent(activeSection);
+    navigator.clipboard
+      .writeText(activeContent)
+      .then(() => {
+        setIsCopied(true);
+        setTimeout(() => {
+          setIsCopied(false);
+        }, 1500);
+      })
+      .catch((err) => {
+        console.error("Failed to copy: ", err);
+        setIsCopied(false);
+      });
+  };
+
   return (
     <>
       {loading ? (
@@ -271,10 +288,7 @@ const EditAndCode = () => {
                     </span>{" "}
                     Header
                   </p>
-                  <span
-                    className="bg-white px-1 py-1 text-[13px] rounded-[5px] cursor-pointer"
-                    onClick={() => toggleSectionVisibility("navDiv")}
-                  >
+                  <span onClick={() => toggleSectionVisibility("navDiv")}>
                     {visibleSections["navDiv"] ? <IoMdEyeOff /> : <FaEye />}
                   </span>
                 </div>
@@ -444,14 +458,8 @@ const EditAndCode = () => {
                     </span>{" "}
                     Footer
                   </p>
-                  <span
-                    onClick={() => toggleSectionVisibility("footerDiv")}
-                  >
-                    {visibleSections["footerDiv"] ? (
-                      <IoMdEyeOff />
-                    ) : (
-                      <FaEye />
-                    )}
+                  <span onClick={() => toggleSectionVisibility("footerDiv")}>
+                    {visibleSections["footerDiv"] ? <IoMdEyeOff /> : <FaEye />}
                   </span>
                 </div>
               </div>
@@ -492,9 +500,17 @@ const EditAndCode = () => {
             <div
               className={`${
                 !devMode ? "right-[-100%]" : "right-0 max-md:right-0"
-              } w-[650px] max-md:w-full fixed top-[60px] z-50 h-screen bg-white border-[1px] shadow-2xl transition-all duration-200 ease-in-out`}
+              } w-[650px] max-md:w-full fixed top-[56px] z-50 h-screen bg-white border-[1px] shadow-2xl transition-all duration-200 ease-in-out`}
             >
-              <div className="h-[60%] max-md:h-[90%] max-md:mt-4 w-[95%] mx-auto md:my-10 overflow-y-scroll">
+              <div className="flex justify-end w-[95%] my-2">
+                <button
+                  className="text-white bg-[rgba(0,0,0,0.9)] px-3 py-2 w-[150px] text-center rounded-[8px] cursor-pointer font-semibold"
+                  onClick={handleCopy}
+                >
+                  <span>{isCopied ? "copied" : "copy"}</span>
+                </button>
+              </div>
+              <div className="h-[60%] max-md:h-[90%] max-md:mt-4 w-[95%] mx-auto md:my-3 overflow-y-scroll">
                 <Editor
                   height="100%"
                   defaultLanguage="javascript"
