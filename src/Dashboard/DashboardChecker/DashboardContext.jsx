@@ -11,6 +11,7 @@ import { faqComponent } from "../Arrays/FAQArrays";
 import { teamComponent } from "../Arrays/TeamArray";
 import { contactComponent } from "../Arrays/ContactArray";
 import { footerComponent } from "../Arrays/Footer";
+import { webContentObject } from "../Arrays/Arrays";
 
 export const DashContext = createContext();
 export const DashboardProvider = ({ children }) => {
@@ -18,6 +19,7 @@ export const DashboardProvider = ({ children }) => {
   const [closeAINav, setCloseAINav] = useState(true);
   const [showDesignModal, setShowDesignModal] = useState(false);
   const [testDesignModal, setTestDesignModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const [userData, setUserData] = useState(undefined);
   const [userInput, setUserInput] = useState("");
   const [selectedIdea, setSelectedIdea] = useState("");
@@ -56,7 +58,7 @@ export const DashboardProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    if (!shuffled && geminiResponses.randomButtonText) {
+    if (!shuffled && webContentObject.randomButtonText) {
       const shuffuleTextArray = (array) => {
         for (let i = array.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
@@ -66,52 +68,52 @@ export const DashboardProvider = ({ children }) => {
       };
 
       const shuffledButtonTexts = shuffuleTextArray(
-        geminiResponses.randomButtonText
+        webContentObject.randomButtonText
       );
       const shuffledFeatureHeadersTexts = shuffuleTextArray(
-        geminiResponses.featureHeaders
+        webContentObject.featureHeaders
       );
       const shuffledCustomersHeadersTexts = shuffuleTextArray(
-        geminiResponses.customerHeaders
+        webContentObject.customerHeaders
       );
       const shuffledCustomerParagraphText = shuffuleTextArray(
-        geminiResponses.customerParagraphTexts
+        webContentObject.customerParagraphTexts
       );
       const shuffledCustomerReviewText = shuffuleTextArray(
-        geminiResponses.customerReviewTexts
+        webContentObject.customerReviewTexts
       );
       const shuffledTeamHeader = shuffuleTextArray(
-        geminiResponses.teamHeaders
+        webContentObject.teamHeaders
       );
-      const shuffledTeamParagraphText = shuffuleTextArray(geminiResponses.teamParagraphTexts);
+      const shuffledTeamParagraphText = shuffuleTextArray(webContentObject.teamParagraphTexts);
       const shuffledFAQsHeaders = shuffuleTextArray(
-        geminiResponses.FAQsHeaders
+        webContentObject.FAQsHeaders
       );
       const shuffledFAQParagraphTexts = shuffuleTextArray(
-        geminiResponses.faqParagraphTexts
+        webContentObject.faqParagraphTexts
       );
       const shuffledFAQQuestions = shuffuleTextArray(
-        geminiResponses.faqQuestions
+        webContentObject.faqQuestions
       );
       const shuffledFAQAnswers = shuffuleTextArray(
-        geminiResponses.faqAnswers
+        webContentObject.faqAnswers
       );
       const shuffledStatsHeaders = shuffuleTextArray(
-        geminiResponses.statsHeaders
+        webContentObject.statsHeaders
       );
       const shuffledPartnerHeaders = shuffuleTextArray(
-        geminiResponses.partnerHeaders
+        webContentObject.partnerHeaders
       );
       const shuffledContactHeaders = shuffuleTextArray(
-        geminiResponses.contactHeaders
+        webContentObject.contactHeaders
       );
 
       setText((text) => ({
         ...text,
-        heroHeaderText: geminiResponses.heroHeader,
-        description: geminiResponses.heroDescription,
-        images: geminiResponses.imageUrls || [],
-        webLogo: geminiResponses.logo,
+        heroHeaderText: webContentObject.heroHeader,
+        description: webContentObject.heroDescription,
+        images: webContentObject.imageUrls || [],
+        webLogo: webContentObject.logo,
         buttonTexts: shuffledButtonTexts,
         featureHeader: shuffledFeatureHeadersTexts,
         customerHeader: shuffledCustomersHeadersTexts,
@@ -200,6 +202,7 @@ export const DashboardProvider = ({ children }) => {
     setTeamIndex(randomTeamIndex);
     setContactIndex(randomContactIndex);
     setFooterIndex(randomFooterIndex)
+    setShowDesignModal(true);
   };
 
   const handleUserData = async () => {
@@ -282,6 +285,7 @@ export const DashboardProvider = ({ children }) => {
         geminiResponses,
         setGeminiResponses,
         handleGeminiResponses,
+        handleGenerateNav,
         userInput,
         setUserInput,
         selectedIdea,
@@ -313,6 +317,8 @@ export const DashboardProvider = ({ children }) => {
         footerIndex,
         text,
         setText,
+        isMobile,
+        setIsMobile,
       }}
     >
       {children}

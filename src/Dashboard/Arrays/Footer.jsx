@@ -1,6 +1,10 @@
-export const footerComponent = ({ text }) => {
+export const footerComponent = ({ text, isMobile }) => {
   return [
-    <footer className="border-t-[1px] py-14 flex max-md:flex-col max-md:items-start max-md:gap-10 justify-center items-center bg-white max-md:pl-5">
+    <footer
+      className={`${
+        isMobile ? "flex-col items-start gap-10" : ""
+      } border-t-[1px] py-14 flex max-md:flex-col max-md:items-start max-md:gap-10 justify-center items-center bg-white max-md:pl-5`}
+    >
       <div className="flex flex-col justify-start items-start w-[20%]">
         <div className="text-black">© 2024 Your Company</div>
         <p className="font-bold text-[rgb(42,42,47)] text-3xl">
@@ -39,7 +43,11 @@ export const footerComponent = ({ text }) => {
         </div>
       </div>
 
-      <div className="text-[rgb(42,42,47)] flex max-md:flex-col max-md:gap-10 justify-evenly w-[70%]">
+      <div
+        className={`${
+          isMobile ? "flex-col gap-10" : ""
+        } text-[rgb(42,42,47)] flex max-md:flex-col max-md:gap-10 justify-evenly w-[70%]`}
+      >
         <div>
           <h2 className="font-semibold">Features</h2>
           <div>
