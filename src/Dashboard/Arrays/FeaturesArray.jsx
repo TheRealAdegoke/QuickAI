@@ -1,4 +1,4 @@
-export const featuresComponents = ({ text }) => {
+export const featuresComponents = ({ text, isMobile }) => {
   return [
     <section className="text-black my-32 max-w-[1000px] mx-auto">
       <div className="flex flex-col justify-center items-center text-center">
@@ -8,8 +8,16 @@ export const featuresComponents = ({ text }) => {
         <p className="">Lorem ipsum, dolor sit amet consectetur</p>
       </div>
 
-      <div className="my-10 flex flex-wrap max-sm:flex-col gap-8">
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+      <div
+        className={`${
+          isMobile ? "flex-col" : ""
+        } my-10 flex flex-wrap max-sm:flex-col gap-8`}
+      >
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -31,7 +39,11 @@ export const featuresComponents = ({ text }) => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -53,7 +65,11 @@ export const featuresComponents = ({ text }) => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -75,7 +91,11 @@ export const featuresComponents = ({ text }) => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -97,7 +117,11 @@ export const featuresComponents = ({ text }) => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -119,7 +143,11 @@ export const featuresComponents = ({ text }) => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -150,8 +178,16 @@ export const featuresComponents = ({ text }) => {
         <p className="">Lorem ipsum, dolor sit amet consectetur</p>
       </div>
 
-      <div className="my-10 flex flex-wrap max-sm:flex-col gap-8">
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+      <div
+        className={`${
+          isMobile ? "flex-col" : ""
+        } my-10 flex flex-wrap max-sm:flex-col gap-8`}
+      >
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -173,7 +209,11 @@ export const featuresComponents = ({ text }) => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -195,7 +235,11 @@ export const featuresComponents = ({ text }) => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -217,7 +261,11 @@ export const featuresComponents = ({ text }) => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -239,7 +287,11 @@ export const featuresComponents = ({ text }) => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -261,7 +313,11 @@ export const featuresComponents = ({ text }) => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -292,8 +348,16 @@ export const featuresComponents = ({ text }) => {
         <p className="">Lorem ipsum, dolor sit amet consectetur</p>
       </div>
 
-      <div className="my-10 flex flex-wrap max-sm:flex-col gap-8">
-        <div className="flex flex-col gap-2 justify-center items-center text-center text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+      <div
+        className={`${
+          isMobile ? "flex-col" : ""
+        } my-10 flex flex-wrap max-sm:flex-col gap-8`}
+      >
+        <div
+          className={`${
+            isMobile ? "max-lg:w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -315,7 +379,11 @@ export const featuresComponents = ({ text }) => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "max-lg:w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -337,7 +405,11 @@ export const featuresComponents = ({ text }) => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "max-lg:w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -359,7 +431,11 @@ export const featuresComponents = ({ text }) => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "max-lg:w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -381,7 +457,11 @@ export const featuresComponents = ({ text }) => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "max-lg:w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -403,7 +483,11 @@ export const featuresComponents = ({ text }) => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "max-lg:w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -434,8 +518,16 @@ export const featuresComponents = ({ text }) => {
         <p className="">Lorem ipsum, dolor sit amet consectetur</p>
       </div>
 
-      <div className="my-10 flex flex-wrap max-sm:flex-col gap-8">
-        <div className="flex flex-col gap-2 justify-center items-center text-center text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+      <div
+        className={`${
+          isMobile ? "flex-col" : ""
+        } my-10 flex flex-wrap max-sm:flex-col gap-8`}
+      >
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -454,7 +546,11 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -473,7 +569,11 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -492,7 +592,11 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -511,7 +615,11 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -530,7 +638,11 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -558,8 +670,16 @@ export const featuresComponents = ({ text }) => {
         <p className="">Lorem ipsum, dolor sit amet consectetur</p>
       </div>
 
-      <div className="my-10 flex flex-wrap max-sm:flex-col gap-8">
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+      <div
+        className={`${
+          isMobile ? "flex-col" : ""
+        } my-10 flex flex-wrap max-sm:flex-col gap-8`}
+      >
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -578,7 +698,11 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -597,7 +721,11 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -616,7 +744,11 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -635,7 +767,11 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -654,7 +790,11 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -682,8 +822,16 @@ export const featuresComponents = ({ text }) => {
         <p className="">Lorem ipsum, dolor sit amet consectetur</p>
       </div>
 
-      <div className="my-10 flex flex-wrap max-sm:flex-col gap-8">
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+      <div
+        className={`${
+          isMobile ? "flex-col" : ""
+        } my-10 flex flex-wrap max-sm:flex-col gap-8`}
+      >
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -705,7 +853,11 @@ export const featuresComponents = ({ text }) => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -727,7 +879,11 @@ export const featuresComponents = ({ text }) => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -749,7 +905,11 @@ export const featuresComponents = ({ text }) => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -768,7 +928,11 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -787,7 +951,11 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-[rgba(200,200,200)] p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -815,8 +983,16 @@ export const featuresComponents = ({ text }) => {
         <p className="">Lorem ipsum, dolor sit amet consectetur</p>
       </div>
 
-      <div className="my-10 flex flex-wrap max-sm:flex-col gap-8">
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+      <div
+        className={`${
+          isMobile ? "flex-col" : ""
+        } my-10 flex flex-wrap max-sm:flex-col gap-8`}
+      >
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -838,7 +1014,11 @@ export const featuresComponents = ({ text }) => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -860,7 +1040,11 @@ export const featuresComponents = ({ text }) => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -882,7 +1066,11 @@ export const featuresComponents = ({ text }) => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -901,7 +1089,11 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -920,7 +1112,11 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -948,8 +1144,16 @@ export const featuresComponents = ({ text }) => {
         <p className="">Lorem ipsum, dolor sit amet consectetur</p>
       </div>
 
-      <div className="my-10 flex flex-wrap max-sm:flex-col gap-8">
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+      <div
+        className={`${
+          isMobile ? "flex-col" : ""
+        } my-10 flex flex-wrap max-sm:flex-col gap-8`}
+      >
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -968,7 +1172,11 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -987,7 +1195,11 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -1006,7 +1218,11 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -1025,7 +1241,11 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -1044,7 +1264,11 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-center items-center text-center bg-white border-solid shadow-2xl text-black p-6 w-[30%] max-w-[300px] max-md:w-[90%] max-lg:w-[45%] mx-auto rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -1064,7 +1288,11 @@ export const featuresComponents = ({ text }) => {
         </div>
       </div>
     </section>,
-    <section className="text-black my-32 max-w-[1000px] mx-auto flex max-lg:flex-col gap-5 max-lg:gap-0 items-start max-lg:px-6">
+    <section
+      className={`${
+        isMobile ? "flex-col gap-0 px-6" : ""
+      } text-black my-32 max-w-[1000px] mx-auto flex max-lg:flex-col gap-5 max-lg:gap-0 items-start max-lg:px-6`}
+    >
       <div className="flex flex-col justify-start items-start mt-8 w-[35%] max-w-[280px] max-lg:w-[90%]">
         <h1 className="text-3xl font-bold my-2 text-center capitalize lg:text-2xl">
           {text.featureHeader[1]}
@@ -1076,7 +1304,11 @@ export const featuresComponents = ({ text }) => {
       </div>
 
       <div className="my-10 flex justify-between flex-wrap max-[594px]:flex-col gap-8 w-full max-[594px]:w-full">
-        <div className="flex flex-col gap-2 justify-start items-start text-left text-black w-[30%] max-w-[300px] max-[594px]:w-full max-lg:w-[45%] rounded-xl">
+        <div
+          className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-start items-start text-left text-black w-[30%] max-w-[300px] max-[594px]:w-full max-lg:w-[45%] rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -1095,7 +1327,10 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-start items-start text-left w-[30%] max-w-[300px] max-[594px]:w-full max-lg:w-[45%] rounded-xl">
+        <div className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-start items-start text-left text-black w-[30%] max-w-[300px] max-[594px]:w-full max-lg:w-[45%] rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -1114,7 +1349,10 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-start items-start text-left w-[30%] max-w-[300px] max-[594px]:w-full max-lg:w-[45%] rounded-xl">
+        <div className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-start items-start text-left text-black w-[30%] max-w-[300px] max-[594px]:w-full max-lg:w-[45%] rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -1133,7 +1371,10 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-start items-start text-left w-[30%] max-w-[300px] max-[594px]:w-full max-lg:w-[45%] rounded-xl">
+        <div className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-start items-start text-left text-black w-[30%] max-w-[300px] max-[594px]:w-full max-lg:w-[45%] rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -1152,7 +1393,10 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-start items-start text-left w-[30%] max-w-[300px] max-[594px]:w-full max-lg:w-[45%] rounded-xl">
+        <div className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-start items-start text-left text-black w-[30%] max-w-[300px] max-[594px]:w-full max-lg:w-[45%] rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -1171,7 +1415,10 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-start items-start text-left w-[30%] max-w-[300px] max-[594px]:w-full max-lg:w-[45%] rounded-xl">
+        <div className={`${
+            isMobile ? "w-[45%]" : ""
+          } flex flex-col gap-2 justify-start items-start text-left text-black w-[30%] max-w-[300px] max-[594px]:w-full max-lg:w-[45%] rounded-xl`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="um-icon _92496331"
@@ -1190,6 +1437,6 @@ export const featuresComponents = ({ text }) => {
           </p>
         </div>
       </div>
-    </section>,
+    </section>
   ];
 };

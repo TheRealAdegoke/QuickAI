@@ -11,7 +11,7 @@ const AIGenerator = () => {
   const {
     closeSideNav,
     showDesignModal,
-    handleGeminiResponses,
+    handleGenerateNav,
     userInput,
     setUserInput,
     selectedIdea,
@@ -52,7 +52,7 @@ const AIGenerator = () => {
   const handleprompt = async (e) => {
     e.preventDefault();
     try {
-      await handleGeminiResponses();
+      await handleGenerateNav();
     } catch (error) {
       console.error(error);
     }
