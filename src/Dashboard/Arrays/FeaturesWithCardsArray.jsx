@@ -1,6 +1,6 @@
 import testImage from "../../assets/Default-Card.jpg";
 
-export const featuresWithCardsComponent = ({ text, isMobile }) => {
+export const featuresWithCardsComponent = ({ text, isMobile, handleTextClick }) => {
   return [
     <section
       className={`${
@@ -13,10 +13,16 @@ export const featuresWithCardsComponent = ({ text, isMobile }) => {
         } w-[50%] flex flex-col items-start gap-3 max-lg:w-full`}
       >
         <div className="">
-          <h1 className="text-[#231e41] text-3xl font-bold mb-1">
+          <h1
+            className="text-[#231e41] text-3xl font-bold mb-1"
+            onClick={(e) => handleTextClick(e.target)}
+          >
             {text.featureHeader[0]}
           </h1>
-          <p className="text-[#231e41] max-w-[500px]">
+          <p
+            className="text-[#231e41] max-w-[500px]"
+            onClick={(e) => handleTextClick(e.target)}
+          >
             Here's some more information about this amazing feature. You can use
             basic formatting and also multiple paragraphs.
           </p>
@@ -35,10 +41,16 @@ export const featuresWithCardsComponent = ({ text, isMobile }) => {
             </svg>
 
             <div className="mt-2">
-              <h2 className="capitalize text-xl font-semibold text-[#231e41]">
+              <h2
+                className="capitalize text-xl font-semibold text-[#231e41]"
+                onClick={(e) => handleTextClick(e.target)}
+              >
                 Item One
               </h2>
-              <p className="text-[#231e41]">
+              <p
+                className="text-[#231e41]"
+                onClick={(e) => handleTextClick(e.target)}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Laborum labore iure hic nemo ipsam totam veritatis provident et
                 aut quae?
@@ -58,10 +70,16 @@ export const featuresWithCardsComponent = ({ text, isMobile }) => {
             </svg>
 
             <div className="mt-2">
-              <h2 className="capitalize text-xl font-semibold text-[#231e41]">
+              <h2
+                className="capitalize text-xl font-semibold text-[#231e41]"
+                onClick={(e) => handleTextClick(e.target)}
+              >
                 Item two
               </h2>
-              <p className="text-[#231e41]">
+              <p
+                className="text-[#231e41]"
+                onClick={(e) => handleTextClick(e.target)}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Laborum labore iure hic nemo ipsam totam veritatis provident et
                 aut quae?
@@ -81,10 +99,16 @@ export const featuresWithCardsComponent = ({ text, isMobile }) => {
             </svg>
 
             <div className="mt-2">
-              <h2 className="capitalize text-xl font-semibold text-[#231e41]">
+              <h2
+                className="capitalize text-xl font-semibold text-[#231e41]"
+                onClick={(e) => handleTextClick(e.target)}
+              >
                 Features One
               </h2>
-              <p className="text-[#231e41]">
+              <p
+                className="text-[#231e41]"
+                onClick={(e) => handleTextClick(e.target)}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Laborum labore iure hic nemo ipsam totam veritatis provident et
                 aut quae?
@@ -93,7 +117,10 @@ export const featuresWithCardsComponent = ({ text, isMobile }) => {
           </div>
         </div>
 
-        <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
+        <button
+          className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3"
+          onClick={(e) => handleTextClick(e.target)}
+        >
           {text.buttonTexts[4]}
         </button>
       </div>
@@ -121,10 +148,16 @@ export const featuresWithCardsComponent = ({ text, isMobile }) => {
         } w-[50%] flex flex-col items-start gap-3 max-lg:w-full`}
       >
         <div className={`${isMobile ? "mt-4" : ""} max-lg:mt-4`}>
-          <h1 className="text-[#231e41] text-3xl font-bold mb-1">
+          <h1
+            className="text-[#231e41] text-3xl font-bold mb-1"
+            onClick={(e) => handleTextClick(e.target)}
+          >
             {text.featureHeader[0]}
           </h1>
-          <p className="text-[#231e41]">
+          <p
+            className="text-[#231e41]"
+            onClick={(e) => handleTextClick(e.target)}
+          >
             Here's some more information about this amazing feature. You can use
             basic formatting and also multiple paragraphs.
           </p>
@@ -142,11 +175,14 @@ export const featuresWithCardsComponent = ({ text, isMobile }) => {
               <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"></path>
             </svg>
 
-            <div className="mt-2">
+            <div className="mt-2" onClick={(e) => handleTextClick(e.target)}>
               <h2 className="capitalize text-xl font-semibold text-[#231e41]">
                 Item One
               </h2>
-              <p className="text-[#231e41]">
+              <p
+                className="text-[#231e41]"
+                onClick={(e) => handleTextClick(e.target)}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Laborum labore iure hic nemo ipsam totam veritatis provident et
                 aut quae?
@@ -166,10 +202,16 @@ export const featuresWithCardsComponent = ({ text, isMobile }) => {
             </svg>
 
             <div className="mt-2">
-              <h2 className="capitalize text-xl font-semibold text-[#231e41]">
+              <h2
+                className="capitalize text-xl font-semibold text-[#231e41]"
+                onClick={(e) => handleTextClick(e.target)}
+              >
                 Item two
               </h2>
-              <p className="text-[#231e41]">
+              <p
+                className="text-[#231e41]"
+                onClick={(e) => handleTextClick(e.target)}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Laborum labore iure hic nemo ipsam totam veritatis provident et
                 aut quae?
@@ -189,10 +231,16 @@ export const featuresWithCardsComponent = ({ text, isMobile }) => {
             </svg>
 
             <div className="mt-2">
-              <h2 className="capitalize text-xl font-semibold text-[#231e41]">
+              <h2
+                className="capitalize text-xl font-semibold text-[#231e41]"
+                onClick={(e) => handleTextClick(e.target)}
+              >
                 Features One
               </h2>
-              <p className="text-[#231e41]">
+              <p
+                className="text-[#231e41]"
+                onClick={(e) => handleTextClick(e.target)}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Laborum labore iure hic nemo ipsam totam veritatis provident et
                 aut quae?
@@ -201,7 +249,10 @@ export const featuresWithCardsComponent = ({ text, isMobile }) => {
           </div>
         </div>
 
-        <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
+        <button
+          className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3"
+          onClick={(e) => handleTextClick(e.target)}
+        >
           {text.buttonTexts[4]}
         </button>
       </div>
@@ -229,10 +280,16 @@ export const featuresWithCardsComponent = ({ text, isMobile }) => {
         } w-[50%] flex flex-col items-start gap-3 max-lg:w-full`}
       >
         <div className="">
-          <h1 className="text-[#231e41] text-3xl font-bold mb-1">
+          <h1
+            className="text-[#231e41] text-3xl font-bold mb-1"
+            onClick={(e) => handleTextClick(e.target)}
+          >
             {text.featureHeader[0]}
           </h1>
-          <p className="text-[#231e41]">
+          <p
+            className="text-[#231e41]"
+            onClick={(e) => handleTextClick(e.target)}
+          >
             Here's some more information about this amazing feature. You can use
             basic formatting and also multiple paragraphs.
           </p>
@@ -251,10 +308,16 @@ export const featuresWithCardsComponent = ({ text, isMobile }) => {
             </svg>
 
             <div className="mt-2">
-              <h2 className="capitalize text-xl font-semibold text-[#231e41]">
+              <h2
+                className="capitalize text-xl font-semibold text-[#231e41]"
+                onClick={(e) => handleTextClick(e.target)}
+              >
                 Item One
               </h2>
-              <p className="text-[#231e41]">
+              <p
+                className="text-[#231e41]"
+                onClick={(e) => handleTextClick(e.target)}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Laborum labore iure hic nemo ipsam totam veritatis provident et
                 aut quae?
@@ -275,7 +338,10 @@ export const featuresWithCardsComponent = ({ text, isMobile }) => {
           </div>
         </div>
 
-        <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
+        <button
+          className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3"
+          onClick={(e) => handleTextClick(e.target)}
+        >
           {text.buttonTexts[4]}
         </button>
       </div>
@@ -303,10 +369,16 @@ export const featuresWithCardsComponent = ({ text, isMobile }) => {
         } w-[50%] flex flex-col items-start gap-3 max-lg:w-full`}
       >
         <div className="">
-          <h1 className="text-[#231e41] text-3xl font-bold mb-1">
+          <h1
+            className="text-[#231e41] text-3xl font-bold mb-1"
+            onClick={(e) => handleTextClick(e.target)}
+          >
             {text.featureHeader[0]}
           </h1>
-          <p className="text-[#231e41]">
+          <p
+            className="text-[#231e41]"
+            onClick={(e) => handleTextClick(e.target)}
+          >
             Here's some more information about this amazing feature. You can use
             basic formatting and also multiple paragraphs.
           </p>
@@ -325,10 +397,16 @@ export const featuresWithCardsComponent = ({ text, isMobile }) => {
             </svg>
 
             <div className="mt-2">
-              <h2 className="capitalize text-xl font-semibold text-[#231e41]">
+              <h2
+                className="capitalize text-xl font-semibold text-[#231e41]"
+                onClick={(e) => handleTextClick(e.target)}
+              >
                 Item One
               </h2>
-              <p className="text-[#231e41]">
+              <p
+                className="text-[#231e41]"
+                onClick={(e) => handleTextClick(e.target)}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Laborum labore iure hic nemo ipsam totam veritatis provident et
                 aut quae?
@@ -349,7 +427,10 @@ export const featuresWithCardsComponent = ({ text, isMobile }) => {
           </div>
         </div>
 
-        <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
+        <button
+          className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3"
+          onClick={(e) => handleTextClick(e.target)}
+        >
           {text.buttonTexts[4]}
         </button>
       </div>
@@ -377,10 +458,16 @@ export const featuresWithCardsComponent = ({ text, isMobile }) => {
         } w-[45%] flex flex-col items-start gap-3 max-lg:w-full`}
       >
         <div className="">
-          <h1 className="text-[#231e41] text-3xl font-bold mb-1">
+          <h1
+            className="text-[#231e41] text-3xl font-bold mb-1"
+            onClick={(e) => handleTextClick(e.target)}
+          >
             {text.featureHeader[0]}
           </h1>
-          <p className="text-[#231e41] max-w-[500px]">
+          <p
+            className="text-[#231e41] max-w-[500px]"
+            onClick={(e) => handleTextClick(e.target)}
+          >
             Here's some more information about this amazing feature. You can use
             basic formatting and also multiple paragraphs.
           </p>
@@ -399,10 +486,16 @@ export const featuresWithCardsComponent = ({ text, isMobile }) => {
             </svg>
 
             <div className="mt-2">
-              <h2 className="capitalize text-xl font-semibold text-[#231e41]">
+              <h2
+                className="capitalize text-xl font-semibold text-[#231e41]"
+                onClick={(e) => handleTextClick(e.target)}
+              >
                 Item One
               </h2>
-              <p className="text-[#231e41]">
+              <p
+                className="text-[#231e41]"
+                onClick={(e) => handleTextClick(e.target)}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Laborum labore iure hic nemo ipsam totam veritatis provident et
                 aut quae?
@@ -422,10 +515,16 @@ export const featuresWithCardsComponent = ({ text, isMobile }) => {
             </svg>
 
             <div className="mt-2">
-              <h2 className="capitalize text-xl font-semibold text-[#231e41]">
+              <h2
+                className="capitalize text-xl font-semibold text-[#231e41]"
+                onClick={(e) => handleTextClick(e.target)}
+              >
                 Item two
               </h2>
-              <p className="text-[#231e41]">
+              <p
+                className="text-[#231e41]"
+                onClick={(e) => handleTextClick(e.target)}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Laborum labore iure hic nemo ipsam totam veritatis provident et
                 aut quae?
@@ -445,10 +544,16 @@ export const featuresWithCardsComponent = ({ text, isMobile }) => {
             </svg>
 
             <div className="mt-2">
-              <h2 className="capitalize text-xl font-semibold text-[#231e41]">
+              <h2
+                className="capitalize text-xl font-semibold text-[#231e41]"
+                onClick={(e) => handleTextClick(e.target)}
+              >
                 Features One
               </h2>
-              <p className="text-[#231e41]">
+              <p
+                className="text-[#231e41]"
+                onClick={(e) => handleTextClick(e.target)}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Laborum labore iure hic nemo ipsam totam veritatis provident et
                 aut quae?
@@ -457,7 +562,10 @@ export const featuresWithCardsComponent = ({ text, isMobile }) => {
           </div>
         </div>
 
-        <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
+        <button
+          className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3"
+          onClick={(e) => handleTextClick(e.target)}
+        >
           Learn
         </button>
       </div>

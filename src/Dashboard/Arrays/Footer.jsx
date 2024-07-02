@@ -1,4 +1,4 @@
-export const footerComponent = ({ text, isMobile }) => {
+export const footerComponent = ({ text, isMobile, handleTextClick }) => {
   return [
     <footer
       className={`${
@@ -6,8 +6,13 @@ export const footerComponent = ({ text, isMobile }) => {
       } border-t-[1px] py-14 flex max-md:flex-col max-md:items-start max-md:gap-10 justify-center items-center bg-white max-md:pl-5`}
     >
       <div className="flex flex-col justify-start items-start w-[20%]">
-        <div className="text-black">© 2024 Your Company</div>
-        <p className="font-bold text-[rgb(42,42,47)] text-3xl">
+        <h1 className="text-black" onClick={(e) => handleTextClick(e.target)}>
+          © 2024 Your Company
+        </h1>
+        <p
+          className="font-bold text-[rgb(42,42,47)] text-3xl"
+          onClick={(e) => handleTextClick(e.target)}
+        >
           {text.webLogo}
         </p>
         <div className="text-black flex gap-2 mt-3">
@@ -49,43 +54,99 @@ export const footerComponent = ({ text, isMobile }) => {
         } text-[rgb(42,42,47)] flex max-md:flex-col max-md:gap-10 justify-evenly w-[70%]`}
       >
         <div>
-          <h2 className="font-semibold">Features</h2>
+          <h2
+            className="font-semibold"
+            onClick={(e) => handleTextClick(e.target)}
+          >
+            Features
+          </h2>
           <div>
-            <p className="cursor-pointer hover:underline text-sm">
+            <p
+              className="cursor-pointer hover:underline text-sm"
+              onClick={(e) => handleTextClick(e.target)}
+            >
               Something Great
             </p>
-            <p className="cursor-pointer hover:underline text-sm">
+            <p
+              className="cursor-pointer hover:underline text-sm"
+              onClick={(e) => handleTextClick(e.target)}
+            >
               Another Thing
             </p>
-            <p className="cursor-pointer hover:underline text-sm">
+            <p
+              className="cursor-pointer hover:underline text-sm"
+              onClick={(e) => handleTextClick(e.target)}
+            >
               So many Features
             </p>
-            <p className="cursor-pointer hover:underline text-sm">
+            <p
+              className="cursor-pointer hover:underline text-sm"
+              onClick={(e) => handleTextClick(e.target)}
+            >
               It's Amazing
             </p>
           </div>
         </div>
 
         <div>
-          <h2 className="font-semibold">Company</h2>
+          <h2
+            className="font-semibold"
+            onClick={(e) => handleTextClick(e.target)}
+          >
+            Company
+          </h2>
           <div>
-            <p className="cursor-pointer hover:underline text-sm">Blog</p>
-            <p className="cursor-pointer hover:underline text-sm">About Us</p>
-            <p className="cursor-pointer hover:underline text-sm">Contact</p>
-            <p className="cursor-pointer hover:underline text-sm">Jobs</p>
+            <p
+              className="cursor-pointer hover:underline text-sm"
+              onClick={(e) => handleTextClick(e.target)}
+            >
+              Blog
+            </p>
+            <p
+              className="cursor-pointer hover:underline text-sm"
+              onClick={(e) => handleTextClick(e.target)}
+            >
+              About Us
+            </p>
+            <p
+              className="cursor-pointer hover:underline text-sm"
+              onClick={(e) => handleTextClick(e.target)}
+            >
+              Contact
+            </p>
+            <p
+              className="cursor-pointer hover:underline text-sm"
+              onClick={(e) => handleTextClick(e.target)}
+            >
+              Jobs
+            </p>
           </div>
         </div>
 
         <div>
-          <h2 className="font-semibold">Legal</h2>
+          <h2
+            className="font-semibold"
+            onClick={(e) => handleTextClick(e.target)}
+          >
+            Legal
+          </h2>
           <div>
-            <p className="cursor-pointer hover:underline text-sm">
+            <p
+              className="cursor-pointer hover:underline text-sm"
+              onClick={(e) => handleTextClick(e.target)}
+            >
               Privacy Policy
             </p>
-            <p className="cursor-pointer hover:underline text-sm">
+            <p
+              className="cursor-pointer hover:underline text-sm"
+              onClick={(e) => handleTextClick(e.target)}
+            >
               Terms of Use
             </p>
-            <p className="cursor-pointer hover:underline text-sm">
+            <p
+              className="cursor-pointer hover:underline text-sm"
+              onClick={(e) => handleTextClick(e.target)}
+            >
               Cookie Policy
             </p>
           </div>
