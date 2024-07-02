@@ -1,4 +1,3 @@
-import React, { useState, useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import { axiosInstance } from "../../../Pages/AuthPages/AuthChecker/axiosInstance";
 import { FaChevronLeft } from "react-icons/fa";
@@ -14,7 +13,7 @@ import { IoMdEyeOff } from "react-icons/io";
 import { FaEye } from "react-icons/fa";
 import { Switch } from "@headlessui/react";
 
-const EditAndCode = () => {
+const JustForKeep = () => {
   const { id } = useParams();
   const [historyData, setHistoryData] = useState("");
   const [loading, setLoading] = useState(true);
@@ -36,7 +35,7 @@ const EditAndCode = () => {
   const [sectionFiveDiv, setSectionFiveDiv] = useState("");
   const [footerDiv, setFooterDiv] = useState("");
   const [enabled, setEnabled] = useState(false);
-  const [isCopied, setIsCopied] = useState(false)
+  const [isCopied, setIsCopied] = useState(false);
   const [visibleSections, setVisibleSections] = useState({
     navDiv: true,
     heroDiv: true,
@@ -216,7 +215,6 @@ const EditAndCode = () => {
         setIsCopied(false);
       });
   };
-
   return (
     <>
       {loading ? (
@@ -531,4 +529,4 @@ const EditAndCode = () => {
   );
 };
 
-export default EditAndCode;
+export default JustForKeep;

@@ -1,13 +1,18 @@
 import { WebButtonsArray } from "./WebButtonsArray";
 import testImage from "../../assets/Default-Card.jpg";
 
-export const heroComponents = ({ text, buttonIndex, isMobile }) => {
-  const buttonElement = WebButtonsArray({ text, buttonIndex })[buttonIndex];
+export const heroComponents = ({ text, buttonIndex, isMobile, handleTextClick }) => {
+  const buttonElement = WebButtonsArray({ text, buttonIndex, handleTextClick })[
+    buttonIndex
+  ];
   return [
     <section className="mb-[20px] py-10 px-5 bg-[rgb(26,26,26)]">
-      <div className="flex justify-center gap-10 max-lg:flex-col lg:max-w-[]">
+      <div className="flex justify-center gap-10 max-lg:flex-col">
         <div className={`${isMobile ? "hidden" : ""} max-lg:hidden w-[50%]`}>
-          <h1 className="text-6xl text-white font-bold max-w-[500px]">
+          <h1
+            className="text-6xl text-white font-bold max-w-[500px]"
+            onClick={(e) => handleTextClick(e.target)}
+          >
             {text.heroHeaderText}
           </h1>
 
@@ -65,6 +70,7 @@ export const heroComponents = ({ text, buttonIndex, isMobile }) => {
             className={`${
               isMobile ? "max-w-[400px]" : ""
             } my-5 max-lg:max-w-[400px] text-white`}
+            onClick={(e) => handleTextClick(e.target)}
           >
             {text.description}
           </p>
@@ -82,10 +88,15 @@ export const heroComponents = ({ text, buttonIndex, isMobile }) => {
           isMobile ? "w-[90%]" : ""
         } text-[rgb(33,37,41)] w-[40%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
       >
-        <h1 className="font-bold xl:text-5xl text-3xl mb-4">
+        <h1
+          className="font-bold xl:text-5xl text-3xl mb-4"
+          onClick={(e) => handleTextClick(e.target)}
+        >
           {text.heroHeaderText}
         </h1>
-        <p className="font-medium">{text.description}</p>
+        <p className="font-medium" onClick={(e) => handleTextClick(e.target)}>
+          {text.description}
+        </p>
         {buttonIndex !== undefined && buttonElement}
       </div>
       <div
@@ -138,10 +149,15 @@ export const heroComponents = ({ text, buttonIndex, isMobile }) => {
           isMobile ? "w-[90%]" : ""
         } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
       >
-        <h1 className="font-bold xl:text-5xl text-3xl mb-4">
+        <h1
+          className="font-bold xl:text-5xl text-3xl mb-4"
+          onClick={(e) => handleTextClick(e.target)}
+        >
           {text.heroHeaderText}
         </h1>
-        <p className="font-medium">{text.description}</p>
+        <p className="font-medium" onClick={(e) => handleTextClick(e.target)}>
+          {text.description}
+        </p>
         {buttonIndex !== undefined && buttonElement}
       </div>
 
@@ -167,10 +183,15 @@ export const heroComponents = ({ text, buttonIndex, isMobile }) => {
           isMobile ? "w-[90%]" : ""
         } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
       >
-        <h1 className="font-bold xl:text-5xl text-3xl mb-4">
+        <h1
+          className="font-bold xl:text-5xl text-3xl mb-4"
+          onClick={(e) => handleTextClick(e.target)}
+        >
           {text.heroHeaderText}
         </h1>
-        <p className="font-medium">{text.description}</p>
+        <p className="font-medium" onClick={(e) => handleTextClick(e.target)}>
+          {text.description}
+        </p>
         {buttonIndex !== undefined && buttonElement}
       </div>
 
@@ -196,10 +217,15 @@ export const heroComponents = ({ text, buttonIndex, isMobile }) => {
           isMobile ? "w-[90%]" : ""
         } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
       >
-        <h1 className="font-bold xl:text-5xl text-3xl mb-4">
+        <h1
+          className="font-bold xl:text-5xl text-3xl mb-4"
+          onClick={(e) => handleTextClick(e.target)}
+        >
           {text.heroHeaderText}
         </h1>
-        <p className="font-medium">{text.description}</p>
+        <p className="font-medium" onClick={(e) => handleTextClick(e.target)}>
+          {text.description}
+        </p>
         {buttonIndex !== undefined && buttonElement}
       </div>
 
@@ -225,10 +251,15 @@ export const heroComponents = ({ text, buttonIndex, isMobile }) => {
           isMobile ? "w-[90%]" : ""
         } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
       >
-        <h1 className="font-bold xl:text-5xl text-3xl mb-4">
+        <h1
+          className="font-bold xl:text-5xl text-3xl mb-4"
+          onClick={(e) => handleTextClick(e.target)}
+        >
           {text.heroHeaderText}
         </h1>
-        <p className="font-medium">{text.description}</p>
+        <p className="font-medium" onClick={(e) => handleTextClick(e.target)}>
+          {text.description}
+        </p>
         {buttonIndex !== undefined && buttonElement}
       </div>
 
@@ -264,10 +295,15 @@ export const heroComponents = ({ text, buttonIndex, isMobile }) => {
           isMobile ? "w-[90%] my-10" : ""
         } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16 max-lg:my-10`}
       >
-        <h1 className="font-bold xl:text-4xl xl:text-center text-3xl mb-4">
+        <h1
+          className="font-bold xl:text-4xl xl:text-center text-3xl mb-4"
+          onClick={(e) => handleTextClick(e.target)}
+        >
           {text.heroHeaderText}
         </h1>
-        <p className="font-medium">{text.description}</p>
+        <p className="font-medium" onClick={(e) => handleTextClick(e.target)}>
+          {text.description}
+        </p>
         <div className={`${isMobile ? "mt-10" : ""} max-lg:mt-10 mt-5`}>
           {buttonIndex !== undefined && buttonElement}
         </div>
@@ -297,6 +333,7 @@ export const heroComponents = ({ text, buttonIndex, isMobile }) => {
           className={`${
             isMobile ? "text-center mx-auto" : ""
           } text-[#231e41] max-lg:text-center text-6xl max-sm:text-5xl max-w-[650px] max-sm:max-w-[400px] font-semibold mb-6 max-lg:mx-auto`}
+          onClick={(e) => handleTextClick(e.target)}
         >
           {text.heroHeaderText}
         </h1>
@@ -304,13 +341,16 @@ export const heroComponents = ({ text, buttonIndex, isMobile }) => {
           className={`${
             isMobile ? "text-center mx-auto" : ""
           } text-[#231e41] text-sm max-lg:text-center max-w-[350px] max-lg:mx-auto font-medium mb-6`}
+          onClick={(e) => handleTextClick(e.target)}
         >
           {text.description}
         </p>
         {buttonIndex !== undefined && buttonElement}
       </div>
 
-      <div className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full relative`}>
+      <div
+        className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full relative`}
+      >
         <img
           src={testImage}
           alt={testImage}

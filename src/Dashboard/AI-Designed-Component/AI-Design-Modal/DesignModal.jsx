@@ -5,6 +5,7 @@ import { axiosInstance } from "../../../Pages/AuthPages/AuthChecker/axiosInstanc
 import html2canvas from "html2canvas";
 import { ImSpinner6 } from "react-icons/im";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const DesignModal = () => {
   const {
@@ -76,7 +77,6 @@ const DesignModal = () => {
     }
   }, [currentIndex]);
 
-
   const elements = [
     {
       index: navIndex,
@@ -98,9 +98,9 @@ const DesignModal = () => {
       index: testimonialIndex,
       element: testimonialElement,
     },
-    { index: faqIndex, element: faqElement},
-    { index: teamIndex, element: teamElement},
-    { index: footerIndex, element: footerElement},
+    { index: faqIndex, element: faqElement },
+    { index: teamIndex, element: teamElement },
+    { index: footerIndex, element: footerElement },
   ];
 
   const saveDesign = async () => {
@@ -192,7 +192,6 @@ const DesignModal = () => {
 
   const allElementsDisplayed = currentIndex >= elements.length - 1;
 
-
   return (
     <>
       <div
@@ -202,20 +201,13 @@ const DesignModal = () => {
       >
         <div className="mb-5 flex justify-end items-end">
           {allElementsDisplayed && (
-            <button
+            <Link
+              to="/site/manage"
               type="submit"
-              className="text-black bg-white w-[200px] hover:bg-[rgba(255,255,255,0.9)] block p-3 rounded-[5px] font-medium"
-              onClick={saveDesign}
-              disabled={loading}
+              className="text-black bg-white w-[150px] hover:bg-[rgba(255,255,255,0.9)] block p-3 rounded-[5px] font-medium text-center"
             >
-              {loading ? (
-                <div>
-                  <ImSpinner6 className="animate-spin text-2xl text-black block mx-auto" />
-                </div>
-              ) : (
-                "Save"
-              )}
-            </button>
+              Edit and Save
+            </Link>
           )}
         </div>
         <main ref={scrollRef} className="bg-white h-[90%] overflow-y-scroll">

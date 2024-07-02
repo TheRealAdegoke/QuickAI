@@ -71,9 +71,9 @@ const TestDesignModal = () => {
   const [initialX, setInitialX] = useState(0);
   const [deviceWidth, setDeviceWidth] = useState(window.innerWidth);
 
-  const handleMobileToggle = () => {
-    setIsMobile(!isMobile);
-  };
+  // const handleMobileToggle = () => {
+  //   setIsMobile(!isMobile);
+  // };
 
   const handleTextClick = (element) => {
     setSelectedElement(element);
@@ -153,12 +153,33 @@ const TestDesignModal = () => {
     };
   }, [isResizingRight, isResizingLeft]);
 
-  const navElement = navComponents({ text, buttonIndex, isMobile })[2];
-  const element = testimonialComponent({ text, buttonIndex, isMobile })[7];
+  const navElement = navComponents({
+    text,
+    buttonIndex,
+    isMobile,
+    handleTextClick,
+  })[0];
+  const element = testimonialComponent({
+    text,
+    buttonIndex,
+    isMobile,
+    handleTextClick,
+  })[8];
 
   return (
     <main className="bg-white w-full mt-5 max-md:mt-0 mx-10 h-[93vh] max-md:h-[89vh] max-[499px]:mx-4 overflow-scroll overflow-x-hidden pt-14 select-none">
-      <div className="min-h-screen flex flex-col items-center gap-6 px-10">
+      <div>
+        <textarea
+          name=""
+          id=""
+          value={textAreaContent}
+          onChange={handleTextareaChange}
+          className="border-red-950 border-2 text-black w-[300px] h-[50px] fixed"
+        ></textarea>
+      </div>
+
+
+      <div className="min-h-screen flex flex-col items-center gap-6 px-10 mt-16">
         <div
           ref={resizableRef}
           className="bg-white rounded-xl border-[1px] w-[90%] h-[500px] mx-auto relative"
