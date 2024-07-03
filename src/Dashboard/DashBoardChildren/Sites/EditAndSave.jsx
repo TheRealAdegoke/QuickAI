@@ -8,6 +8,8 @@ import WebLogo from "../../../assets/WebLogo";
 import { FaCode } from "react-icons/fa6";
 import { Switch } from "@headlessui/react";
 import EditAndSaveDesignModal from "./EditAndSaveDesignModal";
+import MainEditComponent from "./EditAndSaveComponents/MainEditComponent";
+import EditDesignModalComponent from "./EditAndSaveComponents/EditDesignModalComponent";
 
 const EditAndSave = () => {
   const { setIsMobile, isMobile } = useContext(DashContext);
@@ -23,6 +25,26 @@ const EditAndSave = () => {
   const [textAreaContent, setTextAreaContent] = useState("");
   const [selectedElement, setSelectedElement] = useState(null);
   const [deviceWidth, setDeviceWidth] = useState(window.innerWidth);
+  const [displayEditModal, setDisplayEditModal] = useState(false);
+  const [changeSection, setChangeSection] = useState(undefined);
+  const [changeNavSectionIndex, setChangeNavSectionIndex] = useState(undefined);
+  const [changeHeroSectionIndex, setChangeHeroSectionIndex] =
+    useState(undefined);
+  const [
+    changeFeatureWithCardSectionIndex,
+    setChangeFeatureWithCardSectionIndex,
+  ] = useState(undefined);
+  const [changeFeatureSectionIndex, setChangeFeatureSectionIndex] =
+    useState(undefined);
+  const [changeFAQSectionIndex, setChangeFAQSectionIndex] = useState(undefined);
+  const [changeTeamSectionIndex, setChangeTeamSectionIndex] =
+    useState(undefined);
+  const [changeTestimonialSectionIndex, setChangeTestimonialSectionIndex] =
+    useState(undefined);
+    const [changeContactSectionIndex, setChangeContactSectionIndex] =
+      useState(undefined);
+  const [changeFooterSectionIndex, setChangeFooterSectionIndex] =
+    useState(undefined);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -166,31 +188,56 @@ const EditAndSave = () => {
           </div>
         </div>
 
-        <section
+        <div
           className={`${
-            enabled ? "" : "pr-10"
+            enabled && window.innerWidth < 1000 ? "block" : "hidden"
+          } fixed z-50 top-[80px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[350px]`}
+        >
+          <div className="bg-[rgb(9,11,14)] text-white text-center px-4 py-5 rounded-[5px] font-semibold">
+            <p>View on a desktop computer to edit site</p>
+          </div>
+        </div>
+
+        <section
+          className={`${!enabled && window.innerWidth > 1000 ? "pr-10" : ""} ${
+            window.innerWidth < 1000 ? "" : ""
           } pt-16 flex gap-10 overflow-hidden select-none relative`}
         >
           <div
-            className={`bg-[rgb(9,11,14)] w-[23%] min-w-[23%] max-w-[23%] min-[1350px]:w-[20%] min-[1350px]:min-w-[20%] min-[1350px]:max-w-[20%] h-[90vh] border-[1px] rounded-[8px] border-[rgba(255,255,255,0.3)]`}
+            className={`${
+              window.innerWidth < 1000 ? "hidden" : ""
+            } bg-[rgb(9,11,14)] w-[23%] min-w-[23%] max-w-[23%] min-[1350px]:w-[20%] min-[1350px]:min-w-[20%] min-[1350px]:max-w-[20%] h-[90vh] border-[1px] rounded-[8px] border-[rgba(255,255,255,0.3)] px-2 py-4`}
           >
-            <div className="w-full p-3">
-              <textarea
-                name=""
-                id=""
-                value={textAreaContent}
-                onChange={handleTextareaChange}
-                className="border-[rgba(255,255,255,0.5)] border-[1px] w-full h-[50px] bg-[rgb(37,39,45)] rounded-[5px] text-white"
-              ></textarea>
-            </div>
+            <MainEditComponent
+              setDisplayEditModal={setDisplayEditModal}
+              setChangeSection={setChangeSection}
+              setChangeNavSectionIndex={setChangeNavSectionIndex}
+              setChangeHeroSectionIndex={setChangeHeroSectionIndex}
+              setChangeFeatureWithCardSectionIndex={
+                setChangeFeatureWithCardSectionIndex
+              }
+              setChangeFeatureSectionIndex={setChangeFeatureSectionIndex}
+              setChangeFAQSectionIndex={setChangeFAQSectionIndex}
+              setChangeTeamSectionIndex={setChangeTeamSectionIndex}
+              setChangeTestimonialSectionIndex={
+                setChangeTestimonialSectionIndex
+              }
+              setChangeContactSectionIndex={setChangeContactSectionIndex}
+              setChangeFooterSectionIndex={setChangeFooterSectionIndex}
+            />
+            <EditDesignModalComponent
+              displayEditModal={displayEditModal}
+              setDisplayEditModal={setDisplayEditModal}
+              changeSection={changeSection}
+            />
           </div>
 
           <div
             className={`${
-              enabled
+              enabled && window.innerWidth > 1000
                 ? "w-[48%] max-w-[48%] min-[1350px]:max-w-[55%] min-[1350px]:w-[55%]"
                 : "w-[75%] mx-auto"
-            }`}
+            } max-md:w-[95%]`}
           >
             <div
               ref={resizableRef}
@@ -203,17 +250,31 @@ const EditAndSave = () => {
               <div
                 className={`${
                   enabled ? "hidden" : "block"
-                } absolute top-1/2 right-[-9px] transform -translate-x-1/2 -translate-y-1/2  w-2 h-[50px] cursor-ew-resize bg-[rgba(0,0,0,0.8)] rounded-t-[8px] rounded-b-[8px] max-lg:hidden z-50`}
+                } absolute top-1/2 right-[-9px] transform -translate-x-1/2 -translate-y-1/2  w-2 h-[50px] cursor-ew-resize bg-[rgba(0,0,0,0.8)] rounded-t-[8px] rounded-b-[8px] max-lg:hidden z-40`}
                 onMouseDown={handleMouseDownRight}
               ></div>
               <div
                 className={`${
                   enabled ? "hidden" : "block"
-                } absolute top-1/2 left-[0px] transform -translate-x-1/2 -translate-y-1/2 w-2 h-[50px] cursor-ew-resize bg-[rgba(0,0,0,0.8)] rounded-t-[8px] rounded-b-[8px] max-lg:hidden z-50`}
+                } absolute top-1/2 left-[0px] transform -translate-x-1/2 -translate-y-1/2 w-2 h-[50px] cursor-ew-resize bg-[rgba(0,0,0,0.8)] rounded-t-[8px] rounded-b-[8px] max-lg:hidden z-40`}
                 onMouseDown={handleMouseDownLeft}
               ></div>
               <div className="overflow-y-scroll h-full">
-                <EditAndSaveDesignModal handleTextClick={handleTextClick} />
+                <EditAndSaveDesignModal
+                  handleTextClick={handleTextClick}
+                  changeSection={changeSection}
+                  changeNavSectionIndex={changeNavSectionIndex}
+                  changeHeroSectionIndex={changeHeroSectionIndex}
+                  changeFeatureWithCardSectionIndex={
+                    changeFeatureWithCardSectionIndex
+                  }
+                  changeFeatureSectionIndex={changeFeatureSectionIndex}
+                  changeTestimonialSectionIndex={changeTestimonialSectionIndex}
+                  changeTeamSectionIndex={changeTeamSectionIndex}
+                  changeFAQSectionIndex={changeFAQSectionIndex}
+                  changeContactSectionIndex={changeContactSectionIndex}
+                  changeFooterSectionIndex={changeFooterSectionIndex}
+                />
               </div>
               <div className="overflow-y-scroll h-full"></div>
             </div>
@@ -221,7 +282,7 @@ const EditAndSave = () => {
 
           <div
             className={`${
-              enabled ? "right-0" : "right-[-999px]"
+              enabled && window.innerWidth > 1000 ? "right-0" : "right-[-999px]"
             } w-[23%] min-w-[23%] max-w-[23%] min-[1350px]:w-[20%] min-[1350px]:min-w-[20%] min-[1350px]:max-w-[20%] absolute  h-[90vh] bg-[rgb(9,11,14)] border-[1px] rounded-[8px] border-[rgba(255,255,255,0.3)] transition-all ease-in-out duration-150`}
           ></div>
         </section>
