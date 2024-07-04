@@ -10,9 +10,12 @@ import { Switch } from "@headlessui/react";
 import EditAndSaveDesignModal from "./EditAndSaveDesignModal";
 import MainEditComponent from "./EditAndSaveComponents/MainEditComponent";
 import EditDesignModalComponent from "./EditAndSaveComponents/EditDesignModalComponent";
+import { EditContext } from "./EditAndSaveComponents/EditAndSaveContext/EditAndContext";
 
 const EditAndSave = () => {
-  const { setIsMobile, isMobile } = useContext(DashContext);
+  const { setIsMobile } = useContext(DashContext);
+  const { displayEditModal, setTextAreaContent, setSelectedElement } =
+    useContext(EditContext);
   const modalRef = useRef(null);
   const resizableRef = useRef(null);
   const [enabled, setEnabled] = useState(false);
@@ -22,29 +25,9 @@ const EditAndSave = () => {
   const [isResizingLeft, setIsResizingLeft] = useState(false);
   const [initialWidth, setInitialWidth] = useState(0);
   const [initialX, setInitialX] = useState(0);
-  const [textAreaContent, setTextAreaContent] = useState("");
-  const [selectedElement, setSelectedElement] = useState(null);
   const [deviceWidth, setDeviceWidth] = useState(window.innerWidth);
-  const [displayEditModal, setDisplayEditModal] = useState(false);
-  const [changeSection, setChangeSection] = useState(undefined);
-  const [changeNavSectionIndex, setChangeNavSectionIndex] = useState(undefined);
-  const [changeHeroSectionIndex, setChangeHeroSectionIndex] =
-    useState(undefined);
-  const [
-    changeFeatureWithCardSectionIndex,
-    setChangeFeatureWithCardSectionIndex,
-  ] = useState(undefined);
-  const [changeFeatureSectionIndex, setChangeFeatureSectionIndex] =
-    useState(undefined);
-  const [changeFAQSectionIndex, setChangeFAQSectionIndex] = useState(undefined);
-  const [changeTeamSectionIndex, setChangeTeamSectionIndex] =
-    useState(undefined);
-  const [changeTestimonialSectionIndex, setChangeTestimonialSectionIndex] =
-    useState(undefined);
-    const [changeContactSectionIndex, setChangeContactSectionIndex] =
-      useState(undefined);
-  const [changeFooterSectionIndex, setChangeFooterSectionIndex] =
-    useState(undefined);
+  const scrollToIndex = 4;
+  const elementRefs = useRef([]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -132,12 +115,15 @@ const EditAndSave = () => {
     setTextAreaContent(element.innerText);
   };
 
-  const handleTextareaChange = (e) => {
-    setTextAreaContent(e.target.value);
-    if (selectedElement) {
-      selectedElement.innerText = e.target.value;
+  const handleScroll = () => {
+    if (elementRefs.current[scrollToIndex]) {
+      elementRefs.current[scrollToIndex].scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   };
+
 
   return (
     <>
@@ -186,6 +172,10 @@ const EditAndSave = () => {
               Settings
             </button>
           </div>
+
+          <button className="text-black" onClick={handleScroll}>
+            OverflowScroll
+          </button>
         </div>
 
         <div
@@ -201,35 +191,18 @@ const EditAndSave = () => {
         <section
           className={`${!enabled && window.innerWidth > 1000 ? "pr-10" : ""} ${
             window.innerWidth < 1000 ? "" : ""
-          } pt-16 flex gap-10 overflow-hidden select-none relative`}
+          } pt-16 flex gap-10 overflow-hidden select-none relative edit-and-save-section`}
         >
           <div
             className={`${
               window.innerWidth < 1000 ? "hidden" : ""
-            } bg-[rgb(9,11,14)] w-[23%] min-w-[23%] max-w-[23%] min-[1350px]:w-[20%] min-[1350px]:min-w-[20%] min-[1350px]:max-w-[20%] h-[90vh] border-[1px] rounded-[8px] border-[rgba(255,255,255,0.3)] px-2 py-4`}
+            } bg-[rgb(9,11,14)] w-[23%] min-w-[23%] max-w-[23%] min-[1350px]:w-[20%] min-[1350px]:min-w-[20%] min-[1350px]:max-w-[20%] h-[87vh] border-[1px] rounded-[8px] border-[rgba(255,255,255,0.3)]`}
           >
-            <MainEditComponent
-              setDisplayEditModal={setDisplayEditModal}
-              setChangeSection={setChangeSection}
-              setChangeNavSectionIndex={setChangeNavSectionIndex}
-              setChangeHeroSectionIndex={setChangeHeroSectionIndex}
-              setChangeFeatureWithCardSectionIndex={
-                setChangeFeatureWithCardSectionIndex
-              }
-              setChangeFeatureSectionIndex={setChangeFeatureSectionIndex}
-              setChangeFAQSectionIndex={setChangeFAQSectionIndex}
-              setChangeTeamSectionIndex={setChangeTeamSectionIndex}
-              setChangeTestimonialSectionIndex={
-                setChangeTestimonialSectionIndex
-              }
-              setChangeContactSectionIndex={setChangeContactSectionIndex}
-              setChangeFooterSectionIndex={setChangeFooterSectionIndex}
-            />
-            <EditDesignModalComponent
-              displayEditModal={displayEditModal}
-              setDisplayEditModal={setDisplayEditModal}
-              changeSection={changeSection}
-            />
+            {displayEditModal ? (
+              <EditDesignModalComponent />
+            ) : (
+              <MainEditComponent />
+            )}
           </div>
 
           <div
@@ -259,21 +232,13 @@ const EditAndSave = () => {
                 } absolute top-1/2 left-[0px] transform -translate-x-1/2 -translate-y-1/2 w-2 h-[50px] cursor-ew-resize bg-[rgba(0,0,0,0.8)] rounded-t-[8px] rounded-b-[8px] max-lg:hidden z-40`}
                 onMouseDown={handleMouseDownLeft}
               ></div>
-              <div className="overflow-y-scroll h-full">
+              <div
+                id="containingDiv"
+                className="overflow-y-scroll h-full"
+              >
                 <EditAndSaveDesignModal
                   handleTextClick={handleTextClick}
-                  changeSection={changeSection}
-                  changeNavSectionIndex={changeNavSectionIndex}
-                  changeHeroSectionIndex={changeHeroSectionIndex}
-                  changeFeatureWithCardSectionIndex={
-                    changeFeatureWithCardSectionIndex
-                  }
-                  changeFeatureSectionIndex={changeFeatureSectionIndex}
-                  changeTestimonialSectionIndex={changeTestimonialSectionIndex}
-                  changeTeamSectionIndex={changeTeamSectionIndex}
-                  changeFAQSectionIndex={changeFAQSectionIndex}
-                  changeContactSectionIndex={changeContactSectionIndex}
-                  changeFooterSectionIndex={changeFooterSectionIndex}
+                  elementRefs={elementRefs}
                 />
               </div>
               <div className="overflow-y-scroll h-full"></div>

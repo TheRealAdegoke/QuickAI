@@ -7,6 +7,7 @@ const ContactEditComponent = ({
   setDisplayEditModal,
   setChangeSection,
   setChangeSectionIndex,
+  setChangeSectionHeaderText,
 }) => {
   return (
     <>
@@ -17,11 +18,11 @@ const ContactEditComponent = ({
             onClick={() => {
               setDisplayEditModal(true);
               setChangeSection(
-                <ImagesComponent
+                <ContactImages
                   setChangeSectionIndex={setChangeSectionIndex}
-                  setDisplayEditModal={setDisplayEditModal}
                 />
               );
+              setChangeSectionHeaderText("Contact");
             }}
           >
             <MdOutlineWeb className="text-blue-600" />
@@ -41,9 +42,8 @@ const ContactEditComponent = ({
 export default ContactEditComponent;
 
 
-export const ImagesComponent = ({
+export const ContactImages = ({
   setChangeSectionIndex,
-  setDisplayEditModal,
 }) => {
   const images = [
     {
@@ -98,7 +98,6 @@ export const ImagesComponent = ({
               className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] cursor-pointer"
               onClick={() => {
                 setChangeSectionIndex(item.index);
-                setDisplayEditModal(false);
               }}
             >
               <img src={item.image} alt="" className="rounded-[8px] w-full" />

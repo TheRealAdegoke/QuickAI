@@ -7,6 +7,7 @@ const HeaderEditComponent = ({
   setDisplayEditModal,
   setChangeSection,
   setChangeSectionIndex,
+  setChangeSectionHeaderText,
 }) => {
   return (
     <>
@@ -19,9 +20,9 @@ const HeaderEditComponent = ({
               setChangeSection(
                 <HeaderImages
                   setChangeSectionIndex={setChangeSectionIndex}
-                  setDisplayEditModal={setDisplayEditModal}
                 />
               );
+              setChangeSectionHeaderText("Header")
             }}
           >
             <MdOutlineWeb className="text-blue-600" />
@@ -40,7 +41,7 @@ const HeaderEditComponent = ({
 
 export default HeaderEditComponent;
 
-export const HeaderImages = ({ setChangeSectionIndex, setDisplayEditModal }) => {
+export const HeaderImages = ({ setChangeSectionIndex }) => {
   const images = [
     {
       index: 0,
@@ -63,13 +64,12 @@ export const HeaderImages = ({ setChangeSectionIndex, setDisplayEditModal }) => 
           item.index !== undefined && (
             <div
               key={idx}
-              className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] cursor-pointer"
+              className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] max-h-[100px] cursor-pointer"
               onClick={() => {
                 setChangeSectionIndex(item.index);
-                setDisplayEditModal(false)
               }}
             >
-              <img src={item.image} alt="" className="rounded-[8px] w-full" />
+              <img src={item.image} alt="" className="rounded-[8px] w-full h-[full]" />
             </div>
           )
       )}

@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { MdOutlineWeb } from "react-icons/md";
 import testImage from "../../../../assets/Default-Card.jpg";
+import { EditContext } from "./EditAndSaveContext/EditAndContext";
 
 const HeroEditComponent = ({
   setDisplayEditModal,
   setChangeSection,
   setChangeSectionIndex,
+  setChangeSectionHeaderText,
 }) => {
+  const {} = useContext(EditContext);
   return (
     <>
       <div>
@@ -19,9 +22,9 @@ const HeroEditComponent = ({
               setChangeSection(
                 <HeroImages
                   setChangeSectionIndex={setChangeSectionIndex}
-                  setDisplayEditModal={setDisplayEditModal}
                 />
               );
+              setChangeSectionHeaderText("Hero");
             }}
           >
             <MdOutlineWeb className="text-blue-600" />
@@ -40,7 +43,7 @@ const HeroEditComponent = ({
 
 export default HeroEditComponent;
 
-export const HeroImages = ({ setChangeSectionIndex, setDisplayEditModal }) => {
+export const HeroImages = ({ setChangeSectionIndex }) => {
   const images = [
     {
       index: 0,
@@ -82,6 +85,22 @@ export const HeroImages = ({ setChangeSectionIndex, setDisplayEditModal }) => {
       index: 9,
       image: testImage,
     },
+    {
+      index: 10,
+      image: testImage,
+    },
+    {
+      index: 11,
+      image: testImage,
+    },
+    {
+      index: 12,
+      image: testImage,
+    },
+    {
+      index: 13,
+      image: testImage,
+    },
   ];
 
   return (
@@ -94,10 +113,9 @@ export const HeroImages = ({ setChangeSectionIndex, setDisplayEditModal }) => {
               className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] cursor-pointer"
               onClick={() => {
                 setChangeSectionIndex(item.index);
-                setDisplayEditModal(false);
               }}
             >
-              <img src={item.image} alt="" className="rounded-[8px] w-full" />
+              <img src={item.image} alt="" className="rounded-[8px] w-full h-full" />
             </div>
           )
       )}

@@ -7,6 +7,7 @@ const FAQEditComponent = ({
   setDisplayEditModal,
   setChangeSection,
   setChangeSectionIndex,
+  setChangeSectionHeaderText,
 }) => {
   return (
     <>
@@ -17,11 +18,11 @@ const FAQEditComponent = ({
             onClick={() => {
               setDisplayEditModal(true);
               setChangeSection(
-                <ImagesComponent
+                <FAQImages
                   setChangeSectionIndex={setChangeSectionIndex}
-                  setDisplayEditModal={setDisplayEditModal}
                 />
               );
+              setChangeSectionHeaderText("FAQ")
             }}
           >
             <MdOutlineWeb className="text-blue-600" />
@@ -40,9 +41,8 @@ const FAQEditComponent = ({
 
 export default FAQEditComponent;
 
-export const ImagesComponent = ({
+export const FAQImages = ({
   setChangeSectionIndex,
-  setDisplayEditModal,
 }) => {
   const images = [
     {
@@ -97,7 +97,6 @@ export const ImagesComponent = ({
               className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] cursor-pointer"
               onClick={() => {
                 setChangeSectionIndex(item.index);
-                setDisplayEditModal(false);
               }}
             >
               <img src={item.image} alt="" className="rounded-[8px] w-full" />
