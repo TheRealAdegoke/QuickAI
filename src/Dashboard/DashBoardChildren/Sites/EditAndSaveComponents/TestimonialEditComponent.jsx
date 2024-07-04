@@ -7,6 +7,7 @@ const TestimonialEditComponent = ({
   setDisplayEditModal,
   setChangeSection,
   setChangeSectionIndex,
+  setChangeSectionHeaderText,
 }) => {
   return (
     <>
@@ -17,11 +18,11 @@ const TestimonialEditComponent = ({
             onClick={() => {
               setDisplayEditModal(true);
               setChangeSection(
-                <ImagesComponent
+                <TestimonialImages
                   setChangeSectionIndex={setChangeSectionIndex}
-                  setDisplayEditModal={setDisplayEditModal}
                 />
               );
+              setChangeSectionHeaderText("Testimonial")
             }}
           >
             <MdOutlineWeb className="text-blue-600" />
@@ -40,9 +41,8 @@ const TestimonialEditComponent = ({
 
 export default TestimonialEditComponent;
 
-export const ImagesComponent = ({
+export const TestimonialImages = ({
   setChangeSectionIndex,
-  setDisplayEditModal,
 }) => {
   const images = [
     {
@@ -97,7 +97,6 @@ export const ImagesComponent = ({
               className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] cursor-pointer"
               onClick={() => {
                 setChangeSectionIndex(item.index);
-                setDisplayEditModal(false);
               }}
             >
               <img src={item.image} alt="" className="rounded-[8px] w-full" />

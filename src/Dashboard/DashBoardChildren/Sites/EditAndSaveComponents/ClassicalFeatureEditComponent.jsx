@@ -7,6 +7,7 @@ const ClassicalFeatureEditComponent = ({
   setDisplayEditModal,
   setChangeSection,
   setChangeSectionIndex,
+  setChangeSectionHeaderText,
 }) => {
   return (
     <>
@@ -17,11 +18,11 @@ const ClassicalFeatureEditComponent = ({
             onClick={() => {
               setDisplayEditModal(true);
               setChangeSection(
-                <ImagesComponent
+                <ClassicalFeaturesImages
                   setChangeSectionIndex={setChangeSectionIndex}
-                  setDisplayEditModal={setDisplayEditModal}
                 />
               );
+              setChangeSectionHeaderText("Classic Feature")
             }}
           >
             <MdOutlineWeb className="text-blue-600" />
@@ -41,9 +42,8 @@ const ClassicalFeatureEditComponent = ({
 export default ClassicalFeatureEditComponent;
 
 
-export const ImagesComponent = ({
+export const ClassicalFeaturesImages = ({
   setChangeSectionIndex,
-  setDisplayEditModal,
 }) => {
   const images = [
     {
@@ -98,7 +98,6 @@ export const ImagesComponent = ({
               className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] cursor-pointer"
               onClick={() => {
                 setChangeSectionIndex(item.index);
-                setDisplayEditModal(false);
               }}
             >
               <img src={item.image} alt="" className="rounded-[8px] w-full" />

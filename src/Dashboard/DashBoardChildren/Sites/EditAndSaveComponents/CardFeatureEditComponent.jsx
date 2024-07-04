@@ -7,6 +7,7 @@ const CardFeatureEditComponent = ({
   setDisplayEditModal,
   setChangeSection,
   setChangeSectionIndex,
+  setChangeSectionHeaderText,
 }) => {
   return (
     <>
@@ -17,11 +18,11 @@ const CardFeatureEditComponent = ({
             onClick={() => {
               setDisplayEditModal(true);
               setChangeSection(
-                <ImagesComponent
+                <CardFeaturesImages
                   setChangeSectionIndex={setChangeSectionIndex}
-                  setDisplayEditModal={setDisplayEditModal}
                 />
               );
+              setChangeSectionHeaderText("Card feature")
             }}
           >
             <MdOutlineWeb className="text-blue-600" />
@@ -41,7 +42,7 @@ const CardFeatureEditComponent = ({
 export default CardFeatureEditComponent;
 
 
-export const ImagesComponent = ({ setChangeSectionIndex, setDisplayEditModal }) => {
+export const CardFeaturesImages = ({ setChangeSectionIndex }) => {
   const images = [
     {
       index: 0,
@@ -95,7 +96,6 @@ export const ImagesComponent = ({ setChangeSectionIndex, setDisplayEditModal }) 
               className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] cursor-pointer"
               onClick={() => {
                 setChangeSectionIndex(item.index);
-                setDisplayEditModal(false);
               }}
             >
               <img src={item.image} alt="" className="rounded-[8px] w-full" />
