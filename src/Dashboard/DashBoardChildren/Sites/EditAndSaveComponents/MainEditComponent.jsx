@@ -22,6 +22,8 @@ const MainEditComponent = () => {
     setChangeTestimonialSectionIndex,
     setChangeContactSectionIndex,
     setChangeFooterSectionIndex,
+    setIsPattern,
+    handleScroll,
   } = useContext(EditContext);
   return (
     <>
@@ -35,42 +37,56 @@ const MainEditComponent = () => {
             setChangeSection={setChangeSection}
             setChangeSectionHeaderText={setChangeSectionHeaderText}
             setChangeSectionIndex={setChangeNavSectionIndex}
+            handleScroll={handleScroll}
+            setIsPattern={setIsPattern}
           />
           <HeroEditComponent
             setDisplayEditModal={setDisplayEditModal}
             setChangeSection={setChangeSection}
             setChangeSectionHeaderText={setChangeSectionHeaderText}
             setChangeSectionIndex={setChangeHeroSectionIndex}
+            handleScroll={handleScroll}
+            setIsPattern={setIsPattern}
           />
           <CardFeatureEditComponent
             setDisplayEditModal={setDisplayEditModal}
             setChangeSection={setChangeSection}
             setChangeSectionHeaderText={setChangeSectionHeaderText}
             setChangeSectionIndex={setChangeFeatureWithCardSectionIndex}
+            handleScroll={handleScroll}
+            setIsPattern={setIsPattern}
           />
           <ClassicalFeatureEditComponent
             setDisplayEditModal={setDisplayEditModal}
             setChangeSection={setChangeSection}
             setChangeSectionHeaderText={setChangeSectionHeaderText}
             setChangeSectionIndex={setChangeFeatureSectionIndex}
+            handleScroll={handleScroll}
+            setIsPattern={setIsPattern}
           />
           <TestimonialEditComponent
             setDisplayEditModal={setDisplayEditModal}
             setChangeSection={setChangeSection}
             setChangeSectionHeaderText={setChangeSectionHeaderText}
             setChangeSectionIndex={setChangeTestimonialSectionIndex}
+            handleScroll={handleScroll}
+            setIsPattern={setIsPattern}
           />
           <FAQEditComponent
             setDisplayEditModal={setDisplayEditModal}
             setChangeSection={setChangeSection}
             setChangeSectionHeaderText={setChangeSectionHeaderText}
             setChangeSectionIndex={setChangeFAQSectionIndex}
+            handleScroll={handleScroll}
+            setIsPattern={setIsPattern}
           />
           <TeamEditComponent
             setDisplayEditModal={setDisplayEditModal}
             setChangeSection={setChangeSection}
             setChangeSectionHeaderText={setChangeSectionHeaderText}
             setChangeSectionIndex={setChangeTeamSectionIndex}
+            handleScroll={handleScroll}
+            setIsPattern={setIsPattern}
           />
         </div>
       </div>

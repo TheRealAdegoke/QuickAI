@@ -1,7 +1,14 @@
 import React, { useContext } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { MdOutlineWeb } from "react-icons/md";
-import testImage from "../../../../assets/Default-Card.jpg";
+import HeroImage0 from "../../../../assets/HeroImages/HeroImage0.webp";
+import HeroImage1 from "../../../../assets/HeroImages/HeroImage1.webp";
+import HeroImage2 from "../../../../assets/HeroImages/HeroImage2.webp";
+import HeroImage3 from "../../../../assets/HeroImages/HeroImage3.webp";
+import HeroImage4 from "../../../../assets/HeroImages/HeroImage4.webp";
+import HeroImage5 from "../../../../assets/HeroImages/HeroImage5.webp";
+import HeroImage6 from "../../../../assets/HeroImages/HeroImage6.webp";
+import HeroImage7 from "../../../../assets/HeroImages/HeroImage7.webp";
 import { EditContext } from "./EditAndSaveContext/EditAndContext";
 
 const HeroEditComponent = ({
@@ -9,6 +16,8 @@ const HeroEditComponent = ({
   setChangeSection,
   setChangeSectionIndex,
   setChangeSectionHeaderText,
+  handleScroll,
+  setIsPattern,
 }) => {
   const {} = useContext(EditContext);
   return (
@@ -18,13 +27,13 @@ const HeroEditComponent = ({
           <button
             className="flex items-center gap-1 w-full"
             onClick={() => {
+              setIsPattern(true);
               setDisplayEditModal(true);
               setChangeSection(
-                <HeroImages
-                  setChangeSectionIndex={setChangeSectionIndex}
-                />
+                <HeroImages setChangeSectionIndex={setChangeSectionIndex} />
               );
               setChangeSectionHeaderText("Hero");
+              handleScroll(1);
             }}
           >
             <MdOutlineWeb className="text-blue-600" />
@@ -47,59 +56,35 @@ export const HeroImages = ({ setChangeSectionIndex }) => {
   const images = [
     {
       index: 0,
-      image: testImage,
+      image: HeroImage0,
     },
     {
       index: 1,
-      image: testImage,
+      image: HeroImage1,
     },
     {
       index: 2,
-      image: testImage,
+      image: HeroImage2,
     },
     {
       index: 3,
-      image: testImage,
+      image: HeroImage3,
     },
     {
       index: 4,
-      image: testImage,
+      image: HeroImage4,
     },
     {
       index: 5,
-      image: testImage,
+      image: HeroImage5,
     },
     {
       index: 6,
-      image: testImage,
+      image: HeroImage6,
     },
     {
       index: 7,
-      image: testImage,
-    },
-    {
-      index: 8,
-      image: testImage,
-    },
-    {
-      index: 9,
-      image: testImage,
-    },
-    {
-      index: 10,
-      image: testImage,
-    },
-    {
-      index: 11,
-      image: testImage,
-    },
-    {
-      index: 12,
-      image: testImage,
-    },
-    {
-      index: 13,
-      image: testImage,
+      image: HeroImage7,
     },
   ];
 

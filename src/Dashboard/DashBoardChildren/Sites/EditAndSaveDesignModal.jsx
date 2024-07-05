@@ -9,7 +9,6 @@ import { TestimonialImages } from "./EditAndSaveComponents/TestimonialEditCompon
 import { FAQImages } from "./EditAndSaveComponents/FAQEditComponent";
 import { TeamImages } from "./EditAndSaveComponents/TeamEditComponent";
 
-
 const EditAndSaveDesignModal = ({ handleTextClick, elementRefs }) => {
   const {
     heroIndex,
@@ -58,8 +57,19 @@ const EditAndSaveDesignModal = ({ handleTextClick, elementRefs }) => {
     setChangeContactSectionIndex,
     setChangeFooterSectionIndex,
     setIsPattern,
+    clickedIndex,
+    setClickedIndex
   } = useContext(EditContext);
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  useEffect(() => {
+    let timer;
+    if (clickedIndex !== null) {
+      timer = setTimeout(() => {
+        setClickedIndex(null);
+      }, 2000);
+    }
+    return () => clearTimeout(timer);
+  }, [clickedIndex]);
 
   const navElement = navComponents({
     text,
@@ -120,12 +130,6 @@ const EditAndSaveDesignModal = ({ handleTextClick, elementRefs }) => {
       ? changeTeamSectionIndex
       : teamIndex
   ];
-  // ! Don't forget the changeContactSectionIndex in the dashContext file
-  // const contactElement = contactComponent({ text, isMobile, handleTextClick })[
-  //   contactIndex !== undefined && changeContactSectionIndex !== undefined
-  //     ? changeContactSectionIndex
-  //     : contactIndex
-  // ];
   const footerElement = footerComponent({ text, isMobile, handleTextClick })[
     footerIndex !== undefined && changeFooterSectionIndex !== undefined
       ? changeFooterSectionIndex
@@ -224,26 +228,25 @@ const EditAndSaveDesignModal = ({ handleTextClick, elementRefs }) => {
   };
 
   return (
-    <>
-      <div className="">
-        {elements.map((item, idx) => (
-          <div
-            key={idx}
-            ref={(el) => (elementRefs.current[idx] = el)}
-            className={`${
-              hoveredIndex === idx
-                ? "border-dotted border-[2px] border-y-indigo-800 cursor-pointer"
-                : ""}`
-            }
-            onClick={() => handleElementClick(idx)}
-            onMouseEnter={() => setHoveredIndex(idx)}
-            onMouseLeave={() => setHoveredIndex(null)}
-          >
-            {item.element}
-          </div>
-        ))}
-      </div>
-    </>
+    <div className="">
+      {elements.map((item, idx) => (
+        <div
+          key={idx}
+          ref={(el) => (elementRefs.current[idx] = el)}
+          className={`${
+            clickedIndex === idx
+              ? "border-dotted border-b-[2px] border-t-[1px] border-y-indigo-800"
+              : "border-none cursor-pointer"
+          }`}
+          onClick={() => {
+            handleElementClick(idx);
+            console.log(idx);
+          }}
+        >
+          {item.element}
+        </div>
+      ))}
+    </div>
   );
 };
 

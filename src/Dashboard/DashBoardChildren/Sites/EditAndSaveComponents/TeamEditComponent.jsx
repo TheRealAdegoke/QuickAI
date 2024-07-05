@@ -1,13 +1,20 @@
 import React from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { MdOutlineWeb } from "react-icons/md";
-import testImage from "../../../../assets/Default-Card.jpg";
+import TeamImage0 from "../../../../assets/TeamImage/TeamImage0.webp";
+import TeamImage1 from "../../../../assets/TeamImage/TeamImage1.webp";
+import TeamImage2 from "../../../../assets/TeamImage/TeamImage2.webp";
+import TeamImage3 from "../../../../assets/TeamImage/TeamImage3.webp";
+import TeamImage4 from "../../../../assets/TeamImage/TeamImage4.webp";
+import TeamImage5 from "../../../../assets/TeamImage/TeamImage5.webp";
 
 const TeamEditComponent = ({
   setDisplayEditModal,
   setChangeSection,
   setChangeSectionIndex,
   setChangeSectionHeaderText,
+  handleScroll,
+  setIsPattern,
 }) => {
   return (
     <>
@@ -16,13 +23,13 @@ const TeamEditComponent = ({
           <button
             className="flex items-center gap-1 w-full"
             onClick={() => {
+              setIsPattern(true);
               setDisplayEditModal(true);
               setChangeSection(
-                <TeamImages
-                  setChangeSectionIndex={setChangeSectionIndex}
-                />
+                <TeamImages setChangeSectionIndex={setChangeSectionIndex} />
               );
               setChangeSectionHeaderText("Team");
+              handleScroll(6);
             }}
           >
             <MdOutlineWeb className="text-blue-600" />
@@ -48,43 +55,27 @@ export const TeamImages = ({
   const images = [
     {
       index: 0,
-      image: testImage,
+      image: TeamImage0,
     },
     {
       index: 1,
-      image: testImage,
+      image: TeamImage1,
     },
     {
       index: 2,
-      image: testImage,
+      image: TeamImage2,
     },
     {
       index: 3,
-      image: testImage,
+      image: TeamImage3,
     },
     {
       index: 4,
-      image: testImage,
+      image: TeamImage4,
     },
     {
       index: 5,
-      image: testImage,
-    },
-    {
-      index: 6,
-      image: testImage,
-    },
-    {
-      index: 7,
-      image: testImage,
-    },
-    {
-      index: 8,
-      image: testImage,
-    },
-    {
-      index: 9,
-      image: testImage,
+      image: TeamImage5,
     },
   ];
 

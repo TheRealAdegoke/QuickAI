@@ -1,13 +1,19 @@
 import React from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { MdOutlineWeb } from "react-icons/md";
-import testImage from "../../../../assets/Default-Card.jpg";
+import CardFeatureImage0 from "../../../../assets/CardFeatureImage/CardFeatureImage0.webp";
+import CardFeatureImage1 from "../../../../assets/CardFeatureImage/CardFeatureImage1.webp";
+import CardFeatureImage2 from "../../../../assets/CardFeatureImage/CardFeatureImage2.webp";
+import CardFeatureImage3 from "../../../../assets/CardFeatureImage/CardFeatureImage3.webp";
+import CardFeatureImage4 from "../../../../assets/CardFeatureImage/CardFeatureImage4.webp";
 
 const CardFeatureEditComponent = ({
   setDisplayEditModal,
   setChangeSection,
   setChangeSectionIndex,
   setChangeSectionHeaderText,
+  handleScroll,
+  setIsPattern,
 }) => {
   return (
     <>
@@ -16,13 +22,15 @@ const CardFeatureEditComponent = ({
           <button
             className="flex items-center gap-1 w-full"
             onClick={() => {
+              setIsPattern(true) 
               setDisplayEditModal(true);
               setChangeSection(
                 <CardFeaturesImages
                   setChangeSectionIndex={setChangeSectionIndex}
                 />
               );
-              setChangeSectionHeaderText("Card feature")
+              setChangeSectionHeaderText("Card feature");
+              handleScroll(2);
             }}
           >
             <MdOutlineWeb className="text-blue-600" />
@@ -46,44 +54,24 @@ export const CardFeaturesImages = ({ setChangeSectionIndex }) => {
   const images = [
     {
       index: 0,
-      image: testImage,
+      image: CardFeatureImage0,
     },
     {
       index: 1,
-      image: testImage,
+      image: CardFeatureImage1,
     },
     {
       index: 2,
-      image: testImage,
+      image: CardFeatureImage2,
     },
     {
       index: 3,
-      image: testImage,
+      image: CardFeatureImage3,
     },
     {
       index: 4,
-      image: testImage,
-    },
-    {
-      index: 5,
-      image: testImage,
-    },
-    {
-      index: 6,
-      image: testImage,
-    },
-    {
-      index: 7,
-      image: testImage,
-    },
-    {
-      index: 8,
-      image: testImage,
-    },
-    {
-      index: 9,
-      image: testImage,
-    },
+      image: CardFeatureImage4,
+    }
   ];
 
   return (
