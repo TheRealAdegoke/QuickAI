@@ -1,13 +1,18 @@
 import React from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { MdOutlineWeb } from "react-icons/md";
-import testImage from "../../../../assets/Default-Card.jpg";
+import FAQImage0 from "../../../../assets/FAQImage/FAQImage0.webp";
+import FAQImage1 from "../../../../assets/FAQImage/FAQImage1.webp";
+import FAQImage2 from "../../../../assets/FAQImage/FAQImage2.webp";
+import FAQImage3 from "../../../../assets/FAQImage/FAQImage3.webp";
 
 const FAQEditComponent = ({
   setDisplayEditModal,
   setChangeSection,
   setChangeSectionIndex,
   setChangeSectionHeaderText,
+  handleScroll,
+  setIsPattern,
 }) => {
   return (
     <>
@@ -16,13 +21,13 @@ const FAQEditComponent = ({
           <button
             className="flex items-center gap-1 w-full"
             onClick={() => {
+              setIsPattern(true) 
               setDisplayEditModal(true);
               setChangeSection(
-                <FAQImages
-                  setChangeSectionIndex={setChangeSectionIndex}
-                />
+                <FAQImages setChangeSectionIndex={setChangeSectionIndex} />
               );
-              setChangeSectionHeaderText("FAQ")
+              setChangeSectionHeaderText("FAQ");
+              handleScroll(5);
             }}
           >
             <MdOutlineWeb className="text-blue-600" />
@@ -47,43 +52,19 @@ export const FAQImages = ({
   const images = [
     {
       index: 0,
-      image: testImage,
+      image: FAQImage0,
     },
     {
       index: 1,
-      image: testImage,
+      image: FAQImage1,
     },
     {
       index: 2,
-      image: testImage,
+      image: FAQImage2,
     },
     {
       index: 3,
-      image: testImage,
-    },
-    {
-      index: 4,
-      image: testImage,
-    },
-    {
-      index: 5,
-      image: testImage,
-    },
-    {
-      index: 6,
-      image: testImage,
-    },
-    {
-      index: 7,
-      image: testImage,
-    },
-    {
-      index: 8,
-      image: testImage,
-    },
-    {
-      index: 9,
-      image: testImage,
+      image: FAQImage3,
     },
   ];
 

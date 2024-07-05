@@ -14,8 +14,13 @@ import { EditContext } from "./EditAndSaveComponents/EditAndSaveContext/EditAndC
 
 const EditAndSave = () => {
   const { setIsMobile } = useContext(DashContext);
-  const { displayEditModal, setTextAreaContent, setSelectedElement } =
-    useContext(EditContext);
+  const {
+    elementRefs,
+    scrollableDivRef,
+    displayEditModal,
+    setTextAreaContent,
+    setSelectedElement,
+  } = useContext(EditContext);
   const modalRef = useRef(null);
   const resizableRef = useRef(null);
   const [enabled, setEnabled] = useState(false);
@@ -26,8 +31,6 @@ const EditAndSave = () => {
   const [initialWidth, setInitialWidth] = useState(0);
   const [initialX, setInitialX] = useState(0);
   const [deviceWidth, setDeviceWidth] = useState(window.innerWidth);
-  const scrollToIndex = 4;
-  const elementRefs = useRef([]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -115,16 +118,6 @@ const EditAndSave = () => {
     setTextAreaContent(element.innerText);
   };
 
-  const handleScroll = () => {
-    if (elementRefs.current[scrollToIndex]) {
-      elementRefs.current[scrollToIndex].scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  };
-
-
   return (
     <>
       <main className="bg-[rgb(30,30,30)] min-h-[100vh]">
@@ -172,10 +165,6 @@ const EditAndSave = () => {
               Settings
             </button>
           </div>
-
-          <button className="text-black" onClick={handleScroll}>
-            OverflowScroll
-          </button>
         </div>
 
         <div
@@ -233,7 +222,7 @@ const EditAndSave = () => {
                 onMouseDown={handleMouseDownLeft}
               ></div>
               <div
-                id="containingDiv"
+                ref={scrollableDivRef}
                 className="overflow-y-scroll h-full"
               >
                 <EditAndSaveDesignModal

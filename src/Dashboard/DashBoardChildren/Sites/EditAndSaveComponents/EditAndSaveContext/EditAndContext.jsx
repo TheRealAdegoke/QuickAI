@@ -1,8 +1,10 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useRef, useState } from "react";
 
 export const EditContext = createContext();
 
 const EditAndSaveProvider = ({ children }) => {
+  const elementRefs = useRef([]);
+  const scrollableDivRef = useRef(null);
   const [displayEditModal, setDisplayEditModal] = useState(false);
   const [changeSection, setChangeSection] = useState(undefined);
   const [changeSectionHeaderText, setChangeSectionHeaderText] = useState("");
@@ -27,11 +29,33 @@ const EditAndSaveProvider = ({ children }) => {
   const [isPattern, setIsPattern] = useState(true);
   const [textAreaContent, setTextAreaContent] = useState("");
   const [selectedElement, setSelectedElement] = useState(null);
-  const [scrollIdx, setScrollIdx] = useState(0)
+  const [scrollIdx, setScrollIdx] = useState(null)
+  const [clickedIndex, setClickedIndex] = useState(null);
+
+  const handleScroll = (idx) => {
+    setScrollIdx(idx);
+    setClickedIndex(idx);
+  };
+
+  useEffect(() => {
+    if (
+      scrollIdx !== null &&
+      elementRefs.current[scrollIdx] &&
+      scrollableDivRef.current
+    ) {
+      scrollableDivRef.current.scrollTo({
+        top: elementRefs.current[scrollIdx].offsetTop,
+        behavior: "smooth",
+      });
+    }
+    console.log(scrollIdx);
+  }, [scrollIdx]);
 
   return (
     <EditContext.Provider
       value={{
+        elementRefs,
+        scrollableDivRef,
         displayEditModal,
         changeSection,
         changeSectionHeaderText,
@@ -48,6 +72,7 @@ const EditAndSaveProvider = ({ children }) => {
         textAreaContent,
         selectedElement,
         scrollIdx,
+        clickedIndex,
         setDisplayEditModal,
         setChangeSection,
         setChangeSectionHeaderText,
@@ -64,6 +89,8 @@ const EditAndSaveProvider = ({ children }) => {
         setTextAreaContent,
         setSelectedElement,
         setScrollIdx,
+        handleScroll,
+        setClickedIndex,
       }}
     >
       {children}

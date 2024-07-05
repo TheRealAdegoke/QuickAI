@@ -1,13 +1,22 @@
 import React from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { MdOutlineWeb } from "react-icons/md";
-import testImage from "../../../../assets/Default-Card.jpg";
+import TestimonialImage0 from "../../../../assets/TestimonialImage/TestimonialImage0.webp";
+import TestimonialImage1 from "../../../../assets/TestimonialImage/TestimonialImage1.webp";
+import TestimonialImage2 from "../../../../assets/TestimonialImage/TestimonialImage2.webp";
+import TestimonialImage3 from "../../../../assets/TestimonialImage/TestimonialImage3.webp";
+import TestimonialImage4 from "../../../../assets/TestimonialImage/TestimonialImage4.webp";
+import TestimonialImage5 from "../../../../assets/TestimonialImage/TestimonialImage5.webp";
+import TestimonialImage6 from "../../../../assets/TestimonialImage/TestimonialImage6.webp";
+import TestimonialImage7 from "../../../../assets/TestimonialImage/TestimonialImage7.webp";
 
 const TestimonialEditComponent = ({
   setDisplayEditModal,
   setChangeSection,
   setChangeSectionIndex,
   setChangeSectionHeaderText,
+  handleScroll,
+  setIsPattern,
 }) => {
   return (
     <>
@@ -16,13 +25,15 @@ const TestimonialEditComponent = ({
           <button
             className="flex items-center gap-1 w-full"
             onClick={() => {
+              setIsPattern(true);
               setDisplayEditModal(true);
               setChangeSection(
                 <TestimonialImages
                   setChangeSectionIndex={setChangeSectionIndex}
                 />
               );
-              setChangeSectionHeaderText("Testimonial")
+              setChangeSectionHeaderText("Testimonial");
+              handleScroll(4);
             }}
           >
             <MdOutlineWeb className="text-blue-600" />
@@ -47,43 +58,35 @@ export const TestimonialImages = ({
   const images = [
     {
       index: 0,
-      image: testImage,
+      image: TestimonialImage0,
     },
     {
       index: 1,
-      image: testImage,
+      image: TestimonialImage1,
     },
     {
       index: 2,
-      image: testImage,
+      image: TestimonialImage2,
     },
     {
       index: 3,
-      image: testImage,
+      image: TestimonialImage3,
     },
     {
       index: 4,
-      image: testImage,
+      image: TestimonialImage4,
     },
     {
       index: 5,
-      image: testImage,
+      image: TestimonialImage5,
     },
     {
       index: 6,
-      image: testImage,
+      image: TestimonialImage6,
     },
     {
       index: 7,
-      image: testImage,
-    },
-    {
-      index: 8,
-      image: testImage,
-    },
-    {
-      index: 9,
-      image: testImage,
+      image: TestimonialImage7,
     },
   ];
 

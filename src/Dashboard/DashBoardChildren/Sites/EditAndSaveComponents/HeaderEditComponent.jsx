@@ -1,13 +1,17 @@
 import React from "react";
 import { BsThreeDotsVertical, BsTruckFlatbed } from "react-icons/bs";
 import { MdOutlineWeb } from "react-icons/md";
-import testImage from "../../../../assets/Default-Card.jpg";
+import NavImage0 from "../../../../assets/NavImage/NavImage0.webp";
+import NavImage1 from "../../../../assets/NavImage/NavImage1.webp";
+import NavImage2 from "../../../../assets/NavImage/NavImage2.webp";
 
 const HeaderEditComponent = ({
   setDisplayEditModal,
   setChangeSection,
   setChangeSectionIndex,
   setChangeSectionHeaderText,
+  setIsPattern,
+  handleScroll,
 }) => {
   return (
     <>
@@ -16,13 +20,13 @@ const HeaderEditComponent = ({
           <button
             className="flex items-center gap-1 w-full"
             onClick={() => {
+              setIsPattern(true)
               setDisplayEditModal(true);
               setChangeSection(
-                <HeaderImages
-                  setChangeSectionIndex={setChangeSectionIndex}
-                />
+                <HeaderImages setChangeSectionIndex={setChangeSectionIndex} />
               );
-              setChangeSectionHeaderText("Header")
+              setChangeSectionHeaderText("Header");
+              handleScroll(0)
             }}
           >
             <MdOutlineWeb className="text-blue-600" />
@@ -45,15 +49,15 @@ export const HeaderImages = ({ setChangeSectionIndex }) => {
   const images = [
     {
       index: 0,
-      image: testImage,
+      image: NavImage0,
     },
     {
       index: 1,
-      image: testImage,
+      image: NavImage1,
     },
     {
       index: 2,
-      image: testImage,
+      image: NavImage2,
     },
   ];
 
