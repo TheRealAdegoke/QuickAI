@@ -1,6 +1,4 @@
 import React from "react";
-import { BsThreeDotsVertical } from "react-icons/bs";
-import { MdOutlineWeb } from "react-icons/md";
 import ClassicFeatureImage0 from "../../../../assets/ClassicFeatureImage/ClassicFeatureImage0.webp";
 import ClassicFeatureImage1 from "../../../../assets/ClassicFeatureImage/ClassicFeatureImage1.webp";
 import ClassicFeatureImage2 from "../../../../assets/ClassicFeatureImage/ClassicFeatureImage2.webp";
@@ -10,48 +8,6 @@ import ClassicFeatureImage5 from "../../../../assets/ClassicFeatureImage/Classic
 import ClassicFeatureImage6 from "../../../../assets/ClassicFeatureImage/ClassicFeatureImage6.webp";
 import ClassicFeatureImage7 from "../../../../assets/ClassicFeatureImage/ClassicFeatureImage7.webp";
 import ClassicFeatureImage8 from "../../../../assets/ClassicFeatureImage/ClassicFeatureImage8.webp";
-
-const ClassicalFeatureEditComponent = ({
-  setDisplayEditModal,
-  setChangeSection,
-  setChangeSectionIndex,
-  setChangeSectionHeaderText,
-  handleScroll,
-  setIsPattern,
-}) => {
-  return (
-    <>
-      <div>
-        <div className="bg-[rgb(42,42,47)] text-white px-3 py-2 rounded-[5px] flex justify-between items-center cursor-pointer">
-          <button
-            className="flex items-center gap-1 w-full"
-            onClick={() => {
-              setIsPattern(true) 
-              setDisplayEditModal(true);
-              setChangeSection(
-                <ClassicalFeaturesImages
-                  setChangeSectionIndex={setChangeSectionIndex}
-                />
-              );
-              setChangeSectionHeaderText("Classic Feature");
-              handleScroll(3);
-            }}
-          >
-            <MdOutlineWeb className="text-blue-600" />
-            <span className="text-[rgba(255,255,255,0.8)] font-medium">
-              Classic feature
-            </span>
-          </button>
-          <div className="bg-[rgb(9,11,14)] p-1 rounded-[5px]">
-            <BsThreeDotsVertical />
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
-
-export default ClassicalFeatureEditComponent;
 
 
 export const ClassicalFeaturesImages = ({

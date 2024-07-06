@@ -36,6 +36,8 @@ export const DashboardProvider = ({ children }) => {
   const [contactIndex, setContactIndex] = useState(undefined);
   const [footerIndex, setFooterIndex] = useState(undefined);
   const [shuffled, setShuffled] = useState(false);
+  const [textAreaContent, setTextAreaContent] = useState("");
+  const [selectedElement, setSelectedElement] = useState(null);
   const [text, setText] = useState({
     heroHeaderText: "",
     description: "",
@@ -271,6 +273,11 @@ export const DashboardProvider = ({ children }) => {
     setButtonIndex(undefined);
   };
 
+  const handleTextClick = (element) => {
+    setSelectedElement(element);
+    setTextAreaContent(element.innerText);
+  };
+
   return (
     <DashContext.Provider
       value={{
@@ -319,6 +326,11 @@ export const DashboardProvider = ({ children }) => {
         setText,
         isMobile,
         setIsMobile,
+        handleTextClick,
+        textAreaContent,
+        selectedElement,
+        setSelectedElement,
+        setTextAreaContent,
       }}
     >
       {children}

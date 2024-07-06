@@ -1,6 +1,3 @@
-import React, { useContext } from "react";
-import { BsThreeDotsVertical } from "react-icons/bs";
-import { MdOutlineWeb } from "react-icons/md";
 import HeroImage0 from "../../../../assets/HeroImages/HeroImage0.webp";
 import HeroImage1 from "../../../../assets/HeroImages/HeroImage1.webp";
 import HeroImage2 from "../../../../assets/HeroImages/HeroImage2.webp";
@@ -9,48 +6,7 @@ import HeroImage4 from "../../../../assets/HeroImages/HeroImage4.webp";
 import HeroImage5 from "../../../../assets/HeroImages/HeroImage5.webp";
 import HeroImage6 from "../../../../assets/HeroImages/HeroImage6.webp";
 import HeroImage7 from "../../../../assets/HeroImages/HeroImage7.webp";
-import { EditContext } from "./EditAndSaveContext/EditAndContext";
 
-const HeroEditComponent = ({
-  setDisplayEditModal,
-  setChangeSection,
-  setChangeSectionIndex,
-  setChangeSectionHeaderText,
-  handleScroll,
-  setIsPattern,
-}) => {
-  const {} = useContext(EditContext);
-  return (
-    <>
-      <div>
-        <div className="bg-[rgb(42,42,47)] text-white px-3 py-2 rounded-[5px] flex justify-between items-center cursor-pointer">
-          <button
-            className="flex items-center gap-1 w-full"
-            onClick={() => {
-              setIsPattern(true);
-              setDisplayEditModal(true);
-              setChangeSection(
-                <HeroImages setChangeSectionIndex={setChangeSectionIndex} />
-              );
-              setChangeSectionHeaderText("Hero");
-              handleScroll(1);
-            }}
-          >
-            <MdOutlineWeb className="text-blue-600" />
-            <span className="text-[rgba(255,255,255,0.8)] font-medium">
-              Hero
-            </span>
-          </button>
-          <div className="bg-[rgb(9,11,14)] p-1 rounded-[5px]">
-            <BsThreeDotsVertical />
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
-
-export default HeroEditComponent;
 
 export const HeroImages = ({ setChangeSectionIndex }) => {
   const images = [
