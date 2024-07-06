@@ -3,8 +3,11 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 import testImage from "../../../../assets/Default-Card.jpg";
 import { HeroImages } from "./HeroEditComponent";
 import { EditContext } from "./EditAndSaveContext/EditAndContext";
+import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
 const EditDesignModalComponent = () => {
+  const { textAreaContent, setTextAreaContent, selectedElement } =
+    useContext(DashContext);
   const {
     displayEditModal,
     setDisplayEditModal,
@@ -12,9 +15,6 @@ const EditDesignModalComponent = () => {
     changeSectionHeaderText,
     isPattern,
     setIsPattern,
-    textAreaContent,
-    selectedElement,
-    setTextAreaContent,
   } = useContext(EditContext);
 
   const handleTextareaChange = (e) => {

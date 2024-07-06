@@ -13,13 +13,11 @@ import EditDesignModalComponent from "./EditAndSaveComponents/EditDesignModalCom
 import { EditContext } from "./EditAndSaveComponents/EditAndSaveContext/EditAndContext";
 
 const EditAndSave = () => {
-  const { setIsMobile } = useContext(DashContext);
+  const { setIsMobile, handleTextClick } = useContext(DashContext);
   const {
     elementRefs,
     scrollableDivRef,
     displayEditModal,
-    setTextAreaContent,
-    setSelectedElement,
   } = useContext(EditContext);
   const modalRef = useRef(null);
   const resizableRef = useRef(null);
@@ -112,11 +110,6 @@ const EditAndSave = () => {
       document.removeEventListener("mouseup", handleMouseUp);
     };
   }, [isResizingRight, isResizingLeft]);
-
-  const handleTextClick = (element) => {
-    setSelectedElement(element);
-    setTextAreaContent(element.innerText);
-  };
 
   return (
     <>

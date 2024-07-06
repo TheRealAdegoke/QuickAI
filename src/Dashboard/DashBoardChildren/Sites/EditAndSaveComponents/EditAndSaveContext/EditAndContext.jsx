@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useRef, useState } from "react";
+import React, { createContext, useContext, useEffect, useRef, useState } from "react";
 
 export const EditContext = createContext();
 
@@ -27,10 +27,10 @@ const EditAndSaveProvider = ({ children }) => {
   const [changeFooterSectionIndex, setChangeFooterSectionIndex] =
     useState(undefined);
   const [isPattern, setIsPattern] = useState(true);
-  const [textAreaContent, setTextAreaContent] = useState("");
-  const [selectedElement, setSelectedElement] = useState(null);
   const [scrollIdx, setScrollIdx] = useState(null)
   const [clickedIndex, setClickedIndex] = useState(null);
+  const [buttons, setButtons] = useState(["Header", "Hero", "Card Feature", "Classical Feature", "Testimonial", "FAQ", "Team"]);
+  const [elements, setElements] = useState([]);
 
   const handleScroll = (idx) => {
     setScrollIdx(idx);
@@ -51,6 +51,24 @@ const EditAndSaveProvider = ({ children }) => {
     console.log(scrollIdx);
   }, [scrollIdx]);
 
+  const moveButton = (dragIndex, hoverIndex) => {
+    const updatedButtons = [...buttons];
+    const [draggedButton] = updatedButtons.splice(dragIndex, 1);
+    updatedButtons.splice(hoverIndex, 0, draggedButton);
+    setButtons(updatedButtons);
+
+    const updatedElements = [...elements];
+    const [draggedElement] = updatedElements.splice(dragIndex, 1);
+    updatedElements.splice(hoverIndex, 0, draggedElement);
+    setElements(updatedElements);
+
+    // Trigger the scroll to the new position
+    setTimeout(() => {
+      handleScroll(hoverIndex);
+    }, 0);
+  };
+
+
   return (
     <EditContext.Provider
       value={{
@@ -69,10 +87,10 @@ const EditAndSaveProvider = ({ children }) => {
         changeContactSectionIndex,
         changeFooterSectionIndex,
         isPattern,
-        textAreaContent,
-        selectedElement,
         scrollIdx,
         clickedIndex,
+        buttons,
+        elements,
         setDisplayEditModal,
         setChangeSection,
         setChangeSectionHeaderText,
@@ -86,11 +104,11 @@ const EditAndSaveProvider = ({ children }) => {
         setChangeContactSectionIndex,
         setChangeFooterSectionIndex,
         setIsPattern,
-        setTextAreaContent,
-        setSelectedElement,
         setScrollIdx,
         handleScroll,
         setClickedIndex,
+        moveButton,
+        setElements,
       }}
     >
       {children}
