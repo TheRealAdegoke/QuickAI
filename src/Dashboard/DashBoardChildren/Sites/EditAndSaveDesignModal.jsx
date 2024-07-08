@@ -51,6 +51,7 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
     changeFooterSectionIndex,
     setDisplayEditModal,
     setChangeSection,
+    changeSectionHeaderText,
     setChangeSectionHeaderText,
     setChangeNavSectionIndex,
     setChangeHeroSectionIndex,
@@ -66,8 +67,8 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
     setClickedIndex,
     elements,
     setElements,
-    setButtons,
-    buttons
+    handleScroll,
+    buttons,
   } = useContext(EditContext);
 
   useEffect(() => {
@@ -81,109 +82,126 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
   }, [clickedIndex]);
 
   useEffect(() => {
-    setElements([
-      {
-        index: navIndex,
-        element: navComponents({
-          text,
-          buttonIndex,
-          isMobile,
-          handleTextClick,
-        })[
-          navIndex !== undefined && changeNavSectionIndex !== undefined
-            ? changeNavSectionIndex
-            : navIndex
-        ],
-      },
-      {
-        index: heroIndex,
-        element: heroComponents({
-          text,
-          buttonIndex,
-          isMobile,
-          handleTextClick,
-        })[
-          heroIndex !== undefined && changeHeroSectionIndex !== undefined
-            ? changeHeroSectionIndex
-            : heroIndex
-        ],
-      },
-      {
-        index: featuresWithCardIndex,
-        element: featuresWithCardsComponent({
-          text,
-          isMobile,
-          handleTextClick,
-        })[
-          featuresWithCardIndex !== undefined &&
-          changeFeatureWithCardSectionIndex !== undefined
-            ? changeFeatureWithCardSectionIndex
-            : featuresWithCardIndex
-        ],
-      },
-      {
-        index: featuresIndex,
-        element: featuresComponents({
-          text,
-          isMobile,
-          handleTextClick,
-        })[
-          featuresIndex !== undefined && changeFeatureSectionIndex !== undefined
-            ? changeFeatureSectionIndex
-            : featuresIndex
-        ],
-      },
-      {
-        index: testimonialIndex,
-        element: testimonialComponent({
-          text,
-          isMobile,
-          handleTextClick,
-        })[
-          testimonialIndex !== undefined &&
-          changeTestimonialSectionIndex !== undefined
-            ? changeTestimonialSectionIndex
-            : testimonialIndex
-        ],
-      },
-      {
-        index: faqIndex,
-        element: faqComponent({
-          text,
-          isMobile,
-          handleTextClick,
-        })[
-          faqIndex !== undefined && changeFAQSectionIndex !== undefined
-            ? changeFAQSectionIndex
-            : faqIndex
-        ],
-      },
-      {
-        index: teamIndex,
-        element: teamComponent({
-          text,
-          isMobile,
-          handleTextClick,
-        })[
-          teamIndex !== undefined && changeTeamSectionIndex !== undefined
-            ? changeTeamSectionIndex
-            : teamIndex
-        ],
-      },
-      {
-        index: footerIndex,
-        element: footerComponent({
-          text,
-          isMobile,
-          handleTextClick,
-        })[
-          footerIndex !== undefined && changeFooterSectionIndex !== undefined
-            ? changeFooterSectionIndex
-            : footerIndex
-        ],
-      },
-    ]);
+    const updatedElements = buttons.map((button, idx) => {
+      switch (button) {
+        case "Header":
+          return {
+            index: idx,
+            element: navComponents({
+              text,
+              buttonIndex,
+              isMobile,
+              handleTextClick,
+            })[
+              navIndex !== undefined && changeNavSectionIndex !== undefined
+                ? changeNavSectionIndex
+                : navIndex
+            ],
+          };
+        case "Hero":
+          return {
+            index: idx,
+            element: heroComponents({
+              text,
+              buttonIndex,
+              isMobile,
+              handleTextClick,
+            })[
+              heroIndex !== undefined && changeHeroSectionIndex !== undefined
+                ? changeHeroSectionIndex
+                : heroIndex
+            ],
+          };
+        case "Card Feature":
+          return {
+            index: idx,
+            element: featuresWithCardsComponent({
+              text,
+              isMobile,
+              handleTextClick,
+            })[
+              featuresWithCardIndex !== undefined &&
+              changeFeatureWithCardSectionIndex !== undefined
+                ? changeFeatureWithCardSectionIndex
+                : featuresWithCardIndex
+            ],
+          };
+        case "Classical Feature":
+          return {
+            index: idx,
+            element: featuresComponents({
+              text,
+              isMobile,
+              handleTextClick,
+            })[
+              featuresIndex !== undefined &&
+              changeFeatureSectionIndex !== undefined
+                ? changeFeatureSectionIndex
+                : featuresIndex
+            ],
+          };
+        case "Testimonial":
+          return {
+            index: idx,
+            element: testimonialComponent({
+              text,
+              isMobile,
+              handleTextClick,
+            })[
+              testimonialIndex !== undefined &&
+              changeTestimonialSectionIndex !== undefined
+                ? changeTestimonialSectionIndex
+                : testimonialIndex
+            ],
+          };
+        case "FAQ":
+          return {
+            index: idx,
+            element: faqComponent({
+              text,
+              isMobile,
+              handleTextClick,
+            })[
+              faqIndex !== undefined && changeFAQSectionIndex !== undefined
+                ? changeFAQSectionIndex
+                : faqIndex
+            ],
+          };
+        case "Team":
+          return {
+            index: idx,
+            element: teamComponent({
+              text,
+              isMobile,
+              handleTextClick,
+            })[
+              teamIndex !== undefined && changeTeamSectionIndex !== undefined
+                ? changeTeamSectionIndex
+                : teamIndex
+            ],
+          };
+        case "Footer":
+          return {
+            index: idx,
+            element: footerComponent({
+              text,
+              isMobile,
+              handleTextClick,
+            })[
+              footerIndex !== undefined &&
+              changeFooterSectionIndex !== undefined
+                ? changeFooterSectionIndex
+                : footerIndex
+            ],
+          };
+        default:
+          setChangeSectionHeaderText("");
+      }
+    });
+
+    setElements(updatedElements);
   }, [
+    buttons,
     changeNavSectionIndex,
     changeHeroSectionIndex,
     changeFeatureWithCardSectionIndex,
@@ -195,8 +213,6 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
     changeFooterSectionIndex,
     handleGenerateNav,
   ]);
-
-
 
   const handleElementClick = (idx) => {
     setDisplayEditModal(true);
@@ -264,7 +280,6 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
     }
   };
 
-
   return (
     <div className="">
       {elements.map((item, idx) => (
@@ -278,7 +293,6 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
           }`}
           onClick={() => {
             handleElementClick(idx);
-            console.log(idx);
           }}
         >
           {item.element}
@@ -307,7 +321,7 @@ export const Button = ({
   setChangeFooterSectionIndex,
   setIsPattern,
   handleScroll,
-  buttons
+  buttons,
 }) => {
   const { moveButton } = useContext(EditContext);
   const ref = useRef(null);
@@ -413,7 +427,6 @@ export const Button = ({
         break;
     }
   };
-
 
   return (
     <div
