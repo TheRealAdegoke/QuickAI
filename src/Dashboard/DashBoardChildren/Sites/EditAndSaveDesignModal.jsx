@@ -82,8 +82,8 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
   }, [clickedIndex]);
 
   useEffect(() => {
-    const updatedElements = buttons.map((button, idx) => {
-      switch (button) {
+    const updatedElements = buttons.map((buttonText, idx) => {
+      switch (buttonText) {
         case "Header":
           return {
             index: idx,
@@ -195,7 +195,7 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
             ],
           };
         default:
-          setChangeSectionHeaderText("");
+          return null;
       }
     });
 
@@ -214,25 +214,30 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
     handleGenerateNav,
   ]);
 
+
   const handleElementClick = (idx) => {
     setDisplayEditModal(true);
     handleScroll(idx);
-    switch (idx) {
-      case 0:
+
+    // Use the updated button text for the clicked index
+    const buttonText = buttons[idx];
+
+    switch (buttonText) {
+      case "Header":
         setChangeSectionHeaderText("Header");
         setIsPattern(false);
         setChangeSection(
           <HeaderImages setChangeSectionIndex={setChangeNavSectionIndex} />
         );
         break;
-      case 1:
+      case "Hero":
         setChangeSectionHeaderText("Hero");
         setIsPattern(false);
         setChangeSection(
           <HeroImages setChangeSectionIndex={setChangeHeroSectionIndex} />
         );
         break;
-      case 2:
+      case "Card Feature":
         setChangeSectionHeaderText("Card Feature");
         setIsPattern(false);
         setChangeSection(
@@ -241,8 +246,8 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
           />
         );
         break;
-      case 3:
-        setChangeSectionHeaderText("Classic Feature");
+      case "Classical Feature":
+        setChangeSectionHeaderText("Classical Feature");
         setIsPattern(false);
         setChangeSection(
           <ClassicalFeaturesImages
@@ -250,7 +255,7 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
           />
         );
         break;
-      case 4:
+      case "Testimonial":
         setChangeSectionHeaderText("Testimonial");
         setIsPattern(false);
         setChangeSection(
@@ -259,14 +264,14 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
           />
         );
         break;
-      case 5:
+      case "FAQ":
         setChangeSectionHeaderText("FAQ");
         setIsPattern(false);
         setChangeSection(
           <FAQImages setChangeSectionIndex={setChangeFAQSectionIndex} />
         );
         break;
-      case 6:
+      case "Team":
         setChangeSectionHeaderText("Team");
         setIsPattern(false);
         setChangeSection(
@@ -279,6 +284,7 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
         break;
     }
   };
+
 
   return (
     <div className="">
