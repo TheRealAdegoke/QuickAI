@@ -44,6 +44,9 @@ const EditDesignModalComponent = () => {
 
         <div className="text-[rgba(255,255,255,0.8)] flex gap-3 border-[rgba(255,255,255,0.5)] border-b-[1px] pl-2">
           <button
+            className={`${
+              isPattern ? "border-b-[3px] border-[rgb(60,97,169)] pb-1" : "pb-1"
+            } h-[40px]`}
             onClick={() => {
               setIsPattern(true);
             }}
@@ -51,6 +54,9 @@ const EditDesignModalComponent = () => {
             Pattern
           </button>
           <button
+            className={`${
+              isPattern ? "pb-2" : "border-b-[3px] border-[rgb(60,97,169)]"
+            } h-[40px]`}
             onClick={() => {
               setIsPattern(false);
             }}

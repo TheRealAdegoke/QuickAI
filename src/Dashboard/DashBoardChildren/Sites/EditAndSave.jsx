@@ -178,7 +178,7 @@ const EditAndSave = () => {
           <div
             className={`${
               window.innerWidth < 1000 ? "hidden" : ""
-            } bg-[rgb(9,11,14)] w-[23%] min-w-[23%] max-w-[23%] min-[1350px]:w-[20%] min-[1350px]:min-w-[20%] min-[1350px]:max-w-[20%] h-[87vh] border-[1px] rounded-[8px] border-[rgba(255,255,255,0.3)]`}
+            } bg-[rgb(9,11,14)] w-[23%] min-w-[23%] max-w-[23%] min-[1350px]:w-[20%] min-[1350px]:min-w-[20%] min-[1350px]:max-w-[20%] h-[87vh] border-[1px] rounded-[8px] border-[rgba(255,255,255,0.3)] overflow-y-scroll`}
           >
             {displayEditModal ? (
               <EditDesignModalComponent />

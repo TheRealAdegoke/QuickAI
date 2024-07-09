@@ -328,10 +328,16 @@ export const Button = ({
   setIsPattern,
   handleScroll,
   buttons,
+  openMenuId,
+  toggleMenu,
+  moveButton,
+  duplicateButton,
+  deleteButton,
 }) => {
-  const { moveButton } = useContext(EditContext);
+  const {} = useContext(EditContext);
   const ref = useRef(null);
 
+  // Conditionally apply drag behavior only if the button text is not "Header"
   const [, drop] = useDrop({
     accept: "button",
     hover(item, monitor) {
@@ -363,12 +369,18 @@ export const Button = ({
   const [, drag] = useDrag({
     type: "button",
     item: { id, index },
+    canDrag: id !== "Header",
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
   });
 
-  drag(drop(ref));
+  // Apply drag if the button is not "Header"
+  if (id !== "Header") {
+    drag(drop(ref));
+  } else {
+    drop(ref);
+  }
 
   const handleClick = () => {
     setIsPattern(true);
@@ -434,19 +446,53 @@ export const Button = ({
     }
   };
 
+  const handleDuplicate = () => {
+    duplicateButton(index);
+  };
+
+  const handleDelete = () => {
+    deleteButton(index);
+  };
+
   return (
-    <div
-      ref={ref}
-      onClick={handleClick}
-      className={`bg-[rgb(42,42,47)] text-white px-3 py-2 rounded-[5px] flex justify-between items-center cursor-pointer my-3 mx-2`}
-    >
-      <button className="flex items-center gap-1 w-full">
-        <MdOutlineWeb className="text-blue-600" />
-        <span className="text-[rgba(255,255,255,0.8)] font-medium">{id}</span>
-      </button>
-      <div className="bg-[rgb(9,11,14)] p-1 rounded-[5px]">
-        <BsThreeDotsVertical />
+    <div className="relative">
+      <div
+        className={`bg-[rgb(42,42,47)] text-white px-3 py-2 rounded-[5px] flex justify-between items-center cursor-pointer my-3 mx-2`}
+      >
+        <button
+          ref={ref}
+          className="flex items-center gap-1 w-full"
+          onClick={handleClick}
+        >
+          <MdOutlineWeb className="text-blue-600" />
+          <span className="text-[rgba(255,255,255,0.8)] font-medium">{id}</span>
+        </button>
+        <div
+          className="bg-[rgb(9,11,14)] p-1 rounded-[5px]"
+          onClick={() => toggleMenu(id)}
+        >
+          <BsThreeDotsVertical />
+        </div>
       </div>
+
+      {openMenuId === id && (
+        <div
+          className={`bg-[rgb(9,11,14)] border-[1px] rounded-[8px] border-[rgba(255,255,255,0.3)] text-white px-3 py-1 flex flex-col items-start cursor-pointer mx-2 w-[150px] text-sm absolute right-0 top-11 z-50`}
+        >
+          <button
+            className="hover:bg-[rgb(42,42,47)] block w-full py-1 pl-1 rounded-[5px] text-left"
+            onClick={handleDuplicate}
+          >
+            Duplicate
+          </button>
+          <button
+            className="text-[red] hover:bg-[rgb(42,42,47)] block w-full py-1 pl-1 rounded-[5px] text-left"
+            onClick={handleDelete}
+          >
+            Delete
+          </button>
+        </div>
+      )}
     </div>
   );
 };
