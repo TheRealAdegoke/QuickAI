@@ -3,6 +3,8 @@ import { EditContext } from "./EditAndSaveContext/EditAndContext";
 import { Button } from "../EditAndSaveDesignModal";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { BsThreeDotsVertical } from "react-icons/bs";
+import { MdOutlineWeb } from "react-icons/md";
 
 const MainEditComponent = () => {
   const {
@@ -22,9 +24,15 @@ const MainEditComponent = () => {
     handleScroll,
     buttons,
     moveButton,
-    changeNavSectionIndex,
-    changeHeroSectionIndex,
+    duplicateButton,
+    deleteButton,
   } = useContext(EditContext);
+  const [openMenuId, setOpenMenuId] = useState(null);
+
+  const toggleMenu = (id) => {
+    setOpenMenuId(openMenuId === id ? null : id);
+  };
+
   return (
     <>
       <div>
@@ -57,9 +65,11 @@ const MainEditComponent = () => {
               setChangeFooterSectionIndex={setChangeFooterSectionIndex}
               setIsPattern={setIsPattern}
               handleScroll={handleScroll}
-              changeNavSectionIndex={changeNavSectionIndex}
-              changeHeroSectionIndex={changeHeroSectionIndex}
               buttons={buttons}
+              openMenuId={openMenuId}
+              toggleMenu={toggleMenu}
+              duplicateButton={duplicateButton}
+              deleteButton={deleteButton}
             />
           ))}
         </DndProvider>

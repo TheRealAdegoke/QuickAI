@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useEffect, useRef, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 export const EditContext = createContext();
 
@@ -27,14 +33,40 @@ const EditAndSaveProvider = ({ children }) => {
   const [changeFooterSectionIndex, setChangeFooterSectionIndex] =
     useState(undefined);
   const [isPattern, setIsPattern] = useState(true);
-  const [scrollIdx, setScrollIdx] = useState(null)
+  const [scrollIdx, setScrollIdx] = useState(null);
   const [clickedIndex, setClickedIndex] = useState(null);
-  const [buttons, setButtons] = useState(["Header", "Hero", "Card Feature", "Classical Feature", "Testimonial", "FAQ", "Team"]);
+  const [buttons, setButtons] = useState([
+    "Header",
+    "Hero",
+    "Card Feature",
+    "Classical Feature",
+    "Testimonial",
+    "FAQ",
+    "Team",
+  ]);
   const [elements, setElements] = useState([]);
 
   const handleScroll = (idx) => {
     setScrollIdx(idx);
     setClickedIndex(idx);
+  };
+
+  const duplicateButton = (index) => {
+    const newButton = buttons[index];
+    const updatedButtons = [...buttons, newButton];
+    setButtons(updatedButtons);
+
+    const newElement = elements[index];
+    const updatedElements = [...elements, newElement];
+    setElements(updatedElements);
+  };
+
+  const deleteButton = (index) => {
+    const updatedButtons = buttons.filter((_, idx) => idx !== index);
+    setButtons(updatedButtons);
+
+    const updatedElements = elements.filter((_, idx) => idx !== index);
+    setElements(updatedElements);
   };
 
   useEffect(() => {
@@ -48,7 +80,6 @@ const EditAndSaveProvider = ({ children }) => {
         behavior: "smooth",
       });
     }
-    console.log(scrollIdx);
   }, [scrollIdx]);
 
   const moveButton = (dragIndex, hoverIndex) => {
@@ -61,13 +92,7 @@ const EditAndSaveProvider = ({ children }) => {
     const [draggedElement] = updatedElements.splice(dragIndex, 1);
     updatedElements.splice(hoverIndex, 0, draggedElement);
     setElements(updatedElements);
-
-    // Trigger the scroll to the new position
-    setTimeout(() => {
-      handleScroll(hoverIndex);
-    }, 0);
   };
-
 
   return (
     <EditContext.Provider
@@ -109,6 +134,8 @@ const EditAndSaveProvider = ({ children }) => {
         setClickedIndex,
         moveButton,
         setElements,
+        duplicateButton,
+        deleteButton,
       }}
     >
       {children}
