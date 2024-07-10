@@ -3,8 +3,6 @@ import { EditContext } from "./EditAndSaveContext/EditAndContext";
 import { Button } from "../EditAndSaveDesignModal";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { BsThreeDotsVertical } from "react-icons/bs";
-import { MdOutlineWeb } from "react-icons/md";
 
 const MainEditComponent = () => {
   const {
@@ -43,7 +41,7 @@ const MainEditComponent = () => {
         <DndProvider backend={HTML5Backend}>
           {buttons.map((id, index) => (
             <Button
-              key={id}
+              key={`${id}-${index}`}
               id={id}
               index={index}
               moveButton={moveButton}
