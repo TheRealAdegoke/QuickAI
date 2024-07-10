@@ -83,7 +83,8 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
 
   useEffect(() => {
     const updatedElements = buttons.map((buttonText, idx) => {
-      switch (buttonText) {
+      const buttonType = buttonText.split("-")[0];
+      switch (buttonType) {
         case "Header":
           return {
             index: idx,
@@ -215,12 +216,13 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
   ]);
 
 
+
   const handleElementClick = (idx) => {
     setDisplayEditModal(true);
     handleScroll(idx);
 
     // Use the updated button text for the clicked index
-    const buttonText = buttons[idx];
+    const buttonText = buttons[idx].split("-")[0];
 
     switch (buttonText) {
       case "Header":
@@ -334,7 +336,6 @@ export const Button = ({
   duplicateButton,
   deleteButton,
 }) => {
-  const {} = useContext(EditContext);
   const ref = useRef(null);
 
   // Conditionally apply drag behavior only if the button text is not "Header"
@@ -382,27 +383,29 @@ export const Button = ({
     drop(ref);
   }
 
-  const handleClick = () => {
+  const handleClick = (index) => {
     setIsPattern(true);
     setDisplayEditModal(true);
-    switch (id) {
+    const buttonText = buttons[index].split("-")[0]; // Extract the button type
+
+    switch (buttonText) {
       case "Header":
         setChangeSectionHeaderText("Header");
-        handleScroll(buttons.indexOf("Header"));
+        handleScroll(index);
         setChangeSection(
           <HeaderImages setChangeSectionIndex={setChangeNavSectionIndex} />
         );
         break;
       case "Hero":
         setChangeSectionHeaderText("Hero");
-        handleScroll(buttons.indexOf("Hero"));
+        handleScroll(index);
         setChangeSection(
           <HeroImages setChangeSectionIndex={setChangeHeroSectionIndex} />
         );
         break;
       case "Card Feature":
         setChangeSectionHeaderText("Card Feature");
-        handleScroll(buttons.indexOf("Card Feature"));
+        handleScroll(index);
         setChangeSection(
           <CardFeaturesImages
             setChangeSectionIndex={setChangeFeatureWithCardSectionIndex}
@@ -411,7 +414,7 @@ export const Button = ({
         break;
       case "Classical Feature":
         setChangeSectionHeaderText("Classical Feature");
-        handleScroll(buttons.indexOf("Classical Feature"));
+        handleScroll(index);
         setChangeSection(
           <ClassicalFeaturesImages
             setChangeSectionIndex={setChangeFeatureSectionIndex}
@@ -420,7 +423,7 @@ export const Button = ({
         break;
       case "Testimonial":
         setChangeSectionHeaderText("Testimonial");
-        handleScroll(buttons.indexOf("Testimonial"));
+        handleScroll(index);
         setChangeSection(
           <TestimonialImages
             setChangeSectionIndex={setChangeTestimonialSectionIndex}
@@ -429,14 +432,14 @@ export const Button = ({
         break;
       case "FAQ":
         setChangeSectionHeaderText("FAQ");
-        handleScroll(buttons.indexOf("FAQ"));
+        handleScroll(index);
         setChangeSection(
           <FAQImages setChangeSectionIndex={setChangeFAQSectionIndex} />
         );
         break;
       case "Team":
         setChangeSectionHeaderText("Team");
-        handleScroll(buttons.indexOf("Team"));
+        handleScroll(index);
         setChangeSection(
           <TeamImages setChangeSectionIndex={setChangeTeamSectionIndex} />
         );
@@ -446,13 +449,6 @@ export const Button = ({
     }
   };
 
-  const handleDuplicate = () => {
-    duplicateButton(index);
-  };
-
-  const handleDelete = () => {
-    deleteButton(index);
-  };
 
   return (
     <div className="relative">
@@ -462,7 +458,7 @@ export const Button = ({
         <button
           ref={ref}
           className="flex items-center gap-1 w-full"
-          onClick={handleClick}
+          onClick={() => handleClick(index)}
         >
           <MdOutlineWeb className="text-blue-600" />
           <span className="text-[rgba(255,255,255,0.8)] font-medium">{id}</span>
@@ -481,13 +477,13 @@ export const Button = ({
         >
           <button
             className="hover:bg-[rgb(42,42,47)] block w-full py-1 pl-1 rounded-[5px] text-left"
-            onClick={handleDuplicate}
+            onClick={() => duplicateButton(index)}
           >
             Duplicate
           </button>
           <button
             className="text-[red] hover:bg-[rgb(42,42,47)] block w-full py-1 pl-1 rounded-[5px] text-left"
-            onClick={handleDelete}
+            onClick={() => deleteButton(index)}
           >
             Delete
           </button>

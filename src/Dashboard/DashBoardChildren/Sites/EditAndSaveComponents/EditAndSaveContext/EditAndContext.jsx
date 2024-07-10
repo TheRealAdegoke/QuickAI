@@ -51,24 +51,6 @@ const EditAndSaveProvider = ({ children }) => {
     setClickedIndex(idx);
   };
 
-  const duplicateButton = (index) => {
-    const newButton = buttons[index];
-    const updatedButtons = [...buttons, newButton];
-    setButtons(updatedButtons);
-
-    const newElement = elements[index];
-    const updatedElements = [...elements, newElement];
-    setElements(updatedElements);
-  };
-
-  const deleteButton = (index) => {
-    const updatedButtons = buttons.filter((_, idx) => idx !== index);
-    setButtons(updatedButtons);
-
-    const updatedElements = elements.filter((_, idx) => idx !== index);
-    setElements(updatedElements);
-  };
-
   useEffect(() => {
     if (
       scrollIdx !== null &&
@@ -93,6 +75,26 @@ const EditAndSaveProvider = ({ children }) => {
     updatedElements.splice(hoverIndex, 0, draggedElement);
     setElements(updatedElements);
   };
+
+  const duplicateButton = (index) => {
+    const newButton = `${buttons[index]}-${Date.now()}`;
+    setButtons((prevButtons) => [...prevButtons, newButton]);
+
+    const newElement = { ...elements[index], id: Date.now() };
+    setElements((prevElements) => [...prevElements, newElement]);
+  };
+
+
+  const deleteButton = (index) => {
+    const updatedButtons = [...buttons];
+    updatedButtons.splice(index, 1);
+    setButtons(updatedButtons);
+
+    const updatedElements = [...elements];
+    updatedElements.splice(index, 1);
+    setElements(updatedElements);
+  };
+  
 
   return (
     <EditContext.Provider
@@ -133,9 +135,9 @@ const EditAndSaveProvider = ({ children }) => {
         handleScroll,
         setClickedIndex,
         moveButton,
-        setElements,
         duplicateButton,
         deleteButton,
+        setElements,
       }}
     >
       {children}
