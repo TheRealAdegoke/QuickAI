@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import CardFeatureImage0 from "../../../../assets/CardFeatureImage/CardFeatureImage0.webp";
 import CardFeatureImage1 from "../../../../assets/CardFeatureImage/CardFeatureImage1.webp";
 import CardFeatureImage2 from "../../../../assets/CardFeatureImage/CardFeatureImage2.webp";
 import CardFeatureImage3 from "../../../../assets/CardFeatureImage/CardFeatureImage3.webp";
 import CardFeatureImage4 from "../../../../assets/CardFeatureImage/CardFeatureImage4.webp";
+import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
-
-export const CardFeaturesImages = ({ setChangeSectionIndex }) => {
+export const CardFeaturesImages = () => {
+  const { setFeaturesWithCardIndex } = useContext(DashContext);
   const images = [
     {
       index: 0,
@@ -27,7 +28,7 @@ export const CardFeaturesImages = ({ setChangeSectionIndex }) => {
     {
       index: 4,
       image: CardFeatureImage4,
-    }
+    },
   ];
 
   return (
@@ -39,7 +40,7 @@ export const CardFeaturesImages = ({ setChangeSectionIndex }) => {
               key={idx}
               className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] cursor-pointer"
               onClick={() => {
-                setChangeSectionIndex(item.index);
+                setFeaturesWithCardIndex(item.index);
               }}
             >
               <img src={item.image} alt="" className="rounded-[8px] w-full" />

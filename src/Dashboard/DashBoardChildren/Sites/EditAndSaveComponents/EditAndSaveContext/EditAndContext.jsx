@@ -12,26 +12,7 @@ const EditAndSaveProvider = ({ children }) => {
   const elementRefs = useRef([]);
   const scrollableDivRef = useRef(null);
   const [displayEditModal, setDisplayEditModal] = useState(false);
-  const [changeSection, setChangeSection] = useState(undefined);
   const [changeSectionHeaderText, setChangeSectionHeaderText] = useState("");
-  const [changeNavSectionIndex, setChangeNavSectionIndex] = useState(undefined);
-  const [changeHeroSectionIndex, setChangeHeroSectionIndex] =
-    useState(undefined);
-  const [
-    changeFeatureWithCardSectionIndex,
-    setChangeFeatureWithCardSectionIndex,
-  ] = useState(undefined);
-  const [changeFeatureSectionIndex, setChangeFeatureSectionIndex] =
-    useState(undefined);
-  const [changeFAQSectionIndex, setChangeFAQSectionIndex] = useState(undefined);
-  const [changeTeamSectionIndex, setChangeTeamSectionIndex] =
-    useState(undefined);
-  const [changeTestimonialSectionIndex, setChangeTestimonialSectionIndex] =
-    useState(undefined);
-  const [changeContactSectionIndex, setChangeContactSectionIndex] =
-    useState(undefined);
-  const [changeFooterSectionIndex, setChangeFooterSectionIndex] =
-    useState(undefined);
   const [isPattern, setIsPattern] = useState(true);
   const [scrollIdx, setScrollIdx] = useState(null);
   const [clickedIndex, setClickedIndex] = useState(null);
@@ -45,6 +26,7 @@ const EditAndSaveProvider = ({ children }) => {
     "Team",
   ]);
   const [elements, setElements] = useState([]);
+  const [currentSection, setCurrentSection] = useState(null);
 
   const handleScroll = (idx) => {
     setScrollIdx(idx);
@@ -102,34 +84,14 @@ const EditAndSaveProvider = ({ children }) => {
         elementRefs,
         scrollableDivRef,
         displayEditModal,
-        changeSection,
         changeSectionHeaderText,
-        changeNavSectionIndex,
-        changeHeroSectionIndex,
-        changeFeatureWithCardSectionIndex,
-        changeFeatureSectionIndex,
-        changeFAQSectionIndex,
-        changeTeamSectionIndex,
-        changeTestimonialSectionIndex,
-        changeContactSectionIndex,
-        changeFooterSectionIndex,
         isPattern,
         scrollIdx,
         clickedIndex,
         buttons,
         elements,
         setDisplayEditModal,
-        setChangeSection,
         setChangeSectionHeaderText,
-        setChangeNavSectionIndex,
-        setChangeHeroSectionIndex,
-        setChangeFeatureWithCardSectionIndex,
-        setChangeFeatureSectionIndex,
-        setChangeFAQSectionIndex,
-        setChangeTeamSectionIndex,
-        setChangeTestimonialSectionIndex,
-        setChangeContactSectionIndex,
-        setChangeFooterSectionIndex,
         setIsPattern,
         setScrollIdx,
         handleScroll,
@@ -138,6 +100,8 @@ const EditAndSaveProvider = ({ children }) => {
         duplicateButton,
         deleteButton,
         setElements,
+        currentSection,
+        setCurrentSection,
       }}
     >
       {children}

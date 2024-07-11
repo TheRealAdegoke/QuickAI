@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import testImage from "../../../../assets/Default-Card.jpg";
+import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
-
-export const ContactImages = ({
-  setChangeSectionIndex,
-}) => {
+export const ContactImages = () => {
+  const { setContactIndex } = useContext(DashContext);
   const images = [
     {
       index: 0,
@@ -57,7 +56,7 @@ export const ContactImages = ({
               key={idx}
               className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] cursor-pointer"
               onClick={() => {
-                setChangeSectionIndex(item.index);
+                setContactIndex(item.index);
               }}
             >
               <img src={item.image} alt="" className="rounded-[8px] w-full" />

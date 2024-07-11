@@ -4,17 +4,22 @@ import testImage from "../../../../assets/Default-Card.jpg";
 import { HeroImages } from "./HeroEditComponent";
 import { EditContext } from "./EditAndSaveContext/EditAndContext";
 import { DashContext } from "../../../DashboardChecker/DashboardContext";
+import { HeaderImages } from "./HeaderEditComponent";
+import { CardFeaturesImages } from "./CardFeatureEditComponent";
+import { ClassicalFeaturesImages } from "./ClassicalFeatureEditComponent";
+import { TestimonialImages } from "./TestimonialEditComponent";
+import { FAQImages } from "./FAQEditComponent";
+import { TeamImages } from "./TeamEditComponent";
 
 const EditDesignModalComponent = () => {
   const { textAreaContent, setTextAreaContent, selectedElement } =
     useContext(DashContext);
   const {
-    displayEditModal,
     setDisplayEditModal,
-    changeSection,
     changeSectionHeaderText,
     isPattern,
     setIsPattern,
+    currentSection,
   } = useContext(EditContext);
 
   const handleTextareaChange = (e) => {
@@ -69,7 +74,15 @@ const EditDesignModalComponent = () => {
           <div>
             {isPattern ? (
               <div className="flex flex-wrap gap-3 justify-evenly px-2">
-                {changeSection}
+                {currentSection === "Header" && <HeaderImages />}
+                {currentSection === "Hero" && <HeroImages />}
+                {currentSection === "Card Feature" && <CardFeaturesImages />}
+                {currentSection === "Classical Feature" && (
+                  <ClassicalFeaturesImages />
+                )}
+                {currentSection === "Testimonial" && <TestimonialImages />}
+                {currentSection === "FAQ" && <FAQImages />}
+                {currentSection === "Team" && <TeamImages />}
               </div>
             ) : (
               <div className="w-full p-3">

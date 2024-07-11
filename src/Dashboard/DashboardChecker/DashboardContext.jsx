@@ -331,6 +331,15 @@ export const DashboardProvider = ({ children }) => {
         selectedElement,
         setSelectedElement,
         setTextAreaContent,
+        setNavIndex,
+        setHeroIndex,
+        setFeaturesWithCardIndex,
+        setFeaturesIndex,
+        setTestimonialIndex,
+        setFaqIndex,
+        setTeamIndex,
+        setContactIndex,
+        setFooterIndex,
       }}
     >
       {children}

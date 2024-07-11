@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import ClassicFeatureImage0 from "../../../../assets/ClassicFeatureImage/ClassicFeatureImage0.webp";
 import ClassicFeatureImage1 from "../../../../assets/ClassicFeatureImage/ClassicFeatureImage1.webp";
 import ClassicFeatureImage2 from "../../../../assets/ClassicFeatureImage/ClassicFeatureImage2.webp";
@@ -8,11 +8,10 @@ import ClassicFeatureImage5 from "../../../../assets/ClassicFeatureImage/Classic
 import ClassicFeatureImage6 from "../../../../assets/ClassicFeatureImage/ClassicFeatureImage6.webp";
 import ClassicFeatureImage7 from "../../../../assets/ClassicFeatureImage/ClassicFeatureImage7.webp";
 import ClassicFeatureImage8 from "../../../../assets/ClassicFeatureImage/ClassicFeatureImage8.webp";
+import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
-
-export const ClassicalFeaturesImages = ({
-  setChangeSectionIndex,
-}) => {
+export const ClassicalFeaturesImages = () => {
+  const { setFeaturesIndex } = useContext(DashContext);
   const images = [
     {
       index: 0,
@@ -61,7 +60,7 @@ export const ClassicalFeaturesImages = ({
               key={idx}
               className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] cursor-pointer"
               onClick={() => {
-                setChangeSectionIndex(item.index);
+                setFeaturesIndex(item.index);
               }}
             >
               <img src={item.image} alt="" className="rounded-[8px] w-full" />
@@ -71,4 +70,3 @@ export const ClassicalFeaturesImages = ({
     </>
   );
 };
-
