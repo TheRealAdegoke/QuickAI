@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import HeroImage0 from "../../../../assets/HeroImages/HeroImage0.webp";
 import HeroImage1 from "../../../../assets/HeroImages/HeroImage1.webp";
 import HeroImage2 from "../../../../assets/HeroImages/HeroImage2.webp";
@@ -6,9 +7,11 @@ import HeroImage4 from "../../../../assets/HeroImages/HeroImage4.webp";
 import HeroImage5 from "../../../../assets/HeroImages/HeroImage5.webp";
 import HeroImage6 from "../../../../assets/HeroImages/HeroImage6.webp";
 import HeroImage7 from "../../../../assets/HeroImages/HeroImage7.webp";
+import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
+export const HeroImages = () => {
+  const { setHeroIndex } = useContext(DashContext);
 
-export const HeroImages = ({ setChangeSectionIndex }) => {
   const images = [
     {
       index: 0,
@@ -53,10 +56,14 @@ export const HeroImages = ({ setChangeSectionIndex }) => {
               key={idx}
               className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] cursor-pointer"
               onClick={() => {
-                setChangeSectionIndex(item.index);
+                setHeroIndex(item.index);
               }}
             >
-              <img src={item.image} alt="" className="rounded-[8px] w-full h-full" />
+              <img
+                src={item.image}
+                alt=""
+                className="rounded-[8px] w-full h-full"
+              />
             </div>
           )
       )}

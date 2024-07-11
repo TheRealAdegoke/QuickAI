@@ -1,9 +1,11 @@
+import { useContext } from "react";
 import NavImage0 from "../../../../assets/NavImage/NavImage0.webp";
 import NavImage1 from "../../../../assets/NavImage/NavImage1.webp";
 import NavImage2 from "../../../../assets/NavImage/NavImage2.webp";
+import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
-
-export const HeaderImages = ({ setChangeSectionIndex }) => {
+export const HeaderImages = () => {
+  const { setNavIndex } = useContext(DashContext);
   const images = [
     {
       index: 0,
@@ -28,10 +30,14 @@ export const HeaderImages = ({ setChangeSectionIndex }) => {
               key={idx}
               className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] max-h-[100px] cursor-pointer"
               onClick={() => {
-                setChangeSectionIndex(item.index);
+                setNavIndex(item.index);
               }}
             >
-              <img src={item.image} alt="" className="rounded-[8px] w-full h-[full]" />
+              <img
+                src={item.image}
+                alt=""
+                className="rounded-[8px] w-full h-[full]"
+              />
             </div>
           )
       )}

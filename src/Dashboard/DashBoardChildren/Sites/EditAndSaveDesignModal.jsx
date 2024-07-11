@@ -1,13 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
 import { EditContext } from "./EditAndSaveComponents/EditAndSaveContext/EditAndContext";
-import { HeaderImages } from "./EditAndSaveComponents/HeaderEditComponent";
-import { HeroImages } from "./EditAndSaveComponents/HeroEditComponent";
-import { CardFeaturesImages } from "./EditAndSaveComponents/CardFeatureEditComponent";
-import { ClassicalFeaturesImages } from "./EditAndSaveComponents/ClassicalFeatureEditComponent";
-import { TestimonialImages } from "./EditAndSaveComponents/TestimonialEditComponent";
-import { FAQImages } from "./EditAndSaveComponents/FAQEditComponent";
-import { TeamImages } from "./EditAndSaveComponents/TeamEditComponent";
 import { useDrag, useDrop } from "react-dnd";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { MdOutlineWeb } from "react-icons/md";
@@ -40,28 +33,8 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
   } = useContext(DashContext);
 
   const {
-    changeNavSectionIndex,
-    changeHeroSectionIndex,
-    changeFeatureWithCardSectionIndex,
-    changeFeatureSectionIndex,
-    changeFAQSectionIndex,
-    changeTeamSectionIndex,
-    changeTestimonialSectionIndex,
-    changeContactSectionIndex,
-    changeFooterSectionIndex,
     setDisplayEditModal,
-    setChangeSection,
-    changeSectionHeaderText,
     setChangeSectionHeaderText,
-    setChangeNavSectionIndex,
-    setChangeHeroSectionIndex,
-    setChangeFeatureWithCardSectionIndex,
-    setChangeFeatureSectionIndex,
-    setChangeFAQSectionIndex,
-    setChangeTeamSectionIndex,
-    setChangeTestimonialSectionIndex,
-    setChangeContactSectionIndex,
-    setChangeFooterSectionIndex,
     setIsPattern,
     clickedIndex,
     setClickedIndex,
@@ -69,6 +42,7 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
     setElements,
     handleScroll,
     buttons,
+    setCurrentSection,
   } = useContext(EditContext);
 
   useEffect(() => {
@@ -93,11 +67,7 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
               buttonIndex,
               isMobile,
               handleTextClick,
-            })[
-              navIndex !== undefined && changeNavSectionIndex !== undefined
-                ? changeNavSectionIndex
-                : navIndex
-            ],
+            })[navIndex],
           };
         case "Hero":
           return {
@@ -107,11 +77,7 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
               buttonIndex,
               isMobile,
               handleTextClick,
-            })[
-              heroIndex !== undefined && changeHeroSectionIndex !== undefined
-                ? changeHeroSectionIndex
-                : heroIndex
-            ],
+            })[heroIndex],
           };
         case "Card Feature":
           return {
@@ -120,12 +86,7 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
               text,
               isMobile,
               handleTextClick,
-            })[
-              featuresWithCardIndex !== undefined &&
-              changeFeatureWithCardSectionIndex !== undefined
-                ? changeFeatureWithCardSectionIndex
-                : featuresWithCardIndex
-            ],
+            })[featuresWithCardIndex],
           };
         case "Classical Feature":
           return {
@@ -134,12 +95,7 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
               text,
               isMobile,
               handleTextClick,
-            })[
-              featuresIndex !== undefined &&
-              changeFeatureSectionIndex !== undefined
-                ? changeFeatureSectionIndex
-                : featuresIndex
-            ],
+            })[featuresIndex],
           };
         case "Testimonial":
           return {
@@ -148,12 +104,7 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
               text,
               isMobile,
               handleTextClick,
-            })[
-              testimonialIndex !== undefined &&
-              changeTestimonialSectionIndex !== undefined
-                ? changeTestimonialSectionIndex
-                : testimonialIndex
-            ],
+            })[testimonialIndex],
           };
         case "FAQ":
           return {
@@ -162,11 +113,7 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
               text,
               isMobile,
               handleTextClick,
-            })[
-              faqIndex !== undefined && changeFAQSectionIndex !== undefined
-                ? changeFAQSectionIndex
-                : faqIndex
-            ],
+            })[faqIndex],
           };
         case "Team":
           return {
@@ -175,11 +122,7 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
               text,
               isMobile,
               handleTextClick,
-            })[
-              teamIndex !== undefined && changeTeamSectionIndex !== undefined
-                ? changeTeamSectionIndex
-                : teamIndex
-            ],
+            })[teamIndex],
           };
         case "Footer":
           return {
@@ -188,12 +131,7 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
               text,
               isMobile,
               handleTextClick,
-            })[
-              footerIndex !== undefined &&
-              changeFooterSectionIndex !== undefined
-                ? changeFooterSectionIndex
-                : footerIndex
-            ],
+            })[footerIndex],
           };
         default:
           return null;
@@ -201,84 +139,42 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
     });
 
     setElements(updatedElements);
-  }, [
-    buttons,
-    changeNavSectionIndex,
-    changeHeroSectionIndex,
-    changeFeatureWithCardSectionIndex,
-    changeFeatureSectionIndex,
-    changeFAQSectionIndex,
-    changeTeamSectionIndex,
-    changeTestimonialSectionIndex,
-    changeContactSectionIndex,
-    changeFooterSectionIndex,
-    handleGenerateNav,
-  ]);
-
-
+  }, [handleGenerateNav]);
 
   const handleElementClick = (idx) => {
     setDisplayEditModal(true);
     handleScroll(idx);
+    const buttonType = buttons[idx].split("-")[0];
+    setCurrentSection(buttonType);
 
-    // Use the updated button text for the clicked index
-    const buttonText = buttons[idx].split("-")[0];
-
-    switch (buttonText) {
+    switch (buttonType) {
       case "Header":
         setChangeSectionHeaderText("Header");
         setIsPattern(false);
-        setChangeSection(
-          <HeaderImages setChangeSectionIndex={setChangeNavSectionIndex} />
-        );
         break;
       case "Hero":
         setChangeSectionHeaderText("Hero");
         setIsPattern(false);
-        setChangeSection(
-          <HeroImages setChangeSectionIndex={setChangeHeroSectionIndex} />
-        );
         break;
       case "Card Feature":
         setChangeSectionHeaderText("Card Feature");
         setIsPattern(false);
-        setChangeSection(
-          <CardFeaturesImages
-            setChangeSectionIndex={setChangeFeatureWithCardSectionIndex}
-          />
-        );
         break;
       case "Classical Feature":
         setChangeSectionHeaderText("Classical Feature");
         setIsPattern(false);
-        setChangeSection(
-          <ClassicalFeaturesImages
-            setChangeSectionIndex={setChangeFeatureSectionIndex}
-          />
-        );
         break;
       case "Testimonial":
         setChangeSectionHeaderText("Testimonial");
         setIsPattern(false);
-        setChangeSection(
-          <TestimonialImages
-            setChangeSectionIndex={setChangeTestimonialSectionIndex}
-          />
-        );
         break;
       case "FAQ":
         setChangeSectionHeaderText("FAQ");
         setIsPattern(false);
-        setChangeSection(
-          <FAQImages setChangeSectionIndex={setChangeFAQSectionIndex} />
-        );
         break;
       case "Team":
         setChangeSectionHeaderText("Team");
         setIsPattern(false);
-        setChangeSection(
-          <TeamImages setChangeSectionIndex={setChangeTeamSectionIndex} />
-        );
         break;
       default:
         setChangeSectionHeaderText("");
@@ -286,7 +182,6 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
         break;
     }
   };
-
 
   return (
     <div className="">
@@ -318,15 +213,6 @@ export const Button = ({
   setDisplayEditModal,
   setChangeSection,
   setChangeSectionHeaderText,
-  setChangeNavSectionIndex,
-  setChangeHeroSectionIndex,
-  setChangeFeatureWithCardSectionIndex,
-  setChangeFeatureSectionIndex,
-  setChangeFAQSectionIndex,
-  setChangeTeamSectionIndex,
-  setChangeTestimonialSectionIndex,
-  setChangeContactSectionIndex,
-  setChangeFooterSectionIndex,
   setIsPattern,
   handleScroll,
   buttons,
@@ -335,6 +221,7 @@ export const Button = ({
   moveButton,
   duplicateButton,
   deleteButton,
+  setCurrentSection,
 }) => {
   const ref = useRef(null);
 
@@ -386,69 +273,36 @@ export const Button = ({
   const handleClick = (index) => {
     setIsPattern(true);
     setDisplayEditModal(true);
-    const buttonText = buttons[index].split("-")[0]; // Extract the button type
-
-    switch (buttonText) {
+    const buttonType = buttons[index].split("-")[0];
+    setChangeSectionHeaderText(buttonType);
+    setCurrentSection(buttonType);
+    handleScroll(index);
+    switch (index) {
       case "Header":
         setChangeSectionHeaderText("Header");
-        handleScroll(index);
-        setChangeSection(
-          <HeaderImages setChangeSectionIndex={setChangeNavSectionIndex} />
-        );
         break;
       case "Hero":
         setChangeSectionHeaderText("Hero");
-        handleScroll(index);
-        setChangeSection(
-          <HeroImages setChangeSectionIndex={setChangeHeroSectionIndex} />
-        );
         break;
       case "Card Feature":
         setChangeSectionHeaderText("Card Feature");
-        handleScroll(index);
-        setChangeSection(
-          <CardFeaturesImages
-            setChangeSectionIndex={setChangeFeatureWithCardSectionIndex}
-          />
-        );
         break;
       case "Classical Feature":
         setChangeSectionHeaderText("Classical Feature");
-        handleScroll(index);
-        setChangeSection(
-          <ClassicalFeaturesImages
-            setChangeSectionIndex={setChangeFeatureSectionIndex}
-          />
-        );
         break;
       case "Testimonial":
         setChangeSectionHeaderText("Testimonial");
-        handleScroll(index);
-        setChangeSection(
-          <TestimonialImages
-            setChangeSectionIndex={setChangeTestimonialSectionIndex}
-          />
-        );
         break;
       case "FAQ":
         setChangeSectionHeaderText("FAQ");
-        handleScroll(index);
-        setChangeSection(
-          <FAQImages setChangeSectionIndex={setChangeFAQSectionIndex} />
-        );
         break;
       case "Team":
         setChangeSectionHeaderText("Team");
-        handleScroll(index);
-        setChangeSection(
-          <TeamImages setChangeSectionIndex={setChangeTeamSectionIndex} />
-        );
         break;
       default:
         break;
     }
   };
-
 
   return (
     <div className="relative">

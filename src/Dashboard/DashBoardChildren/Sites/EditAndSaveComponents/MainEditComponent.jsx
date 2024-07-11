@@ -9,21 +9,15 @@ const MainEditComponent = () => {
     setDisplayEditModal,
     setChangeSection,
     setChangeSectionHeaderText,
-    setChangeNavSectionIndex,
-    setChangeHeroSectionIndex,
-    setChangeFeatureWithCardSectionIndex,
-    setChangeFeatureSectionIndex,
-    setChangeFAQSectionIndex,
-    setChangeTeamSectionIndex,
-    setChangeTestimonialSectionIndex,
-    setChangeContactSectionIndex,
-    setChangeFooterSectionIndex,
     setIsPattern,
     handleScroll,
     buttons,
     moveButton,
     duplicateButton,
     deleteButton,
+    currentSection,
+    setCurrentSection,
+    setClickedIndex,
   } = useContext(EditContext);
   const [openMenuId, setOpenMenuId] = useState(null);
 
@@ -48,19 +42,6 @@ const MainEditComponent = () => {
               setDisplayEditModal={setDisplayEditModal}
               setChangeSection={setChangeSection}
               setChangeSectionHeaderText={setChangeSectionHeaderText}
-              setChangeNavSectionIndex={setChangeNavSectionIndex}
-              setChangeHeroSectionIndex={setChangeHeroSectionIndex}
-              setChangeFeatureWithCardSectionIndex={
-                setChangeFeatureWithCardSectionIndex
-              }
-              setChangeFeatureSectionIndex={setChangeFeatureSectionIndex}
-              setChangeFAQSectionIndex={setChangeFAQSectionIndex}
-              setChangeTeamSectionIndex={setChangeTeamSectionIndex}
-              setChangeTestimonialSectionIndex={
-                setChangeTestimonialSectionIndex
-              }
-              setChangeContactSectionIndex={setChangeContactSectionIndex}
-              setChangeFooterSectionIndex={setChangeFooterSectionIndex}
               setIsPattern={setIsPattern}
               handleScroll={handleScroll}
               buttons={buttons}
@@ -68,6 +49,9 @@ const MainEditComponent = () => {
               toggleMenu={toggleMenu}
               duplicateButton={duplicateButton}
               deleteButton={deleteButton}
+              currentSection={currentSection}
+              setCurrentSection={setCurrentSection}
+              setClickedIndex={setClickedIndex}
             />
           ))}
         </DndProvider>

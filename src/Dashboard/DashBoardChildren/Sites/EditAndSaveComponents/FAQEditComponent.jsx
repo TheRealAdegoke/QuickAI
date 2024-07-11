@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import FAQImage0 from "../../../../assets/FAQImage/FAQImage0.webp";
 import FAQImage1 from "../../../../assets/FAQImage/FAQImage1.webp";
 import FAQImage2 from "../../../../assets/FAQImage/FAQImage2.webp";
 import FAQImage3 from "../../../../assets/FAQImage/FAQImage3.webp";
+import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
-export const FAQImages = ({
-  setChangeSectionIndex,
-}) => {
+export const FAQImages = () => {
+  const { setFaqIndex } = useContext(DashContext);
   const images = [
     {
       index: 0,
@@ -35,7 +35,7 @@ export const FAQImages = ({
               key={idx}
               className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] cursor-pointer"
               onClick={() => {
-                setChangeSectionIndex(item.index);
+                setFaqIndex(item.index);
               }}
             >
               <img src={item.image} alt="" className="rounded-[8px] w-full" />
