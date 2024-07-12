@@ -66,7 +66,6 @@ const EditAndSaveProvider = ({ children }) => {
     setElements((prevElements) => [...prevElements, newElement]);
   };
 
-
   const deleteButton = (index) => {
     const updatedButtons = [...buttons];
     updatedButtons.splice(index, 1);
@@ -76,7 +75,6 @@ const EditAndSaveProvider = ({ children }) => {
     updatedElements.splice(index, 1);
     setElements(updatedElements);
   };
-  
 
   return (
     <EditContext.Provider

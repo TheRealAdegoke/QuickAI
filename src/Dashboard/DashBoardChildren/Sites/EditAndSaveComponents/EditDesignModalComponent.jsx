@@ -74,15 +74,19 @@ const EditDesignModalComponent = () => {
           <div>
             {isPattern ? (
               <div className="flex flex-wrap gap-3 justify-evenly px-2">
-                {currentSection === "Header" && <HeaderImages />}
-                {currentSection === "Hero" && <HeroImages />}
-                {currentSection === "Card Feature" && <CardFeaturesImages />}
-                {currentSection === "Classical Feature" && (
+                {currentSection.includes("Header") && <HeaderImages />}
+                {currentSection.includes("Hero") && <HeroImages />}
+                {currentSection.includes("Card Feature") && (
+                  <CardFeaturesImages />
+                )}
+                {currentSection.includes("Classical Feature") && (
                   <ClassicalFeaturesImages />
                 )}
-                {currentSection === "Testimonial" && <TestimonialImages />}
-                {currentSection === "FAQ" && <FAQImages />}
-                {currentSection === "Team" && <TeamImages />}
+                {currentSection.includes("Testimonial") && (
+                  <TestimonialImages />
+                )}
+                {currentSection.includes("FAQ") && <FAQImages />}
+                {currentSection.includes("Team") && <TeamImages />}
               </div>
             ) : (
               <div className="w-full p-3">
