@@ -8,9 +8,11 @@ import HeroImage5 from "../../../../assets/HeroImages/HeroImage5.webp";
 import HeroImage6 from "../../../../assets/HeroImages/HeroImage6.webp";
 import HeroImage7 from "../../../../assets/HeroImages/HeroImage7.webp";
 import { DashContext } from "../../../DashboardChecker/DashboardContext";
+import { EditContext } from "./EditAndSaveContext/EditAndContext";
 
 export const HeroImages = () => {
   const { setHeroIndex } = useContext(DashContext);
+  const { setClickedIndex, clickedIndex } = useContext(EditContext);
 
   const images = [
     {
@@ -47,6 +49,11 @@ export const HeroImages = () => {
     },
   ];
 
+  const handleImageClick = (idx) => {
+    setHeroIndex(idx);
+    setClickedIndex(idx);
+  };
+
   return (
     <>
       {images.map(
@@ -55,9 +62,7 @@ export const HeroImages = () => {
             <div
               key={idx}
               className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] cursor-pointer"
-              onClick={() => {
-                setHeroIndex(item.index);
-              }}
+              onClick={() => handleImageClick(idx)}
             >
               <img
                 src={item.image}
