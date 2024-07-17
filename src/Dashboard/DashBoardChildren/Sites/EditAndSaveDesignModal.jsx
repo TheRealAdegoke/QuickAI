@@ -4,6 +4,7 @@ import { EditContext } from "./EditAndSaveComponents/EditAndSaveContext/EditAndC
 import { useDrag, useDrop } from "react-dnd";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { MdOutlineWeb } from "react-icons/md";
+import { MdFolder } from "react-icons/md";
 
 const EditAndSaveDesignModal = ({ elementRefs }) => {
   const {
@@ -317,15 +318,18 @@ export const Button = ({
           <MdOutlineWeb className="text-blue-600" />
           <span className="text-[rgba(255,255,255,0.8)] font-medium">{id}</span>
         </button>
-        <div
+        <div className="bg-[rgb(9,11,14)] p-1 rounded-[5px]">
+          <MdFolder />
+        </div>
+        {/* <div
           className="bg-[rgb(9,11,14)] p-1 rounded-[5px]"
           onClick={() => toggleMenu(id)}
         >
           <BsThreeDotsVertical />
-        </div>
+        </div> */}
       </div>
 
-      {openMenuId === id && (
+      {/* {openMenuId === id && (
         <div
           className={`bg-[rgb(9,11,14)] border-[1px] rounded-[8px] border-[rgba(255,255,255,0.3)] text-white px-3 py-1 flex flex-col items-start cursor-pointer mx-2 w-[150px] text-sm absolute right-0 top-11 z-50`}
         >
@@ -342,7 +346,7 @@ export const Button = ({
             Delete
           </button>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
