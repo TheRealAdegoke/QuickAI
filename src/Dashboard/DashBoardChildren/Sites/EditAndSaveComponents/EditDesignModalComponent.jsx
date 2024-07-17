@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import testImage from "../../../../assets/Default-Card.jpg";
 import { HeroImages } from "./HeroEditComponent";
@@ -10,6 +10,7 @@ import { ClassicalFeaturesImages } from "./ClassicalFeatureEditComponent";
 import { TestimonialImages } from "./TestimonialEditComponent";
 import { FAQImages } from "./FAQEditComponent";
 import { TeamImages } from "./TeamEditComponent";
+import ColorPickerComponent from "./ColorPicker";
 
 const EditDesignModalComponent = () => {
   const { textAreaContent, setTextAreaContent, selectedElement } =
@@ -21,6 +22,10 @@ const EditDesignModalComponent = () => {
     setIsPattern,
     currentSection,
   } = useContext(EditContext);
+  const [isContent, setIsContent] = useState(true);
+  const [color, setColor] = useState({ r: 102, g: 102, b: 102, a: 1 });
+  const [isGradient, setIsGradient] = useState(false);
+  const [isActive, setIsActive] = useState(0);
 
   const handleTextareaChange = (e) => {
     setTextAreaContent(e.target.value);
@@ -66,12 +71,12 @@ const EditDesignModalComponent = () => {
               setIsPattern(false);
             }}
           >
-            Design
+            Style
           </button>
         </div>
 
-        <div className="overflow-y-scroll h-[69vh]">
-          <div>
+        <div className="h-[69vh]">
+          <div className="overflow-y-scroll ">
             {isPattern ? (
               <div className="flex flex-wrap gap-3 justify-evenly px-2">
                 {currentSection.includes("Header") && <HeaderImages />}
@@ -89,14 +94,50 @@ const EditDesignModalComponent = () => {
                 {currentSection.includes("Team") && <TeamImages />}
               </div>
             ) : (
-              <div className="w-full p-3">
-                <textarea
-                  name=""
-                  id=""
-                  value={textAreaContent}
-                  onChange={handleTextareaChange}
-                  className="border-[rgba(255,255,255,0.5)] border-[1px] w-full h-[50px] bg-[rgb(37,39,45)] rounded-[5px] text-white"
-                ></textarea>
+              <div className="w-full py-3 pl-3 overflow-hidden">
+                <div className="flex justify-between mb-2 max-w-[200px] mx-auto text-[rgb(145,151,155)] font-medium px-3 py-1 rounded-[5px] text-sm">
+                  <button
+                    className={`${
+                      isContent ? "bg-[rgb(36,37,40)] rounded-[5px]" : ""
+                    } px-2 py-1`}
+                    onClick={() => {
+                      setIsContent(true);
+                    }}
+                  >
+                    Content
+                  </button>
+                  <button
+                    className={`${
+                      isContent ? "" : "bg-[rgb(36,37,40)] rounded-[5px]"
+                    } px-2 py-1`}
+                    onClick={() => {
+                      setIsContent(false);
+                    }}
+                  >
+                    Background
+                  </button>
+                </div>
+
+                {isContent ? (
+                  <textarea
+                    name=""
+                    id=""
+                    value={textAreaContent}
+                    onChange={handleTextareaChange}
+                    className="border-[rgba(255,255,255,0.5)] border-[1px] w-full h-[250px] max-h-[250px] min-h-[250px] bg-[rgb(37,39,45)] rounded-[5px] text-white p-2 outline-none"
+                  ></textarea>
+                ) : (
+                  <div className="mb-4">
+                    <ColorPickerComponent
+                      color={color}
+                      setColor={setColor}
+                      isGradient={isGradient}
+                      setIsGradient={setIsGradient}
+                      isActive={isActive}
+                      setIsActive={setIsActive}
+                    />
+                  </div>
+                )}
               </div>
             )}
           </div>
