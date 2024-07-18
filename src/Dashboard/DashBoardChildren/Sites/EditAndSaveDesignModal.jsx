@@ -44,6 +44,7 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
     handleScroll,
     buttons,
     setCurrentSection,
+    backgroundStyle,
   } = useContext(EditContext);
 
   useEffect(() => {
@@ -78,6 +79,7 @@ const EditAndSaveDesignModal = ({ elementRefs }) => {
               buttonIndex,
               isMobile,
               handleTextClick,
+              backgroundStyle,
             })[heroIndex],
           };
         case "Card Feature":

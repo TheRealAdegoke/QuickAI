@@ -1,12 +1,22 @@
 import { WebButtonsArray } from "./WebButtonsArray";
 import testImage from "../../assets/Default-Card.jpg";
 
-export const heroComponents = ({ text, buttonIndex, isMobile, handleTextClick }) => {
+export const heroComponents = ({
+  text,
+  buttonIndex,
+  isMobile,
+  handleTextClick,
+  backgroundStyle,
+}) => {
   const buttonElement = WebButtonsArray({ text, buttonIndex, handleTextClick })[
     buttonIndex
   ];
+
   return [
-    <section className="mb-[20px] py-10 px-5 bg-[rgb(26,26,26)]">
+    <section
+      className="mb-[20px] py-10 px-5"
+      style={{ background: backgroundStyle || "rgb(26,26,26)" }}
+    >
       <div className="flex justify-center gap-10 max-lg:flex-col">
         <div className={`${isMobile ? "hidden" : ""} max-lg:hidden w-[50%]`}>
           <h1
@@ -78,64 +88,66 @@ export const heroComponents = ({ text, buttonIndex, isMobile, handleTextClick })
         </div>
       </div>
     </section>,
-    <section
-      className={`${
-        isMobile ? "h-[750px] flex-col" : ""
-      } h-[600px] max-lg:h-[750px] my-5 flex lg:gap-8 lg:justify-evenly max-lg:flex-col max-w-[1200px] mx-auto lg:pl-5`}
-    >
+    <section style={{ background: backgroundStyle }}>
       <div
         className={`${
-          isMobile ? "w-[90%]" : ""
-        } text-[rgb(33,37,41)] w-[40%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
-      >
-        <h1
-          className="font-bold xl:text-5xl text-3xl mb-4"
-          onClick={(e) => handleTextClick(e.target)}
-        >
-          {text.heroHeaderText}
-        </h1>
-        <p className="font-medium" onClick={(e) => handleTextClick(e.target)}>
-          {text.description}
-        </p>
-        {buttonIndex !== undefined && buttonElement}
-      </div>
-      <div
-        className={`${
-          isMobile ? "w-full max-w-[500px] mx-auto" : ""
-        } relative w-[55%] h-full max-lg:w-full max-lg:max-w-[500px] max-lg:mx-auto`}
+          isMobile ? "h-[750px] flex-col" : ""
+        } h-[600px] max-lg:h-[750px] my-5 flex lg:gap-8 lg:justify-evenly max-lg:flex-col max-w-[1200px] mx-auto lg:pl-5`}
       >
         <div
           className={`${
-            isMobile ? "left-[35%] transform -translate-x-1/2" : ""
-          } w-[250px] h-[400px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3 mb-4 absolute top-2 max-lg:left-[35%] max-lg:transform max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:top-1/2 max-xl:top-2 max-xl:right-32 z-20`}
+            isMobile ? "w-[90%]" : ""
+          } text-[rgb(33,37,41)] w-[40%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
         >
-          <img
-            src={testImage}
-            alt={testImage}
-            className="h-[350px] rounded-[35px] object-cover"
-          />
+          <h1
+            className="font-bold xl:text-5xl text-3xl mb-4"
+            onClick={(e) => handleTextClick(e.target)}
+          >
+            {text.heroHeaderText}
+          </h1>
+          <p className="font-medium" onClick={(e) => handleTextClick(e.target)}>
+            {text.description}
+          </p>
+          {buttonIndex !== undefined && buttonElement}
         </div>
         <div
           className={`${
-            isMobile ? "left-[60%] transform -translate-x-1/2" : ""
-          } w-[260px] h-[480px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3 absolute max-lg:left-[60%] max-lg:transform max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:top-1/2 top-[7%] right-0 xl:right-[28%] z-10`}
+            isMobile ? "w-full max-w-[500px] mx-auto" : ""
+          } relative w-[55%] h-full max-lg:w-full max-lg:max-w-[500px] max-lg:mx-auto`}
         >
-          <img
-            src={testImage}
-            alt={testImage}
-            className="h-[420px] rounded-[35px] object-cover"
-          />
-        </div>
-        <div
-          className={`${
-            isMobile ? "hidden" : ""
-          } w-[260px] h-[450px] bg-[rgb(33,37,41)] rounded-[35px] px-3 py-3 absolute top-14 right-5 max-xl:hidden`}
-        >
-          <img
-            src={testImage}
-            alt={testImage}
-            className="h-full rounded-[35px] object-cover"
-          />
+          <div
+            className={`${
+              isMobile ? "left-[35%] transform -translate-x-1/2" : ""
+            } w-[250px] h-[400px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3 mb-4 absolute top-2 max-lg:left-[35%] max-lg:transform max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:top-1/2 max-xl:top-2 max-xl:right-32 z-20`}
+          >
+            <img
+              src={testImage}
+              alt={testImage}
+              className="h-[350px] rounded-[35px] object-cover"
+            />
+          </div>
+          <div
+            className={`${
+              isMobile ? "left-[60%] transform -translate-x-1/2" : ""
+            } w-[260px] h-[480px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3 absolute max-lg:left-[60%] max-lg:transform max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:top-1/2 top-[7%] right-0 xl:right-[28%] z-10`}
+          >
+            <img
+              src={testImage}
+              alt={testImage}
+              className="h-[420px] rounded-[35px] object-cover"
+            />
+          </div>
+          <div
+            className={`${
+              isMobile ? "hidden" : ""
+            } w-[260px] h-[450px] bg-[rgb(33,37,41)] rounded-[35px] px-3 py-3 absolute top-14 right-5 max-xl:hidden`}
+          >
+            <img
+              src={testImage}
+              alt={testImage}
+              className="h-full rounded-[35px] object-cover"
+            />
+          </div>
         </div>
       </div>
     </section>,
@@ -143,6 +155,7 @@ export const heroComponents = ({ text, buttonIndex, isMobile, handleTextClick })
       className={`${
         isMobile ? "flex-col" : ""
       } my-5 max-w-[1000px] mx-auto flex justify-center max-lg:flex-col`}
+      style={{ background: backgroundStyle }}
     >
       <div
         className={`${
@@ -177,6 +190,7 @@ export const heroComponents = ({ text, buttonIndex, isMobile, handleTextClick })
       className={`${
         isMobile ? "flex-col" : ""
       } my-5 max-w-[1000px] mx-auto flex flex-row-reverse justify-center max-lg:flex-col`}
+      style={{ background: backgroundStyle }}
     >
       <div
         className={`${
@@ -211,6 +225,7 @@ export const heroComponents = ({ text, buttonIndex, isMobile, handleTextClick })
       className={`${
         isMobile ? "flex-col-reverse" : ""
       } my-5 max-w-[1200px] mx-auto flex justify-center max-lg:flex-col-reverse`}
+      style={{ background: backgroundStyle }}
     >
       <div
         className={`${
@@ -245,6 +260,7 @@ export const heroComponents = ({ text, buttonIndex, isMobile, handleTextClick })
       className={`${
         isMobile ? "flex-col-reverse" : ""
       } my-5 max-w-[1200px] mx-auto flex flex-row-reverse justify-center max-lg:flex-col-reverse`}
+      style={{ background: backgroundStyle }}
     >
       <div
         className={`${
@@ -279,6 +295,7 @@ export const heroComponents = ({ text, buttonIndex, isMobile, handleTextClick })
       className={`${
         isMobile ? "flex-col" : ""
       } my-5 max-w-[1200px] mx-auto flex justify-center gap-5 max-lg:flex-col`}
+      style={{ background: backgroundStyle }}
     >
       <div className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full`}>
         <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
@@ -325,6 +342,7 @@ export const heroComponents = ({ text, buttonIndex, isMobile, handleTextClick })
       className={`${
         isMobile ? "flex-col w-[90%] max-w-[600px]" : ""
       } mt-10 flex max-lg:flex-col max-lg:w-[90%] items-center justify-between lg:px-5 max-w-[1000px] mx-auto max-lg:max-w-[600px]`}
+      style={{ background: backgroundStyle }}
     >
       <div
         className={`${isMobile ? "w-full" : ""} mb-10 w-[50%] max-lg:w-full`}

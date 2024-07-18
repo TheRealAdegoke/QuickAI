@@ -27,6 +27,13 @@ const EditAndSaveProvider = ({ children }) => {
   ]);
   const [elements, setElements] = useState([]);
   const [currentSection, setCurrentSection] = useState(null);
+  const [isGradient, setIsGradient] = useState(false);
+  const [color1, setColor1] = useState({ r: 255, g: 255, b: 255, a: 1 });
+  const [color2, setColor2] = useState({ r: 255, g: 255, b: 255, a: 1 });
+  const [hex1, setHex1] = useState("#ffffff");
+  const [hex2, setHex2] = useState("#ffffff");
+  const [inputValue, setInputValue] = useState("ffffff");
+  const [isActive, setIsActive] = useState(0);
 
   const handleScroll = (idx) => {
     setScrollIdx(idx);
@@ -76,6 +83,10 @@ const EditAndSaveProvider = ({ children }) => {
     setElements(updatedElements);
   };
 
+  const backgroundStyle = isGradient
+    ? `linear-gradient(90deg, ${hex1} 0%, ${hex2} 100%)`
+    : hex1;
+
   return (
     <EditContext.Provider
       value={{
@@ -88,6 +99,9 @@ const EditAndSaveProvider = ({ children }) => {
         clickedIndex,
         buttons,
         elements,
+        currentSection,
+        backgroundStyle,
+        isGradient,
         setDisplayEditModal,
         setChangeSectionHeaderText,
         setIsPattern,
@@ -98,8 +112,20 @@ const EditAndSaveProvider = ({ children }) => {
         duplicateButton,
         deleteButton,
         setElements,
-        currentSection,
         setCurrentSection,
+        setIsGradient,
+        color1,
+        setColor1,
+        color2,
+        setColor2,
+        hex1,
+        setHex1,
+        hex2,
+        setHex2,
+        inputValue,
+        setInputValue,
+        isActive,
+        setIsActive,
       }}
     >
       {children}
