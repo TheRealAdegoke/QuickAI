@@ -21,11 +21,24 @@ const EditDesignModalComponent = () => {
     isPattern,
     setIsPattern,
     currentSection,
+    setBackgroundStyle,
+    isGradient,
+    setIsGradient,
+    color1,
+    setColor1,
+    color2,
+    setColor2,
+    hex1,
+    setHex1,
+    hex2,
+    setHex2,
+    inputValue,
+    setInputValue,
+    isActive,
+    setIsActive,
+    backgroundStyle,
   } = useContext(EditContext);
   const [isContent, setIsContent] = useState(true);
-  const [color, setColor] = useState({ r: 102, g: 102, b: 102, a: 1 });
-  const [isGradient, setIsGradient] = useState(false);
-  const [isActive, setIsActive] = useState(0);
 
   const handleTextareaChange = (e) => {
     setTextAreaContent(e.target.value);
@@ -129,12 +142,22 @@ const EditDesignModalComponent = () => {
                 ) : (
                   <div className="mb-4">
                     <ColorPickerComponent
-                      color={color}
-                      setColor={setColor}
+                      color1={color1}
+                      setColor1={setColor1}
                       isGradient={isGradient}
                       setIsGradient={setIsGradient}
                       isActive={isActive}
                       setIsActive={setIsActive}
+                      color2={color2}
+                      setColor2={setColor2}
+                      hex1={hex1}
+                      setHex1={setHex1}
+                      hex2={hex2}
+                      setHex2={setHex2}
+                      inputValue={inputValue}
+                      setInputValue={setInputValue}
+                      backgroundStyle={backgroundStyle}
+                      setTextAreaContent={setTextAreaContent}
                     />
                   </div>
                 )}

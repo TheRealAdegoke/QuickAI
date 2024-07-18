@@ -2,15 +2,23 @@ import React, { useEffect, useState } from "react";
 import { RgbaColorPicker } from "react-colorful";
 import { hexToRgba, rgbaToHex } from "./ColorUtils";
 
-const ColorPickerComponent = () => {
-  const [color1, setColor1] = useState({ r: 102, g: 102, b: 102, a: 1 });
-  const [color2, setColor2] = useState({ r: 102, g: 102, b: 102, a: 1 });
-  const [hex1, setHex1] = useState("#666666");
-  const [hex2, setHex2] = useState("#666666");
-  const [inputValue, setInputValue] = useState("666666");
-  const [isGradient, setIsGradient] = useState(false);
-  const [isActive, setIsActive] = useState(0);
-
+const ColorPickerComponent = ({
+  backgroundStyle,
+  isGradient,
+  setIsGradient,
+  color1,
+  setColor1,
+  color2,
+  setColor2,
+  hex1,
+  setHex1,
+  hex2,
+  setHex2,
+  inputValue,
+  setInputValue,
+  isActive,
+  setIsActive,
+}) => {
   useEffect(() => {
     if (isActive === 0) {
       setHex1(rgbaToHex(color1));
@@ -52,10 +60,6 @@ const ColorPickerComponent = () => {
       }
     }
   };
-
-  const backgroundStyle = isGradient
-    ? `linear-gradient(90deg, ${hex1} 0%, ${hex2} 100%)`
-    : hex1;
 
   return (
     <section className="bg-[rgb(36,37,40)] py-5 rounded-[8px] px-2">
@@ -140,10 +144,10 @@ const ColorPickerComponent = () => {
         </div>
       </div>
 
-      {/* <div
+      <div
         className={`w-[400px] h-[400px]`}
         style={{ background: backgroundStyle }}
-      ></div> */}
+      ></div>
     </section>
   );
 };
