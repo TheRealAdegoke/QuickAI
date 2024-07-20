@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import testImage from "../../../../assets/Default-Card.jpg";
 import { HeroImages } from "./HeroEditComponent";
@@ -47,6 +47,15 @@ const EditDesignModalComponent = () => {
     }
   };
 
+  useEffect(() => {
+    let background = isGradient
+      ? `linear-gradient(90deg, ${hex1} 0%, ${hex2} 100%)`
+      : hex1;
+
+    setTextAreaContent(background);
+    setBackgroundStyle(background);
+  }, [isGradient, hex1, hex2]);
+
   return (
     <>
       <div className={`flex flex-col justify-between gap-3 pt-4`}>
@@ -82,6 +91,7 @@ const EditDesignModalComponent = () => {
             } h-[40px]`}
             onClick={() => {
               setIsPattern(false);
+              setTextAreaContent("");
             }}
           >
             Style
@@ -115,6 +125,7 @@ const EditDesignModalComponent = () => {
                     } px-2 py-1`}
                     onClick={() => {
                       setIsContent(true);
+                      setTextAreaContent("")
                     }}
                   >
                     Content
@@ -125,6 +136,7 @@ const EditDesignModalComponent = () => {
                     } px-2 py-1`}
                     onClick={() => {
                       setIsContent(false);
+                      setTextAreaContent("")
                     }}
                   >
                     Background

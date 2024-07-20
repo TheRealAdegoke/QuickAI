@@ -34,6 +34,7 @@ const EditAndSaveProvider = ({ children }) => {
   const [hex2, setHex2] = useState("#ffffff");
   const [inputValue, setInputValue] = useState("ffffff");
   const [isActive, setIsActive] = useState(0);
+  const [backgroundStyle, setBackgroundStyle] = useState("")
 
   const handleScroll = (idx) => {
     setScrollIdx(idx);
@@ -83,9 +84,6 @@ const EditAndSaveProvider = ({ children }) => {
     setElements(updatedElements);
   };
 
-  const backgroundStyle = isGradient
-    ? `linear-gradient(90deg, ${hex1} 0%, ${hex2} 100%)`
-    : hex1;
 
   return (
     <EditContext.Provider
@@ -126,6 +124,7 @@ const EditAndSaveProvider = ({ children }) => {
         setInputValue,
         isActive,
         setIsActive,
+        setBackgroundStyle,
       }}
     >
       {children}
