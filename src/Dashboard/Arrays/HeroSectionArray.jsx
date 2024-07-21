@@ -6,16 +6,20 @@ export const heroComponents = ({
   buttonIndex,
   isMobile,
   handleTextClick,
-  backgroundStyle,
+  backgroundStyle
 }) => {
   const buttonElement = WebButtonsArray({ text, buttonIndex, handleTextClick })[
     buttonIndex
   ];
 
+
   return [
     <section
       className="mb-[20px] py-10 px-5"
       style={{ background: backgroundStyle || "rgb(26,26,26)" }}
+      onClick={() => {
+        console.log("Background from hero: ", backgroundStyle);
+      }}
     >
       <div className="flex justify-center gap-10 max-lg:flex-col">
         <div className={`${isMobile ? "hidden" : ""} max-lg:hidden w-[50%]`}>
