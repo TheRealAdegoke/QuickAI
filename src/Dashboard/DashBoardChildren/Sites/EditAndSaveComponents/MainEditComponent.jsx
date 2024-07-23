@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import { EditContext } from "./EditAndSaveContext/EditAndContext";
 import { Button } from "../EditAndSaveDesignModal";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
 const MainEditComponent = () => {
   const {
@@ -10,20 +10,12 @@ const MainEditComponent = () => {
     setChangeSection,
     setChangeSectionHeaderText,
     setIsPattern,
-    handleScroll,
     buttons,
-    moveButton,
-    duplicateButton,
-    deleteButton,
     currentSection,
     setCurrentSection,
     setClickedIndex,
-  } = useContext(EditContext);
-  const [openMenuId, setOpenMenuId] = useState(null);
+  } = useContext(DashContext);
 
-  const toggleMenu = (id) => {
-    setOpenMenuId(openMenuId === id ? null : id);
-  };
 
   return (
     <>
@@ -38,17 +30,11 @@ const MainEditComponent = () => {
               key={`${id}-${index}`}
               id={id}
               index={index}
-              moveButton={moveButton}
               setDisplayEditModal={setDisplayEditModal}
               setChangeSection={setChangeSection}
               setChangeSectionHeaderText={setChangeSectionHeaderText}
               setIsPattern={setIsPattern}
-              handleScroll={handleScroll}
               buttons={buttons}
-              openMenuId={openMenuId}
-              toggleMenu={toggleMenu}
-              duplicateButton={duplicateButton}
-              deleteButton={deleteButton}
               currentSection={currentSection}
               setCurrentSection={setCurrentSection}
               setClickedIndex={setClickedIndex}

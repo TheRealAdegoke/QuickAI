@@ -144,10 +144,10 @@ const ColorPickerComponent = ({
         </div>
       </div>
 
-      <div
+      {/* <div
         className={`w-[400px] h-[400px]`}
         style={{ background: backgroundStyle }}
-      ></div>
+      ></div> */}
     </section>
   );
 };

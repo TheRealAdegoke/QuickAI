@@ -36,7 +36,6 @@ import {
   hexToRgba,
   rgbaToHex,
 } from "../DashBoardChildren/Sites/EditAndSaveComponents/ColorUtils";
-import { EditContext } from "../DashBoardChildren/Sites/EditAndSaveComponents/EditAndSaveContext/EditAndContext";
 
 const TestDesignModal = () => {
   const {
@@ -67,100 +66,14 @@ const TestDesignModal = () => {
     buttonIndex,
     isMobile,
     setIsMobile,
-  } = useContext(DashContext);
-  const {
+    handleTextClick,
     backgroundStyle,
-  } = useContext(EditContext);
-  const [textAreaContent, setTextAreaContent] = useState("");
-  const [selectedElement, setSelectedElement] = useState(null);
-  const resizableRef = useRef(null);
-  const [isResizingRight, setIsResizingRight] = useState(false);
-  const [isResizingLeft, setIsResizingLeft] = useState(false);
-  const [initialWidth, setInitialWidth] = useState(0);
-  const [initialX, setInitialX] = useState(0);
-  const [deviceWidth, setDeviceWidth] = useState(window.innerWidth);
+    isFocused,
+    handleFocus,
+    handleBlur,
+  } = useContext(DashContext);
 
-  // const handleMobileToggle = () => {
-  //   setIsMobile(!isMobile);
-  // };
 
-  const handleTextClick = (element) => {
-    setSelectedElement(element);
-    setTextAreaContent(element.innerText);
-  };
-
-  const handleTextareaChange = (e) => {
-    setTextAreaContent(e.target.value);
-    if (selectedElement) {
-      selectedElement.innerText = e.target.value;
-    }
-  };
-
-  const isLargeScreen = () => window.innerWidth >= 1024;
-
-  useEffect(() => {
-    const handleResize = () => {
-      setDeviceWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const handleMouseDownRight = (e) => {
-    if (isLargeScreen()) {
-      setIsResizingRight(true);
-      setInitialWidth(resizableRef.current.clientWidth);
-      setInitialX(e.clientX);
-    }
-  };
-
-  const handleMouseDownLeft = (e) => {
-    if (isLargeScreen()) {
-      setIsResizingLeft(true);
-      setInitialWidth(resizableRef.current.clientWidth);
-      setInitialX(e.clientX);
-    }
-  };
-
-  const handleMouseMove = (e) => {
-    if (isResizingRight) {
-      const deltaX = e.clientX - initialX;
-      const newWidth = initialWidth + deltaX;
-      if (newWidth >= 270) {
-        resizableRef.current.style.width = `${newWidth}px`;
-      } if (newWidth < 1024) {
-        setIsMobile(true);
-      } else {
-        setIsMobile(false);
-      }
-    } else if (isResizingLeft) {
-      const deltaX = initialX - e.clientX;
-      const newWidth = initialWidth + deltaX;
-      if (newWidth >= 270) {
-        resizableRef.current.style.width = `${newWidth}px`;
-      } if (newWidth < 1024) {
-        setIsMobile(true);
-      } else {
-        setIsMobile(false);
-      }
-    }
-  };
-
-  const handleMouseUp = () => {
-    setIsResizingRight(false);
-    setIsResizingLeft(false);
-  };
-
-  useEffect(() => {
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseup", handleMouseUp);
-
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
-    };
-  }, [isResizingRight, isResizingLeft]);
 
   const navElement = navComponents({
     text,
@@ -168,49 +81,102 @@ const TestDesignModal = () => {
     isMobile,
     handleTextClick,
   })[0];
-  const element = testimonialComponent({
+  const element = heroComponents({
     text,
     buttonIndex,
     isMobile,
     handleTextClick,
-  })[8];
+    isFocused,
+    handleFocus,
+    handleBlur,
+  })[4];
 
   return (
-    <main
-      className="bg-[blue] w-full mt-5 max-md:mt-0 mx-10 h-[93vh] max-md:h-[89vh] max-[499px]:mx-4 overflow-scroll overflow-x-hidden pt-14 select-none"
-      style={{ background: backgroundStyle }}
-    >
-      <div>
-        <textarea
-          name=""
-          id=""
-          value={textAreaContent}
-          onChange={handleTextareaChange}
-          className="border-red-950 border-2 text-black w-[300px] h-[50px] fixed"
-        ></textarea>
-      </div>
+    <main className="bg-white w-full mt-5 max-md:mt-0 mx-10 h-[93vh] max-md:h-[89vh] max-[499px]:mx-4 overflow-scroll overflow-x-hidden pt-14 select-none">
+      {element}
 
-      <div className="min-h-screen flex flex-col items-center gap-6 px-10 mt-16">
+      {/* <section style={{ background: backgroundStyle }}>
         <div
-          ref={resizableRef}
-          className="bg-white rounded-xl border-[1px] w-[90%] h-[500px] mx-auto relative"
+          className={`${
+            isMobile ? "h-[750px] flex-col" : ""
+          } h-[600px] max-lg:h-[750px] my-5 flex lg:gap-8 lg:justify-evenly max-lg:flex-col max-w-[1200px] mx-auto lg:pl-5`}
         >
           <div
-            className="absolute top-1/2 right-[-9px] transform -translate-x-1/2 -translate-y-1/2  w-2 h-[50px] cursor-ew-resize bg-[rgba(0,0,0,0.8)] rounded-t-[8px] rounded-b-[8px] max-lg:hidden z-50"
-            onMouseDown={handleMouseDownRight}
-          ></div>
+            className={`${
+              isMobile ? "w-[90%]" : ""
+            } text-[rgb(33,37,41)] w-[40%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
+          >
+            <h1
+              className={`font-bold xl:text-5xl text-3xl mb-4 outline-none ${
+                isFocused
+                  ? ""
+                  : "hover:border-[2px] hover:border-[rgb(0,111,173)]"
+              }`}
+              data-text="Heading"
+              contentEditable
+              suppressContentEditableWarning
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+            >
+              {text.heroHeaderText}
+            </h1>
+            <p
+              className={`font-medium outline-none ${
+                isFocused
+                  ? ""
+                  : "hover:border-[2px] hover:border-[rgb(0,111,173)]"
+              }`}
+              data-text="Type a paragraph"
+              contentEditable
+              suppressContentEditableWarning
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+            >
+              {text.description}
+            </p>
+            {buttonIndex !== undefined && buttonElement}
+          </div>
           <div
-            className="absolute top-1/2 left-[0px]  transform -translate-x-1/2 -translate-y-1/2 w-2 h-[50px] cursor-ew-resize bg-[rgba(0,0,0,0.8)] rounded-t-[8px] rounded-b-[8px] max-lg:hidden z-50"
-            onMouseDown={handleMouseDownLeft}
-          ></div>
-          <div className="overflow-y-scroll h-full">
-            {navElement}
-            {element}
+            className={`${
+              isMobile ? "w-full max-w-[500px] mx-auto" : ""
+            } relative w-[55%] h-full max-lg:w-full max-lg:max-w-[500px] max-lg:mx-auto`}
+          >
+            <div
+              className={`${
+                isMobile ? "left-[35%] transform -translate-x-1/2" : ""
+              } w-[250px] h-[400px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3 mb-4 absolute top-2 max-lg:left-[35%] max-lg:transform max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:top-1/2 max-xl:top-2 max-xl:right-32 z-20`}
+            >
+              <img
+                src={testImage}
+                alt={testImage}
+                className="h-[350px] rounded-[35px] object-cover"
+              />
+            </div>
+            <div
+              className={`${
+                isMobile ? "left-[60%] transform -translate-x-1/2" : ""
+              } w-[260px] h-[480px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3 absolute max-lg:left-[60%] max-lg:transform max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:top-1/2 top-[7%] right-0 xl:right-[28%] z-10`}
+            >
+              <img
+                src={testImage}
+                alt={testImage}
+                className="h-[420px] rounded-[35px] object-cover"
+              />
+            </div>
+            <div
+              className={`${
+                isMobile ? "hidden" : ""
+              } w-[260px] h-[450px] bg-[rgb(33,37,41)] rounded-[35px] px-3 py-3 absolute top-14 right-5 max-xl:hidden`}
+            >
+              <img
+                src={testImage}
+                alt={testImage}
+                className="h-full rounded-[35px] object-cover"
+              />
+            </div>
           </div>
         </div>
-      </div>
-      {/* {element} */}
-      <PickerComponent />
+      </section> */}
     </main>
   );
 };
@@ -219,155 +185,86 @@ export default TestDesignModal;
 
 
 
-export const PickerComponent = () => {
-  const {
-    backgroundStyle,
-    isGradient,
-    setIsGradient,
-    color1,
-    setColor1,
-    color2,
-    setColor2,
-    hex1,
-    setHex1,
-    hex2,
-    setHex2,
-    inputValue,
-    setInputValue,
-    isActive,
-    setIsActive,
-  } = useContext(EditContext);
-  useEffect(() => {
-    if (isActive === 0) {
-      setHex1(rgbaToHex(color1));
-    } else {
-      setHex2(rgbaToHex(color2));
-    }
-  }, [color1, color2, isActive]);
 
-  useEffect(() => {
-    if (isActive === 0) {
-      setInputValue(hex1.slice(1)); // remove '#' for input value
-    } else {
-      setInputValue(hex2.slice(1));
-    }
-  }, [hex1, hex2, isActive]);
 
-  const handleColorChange = (newColor) => {
-    if (isActive === 0) {
-      setColor1(newColor);
-    } else {
-      setColor2(newColor);
-    }
-  };
 
-  const handleHexChange = (e) => {
-    const newHex = e.target.value;
-    // Remove non-alphanumeric characters and limit to 6 characters
-    const sanitizedHex = newHex.replace(/[^a-fA-F0-9]/g, "").slice(0, 6);
-    setInputValue(sanitizedHex);
 
-    // Validate HEX format before updating the color state
-    if (/^[0-9A-Fa-f]{6}$/.test(sanitizedHex)) {
-      if (isActive === 0) {
-        setHex1(`#${sanitizedHex}`);
-        setColor1(hexToRgba(`#${sanitizedHex}`));
-      } else {
-        setHex2(`#${sanitizedHex}`);
-        setColor2(hexToRgba(`#${sanitizedHex}`));
-      }
-    }
-  };
+// import React, {
+//   createContext,
+//   useContext,
+//   useEffect,
+//   useRef,
+//   useState,
+// } from "react";
 
-  return (
-    <section className="bg-[rgb(36,37,40)] py-5 rounded-[8px] px-2 w-[500px] h-[400px]">
-      <div
-        className={`${
-          isGradient ? "block" : "hidden"
-        } flex justify-between mb-2 max-w-[200px] mx-auto`}
-      >
-        <button
-          className={`${
-            isActive === 0 ? "border-[2px]" : "border-[1px]"
-          } w-[30px] h-[30px] flex justify-center items-center`}
-          onClick={() => {
-            setIsActive(0);
-          }}
-        >
-          <span
-            className="w-[20px] h-[20px]"
-            style={{ backgroundColor: hex1 }}
-          ></span>
-        </button>
+// export const EditContext = createContext();
 
-        <button
-          className={`${
-            isActive === 1 ? "border-[2px]" : "border-[1px]"
-          } w-[30px] h-[30px] flex justify-center items-center`}
-          onClick={() => {
-            setIsActive(1);
-          }}
-        >
-          <span
-            className="w-[20px] h-[20px]"
-            style={{ backgroundColor: hex2 }}
-          ></span>
-        </button>
-      </div>
+// const EditAndSaveProvider = ({ children }) => {
+//   const elementRefs = useRef([]);
+//   const scrollableDivRef = useRef(null);
+//   const [displayEditModal, setDisplayEditModal] = useState(false);
+//   const [changeSectionHeaderText, setChangeSectionHeaderText] = useState("");
+//   const [isPattern, setIsPattern] = useState(true);
+//   const [clickedIndex, setClickedIndex] = useState(null);
+//   const [elements, setElements] = useState([]);
+//   const [currentSection, setCurrentSection] = useState(null);
+//   const [isGradient, setIsGradient] = useState(false);
+//   const [color1, setColor1] = useState({ r: 255, g: 255, b: 255, a: 1 });
+//   const [color2, setColor2] = useState({ r: 255, g: 255, b: 255, a: 1 });
+//   const [hex1, setHex1] = useState("#ffffff");
+//   const [hex2, setHex2] = useState("#ffffff");
+//   const [inputValue, setInputValue] = useState("ffffff");
+//   const [isActive, setIsActive] = useState(0);
+//   const [isFocused, setIsFocused] = useState(false);
+//   const buttons = [
+//     "Header",
+//     "Hero",
+//     "Card Feature",
+//     "Classical Feature",
+//     "Testimonial",
+//     "FAQ",
+//     "Team",
+//   ];
 
-      <div className="flex justify-between mb-2 max-w-[200px] mx-auto text-[rgb(145,151,155)] font-medium bg-[rgb(19,24,32)] px-3 py-1 rounded-[5px] text-sm">
-        <button
-          className={`${
-            isGradient ? "" : "bg-[rgb(36,37,40)] rounded-[5px]"
-          } px-2 py-1`}
-          onClick={() => {
-            setIsGradient(false);
-            setIsActive(0);
-          }}
-        >
-          Color
-        </button>
-        <button
-          className={`${
-            isGradient ? "bg-[rgb(36,37,40)] rounded-[5px]" : ""
-          } px-2 py-1`}
-          onClick={() => {
-            setIsGradient(true);
-          }}
-        >
-          Gradient
-        </button>
-      </div>
+//   return (
+//     <EditContext.Provider
+//       value={{
+//         elementRefs,
+//         scrollableDivRef,
+//         displayEditModal,
+//         changeSectionHeaderText,
+//         isPattern,
+//         clickedIndex,
+//         buttons,
+//         elements,
+//         currentSection,
+//         isGradient,
+//         setDisplayEditModal,
+//         setChangeSectionHeaderText,
+//         setIsPattern,
+//         setClickedIndex,
+//         setElements,
+//         setCurrentSection,
+//         setIsGradient,
+//         color1,
+//         setColor1,
+//         color2,
+//         setColor2,
+//         hex1,
+//         setHex1,
+//         hex2,
+//         setHex2,
+//         inputValue,
+//         setInputValue,
+//         isActive,
+//         setIsActive,
+//         isFocused,
+//         setIsFocused,
+//       }}
+//     >
+//       {children}
+//     </EditContext.Provider>
+//   );
+// };
 
-      <div className="custom-layout example flex justify-center">
-        <RgbaColorPicker
-          color={isActive === 0 ? color1 : color2}
-          onChange={handleColorChange}
-        />
-      </div>
-
-      <div className="my-4 flex justify-between px-2 max-w-[240px] mx-auto">
-        <div className="text-[rgb(145,151,155)] font-medium flex gap-1">
-          <span className="text-xl">#</span>
-          <input
-            type="text"
-            className="w-[70px] text-center bg-[rgb(37,39,45)] border-[1px] rounded-[3px] border-[rgba(145,151,155,0.65)] uppercase"
-            value={inputValue}
-            onChange={handleHexChange}
-          />
-        </div>
-
-        <div className="w-[50px] text-center bg-transparent border-[1px] rounded-[3px] border-[rgb(145,151,155)] text-[rgb(145,151,155)] text-sm bg-[rgb(37,39,45)] font-medium flex justify-center items-center">
-          <p>HEX</p>
-        </div>
-      </div>
-
-      <div
-        className={`w-[400px] h-[100px]`}
-        style={{ background: backgroundStyle }}
-      ></div>
-    </section>
-  );
-};
-
- PickerComponent;
+// export default EditAndSaveProvider;

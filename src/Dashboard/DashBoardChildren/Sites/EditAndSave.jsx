@@ -10,15 +10,10 @@ import { Switch } from "@headlessui/react";
 import EditAndSaveDesignModal from "./EditAndSaveDesignModal";
 import MainEditComponent from "./EditAndSaveComponents/MainEditComponent";
 import EditDesignModalComponent from "./EditAndSaveComponents/EditDesignModalComponent";
-import { EditContext } from "./EditAndSaveComponents/EditAndSaveContext/EditAndContext";
 
 const EditAndSave = () => {
-  const { setIsMobile, handleTextClick } = useContext(DashContext);
-  const {
-    elementRefs,
-    scrollableDivRef,
-    displayEditModal,
-  } = useContext(EditContext);
+  const { setIsMobile, scrollableDivRef, displayEditModal } =
+    useContext(DashContext);
   const modalRef = useRef(null);
   const resizableRef = useRef(null);
   const [enabled, setEnabled] = useState(false);
@@ -214,14 +209,8 @@ const EditAndSave = () => {
                 } absolute top-1/2 left-[0px] transform -translate-x-1/2 -translate-y-1/2 w-2 h-[50px] cursor-ew-resize bg-[rgba(0,0,0,0.8)] rounded-t-[8px] rounded-b-[8px] max-lg:hidden z-40`}
                 onMouseDown={handleMouseDownLeft}
               ></div>
-              <div
-                ref={scrollableDivRef}
-                className="overflow-y-scroll h-full"
-              >
-                <EditAndSaveDesignModal
-                  handleTextClick={handleTextClick}
-                  elementRefs={elementRefs}
-                />
+              <div ref={scrollableDivRef} className="overflow-y-scroll h-full">
+                <EditAndSaveDesignModal />
               </div>
               <div className="overflow-y-scroll h-full"></div>
             </div>
