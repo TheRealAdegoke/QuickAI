@@ -6,10 +6,32 @@ import html2canvas from "html2canvas";
 import { ImSpinner6 } from "react-icons/im";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import ElementArray from "../ElementArray";
 
 const DesignModal = () => {
   const {
     showDesignModal,
+    userInput,
+    selectedIdea,
+    handleUserData,
+    clearDesigns,
+  } = useContext(DashContext);
+  const scrollRef = useRef(null);
+  const photoRef = useRef(null);
+  const [loading, setLoading] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [autoScroll, setAutoScroll] = useState(true);
+  const {
+    elements,
+    navElement,
+    heroElement,
+    featuresWithCardElement,
+    featuresElement,
+    testimonialElement,
+    faqElement,
+    teamElement,
+    contactElement,
+    footerElement,
     heroIndex,
     navIndex,
     featuresWithCardIndex,
@@ -19,43 +41,11 @@ const DesignModal = () => {
     teamIndex,
     contactIndex,
     footerIndex,
-    navComponents,
-    heroComponents,
-    featuresWithCardsComponent,
-    featuresComponents,
-    testimonialComponent,
-    faqComponent,
-    teamComponent,
-    contactComponent,
-    footerComponent,
-    userInput,
-    selectedIdea,
-    handleUserData,
-    clearDesigns,
-    text,
-    buttonIndex,
-  } = useContext(DashContext);
-  const scrollRef = useRef(null);
-  const photoRef = useRef(null);
-  const [loading, setLoading] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [autoScroll, setAutoScroll] = useState(true);
+  } = ElementArray();
 
   const cloudinaryBaseURL = import.meta.env.VITE_REACT_APP_CLOUDINARY_BASE_URL;
   const cloudinaryFormDataAppend = import.meta.env
     .VITE_REACT_APP_CLOUDINARY_FORM_DATA_APPEND;
-
-  const heroElement = heroComponents({ text, buttonIndex })[heroIndex];
-  const navElement = navComponents({ text, buttonIndex })[navIndex];
-  const featuresWithCardElement = featuresWithCardsComponent({ text })[
-    featuresWithCardIndex
-  ];
-  const featuresElement = featuresComponents({ text })[featuresIndex];
-  const testimonialElement = testimonialComponent({ text })[testimonialIndex];
-  const faqElement = faqComponent({ text })[faqIndex];
-  const teamElement = teamComponent({ text })[teamIndex];
-  const contactElement = contactComponent({ text })[contactIndex];
-  const footerElement = footerComponent({ text })[footerIndex];
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -76,32 +66,6 @@ const DesignModal = () => {
       setAutoScroll(false);
     }
   }, [currentIndex]);
-
-  const elements = [
-    {
-      index: navIndex,
-      element: navElement,
-    },
-    {
-      index: heroIndex,
-      element: heroElement,
-    },
-    {
-      index: featuresWithCardIndex,
-      element: featuresWithCardElement,
-    },
-    {
-      index: featuresIndex,
-      element: featuresElement,
-    },
-    {
-      index: testimonialIndex,
-      element: testimonialElement,
-    },
-    { index: faqIndex, element: faqElement },
-    { index: teamIndex, element: teamElement },
-    { index: footerIndex, element: footerElement },
-  ];
 
   const saveDesign = async () => {
     setLoading(true);

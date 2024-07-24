@@ -166,9 +166,6 @@
       border-box border-box;
 }
 
-
-
-
 .custom-layout .react-colorful__saturation {
   border-radius: 5px;
   border-bottom: none;
@@ -199,3 +196,7 @@
   width: 100%;
 }
 
+[contentEditable=true]:empty:not(:focus):before {
+  content: attr(data-text);
+  color:gray;
+}

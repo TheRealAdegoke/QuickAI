@@ -12,6 +12,7 @@ import { teamComponent } from "../Arrays/TeamArray";
 import { contactComponent } from "../Arrays/ContactArray";
 import { footerComponent } from "../Arrays/Footer";
 import { webContentObject } from "../Arrays/Arrays";
+import { useLocation } from "react-router-dom";
 
 export const DashContext = createContext();
 export const DashboardProvider = ({ children }) => {
@@ -36,8 +37,6 @@ export const DashboardProvider = ({ children }) => {
   const [contactIndex, setContactIndex] = useState(undefined);
   const [footerIndex, setFooterIndex] = useState(undefined);
   const [shuffled, setShuffled] = useState(false);
-  const [textAreaContent, setTextAreaContent] = useState("");
-  const [selectedElement, setSelectedElement] = useState(null);
   const [text, setText] = useState({
     heroHeaderText: "",
     description: "",
@@ -58,6 +57,30 @@ export const DashboardProvider = ({ children }) => {
     webLogo: "",
     buttonTexts: [],
   });
+  const [isFocused, setIsFocused] = useState(false);
+  const [backgroundStyle, setBackgroundStyle] = useState("");
+  const scrollableDivRef = useRef(null);
+  const [displayEditModal, setDisplayEditModal] = useState(false);
+  const [changeSectionHeaderText, setChangeSectionHeaderText] = useState("");
+  const [isPattern, setIsPattern] = useState(true);
+  const [clickedIndex, setClickedIndex] = useState(null);
+  const [currentSection, setCurrentSection] = useState(null);
+  const [isGradient, setIsGradient] = useState(false);
+  const [color1, setColor1] = useState({ r: 255, g: 255, b: 255, a: 1 });
+  const [color2, setColor2] = useState({ r: 255, g: 255, b: 255, a: 1 });
+  const [hex1, setHex1] = useState("#ffffff");
+  const [hex2, setHex2] = useState("#ffffff");
+  const [inputValue, setInputValue] = useState("ffffff");
+  const [isActive, setIsActive] = useState(0);
+  const buttons = [
+    "Header",
+    "Hero",
+    "Card Feature",
+    "Classical Feature",
+    "Testimonial",
+    "FAQ",
+    "Team",
+  ];
 
   useEffect(() => {
     if (!shuffled && webContentObject.randomButtonText) {
@@ -167,7 +190,7 @@ export const DashboardProvider = ({ children }) => {
       Math.random() * navComponents({ text }).length
     );
     const randomHeroIndex = Math.floor(
-      Math.random() * heroComponents({ text, buttonIndex }).length
+      Math.random() * heroComponents({ text, buttonIndex, location }).length
     );
     const randomButtonsIndex = Math.floor(
       Math.random() * WebButtonsArray({ text, buttonIndex }).length
@@ -273,9 +296,12 @@ export const DashboardProvider = ({ children }) => {
     setButtonIndex(undefined);
   };
 
-  const handleTextClick = (element) => {
-    setSelectedElement(element);
-    setTextAreaContent(element.innerText);
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
   };
 
   return (
@@ -326,11 +352,6 @@ export const DashboardProvider = ({ children }) => {
         setText,
         isMobile,
         setIsMobile,
-        handleTextClick,
-        textAreaContent,
-        selectedElement,
-        setSelectedElement,
-        setTextAreaContent,
         setNavIndex,
         setHeroIndex,
         setFeaturesWithCardIndex,
@@ -340,6 +361,40 @@ export const DashboardProvider = ({ children }) => {
         setTeamIndex,
         setContactIndex,
         setFooterIndex,
+        isFocused,
+        setIsFocused,
+        backgroundStyle,
+        setBackgroundStyle,
+        scrollableDivRef,
+        displayEditModal,
+        changeSectionHeaderText,
+        isPattern,
+        clickedIndex,
+        buttons,
+        currentSection,
+        isGradient,
+        setDisplayEditModal,
+        setChangeSectionHeaderText,
+        setIsPattern,
+        setClickedIndex,
+        setCurrentSection,
+        setIsGradient,
+        color1,
+        setColor1,
+        color2,
+        setColor2,
+        hex1,
+        setHex1,
+        hex2,
+        setHex2,
+        inputValue,
+        setInputValue,
+        isActive,
+        setIsActive,
+        isFocused,
+        setIsFocused,
+        handleFocus,
+        handleBlur,
       }}
     >
       {children}

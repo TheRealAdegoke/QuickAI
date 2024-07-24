@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useMemo, useState } from "react";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import testImage from "../../../../assets/Default-Card.jpg";
 import { HeroImages } from "./HeroEditComponent";
-import { EditContext } from "./EditAndSaveContext/EditAndContext";
 import { DashContext } from "../../../DashboardChecker/DashboardContext";
 import { HeaderImages } from "./HeaderEditComponent";
 import { CardFeaturesImages } from "./CardFeatureEditComponent";
@@ -13,15 +12,17 @@ import { TeamImages } from "./TeamEditComponent";
 import ColorPickerComponent from "./ColorPicker";
 
 const EditDesignModalComponent = () => {
-  const { textAreaContent, setTextAreaContent, selectedElement } =
-    useContext(DashContext);
   const {
+    textAreaContent,
+    setTextAreaContent,
+    selectedElement,
+    backgroundStyle,
+    setBackgroundStyle,
     setDisplayEditModal,
     changeSectionHeaderText,
     isPattern,
     setIsPattern,
     currentSection,
-    setBackgroundStyle,
     isGradient,
     setIsGradient,
     color1,
@@ -36,23 +37,13 @@ const EditDesignModalComponent = () => {
     setInputValue,
     isActive,
     setIsActive,
-    backgroundStyle,
-  } = useContext(EditContext);
+  } = useContext(DashContext);
   const [isContent, setIsContent] = useState(true);
-
-  const handleTextareaChange = (e) => {
-    setTextAreaContent(e.target.value);
-    if (selectedElement) {
-      selectedElement.innerText = e.target.value;
-    }
-  };
 
   useEffect(() => {
     let background = isGradient
       ? `linear-gradient(90deg, ${hex1} 0%, ${hex2} 100%)`
       : hex1;
-
-    setTextAreaContent(background);
     setBackgroundStyle(background);
   }, [isGradient, hex1, hex2]);
 
@@ -125,7 +116,7 @@ const EditDesignModalComponent = () => {
                     } px-2 py-1`}
                     onClick={() => {
                       setIsContent(true);
-                      setTextAreaContent("")
+                      setTextAreaContent("");
                     }}
                   >
                     Content
@@ -136,7 +127,7 @@ const EditDesignModalComponent = () => {
                     } px-2 py-1`}
                     onClick={() => {
                       setIsContent(false);
-                      setTextAreaContent("")
+                      setTextAreaContent("");
                     }}
                   >
                     Background
@@ -144,13 +135,15 @@ const EditDesignModalComponent = () => {
                 </div>
 
                 {isContent ? (
-                  <textarea
-                    name=""
-                    id=""
-                    value={textAreaContent}
-                    onChange={handleTextareaChange}
-                    className="border-[rgba(255,255,255,0.5)] border-[1px] w-full h-[250px] max-h-[250px] min-h-[250px] bg-[rgb(37,39,45)] rounded-[5px] text-white p-2 outline-none"
-                  ></textarea>
+                  <div>
+                    {/* <textarea
+                      name=""
+                      id=""
+                      value={textAreaContent}
+                      onChange={handleTextareaChange}
+                      className="border-[rgba(255,255,255,0.5)] border-[1px] w-full h-[250px] max-h-[250px] min-h-[250px] bg-[rgb(37,39,45)] rounded-[5px] text-white p-2 outline-none hidden"
+                    ></textarea> */}
+                  </div>
                 ) : (
                   <div className="mb-4">
                     <ColorPickerComponent
