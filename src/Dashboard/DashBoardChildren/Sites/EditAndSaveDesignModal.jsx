@@ -1,30 +1,71 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { DashContext } from "../../DashboardChecker/DashboardContext";
 import { MdOutlineWeb } from "react-icons/md";
 import { MdFolder } from "react-icons/md";
 import ElementArray from "../../AI-Designed-Component/ElementArray";
+import { DashContext } from "../../DashboardChecker/DashboardContext";
 
 const EditAndSaveDesignModal = () => {
   const {
-    elements,
-    clickedIndex,
-    setClickedIndex,
-  } = ElementArray();
+    buttons,
+    setIsPattern,
+    setDisplayEditModal,
+    setCurrentSection,
+    setChangeSectionHeaderText,
+  } = useContext(DashContext);
+  const { elements } = ElementArray();
 
-  useEffect(() => {
-    let timer;
-    if (clickedIndex !== null) {
-      timer = setTimeout(() => {
-        setClickedIndex(null);
-      }, 2000);
+  const handleElementClick = (idx) => {
+    setDisplayEditModal(true);
+    const buttonType = buttons[idx].split("-")[0];
+    setCurrentSection(buttonType);
+
+    switch (buttonType) {
+      case "Header":
+        setChangeSectionHeaderText("Header");
+        setIsPattern(false);
+        break;
+      case "Hero":
+        setChangeSectionHeaderText("Hero");
+        setIsPattern(false);
+        break;
+      case "Card Feature":
+        setChangeSectionHeaderText("Card Feature");
+        setIsPattern(false);
+        break;
+      case "Classical Feature":
+        setChangeSectionHeaderText("Classical Feature");
+        setIsPattern(false);
+        break;
+      case "Testimonial":
+        setChangeSectionHeaderText("Testimonial");
+        setIsPattern(false);
+        break;
+      case "FAQ":
+        setChangeSectionHeaderText("FAQ");
+        setIsPattern(false);
+        break;
+      case "Team":
+        setChangeSectionHeaderText("Team");
+        setIsPattern(false);
+        break;
+      default:
+        setChangeSectionHeaderText("");
+        setIsPattern(true);
+        break;
     }
-    return () => clearTimeout(timer);
-  }, [clickedIndex]);
+  };
 
   return (
     <div className="">
       {elements.map((item, idx) => (
-        <div key={idx}>{item.element}</div>
+        <div
+          key={idx}
+          onClick={() => {
+            handleElementClick(idx);
+          }}
+        >
+          {item.element}
+        </div>
       ))}
     </div>
   );
@@ -40,6 +81,8 @@ export const Button = ({
   setIsPattern,
   buttons,
   setCurrentSection,
+  setColor1,
+  setColor2,
 }) => {
   const ref = useRef(null);
 
@@ -49,7 +92,7 @@ export const Button = ({
     const buttonType = buttons[index].split("-")[0];
     setChangeSectionHeaderText(buttonType);
     setCurrentSection(buttonType);
-    switch (index) {
+    switch (buttonType) {
       case "Header":
         setChangeSectionHeaderText("Header");
         break;

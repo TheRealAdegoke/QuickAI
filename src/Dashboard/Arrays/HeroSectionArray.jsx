@@ -11,104 +11,109 @@ export const heroComponents = ({
   handleFocus,
   handleBlur,
   location,
+  heroBackGroundStyle,
 }) => {
   const buttonElement = WebButtonsArray({ text, buttonIndex, handleTextClick })[
     buttonIndex
   ];
 
-  return [
-    <section
-      className="mb-[20px] py-10 px-5"
-      style={{ background: backgroundStyle || "rgb(26,26,26)" }}
-      onClick={() => {
-        console.log("Background from hero: ", backgroundStyle);
-      }}
-    >
-      <div className="flex justify-center gap-10 max-lg:flex-col">
-        <div className={`${isMobile ? "hidden" : ""} max-lg:hidden w-[50%]`}>
-          <h1
-            className={`${
-              isFocused && location.pathname !== "/home"
-                ? "hover:border-none"
-                : "hover:border-[2px] hover:border-[rgb(0,111,173)]"
-            } text-6xl text-white font-bold max-w-[500px] outline-none`}
-            data-text="Heading"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-           onFocus={handleFocus}
-             onBlur={handleBlur}
-          >
-            {text.heroHeaderText}
-          </h1>
+  let classNames = "";
 
-          <div className="w-[85%] grid grid-cols-3 gap-4 my-10">
-            <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[250px]  p-3 rounded-[8px] col-span-3">
-              <img
-                src={testImage}
-                alt={testImage}
-                className="rounded-[8px] w-full h-full object-cover"
-              />
-            </div>
-            <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[200px] p-3 rounded-[8px]">
-              <img
-                src={testImage}
-                alt={testImage}
-                className="rounded-[8px] w-full h-full object-cover"
-              />
-            </div>
-            <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[200px]  p-3 rounded-[8px]">
-              <img
-                src={testImage}
-                alt={testImage}
-                className="rounded-[8px] w-full h-full object-cover"
-              />
-            </div>
-            <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[200px]  p-3 rounded-[8px]">
-              <img
-                src={testImage}
-                alt={testImage}
-                className="rounded-[8px] w-full h-full object-cover"
-              />
-            </div>
-            <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[250px]  p-3 rounded-[8px] col-span-3">
-              <img
-                src={testImage}
-                alt={testImage}
-                className="rounded-[8px] w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          className={`${
-            isMobile ? "max-w-[800px] w-[95%] mx-auto" : ""
-          } max-lg:max-w-[800px] max-lg:w-[95%] max-lg:mx-auto w-[50%]`}
-        >
-          <img
-            src={testImage}
-            alt={testImage}
-            className={`${
-              isMobile ? "max-w-[800px] w-[95%] h-[400px]" : ""
-            } block max-lg:w-[95%] w-full h-[600px] max-lg:h-[400px] max-lg:max-w-[800px]`}
-          />
-          <p
-            className={`${isMobile ? "max-w-[400px]" : ""} ${
-              isFocused
-                ? ""
-                : "hover:border-[2px] hover:border-[rgb(0,111,173)]"
-            } my-5 max-lg:max-w-[400px] text-white outline-none`}
-            data-text="Type a paragraph"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-          >
-            {text.description}
-          </p>
-          {buttonIndex !== undefined && buttonElement}
-        </div>
-      </div>
-    </section>,
+  if (location.pathname === "/home") {
+    classNames = "";
+  } else if (location.pathname !== "/home" && isFocused) {
+    classNames = "";
+  } else {
+    classNames += " hover:border-[2px] hover:border-[rgb(0,111,173)]";
+  }
+
+  return [
+    // <section
+    //   className="mb-[20px] py-10 px-5"
+    //   style={{ background: backgroundStyle || "rgb(26,26,26)" }}
+    //   onClick={() => {
+    //     console.log("Background from hero: ", backgroundStyle);
+    //   }}
+    // >
+    //   <div className="flex justify-center gap-10 max-lg:flex-col">
+    //     <div className={`${isMobile ? "hidden" : ""} max-lg:hidden w-[50%]`}>
+    //       <h1
+    //         className={`${classNames} text-6xl text-white font-bold max-w-[500px] outline-none`}
+    //         data-text="Heading"
+    //         contentEditable={location.pathname !== "/home" ? true : false}
+    //         suppressContentEditableWarning
+    //         onFocus={handleFocus}
+    //         onBlur={handleBlur}
+    //       >
+    //         {text.heroHeaderText}
+    //       </h1>
+
+    //       <div className="w-[85%] grid grid-cols-3 gap-4 my-10">
+    //         <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[250px]  p-3 rounded-[8px] col-span-3">
+    //           <img
+    //             src={testImage}
+    //             alt={testImage}
+    //             className="rounded-[8px] w-full h-full object-cover"
+    //           />
+    //         </div>
+    //         <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[200px] p-3 rounded-[8px]">
+    //           <img
+    //             src={testImage}
+    //             alt={testImage}
+    //             className="rounded-[8px] w-full h-full object-cover"
+    //           />
+    //         </div>
+    //         <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[200px]  p-3 rounded-[8px]">
+    //           <img
+    //             src={testImage}
+    //             alt={testImage}
+    //             className="rounded-[8px] w-full h-full object-cover"
+    //           />
+    //         </div>
+    //         <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[200px]  p-3 rounded-[8px]">
+    //           <img
+    //             src={testImage}
+    //             alt={testImage}
+    //             className="rounded-[8px] w-full h-full object-cover"
+    //           />
+    //         </div>
+    //         <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[250px]  p-3 rounded-[8px] col-span-3">
+    //           <img
+    //             src={testImage}
+    //             alt={testImage}
+    //             className="rounded-[8px] w-full h-full object-cover"
+    //           />
+    //         </div>
+    //       </div>
+    //     </div>
+    //     <div
+    //       className={`${
+    //         isMobile ? "max-w-[800px] w-[95%] mx-auto" : ""
+    //       } max-lg:max-w-[800px] max-lg:w-[95%] max-lg:mx-auto w-[50%]`}
+    //     >
+    //       <img
+    //         src={testImage}
+    //         alt={testImage}
+    //         className={`${
+    //           isMobile ? "max-w-[800px] w-[95%] h-[400px]" : ""
+    //         } block max-lg:w-[95%] w-full h-[600px] max-lg:h-[400px] max-lg:max-w-[800px]`}
+    //       />
+    //       <p
+    //         className={`${
+    //           isMobile ? "max-w-[400px]" : ""
+    //         } ${classNames} my-5 max-lg:max-w-[400px] text-white outline-none`}
+    //         data-text="Type a paragraph"
+    //         contentEditable={location.pathname === "/home" ? false : true}
+    //         suppressContentEditableWarning
+    //         onFocus={handleFocus}
+    //         onBlur={handleBlur}
+    //       >
+    //         {text.description}
+    //       </p>
+    //       {buttonIndex !== undefined && buttonElement}
+    //     </div>
+    //   </div>
+    // </section>,
     // <section style={{ background: backgroundStyle }}>
     //   <div
     //     className={`${
@@ -121,11 +126,7 @@ export const heroComponents = ({
     //       } text-[rgb(33,37,41)] w-[40%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
     //     >
     //       <h1
-    //         className={`${
-    //           isFocused
-    //             ? ""
-    //             : "hover:border-[2px] hover:border-[rgb(0,111,173)]"
-    //         } font-bold xl:text-5xl text-3xl mb-4 outline-none`}
+    //         className={`${classNames} font-bold xl:text-5xl text-3xl mb-4 outline-none`}
     //         data-text="Heading"
     //         contentEditable={location.pathname === "/home" ? false : true}
     //         suppressContentEditableWarning
@@ -135,11 +136,7 @@ export const heroComponents = ({
     //         {text.heroHeaderText}
     //       </h1>
     //       <p
-    //         className={`${
-    //           isFocused
-    //             ? ""
-    //             : "hover:border-[2px] hover:border-[rgb(0,111,173)]"
-    //         } font-medium outline-none`}
+    //         className={`${classNames} font-medium outline-none`}
     //         data-text="Type a paragraph"
     //         contentEditable={location.pathname === "/home" ? false : true}
     //         suppressContentEditableWarning
@@ -203,11 +200,9 @@ export const heroComponents = ({
     //     } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
     //   >
     //     <h1
-    //       className={`${
-    //         isFocused ? "" : "hover:border-[2px] hover:border-[rgb(0,111,173)]"
-    //       } font-bold xl:text-5xl text-3xl mb-4 outline-none`}
+    //       className={`${classNames} font-bold xl:text-5xl text-3xl mb-4 outline-none`}
     //       data-text="Heading"
-    //       contentEditable
+    //       contentEditable={location.pathname !== "/home" ? true : false}
     //       suppressContentEditableWarning
     //       onFocus={handleFocus}
     //       onBlur={handleBlur}
@@ -215,11 +210,9 @@ export const heroComponents = ({
     //       {text.heroHeaderText}
     //     </h1>
     //     <p
-    //       className={`${
-    //         isFocused ? "" : "hover:border-[2px] hover:border-[rgb(0,111,173)]"
-    //       } font-medium outline-none`}
+    //       className={`${classNames} font-medium outline-none`}
     //       data-text="Type a paragraph"
-    //       contentEditable
+    //       contentEditable={location.pathname !== "/home" ? true : false}
     //       suppressContentEditableWarning
     //       onFocus={handleFocus}
     //       onBlur={handleBlur}
@@ -253,11 +246,9 @@ export const heroComponents = ({
     //     } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
     //   >
     //     <h1
-    //       className={`${
-    //         isFocused ? "" : "hover:border-[2px] hover:border-[rgb(0,111,173)]"
-    //       } font-bold xl:text-5xl text-3xl mb-4 outline-none`}
+    //       className={`${classNames} font-bold xl:text-5xl text-3xl mb-4 outline-none`}
     //       data-text="Heading"
-    //       contentEditable
+    //       contentEditable={location.pathname !== "/home" ? true : false}
     //       suppressContentEditableWarning
     //       onFocus={handleFocus}
     //       onBlur={handleBlur}
@@ -265,11 +256,9 @@ export const heroComponents = ({
     //       {text.heroHeaderText}
     //     </h1>
     //     <p
-    //       className={`${
-    //         isFocused ? "" : "hover:border-[2px] hover:border-[rgb(0,111,173)]"
-    //       } font-medium outline-none`}
+    //       className={`${classNames} font-medium outline-none`}
     //       data-text="Type a paragraph"
-    //       contentEditable
+    //       contentEditable={location.pathname !== "/home" ? true : false}
     //       suppressContentEditableWarning
     //       onFocus={handleFocus}
     //       onBlur={handleBlur}
@@ -303,11 +292,9 @@ export const heroComponents = ({
     //     } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
     //   >
     //     <h1
-    //       className={`${
-    //         isFocused ? "" : "hover:border-[2px] hover:border-[rgb(0,111,173)]"
-    //       } font-bold xl:text-5xl text-3xl mb-4 outline-none`}
+    //       className={`${classNames} font-bold xl:text-5xl text-3xl mb-4 outline-none`}
     //       data-text="Heading"
-    //       contentEditable
+    //       contentEditable={location.pathname !== "/home" ? true : false}
     //       suppressContentEditableWarning
     //       onFocus={handleFocus}
     //       onBlur={handleBlur}
@@ -315,11 +302,9 @@ export const heroComponents = ({
     //       {text.heroHeaderText}
     //     </h1>
     //     <p
-    //       className={`${
-    //         isFocused ? "" : "hover:border-[2px] hover:border-[rgb(0,111,173)]"
-    //       } font-medium outline-none`}
+    //       className={`${classNames} font-medium outline-none`}
     //       data-text="Type a paragraph"
-    //       contentEditable
+    //       contentEditable={location.pathname !== "/home" ? true : false}
     //       suppressContentEditableWarning
     //       onFocus={handleFocus}
     //       onBlur={handleBlur}
@@ -353,11 +338,9 @@ export const heroComponents = ({
     //     } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
     //   >
     //     <h1
-    //       className={`${
-    //         isFocused ? "" : "hover:border-[2px] hover:border-[rgb(0,111,173)]"
-    //       } font-bold xl:text-5xl text-3xl mb-4 outline-none`}
+    //       className={`${classNames} font-bold xl:text-5xl text-3xl mb-4 outline-none`}
     //       data-text="Heading"
-    //       contentEditable
+    //       contentEditable={location.pathname !== "/home" ? true : false}
     //       suppressContentEditableWarning
     //       onFocus={handleFocus}
     //       onBlur={handleBlur}
@@ -365,11 +348,9 @@ export const heroComponents = ({
     //       {text.heroHeaderText}
     //     </h1>
     //     <p
-    //       className={`${
-    //         isFocused ? "" : "hover:border-[2px] hover:border-[rgb(0,111,173)]"
-    //       } font-medium outline-none`}
+    //       className={`${classNames} font-medium outline-none`}
     //       data-text="Type a paragraph"
-    //       contentEditable
+    //       contentEditable={location.pathname !== "/home" ? true : false}
     //       suppressContentEditableWarning
     //       onFocus={handleFocus}
     //       onBlur={handleBlur}
@@ -391,68 +372,66 @@ export const heroComponents = ({
     //     </div>
     //   </div>
     // </section>,
-    // <section
-    //   className={`${
-    //     isMobile ? "flex-col" : ""
-    //   } my-5 max-w-[1200px] mx-auto flex justify-center gap-5 max-lg:flex-col`}
-    //   style={{ background: backgroundStyle }}
-    // >
-    //   <div className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full`}>
-    //     <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
-    //       <img
-    //         src={testImage}
-    //         alt={testImage}
-    //         className="object-cover h-full w-full"
-    //       />
-    //     </div>
-    //   </div>
+    <section
+      className={`${
+        isMobile ? "flex-col" : ""
+      } my-5 max-w-[1200px] mx-auto flex justify-center gap-5 max-lg:flex-col`}
+      style={{
+        background: heroBackGroundStyle,
+      }}
+    >
+      <div className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full`}>
+        <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
+          <img
+            src={testImage}
+            alt={testImage}
+            className="object-cover h-full w-full"
+          />
+        </div>
+      </div>
 
-    //   <div
-    //     className={`${
-    //       isMobile ? "w-[90%] my-10" : ""
-    //     } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16 max-lg:my-10`}
-    //   >
-    //     <h1
-    //       className={`${
-    //         isFocused ? "" : "hover:border-[2px] hover:border-[rgb(0,111,173)]"
-    //       } font-bold xl:text-4xl xl:text-center text-3xl mb-4 outline-none`}
-    //       data-text="Heading"
-    //       contentEditable
-    //       suppressContentEditableWarning
-    //       onFocus={handleFocus}
-    //       onBlur={handleBlur}
-    //     >
-    //       {text.heroHeaderText}
-    //     </h1>
-    //     <p
-    //       className={`${
-    //         isFocused ? "" : "hover:border-[2px] hover:border-[rgb(0,111,173)]"
-    //       } font-medium outline-none hover:border-[2px] hover:border-[rgb(0,111,173)]`}
-    //       data-text="Type a paragraph"
-    //       contentEditable
-    //       suppressContentEditableWarning
-    //       onFocus={handleFocus}
-    //       onBlur={handleBlur}
-    //     >
-    //       {text.description}
-    //     </p>
-    //     <div className={`${isMobile ? "mt-10" : ""} max-lg:mt-10 mt-5`}>
-    //       {buttonIndex !== undefined && buttonElement}
-    //     </div>
-    //   </div>
+      <div
+        className={`${
+          isMobile ? "w-[90%] my-10" : ""
+        } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16 max-lg:my-10`}
+      >
+        <h1
+          className={`${classNames} font-bold xl:text-4xl xl:text-center text-3xl mb-4 outline-none`}
+          data-text="Heading"
+          contentEditable={location.pathname !== "/home" ? true : false}
+          suppressContentEditableWarning
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+        >
+          {text.heroHeaderText}
+        </h1>
+        <p
+          className={`${classNames} font-medium outline-none`}
+          data-text="Type a paragraph"
+          contentEditable={location.pathname !== "/home" ? true : false}
+          suppressContentEditableWarning
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+        >
+          {text.description}
+        </p>
+        <div className={`${isMobile ? "mt-10" : ""} max-lg:mt-10 mt-5`}>
+          {buttonIndex !== undefined && buttonElement}
+        </div>
+      </div>
 
-    //   <div
-    //     className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full mb-10`}
-    //   >
-    //     <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
-    //       <img
-    //         src={testImage}
-    //         alt={testImage}
-    //         className="object-cover h-full w-full"
-    //       />
-    //     </div>
-    //   </div>
-    // </section>,
+      <div
+        className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full mb-10`}
+      >
+        <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
+          <img
+            src={testImage}
+            alt={testImage}
+            className="object-cover h-full w-full"
+          />
+        </div>
+      </div>
+    </section>,
     // <section
     //   className={`${
     //     isMobile ? "flex-col w-[90%] max-w-[600px]" : ""
@@ -463,11 +442,11 @@ export const heroComponents = ({
     //     className={`${isMobile ? "w-full" : ""} mb-10 w-[50%] max-lg:w-full`}
     //   >
     //     <h1
-    //       className={`${isMobile ? "text-center mx-auto" : ""} ${
-    //         isFocused ? "" : "hover:border-[2px] hover:border-[rgb(0,111,173)]"
-    //       } text-[#231e41] max-lg:text-center text-6xl max-sm:text-5xl max-w-[650px] max-sm:max-w-[400px] font-semibold mb-6 max-lg:mx-auto outline-none`}
+    //       className={`${
+    //         isMobile ? "text-center mx-auto" : ""
+    //       } ${classNames} text-[#231e41] max-lg:text-center text-6xl max-sm:text-5xl max-w-[650px] max-sm:max-w-[400px] font-semibold mb-6 max-lg:mx-auto outline-none`}
     //       data-text="Heading"
-    //       contentEditable
+    //       contentEditable={location.pathname !== "/home" ? true : false}
     //       suppressContentEditableWarning
     //       onFocus={handleFocus}
     //       onBlur={handleBlur}
@@ -475,11 +454,11 @@ export const heroComponents = ({
     //       {text.heroHeaderText}
     //     </h1>
     //     <p
-    //       className={`${isMobile ? "text-center mx-auto" : ""} ${
-    //         isFocused ? "" : "hover:border-[2px] hover:border-[rgb(0,111,173)]"
-    //       } text-[#231e41] text-sm max-lg:text-center max-w-[350px] max-lg:mx-auto font-medium mb-6 outline-none`}
+    //       className={`${
+    //         isMobile ? "text-center mx-auto" : ""
+    //       } ${classNames} text-[#231e41] text-sm max-lg:text-center max-w-[350px] max-lg:mx-auto font-medium mb-6 outline-none`}
     //       data-text="Type a paragraph"
-    //       contentEditable
+    //       contentEditable={location.pathname !== "/home" ? true : false}
     //       suppressContentEditableWarning
     //       onFocus={handleFocus}
     //       onBlur={handleBlur}

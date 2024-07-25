@@ -58,20 +58,12 @@ export const DashboardProvider = ({ children }) => {
     buttonTexts: [],
   });
   const [isFocused, setIsFocused] = useState(false);
-  const [backgroundStyle, setBackgroundStyle] = useState("");
   const scrollableDivRef = useRef(null);
   const [displayEditModal, setDisplayEditModal] = useState(false);
   const [changeSectionHeaderText, setChangeSectionHeaderText] = useState("");
   const [isPattern, setIsPattern] = useState(true);
   const [clickedIndex, setClickedIndex] = useState(null);
   const [currentSection, setCurrentSection] = useState(null);
-  const [isGradient, setIsGradient] = useState(false);
-  const [color1, setColor1] = useState({ r: 255, g: 255, b: 255, a: 1 });
-  const [color2, setColor2] = useState({ r: 255, g: 255, b: 255, a: 1 });
-  const [hex1, setHex1] = useState("#ffffff");
-  const [hex2, setHex2] = useState("#ffffff");
-  const [inputValue, setInputValue] = useState("ffffff");
-  const [isActive, setIsActive] = useState(0);
   const buttons = [
     "Header",
     "Hero",
@@ -81,6 +73,9 @@ export const DashboardProvider = ({ children }) => {
     "FAQ",
     "Team",
   ];
+  const [heroBackGroundStyle, setHeroBackGroundStyle] = useState("")
+  const [cardFeatureBackGroundStyle, setcardFeatureBackGroundStyle] =
+    useState("");
 
   useEffect(() => {
     if (!shuffled && webContentObject.randomButtonText) {
@@ -110,7 +105,9 @@ export const DashboardProvider = ({ children }) => {
       const shuffledTeamHeader = shuffuleTextArray(
         webContentObject.teamHeaders
       );
-      const shuffledTeamParagraphText = shuffuleTextArray(webContentObject.teamParagraphTexts);
+      const shuffledTeamParagraphText = shuffuleTextArray(
+        webContentObject.teamParagraphTexts
+      );
       const shuffledFAQsHeaders = shuffuleTextArray(
         webContentObject.FAQsHeaders
       );
@@ -120,9 +117,7 @@ export const DashboardProvider = ({ children }) => {
       const shuffledFAQQuestions = shuffuleTextArray(
         webContentObject.faqQuestions
       );
-      const shuffledFAQAnswers = shuffuleTextArray(
-        webContentObject.faqAnswers
-      );
+      const shuffledFAQAnswers = shuffuleTextArray(webContentObject.faqAnswers);
       const shuffledStatsHeaders = shuffuleTextArray(
         webContentObject.statsHeaders
       );
@@ -196,7 +191,7 @@ export const DashboardProvider = ({ children }) => {
       Math.random() * WebButtonsArray({ text, buttonIndex }).length
     );
     const randomfeaturesWithCardIndex = Math.floor(
-      Math.random() * featuresWithCardsComponent({ text }).length
+      Math.random() * featuresWithCardsComponent({ text, location }).length
     );
     const randomfeaturesIndex = Math.floor(
       Math.random() * featuresComponents({ text }).length
@@ -226,7 +221,7 @@ export const DashboardProvider = ({ children }) => {
     setFaqIndex(randomFaqIndex);
     setTeamIndex(randomTeamIndex);
     setContactIndex(randomContactIndex);
-    setFooterIndex(randomFooterIndex)
+    setFooterIndex(randomFooterIndex);
     setShowDesignModal(true);
   };
 
@@ -234,7 +229,6 @@ export const DashboardProvider = ({ children }) => {
     try {
       const response = await axiosInstance.get("/auth/user-data");
       setUserData(response.data);
-      console.log(response.data);
     } catch (error) {
       console.error(error.response.data.error);
     }
@@ -363,8 +357,6 @@ export const DashboardProvider = ({ children }) => {
         setFooterIndex,
         isFocused,
         setIsFocused,
-        backgroundStyle,
-        setBackgroundStyle,
         scrollableDivRef,
         displayEditModal,
         changeSectionHeaderText,
@@ -372,29 +364,19 @@ export const DashboardProvider = ({ children }) => {
         clickedIndex,
         buttons,
         currentSection,
-        isGradient,
         setDisplayEditModal,
         setChangeSectionHeaderText,
         setIsPattern,
         setClickedIndex,
         setCurrentSection,
-        setIsGradient,
-        color1,
-        setColor1,
-        color2,
-        setColor2,
-        hex1,
-        setHex1,
-        hex2,
-        setHex2,
-        inputValue,
-        setInputValue,
-        isActive,
-        setIsActive,
         isFocused,
         setIsFocused,
         handleFocus,
         handleBlur,
+        heroBackGroundStyle,
+        setHeroBackGroundStyle,
+        cardFeatureBackGroundStyle,
+        setcardFeatureBackGroundStyle,
       }}
     >
       {children}

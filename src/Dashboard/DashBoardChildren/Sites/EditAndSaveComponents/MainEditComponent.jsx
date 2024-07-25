@@ -14,6 +14,8 @@ const MainEditComponent = () => {
     currentSection,
     setCurrentSection,
     setClickedIndex,
+    setColor1,
+    setColor2,
   } = useContext(DashContext);
 
 
@@ -38,6 +40,8 @@ const MainEditComponent = () => {
               currentSection={currentSection}
               setCurrentSection={setCurrentSection}
               setClickedIndex={setClickedIndex}
+              setColor1={setColor1}
+              setColor2={setColor2}
             />
           ))}
         </DndProvider>
