@@ -32,6 +32,9 @@ const ElementArray = () => {
     setClickedIndex,
     handleFocus,
     handleBlur,
+    currentSection,
+    heroBackGroundStyle,
+    cardFeatureBackGroundStyle,
   } = useContext(DashContext);
   const location = useLocation()
 
@@ -55,7 +58,8 @@ const ElementArray = () => {
     setIsFocused,
     handleFocus,
     handleBlur,
-    location
+    location,
+    heroBackGroundStyle,
   })[heroIndex];
   const featuresWithCardElement = featuresWithCardsComponent({
     text,
@@ -66,7 +70,8 @@ const ElementArray = () => {
     setIsFocused,
     handleFocus,
     handleBlur,
-    location
+    location,
+    cardFeatureBackGroundStyle,
   })[featuresWithCardIndex];
   const featuresElement = featuresComponents({
     text,

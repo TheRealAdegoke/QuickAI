@@ -9,43 +9,19 @@ import { ClassicalFeaturesImages } from "./ClassicalFeatureEditComponent";
 import { TestimonialImages } from "./TestimonialEditComponent";
 import { FAQImages } from "./FAQEditComponent";
 import { TeamImages } from "./TeamEditComponent";
-import ColorPickerComponent from "./ColorPicker";
+import { FeatureWithCardColorPickerComponent, HeroColorPickerComponent } from "./ColorPicker";
 
 const EditDesignModalComponent = () => {
   const {
-    textAreaContent,
-    setTextAreaContent,
-    selectedElement,
-    backgroundStyle,
-    setBackgroundStyle,
     setDisplayEditModal,
     changeSectionHeaderText,
     isPattern,
     setIsPattern,
     currentSection,
-    isGradient,
-    setIsGradient,
-    color1,
-    setColor1,
-    color2,
-    setColor2,
-    hex1,
-    setHex1,
-    hex2,
-    setHex2,
-    inputValue,
-    setInputValue,
-    isActive,
-    setIsActive,
+    setHeroBackGroundStyle,
+    setcardFeatureBackGroundStyle,
   } = useContext(DashContext);
   const [isContent, setIsContent] = useState(true);
-
-  useEffect(() => {
-    let background = isGradient
-      ? `linear-gradient(90deg, ${hex1} 0%, ${hex2} 100%)`
-      : hex1;
-    setBackgroundStyle(background);
-  }, [isGradient, hex1, hex2]);
 
   return (
     <>
@@ -82,7 +58,6 @@ const EditDesignModalComponent = () => {
             } h-[40px]`}
             onClick={() => {
               setIsPattern(false);
-              setTextAreaContent("");
             }}
           >
             Style
@@ -116,7 +91,6 @@ const EditDesignModalComponent = () => {
                     } px-2 py-1`}
                     onClick={() => {
                       setIsContent(true);
-                      setTextAreaContent("");
                     }}
                   >
                     Content
@@ -127,7 +101,6 @@ const EditDesignModalComponent = () => {
                     } px-2 py-1`}
                     onClick={() => {
                       setIsContent(false);
-                      setTextAreaContent("");
                     }}
                   >
                     Background
@@ -135,35 +108,21 @@ const EditDesignModalComponent = () => {
                 </div>
 
                 {isContent ? (
-                  <div>
-                    {/* <textarea
-                      name=""
-                      id=""
-                      value={textAreaContent}
-                      onChange={handleTextareaChange}
-                      className="border-[rgba(255,255,255,0.5)] border-[1px] w-full h-[250px] max-h-[250px] min-h-[250px] bg-[rgb(37,39,45)] rounded-[5px] text-white p-2 outline-none hidden"
-                    ></textarea> */}
-                  </div>
+                  <div></div>
                 ) : (
                   <div className="mb-4">
-                    <ColorPickerComponent
-                      color1={color1}
-                      setColor1={setColor1}
-                      isGradient={isGradient}
-                      setIsGradient={setIsGradient}
-                      isActive={isActive}
-                      setIsActive={setIsActive}
-                      color2={color2}
-                      setColor2={setColor2}
-                      hex1={hex1}
-                      setHex1={setHex1}
-                      hex2={hex2}
-                      setHex2={setHex2}
-                      inputValue={inputValue}
-                      setInputValue={setInputValue}
-                      backgroundStyle={backgroundStyle}
-                      setTextAreaContent={setTextAreaContent}
-                    />
+                    {currentSection.includes("Hero") && (
+                      <HeroColorPickerComponent
+                        setHeroBackGroundStyle={setHeroBackGroundStyle}
+                        currentSection={currentSection}
+                      />
+                    )}
+                    {currentSection.includes("Card Feature") && (
+                      <FeatureWithCardColorPickerComponent
+                        setcardFeatureBackGroundStyle={setcardFeatureBackGroundStyle}
+                        currentSection={currentSection}
+                      />
+                    )}
                   </div>
                 )}
               </div>
