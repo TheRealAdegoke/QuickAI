@@ -28,7 +28,7 @@ export const HeaderImages = () => {
           item.index !== undefined && (
             <div
               key={idx}
-              className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] max-h-[100px] cursor-pointer"
+              className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-full max-h-[300px] cursor-pointer"
               onClick={() => {
                 setNavIndex(item.index);
               }}
