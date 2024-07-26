@@ -82,7 +82,8 @@ const ElementArray = () => {
     setIsFocused,
     handleFocus,
     handleBlur,
-    location
+    location,
+    cardFeatureBackGroundStyle,
   })[featuresIndex];
   const testimonialElement = testimonialComponent({
     text,
@@ -93,7 +94,8 @@ const ElementArray = () => {
     setIsFocused,
     handleFocus,
     handleBlur,
-    location
+    location,
+    cardFeatureBackGroundStyle,
   })[testimonialIndex];
   const faqElement = faqComponent({
     text,
@@ -104,7 +106,8 @@ const ElementArray = () => {
     setIsFocused,
     handleFocus,
     handleBlur,
-    location
+    location,
+    cardFeatureBackGroundStyle,
   })[faqIndex];
   const teamElement = teamComponent({
     text,
@@ -115,7 +118,8 @@ const ElementArray = () => {
     setIsFocused,
     handleFocus,
     handleBlur,
-    location
+    location,
+    cardFeatureBackGroundStyle,
   })[teamIndex];
   const contactElement = contactComponent({
     text,
@@ -126,7 +130,8 @@ const ElementArray = () => {
     setIsFocused,
     handleFocus,
     handleBlur,
-    location
+    location,
+    cardFeatureBackGroundStyle,
   })[contactIndex];
   const footerElement = footerComponent({
     text,
@@ -137,7 +142,8 @@ const ElementArray = () => {
     setIsFocused,
     handleFocus,
     handleBlur,
-    location
+    location,
+    cardFeatureBackGroundStyle,
   })[footerIndex];
 
   const elements = [
