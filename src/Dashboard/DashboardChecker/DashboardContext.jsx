@@ -12,14 +12,13 @@ import { teamComponent } from "../Arrays/TeamArray";
 import { contactComponent } from "../Arrays/ContactArray";
 import { footerComponent } from "../Arrays/Footer";
 import { webContentObject } from "../Arrays/Arrays";
-import { useLocation } from "react-router-dom";
 
 export const DashContext = createContext();
 export const DashboardProvider = ({ children }) => {
   const [closeSideNav, setCloseSideNav] = useState(false);
   const [closeAINav, setCloseAINav] = useState(true);
   const [showDesignModal, setShowDesignModal] = useState(false);
-  const [testDesignModal, setTestDesignModal] = useState(false);
+  const [testDesignModal, setTestDesignModal] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [userData, setUserData] = useState(undefined);
   const [userInput, setUserInput] = useState("");
