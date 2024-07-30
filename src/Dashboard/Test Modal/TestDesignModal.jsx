@@ -66,12 +66,13 @@ const TestDesignModal = () => {
     buttonIndex,
     isMobile,
     setIsMobile,
-    handleTextClick,
     backgroundStyle,
     isFocused,
     handleFocus,
     handleBlur,
   } = useContext(DashContext);
+  const [clickedText, setClickedText] = useState("");
+  const [selectedElement, setSelectedElement] = useState(null);
 
 
 
@@ -79,23 +80,66 @@ const TestDesignModal = () => {
     text,
     buttonIndex,
     isMobile,
-    handleTextClick,
   })[0];
   const element = heroComponents({
     text,
     buttonIndex,
     isMobile,
-    handleTextClick,
     isFocused,
     handleFocus,
     handleBlur,
+    location
   })[4];
+
+   const handleTextClick = (event) => {
+     setClickedText(event.target.innerText);
+     setSelectedElement(event.target);
+   };
+
+   const handleTextareaChange = (event) => {
+     const newText = event.target.value;
+     setClickedText(newText);
+     if (selectedElement) {
+       selectedElement.innerText = newText;
+     }
+   };
+
+   const handleColorClick = (color) => {
+     if (selectedElement) {
+       selectedElement.style.color = color;
+     }
+   };
+
 
   return (
     <main className="bg-white w-full mt-5 max-md:mt-0 mx-10 h-[93vh] max-md:h-[89vh] max-[499px]:mx-4 overflow-scroll overflow-x-hidden pt-14 select-none">
-      {element}
+      {/* {element} */}
 
-      {/* <section style={{ background: backgroundStyle }}>
+      <textarea
+        name=""
+        id=""
+        className="bg-[black] text-white size-[400px] fixed right-0 z-50"
+        value={clickedText}
+        placeholder="Typing..."
+        onChange={handleTextareaChange}
+      ></textarea>
+
+      <div className="color-container flex gap-4 justify-center">
+        <div
+          className="size-4 rounded-full bg-[red] cursor-pointer"
+          onClick={() => handleColorClick("red")}
+        ></div>
+        <div
+          className="size-4 rounded-full bg-[blue] cursor-pointer"
+          onClick={() => handleColorClick("blue")}
+        ></div>
+        <div
+          className="size-4 rounded-full bg-[green] cursor-pointer"
+          onClick={() => handleColorClick("green")}
+        ></div>
+      </div>
+
+      <section style={{ background: "" }}>
         <div
           className={`${
             isMobile ? "h-[750px] flex-col" : ""
@@ -107,30 +151,18 @@ const TestDesignModal = () => {
             } text-[rgb(33,37,41)] w-[40%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
           >
             <h1
-              className={`font-bold xl:text-5xl text-3xl mb-4 outline-none ${
-                isFocused
-                  ? ""
-                  : "hover:border-[2px] hover:border-[rgb(0,111,173)]"
-              }`}
+              className={`font-bold xl:text-5xl text-3xl mb-4 outline-none`}
+              onClick={handleTextClick}
+              contentEditable={false}
               data-text="Heading"
-              contentEditable
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
             >
               {text.heroHeaderText}
             </h1>
             <p
-              className={`font-medium outline-none ${
-                isFocused
-                  ? ""
-                  : "hover:border-[2px] hover:border-[rgb(0,111,173)]"
-              }`}
+              className={`font-medium outline-none`}
+              onClick={handleTextClick}
               data-text="Type a paragraph"
-              contentEditable
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
             >
               {text.description}
             </p>
@@ -176,95 +208,196 @@ const TestDesignModal = () => {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
+
+      <section style={{ background: "" }}>
+        <div
+          className={`${
+            isMobile ? "flex-col-reverse" : ""
+          } py-5 max-w-[1200px] mx-auto flex justify-center max-lg:flex-col-reverse`}
+        >
+          <div
+            className={`${
+              isMobile ? "w-[90%]" : ""
+            } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
+          >
+            <h1
+              className={`font-bold xl:text-5xl text-3xl mb-4`}
+              onClick={handleTextClick}
+              data-text="Heading"
+              contentEditable={true}
+              suppressContentEditableWarning
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+            >
+              {text.heroHeaderText}
+            </h1>
+            <p
+              className={`font-medium`}
+              onClick={handleTextClick}
+              data-text="Heading"
+              contentEditable={true}
+              suppressContentEditableWarning
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+            >
+              {text.description}
+            </p>
+            {buttonIndex !== undefined && buttonElement}
+          </div>
+
+          <div
+            className={`${
+              isMobile ? "w-full" : ""
+            } w-[45%] max-lg:w-full mb-10`}
+          >
+            <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
+              <img
+                src={testImage}
+                alt={testImage}
+                className="object-cover h-full w-full"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 };
 
 export default TestDesignModal;
 
+export const TestColorPickerComponent = ({ setHeroBackGroundStyle }) => {
+  const [isActive, setIsActive] = useState(0);
+  const [isGradient, setIsGradient] = useState(false);
+  const [color1, setColor1] = useState({ r: 255, g: 255, b: 255, a: 1 });
+  const [color2, setColor2] = useState({ r: 255, g: 255, b: 255, a: 1 });
+  const [hex1, setHex1] = useState("#ffffff");
+  const [hex2, setHex2] = useState("#ffffff");
+  const [inputValue, setInputValue] = useState("ffffff");
+
+  useEffect(() => {
+    if (isActive === 0) {
+      setHex1(rgbaToHex(color1));
+    } else {
+      setHex2(rgbaToHex(color2));
+    }
+  }, [color1, color2, isActive]);
+
+  useEffect(() => {
+    if (isActive === 0) {
+      setInputValue(hex1.slice(1)); // remove '#' for input value
+    } else {
+      setInputValue(hex2.slice(1));
+    }
+  }, [hex1, hex2, isActive]);
+
+  const handleColorChange = (newColor) => {
+    if (isActive === 0) {
+      setColor1(newColor);
+    } else {
+      setColor2(newColor);
+    }
+  };
+
+  const handleHexChange = (e) => {
+    const newHex = e.target.value;
+    const sanitizedHex = newHex.replace(/[^a-fA-F0-9]/g, "").slice(0, 6);
+    setInputValue(sanitizedHex);
+
+    if (/^[0-9A-Fa-f]{6}$/.test(sanitizedHex)) {
+      if (isActive === 0) {
+        setHex1(`#${sanitizedHex}`);
+        setColor1(hexToRgba(`#${sanitizedHex}`));
+      } else {
+        setHex2(`#${sanitizedHex}`);
+      }
+    }
+  };
 
 
+  return (
+    <section className="bg-[rgb(36,37,40)] py-5 rounded-[8px] px-2">
+      <div
+        className={`${
+          isGradient ? "block" : "hidden"
+        } flex justify-between mb-2 max-w-[200px] mx-auto`}
+      >
+        <button
+          className={`${
+            isActive === 0 ? "border-[2px]" : "border-[1px]"
+          } w-[30px] h-[30px] flex justify-center items-center`}
+          onClick={() => {
+            setIsActive(0);
+          }}
+        >
+          <span
+            className="w-[20px] h-[20px]"
+            style={{ backgroundColor: hex1 }}
+          ></span>
+        </button>
 
+        <button
+          className={`${
+            isActive === 1 ? "border-[2px]" : "border-[1px]"
+          } w-[30px] h-[30px] flex justify-center items-center`}
+          onClick={() => {
+            setIsActive(1);
+          }}
+        >
+          <span
+            className="w-[20px] h-[20px]"
+            style={{ backgroundColor: hex2 }}
+          ></span>
+        </button>
+      </div>
 
+      <div className="flex justify-between mb-2 max-w-[200px] mx-auto text-[rgb(145,151,155)] font-medium bg-[rgb(19,24,32)] px-3 py-1 rounded-[5px] text-sm">
+        <button
+          className={`${
+            isGradient ? "" : "bg-[rgb(36,37,40)] rounded-[5px]"
+          } px-2 py-1`}
+          onClick={() => {
+            setIsGradient(false);
+            setIsActive(0);
+          }}
+        >
+          Color
+        </button>
+        <button
+          className={`${
+            isGradient ? "bg-[rgb(36,37,40)] rounded-[5px]" : ""
+          } px-2 py-1`}
+          onClick={() => {
+            setIsGradient(true);
+          }}
+        >
+          Gradient
+        </button>
+      </div>
 
+      <div className="custom-layout example flex justify-center">
+        <RgbaColorPicker
+          color={isActive === 0 ? color1 : color2}
+          onChange={handleColorChange}
+        />
+      </div>
 
-// import React, {
-//   createContext,
-//   useContext,
-//   useEffect,
-//   useRef,
-//   useState,
-// } from "react";
+      <div className="my-4 flex justify-between px-2 max-w-[240px] mx-auto">
+        <div className="text-[rgb(145,151,155)] font-medium flex gap-1">
+          <span className="text-xl">#</span>
+          <input
+            type="text"
+            className="w-[70px] text-center bg-[rgb(37,39,45)] border-[1px] rounded-[3px] border-[rgba(145,151,155,0.65)] uppercase"
+            value={inputValue}
+            onChange={handleHexChange}
+          />
+        </div>
 
-// export const EditContext = createContext();
-
-// const EditAndSaveProvider = ({ children }) => {
-//   const elementRefs = useRef([]);
-//   const scrollableDivRef = useRef(null);
-//   const [displayEditModal, setDisplayEditModal] = useState(false);
-//   const [changeSectionHeaderText, setChangeSectionHeaderText] = useState("");
-//   const [isPattern, setIsPattern] = useState(true);
-//   const [clickedIndex, setClickedIndex] = useState(null);
-//   const [elements, setElements] = useState([]);
-//   const [currentSection, setCurrentSection] = useState(null);
-//   const [isGradient, setIsGradient] = useState(false);
-//   const [color1, setColor1] = useState({ r: 255, g: 255, b: 255, a: 1 });
-//   const [color2, setColor2] = useState({ r: 255, g: 255, b: 255, a: 1 });
-//   const [hex1, setHex1] = useState("#ffffff");
-//   const [hex2, setHex2] = useState("#ffffff");
-//   const [inputValue, setInputValue] = useState("ffffff");
-//   const [isActive, setIsActive] = useState(0);
-//   const [isFocused, setIsFocused] = useState(false);
-//   const buttons = [
-//     "Header",
-//     "Hero",
-//     "Card Feature",
-//     "Classical Feature",
-//     "Testimonial",
-//     "FAQ",
-//     "Team",
-//   ];
-
-//   return (
-//     <EditContext.Provider
-//       value={{
-//         elementRefs,
-//         scrollableDivRef,
-//         displayEditModal,
-//         changeSectionHeaderText,
-//         isPattern,
-//         clickedIndex,
-//         buttons,
-//         elements,
-//         currentSection,
-//         isGradient,
-//         setDisplayEditModal,
-//         setChangeSectionHeaderText,
-//         setIsPattern,
-//         setClickedIndex,
-//         setElements,
-//         setCurrentSection,
-//         setIsGradient,
-//         color1,
-//         setColor1,
-//         color2,
-//         setColor2,
-//         hex1,
-//         setHex1,
-//         hex2,
-//         setHex2,
-//         inputValue,
-//         setInputValue,
-//         isActive,
-//         setIsActive,
-//         isFocused,
-//         setIsFocused,
-//       }}
-//     >
-//       {children}
-//     </EditContext.Provider>
-//   );
-// };
-
-// export default EditAndSaveProvider;
+        <div className="w-[50px] text-center bg-transparent border-[1px] rounded-[3px] border-[rgb(145,151,155)] text-[rgb(145,151,155)] text-sm bg-[rgb(37,39,45)] font-medium flex justify-center items-center">
+          <p>HEX</p>
+        </div>
+      </div>
+    </section>
+  );
+};

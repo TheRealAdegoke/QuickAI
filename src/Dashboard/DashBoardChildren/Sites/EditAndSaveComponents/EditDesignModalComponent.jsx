@@ -9,7 +9,11 @@ import { ClassicalFeaturesImages } from "./ClassicalFeatureEditComponent";
 import { TestimonialImages } from "./TestimonialEditComponent";
 import { FAQImages } from "./FAQEditComponent";
 import { TeamImages } from "./TeamEditComponent";
-import { FeatureWithCardColorPickerComponent, HeroColorPickerComponent } from "./ColorPicker";
+import {
+  FeatureWithCardColorPickerComponent,
+  HeroColorPickerComponent,
+} from "./ColorPicker";
+import EditContentComponent from "./EditContentComponent";
 
 const EditDesignModalComponent = () => {
   const {
@@ -108,7 +112,9 @@ const EditDesignModalComponent = () => {
                 </div>
 
                 {isContent ? (
-                  <div></div>
+                  <div>
+                    <EditContentComponent />
+                  </div>
                 ) : (
                   <div className="mb-4">
                     {currentSection.includes("Hero") && (
@@ -119,7 +125,9 @@ const EditDesignModalComponent = () => {
                     )}
                     {currentSection.includes("Card Feature") && (
                       <FeatureWithCardColorPickerComponent
-                        setcardFeatureBackGroundStyle={setcardFeatureBackGroundStyle}
+                        setcardFeatureBackGroundStyle={
+                          setcardFeatureBackGroundStyle
+                        }
                         currentSection={currentSection}
                       />
                     )}

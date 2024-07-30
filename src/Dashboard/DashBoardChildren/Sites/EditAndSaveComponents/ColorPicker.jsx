@@ -107,7 +107,7 @@ export const HeroColorPickerComponent = ({
   }, [isGradient]);
 
   return (
-    <section className="bg-[rgb(36,37,40)] py-5 rounded-[8px] px-2">
+    <div className="bg-[rgb(36,37,40)] py-5 rounded-[8px] px-2">
       <div
         className={`${
           isGradient ? "block" : "hidden"
@@ -178,7 +178,7 @@ export const HeroColorPickerComponent = ({
           <span className="text-xl">#</span>
           <input
             type="text"
-            className="w-[70px] text-center bg-[rgb(37,39,45)] border-[1px] rounded-[3px] border-[rgba(145,151,155,0.65)] uppercase"
+            className="w-[70px] text-center bg-[rgb(37,39,45)] border-[1px] rounded-[3px] border-[rgba(145,151,155,0.65)] uppercase outline-none"
             value={inputValue}
             onChange={handleHexChange}
           />
@@ -188,7 +188,7 @@ export const HeroColorPickerComponent = ({
           <p>HEX</p>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
@@ -298,7 +298,7 @@ export const FeatureWithCardColorPickerComponent = ({
   }, [isGradient]);
 
   return (
-    <section className="bg-[rgb(36,37,40)] py-5 rounded-[8px] px-2">
+    <div className="bg-[rgb(36,37,40)] py-5 rounded-[8px] px-2">
       <div
         className={`${
           isGradient ? "block" : "hidden"
@@ -369,7 +369,7 @@ export const FeatureWithCardColorPickerComponent = ({
           <span className="text-xl">#</span>
           <input
             type="text"
-            className="w-[70px] text-center bg-[rgb(37,39,45)] border-[1px] rounded-[3px] border-[rgba(145,151,155,0.65)] uppercase"
+            className="w-[70px] text-center bg-[rgb(37,39,45)] border-[1px] rounded-[3px] border-[rgba(145,151,155,0.65)] uppercase outline-none"
             value={inputValue}
             onChange={handleHexChange}
           />
@@ -379,7 +379,7 @@ export const FeatureWithCardColorPickerComponent = ({
           <p>HEX</p>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

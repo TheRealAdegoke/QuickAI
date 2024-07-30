@@ -196,7 +196,16 @@
   width: 100%;
 }
 
-[contentEditable=true]:empty:not(:focus):before {
+[contentEditable=false]:empty:not(:focus):before {
   content: attr(data-text);
   color:gray;
+}
+
+.h{
+  color: #33a9ff;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 100;
+  font-size: 0rem;
+  font-style: italic;
+  text-align: center;
 }
