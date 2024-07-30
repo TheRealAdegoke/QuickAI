@@ -66,12 +66,13 @@ const TestDesignModal = () => {
     buttonIndex,
     isMobile,
     setIsMobile,
-    handleTextClick,
     backgroundStyle,
     isFocused,
     handleFocus,
     handleBlur,
   } = useContext(DashContext);
+  const [clickedText, setClickedText] = useState("");
+  const [selectedElement, setSelectedElement] = useState(null);
 
 
 
@@ -79,27 +80,63 @@ const TestDesignModal = () => {
     text,
     buttonIndex,
     isMobile,
-    handleTextClick,
   })[0];
   const element = heroComponents({
     text,
     buttonIndex,
     isMobile,
-    handleTextClick,
     isFocused,
     handleFocus,
     handleBlur,
     location
   })[4];
 
+   const handleTextClick = (event) => {
+     setClickedText(event.target.innerText);
+     setSelectedElement(event.target);
+   };
+
+   const handleTextareaChange = (event) => {
+     const newText = event.target.value;
+     setClickedText(newText);
+     if (selectedElement) {
+       selectedElement.innerText = newText;
+     }
+   };
+
+   const handleColorClick = (color) => {
+     if (selectedElement) {
+       selectedElement.style.color = color;
+     }
+   };
+
+
   return (
     <main className="bg-white w-full mt-5 max-md:mt-0 mx-10 h-[93vh] max-md:h-[89vh] max-[499px]:mx-4 overflow-scroll overflow-x-hidden pt-14 select-none">
       {/* {element} */}
 
+      <textarea
+        name=""
+        id=""
+        className="bg-[black] text-white size-[400px] fixed right-0 z-50"
+        value={clickedText}
+        placeholder="Typing..."
+        onChange={handleTextareaChange}
+      ></textarea>
+
       <div className="color-container flex gap-4 justify-center">
-        <div className="size-4 rounded-full bg-[red]"></div>
-        <div className="size-4 rounded-full bg-[blue]"></div>
-        <div className="size-4 rounded-full bg-[green]"></div>
+        <div
+          className="size-4 rounded-full bg-[red] cursor-pointer"
+          onClick={() => handleColorClick("red")}
+        ></div>
+        <div
+          className="size-4 rounded-full bg-[blue] cursor-pointer"
+          onClick={() => handleColorClick("blue")}
+        ></div>
+        <div
+          className="size-4 rounded-full bg-[green] cursor-pointer"
+          onClick={() => handleColorClick("green")}
+        ></div>
       </div>
 
       <section style={{ background: "" }}>
@@ -114,30 +151,18 @@ const TestDesignModal = () => {
             } text-[rgb(33,37,41)] w-[40%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
           >
             <h1
-              className={`font-bold xl:text-5xl text-3xl mb-4 outline-none ${
-                isFocused
-                  ? ""
-                  : "hover:border-[2px] hover:border-[rgb(0,111,173)]"
-              }`}
+              className={`font-bold xl:text-5xl text-3xl mb-4 outline-none`}
+              onClick={handleTextClick}
+              contentEditable={false}
               data-text="Heading"
-              contentEditable
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
             >
               {text.heroHeaderText}
             </h1>
             <p
-              className={`font-medium outline-none ${
-                isFocused
-                  ? ""
-                  : "hover:border-[2px] hover:border-[rgb(0,111,173)]"
-              }`}
+              className={`font-medium outline-none`}
+              onClick={handleTextClick}
               data-text="Type a paragraph"
-              contentEditable
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
             >
               {text.description}
             </p>
@@ -196,10 +221,28 @@ const TestDesignModal = () => {
               isMobile ? "w-[90%]" : ""
             } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
           >
-            <h1 className={`font-bold xl:text-5xl text-3xl mb-4`}>
+            <h1
+              className={`font-bold xl:text-5xl text-3xl mb-4`}
+              onClick={handleTextClick}
+              data-text="Heading"
+              contentEditable={true}
+              suppressContentEditableWarning
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+            >
               {text.heroHeaderText}
             </h1>
-            <p className={`font-medium`}>{text.description}</p>
+            <p
+              className={`font-medium`}
+              onClick={handleTextClick}
+              data-text="Heading"
+              contentEditable={true}
+              suppressContentEditableWarning
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+            >
+              {text.description}
+            </p>
             {buttonIndex !== undefined && buttonElement}
           </div>
 

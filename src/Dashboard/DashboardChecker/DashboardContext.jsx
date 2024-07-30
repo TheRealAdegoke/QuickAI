@@ -181,34 +181,34 @@ export const DashboardProvider = ({ children }) => {
 
   const handleGenerateNav = () => {
     const randomNavIndex = Math.floor(
-      Math.random() * navComponents({ text }).length
+      Math.random() * navComponents({ text, location }).length
     );
     const randomHeroIndex = Math.floor(
       Math.random() * heroComponents({ text, buttonIndex, location }).length
     );
     const randomButtonsIndex = Math.floor(
-      Math.random() * WebButtonsArray({ text, buttonIndex }).length
+      Math.random() * WebButtonsArray({ text, buttonIndex, location }).length
     );
     const randomfeaturesWithCardIndex = Math.floor(
       Math.random() * featuresWithCardsComponent({ text, location }).length
     );
     const randomfeaturesIndex = Math.floor(
-      Math.random() * featuresComponents({ text }).length
+      Math.random() * featuresComponents({ text, location }).length
     );
     const randomTestimonialIndex = Math.floor(
-      Math.random() * testimonialComponent({ text }).length
+      Math.random() * testimonialComponent({ text, location }).length
     );
     const randomFaqIndex = Math.floor(
-      Math.random() * faqComponent({ text }).length
+      Math.random() * faqComponent({ text, location }).length
     );
     const randomTeamIndex = Math.floor(
-      Math.random() * teamComponent({ text }).length
+      Math.random() * teamComponent({ text, location }).length
     );
     const randomContactIndex = Math.floor(
-      Math.random() * contactComponent({ text }).length
+      Math.random() * contactComponent({ text, location }).length
     );
     const randomFooterIndex = Math.floor(
-      Math.random() * footerComponent({ text }).length
+      Math.random() * footerComponent({ text, location }).length
     );
 
     setNavIndex(randomNavIndex);
