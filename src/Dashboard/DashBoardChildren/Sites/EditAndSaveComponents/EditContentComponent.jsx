@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { IoIosClose } from "react-icons/io";
+import { Slider, ConfigProvider } from "antd";
 
 const EditContentComponent = () => {
   const textColor = [
@@ -21,7 +22,6 @@ const EditContentComponent = () => {
     "#16a085", // Greenish Blue
     "#27ae60", // Green
     "#2980b9", // Blue
-    "#8e44ad", // Dark Purple
     "#2ecc71", // Light Green
     "#d35400", // Dark Orange
     "#c0392b", // Dark Red
@@ -46,15 +46,41 @@ const EditContentComponent = () => {
     "#c5eff7", // Light Blue
     "#d5d6d2", // Light Gray
   ];
-  const [colorType, setColorType] = useState(true);
+  const [btn, setBtn] = useState({
+    colorType: true,
+    fontSizeType: true,
+    fontWeightType: false,
+    fontStyleType: false,
+    fontFamilyType: false,
+    alignType: false,
+  });
+  const [value, setValue] = useState(2);
   const [styleModal, setStyleModal] = useState({
-    colorModal: true,
+    colorModal: false,
     fontSizeModal: false,
     fontWeightModal: false,
     fontStyleModal: false,
     fontFamilyModal: false,
     alignModal: false,
   });
+  
+  const formatter = (value) => {
+    const formattedValue = value
+      .toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return `${formattedValue}`;
+  };
+
+  const handleInputChange = (e) => {
+    const newValue = e.target.value;
+    // Allow the input to be cleared and typed anew, and ensure the value is at least 2
+    if (
+      newValue === "" ||
+      (!isNaN(newValue) && newValue.trim() !== "" && Number(newValue) >= 2)
+    ) {
+      setValue(newValue === "" ? "" : Number(newValue));
+    }
+  };
 
   return (
     <>
@@ -84,18 +110,7 @@ const EditContentComponent = () => {
               color
             </button>
 
-            <div
-              className={`${
-                styleModal.colorModal ||
-                styleModal.fontSizeModal ||
-                styleModal.fontWeightModal ||
-                styleModal.fontStyleModal ||
-                styleModal.fontFamilyModal ||
-                styleModal.alignModal
-                  ? "block"
-                  : "hidden"
-              }`}
-            >
+            <div className={`${styleModal.colorModal ? "block" : "hidden"}`}>
               <div className="bg-[rgb(36,37,40)] rounded-[5px] px-2 pb-2 ">
                 <IoIosClose
                   className=" float-right text-3xl pb-1 block cursor-pointer"
@@ -105,7 +120,7 @@ const EditContentComponent = () => {
                 />
                 <div className={`w-full flex  justify-between`}>
                   <div>
-                    {colorType ? (
+                    {btn.colorType ? (
                       <div className="flex gap-1 items-center">
                         <span>#</span>
                         <input
@@ -145,10 +160,12 @@ const EditContentComponent = () => {
                   <button
                     className="w-[50px] text-center bg-transparent border-[1px] rounded-[3px] border-[rgb(145,151,155)] text-[rgb(145,151,155)] text-sm bg-[rgb(37,39,45)] font-medium flex justify-center items-center h-[25px]"
                     onClick={() => {
-                      setColorType(!colorType);
+                      setBtn((prevState) => ({
+                        colorType: !prevState.colorType,
+                      }));
                     }}
                   >
-                    {colorType ? "HEX" : "RGB"}
+                    {btn.colorType ? "HEX" : "RGB"}
                   </button>
                 </div>
               </div>
@@ -164,6 +181,7 @@ const EditContentComponent = () => {
               </div>
             </div>
           </div>
+
           <div className="w-[95%]">
             <button
               className={`${
@@ -176,10 +194,69 @@ const EditContentComponent = () => {
                   ? "hidden"
                   : "block"
               } bg-[rgb(36,37,40)] rounded-[5px] px-2 py-1 w-full text-nowrap`}
+              onClick={() => {
+                setStyleModal({ fontSizeModal: true });
+              }}
             >
               font size
             </button>
+
+            <div className={`${styleModal.fontSizeModal ? "block" : "hidden"}`}>
+              <div className="bg-[rgb(36,37,40)] rounded-[5px] px-2 pb-2">
+                <div className="flex justify-end">
+                  <IoIosClose
+                    className="text-3xl pb-1 block cursor-pointer"
+                    onClick={() => {
+                      setStyleModal({ fontSizeType: false });
+                    }}
+                  />
+                </div>
+
+                <div className="flex gap-2 items-center justify-center">
+                  <input
+                    type="text"
+                    className="w-[40px]  text-center bg-[rgb(37,39,45)] border-[1px] rounded-[3px] border-[rgba(145,151,155,0.65)] uppercase outline-none"
+                    value={value}
+                    onChange={handleInputChange}
+                  />
+
+                  <button
+                    className="w-[50px] text-center bg-transparent border-[1px] rounded-[3px] border-[rgb(145,151,155)] text-[rgb(145,151,155)] text-sm bg-[rgb(37,39,45)] font-medium flex justify-center items-center "
+                    onClick={() => {
+                      setBtn((prevState) => ({
+                        fontSizeType: !prevState.fontSizeType,
+                      }));
+                    }}
+                  >
+                    {btn.fontSizeType ? "px" : "rem"}
+                  </button>
+                </div>
+
+                <div className="mt-5">
+                  <ConfigProvider
+                    theme={{
+                      token: {
+                        colorBgSpotlight: "rgba(100, 199, 255, 0.5)",
+                        colorTextLightSolid: "rgba(0, 31, 36, 1)",
+                        fontSize: 20,
+                      },
+                    }}
+                  >
+                    <Slider
+                      range
+                      defaultValue={[2, 100]}
+                      value={value}
+                      min={2}
+                      max={100}
+                      onChange={setValue}
+                      tooltip={{ open: false, formatter, zIndex: 0 }}
+                    />
+                  </ConfigProvider>
+                </div>
+              </div>
+            </div>
           </div>
+
           <div className="w-[95%]">
             <button
               className={`${
@@ -192,10 +269,77 @@ const EditContentComponent = () => {
                   ? "hidden"
                   : "block"
               } bg-[rgb(36,37,40)] rounded-[5px] px-2 py-1 w-full text-nowrap`}
+              onClick={() => {
+                setStyleModal({ fontWeightModal: true });
+              }}
             >
               font weight
             </button>
+
+            <div
+              className={`${styleModal.fontWeightModal ? "block" : "hidden"}`}
+            >
+              <div className="bg-[rgb(36,37,40)] rounded-[5px] px-2 pb-2">
+                <div className="flex justify-end">
+                  <IoIosClose
+                    className="text-3xl pb-1 block cursor-pointer"
+                    onClick={() => {
+                      setStyleModal({ fontWeightModal: false });
+                    }}
+                  />
+                </div>
+
+                <div className="flex flex-wrap gap-2 items-center justify-center">
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Thin
+                  </button>
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    extra-light
+                  </button>
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Light
+                  </button>
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Normal
+                  </button>
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Medium
+                  </button>
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Semi-bold
+                  </button>
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Bold
+                  </button>
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Extrapbold
+                  </button>
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Black
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
+
           <div className="w-[95%]">
             <button
               className={`${
@@ -208,10 +352,42 @@ const EditContentComponent = () => {
                   ? "hidden"
                   : "block"
               } bg-[rgb(36,37,40)] rounded-[5px] px-2 py-1 w-full text-nowrap`}
+              onClick={() => {
+                setStyleModal({ fontStyleModal: true });
+              }}
             >
               font style
             </button>
+
+            <div
+              className={`${styleModal.fontStyleModal ? "block" : "hidden"}`}
+            >
+              <div className="bg-[rgb(36,37,40)] rounded-[5px] px-2 pb-2">
+                <div className="flex justify-end">
+                  <IoIosClose
+                    className="text-3xl pb-1 block cursor-pointer"
+                    onClick={() => {
+                      setStyleModal({ fontStyleModal: false });
+                    }}
+                  />
+                </div>
+
+                <div className="flex flex-wrap gap-2 items-center justify-center">
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Italic
+                  </button>
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    non-italic
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
+
           <div className="w-[95%]">
             <button
               className={`${
@@ -224,10 +400,87 @@ const EditContentComponent = () => {
                   ? "hidden"
                   : "block"
               } bg-[rgb(36,37,40)] rounded-[5px] px-2 py-1 w-full text-nowrap`}
+              onClick={() => {
+                setStyleModal({ fontFamilyModal: true });
+              }}
             >
               font family
             </button>
+
+            <div
+              className={`${styleModal.fontFamilyModal ? "block" : "hidden"}`}
+            >
+              <div className="bg-[rgb(36,37,40)] rounded-[5px] px-2 pb-2">
+                <div className="flex justify-end">
+                  <IoIosClose
+                    className="text-3xl pb-1 block cursor-pointer"
+                    onClick={() => {
+                      setStyleModal({ fontFamilyModal: false });
+                    }}
+                  />
+                </div>
+
+                <div className="flex flex-wrap gap-2 items-center justify-center">
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Gill
+                  </button>
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Frank
+                  </button>
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Lucida
+                  </button>
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Segoe
+                  </button>
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Times
+                  </button>
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Trebuc
+                  </button>
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Arial
+                  </button>
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Cambr
+                  </button>
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Georg
+                  </button>
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Impac
+                  </button>
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Verda
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
+
           <div className="w-[95%]">
             <button
               className={`${
@@ -240,9 +493,50 @@ const EditContentComponent = () => {
                   ? "hidden"
                   : "block"
               } bg-[rgb(36,37,40)] rounded-[5px] px-2 py-1 w-full text-nowrap`}
+              onClick={() => {
+                setStyleModal({ alignModal: true });
+              }}
             >
               align
             </button>
+
+            <div
+              className={`${styleModal.alignModal ? "block" : "hidden"}`}
+            >
+              <div className="bg-[rgb(36,37,40)] rounded-[5px] px-2 pb-2">
+                <div className="flex justify-end">
+                  <IoIosClose
+                    className="text-3xl pb-1 block cursor-pointer"
+                    onClick={() => {
+                      setStyleModal({ alignModal: false });
+                    }}
+                  />
+                </div>
+
+                <div className="flex flex-wrap gap-2 items-center justify-center">
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Left
+                  </button>
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Right
+                  </button>
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Center
+                  </button>
+                  <button
+                    className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                  >
+                    Justify
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
