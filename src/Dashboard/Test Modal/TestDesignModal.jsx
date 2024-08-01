@@ -110,6 +110,36 @@ const TestDesignModal = () => {
      }
    };
 
+   const handleFontSizeClick = (fontSize) => {
+     if (selectedElement) {
+       selectedElement.style.fontSize = fontSize;
+     }
+   };
+
+   const handleFontWeightClick = (fontWeight) => {
+     if (selectedElement) {
+       selectedElement.style.fontWeight = fontWeight;
+     }
+   };
+
+   const handleFontStyleClick = (fontStyle) => {
+     if (selectedElement) {
+       selectedElement.style.fontStyle = fontStyle;
+     }
+   };
+
+   const handleFontFamilyClick = (FontFamily) => {
+     if (selectedElement) {
+       selectedElement.style.fontFamily = FontFamily;
+     }
+   };
+
+   const handleTextAlignmentClick = (textAlign) => {
+     if (selectedElement) {
+       selectedElement.style.textAlign = textAlign;
+     }
+   };
+
 
   return (
     <main className="bg-white w-full mt-5 max-md:mt-0 mx-10 h-[93vh] max-md:h-[89vh] max-[499px]:mx-4 overflow-scroll overflow-x-hidden pt-14 select-none">
@@ -134,12 +164,12 @@ const TestDesignModal = () => {
           onClick={() => handleColorClick("blue")}
         ></div>
         <div
-          className="size-4 rounded-full bg-[green] cursor-pointer"
-          onClick={() => handleColorClick("green")}
+          className="size-4 rounded-full bg-[black] cursor-pointer"
+          onClick={() => handleColorClick("black")}
         ></div>
       </div>
 
-      <section style={{ background: "" }}>
+      <section style={{}}>
         <div
           className={`${
             isMobile ? "h-[750px] flex-col" : ""
@@ -209,6 +239,236 @@ const TestDesignModal = () => {
           </div>
         </div>
       </section>
+
+      <div className="flex flex-wrap gap-2 items-center justify-center">
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleTextAlignmentClick("left")}
+        >
+          Left
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleTextAlignmentClick("right")}
+        >
+          Right
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleTextAlignmentClick("center")}
+        >
+          Center
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleTextAlignmentClick("justify")}
+        >
+          Justify
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontSizeClick("2rem")}
+        >
+          size
+        </button>
+      </div>
+
+      {/* <div className="flex flex-wrap gap-2 items-center justify-center">
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontWeightClick(100)}
+        >
+          Thin
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontWeightClick(200)}
+        >
+          extra-light
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontWeightClick(300)}
+        >
+          Light
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontWeightClick(400)}
+        >
+          Normal
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontWeightClick(500)}
+        >
+          Medium
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontWeightClick(600)}
+        >
+          Semi-bold
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontWeightClick(700)}
+        >
+          Bold
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontWeightClick(800)}
+        >
+          Extrapbold
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontWeightClick(900)}
+        >
+          Black
+        </button>
+      </div> */}
+
+      {/* <div className="flex flex-wrap gap-2 items-center justify-center">
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontStyleClick("italic")}
+        >
+          Italic
+        </button>
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontStyleClick("normal")}
+        >
+          non-italic
+        </button>
+      </div>
+
+      <div className="flex flex-wrap gap-2 items-center justify-center max-w-[500px]">
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() =>
+            handleFontFamilyClick(
+              "'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"
+            )
+          }
+        >
+          Gill
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() =>
+            handleFontFamilyClick(
+              "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif "
+            )
+          }
+        >
+          Frank
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() =>
+            handleFontFamilyClick(
+              "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"
+            )
+          }
+        >
+          Lucida
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() =>
+            handleFontFamilyClick(
+              "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+            )
+          }
+        >
+          Segoe
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() =>
+            handleFontFamilyClick("'Times New Roman', Times, serif")
+          }
+        >
+          Times
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() =>
+            handleFontFamilyClick(
+              "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif"
+            )
+          }
+        >
+          Trebuc
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontFamilyClick("Arial, Helvetica, sans-serif")}
+        >
+          Arial
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() =>
+            handleFontFamilyClick(
+              "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"
+            )
+          }
+        >
+          Cambr
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() =>
+            handleFontFamilyClick("Georgia, 'Times New Roman', Times, serif")
+          }
+        >
+          Georg
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() =>
+            handleFontFamilyClick(
+              "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"
+            )
+          }
+        >
+          Impac
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() =>
+            handleFontFamilyClick("Verdana, Geneva, Tahoma, sans-serif")
+          }
+        >
+          Verda
+        </button>
+      </div> */}
 
       <section style={{ background: "" }}>
         <div
