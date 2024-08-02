@@ -18,7 +18,7 @@ export const DashboardProvider = ({ children }) => {
   const [closeSideNav, setCloseSideNav] = useState(false);
   const [closeAINav, setCloseAINav] = useState(true);
   const [showDesignModal, setShowDesignModal] = useState(false);
-  const [testDesignModal, setTestDesignModal] = useState(true);
+  const [testDesignModal, setTestDesignModal] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [userData, setUserData] = useState(undefined);
   const [userInput, setUserInput] = useState("");
@@ -75,6 +75,10 @@ export const DashboardProvider = ({ children }) => {
   const [heroBackGroundStyle, setHeroBackGroundStyle] = useState("")
   const [cardFeatureBackGroundStyle, setcardFeatureBackGroundStyle] =
     useState("");
+  const [clickedText, setClickedText] = useState("");
+  const [selectedElement, setSelectedElement] = useState(null);
+  const [backGroundStyle, setBackGroundStyle] = useState("");
+  const [selectedDiv, setSelectedDiv] = useState(null);
 
   useEffect(() => {
     if (!shuffled && webContentObject.randomButtonText) {
@@ -184,13 +188,21 @@ export const DashboardProvider = ({ children }) => {
       Math.random() * navComponents({ text, location }).length
     );
     const randomHeroIndex = Math.floor(
-      Math.random() * heroComponents({ text, buttonIndex, location }).length
+      Math.random() *
+        heroComponents({
+          text,
+          buttonIndex,
+          location,
+          handleDivClick,
+          backGroundStyle,
+        }).length
     );
     const randomButtonsIndex = Math.floor(
       Math.random() * WebButtonsArray({ text, buttonIndex, location }).length
     );
     const randomfeaturesWithCardIndex = Math.floor(
-      Math.random() * featuresWithCardsComponent({ text, location }).length
+      Math.random() *
+        featuresWithCardsComponent({ text, location, handleDivClick }).length
     );
     const randomfeaturesIndex = Math.floor(
       Math.random() * featuresComponents({ text, location }).length
@@ -297,26 +309,117 @@ export const DashboardProvider = ({ children }) => {
     setIsFocused(false);
   };
 
+  const handleTextClick = (event) => {
+    setClickedText(event.target.innerText);
+    setSelectedElement(event.target);
+  };
+
+  const handleTextareaChange = (event) => {
+    const newText = event.target.value;
+    setClickedText(newText);
+    if (selectedElement) {
+      selectedElement.innerText = newText;
+    }
+  };
+
+  const handleColorClick = (color) => {
+    if (selectedElement) {
+      selectedElement.style.color = color;
+    }
+  };
+
+  const handleFontSizeClick = (fontSize) => {
+    if (selectedElement) {
+      selectedElement.style.fontSize = fontSize;
+      selectedElement.style.wordWrap = "break-word";
+      selectedElement.style.lineHeight = "1.2"
+    }
+  };
+
+  const handleFontWeightClick = (fontWeight) => {
+    if (selectedElement) {
+      selectedElement.style.fontWeight = fontWeight;
+    }
+  };
+
+  const handleFontStyleClick = (fontStyle) => {
+    if (selectedElement) {
+      selectedElement.style.fontStyle = fontStyle;
+    }
+  };
+
+  const handleFontFamilyClick = (FontFamily) => {
+    if (selectedElement) {
+      selectedElement.style.fontFamily = FontFamily;
+    }
+  };
+
+  const handleTextAlignmentClick = (textAlign) => {
+    if (selectedElement) {
+      selectedElement.style.textAlign = textAlign;
+    }
+  };
+
+  const handleBGColorClick = (color) => {
+    if (selectedDiv) {
+      selectedDiv.style.background = color;
+    }
+  };
+
+  const handleDivClick = (event) => {
+    setSelectedDiv(event.currentTarget);
+  };
+
+  useEffect(() => {
+    handleBGColorClick(backGroundStyle);
+  }, [backGroundStyle]);
+
   return (
     <DashContext.Provider
       value={{
         closeSideNav,
-        setCloseSideNav,
         showDesignModal,
-        setShowDesignModal,
         closeAINav,
-        setCloseAINav,
         userData,
-        handleUserData,
         geminiResponses,
+        userInput,
+        selectedIdea,
+        loading,
+        testDesignModal,
+        buttonIndex,
+        navIndex,
+        heroIndex,
+        featuresWithCardIndex,
+        featuresIndex,
+        testimonialIndex,
+        faqIndex,
+        teamIndex,
+        contactIndex,
+        footerIndex,
+        text,
+        isMobile,
+        isFocused,
+        scrollableDivRef,
+        displayEditModal,
+        changeSectionHeaderText,
+        isPattern,
+        clickedIndex,
+        buttons,
+        currentSection,
+        isFocused,
+        heroBackGroundStyle,
+        cardFeatureBackGroundStyle,
+        clickedText,
+        selectedElement,
+        setCloseSideNav,
+        setShowDesignModal,
+        setCloseAINav,
+        handleUserData,
         setGeminiResponses,
         handleGeminiResponses,
         handleGenerateNav,
-        userInput,
         setUserInput,
-        selectedIdea,
         setSelectedIdea,
-        loading,
         setLoading,
         WebButtonsArray,
         navComponents,
@@ -329,21 +432,8 @@ export const DashboardProvider = ({ children }) => {
         contactComponent,
         footerComponent,
         clearDesigns,
-        testDesignModal,
         setTestDesignModal,
-        buttonIndex,
-        navIndex,
-        heroIndex,
-        featuresWithCardIndex,
-        featuresIndex,
-        testimonialIndex,
-        faqIndex,
-        teamIndex,
-        contactIndex,
-        footerIndex,
-        text,
         setText,
-        isMobile,
         setIsMobile,
         setNavIndex,
         setHeroIndex,
@@ -354,28 +444,31 @@ export const DashboardProvider = ({ children }) => {
         setTeamIndex,
         setContactIndex,
         setFooterIndex,
-        isFocused,
         setIsFocused,
-        scrollableDivRef,
-        displayEditModal,
-        changeSectionHeaderText,
-        isPattern,
-        clickedIndex,
-        buttons,
-        currentSection,
         setDisplayEditModal,
         setChangeSectionHeaderText,
         setIsPattern,
         setClickedIndex,
         setCurrentSection,
-        isFocused,
         setIsFocused,
         handleFocus,
         handleBlur,
-        heroBackGroundStyle,
         setHeroBackGroundStyle,
-        cardFeatureBackGroundStyle,
         setcardFeatureBackGroundStyle,
+        setClickedText,
+        setSelectedElement,
+        setSelectedDiv,
+        backGroundStyle,
+        setBackGroundStyle,
+        handleDivClick,
+        handleTextClick,
+        handleTextareaChange,
+        handleColorClick,
+        handleFontSizeClick,
+        handleFontWeightClick,
+        handleFontStyleClick,
+        handleFontFamilyClick,
+        handleTextAlignmentClick,
       }}
     >
       {children}

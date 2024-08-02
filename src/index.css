@@ -208,6 +208,7 @@
   font-size: 0rem;
   font-style:normal;
   text-align:justify;
+  word-wrap: break-word;
 }
 
 

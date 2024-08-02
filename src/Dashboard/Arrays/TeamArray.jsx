@@ -5,7 +5,14 @@ export const teamComponent = ({
   handleFocus,
   handleBlur,
   location,
-  cardFeatureBackGroundStyle,
+  handleDivClick,
+  handleTextClick,
+  handleColorClick,
+  handleFontSizeClick,
+  handleFontWeightClick,
+  handleFontStyleClick,
+  handleFontFamilyClick,
+  handleTextAlignmentClick,
 }) => {
   let classNames = "";
 
@@ -17,26 +24,22 @@ export const teamComponent = ({
     classNames += " hover:border-[2px] hover:border-[rgb(0,111,173)]";
   }
   return [
-    <section style={{ background: cardFeatureBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div className="text-black py-32 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1
-            className={`${classNames} text-3xl font-bold text-[#212529] mb-2 outline-none`}
+            className={`text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.teamHeader[0]}
           </h1>
           <p
-            className={`${classNames} outline-none`}
+            className={``}
             data-text="Type a paragraph"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.teamParagraphTexts[0]}
           </p>
@@ -62,22 +65,18 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                className={`${classNames} font-semibold outline-none`}
+                className={`font-semibold `}
                 data-text="Heading"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Gabriel
               </h1>
               <p
-                className={`${classNames} outline-none`}
+                className={``}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Founder
               </p>
@@ -109,12 +108,10 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                className={`${classNames} mt-6 outline-none`}
+                className={`mt-6 `}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -137,22 +134,18 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                className={`${classNames} font-semibold outline-none`}
+                className={`font-semibold `}
                 data-text="Heading"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Gabriel
               </h1>
               <p
-                className={`${classNames} outline-none`}
+                className={``}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Founder
               </p>
@@ -184,12 +177,10 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                className={`${classNames} mt-6 outline-none`}
+                className={`mt-6 `}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -212,22 +203,18 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                className={`${classNames} font-semibold outline-none`}
+                className={`font-semibold `}
                 data-text="Heading"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Gabriel
               </h1>
               <p
-                className={`${classNames} outline-none`}
+                className={``}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Founder
               </p>
@@ -259,12 +246,10 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                className={`${classNames} mt-6 outline-none`}
+                className={`mt-6 `}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -274,26 +259,22 @@ export const teamComponent = ({
         </div>
       </div>
     </section>,
-    <section style={{ background: cardFeatureBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div className="text-black py-32 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1
-            className={`${classNames} text-3xl font-bold text-[#212529] mb-2 outline-none`}
+            className={`text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.teamHeader[0]}
           </h1>
           <p
-            className={`${classNames} outline-none`}
+            className={``}
             data-text="Type a paragraph"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.teamParagraphTexts[0]}
           </p>
@@ -319,22 +300,18 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                className={`${classNames} font-semibold outline-none`}
+                className={`font-semibold `}
                 data-text="Heading"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Gabriel
               </h1>
               <p
-                className={`${classNames} outline-none`}
+                className={``}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Founder
               </p>
@@ -366,12 +343,10 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                className={`${classNames} mt-6 outline-none`}
+                className={`mt-6 `}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -394,22 +369,18 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                className={`${classNames} font-semibold outline-none`}
+                className={`font-semibold `}
                 data-text="Heading"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Gabriel
               </h1>
               <p
-                className={`${classNames} outline-none`}
+                className={``}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Founder
               </p>
@@ -441,12 +412,10 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                className={`${classNames} mt-6 outline-none`}
+                className={`mt-6 `}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -469,22 +438,18 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                className={`${classNames} font-semibold outline-none`}
+                className={`font-semibold `}
                 data-text="Heading"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Gabriel
               </h1>
               <p
-                className={`${classNames} outline-none`}
+                className={``}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Founder
               </p>
@@ -516,12 +481,10 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                className={`${classNames} outline-none`}
+                className={``}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -531,26 +494,22 @@ export const teamComponent = ({
         </div>
       </div>
     </section>,
-    <section style={{ background: cardFeatureBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div className="text-black py-32 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1
-            className={`${classNames} text-3xl font-bold text-[#212529] mb-2 outline-none`}
+            className={`text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.teamHeader[0]}
           </h1>
           <p
-            className={`${classNames} outline-none`}
+            className={``}
             data-text="Type a paragraph"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.teamParagraphTexts[0]}
           </p>
@@ -576,22 +535,18 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                className={`${classNames} font-semibold outline-none`}
+                className={`font-semibold `}
                 data-text="Heading"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Gabriel
               </h1>
               <p
-                className={`${classNames} outline-none`}
+                className={``}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Founder
               </p>
@@ -623,12 +578,10 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                className={`${classNames} mt-6 outline-none`}
+                className={`mt-6 `}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -651,22 +604,18 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                className={`${classNames} font-semibold outline-none`}
+                className={`font-semibold `}
                 data-text="Heading"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Gabriel
               </h1>
               <p
-                className={`${classNames} outline-none`}
+                className={``}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Founder
               </p>
@@ -698,12 +647,10 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                className={`${classNames} mt-6 outline-none`}
+                className={`mt-6 `}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -726,22 +673,18 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                className={`${classNames} font-semibold outline-none`}
+                className={`font-semibold `}
                 data-text="Heading"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Gabriel
               </h1>
               <p
-                className={`${classNames} outline-none`}
+                className={``}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Founder
               </p>
@@ -773,12 +716,10 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                className={`${classNames} mt-6 outline-none`}
+                className={`mt-6 `}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -788,26 +729,22 @@ export const teamComponent = ({
         </div>
       </div>
     </section>,
-    <section style={{ background: cardFeatureBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div className="text-black py-32 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1
-            className={`${classNames} text-3xl font-bold text-[#212529] mb-2 outline-none`}
+            className={`text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.teamHeader[0]}
           </h1>
           <p
-            className={`${classNames} outline-none`}
+            className={``}
             data-text="Type a paragraph"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.teamParagraphTexts[0]}
           </p>
@@ -833,22 +770,18 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                className={`${classNames} font-semibold outline-none`}
+                className={`font-semibold `}
                 data-text="Heading"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Gabriel
               </h1>
               <p
-                className={`${classNames} outline-none`}
+                className={``}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Founder
               </p>
@@ -880,12 +813,10 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                className={`${classNames} mt-6 outline-none`}
+                className={`mt-6 `}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -908,22 +839,18 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                className={`${classNames} font-semibold outline-none`}
+                className={`font-semibold `}
                 data-text="Heading"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Gabriel
               </h1>
               <p
-                className={`${classNames} outline-none`}
+                className={``}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Founder
               </p>
@@ -955,12 +882,10 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                className={`${classNames} mt-6 outline-none`}
+                className={`mt-6 `}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -983,22 +908,18 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                className={`${classNames} font-semibold outline-none`}
+                className={`font-semibold `}
                 data-text="Heading"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Gabriel
               </h1>
               <p
-                className={`${classNames} outline-none`}
+                className={``}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Founder
               </p>
@@ -1030,12 +951,10 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                className={`${classNames} mt-6 outline-none`}
+                className={`mt-6 `}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -1045,26 +964,22 @@ export const teamComponent = ({
         </div>
       </div>
     </section>,
-    <section style={{ background: cardFeatureBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div className="text-black py-32 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1
-            className={`${classNames} text-3xl font-bold text-[#212529] mb-2 outline-none`}
+            className={`text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.teamHeader[0]}
           </h1>
           <p
-            className={`${classNames} outline-none`}
+            className={``}
             data-text="Type a paragraph"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.teamParagraphTexts[0]}
           </p>
@@ -1090,22 +1005,18 @@ export const teamComponent = ({
 
             <div className="text-left mt-4 px-8">
               <h1
-                className={`${classNames} font-semibold outline-none`}
+                className={`font-semibold `}
                 data-text="Heading"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Gabriel
               </h1>
               <p
-                className={`${classNames} outline-none`}
+                className={``}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Founder
               </p>
@@ -1137,12 +1048,10 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                className={`${classNames} mt-6 outline-none`}
+                className={`mt-6 `}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -1165,22 +1074,18 @@ export const teamComponent = ({
 
             <div className="text-left mt-4 px-8">
               <h1
-                className={`${classNames} font-semibold outline-none`}
+                className={`font-semibold `}
                 data-text="Heading"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Gabriel
               </h1>
               <p
-                className={`${classNames} outline-none`}
+                className={``}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Founder
               </p>
@@ -1212,12 +1117,10 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                className={`${classNames} mt-6 outline-none`}
+                className={`mt-6 `}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -1240,22 +1143,18 @@ export const teamComponent = ({
 
             <div className="text-left mt-4 px-8">
               <h1
-                className={`${classNames} font-semibold outline-none`}
+                className={`font-semibold `}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Gabriel
               </h1>
               <p
-                className={`${classNames} outline-none`}
+                className={``}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Founder
               </p>
@@ -1287,12 +1186,10 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                className={`${classNames} mt-6 outline-none`}
+                className={`mt-6 `}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -1302,26 +1199,22 @@ export const teamComponent = ({
         </div>
       </div>
     </section>,
-    <section style={{ background: cardFeatureBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div className="text-black py-32 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1
-            className={`${classNames} text-3xl font-bold text-[#212529] mb-2 outline-none`}
+            className={`text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.teamHeader[0]}
           </h1>
           <p
-            className={`${classNames} outline-none`}
+            className={``}
             data-text="Type a paragraph"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.teamParagraphTexts[0]}
           </p>
@@ -1347,22 +1240,18 @@ export const teamComponent = ({
 
             <div className="text-left mt-4 px-8">
               <h1
-                className={`${classNames} font-semibold outline-none`}
+                className={`font-semibold `}
                 data-text="Heading"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Gabriel
               </h1>
               <p
-                className={`${classNames} outline-none`}
+                className={``}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Founder
               </p>
@@ -1394,12 +1283,10 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                className={`${classNames} mt-6 outline-none`}
+                className={`mt-6 `}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -1422,22 +1309,18 @@ export const teamComponent = ({
 
             <div className="text-left mt-4 px-8">
               <h1
-                className={`${classNames} font-semibold outline-none`}
+                className={`font-semibold `}
                 data-text="Heading"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Gabriel
               </h1>
               <p
-                className={`${classNames} outline-none`}
+                className={``}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Founder
               </p>
@@ -1469,12 +1352,10 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                className={`${classNames} mt-6 outline-none`}
+                className={`mt-6 `}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua
@@ -1497,22 +1378,18 @@ export const teamComponent = ({
 
             <div className="text-left mt-4 px-8">
               <h1
-                className={`${classNames} font-semibold outline-none`}
+                className={`font-semibold `}
                 data-text="Heading"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Gabriel
               </h1>
               <p
-                className={`${classNames} outline-none`}
+                className={``}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Founder
               </p>
@@ -1544,12 +1421,10 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                className={`${classNames} mt-6 outline-none`}
+                className={`mt-6 `}
                 data-text="Type a paragraph"
-                contentEditable={location.pathname === "/home" ? false : true}
-                suppressContentEditableWarning
-                onFocus={handleFocus}
-                onBlur={handleBlur}
+                contentEditable={false}
+                onClick={handleTextClick}
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua

@@ -9,10 +9,7 @@ import { ClassicalFeaturesImages } from "./ClassicalFeatureEditComponent";
 import { TestimonialImages } from "./TestimonialEditComponent";
 import { FAQImages } from "./FAQEditComponent";
 import { TeamImages } from "./TeamEditComponent";
-import {
-  FeatureWithCardColorPickerComponent,
-  HeroColorPickerComponent,
-} from "./ColorPicker";
+import { ColorPickerComponent } from "./ColorPicker";
 import EditContentComponent from "./EditContentComponent";
 
 const EditDesignModalComponent = () => {
@@ -24,8 +21,17 @@ const EditDesignModalComponent = () => {
     currentSection,
     setHeroBackGroundStyle,
     setcardFeatureBackGroundStyle,
+    backGroundStyle,
+    setBackGroundStyle,
+    setSelectedDiv,
   } = useContext(DashContext);
   const [isContent, setIsContent] = useState(true);
+
+  useEffect(() => {
+    if (setIsContent) {
+      setSelectedDiv(null);
+    }
+  }, [setIsContent]);
 
   return (
     <>
@@ -34,6 +40,7 @@ const EditDesignModalComponent = () => {
           <button
             onClick={() => {
               setDisplayEditModal(false);
+              setSelectedDiv(null);
             }}
             className="text-white font-semibold text-2xl w-[50px] border-[rgba(255,255,255,0.5)] border-[1px] px-2 py-1 rounded-[5px] flex justify-center"
           >
@@ -52,6 +59,7 @@ const EditDesignModalComponent = () => {
             } h-[40px]`}
             onClick={() => {
               setIsPattern(true);
+              setSelectedDiv(null);
             }}
           >
             Pattern
@@ -62,6 +70,7 @@ const EditDesignModalComponent = () => {
             } h-[40px]`}
             onClick={() => {
               setIsPattern(false);
+              setSelectedDiv(null);
             }}
           >
             Style
@@ -95,6 +104,7 @@ const EditDesignModalComponent = () => {
                     } px-2 py-1`}
                     onClick={() => {
                       setIsContent(true);
+                      setSelectedDiv(null);
                     }}
                   >
                     Content
@@ -117,20 +127,10 @@ const EditDesignModalComponent = () => {
                   </div>
                 ) : (
                   <div className="mb-4">
-                    {currentSection.includes("Hero") && (
-                      <HeroColorPickerComponent
-                        setHeroBackGroundStyle={setHeroBackGroundStyle}
-                        currentSection={currentSection}
-                      />
-                    )}
-                    {currentSection.includes("Card Feature") && (
-                      <FeatureWithCardColorPickerComponent
-                        setcardFeatureBackGroundStyle={
-                          setcardFeatureBackGroundStyle
-                        }
-                        currentSection={currentSection}
-                      />
-                    )}
+                    <ColorPickerComponent
+                      setBackGroundStyle={setBackGroundStyle}
+                      setSelectedDiv={setSelectedDiv}
+                    />
                   </div>
                 )}
               </div>
