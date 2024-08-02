@@ -5,7 +5,14 @@ export const faqComponent = ({
   handleFocus,
   handleBlur,
   location,
-  cardFeatureBackGroundStyle,
+  handleDivClick,
+  handleTextClick,
+  handleColorClick,
+  handleFontSizeClick,
+  handleFontWeightClick,
+  handleFontStyleClick,
+  handleFontFamilyClick,
+  handleTextAlignmentClick,
 }) => {
   let classNames = "";
 
@@ -17,9 +24,8 @@ export const faqComponent = ({
     classNames += " hover:border-[2px] hover:border-[rgb(0,111,173)]";
   }
 
-
   return [
-    <section style={{ background: cardFeatureBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div
         className={`${
           isMobile ? "max-w-[800px]" : ""
@@ -27,22 +33,18 @@ export const faqComponent = ({
       >
         <div className="mb-10">
           <h1
-            className={`${classNames} text-3xl font-bold text-[#212529] mb-2 outline-none`}
+            className={`text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.FAQsHeader[0]}
           </h1>
           <p
-            className={`${classNames} outline-none`}
+            className={``}
             data-text="Type a paragraph"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.faqParagraphText[0]}
           </p>
@@ -57,22 +59,18 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""} w-[40%] max-lg:w-[80%]`}
           >
             <h2
-              className={`${classNames} outline-none`}
+              className={``}
               data-text="Heading"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqQuestion[0]}
             </h2>
             <p
-              className={`${classNames} my-2 outline-none`}
+              className={`my-2 `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqAnswer[0]}
             </p>
@@ -82,22 +80,18 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""} w-[40%] max-lg:w-[80%]`}
           >
             <h2
-              className={`${classNames} outline-none`}
+              className={``}
               data-text="Heading"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqQuestion[0]}
             </h2>
             <p
-              className={`${classNames} my-2 outline-none`}
+              className={`my-2 `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqAnswer[0]}
             </p>
@@ -107,22 +101,18 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""} w-[40%] max-lg:w-[80%]`}
           >
             <h2
-              className={`${classNames} outline-none`}
+              className={``}
               data-text="Heading"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqQuestion[0]}
             </h2>
             <p
-              className={`${classNames} my-2 outline-none`}
+              className={`my-2 `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqAnswer[0]}
             </p>
@@ -132,22 +122,18 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""} w-[40%] max-lg:w-[80%]`}
           >
             <h2
-              className={`${classNames} outline-none`}
+              className={``}
               data-text="Heading"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqQuestion[0]}
             </h2>
             <p
-              className={`${classNames} my-2 outline-none`}
+              className={`my-2 `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqAnswer[0]}
             </p>
@@ -157,7 +143,7 @@ export const faqComponent = ({
     </section>,
     <section
       className="py-10"
-      style={{ background: cardFeatureBackGroundStyle }}
+      onClick={handleDivClick}
     >
       <div
         className={`${
@@ -166,22 +152,18 @@ export const faqComponent = ({
       >
         <div className="mb-10">
           <h1
-            className={`${classNames} text-3xl font-bold text-[#212529] mb-2 outline-none`}
+            className={`text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.FAQsHeader[0]}
           </h1>
           <p
-            className={`${classNames} outline-none`}
+            className={``}
             data-text="Type a paragraph"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.faqParagraphText[0]}
           </p>
@@ -196,22 +178,18 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""}  w-[40%] max-lg:w-[80%]`}
           >
             <h2
-              className={`${classNames} outline-none`}
+              className={``}
               data-text="Heading"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqQuestion[0]}
             </h2>
             <p
-              className={`${classNames} my-2 outline-none`}
+              className={`my-2 `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqAnswer[0]}
             </p>
@@ -221,22 +199,18 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""}  w-[40%] max-lg:w-[80%]`}
           >
             <h2
-              className={`${classNames} outline-none`}
+              className={``}
               data-text="Heading"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqQuestion[0]}
             </h2>
             <p
-              className={`${classNames} my-2 outline-none`}
+              className={`my-2 `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqAnswer[0]}
             </p>
@@ -246,22 +220,18 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""}  w-[40%] max-lg:w-[80%]`}
           >
             <h2
-              className={`${classNames} outline-none`}
+              className={``}
               data-text="Heading"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqQuestion[0]}
             </h2>
             <p
-              className={`${classNames} my-2 outline-none`}
+              className={`my-2 `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqAnswer[0]}
             </p>
@@ -271,22 +241,18 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""}  w-[40%] max-lg:w-[80%]`}
           >
             <h2
-              className={`${classNames} outline-none`}
+              className={``}
               data-text="Heading"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqQuestion[0]}
             </h2>
             <p
-              className={`${classNames} my-2 outline-none`}
+              className={`my-2 `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqAnswer[0]}
             </p>
@@ -296,7 +262,7 @@ export const faqComponent = ({
     </section>,
     <section
       className="py-10"
-      style={{ background: cardFeatureBackGroundStyle }}
+      onClick={handleDivClick}
     >
       <div
         className={`${
@@ -305,22 +271,18 @@ export const faqComponent = ({
       >
         <div className="mb-5">
           <h1
-            className={`${classNames} text-3xl font-bold text-[#212529] mb-2 outline-none`}
+            className={`text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.FAQsHeader[0]}
           </h1>
           <p
-            className={`${classNames} outline-none`}
+            className={``}
             data-text="Type a paragraph"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.faqParagraphText[0]}
           </p>
@@ -335,12 +297,10 @@ export const faqComponent = ({
             <label htmlFor="id-show-menu-1" className="show-menu">
               <div className="">
                 <h2
-                  className={`${classNames} hover:underline hover:cursor-pointer mb-3 outline-none`}
+                  className={`hover:underline hover:cursor-pointer mb-3 `}
                   data-text="Heading"
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+            onClick={handleTextClick}
                 >
                   {text.faqQuestion[0]}
                 </h2>
@@ -352,12 +312,10 @@ export const faqComponent = ({
               className="appearance-none hidden peer"
             />
             <p
-              className={`${classNames} hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 outline-none`}
+              className={`hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqAnswer[0]}
             </p>
@@ -367,12 +325,10 @@ export const faqComponent = ({
             <label htmlFor="id-show-menu-2" className="show-menu">
               <div className="">
                 <h2
-                  className={`${classNames} hover:underline hover:cursor-pointer mb-3 outline-none`}
+                  className={`hover:underline hover:cursor-pointer mb-3 `}
                   data-text="Heading"
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+            onClick={handleTextClick}
                 >
                   {text.faqQuestion[1]}
                 </h2>
@@ -385,12 +341,10 @@ export const faqComponent = ({
               role="button"
             />
             <p
-              className={`${classNames} hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 outline-none`}
+              className={`hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqAnswer[1]}
             </p>
@@ -400,12 +354,10 @@ export const faqComponent = ({
             <label htmlFor="id-show-menu-3" className="show-menu">
               <div className="">
                 <h2
-                  className={`${classNames} hover:underline hover:cursor-pointer mb-3 outline-none`}
+                  className={`hover:underline hover:cursor-pointer mb-3 `}
                   data-text="Heading"
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+            onClick={handleTextClick}
                 >
                   {text.faqQuestion[2]}
                 </h2>
@@ -418,12 +370,10 @@ export const faqComponent = ({
               role="button"
             />
             <p
-              className={`${classNames} hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 outline-none`}
+              className={`hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqAnswer[2]}
             </p>
@@ -433,12 +383,10 @@ export const faqComponent = ({
             <label htmlFor="id-show-menu-4" className="show-menu">
               <div className="">
                 <h2
-                  className={`${classNames} hover:underline hover:cursor-pointer mb-3 outline-none`}
+                  className={`hover:underline hover:cursor-pointer mb-3 `}
                   data-text="Header"
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+            onClick={handleTextClick}
                 >
                   {text.faqQuestion[3]}
                 </h2>
@@ -451,12 +399,10 @@ export const faqComponent = ({
               role="button"
             />
             <p
-              className={`${classNames} hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 outline-none`}
+              className={`hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqAnswer[3]}
             </p>
@@ -466,7 +412,7 @@ export const faqComponent = ({
     </section>,
     <section
       className="py-10"
-      style={{ background: cardFeatureBackGroundStyle }}
+      onClick={handleDivClick}
     >
       <div
         className={`${
@@ -475,22 +421,18 @@ export const faqComponent = ({
       >
         <div className="mb-5">
           <h1
-            className={`${classNames} text-3xl font-bold text-[#212529] mb-2 outline-none`}
+            className={`text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.FAQsHeader[0]}
           </h1>
           <p
-            className={`${classNames} outline-none`}
+            className={``}
             data-text="Type a paragraph"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.faqParagraphText[0]}
           </p>
@@ -505,12 +447,10 @@ export const faqComponent = ({
             <label htmlFor="id-show-menu-1" className="show-menu">
               <div className="">
                 <h2
-                  className={`${classNames} hover:underline hover:cursor-pointer mb-3 outline-none`}
+                  className={`hover:underline hover:cursor-pointer mb-3 `}
                   data-text="Heading"
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+            onClick={handleTextClick}
                 >
                   {text.faqQuestion[0]}
                 </h2>
@@ -522,12 +462,10 @@ export const faqComponent = ({
               className="appearance-none hidden peer"
             />
             <p
-              className={`${classNames} hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 outline-none`}
+              className={`hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqAnswer[0]}
             </p>
@@ -537,12 +475,10 @@ export const faqComponent = ({
             <label htmlFor="id-show-menu-2" className="show-menu">
               <div className="">
                 <h2
-                  className={`${classNames} hover:underline hover:cursor-pointer mb-3 outline-none`}
+                  className={`hover:underline hover:cursor-pointer mb-3 `}
                   data-text="Type a paragraph"
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+            onClick={handleTextClick}
                 >
                   {text.faqQuestion[1]}
                 </h2>
@@ -555,12 +491,10 @@ export const faqComponent = ({
               role="button"
             />
             <p
-              className={`${classNames} hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 outline-none`}
+              className={`hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqAnswer[1]}
             </p>
@@ -570,12 +504,10 @@ export const faqComponent = ({
             <label htmlFor="id-show-menu-3" className="show-menu">
               <div className="">
                 <h2
-                  className={`${classNames} hover:underline hover:cursor-pointer mb-3 outline-none`}
+                  className={`hover:underline hover:cursor-pointer mb-3 `}
                   data-text="Heading"
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+            onClick={handleTextClick}
                 >
                   {text.faqQuestion[2]}
                 </h2>
@@ -588,12 +520,10 @@ export const faqComponent = ({
               role="button"
             />
             <p
-              className={`${classNames} hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 outline-none`}
+              className={`hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqAnswer[2]}
             </p>
@@ -603,12 +533,10 @@ export const faqComponent = ({
             <label htmlFor="id-show-menu-4" className="show-menu">
               <div className="">
                 <h2
-                  className={`${classNames} hover:underline hover:cursor-pointer mb-3 outline-none`}
+                  className={`hover:underline hover:cursor-pointer mb-3 `}
                   data-text="Heading"
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+            onClick={handleTextClick}
                 >
                   {text.faqQuestion[3]}
                 </h2>
@@ -621,12 +549,10 @@ export const faqComponent = ({
               role="button"
             />
             <p
-              className={`${classNames} hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 outline-none`}
+              className={`hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+            onClick={handleTextClick}
             >
               {text.faqAnswer[3]}
             </p>

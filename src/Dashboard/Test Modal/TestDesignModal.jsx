@@ -73,6 +73,9 @@ const TestDesignModal = () => {
   } = useContext(DashContext);
   const [clickedText, setClickedText] = useState("");
   const [selectedElement, setSelectedElement] = useState(null);
+  const [selectedDiv, setSelectedDiv] = useState(null)
+  const [backGroundStyle, setBackGroundStyle] = useState("");
+  const [showColorPicker, setShowColorPicker] = useState(true)
 
 
 
@@ -104,16 +107,107 @@ const TestDesignModal = () => {
      }
    };
 
-   const handleColorClick = (color) => {
+   const handleColorClick = (
+     color,
+   ) => {
      if (selectedElement) {
        selectedElement.style.color = color;
      }
    };
 
+   const handleFontSizeClick = (fontSize) => {
+     if (selectedElement) {
+       selectedElement.style.fontSize = fontSize;
+     }
+   };
+
+   const handleFontWeightClick = (fontWeight) => {
+     if (selectedElement) {
+       selectedElement.style.fontWeight = fontWeight;
+     }
+   };
+
+   const handleFontStyleClick = (fontStyle) => {
+     if (selectedElement) {
+       selectedElement.style.fontStyle = fontStyle;
+     }
+   };
+
+   const handleFontFamilyClick = (FontFamily) => {
+     if (selectedElement) {
+       selectedElement.style.fontFamily = FontFamily;
+     }
+   };
+
+   const handleTextAlignmentClick = (textAlign) => {
+     if (selectedElement) {
+       selectedElement.style.textAlign = textAlign;
+     }
+   };
+
+   const handleBGColorClick = (
+     color,
+   ) => {
+     if (selectedDiv) {
+       selectedDiv.style.background = color;
+     }
+   };
+
+   const handleDivClick = (event) => {
+     setSelectedDiv(event.currentTarget);
+   };
+
+   useEffect(() => {
+     handleBGColorClick(backGroundStyle);
+   }, [backGroundStyle]);
+
+   useEffect(() => {
+     if (!showColorPicker) {
+       setSelectedDiv(null);
+     }
+   }, [showColorPicker]);
+
 
   return (
     <main className="bg-white w-full mt-5 max-md:mt-0 mx-10 h-[93vh] max-md:h-[89vh] max-[499px]:mx-4 overflow-scroll overflow-x-hidden pt-14 select-none">
       {/* {element} */}
+
+      <button
+        onClick={() => {
+          setShowColorPicker(!showColorPicker);
+        }}
+        className="text-black"
+      >
+        Toggle color picker
+      </button>
+
+      {showColorPicker ? (
+        <TestColorPickerComponent setBackGroundStyle={setBackGroundStyle} />
+      ) : (
+        ""
+      )}
+
+      <div className="">
+        <div
+          className="size-[400px] border-[2px] border-[black]"
+          onClick={handleDivClick}
+        >
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Consectetur consequuntur, expedita facere nostrum natus molestiae
+            alias adipisci vitae, esse neque vero nemo rerum eum fuga doloremque
+            perferendis eligendi tenetur inventore.
+          </p>
+        </div>
+        <div
+          className="size-[40px] border-[2px] border-[black]"
+          onClick={handleDivClick}
+        ></div>
+        <div
+          className="size-[40px] border-[2px] border-[black]"
+          onClick={handleDivClick}
+        ></div>
+      </div>
 
       <textarea
         name=""
@@ -127,19 +221,25 @@ const TestDesignModal = () => {
       <div className="color-container flex gap-4 justify-center">
         <div
           className="size-4 rounded-full bg-[red] cursor-pointer"
-          onClick={() => handleColorClick("red")}
+          onClick={() => {
+            handleColorClick("red"), handleBGColorClick("red");
+          }}
         ></div>
         <div
           className="size-4 rounded-full bg-[blue] cursor-pointer"
-          onClick={() => handleColorClick("blue")}
+          onClick={() => {
+            handleColorClick("blue"), handleBGColorClick("blue");
+          }}
         ></div>
         <div
-          className="size-4 rounded-full bg-[green] cursor-pointer"
-          onClick={() => handleColorClick("green")}
+          className="size-4 rounded-full bg-[black] cursor-pointer"
+          onClick={() => {
+            handleColorClick("black"), handleBGColorClick("black");
+          }}
         ></div>
       </div>
 
-      <section style={{ background: "" }}>
+      <section style={{}}>
         <div
           className={`${
             isMobile ? "h-[750px] flex-col" : ""
@@ -152,9 +252,6 @@ const TestDesignModal = () => {
           >
             <h1
               className={`font-bold xl:text-5xl text-3xl mb-4 outline-none`}
-              onClick={handleTextClick}
-              contentEditable={false}
-              data-text="Heading"
             >
               {text.heroHeaderText}
             </h1>
@@ -210,7 +307,44 @@ const TestDesignModal = () => {
         </div>
       </section>
 
-      <section style={{ background: "" }}>
+      <div className="flex flex-wrap gap-2 items-center justify-center">
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleTextAlignmentClick("left")}
+        >
+          Left
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleTextAlignmentClick("right")}
+        >
+          Right
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleTextAlignmentClick("center")}
+        >
+          Center
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleTextAlignmentClick("justify")}
+        >
+          Justify
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleColorClick("", "2rem")}
+        >
+          size
+        </button>
+      </div>
+
+      <section style={{}}>
         <div
           className={`${
             isMobile ? "flex-col-reverse" : ""
@@ -267,7 +401,7 @@ const TestDesignModal = () => {
 
 export default TestDesignModal;
 
-export const TestColorPickerComponent = ({ setHeroBackGroundStyle }) => {
+export const TestColorPickerComponent = ({ setBackGroundStyle }) => {
   const [isActive, setIsActive] = useState(0);
   const [isGradient, setIsGradient] = useState(false);
   const [color1, setColor1] = useState({ r: 255, g: 255, b: 255, a: 1 });
@@ -314,6 +448,13 @@ export const TestColorPickerComponent = ({ setHeroBackGroundStyle }) => {
       }
     }
   };
+
+  useEffect(() => {
+    const newBackground = isGradient
+      ? `linear-gradient(90deg, ${hex1} 0%, ${hex2} 100%)`
+      : hex1;
+      setBackGroundStyle(newBackground);
+  }, [isGradient, hex1, hex2]);
 
 
   return (
@@ -401,3 +542,202 @@ export const TestColorPickerComponent = ({ setHeroBackGroundStyle }) => {
     </section>
   );
 };
+
+
+
+{
+  /* <div className="flex flex-wrap gap-2 items-center justify-center">
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontWeightClick(100)}
+        >
+          Thin
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontWeightClick(200)}
+        >
+          extra-light
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontWeightClick(300)}
+        >
+          Light
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontWeightClick(400)}
+        >
+          Normal
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontWeightClick(500)}
+        >
+          Medium
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontWeightClick(600)}
+        >
+          Semi-bold
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontWeightClick(700)}
+        >
+          Bold
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontWeightClick(800)}
+        >
+          Extrapbold
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontWeightClick(900)}
+        >
+          Black
+        </button>
+      </div> */
+}
+
+{
+  /* <div className="flex flex-wrap gap-2 items-center justify-center">
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontStyleClick("italic")}
+        >
+          Italic
+        </button>
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontStyleClick("normal")}
+        >
+          non-italic
+        </button>
+      </div>
+
+      <div className="flex flex-wrap gap-2 items-center justify-center max-w-[500px]">
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() =>
+            handleFontFamilyClick(
+              "'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"
+            )
+          }
+        >
+          Gill
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() =>
+            handleFontFamilyClick(
+              "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif "
+            )
+          }
+        >
+          Frank
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() =>
+            handleFontFamilyClick(
+              "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"
+            )
+          }
+        >
+          Lucida
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() =>
+            handleFontFamilyClick(
+              "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+            )
+          }
+        >
+          Segoe
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() =>
+            handleFontFamilyClick("'Times New Roman', Times, serif")
+          }
+        >
+          Times
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() =>
+            handleFontFamilyClick(
+              "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif"
+            )
+          }
+        >
+          Trebuc
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() => handleFontFamilyClick("Arial, Helvetica, sans-serif")}
+        >
+          Arial
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() =>
+            handleFontFamilyClick(
+              "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"
+            )
+          }
+        >
+          Cambr
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() =>
+            handleFontFamilyClick("Georgia, 'Times New Roman', Times, serif")
+          }
+        >
+          Georg
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() =>
+            handleFontFamilyClick(
+              "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"
+            )
+          }
+        >
+          Impac
+        </button>
+
+        <button
+          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+          onClick={() =>
+            handleFontFamilyClick("Verdana, Geneva, Tahoma, sans-serif")
+          }
+        >
+          Verda
+        </button>
+      </div> */
+}

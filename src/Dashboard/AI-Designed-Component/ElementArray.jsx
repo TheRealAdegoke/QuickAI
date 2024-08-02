@@ -33,10 +33,17 @@ const ElementArray = () => {
     handleFocus,
     handleBlur,
     currentSection,
-    heroBackGroundStyle,
-    cardFeatureBackGroundStyle,
+    handleDivClick,
+    handleTextClick,
+    handleTextareaChange,
+    handleColorClick,
+    handleFontSizeClick,
+    handleFontWeightClick,
+    handleFontStyleClick,
+    handleFontFamilyClick,
+    handleTextAlignmentClick,
   } = useContext(DashContext);
-  const location = useLocation()
+  const location = useLocation();
 
   const navElement = navComponents({
     text,
@@ -47,7 +54,7 @@ const ElementArray = () => {
     setIsFocused,
     handleFocus,
     handleBlur,
-    location
+    location,
   })[navIndex];
   const heroElement = heroComponents({
     text,
@@ -59,7 +66,15 @@ const ElementArray = () => {
     handleFocus,
     handleBlur,
     location,
-    heroBackGroundStyle,
+    handleDivClick,
+    handleTextClick,
+    handleTextareaChange,
+    handleColorClick,
+    handleFontSizeClick,
+    handleFontWeightClick,
+    handleFontStyleClick,
+    handleFontFamilyClick,
+    handleTextAlignmentClick,
   })[heroIndex];
   const featuresWithCardElement = featuresWithCardsComponent({
     text,
@@ -71,7 +86,15 @@ const ElementArray = () => {
     handleFocus,
     handleBlur,
     location,
-    cardFeatureBackGroundStyle,
+    handleDivClick,
+    handleTextClick,
+    handleTextareaChange,
+    handleColorClick,
+    handleFontSizeClick,
+    handleFontWeightClick,
+    handleFontStyleClick,
+    handleFontFamilyClick,
+    handleTextAlignmentClick,
   })[featuresWithCardIndex];
   const featuresElement = featuresComponents({
     text,
@@ -83,7 +106,15 @@ const ElementArray = () => {
     handleFocus,
     handleBlur,
     location,
-    cardFeatureBackGroundStyle,
+    handleDivClick,
+    handleTextClick,
+    handleTextareaChange,
+    handleColorClick,
+    handleFontSizeClick,
+    handleFontWeightClick,
+    handleFontStyleClick,
+    handleFontFamilyClick,
+    handleTextAlignmentClick,
   })[featuresIndex];
   const testimonialElement = testimonialComponent({
     text,
@@ -95,7 +126,15 @@ const ElementArray = () => {
     handleFocus,
     handleBlur,
     location,
-    cardFeatureBackGroundStyle,
+    handleDivClick,
+    handleTextClick,
+    handleTextareaChange,
+    handleColorClick,
+    handleFontSizeClick,
+    handleFontWeightClick,
+    handleFontStyleClick,
+    handleFontFamilyClick,
+    handleTextAlignmentClick,
   })[testimonialIndex];
   const faqElement = faqComponent({
     text,
@@ -107,7 +146,15 @@ const ElementArray = () => {
     handleFocus,
     handleBlur,
     location,
-    cardFeatureBackGroundStyle,
+    handleDivClick,
+    handleTextClick,
+    handleTextareaChange,
+    handleColorClick,
+    handleFontSizeClick,
+    handleFontWeightClick,
+    handleFontStyleClick,
+    handleFontFamilyClick,
+    handleTextAlignmentClick,
   })[faqIndex];
   const teamElement = teamComponent({
     text,
@@ -119,7 +166,15 @@ const ElementArray = () => {
     handleFocus,
     handleBlur,
     location,
-    cardFeatureBackGroundStyle,
+    handleDivClick,
+    handleTextClick,
+    handleTextareaChange,
+    handleColorClick,
+    handleFontSizeClick,
+    handleFontWeightClick,
+    handleFontStyleClick,
+    handleFontFamilyClick,
+    handleTextAlignmentClick,
   })[teamIndex];
   const contactElement = contactComponent({
     text,
@@ -131,7 +186,15 @@ const ElementArray = () => {
     handleFocus,
     handleBlur,
     location,
-    cardFeatureBackGroundStyle,
+    handleDivClick,
+    handleTextClick,
+    handleTextareaChange,
+    handleColorClick,
+    handleFontSizeClick,
+    handleFontWeightClick,
+    handleFontStyleClick,
+    handleFontFamilyClick,
+    handleTextAlignmentClick,
   })[contactIndex];
   const footerElement = footerComponent({
     text,
@@ -143,7 +206,15 @@ const ElementArray = () => {
     handleFocus,
     handleBlur,
     location,
-    cardFeatureBackGroundStyle,
+    handleDivClick,
+    handleTextClick,
+    handleTextareaChange,
+    handleColorClick,
+    handleFontSizeClick,
+    handleFontWeightClick,
+    handleFontStyleClick,
+    handleFontFamilyClick,
+    handleTextAlignmentClick,
   })[footerIndex];
 
   const elements = [

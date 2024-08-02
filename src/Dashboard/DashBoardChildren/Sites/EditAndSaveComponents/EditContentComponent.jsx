@@ -1,8 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { IoIosClose } from "react-icons/io";
 import { Slider, ConfigProvider } from "antd";
+import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
 const EditContentComponent = () => {
+  const {
+    clickedText,
+    handleTextareaChange,
+    handleColorClick,
+    handleFontSizeClick,
+    handleFontWeightClick,
+    handleFontStyleClick,
+    handleFontFamilyClick,
+    handleTextAlignmentClick,
+  } = useContext(DashContext);
   const textColor = [
     "#ffffff", // White
     "#000000", // Black
@@ -55,6 +66,7 @@ const EditContentComponent = () => {
     alignType: false,
   });
   const [value, setValue] = useState(2);
+  const [fontValue, setFontValue] = useState(null);
   const [styleModal, setStyleModal] = useState({
     colorModal: false,
     fontSizeModal: false,
@@ -63,7 +75,7 @@ const EditContentComponent = () => {
     fontFamilyModal: false,
     alignModal: false,
   });
-  
+
   const formatter = (value) => {
     const formattedValue = value
       .toString()
@@ -82,12 +94,19 @@ const EditContentComponent = () => {
     }
   };
 
+  useEffect(() => {
+    setFontValue(value)
+    handleFontSizeClick(btn.fontSizeType ? `${fontValue}px` : `${fontValue}rem`);
+  }, [value])
+
   return (
     <>
       <div>
         <textarea
           className="bg-[rgb(42,42,47)] text-white h-[70px] min-h-[70px] max-h-[70px] w-[95%] mx-auto ml-2 outline-none px-2 py-1 rounded-md"
           placeholder="Typing..."
+          value={clickedText}
+          onChange={handleTextareaChange}
         ></textarea>
 
         <div className="content-style-container text-[rgb(145,151,155)] font-medium text-sm flex gap-1 justify-center my-1 flex-wrap">
@@ -176,6 +195,9 @@ const EditContentComponent = () => {
                     key={color}
                     className="size-4 rounded-full"
                     style={{ backgroundColor: color }}
+                    onClick={() => {
+                      handleColorClick(color);
+                    }}
                   ></button>
                 ))}
               </div>
@@ -217,7 +239,9 @@ const EditContentComponent = () => {
                     type="text"
                     className="w-[40px]  text-center bg-[rgb(37,39,45)] border-[1px] rounded-[3px] border-[rgba(145,151,155,0.65)] uppercase outline-none"
                     value={value}
-                    onChange={handleInputChange}
+                    onChange={() => {
+                      handleInputChange();
+                    }}
                   />
 
                   <button
@@ -292,46 +316,63 @@ const EditContentComponent = () => {
                 <div className="flex flex-wrap gap-2 items-center justify-center">
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() => handleFontWeightClick(100)}
                   >
                     Thin
                   </button>
+
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() => handleFontWeightClick(200)}
                   >
                     extra-light
                   </button>
+
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() => handleFontWeightClick(300)}
                   >
                     Light
                   </button>
+
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() => handleFontWeightClick(400)}
                   >
                     Normal
                   </button>
+
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() => handleFontWeightClick(500)}
                   >
                     Medium
                   </button>
+
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() => handleFontWeightClick(600)}
                   >
                     Semi-bold
                   </button>
+
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() => handleFontWeightClick(700)}
                   >
                     Bold
                   </button>
+
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() => handleFontWeightClick(800)}
                   >
-                    Extrapbold
+                    Extra-bold
                   </button>
+
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() => handleFontWeightClick(900)}
                   >
                     Black
                   </button>
@@ -375,11 +416,13 @@ const EditContentComponent = () => {
                 <div className="flex flex-wrap gap-2 items-center justify-center">
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() => handleFontStyleClick("italic")}
                   >
                     Italic
                   </button>
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() => handleFontStyleClick("normal")}
                   >
                     non-italic
                   </button>
@@ -423,56 +466,117 @@ const EditContentComponent = () => {
                 <div className="flex flex-wrap gap-2 items-center justify-center">
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() =>
+                      handleFontFamilyClick(
+                        "'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"
+                      )
+                    }
                   >
                     Gill
                   </button>
+
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() =>
+                      handleFontFamilyClick(
+                        "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif "
+                      )
+                    }
                   >
                     Frank
                   </button>
+
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() =>
+                      handleFontFamilyClick(
+                        "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"
+                      )
+                    }
                   >
                     Lucida
                   </button>
+
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() =>
+                      handleFontFamilyClick(
+                        "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+                      )
+                    }
                   >
                     Segoe
                   </button>
+
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() =>
+                      handleFontFamilyClick("'Times New Roman', Times, serif")
+                    }
                   >
                     Times
                   </button>
+
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() =>
+                      handleFontFamilyClick(
+                        "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif"
+                      )
+                    }
                   >
                     Trebuc
                   </button>
+
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() =>
+                      handleFontFamilyClick("Arial, Helvetica, sans-serif")
+                    }
                   >
                     Arial
                   </button>
+
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() =>
+                      handleFontFamilyClick(
+                        "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"
+                      )
+                    }
                   >
                     Cambr
                   </button>
+
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() =>
+                      handleFontFamilyClick(
+                        "Georgia, 'Times New Roman', Times, serif"
+                      )
+                    }
                   >
                     Georg
                   </button>
+
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() =>
+                      handleFontFamilyClick(
+                        "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"
+                      )
+                    }
                   >
                     Impac
                   </button>
+
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() =>
+                      handleFontFamilyClick(
+                        "Verdana, Geneva, Tahoma, sans-serif"
+                      )
+                    }
                   >
                     Verda
                   </button>
@@ -500,9 +604,7 @@ const EditContentComponent = () => {
               align
             </button>
 
-            <div
-              className={`${styleModal.alignModal ? "block" : "hidden"}`}
-            >
+            <div className={`${styleModal.alignModal ? "block" : "hidden"}`}>
               <div className="bg-[rgb(36,37,40)] rounded-[5px] px-2 pb-2">
                 <div className="flex justify-end">
                   <IoIosClose
@@ -516,21 +618,28 @@ const EditContentComponent = () => {
                 <div className="flex flex-wrap gap-2 items-center justify-center">
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() => handleTextAlignmentClick("left")}
                   >
                     Left
                   </button>
+
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() => handleTextAlignmentClick("right")}
                   >
                     Right
                   </button>
+
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() => handleTextAlignmentClick("center")}
                   >
                     Center
                   </button>
+
                   <button
                     className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
+                    onClick={() => handleTextAlignmentClick("justify")}
                   >
                     Justify
                   </button>

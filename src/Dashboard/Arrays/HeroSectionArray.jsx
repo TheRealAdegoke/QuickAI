@@ -5,12 +5,19 @@ export const heroComponents = ({
   text,
   buttonIndex,
   isMobile,
-  handleTextClick,
   isFocused,
   handleFocus,
   handleBlur,
   location,
   heroBackGroundStyle,
+  handleDivClick,
+  handleTextClick,
+  handleColorClick,
+  handleFontSizeClick,
+  handleFontWeightClick,
+  handleFontStyleClick,
+  handleFontFamilyClick,
+  handleTextAlignmentClick,
 }) => {
   const buttonElement = WebButtonsArray({ text, buttonIndex, handleTextClick })[
     buttonIndex
@@ -26,18 +33,18 @@ export const heroComponents = ({
     classNames += " hover:border-[2px] hover:border-[rgb(0,111,173)]";
   }
 
+  // "rgb(26,26,26)";
+
   return [
-    <section style={{ background: heroBackGroundStyle || "rgb(26,26,26)" }}>
+    <section style={{ background: "rgb(26,26,26)" }} onClick={handleDivClick}>
       <div className="py-10 px-5">
         <div className="flex justify-center gap-10 max-lg:flex-col">
           <div className={`${isMobile ? "hidden" : ""} max-lg:hidden w-[50%]`}>
             <h1
-              className={`${classNames} text-6xl text-white font-bold max-w-[500px] outline-none`}
+              className={`text-6xl text-white font-bold max-w-[500px] `}
               data-text="Heading"
-              contentEditable={location.pathname !== "/home" ? true : false}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               {text.heroHeaderText}
             </h1>
@@ -95,12 +102,10 @@ export const heroComponents = ({
             <p
               className={`${
                 isMobile ? "max-w-[400px]" : ""
-              } ${classNames} my-5 max-lg:max-w-[400px] text-white outline-none`}
+              } my-5 max-lg:max-w-[400px] text-white `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               {text.description}
             </p>
@@ -109,11 +114,11 @@ export const heroComponents = ({
         </div>
       </div>
     </section>,
-    <section style={{ background: heroBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div
         className={`${
           isMobile ? "h-[750px] flex-col" : ""
-        } h-[600px] max-lg:h-[750px] py-5 flex lg:gap-8 lg:justify-evenly max-lg:flex-col max-w-[1200px] mx-auto lg:pl-5`}
+        } min-h-[600px] max-lg:h-[750px] py-5 flex lg:gap-8 lg:justify-evenly max-lg:flex-col max-w-[1200px] mx-auto lg:pl-5`}
       >
         <div
           className={`${
@@ -121,22 +126,18 @@ export const heroComponents = ({
           } text-[rgb(33,37,41)] w-[40%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
         >
           <h1
-            className={`${classNames} font-bold xl:text-5xl text-3xl mb-4 outline-none`}
+            className={`font-bold xl:text-5xl text-3xl mb-4 `}
             data-text="Heading"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.heroHeaderText}
           </h1>
           <p
-            className={`${classNames} font-medium outline-none`}
+            className={`font-medium `}
             data-text="Type a paragraph"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.description}
           </p>
@@ -183,7 +184,7 @@ export const heroComponents = ({
         </div>
       </div>
     </section>,
-    <section style={{ background: heroBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div
         className={`${
           isMobile ? "flex-col" : ""
@@ -195,22 +196,18 @@ export const heroComponents = ({
           } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
         >
           <h1
-            className={`${classNames} font-bold xl:text-5xl text-3xl mb-4 outline-none`}
+            className={`font-bold xl:text-5xl text-3xl mb-4 `}
             data-text="Heading"
-            contentEditable={location.pathname !== "/home" ? true : false}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.heroHeaderText}
           </h1>
           <p
-            className={`${classNames} font-medium outline-none`}
+            className={`font-medium `}
             data-text="Type a paragraph"
-            contentEditable={location.pathname !== "/home" ? true : false}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.description}
           </p>
@@ -230,7 +227,7 @@ export const heroComponents = ({
         </div>
       </div>
     </section>,
-    <section style={{ background: heroBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div
         className={`${
           isMobile ? "flex-col" : ""
@@ -242,22 +239,18 @@ export const heroComponents = ({
           } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
         >
           <h1
-            className={`${classNames} font-bold xl:text-5xl text-3xl mb-4 outline-none`}
+            className={`font-bold xl:text-5xl text-3xl mb-4 `}
             data-text="Heading"
-            contentEditable={location.pathname !== "/home" ? true : false}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.heroHeaderText}
           </h1>
           <p
-            className={`${classNames} font-medium outline-none`}
+            className={`font-medium `}
             data-text="Type a paragraph"
-            contentEditable={location.pathname !== "/home" ? true : false}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.description}
           </p>
@@ -277,7 +270,7 @@ export const heroComponents = ({
         </div>
       </div>
     </section>,
-    <section style={{ background: heroBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div
         className={`${
           isMobile ? "flex-col-reverse" : ""
@@ -289,22 +282,18 @@ export const heroComponents = ({
           } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
         >
           <h1
-            className={`${classNames} font-bold xl:text-5xl text-3xl mb-4 outline-none`}
+            className={`font-bold xl:text-5xl text-3xl mb-4 `}
             data-text="Heading"
-            contentEditable={location.pathname !== "/home" ? true : false}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.heroHeaderText}
           </h1>
           <p
-            className={`${classNames} font-medium outline-none`}
+            className={`font-medium `}
             data-text="Type a paragraph"
-            contentEditable={location.pathname !== "/home" ? true : false}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.description}
           </p>
@@ -324,7 +313,7 @@ export const heroComponents = ({
         </div>
       </div>
     </section>,
-    <section style={{ background: heroBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div
         className={`${
           isMobile ? "flex-col-reverse" : ""
@@ -336,22 +325,18 @@ export const heroComponents = ({
           } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
         >
           <h1
-            className={`${classNames} font-bold xl:text-5xl text-3xl mb-4 outline-none`}
+            className={`font-bold xl:text-5xl text-3xl mb-4 `}
             data-text="Heading"
-            contentEditable={location.pathname !== "/home" ? true : false}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.heroHeaderText}
           </h1>
           <p
-            className={`${classNames} font-medium outline-none`}
+            className={`font-medium `}
             data-text="Type a paragraph"
-            contentEditable={location.pathname !== "/home" ? true : false}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.description}
           </p>
@@ -375,6 +360,7 @@ export const heroComponents = ({
       style={{
         background: heroBackGroundStyle,
       }}
+      onClick={handleDivClick}
     >
       <div
         className={`${
@@ -397,22 +383,18 @@ export const heroComponents = ({
           } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16 max-lg:my-10`}
         >
           <h1
-            className={`${classNames} font-bold xl:text-4xl xl:text-center text-3xl mb-4 outline-none`}
+            className={`font-bold xl:text-4xl xl:text-center text-3xl mb-4 `}
             data-text="Heading"
-            contentEditable={location.pathname !== "/home" ? true : false}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.heroHeaderText}
           </h1>
           <p
-            className={`${classNames} font-medium outline-none`}
+            className={`font-medium `}
             data-text="Type a paragraph"
-            contentEditable={location.pathname !== "/home" ? true : false}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.description}
           </p>
@@ -421,9 +403,7 @@ export const heroComponents = ({
           </div>
         </div>
 
-        <div
-          className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full`}
-        >
+        <div className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full`}>
           <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
             <img
               src={testImage}
@@ -434,7 +414,7 @@ export const heroComponents = ({
         </div>
       </div>
     </section>,
-    <section style={{ background: heroBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div
         className={`${
           isMobile ? "flex-col w-[90%] max-w-[600px]" : ""
@@ -446,24 +426,20 @@ export const heroComponents = ({
           <h1
             className={`${
               isMobile ? "text-center mx-auto" : ""
-            } ${classNames} text-[#231e41] max-lg:text-center text-6xl max-sm:text-5xl max-w-[650px] max-sm:max-w-[400px] font-semibold mb-6 max-lg:mx-auto outline-none`}
+            } text-[#231e41] max-lg:text-center text-6xl max-sm:text-5xl max-w-[650px] max-sm:max-w-[400px] font-semibold mb-6 max-lg:mx-auto `}
             data-text="Heading"
-            contentEditable={location.pathname !== "/home" ? true : false}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.heroHeaderText}
           </h1>
           <p
             className={`${
               isMobile ? "text-center mx-auto" : ""
-            } ${classNames} text-[#231e41] text-sm max-lg:text-center max-w-[350px] max-lg:mx-auto font-medium mb-6 outline-none`}
+            } text-[#231e41] text-sm max-lg:text-center max-w-[350px] max-lg:mx-auto font-medium mb-6 `}
             data-text="Type a paragraph"
-            contentEditable={location.pathname !== "/home" ? true : false}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.description}
           </p>

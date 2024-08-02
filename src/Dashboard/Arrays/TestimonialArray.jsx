@@ -5,7 +5,14 @@ export const testimonialComponent = ({
   handleFocus,
   handleBlur,
   location,
-  cardFeatureBackGroundStyle,
+  handleDivClick,
+  handleTextClick,
+  handleColorClick,
+  handleFontSizeClick,
+  handleFontWeightClick,
+  handleFontStyleClick,
+  handleFontFamilyClick,
+  handleTextAlignmentClick,
 }) => {
   let classNames = "";
 
@@ -17,25 +24,21 @@ export const testimonialComponent = ({
     classNames += " hover:border-[2px] hover:border-[rgb(0,111,173)]";
   }
   return [
-    <section style={{ background: cardFeatureBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div className="py-32 text-black w-[90%] max-w-[1000px] mx-auto">
         <h1
-          className={`${classNames} text-center text-3xl font-semibold capitalize mb-5 outline-none`}
+          className={`text-center text-3xl font-semibold capitalize mb-5 `}
           data-text="Heading"
-          contentEditable={location.pathname === "/home" ? false : true}
-          suppressContentEditableWarning
-          onFocus={handleFocus}
-          onBlur={handleBlur}
+          contentEditable={false}
+          onClick={handleTextClick}
         >
           {text.customerHeader[0]}
         </h1>
         <p
-          className={`${classNames} text-center text-xl outline-none`}
+          className={`text-center text-xl `}
           data-text="Type a paragraph"
-          contentEditable={location.pathname === "/home" ? false : true}
-          suppressContentEditableWarning
-          onFocus={handleFocus}
-          onBlur={handleBlur}
+          contentEditable={false}
+          onClick={handleTextClick}
         >
           {text.customerReviewText[0]}
         </p>
@@ -48,22 +51,18 @@ export const testimonialComponent = ({
           />
           <div className="text-sm font-semibold">
             <p
-              className={`${classNames} outline-none`}
+              className={``}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               Gabriel
             </p>
             <p
-              className={`${classNames} outline-none`}
+              className={``}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               Founder QuickUI
             </p>
@@ -71,25 +70,21 @@ export const testimonialComponent = ({
         </div>
       </div>
     </section>,
-    <section style={{ background: cardFeatureBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div className="py-32 text-black w-[90%] max-w-[1000px] mx-auto">
         <h1
-          className={`${classNames} text-3xl font-semibold capitalize mb-1 outline-none`}
+          className={`text-3xl font-semibold capitalize mb-1 `}
           data-text="Heading"
-          contentEditable={location.pathname === "/home" ? false : true}
-          suppressContentEditableWarning
-          onFocus={handleFocus}
-          onBlur={handleBlur}
+          contentEditable={false}
+          onClick={handleTextClick}
         >
           {text.customerHeader[0]}
         </h1>
         <p
-          className={`${classNames} text-base outline-none`}
+          className={`text-base `}
           data-text="Type a paragraph"
-          contentEditable={location.pathname === "/home" ? false : true}
-          suppressContentEditableWarning
-          onFocus={handleFocus}
-          onBlur={handleBlur}
+          contentEditable={false}
+          onClick={handleTextClick}
         >
           {text.customerParagraphText[0]}
         </p>
@@ -97,126 +92,102 @@ export const testimonialComponent = ({
         <div className="flex flex-wrap justify-evenly gap-8 mt-10 max-[600px]:gap-5 max-[600px]:flex-col">
           <div className="flex flex-col gap-1 w-[30%] max-[600px]:w-[90%]">
             <p
-              className={`${classNames} outline-none`}
+              className={``}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               ★★★★★
             </p>
             <h2
-              className={`${classNames} text-base font-semibold outline-none`}
+              className={`text-base font-semibold `}
               data-text="Heading"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               The Most Amazing product ever
             </h2>
             <p
-              className={`${classNames} text-sm md:min-h-[9rem] outline-none`}
+              className={`text-sm md:min-h-[9rem] `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               {text.customerReviewText[0]}
             </p>
             <p
-              className={`${classNames} max-lg:mt-3 outline-none`}
+              className={`max-lg:mt-3 `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               Gabriel - Founder
             </p>
           </div>
           <div className="flex flex-col gap-1 w-[30%] max-[600px]:w-[90%]">
             <p
-              className={`${classNames} outline-none`}
+              className={``}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               ★★★★★
             </p>
             <h2
-              className={`${classNames} text-base font-semibold outline-none`}
+              className={`text-base font-semibold `}
               data-text="Heading"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               The Most Amazing product ever
             </h2>
             <p
-              className={`${classNames} text-sm md:min-h-[9rem] outline-none`}
+              className={`text-sm md:min-h-[9rem] `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               {text.customerReviewText[1]}
             </p>
             <p
-              className={`${classNames} max-md:mt-3 outline-none`}
+              className={`max-md:mt-3 `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               Gabriel - Founder
             </p>
           </div>
           <div className="flex flex-col gap-1 w-[30%] max-[600px]:w-[90%]">
             <p
-              className={`${classNames} outline-none`}
+              className={``}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               ★★★★★
             </p>
             <h2
-              className={`${classNames} text-base font-semibold outline-none`}
+              className={`text-base font-semibold `}
               data-text="Heading"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               The Most Amazing product ever
             </h2>
             <p
-              className={`${classNames} text-sm md:min-h-[9rem] outline-none`}
+              className={`text-sm md:min-h-[9rem] `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               {text.customerReviewText[2]}
             </p>
             <p
-              className={`${classNames} max-lg:mt-3 outline-none`}
+              className={`max-lg:mt-3 `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               Gabriel - Founder
             </p>
@@ -224,25 +195,21 @@ export const testimonialComponent = ({
         </div>
       </div>
     </section>,
-    <section style={{ background: cardFeatureBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div className="py-32 text-black w-[90%] max-w-[1000px] mx-auto">
         <h1
-          className={`${classNames} text-3xl font-semibold capitalize mb-1 text-center outline-none`}
+          className={`text-3xl font-semibold capitalize mb-1 text-center `}
           data-text="Heading"
-          contentEditable={location.pathname === "/home" ? false : true}
-          suppressContentEditableWarning
-          onFocus={handleFocus}
-          onBlur={handleBlur}
+          contentEditable={false}
+          onClick={handleTextClick}
         >
           {text.customerHeader[0]}
         </h1>
         <p
-          className={`${classNames} text-base text-center outline-none`}
+          className={`text-base text-center `}
           data-text="Type a paragraph"
-          contentEditable={location.pathname === "/home" ? false : true}
-          suppressContentEditableWarning
-          onFocus={handleFocus}
-          onBlur={handleBlur}
+          contentEditable={false}
+          onClick={handleTextClick}
         >
           {text.customerParagraphText[0]}
         </p>
@@ -250,126 +217,102 @@ export const testimonialComponent = ({
         <div className="flex flex-wrap justify-evenly mt-10 max-[600px]:gap-5 max-[600px]:flex-col text-center">
           <div className="flex flex-col gap-1 w-[30%] max-[600px]:w-[90%]">
             <p
-              className={`${classNames} outline-none`}
+              className={``}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               ★★★★★
             </p>
             <h2
-              className={`${classNames} text-base font-semibold outline-none`}
+              className={`text-base font-semibold `}
               data-text="Heading"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               The Most Amazing product ever
             </h2>
             <p
-              className={`${classNames} text-sm md:min-h-[9rem] outline-none`}
+              className={`text-sm md:min-h-[9rem] `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               {text.customerReviewText[0]}
             </p>
             <p
-              className={`${classNames} max-lg:mt-3 outline-none`}
+              className={`max-lg:mt-3 `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               Gabriel - Founder
             </p>
           </div>
           <div className="flex flex-col gap-1 w-[30%] max-[600px]:w-[90%]">
             <p
-              className={`${classNames} outline-none`}
+              className={``}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               ★★★★★
             </p>
             <h2
-              className={`${classNames} text-base font-semibold outline-none`}
+              className={`text-base font-semibold `}
               data-text="Heading"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               The Most Amazing product ever
             </h2>
             <p
-              className={`${classNames} text-sm md:min-h-[9rem] outline-none`}
+              className={`text-sm md:min-h-[9rem] `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               {text.customerReviewText[1]}
             </p>
             <p
-              className={`${classNames} max-lg:mt-3 outline-none`}
+              className={`max-lg:mt-3 `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               Gabriel - Founder
             </p>
           </div>
           <div className="flex flex-col gap-1 w-[30%] max-[600px]:w-[90%]">
             <p
-              className={`${classNames} outline-none`}
+              className={``}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               ★★★★★
             </p>
             <h2
-              className={`${classNames} text-base font-semibold outline-none`}
+              className={`text-base font-semibold `}
               data-text="Heading"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               The Most Amazing product ever
             </h2>
             <p
-              className={`${classNames} text-sm md:min-h-[9rem] outline-none`}
+              className={`text-sm md:min-h-[9rem] `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               {text.customerReviewText[2]}
             </p>
             <p
-              className={`${classNames} max-lg:mt-3 outline-none`}
+              className={`max-lg:mt-3 `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               Gabriel - Founder
             </p>
@@ -377,28 +320,21 @@ export const testimonialComponent = ({
         </div>
       </div>
     </section>,
-    <section
-      className="py-10"
-      style={{ background: cardFeatureBackGroundStyle }}
-    >
+    <section className="py-10" onClick={handleDivClick}>
       <div className="py-32 text-black w-[90%] max-w-[1000px] mx-auto bg-white border-solid shadow-xl rounded-lg p-5">
         <h1
-          className={`${classNames} text-3xl font-semibold capitalize mb-5 outline-none`}
+          className={`text-3xl font-semibold capitalize mb-5 `}
           data-text="Heading"
-          contentEditable={location.pathname === "/home" ? false : true}
-          suppressContentEditableWarning
-          onFocus={handleFocus}
-          onBlur={handleBlur}
+          contentEditable={false}
+          onClick={handleTextClick}
         >
           {text.customerHeader[0]}
         </h1>
         <p
-          className={`${classNames} text-xl outline-none`}
+          className={`text-xl `}
           data-text="Type a paragraph"
-          contentEditable={location.pathname === "/home" ? false : true}
-          suppressContentEditableWarning
-          onFocus={handleFocus}
-          onBlur={handleBlur}
+          contentEditable={false}
+          onClick={handleTextClick}
         >
           {text.customerReviewText[0]}
         </p>
@@ -411,22 +347,18 @@ export const testimonialComponent = ({
           />
           <div className="text-sm font-semibold">
             <p
-              className={`${classNames} outline-none`}
+              className={``}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               Gabriel
             </p>
             <p
-              className={`${classNames} outline-none`}
+              className={``}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               Founder QuickUI
             </p>
@@ -434,28 +366,21 @@ export const testimonialComponent = ({
         </div>
       </div>
     </section>,
-    <section
-      className="py-10"
-      style={{ background: cardFeatureBackGroundStyle }}
-    >
+    <section className="py-10" onClick={handleDivClick}>
       <div className="py-32 text-black w-[90%] max-w-[1000px] mx-auto bg-white border-solid shadow-xl rounded-lg p-5">
         <h1
-          className={`${classNames} text-center text-3xl font-semibold capitalize mb-5 outline-none`}
+          className={`text-center text-3xl font-semibold capitalize mb-5 `}
           data-text="Heading"
-          contentEditable={location.pathname === "/home" ? false : true}
-          suppressContentEditableWarning
-          onFocus={handleFocus}
-          onBlur={handleBlur}
+          contentEditable={false}
+          onClick={handleTextClick}
         >
           {text.customerHeader[0]}
         </h1>
         <p
-          className={`${classNames} text-center text-xl max-w-[800px] mx-auto outline-none`}
+          className={`text-center text-xl max-w-[800px] mx-auto `}
           data-text="Type a paragraph"
-          contentEditable={location.pathname === "/home" ? false : true}
-          suppressContentEditableWarning
-          onFocus={handleFocus}
-          onBlur={handleBlur}
+          contentEditable={false}
+          onClick={handleTextClick}
         >
           {text.customerReviewText[0]}
         </p>
@@ -468,22 +393,18 @@ export const testimonialComponent = ({
           />
           <div className="text-sm font-semibold">
             <p
-              className={`${classNames} outline-none`}
+              className={``}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               Gabriel
             </p>
             <p
-              className={`${classNames} outline-none`}
+              className={``}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               Founder QuickUI
             </p>
@@ -491,25 +412,21 @@ export const testimonialComponent = ({
         </div>
       </div>
     </section>,
-    <section style={{ background: cardFeatureBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div className="py-32 text-black w-[90%] max-w-[1000px] mx-auto">
         <h1
-          className={`${classNames} text-3xl font-semibold capitalize mb-5 outline-none`}
+          className={`text-3xl font-semibold capitalize mb-5 `}
           data-text="Heading"
-          contentEditable={location.pathname === "/home" ? false : true}
-          suppressContentEditableWarning
-          onFocus={handleFocus}
-          onBlur={handleBlur}
+          contentEditable={false}
+          onClick={handleTextClick}
         >
           {text.customerHeader[0]}
         </h1>
         <p
-          className={`${classNames} text-xl max-w-[800px] outline-none`}
+          className={`text-xl max-w-[800px] `}
           data-text="Type a paragraph"
-          contentEditable={location.pathname === "/home" ? false : true}
-          suppressContentEditableWarning
-          onFocus={handleFocus}
-          onBlur={handleBlur}
+          contentEditable={false}
+          onClick={handleTextClick}
         >
           {text.customerReviewText[0]}
         </p>
@@ -522,22 +439,18 @@ export const testimonialComponent = ({
           />
           <div className="text-sm font-semibold">
             <p
-              className={`${classNames} outline-none`}
+              className={``}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               Gabriel
             </p>
             <p
-              className={`${classNames} outline-none`}
+              className={``}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               Founder QuickUI
             </p>
@@ -545,7 +458,7 @@ export const testimonialComponent = ({
         </div>
       </div>
     </section>,
-    <section style={{ background: cardFeatureBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div
         className={`${
           isMobile ? "max-w-[350px] flex-col items-start gap-5" : ""
@@ -560,29 +473,25 @@ export const testimonialComponent = ({
         </div>
         <div className="">
           <h1
-            className={`${classNames} text-3xl font-semibold capitalize mb-3 outline-none`}
+            className={`text-3xl font-semibold capitalize mb-3 `}
             data-text="Heading"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.customerHeader[0]}
           </h1>
           <p
-            className={`${classNames} text-xl max-w-[700px] outline-none`}
+            className={`text-xl max-w-[700px] `}
             data-text="Type a paragraph"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.customerReviewText[0]}
           </p>
         </div>
       </div>
     </section>,
-    <section className="py-10" style={{ background: cardFeatureBackGroundStyle }}>
+    <section className="py-10" onClick={handleDivClick}>
       <div
         className={`${
           isMobile ? "max-w-[350px] flex-col items-start gap-5" : ""
@@ -597,22 +506,18 @@ export const testimonialComponent = ({
         </div>
         <div className="">
           <h1
-            className={`${classNames} text-3xl font-semibold capitalize mb-3 outline-none`}
+            className={`text-3xl font-semibold capitalize mb-3 `}
             data-text="Heading"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.customerHeader[0]}
           </h1>
           <p
-            className={`${classNames} text-xl max-w-[700px] outline-none`}
+            className={`text-xl max-w-[700px] `}
             data-text="Type a paragraph"
-            contentEditable={location.pathname === "/home" ? false : true}
-            suppressContentEditableWarning
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            contentEditable={false}
+            onClick={handleTextClick}
           >
             {text.customerReviewText[0]}
           </p>

@@ -7,7 +7,14 @@ export const featuresWithCardsComponent = ({
   handleFocus,
   handleBlur,
   location,
-  cardFeatureBackGroundStyle,
+  handleDivClick,
+  handleTextClick,
+  handleColorClick,
+  handleFontSizeClick,
+  handleFontWeightClick,
+  handleFontStyleClick,
+  handleFontFamilyClick,
+  handleTextAlignmentClick,
 }) => {
   let classNames = "";
 
@@ -20,7 +27,7 @@ export const featuresWithCardsComponent = ({
   }
 
   return [
-    <section style={{ background: cardFeatureBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div
         className={`${
           isMobile ? "flex-col" : ""
@@ -33,22 +40,18 @@ export const featuresWithCardsComponent = ({
         >
           <div className="">
             <h1
-              className={`${classNames} text-[#231e41] text-3xl font-bold mb-1 outline-none`}
+              className={`text-[#231e41] text-3xl font-bold mb-1 `}
               data-text="Heading"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               {text.featureHeader[0]}
             </h1>
             <p
-              className={`${classNames} text-[#231e41] max-w-[500px] outline-none`}
+              className={`text-[#231e41] max-w-[500px] `}
               data-text="Type a paragraph"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               Here's some more information about this amazing feature. You can
               use basic formatting and also multiple paragraphs.
@@ -69,7 +72,7 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  className={`${classNames} capitalize text-xl font-semibold text-[#231e41] outline-none`}
+                  className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={location.pathname === "/home" ? false : true}
                   suppressContentEditableWarning
                   onFocus={handleFocus}
@@ -78,7 +81,7 @@ export const featuresWithCardsComponent = ({
                   Item One
                 </h2>
                 <p
-                  className={`${classNames} text-[#231e41] outline-none`}
+                  className={`text-[#231e41] `}
                   contentEditable={location.pathname === "/home" ? false : true}
                   suppressContentEditableWarning
                   onFocus={handleFocus}
@@ -104,7 +107,7 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  className={`${classNames} capitalize text-xl font-semibold text-[#231e41] outline-none`}
+                  className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={location.pathname === "/home" ? false : true}
                   suppressContentEditableWarning
                   onFocus={handleFocus}
@@ -113,7 +116,7 @@ export const featuresWithCardsComponent = ({
                   Item two
                 </h2>
                 <p
-                  className={`${classNames} text-[#231e41] outline-none`}
+                  className={`text-[#231e41] `}
                   contentEditable={location.pathname === "/home" ? false : true}
                   suppressContentEditableWarning
                   onFocus={handleFocus}
@@ -139,7 +142,7 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  className={`${classNames} capitalize text-xl font-semibold text-[#231e41] outline-none`}
+                  className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={location.pathname === "/home" ? false : true}
                   suppressContentEditableWarning
                   onFocus={handleFocus}
@@ -148,7 +151,7 @@ export const featuresWithCardsComponent = ({
                   Item Three
                 </h2>
                 <p
-                  className={`${classNames} text-[#231e41] outline-none`}
+                  className={`text-[#231e41] `}
                   contentEditable={location.pathname === "/home" ? false : true}
                   suppressContentEditableWarning
                   onFocus={handleFocus}
@@ -164,11 +167,9 @@ export const featuresWithCardsComponent = ({
 
           <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
             <span
-              className="outline-none"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              className=""
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               {text.buttonTexts[4]}
             </span>
@@ -188,7 +189,7 @@ export const featuresWithCardsComponent = ({
         </div>
       </div>
     </section>,
-    <section style={{ background: cardFeatureBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div
         className={`${
           isMobile ? "flex-col-reverse" : ""
@@ -201,20 +202,16 @@ export const featuresWithCardsComponent = ({
         >
           <div className={`${isMobile ? "mt-4" : ""} max-lg:mt-4`}>
             <h1
-              className={`${classNames} text-[#231e41] text-3xl font-bold mb-1 outline-none`}
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              className={`text-[#231e41] text-3xl font-bold mb-1 `}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               {text.featureHeader[0]}
             </h1>
             <p
-              className={`${classNames} text-[#231e41] outline-none`}
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              className={`text-[#231e41] `}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               Here's some more information about this amazing feature. You can
               use basic formatting and also multiple paragraphs.
@@ -235,7 +232,7 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  className={`${classNames} capitalize text-xl font-semibold text-[#231e41] outline-none`}
+                  className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={location.pathname === "/home" ? false : true}
                   suppressContentEditableWarning
                   onFocus={handleFocus}
@@ -244,7 +241,7 @@ export const featuresWithCardsComponent = ({
                   Item One
                 </h2>
                 <p
-                  className={`${classNames} text-[#231e41] outline-none`}
+                  className={`text-[#231e41] `}
                   contentEditable={location.pathname === "/home" ? false : true}
                   suppressContentEditableWarning
                   onFocus={handleFocus}
@@ -270,7 +267,7 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  className={`${classNames} capitalize text-xl font-semibold text-[#231e41] outline-none`}
+                  className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={location.pathname === "/home" ? false : true}
                   suppressContentEditableWarning
                   onFocus={handleFocus}
@@ -279,7 +276,7 @@ export const featuresWithCardsComponent = ({
                   Item two
                 </h2>
                 <p
-                  className={`${classNames} text-[#231e41] outline-none`}
+                  className={`text-[#231e41] `}
                   contentEditable={location.pathname === "/home" ? false : true}
                   suppressContentEditableWarning
                   onFocus={handleFocus}
@@ -305,7 +302,7 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  className={`${classNames} capitalize text-xl font-semibold text-[#231e41] outline-none`}
+                  className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={location.pathname === "/home" ? false : true}
                   suppressContentEditableWarning
                   onFocus={handleFocus}
@@ -314,7 +311,7 @@ export const featuresWithCardsComponent = ({
                   Item Three
                 </h2>
                 <p
-                  className={`${classNames} text-[#231e41] outline-none`}
+                  className={`text-[#231e41] `}
                   contentEditable={location.pathname === "/home" ? false : true}
                   suppressContentEditableWarning
                   onFocus={handleFocus}
@@ -330,11 +327,9 @@ export const featuresWithCardsComponent = ({
 
           <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
             <span
-              className="outline-none"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              className=""
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               {text.buttonTexts[4]}
             </span>
@@ -354,7 +349,7 @@ export const featuresWithCardsComponent = ({
         </div>
       </div>
     </section>,
-    <section style={{ background: cardFeatureBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div
         className={`${
           isMobile ? "flex-col" : ""
@@ -367,20 +362,16 @@ export const featuresWithCardsComponent = ({
         >
           <div className="">
             <h1
-              className={`${classNames} text-[#231e41] text-3xl font-bold mb-1 outline-none`}
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              className={`text-[#231e41] text-3xl font-bold mb-1 `}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               {text.featureHeader[0]}
             </h1>
             <p
-              className={`${classNames} text-[#231e41] outline-none`}
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              className={`text-[#231e41] `}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               Here's some more information about this amazing feature. You can
               use basic formatting and also multiple paragraphs.
@@ -401,7 +392,7 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  className={`${classNames} capitalize text-xl font-semibold text-[#231e41] outline-none`}
+                  className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={location.pathname === "/home" ? false : true}
                   suppressContentEditableWarning
                   onFocus={handleFocus}
@@ -410,7 +401,7 @@ export const featuresWithCardsComponent = ({
                   Item One
                 </h2>
                 <p
-                  className={`${classNames} text-[#231e41] outline-none`}
+                  className={`text-[#231e41] `}
                   contentEditable={location.pathname === "/home" ? false : true}
                   suppressContentEditableWarning
                   onFocus={handleFocus}
@@ -438,11 +429,9 @@ export const featuresWithCardsComponent = ({
 
           <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
             <span
-              className="outline-none"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              className=""
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               {text.buttonTexts[4]}
             </span>
@@ -462,7 +451,7 @@ export const featuresWithCardsComponent = ({
         </div>
       </div>
     </section>,
-    <section style={{ background: cardFeatureBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div
         className={`${
           isMobile ? "flex-col" : ""
@@ -475,20 +464,16 @@ export const featuresWithCardsComponent = ({
         >
           <div className="">
             <h1
-              className={`${classNames} text-[#231e41] text-3xl font-bold mb-1 outline-none`}
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              className={`text-[#231e41] text-3xl font-bold mb-1 `}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               {text.featureHeader[0]}
             </h1>
             <p
-              className={`${classNames} text-[#231e41] outline-none`}
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              className={`text-[#231e41] `}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               Here's some more information about this amazing feature. You can
               use basic formatting and also multiple paragraphs.
@@ -509,7 +494,7 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  className={`${classNames} capitalize text-xl font-semibold text-[#231e41] outline-none`}
+                  className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={location.pathname === "/home" ? false : true}
                   suppressContentEditableWarning
                   onFocus={handleFocus}
@@ -518,7 +503,7 @@ export const featuresWithCardsComponent = ({
                   Item One
                 </h2>
                 <p
-                  className={`${classNames} text-[#231e41] outline-none`}
+                  className={`text-[#231e41] `}
                   contentEditable={location.pathname === "/home" ? false : true}
                   suppressContentEditableWarning
                   onFocus={handleFocus}
@@ -546,11 +531,9 @@ export const featuresWithCardsComponent = ({
 
           <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
             <span
-              className="outline-none"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              className=""
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               {text.buttonTexts[4]}
             </span>
@@ -570,7 +553,7 @@ export const featuresWithCardsComponent = ({
         </div>
       </div>
     </section>,
-    <section style={{ background: cardFeatureBackGroundStyle }}>
+    <section onClick={handleDivClick}>
       <div
         className={`${
           isMobile ? "flex-col" : ""
@@ -583,20 +566,16 @@ export const featuresWithCardsComponent = ({
         >
           <div className="">
             <h1
-              className={`${classNames} text-[#231e41] text-3xl font-bold mb-1 outline-none`}
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              className={`text-[#231e41] text-3xl font-bold mb-1 `}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               {text.featureHeader[0]}
             </h1>
             <p
-              className={`${classNames} text-[#231e41] max-w-[500px] outline-none`}
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              className={`text-[#231e41] max-w-[500px] `}
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               Here's some more information about this amazing feature. You can
               use basic formatting and also multiple paragraphs.
@@ -617,7 +596,7 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  className={`${classNames} capitalize text-xl font-semibold text-[#231e41] outline-none`}
+                  className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={location.pathname === "/home" ? false : true}
                   suppressContentEditableWarning
                   onFocus={handleFocus}
@@ -626,7 +605,7 @@ export const featuresWithCardsComponent = ({
                   Item One
                 </h2>
                 <p
-                  className={`${classNames} text-[#231e41] outline-none`}
+                  className={`text-[#231e41] `}
                   contentEditable={location.pathname === "/home" ? false : true}
                   suppressContentEditableWarning
                   onFocus={handleFocus}
@@ -652,7 +631,7 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  className={`${classNames} capitalize text-xl font-semibold text-[#231e41] outline-none`}
+                  className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={location.pathname === "/home" ? false : true}
                   suppressContentEditableWarning
                   onFocus={handleFocus}
@@ -661,7 +640,7 @@ export const featuresWithCardsComponent = ({
                   Item two
                 </h2>
                 <p
-                  className={`${classNames} text-[#231e41] outline-none`}
+                  className={`text-[#231e41] `}
                   contentEditable={location.pathname === "/home" ? false : true}
                   suppressContentEditableWarning
                   onFocus={handleFocus}
@@ -687,7 +666,7 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  className={`${classNames} capitalize text-xl font-semibold text-[#231e41] outline-none`}
+                  className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={location.pathname === "/home" ? false : true}
                   suppressContentEditableWarning
                   onFocus={handleFocus}
@@ -696,7 +675,7 @@ export const featuresWithCardsComponent = ({
                   Item Three
                 </h2>
                 <p
-                  className={`${classNames} text-[#231e41] outline-none`}
+                  className={`text-[#231e41] `}
                   contentEditable={location.pathname === "/home" ? false : true}
                   suppressContentEditableWarning
                   onFocus={handleFocus}
@@ -712,11 +691,9 @@ export const featuresWithCardsComponent = ({
 
           <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
             <span
-            className="outline-none"
-              contentEditable={location.pathname === "/home" ? false : true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              className=""
+              contentEditable={false}
+              onClick={handleTextClick}
             >
               Learn
             </span>
