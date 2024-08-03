@@ -57,7 +57,6 @@ export const DashboardProvider = ({ children }) => {
     buttonTexts: [],
   });
   const [isFocused, setIsFocused] = useState(false);
-  const scrollableDivRef = useRef(null);
   const [displayEditModal, setDisplayEditModal] = useState(false);
   const [changeSectionHeaderText, setChangeSectionHeaderText] = useState("");
   const [isPattern, setIsPattern] = useState(true);
@@ -79,6 +78,7 @@ export const DashboardProvider = ({ children }) => {
   const [selectedElement, setSelectedElement] = useState(null);
   const [backGroundStyle, setBackGroundStyle] = useState("");
   const [selectedDiv, setSelectedDiv] = useState(null);
+  const [sectionModal, setSectionModal] = useState(false);
 
   useEffect(() => {
     if (!shuffled && webContentObject.randomButtonText) {
@@ -399,7 +399,6 @@ export const DashboardProvider = ({ children }) => {
         text,
         isMobile,
         isFocused,
-        scrollableDivRef,
         displayEditModal,
         changeSectionHeaderText,
         isPattern,
@@ -469,6 +468,8 @@ export const DashboardProvider = ({ children }) => {
         handleFontStyleClick,
         handleFontFamilyClick,
         handleTextAlignmentClick,
+        sectionModal,
+        setSectionModal,
       }}
     >
       {children}

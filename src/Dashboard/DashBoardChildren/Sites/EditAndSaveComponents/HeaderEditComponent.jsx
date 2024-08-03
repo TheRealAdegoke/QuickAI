@@ -5,7 +5,7 @@ import NavImage2 from "../../../../assets/NavImage/NavImage2.webp";
 import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
 export const HeaderImages = () => {
-  const { setNavIndex } = useContext(DashContext);
+  const { setNavIndex, setSectionModal } = useContext(DashContext);
   const images = [
     {
       index: 0,
@@ -28,9 +28,10 @@ export const HeaderImages = () => {
           item.index !== undefined && (
             <div
               key={idx}
-              className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-full max-h-[300px] cursor-pointer"
+              className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-full h-fit cursor-pointer"
               onClick={() => {
                 setNavIndex(item.index);
+                setSectionModal(false);
               }}
             >
               <img
