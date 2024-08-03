@@ -10,10 +10,22 @@ import { Switch } from "@headlessui/react";
 import EditAndSaveDesignModal from "./EditAndSaveDesignModal";
 import MainEditComponent from "./EditAndSaveComponents/MainEditComponent";
 import EditDesignModalComponent from "./EditAndSaveComponents/EditDesignModalComponent";
+import { HeroImages } from "./EditAndSaveComponents/HeroEditComponent";
+import { HeaderImages } from "./EditAndSaveComponents/HeaderEditComponent";
+import { CardFeaturesImages } from "./EditAndSaveComponents/CardFeatureEditComponent";
+import { ClassicalFeaturesImages } from "./EditAndSaveComponents/ClassicalFeatureEditComponent";
+import { TestimonialImages } from "./EditAndSaveComponents/TestimonialEditComponent";
+import { FAQImages } from "./EditAndSaveComponents/FAQEditComponent";
+import { TeamImages } from "./EditAndSaveComponents/TeamEditComponent";
+import { IoClose } from "react-icons/io5";
 
 const EditAndSave = () => {
-  const { setIsMobile, scrollableDivRef, displayEditModal } =
-    useContext(DashContext);
+  const {
+    setIsMobile,
+    displayEditModal,
+    sectionModal,
+    setSectionModal,
+  } = useContext(DashContext);
   const modalRef = useRef(null);
   const resizableRef = useRef(null);
   const [enabled, setEnabled] = useState(false);
@@ -24,6 +36,15 @@ const EditAndSave = () => {
   const [initialWidth, setInitialWidth] = useState(0);
   const [initialX, setInitialX] = useState(0);
   const [deviceWidth, setDeviceWidth] = useState(window.innerWidth);
+  const [activeSection, setActiveSection] = useState({
+    Header: true,
+    Hero: false,
+    CardFeatures: false,
+    ClassicFeatures: false,
+    Testimonial: false,
+    FAQ: false,
+    Team: false,
+  });
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -209,7 +230,7 @@ const EditAndSave = () => {
                 } absolute top-1/2 left-[0px] transform -translate-x-1/2 -translate-y-1/2 w-2 h-[50px] cursor-ew-resize bg-[rgba(0,0,0,0.8)] rounded-t-[8px] rounded-b-[8px] max-lg:hidden z-40`}
                 onMouseDown={handleMouseDownLeft}
               ></div>
-              <div ref={scrollableDivRef} className="overflow-y-scroll h-full">
+              <div className="overflow-y-scroll h-full">
                 <EditAndSaveDesignModal />
               </div>
               <div className="overflow-y-scroll h-full"></div>
@@ -222,6 +243,108 @@ const EditAndSave = () => {
             } w-[23%] min-w-[23%] max-w-[23%] min-[1350px]:w-[20%] min-[1350px]:min-w-[20%] min-[1350px]:max-w-[20%] absolute  h-[90vh] bg-[rgb(9,11,14)] border-[1px] rounded-[8px] border-[rgba(255,255,255,0.3)] transition-all ease-in-out duration-150`}
           ></div>
         </section>
+
+        <div
+          className={`${
+            sectionModal ? "block" : "hidden"
+          } fixed top-0 z-50 bg-[rgba(0,0,0,0.7)] h-full w-full flex justify-center items-center`}
+        >
+          <div className="bg-[rgb(36,37,40)] w-[70%] h-[90%] rounded-[8px]">
+            <div className="flex justify-end pr-5">
+              <button
+                className="bg-[rgb(20,21,24)] py-2 px-2 text-xl rounded-lg text-[rgba(255,255,255,0.8)] mt-5"
+                onClick={() => {
+                  setSectionModal(false);
+                }}
+              >
+                <IoClose />
+              </button>
+            </div>
+            <div className="h-[90%] rounded-[8px] flex">
+              <div className="w-[20%] h-full py-5 pl-4">
+                <div className="text-[rgba(255,255,255,0.8)] flex flex-col gap-2 text-lg">
+                  <button
+                    className={`${
+                      activeSection.Header ? "bg-[rgb(7,20,59)]" : ""
+                    } text-left pl-2 py-1 rounded-md`}
+                    onClick={() => setActiveSection({ Header: true })}
+                  >
+                    Header
+                  </button>
+                  <button
+                    className={`${
+                      activeSection.Hero ? "bg-[rgb(7,20,59)]" : ""
+                    } text-left pl-2 py-1 rounded-md`}
+                    onClick={() => setActiveSection({ Hero: true })}
+                  >
+                    Hero
+                  </button>
+                  <button
+                    className={`${
+                      activeSection.CardFeatures ? "bg-[rgb(7,20,59)]" : ""
+                    } text-left pl-2 py-1 rounded-md`}
+                    onClick={() => setActiveSection({ CardFeatures: true })}
+                  >
+                    Card Features
+                  </button>
+                  <button
+                    className={`${
+                      activeSection.ClassicFeatures ? "bg-[rgb(7,20,59)]" : ""
+                    } text-left pl-2 py-1 rounded-md`}
+                    onClick={() => setActiveSection({ ClassicFeatures: true })}
+                  >
+                    Classic Features
+                  </button>
+                  <button
+                    className={`${
+                      activeSection.Testimonial ? "bg-[rgb(7,20,59)]" : ""
+                    } text-left pl-2 py-1 rounded-md`}
+                    onClick={() => setActiveSection({ Testimonial: true })}
+                  >
+                    Testimonial
+                  </button>
+                  <button
+                    className={`${
+                      activeSection.FAQ ? "bg-[rgb(7,20,59)]" : ""
+                    } text-left pl-2 py-1 rounded-md`}
+                    onClick={() => setActiveSection({ FAQ: true })}
+                  >
+                    FAQ
+                  </button>
+                  <button
+                    className={`${
+                      activeSection.Team ? "bg-[rgb(7,20,59)]" : ""
+                    } text-left pl-2 py-1 rounded-md`}
+                    onClick={() => setActiveSection({ Team: true })}
+                  >
+                    Team
+                  </button>
+                </div>
+              </div>
+              <div className="w-[80%] h-full py-5 px-4">
+                <div className="bg-[rgb(20,21,24)] py-1 rounded-lg pl-2 text-[rgba(255,255,255,0.8)] mb-5">
+                  {activeSection.Header && "Header"}
+                  {activeSection.Hero && "Hero"}
+                  {activeSection.CardFeatures && "Card Feature"}
+                  {activeSection.ClassicFeatures && "Classical Feature"}
+                  {activeSection.Testimonial && "Testimonial"}
+                  {activeSection.FAQ && "FAQ"}
+                  {activeSection.Team && "Team"}
+                </div>
+
+                <div className="flex flex-wrap gap-3 justify-evenly px-2 h-[70%] overflow-y-scroll">
+                  {activeSection.Header && <HeaderImages />}
+                  {activeSection.Hero && <HeroImages />}
+                  {activeSection.CardFeatures && <CardFeaturesImages />}
+                  {activeSection.ClassicFeatures && <ClassicalFeaturesImages />}
+                  {activeSection.Testimonial && <TestimonialImages />}
+                  {activeSection.FAQ && <FAQImages />}
+                  {activeSection.Team && <TeamImages />}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     </>
   );

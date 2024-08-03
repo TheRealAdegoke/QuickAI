@@ -16,8 +16,8 @@ const MainEditComponent = () => {
     setClickedIndex,
     setColor1,
     setColor2,
+    setSectionModal,
   } = useContext(DashContext);
-
 
   return (
     <>
@@ -45,6 +45,15 @@ const MainEditComponent = () => {
             />
           ))}
         </DndProvider>
+
+        <button
+          className="bg-white py-1 px-3 rounded w-[200px] mx-auto block font-medium"
+          onClick={() => {
+            setSectionModal(true);
+          }}
+        >
+          Add Section
+        </button>
       </div>
     </>
   );

@@ -57,6 +57,14 @@ const EditAndSaveDesignModal = () => {
 
   return (
     <div className="">
+      {/* <button
+        className="flex items-center gap-1 w-full"
+        onClick={() => {
+          console.log(elements.length);
+        }}
+      >
+        <span className="text-black font-medium">Log</span>
+      </button> */}
       {elements.map((item, idx) => (
         <div
           key={idx}
