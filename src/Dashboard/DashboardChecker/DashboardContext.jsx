@@ -79,6 +79,7 @@ export const DashboardProvider = ({ children }) => {
   const [backGroundStyle, setBackGroundStyle] = useState("");
   const [selectedDiv, setSelectedDiv] = useState(null);
   const [sectionModal, setSectionModal] = useState(false);
+  const [divStyles, setDivStyles] = useState({});
 
   useEffect(() => {
     if (!shuffled && webContentObject.randomButtonText) {
@@ -362,7 +363,11 @@ export const DashboardProvider = ({ children }) => {
 
   const handleBGColorClick = (color) => {
     if (selectedDiv) {
-      selectedDiv.style.background = color;
+      // selectedDiv.style.background = color;
+      setDivStyles((prevStyles) => ({
+        ...prevStyles,
+        [selectedDiv.id]: { ...prevStyles[selectedDiv.id], background: color },
+      }));
     }
   };
 
@@ -470,6 +475,7 @@ export const DashboardProvider = ({ children }) => {
         handleTextAlignmentClick,
         sectionModal,
         setSectionModal,
+        divStyles,
       }}
     >
       {children}

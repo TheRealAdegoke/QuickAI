@@ -3,6 +3,7 @@ import { MdOutlineWeb } from "react-icons/md";
 import { MdFolder } from "react-icons/md";
 import ElementArray from "../../AI-Designed-Component/ElementArray";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
+import reactElementToJSXString from "react-element-to-jsx-string";
 
 const EditAndSaveDesignModal = () => {
   const {
@@ -11,6 +12,7 @@ const EditAndSaveDesignModal = () => {
     setDisplayEditModal,
     setCurrentSection,
     setChangeSectionHeaderText,
+    divStyles,
   } = useContext(DashContext);
   const { elements } = ElementArray();
 
@@ -57,19 +59,16 @@ const EditAndSaveDesignModal = () => {
 
   return (
     <div className="">
-      {/* <button
-        className="flex items-center gap-1 w-full"
-        onClick={() => {
-          console.log(elements.length);
-        }}
-      >
-        <span className="text-black font-medium">Log</span>
-      </button> */}
       {elements.map((item, idx) => (
         <div
           key={idx}
           onClick={() => {
             handleElementClick(idx);
+            console.log(
+              reactElementToJSXString(item.element, {
+                showFunctions: false,
+              })
+            );
           }}
         >
           {item.element}
@@ -89,8 +88,6 @@ export const Button = ({
   setIsPattern,
   buttons,
   setCurrentSection,
-  setColor1,
-  setColor2,
 }) => {
   const ref = useRef(null);
 

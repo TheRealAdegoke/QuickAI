@@ -76,6 +76,7 @@ const TestDesignModal = () => {
   const [selectedDiv, setSelectedDiv] = useState(null)
   const [backGroundStyle, setBackGroundStyle] = useState("");
   const [showColorPicker, setShowColorPicker] = useState(true)
+  const [bg, setbg] = useState("");
 
 
 
@@ -111,7 +112,7 @@ const TestDesignModal = () => {
      color,
    ) => {
      if (selectedElement) {
-       selectedElement.style.color = color;
+       selectedElement.style.color = color
      }
    };
 
@@ -149,7 +150,7 @@ const TestDesignModal = () => {
      color,
    ) => {
      if (selectedDiv) {
-       selectedDiv.style.background = color;
+      setbg(color);
      }
    };
 
@@ -189,7 +190,8 @@ const TestDesignModal = () => {
 
       <div className="">
         <div
-          className="size-[400px] border-[2px] border-[black]"
+          style={{ backgroundColor: bg }}
+          className={`size-[400px] border-[2px] border-[black]`}
           onClick={handleDivClick}
         >
           <p>
@@ -200,11 +202,13 @@ const TestDesignModal = () => {
           </p>
         </div>
         <div
-          className="size-[40px] border-[2px] border-[black]"
+          style={{ backgroundColor: bg }}
+          className={`size-[40px] border-[2px] border-[black]`}
           onClick={handleDivClick}
         ></div>
         <div
-          className="size-[40px] border-[2px] border-[black]"
+          style={{ backgroundColor: bg }}
+          className={`size-[40px] border-[2px] border-[black]`}
           onClick={handleDivClick}
         ></div>
       </div>
@@ -250,9 +254,7 @@ const TestDesignModal = () => {
               isMobile ? "w-[90%]" : ""
             } text-[rgb(33,37,41)] w-[40%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
           >
-            <h1
-              className={`font-bold xl:text-5xl text-3xl mb-4 outline-none`}
-            >
+            <h1 className={`font-bold xl:text-5xl text-3xl mb-4 outline-none`}>
               {text.heroHeaderText}
             </h1>
             <p

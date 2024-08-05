@@ -18,6 +18,7 @@ export const heroComponents = ({
   handleFontStyleClick,
   handleFontFamilyClick,
   handleTextAlignmentClick,
+  divStyles,
 }) => {
   const buttonElement = WebButtonsArray({ text, buttonIndex, handleTextClick })[
     buttonIndex
@@ -36,7 +37,11 @@ export const heroComponents = ({
   // "rgb(26,26,26)";
 
   return [
-    <section style={{ background: "rgb(26,26,26)" }} onClick={handleDivClick}>
+    <section
+      onClick={handleDivClick}
+      id="hero-section"
+      style={divStyles["hero-section"]}
+    >
       <div className="py-10 px-5">
         <div className="flex justify-center gap-10 max-lg:flex-col">
           <div className={`${isMobile ? "hidden" : ""} max-lg:hidden w-[50%]`}>
@@ -114,7 +119,11 @@ export const heroComponents = ({
         </div>
       </div>
     </section>,
-    <section onClick={handleDivClick}>
+    <section
+      onClick={handleDivClick}
+      id="hero-section"
+      style={divStyles["hero-section"]}
+    >
       <div
         className={`${
           isMobile ? "h-[750px] flex-col" : ""
@@ -184,7 +193,11 @@ export const heroComponents = ({
         </div>
       </div>
     </section>,
-    <section onClick={handleDivClick}>
+    <section
+      onClick={handleDivClick}
+      id="hero-section"
+      style={divStyles["hero-section"]}
+    >
       <div
         className={`${
           isMobile ? "flex-col" : ""
@@ -227,7 +240,11 @@ export const heroComponents = ({
         </div>
       </div>
     </section>,
-    <section onClick={handleDivClick}>
+    <section
+      onClick={handleDivClick}
+      id="hero-section"
+      style={divStyles["hero-section"]}
+    >
       <div
         className={`${
           isMobile ? "flex-col" : ""
@@ -270,7 +287,11 @@ export const heroComponents = ({
         </div>
       </div>
     </section>,
-    <section onClick={handleDivClick}>
+    <section
+      onClick={handleDivClick}
+      id="hero-section"
+      style={divStyles["hero-section"]}
+    >
       <div
         className={`${
           isMobile ? "flex-col-reverse" : ""
@@ -313,7 +334,11 @@ export const heroComponents = ({
         </div>
       </div>
     </section>,
-    <section onClick={handleDivClick}>
+    <section
+      onClick={handleDivClick}
+      id="hero-section"
+      style={divStyles["hero-section"]}
+    >
       <div
         className={`${
           isMobile ? "flex-col-reverse" : ""
@@ -357,10 +382,9 @@ export const heroComponents = ({
       </div>
     </section>,
     <section
-      style={{
-        background: heroBackGroundStyle,
-      }}
       onClick={handleDivClick}
+      id="hero-section"
+      style={divStyles["hero-section"]}
     >
       <div
         className={`${
@@ -414,7 +438,11 @@ export const heroComponents = ({
         </div>
       </div>
     </section>,
-    <section onClick={handleDivClick}>
+    <section
+      onClick={handleDivClick}
+      id="hero-section"
+      style={divStyles["hero-section"]}
+    >
       <div
         className={`${
           isMobile ? "flex-col w-[90%] max-w-[600px]" : ""

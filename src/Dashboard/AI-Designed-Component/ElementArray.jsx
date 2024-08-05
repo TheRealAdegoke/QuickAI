@@ -42,6 +42,7 @@ const ElementArray = () => {
     handleFontStyleClick,
     handleFontFamilyClick,
     handleTextAlignmentClick,
+    divStyles,
   } = useContext(DashContext);
   const location = useLocation();
 
@@ -75,6 +76,7 @@ const ElementArray = () => {
     handleFontStyleClick,
     handleFontFamilyClick,
     handleTextAlignmentClick,
+    divStyles,
   })[heroIndex];
   const featuresWithCardElement = featuresWithCardsComponent({
     text,
@@ -95,6 +97,7 @@ const ElementArray = () => {
     handleFontStyleClick,
     handleFontFamilyClick,
     handleTextAlignmentClick,
+    divStyles,
   })[featuresWithCardIndex];
   const featuresElement = featuresComponents({
     text,
