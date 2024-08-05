@@ -15,6 +15,7 @@ export const featuresWithCardsComponent = ({
   handleFontStyleClick,
   handleFontFamilyClick,
   handleTextAlignmentClick,
+  divStyles,
 }) => {
   let classNames = "";
 
@@ -27,7 +28,11 @@ export const featuresWithCardsComponent = ({
   }
 
   return [
-    <section onClick={handleDivClick}>
+    <section
+      onClick={handleDivClick}
+      id="features-section"
+      style={divStyles["features-section"]}
+    >
       <div
         className={`${
           isMobile ? "flex-col" : ""
@@ -73,19 +78,15 @@ export const featuresWithCardsComponent = ({
               <div className="mt-2">
                 <h2
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+              onClick={handleTextClick}
                 >
                   Item One
                 </h2>
                 <p
                   className={`text-[#231e41] `}
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+              onClick={handleTextClick}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laborum labore iure hic nemo ipsam totam veritatis provident
@@ -108,19 +109,15 @@ export const featuresWithCardsComponent = ({
               <div className="mt-2">
                 <h2
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+              onClick={handleTextClick}
                 >
                   Item two
                 </h2>
                 <p
                   className={`text-[#231e41] `}
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+              onClick={handleTextClick}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laborum labore iure hic nemo ipsam totam veritatis provident
@@ -143,19 +140,15 @@ export const featuresWithCardsComponent = ({
               <div className="mt-2">
                 <h2
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+              onClick={handleTextClick}
                 >
                   Item Three
                 </h2>
                 <p
                   className={`text-[#231e41] `}
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+              onClick={handleTextClick}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laborum labore iure hic nemo ipsam totam veritatis provident
@@ -189,7 +182,11 @@ export const featuresWithCardsComponent = ({
         </div>
       </div>
     </section>,
-    <section onClick={handleDivClick}>
+    <section
+      onClick={handleDivClick}
+      id="features-section"
+      style={divStyles["features-section"]}
+    >
       <div
         className={`${
           isMobile ? "flex-col-reverse" : ""
@@ -233,19 +230,15 @@ export const featuresWithCardsComponent = ({
               <div className="mt-2">
                 <h2
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+              onClick={handleTextClick}
                 >
                   Item One
                 </h2>
                 <p
                   className={`text-[#231e41] `}
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+              onClick={handleTextClick}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laborum labore iure hic nemo ipsam totam veritatis provident
@@ -268,19 +261,15 @@ export const featuresWithCardsComponent = ({
               <div className="mt-2">
                 <h2
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+              onClick={handleTextClick}
                 >
                   Item two
                 </h2>
                 <p
                   className={`text-[#231e41] `}
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+              onClick={handleTextClick}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laborum labore iure hic nemo ipsam totam veritatis provident
@@ -303,19 +292,15 @@ export const featuresWithCardsComponent = ({
               <div className="mt-2">
                 <h2
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+              onClick={handleTextClick}
                 >
                   Item Three
                 </h2>
                 <p
                   className={`text-[#231e41] `}
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+              onClick={handleTextClick}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laborum labore iure hic nemo ipsam totam veritatis provident
@@ -349,7 +334,11 @@ export const featuresWithCardsComponent = ({
         </div>
       </div>
     </section>,
-    <section onClick={handleDivClick}>
+    <section
+      onClick={handleDivClick}
+      id="features-section"
+      style={divStyles["features-section"]}
+    >
       <div
         className={`${
           isMobile ? "flex-col" : ""
@@ -393,19 +382,15 @@ export const featuresWithCardsComponent = ({
               <div className="mt-2">
                 <h2
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+              onClick={handleTextClick}
                 >
                   Item One
                 </h2>
                 <p
                   className={`text-[#231e41] `}
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+              onClick={handleTextClick}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laborum labore iure hic nemo ipsam totam veritatis provident
@@ -451,7 +436,11 @@ export const featuresWithCardsComponent = ({
         </div>
       </div>
     </section>,
-    <section onClick={handleDivClick}>
+    <section
+      onClick={handleDivClick}
+      id="features-section"
+      style={divStyles["features-section"]}
+    >
       <div
         className={`${
           isMobile ? "flex-col" : ""
@@ -495,19 +484,15 @@ export const featuresWithCardsComponent = ({
               <div className="mt-2">
                 <h2
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+              onClick={handleTextClick}
                 >
                   Item One
                 </h2>
                 <p
                   className={`text-[#231e41] `}
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+              onClick={handleTextClick}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laborum labore iure hic nemo ipsam totam veritatis provident
@@ -553,7 +538,11 @@ export const featuresWithCardsComponent = ({
         </div>
       </div>
     </section>,
-    <section onClick={handleDivClick}>
+    <section
+      onClick={handleDivClick}
+      id="features-section"
+      style={divStyles["features-section"]}
+    >
       <div
         className={`${
           isMobile ? "flex-col" : ""
@@ -597,19 +586,15 @@ export const featuresWithCardsComponent = ({
               <div className="mt-2">
                 <h2
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+              onClick={handleTextClick}
                 >
                   Item One
                 </h2>
                 <p
                   className={`text-[#231e41] `}
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+              onClick={handleTextClick}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laborum labore iure hic nemo ipsam totam veritatis provident
@@ -632,19 +617,15 @@ export const featuresWithCardsComponent = ({
               <div className="mt-2">
                 <h2
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+              onClick={handleTextClick}
                 >
                   Item two
                 </h2>
                 <p
                   className={`text-[#231e41] `}
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+              onClick={handleTextClick}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laborum labore iure hic nemo ipsam totam veritatis provident
@@ -667,19 +648,15 @@ export const featuresWithCardsComponent = ({
               <div className="mt-2">
                 <h2
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+              onClick={handleTextClick}
                 >
                   Item Three
                 </h2>
                 <p
                   className={`text-[#231e41] `}
-                  contentEditable={location.pathname === "/home" ? false : true}
-                  suppressContentEditableWarning
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  contentEditable={false}
+              onClick={handleTextClick}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laborum labore iure hic nemo ipsam totam veritatis provident
