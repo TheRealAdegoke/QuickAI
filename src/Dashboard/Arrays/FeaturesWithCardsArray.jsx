@@ -4,18 +4,11 @@ export const featuresWithCardsComponent = ({
   text,
   isMobile,
   isFocused,
-  handleFocus,
-  handleBlur,
   location,
   handleDivClick,
   handleTextClick,
-  handleColorClick,
-  handleFontSizeClick,
-  handleFontWeightClick,
-  handleFontStyleClick,
-  handleFontFamilyClick,
-  handleTextAlignmentClick,
-  divStyles,
+  getStyle,
+  getElementStyle,
 }) => {
   let classNames = "";
 
@@ -30,8 +23,8 @@ export const featuresWithCardsComponent = ({
   return [
     <section
       onClick={handleDivClick}
-      id="features-section"
-      style={divStyles["features-section"]}
+      id="features-with-card-section"
+      style={getStyle("features-with-card-section")}
     >
       <div
         className={`${
@@ -45,6 +38,8 @@ export const featuresWithCardsComponent = ({
         >
           <div className="">
             <h1
+              id="features-with-card-heading"
+              style={getElementStyle("features-with-card-heading")}
               className={`text-[#231e41] text-3xl font-bold mb-1 `}
               data-text="Heading"
               contentEditable={false}
@@ -53,6 +48,8 @@ export const featuresWithCardsComponent = ({
               {text.featureHeader[0]}
             </h1>
             <p
+              id="features-with-card-paragraph"
+              style={getElementStyle("features-with-card-paragraph")}
               className={`text-[#231e41] max-w-[500px] `}
               data-text="Type a paragraph"
               contentEditable={false}
@@ -77,16 +74,20 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
+                  id="features-with-card-sub-heading-1"
+                  style={getElementStyle("features-with-card-sub-heading-1")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={false}
-              onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   Item One
                 </h2>
                 <p
+                  id="features-with-card-sub-paragraph-1"
+                  style={getElementStyle("features-with-card-sub-paragraph-1")}
                   className={`text-[#231e41] `}
                   contentEditable={false}
-              onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laborum labore iure hic nemo ipsam totam veritatis provident
@@ -108,16 +109,20 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
+                  id="features-with-card-sub-heading-2"
+                  style={getElementStyle("features-with-card-sub-heading-2")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={false}
-              onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   Item two
                 </h2>
                 <p
+                  id="features-with-card-sub-paragraph-2"
+                  style={getElementStyle("features-with-card-sub-paragraph-2")}
                   className={`text-[#231e41] `}
                   contentEditable={false}
-              onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laborum labore iure hic nemo ipsam totam veritatis provident
@@ -139,16 +144,20 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
+                  id="features-with-card-sub-heading-3"
+                  style={getElementStyle("features-with-card-sub-heading-3")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={false}
-              onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   Item Three
                 </h2>
                 <p
+                  id="features-with-card-sub-paragraph-3"
+                  style={getElementStyle("features-with-card-sub-paragraph-3")}
                   className={`text-[#231e41] `}
                   contentEditable={false}
-              onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laborum labore iure hic nemo ipsam totam veritatis provident
@@ -160,6 +169,8 @@ export const featuresWithCardsComponent = ({
 
           <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
             <span
+              id="features-with-card-button-text"
+              style={getElementStyle("features-with-card-button-text")}
               className=""
               contentEditable={false}
               onClick={handleTextClick}
@@ -184,8 +195,8 @@ export const featuresWithCardsComponent = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="features-section"
-      style={divStyles["features-section"]}
+      id="features-with-card-section"
+      style={getStyle("features-with-card-section")}
     >
       <div
         className={`${
@@ -199,6 +210,8 @@ export const featuresWithCardsComponent = ({
         >
           <div className={`${isMobile ? "mt-4" : ""} max-lg:mt-4`}>
             <h1
+              id="features-with-card-heading"
+              style={getElementStyle("features-with-card-heading")}
               className={`text-[#231e41] text-3xl font-bold mb-1 `}
               contentEditable={false}
               onClick={handleTextClick}
@@ -206,6 +219,8 @@ export const featuresWithCardsComponent = ({
               {text.featureHeader[0]}
             </h1>
             <p
+              id="features-with-card-paragraph"
+              style={getElementStyle("features-with-card-paragraph")}
               className={`text-[#231e41] `}
               contentEditable={false}
               onClick={handleTextClick}
@@ -229,16 +244,20 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
+                  id="features-with-card-sub-heading-1"
+                  style={getElementStyle("features-with-card-sub-heading-1")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={false}
-              onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   Item One
                 </h2>
                 <p
+                  id="features-with-card-sub-paragraph-1"
+                  style={getElementStyle("features-with-card-sub-paragraph-1")}
                   className={`text-[#231e41] `}
                   contentEditable={false}
-              onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laborum labore iure hic nemo ipsam totam veritatis provident
@@ -260,16 +279,18 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
+                  id="features-with-card-sub-heading-2"
+                  style={getElementStyle("features-with-card-sub-heading-2")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={false}
-              onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   Item two
                 </h2>
                 <p
                   className={`text-[#231e41] `}
                   contentEditable={false}
-              onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laborum labore iure hic nemo ipsam totam veritatis provident
@@ -291,16 +312,20 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
+                  id="features-with-card-sub-heading-3"
+                  style={getElementStyle("features-with-card-sub-heading-3")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={false}
-              onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   Item Three
                 </h2>
                 <p
+                  id="features-with-card-sub-paragraph-3"
+                  style={getElementStyle("features-with-card-sub-paragraph-3")}
                   className={`text-[#231e41] `}
                   contentEditable={false}
-              onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laborum labore iure hic nemo ipsam totam veritatis provident
@@ -312,6 +337,8 @@ export const featuresWithCardsComponent = ({
 
           <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
             <span
+              id="features-with-card-button-text"
+              style={getElementStyle("features-with-card-button-text")}
               className=""
               contentEditable={false}
               onClick={handleTextClick}
@@ -336,8 +363,8 @@ export const featuresWithCardsComponent = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="features-section"
-      style={divStyles["features-section"]}
+      id="features-with-card-section"
+      style={getStyle("features-with-card-section")}
     >
       <div
         className={`${
@@ -351,6 +378,8 @@ export const featuresWithCardsComponent = ({
         >
           <div className="">
             <h1
+              id="features-with-card-heading"
+              style={getElementStyle("features-with-card-heading")}
               className={`text-[#231e41] text-3xl font-bold mb-1 `}
               contentEditable={false}
               onClick={handleTextClick}
@@ -358,6 +387,8 @@ export const featuresWithCardsComponent = ({
               {text.featureHeader[0]}
             </h1>
             <p
+              id="features-with-card-paragraph"
+              style={getElementStyle("features-with-card-paragraph")}
               className={`text-[#231e41] `}
               contentEditable={false}
               onClick={handleTextClick}
@@ -381,16 +412,20 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
+                  id="features-with-card-sub-heading-1"
+                  style={getElementStyle("features-with-card-sub-heading-1")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={false}
-              onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   Item One
                 </h2>
                 <p
+                  id="features-with-card-sub-paragraph-1"
+                  style={getElementStyle("features-with-card-sub-paragraph-1")}
                   className={`text-[#231e41] `}
                   contentEditable={false}
-              onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laborum labore iure hic nemo ipsam totam veritatis provident
@@ -414,6 +449,8 @@ export const featuresWithCardsComponent = ({
 
           <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
             <span
+              id="features-with-card-button-text"
+              style={getElementStyle("features-with-card-button-text")}
               className=""
               contentEditable={false}
               onClick={handleTextClick}
@@ -438,8 +475,8 @@ export const featuresWithCardsComponent = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="features-section"
-      style={divStyles["features-section"]}
+      id="features-with-card-section"
+      style={getStyle("features-with-card-section")}
     >
       <div
         className={`${
@@ -453,6 +490,8 @@ export const featuresWithCardsComponent = ({
         >
           <div className="">
             <h1
+              id="features-with-card-heading"
+              style={getElementStyle("features-with-card-heading")}
               className={`text-[#231e41] text-3xl font-bold mb-1 `}
               contentEditable={false}
               onClick={handleTextClick}
@@ -460,6 +499,8 @@ export const featuresWithCardsComponent = ({
               {text.featureHeader[0]}
             </h1>
             <p
+              id="features-with-card-paragraph"
+              style={getElementStyle("features-with-card-paragraph")}
               className={`text-[#231e41] `}
               contentEditable={false}
               onClick={handleTextClick}
@@ -483,16 +524,20 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
+                  id="features-with-card-sub-heading-1"
+                  style={getElementStyle("features-with-card-sub-heading-1")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={false}
-              onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   Item One
                 </h2>
                 <p
+                  id="features-with-card-sub-paragraph-1"
+                  style={getElementStyle("features-with-card-sub-paragraph-1")}
                   className={`text-[#231e41] `}
                   contentEditable={false}
-              onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laborum labore iure hic nemo ipsam totam veritatis provident
@@ -516,6 +561,8 @@ export const featuresWithCardsComponent = ({
 
           <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
             <span
+              id="features-with-card-button-text"
+              style={getElementStyle("features-with-card-button-text")}
               className=""
               contentEditable={false}
               onClick={handleTextClick}
@@ -540,8 +587,8 @@ export const featuresWithCardsComponent = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="features-section"
-      style={divStyles["features-section"]}
+      id="features-with-card-section"
+      style={getStyle("features-with-card-section")}
     >
       <div
         className={`${
@@ -555,6 +602,8 @@ export const featuresWithCardsComponent = ({
         >
           <div className="">
             <h1
+              id="features-with-card-heading"
+              style={getElementStyle("features-with-card-heading")}
               className={`text-[#231e41] text-3xl font-bold mb-1 `}
               contentEditable={false}
               onClick={handleTextClick}
@@ -562,6 +611,8 @@ export const featuresWithCardsComponent = ({
               {text.featureHeader[0]}
             </h1>
             <p
+              id="features-with-card-paragraph"
+              style={getElementStyle("features-with-card-paragraph")}
               className={`text-[#231e41] max-w-[500px] `}
               contentEditable={false}
               onClick={handleTextClick}
@@ -585,16 +636,20 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
+                  id="features-with-card-sub-heading-1"
+                  style={getElementStyle("features-with-card-sub-heading-1")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={false}
-              onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   Item One
                 </h2>
                 <p
+                  id="features-with-card-sub-paragraph-1"
+                  style={getElementStyle("features-with-card-sub-paragraph-1")}
                   className={`text-[#231e41] `}
                   contentEditable={false}
-              onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laborum labore iure hic nemo ipsam totam veritatis provident
@@ -616,16 +671,20 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
+                  id="features-with-card-sub-heading-2"
+                  style={getElementStyle("features-with-card-sub-heading-2")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={false}
-              onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   Item two
                 </h2>
                 <p
+                  id="features-with-card-sub-paragraph-2"
+                  style={getElementStyle("features-with-card-sub-paragraph-2")}
                   className={`text-[#231e41] `}
                   contentEditable={false}
-              onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laborum labore iure hic nemo ipsam totam veritatis provident
@@ -647,16 +706,20 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
+                  id="features-with-card-sub-heading-3"
+                  style={getElementStyle("features-with-card-sub-heading-3")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={false}
-              onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   Item Three
                 </h2>
                 <p
+                  id="features-with-card-sub-paragraph-3"
+                  style={getElementStyle("features-with-card-sub-paragraph-3")}
                   className={`text-[#231e41] `}
                   contentEditable={false}
-              onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Laborum labore iure hic nemo ipsam totam veritatis provident
@@ -668,6 +731,8 @@ export const featuresWithCardsComponent = ({
 
           <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
             <span
+              id="features-with-card-button-text"
+              style={getElementStyle("features-with-card-button-text")}
               className=""
               contentEditable={false}
               onClick={handleTextClick}

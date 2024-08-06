@@ -76,10 +76,12 @@ export const DashboardProvider = ({ children }) => {
     useState("");
   const [clickedText, setClickedText] = useState("");
   const [selectedElement, setSelectedElement] = useState(null);
+  const [elementStyles, setElementStyles] = useState({});
   const [backGroundStyle, setBackGroundStyle] = useState("");
   const [selectedDiv, setSelectedDiv] = useState(null);
   const [sectionModal, setSectionModal] = useState(false);
   const [divStyles, setDivStyles] = useState({});
+  const defaultBackgroundColor = "#ffffff";
 
   useEffect(() => {
     if (!shuffled && webContentObject.randomButtonText) {
@@ -310,6 +312,18 @@ export const DashboardProvider = ({ children }) => {
     setIsFocused(false);
   };
 
+  const updateElementStyle = (property, value) => {
+    if (selectedElement) {
+      setElementStyles((prevStyles) => ({
+        ...prevStyles,
+        [selectedElement.id]: {
+          ...prevStyles[selectedElement.id],
+          [property]: value,
+        },
+      }));
+    }
+  };
+
   const handleTextClick = (event) => {
     setClickedText(event.target.innerText);
     setSelectedElement(event.target);
@@ -324,41 +338,29 @@ export const DashboardProvider = ({ children }) => {
   };
 
   const handleColorClick = (color) => {
-    if (selectedElement) {
-      selectedElement.style.color = color;
-    }
+    updateElementStyle("color", color);
   };
 
   const handleFontSizeClick = (fontSize) => {
-    if (selectedElement) {
-      selectedElement.style.fontSize = fontSize;
-      selectedElement.style.wordWrap = "break-word";
-      selectedElement.style.lineHeight = "1.2"
-    }
+    updateElementStyle("fontSize", fontSize);
+    updateElementStyle("wordWrap", "break-word");
+    updateElementStyle("lineHeight", "1.2");
   };
 
   const handleFontWeightClick = (fontWeight) => {
-    if (selectedElement) {
-      selectedElement.style.fontWeight = fontWeight;
-    }
+    updateElementStyle("fontWeight", fontWeight);
   };
 
   const handleFontStyleClick = (fontStyle) => {
-    if (selectedElement) {
-      selectedElement.style.fontStyle = fontStyle;
-    }
+    updateElementStyle("fontStyle", fontStyle);
   };
 
-  const handleFontFamilyClick = (FontFamily) => {
-    if (selectedElement) {
-      selectedElement.style.fontFamily = FontFamily;
-    }
+  const handleFontFamilyClick = (fontFamily) => {
+    updateElementStyle("fontFamily", fontFamily);
   };
 
   const handleTextAlignmentClick = (textAlign) => {
-    if (selectedElement) {
-      selectedElement.style.textAlign = textAlign;
-    }
+    updateElementStyle("textAlign", textAlign);
   };
 
   const handleBGColorClick = (color) => {
@@ -476,6 +478,8 @@ export const DashboardProvider = ({ children }) => {
         sectionModal,
         setSectionModal,
         divStyles,
+        defaultBackgroundColor,
+        elementStyles,
       }}
     >
       {children}

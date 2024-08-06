@@ -43,8 +43,21 @@ const ElementArray = () => {
     handleFontFamilyClick,
     handleTextAlignmentClick,
     divStyles,
+    defaultBackgroundColor,
+    elementStyles,
   } = useContext(DashContext);
   const location = useLocation();
+
+  const getStyle = (id) => {
+    if (divStyles[id] && Object.keys(divStyles[id]).length > 0) {
+      return divStyles[id];
+    }
+    return { background: defaultBackgroundColor };
+  };
+
+  const getElementStyle = (id) => {
+    return elementStyles[id] || {};
+  };
 
   const navElement = navComponents({
     text,
@@ -76,7 +89,8 @@ const ElementArray = () => {
     handleFontStyleClick,
     handleFontFamilyClick,
     handleTextAlignmentClick,
-    divStyles,
+    getStyle,
+    getElementStyle,
   })[heroIndex];
   const featuresWithCardElement = featuresWithCardsComponent({
     text,
@@ -97,7 +111,8 @@ const ElementArray = () => {
     handleFontStyleClick,
     handleFontFamilyClick,
     handleTextAlignmentClick,
-    divStyles,
+    getStyle,
+    getElementStyle,
   })[featuresWithCardIndex];
   const featuresElement = featuresComponents({
     text,
@@ -118,6 +133,8 @@ const ElementArray = () => {
     handleFontStyleClick,
     handleFontFamilyClick,
     handleTextAlignmentClick,
+    getStyle,
+    getElementStyle,
   })[featuresIndex];
   const testimonialElement = testimonialComponent({
     text,
@@ -138,6 +155,8 @@ const ElementArray = () => {
     handleFontStyleClick,
     handleFontFamilyClick,
     handleTextAlignmentClick,
+    getStyle,
+    getElementStyle,
   })[testimonialIndex];
   const faqElement = faqComponent({
     text,
@@ -158,6 +177,8 @@ const ElementArray = () => {
     handleFontStyleClick,
     handleFontFamilyClick,
     handleTextAlignmentClick,
+    getStyle,
+    getElementStyle,
   })[faqIndex];
   const teamElement = teamComponent({
     text,
@@ -178,6 +199,8 @@ const ElementArray = () => {
     handleFontStyleClick,
     handleFontFamilyClick,
     handleTextAlignmentClick,
+    getStyle,
+    getElementStyle,
   })[teamIndex];
   const contactElement = contactComponent({
     text,
@@ -198,6 +221,8 @@ const ElementArray = () => {
     handleFontStyleClick,
     handleFontFamilyClick,
     handleTextAlignmentClick,
+    getStyle,
+    getElementStyle,
   })[contactIndex];
   const footerElement = footerComponent({
     text,
@@ -218,6 +243,8 @@ const ElementArray = () => {
     handleFontStyleClick,
     handleFontFamilyClick,
     handleTextAlignmentClick,
+    getStyle,
+    getElementStyle,
   })[footerIndex];
 
   const elements = [
