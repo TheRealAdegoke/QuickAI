@@ -2,17 +2,11 @@ export const teamComponent = ({
   text,
   isMobile,
   isFocused,
-  handleFocus,
-  handleBlur,
   location,
   handleDivClick,
   handleTextClick,
-  handleColorClick,
-  handleFontSizeClick,
-  handleFontWeightClick,
-  handleFontStyleClick,
-  handleFontFamilyClick,
-  handleTextAlignmentClick,
+  getStyle,
+  getElementStyle,
 }) => {
   let classNames = "";
 
@@ -24,10 +18,16 @@ export const teamComponent = ({
     classNames += " hover:border-[2px] hover:border-[rgb(0,111,173)]";
   }
   return [
-    <section onClick={handleDivClick}>
+    <section
+      onClick={handleDivClick}
+      id="team-section"
+      style={getStyle("team-section")}
+    >
       <div className="text-black py-32 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1
+            id="team-heading"
+            style={getElementStyle("team-heading")}
             className={`text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
             contentEditable={false}
@@ -36,6 +36,8 @@ export const teamComponent = ({
             {text.teamHeader[0]}
           </h1>
           <p
+            id="team-paragraph"
+            style={getElementStyle("team-paragraph")}
             className={``}
             data-text="Type a paragraph"
             contentEditable={false}
@@ -65,6 +67,8 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
+                id="team-name-header-paragraph"
+                style={getElementStyle("team-name-header-paragraph")}
                 className={`font-semibold `}
                 data-text="Heading"
                 contentEditable={false}
@@ -73,6 +77,8 @@ export const teamComponent = ({
                 Gabriel
               </h1>
               <p
+                id="team-name-paragraph"
+                style={getElementStyle("team-name-paragraph")}
                 className={``}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -108,6 +114,8 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
+                id="team-sub-paragraph"
+                style={getElementStyle("team-sub-paragraph")}
                 className={`mt-6 `}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -134,6 +142,8 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
+                id="team-name-header-paragraph"
+                style={getElementStyle("team-name-header-paragraph")}
                 className={`font-semibold `}
                 data-text="Heading"
                 contentEditable={false}
@@ -142,6 +152,8 @@ export const teamComponent = ({
                 Gabriel
               </h1>
               <p
+                id="team-name-paragraph"
+                style={getElementStyle("team-name-paragraph")}
                 className={``}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -177,6 +189,8 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
+                id="team-sub-paragraph"
+                style={getElementStyle("team-sub-paragraph")}
                 className={`mt-6 `}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -203,6 +217,8 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
+                id="team-name-header-paragraph"
+                style={getElementStyle("team-name-header-paragraph")}
                 className={`font-semibold `}
                 data-text="Heading"
                 contentEditable={false}
@@ -211,6 +227,8 @@ export const teamComponent = ({
                 Gabriel
               </h1>
               <p
+                id="team-name-paragraph"
+                style={getElementStyle("team-name-paragraph")}
                 className={``}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -246,6 +264,8 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
+                id="team-sub-paragraph"
+                style={getElementStyle("team-sub-paragraph")}
                 className={`mt-6 `}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -259,10 +279,16 @@ export const teamComponent = ({
         </div>
       </div>
     </section>,
-    <section onClick={handleDivClick}>
+    <section
+      onClick={handleDivClick}
+      id="team-section"
+      style={getStyle("team-section")}
+    >
       <div className="text-black py-32 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1
+            id="team-heading"
+            style={getElementStyle("team-heading")}
             className={`text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
             contentEditable={false}
@@ -271,6 +297,8 @@ export const teamComponent = ({
             {text.teamHeader[0]}
           </h1>
           <p
+            id="team-paragraph"
+            style={getElementStyle("team-paragraph")}
             className={``}
             data-text="Type a paragraph"
             contentEditable={false}
@@ -300,6 +328,8 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
+                id="team-name-header-paragraph"
+                style={getElementStyle("team-name-header-paragraph")}
                 className={`font-semibold `}
                 data-text="Heading"
                 contentEditable={false}
@@ -308,6 +338,8 @@ export const teamComponent = ({
                 Gabriel
               </h1>
               <p
+                id="team-name-paragraph"
+                style={getElementStyle("team-name-paragraph")}
                 className={``}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -343,6 +375,8 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
+                id="team-sub-paragraph"
+                style={getElementStyle("team-sub-paragraph")}
                 className={`mt-6 `}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -369,6 +403,8 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
+                id="team-name-header-paragraph"
+                style={getElementStyle("team-name-header-paragraph")}
                 className={`font-semibold `}
                 data-text="Heading"
                 contentEditable={false}
@@ -377,6 +413,8 @@ export const teamComponent = ({
                 Gabriel
               </h1>
               <p
+                id="team-name-paragraph"
+                style={getElementStyle("team-name-paragraph")}
                 className={``}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -412,6 +450,8 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
+                id="team-sub-paragraph"
+                style={getElementStyle("team-sub-paragraph")}
                 className={`mt-6 `}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -438,6 +478,8 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
+                id="team-name-header-paragraph"
+                style={getElementStyle("team-name-header-paragraph")}
                 className={`font-semibold `}
                 data-text="Heading"
                 contentEditable={false}
@@ -446,6 +488,8 @@ export const teamComponent = ({
                 Gabriel
               </h1>
               <p
+                id="team-name-paragraph"
+                style={getElementStyle("team-name-paragraph")}
                 className={``}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -481,6 +525,8 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
+                id="team-sub-paragraph"
+                style={getElementStyle("team-sub-paragraph")}
                 className={``}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -494,10 +540,16 @@ export const teamComponent = ({
         </div>
       </div>
     </section>,
-    <section onClick={handleDivClick}>
+    <section
+      onClick={handleDivClick}
+      id="team-section"
+      style={getStyle("team-section")}
+    >
       <div className="text-black py-32 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1
+            id="team-heading"
+            style={getElementStyle("team-heading")}
             className={`text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
             contentEditable={false}
@@ -506,6 +558,8 @@ export const teamComponent = ({
             {text.teamHeader[0]}
           </h1>
           <p
+            id="team-paragraph"
+            style={getElementStyle("team-paragraph")}
             className={``}
             data-text="Type a paragraph"
             contentEditable={false}
@@ -535,6 +589,8 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
+                id="team-name-header-paragraph"
+                style={getElementStyle("team-name-header-paragraph")}
                 className={`font-semibold `}
                 data-text="Heading"
                 contentEditable={false}
@@ -543,6 +599,8 @@ export const teamComponent = ({
                 Gabriel
               </h1>
               <p
+                id="team-name-paragraph"
+                style={getElementStyle("team-name-paragraph")}
                 className={``}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -578,6 +636,8 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
+                id="team-sub-paragraph"
+                style={getElementStyle("team-sub-paragraph")}
                 className={`mt-6 `}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -604,6 +664,8 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
+                id="team-heading"
+                style={getElementStyle("team-heading")}
                 className={`font-semibold `}
                 data-text="Heading"
                 contentEditable={false}
@@ -612,6 +674,8 @@ export const teamComponent = ({
                 Gabriel
               </h1>
               <p
+                id="team-paragraph"
+                style={getElementStyle("team-paragraph")}
                 className={``}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -647,6 +711,8 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
+                id="team-sub-paragraph"
+                style={getElementStyle("team-sub-paragraph")}
                 className={`mt-6 `}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -673,6 +739,8 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
+                id="team-name-header-paragraph"
+                style={getElementStyle("team-name-header-paragraph")}
                 className={`font-semibold `}
                 data-text="Heading"
                 contentEditable={false}
@@ -681,6 +749,8 @@ export const teamComponent = ({
                 Gabriel
               </h1>
               <p
+                id="team-name-paragraph"
+                style={getElementStyle("team-name-paragraph")}
                 className={``}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -716,6 +786,8 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
+                id="team-sub-paragraph"
+                style={getElementStyle("team-sub-paragraph")}
                 className={`mt-6 `}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -729,10 +801,16 @@ export const teamComponent = ({
         </div>
       </div>
     </section>,
-    <section onClick={handleDivClick}>
+    <section
+      onClick={handleDivClick}
+      id="team-section"
+      style={getStyle("team-section")}
+    >
       <div className="text-black py-32 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1
+            id="team-heading"
+            style={getElementStyle("team-heading")}
             className={`text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
             contentEditable={false}
@@ -741,6 +819,8 @@ export const teamComponent = ({
             {text.teamHeader[0]}
           </h1>
           <p
+            id="team-paragraph"
+            style={getElementStyle("team-paragraph")}
             className={``}
             data-text="Type a paragraph"
             contentEditable={false}
@@ -770,6 +850,8 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
+                id="team-name-header-paragraph"
+                style={getElementStyle("team-name-header-paragraph")}
                 className={`font-semibold `}
                 data-text="Heading"
                 contentEditable={false}
@@ -778,6 +860,8 @@ export const teamComponent = ({
                 Gabriel
               </h1>
               <p
+                id="team-name-paragraph"
+                style={getElementStyle("team-name-paragraph")}
                 className={``}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -813,6 +897,8 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
+                id="team-sub-paragraph"
+                style={getElementStyle("team-sub-paragraph")}
                 className={`mt-6 `}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -839,6 +925,8 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
+                id="team-name-header-paragraph"
+                style={getElementStyle("team-name-header-paragraph")}
                 className={`font-semibold `}
                 data-text="Heading"
                 contentEditable={false}
@@ -847,6 +935,8 @@ export const teamComponent = ({
                 Gabriel
               </h1>
               <p
+                id="team-name-paragraph"
+                style={getElementStyle("team-name-paragraph")}
                 className={``}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -882,6 +972,8 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
+                id="team-sub-paragraph"
+                style={getElementStyle("team-sub-paragraph")}
                 className={`mt-6 `}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -908,6 +1000,8 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
+                id="team-name-header-paragraph"
+                style={getElementStyle("team-name-header-paragraph")}
                 className={`font-semibold `}
                 data-text="Heading"
                 contentEditable={false}
@@ -916,6 +1010,8 @@ export const teamComponent = ({
                 Gabriel
               </h1>
               <p
+                id="team-name-paragraph"
+                style={getElementStyle("team-name-paragraph")}
                 className={``}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -951,6 +1047,8 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
+                id="team-sub-paragraph"
+                style={getElementStyle("team-sub-paragraph")}
                 className={`mt-6 `}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -964,10 +1062,16 @@ export const teamComponent = ({
         </div>
       </div>
     </section>,
-    <section onClick={handleDivClick}>
+    <section
+      onClick={handleDivClick}
+      id="team-section"
+      style={getStyle("team-section")}
+    >
       <div className="text-black py-32 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1
+            id="team-heading"
+            style={getElementStyle("team-heading")}
             className={`text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
             contentEditable={false}
@@ -976,6 +1080,8 @@ export const teamComponent = ({
             {text.teamHeader[0]}
           </h1>
           <p
+            id="team-paragraph"
+            style={getElementStyle("team-paragraph")}
             className={``}
             data-text="Type a paragraph"
             contentEditable={false}
@@ -1005,6 +1111,8 @@ export const teamComponent = ({
 
             <div className="text-left mt-4 px-8">
               <h1
+                id="team-name-header-paragraph"
+                style={getElementStyle("team-name-header-paragraph")}
                 className={`font-semibold `}
                 data-text="Heading"
                 contentEditable={false}
@@ -1013,6 +1121,8 @@ export const teamComponent = ({
                 Gabriel
               </h1>
               <p
+                id="team-name-paragraph"
+                style={getElementStyle("team-name-paragraph")}
                 className={``}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -1048,6 +1158,8 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
+                id="team-sub-paragraph"
+                style={getElementStyle("team-sub-paragraph")}
                 className={`mt-6 `}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -1074,6 +1186,8 @@ export const teamComponent = ({
 
             <div className="text-left mt-4 px-8">
               <h1
+                id="team-name-header-paragraph"
+                style={getElementStyle("team-name-header-paragraph")}
                 className={`font-semibold `}
                 data-text="Heading"
                 contentEditable={false}
@@ -1082,6 +1196,8 @@ export const teamComponent = ({
                 Gabriel
               </h1>
               <p
+                id="team-name-paragraph"
+                style={getElementStyle("team-name-paragraph")}
                 className={``}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -1117,6 +1233,8 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
+                id="team-sub-paragraph"
+                style={getElementStyle("team-sub-paragraph")}
                 className={`mt-6 `}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -1143,6 +1261,8 @@ export const teamComponent = ({
 
             <div className="text-left mt-4 px-8">
               <h1
+                id="team-name-header-paragraph"
+                style={getElementStyle("team-name-header-paragraph")}
                 className={`font-semibold `}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -1151,6 +1271,8 @@ export const teamComponent = ({
                 Gabriel
               </h1>
               <p
+                id="team-name-paragraph"
+                style={getElementStyle("team-name-paragraph")}
                 className={``}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -1186,6 +1308,8 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
+                id="team-sub-paragraph"
+                style={getElementStyle("team-sub-paragraph")}
                 className={`mt-6 `}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -1199,10 +1323,16 @@ export const teamComponent = ({
         </div>
       </div>
     </section>,
-    <section onClick={handleDivClick}>
+    <section
+      onClick={handleDivClick}
+      id="team-section"
+      style={getStyle("team-section")}
+    >
       <div className="text-black py-32 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1
+            id="team-heading"
+            style={getElementStyle("team-heading")}
             className={`text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
             contentEditable={false}
@@ -1211,6 +1341,8 @@ export const teamComponent = ({
             {text.teamHeader[0]}
           </h1>
           <p
+            id="team-paragraph"
+            style={getElementStyle("team-paragraph")}
             className={``}
             data-text="Type a paragraph"
             contentEditable={false}
@@ -1240,6 +1372,8 @@ export const teamComponent = ({
 
             <div className="text-left mt-4 px-8">
               <h1
+                id="team-name-header-paragraph"
+                style={getElementStyle("team-name-header-paragraph")}
                 className={`font-semibold `}
                 data-text="Heading"
                 contentEditable={false}
@@ -1248,6 +1382,8 @@ export const teamComponent = ({
                 Gabriel
               </h1>
               <p
+                id="team-name-paragraph"
+                style={getElementStyle("team-name-paragraph")}
                 className={``}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -1283,6 +1419,8 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
+                id="team-sub-paragraph"
+                style={getElementStyle("team-sub-paragraph")}
                 className={`mt-6 `}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -1309,6 +1447,8 @@ export const teamComponent = ({
 
             <div className="text-left mt-4 px-8">
               <h1
+                id="team-name-header-paragraph"
+                style={getElementStyle("team-name-header-paragraph")}
                 className={`font-semibold `}
                 data-text="Heading"
                 contentEditable={false}
@@ -1317,6 +1457,8 @@ export const teamComponent = ({
                 Gabriel
               </h1>
               <p
+                id="team-name-paragraph"
+                style={getElementStyle("team-name-paragraph")}
                 className={``}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -1352,6 +1494,8 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
+                id="team-sub-paragraph"
+                style={getElementStyle("team-sub-paragraph")}
                 className={`mt-6 `}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -1378,6 +1522,8 @@ export const teamComponent = ({
 
             <div className="text-left mt-4 px-8">
               <h1
+                id="team-name-header-paragraph"
+                style={getElementStyle("team-name-header-paragraph")}
                 className={`font-semibold `}
                 data-text="Heading"
                 contentEditable={false}
@@ -1386,6 +1532,8 @@ export const teamComponent = ({
                 Gabriel
               </h1>
               <p
+                id="team-name-paragraph"
+                style={getElementStyle("team-name-paragraph")}
                 className={``}
                 data-text="Type a paragraph"
                 contentEditable={false}
@@ -1421,6 +1569,8 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
+                id="team-sub-paragraph"
+                style={getElementStyle("team-sub-paragraph")}
                 className={`mt-6 `}
                 data-text="Type a paragraph"
                 contentEditable={false}
