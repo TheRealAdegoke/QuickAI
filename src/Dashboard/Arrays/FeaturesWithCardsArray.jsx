@@ -74,8 +74,8 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id="features-with-card-sub-heading-1"
-                  style={getElementStyle("features-with-card-sub-heading-1")}
+                  id="features-with-card-sub-heading"
+                  style={getElementStyle("features-with-card-sub-heading")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={false}
                   onClick={handleTextClick}
@@ -83,8 +83,8 @@ export const featuresWithCardsComponent = ({
                   Item One
                 </h2>
                 <p
-                  id="features-with-card-sub-paragraph-1"
-                  style={getElementStyle("features-with-card-sub-paragraph-1")}
+                  id="features-with-card-sub-paragraph"
+                  style={getElementStyle("features-with-card-sub-paragraph")}
                   className={`text-[#231e41] `}
                   contentEditable={false}
                   onClick={handleTextClick}
@@ -109,8 +109,8 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id="features-with-card-sub-heading-2"
-                  style={getElementStyle("features-with-card-sub-heading-2")}
+                  id="features-with-card-sub-heading"
+                  style={getElementStyle("features-with-card-sub-heading")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={false}
                   onClick={handleTextClick}
@@ -119,7 +119,7 @@ export const featuresWithCardsComponent = ({
                 </h2>
                 <p
                   id="features-with-card-sub-paragraph-2"
-                  style={getElementStyle("features-with-card-sub-paragraph-2")}
+                  style={getElementStyle("features-with-card-sub-paragraph")}
                   className={`text-[#231e41] `}
                   contentEditable={false}
                   onClick={handleTextClick}
@@ -144,8 +144,8 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id="features-with-card-sub-heading-3"
-                  style={getElementStyle("features-with-card-sub-heading-3")}
+                  id="features-with-card-sub-heading"
+                  style={getElementStyle("features-with-card-sub-heading")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={false}
                   onClick={handleTextClick}
@@ -153,8 +153,8 @@ export const featuresWithCardsComponent = ({
                   Item Three
                 </h2>
                 <p
-                  id="features-with-card-sub-paragraph-3"
-                  style={getElementStyle("features-with-card-sub-paragraph-3")}
+                  id="features-with-card-sub-paragraph"
+                  style={getElementStyle("features-with-card-sub-paragraph")}
                   className={`text-[#231e41] `}
                   contentEditable={false}
                   onClick={handleTextClick}
@@ -244,8 +244,8 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id="features-with-card-sub-heading-1"
-                  style={getElementStyle("features-with-card-sub-heading-1")}
+                  id="features-with-card-sub-heading"
+                  style={getElementStyle("features-with-card-sub-heading")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={false}
                   onClick={handleTextClick}
@@ -253,8 +253,8 @@ export const featuresWithCardsComponent = ({
                   Item One
                 </h2>
                 <p
-                  id="features-with-card-sub-paragraph-1"
-                  style={getElementStyle("features-with-card-sub-paragraph-1")}
+                  id="features-with-card-sub-paragraph"
+                  style={getElementStyle("features-with-card-sub-paragraph")}
                   className={`text-[#231e41] `}
                   contentEditable={false}
                   onClick={handleTextClick}
@@ -279,8 +279,8 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id="features-with-card-sub-heading-2"
-                  style={getElementStyle("features-with-card-sub-heading-2")}
+                  id="features-with-card-sub-heading"
+                  style={getElementStyle("features-with-card-sub-heading")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={false}
                   onClick={handleTextClick}
@@ -288,6 +288,8 @@ export const featuresWithCardsComponent = ({
                   Item two
                 </h2>
                 <p
+                  id="features-with-card-sub-paragraph"
+                  style={getElementStyle("features-with-card-sub-paragraph")}
                   className={`text-[#231e41] `}
                   contentEditable={false}
                   onClick={handleTextClick}
@@ -312,8 +314,8 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id="features-with-card-sub-heading-3"
-                  style={getElementStyle("features-with-card-sub-heading-3")}
+                  id="features-with-card-sub-heading"
+                  style={getElementStyle("features-with-card-sub-heading")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={false}
                   onClick={handleTextClick}
@@ -412,8 +414,8 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id="features-with-card-sub-heading-1"
-                  style={getElementStyle("features-with-card-sub-heading-1")}
+                  id="features-with-card-sub-heading"
+                  style={getElementStyle("features-with-card-sub-heading")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={false}
                   onClick={handleTextClick}
@@ -421,8 +423,8 @@ export const featuresWithCardsComponent = ({
                   Item One
                 </h2>
                 <p
-                  id="features-with-card-sub-paragraph-1"
-                  style={getElementStyle("features-with-card-sub-paragraph-1")}
+                  id="features-with-card-sub-paragraph"
+                  style={getElementStyle("features-with-card-sub-paragraph")}
                   className={`text-[#231e41] `}
                   contentEditable={false}
                   onClick={handleTextClick}
@@ -524,8 +526,8 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id="features-with-card-sub-heading-1"
-                  style={getElementStyle("features-with-card-sub-heading-1")}
+                  id="features-with-card-sub-heading"
+                  style={getElementStyle("features-with-card-sub-heading")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={false}
                   onClick={handleTextClick}
@@ -533,8 +535,8 @@ export const featuresWithCardsComponent = ({
                   Item One
                 </h2>
                 <p
-                  id="features-with-card-sub-paragraph-1"
-                  style={getElementStyle("features-with-card-sub-paragraph-1")}
+                  id="features-with-card-sub-paragraph"
+                  style={getElementStyle("features-with-card-sub-paragraph")}
                   className={`text-[#231e41] `}
                   contentEditable={false}
                   onClick={handleTextClick}
@@ -636,8 +638,8 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id="features-with-card-sub-heading-1"
-                  style={getElementStyle("features-with-card-sub-heading-1")}
+                  id="features-with-card-sub-heading"
+                  style={getElementStyle("features-with-card-sub-heading")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={false}
                   onClick={handleTextClick}
@@ -645,8 +647,8 @@ export const featuresWithCardsComponent = ({
                   Item One
                 </h2>
                 <p
-                  id="features-with-card-sub-paragraph-1"
-                  style={getElementStyle("features-with-card-sub-paragraph-1")}
+                  id="features-with-card-sub-paragraph"
+                  style={getElementStyle("features-with-card-sub-paragraph")}
                   className={`text-[#231e41] `}
                   contentEditable={false}
                   onClick={handleTextClick}
@@ -671,8 +673,8 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id="features-with-card-sub-heading-2"
-                  style={getElementStyle("features-with-card-sub-heading-2")}
+                  id="features-with-card-sub-heading"
+                  style={getElementStyle("features-with-card-sub-heading")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={false}
                   onClick={handleTextClick}
@@ -706,8 +708,8 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id="features-with-card-sub-heading-3"
-                  style={getElementStyle("features-with-card-sub-heading-3")}
+                  id="features-with-card-sub-heading"
+                  style={getElementStyle("features-with-card-sub-heading")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   contentEditable={false}
                   onClick={handleTextClick}

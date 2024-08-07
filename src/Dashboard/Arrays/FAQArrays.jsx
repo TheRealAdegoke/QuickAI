@@ -2,17 +2,11 @@ export const faqComponent = ({
   text,
   isMobile,
   isFocused,
-  handleFocus,
-  handleBlur,
   location,
   handleDivClick,
   handleTextClick,
-  handleColorClick,
-  handleFontSizeClick,
-  handleFontWeightClick,
-  handleFontStyleClick,
-  handleFontFamilyClick,
-  handleTextAlignmentClick,
+  getStyle,
+  getElementStyle,
 }) => {
   let classNames = "";
 
@@ -25,7 +19,11 @@ export const faqComponent = ({
   }
 
   return [
-    <section onClick={handleDivClick}>
+    <section
+      onClick={handleDivClick}
+      id="faq-section"
+      style={getStyle("faq-section")}
+    >
       <div
         className={`${
           isMobile ? "max-w-[800px]" : ""
@@ -33,6 +31,8 @@ export const faqComponent = ({
       >
         <div className="mb-10">
           <h1
+            id="faq-heading"
+            style={getElementStyle("faq-heading")}
             className={`text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
             contentEditable={false}
@@ -41,6 +41,8 @@ export const faqComponent = ({
             {text.FAQsHeader[0]}
           </h1>
           <p
+            id="faq-paragraph"
+            style={getElementStyle("faq-paragraph")}
             className={``}
             data-text="Type a paragraph"
             contentEditable={false}
@@ -59,18 +61,22 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""} w-[40%] max-lg:w-[80%]`}
           >
             <h2
+              id="faq-sub-heading"
+              style={getElementStyle("faq-sub-heading")}
               className={``}
               data-text="Heading"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqQuestion[0]}
             </h2>
             <p
+              id="faq-sub-paragraph"
+              style={getElementStyle("faq-sub-paragraph")}
               className={`my-2 `}
               data-text="Type a paragraph"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqAnswer[0]}
             </p>
@@ -80,18 +86,22 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""} w-[40%] max-lg:w-[80%]`}
           >
             <h2
+              id="faq-sub-heading"
+              style={getElementStyle("faq-sub-heading")}
               className={``}
               data-text="Heading"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqQuestion[0]}
             </h2>
             <p
+              id="faq-sub-paragraph"
+              style={getElementStyle("faq-sub-paragraph")}
               className={`my-2 `}
               data-text="Type a paragraph"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqAnswer[0]}
             </p>
@@ -101,18 +111,22 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""} w-[40%] max-lg:w-[80%]`}
           >
             <h2
+              id="faq-sub-heading"
+              style={getElementStyle("faq-sub-heading")}
               className={``}
               data-text="Heading"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqQuestion[0]}
             </h2>
             <p
+              id="faq-sub-paragraph"
+              style={getElementStyle("faq-sub-paragraph")}
               className={`my-2 `}
               data-text="Type a paragraph"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqAnswer[0]}
             </p>
@@ -122,18 +136,22 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""} w-[40%] max-lg:w-[80%]`}
           >
             <h2
+              id="faq-sub-heading"
+              style={getElementStyle("faq-sub-heading")}
               className={``}
               data-text="Heading"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqQuestion[0]}
             </h2>
             <p
+              id="faq-sub-paragraph"
+              style={getElementStyle("faq-sub-paragraph")}
               className={`my-2 `}
               data-text="Type a paragraph"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqAnswer[0]}
             </p>
@@ -144,6 +162,8 @@ export const faqComponent = ({
     <section
       className="py-10"
       onClick={handleDivClick}
+      id="faq-section"
+      style={getStyle("faq-section")}
     >
       <div
         className={`${
@@ -152,6 +172,8 @@ export const faqComponent = ({
       >
         <div className="mb-10">
           <h1
+            id="faq-heading"
+            style={getElementStyle("faq-heading")}
             className={`text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
             contentEditable={false}
@@ -160,6 +182,8 @@ export const faqComponent = ({
             {text.FAQsHeader[0]}
           </h1>
           <p
+            id="faq-paragraph"
+            style={getElementStyle("faq-paragraph")}
             className={``}
             data-text="Type a paragraph"
             contentEditable={false}
@@ -178,18 +202,22 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""}  w-[40%] max-lg:w-[80%]`}
           >
             <h2
+              id="faq-sub-heading"
+              style={getElementStyle("faq-sub-heading")}
               className={``}
               data-text="Heading"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqQuestion[0]}
             </h2>
             <p
+              id="faq-sub-paragraph"
+              style={getElementStyle("faq-sub-paragraph")}
               className={`my-2 `}
               data-text="Type a paragraph"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqAnswer[0]}
             </p>
@@ -199,18 +227,22 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""}  w-[40%] max-lg:w-[80%]`}
           >
             <h2
+              id="faq-sub-heading"
+              style={getElementStyle("faq-sub-heading")}
               className={``}
               data-text="Heading"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqQuestion[0]}
             </h2>
             <p
+              id="faq-sub-paragraph"
+              style={getElementStyle("faq-sub-paragraph")}
               className={`my-2 `}
               data-text="Type a paragraph"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqAnswer[0]}
             </p>
@@ -220,18 +252,22 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""}  w-[40%] max-lg:w-[80%]`}
           >
             <h2
+              id="faq-sub-heading"
+              style={getElementStyle("faq-sub-heading")}
               className={``}
               data-text="Heading"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqQuestion[0]}
             </h2>
             <p
+              id="faq-sub-paragraph"
+              style={getElementStyle("faq-sub-paragraph")}
               className={`my-2 `}
               data-text="Type a paragraph"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqAnswer[0]}
             </p>
@@ -241,18 +277,22 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""}  w-[40%] max-lg:w-[80%]`}
           >
             <h2
+              id="faq-sub-heading"
+              style={getElementStyle("faq-sub-heading")}
               className={``}
               data-text="Heading"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqQuestion[0]}
             </h2>
             <p
+              id="faq-sub-paragraph"
+              style={getElementStyle("faq-sub-paragraph")}
               className={`my-2 `}
               data-text="Type a paragraph"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqAnswer[0]}
             </p>
@@ -263,6 +303,8 @@ export const faqComponent = ({
     <section
       className="py-10"
       onClick={handleDivClick}
+      id="faq-section"
+      style={getStyle("faq-section")}
     >
       <div
         className={`${
@@ -271,6 +313,8 @@ export const faqComponent = ({
       >
         <div className="mb-5">
           <h1
+            id="faq-heading"
+            style={getElementStyle("faq-heading")}
             className={`text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
             contentEditable={false}
@@ -279,6 +323,8 @@ export const faqComponent = ({
             {text.FAQsHeader[0]}
           </h1>
           <p
+            id="faq-paragraph"
+            style={getElementStyle("faq-paragraph")}
             className={``}
             data-text="Type a paragraph"
             contentEditable={false}
@@ -297,10 +343,12 @@ export const faqComponent = ({
             <label htmlFor="id-show-menu-1" className="show-menu">
               <div className="">
                 <h2
+                  id="faq-sub-heading"
+                  style={getElementStyle("faq-sub-heading")}
                   className={`hover:underline hover:cursor-pointer mb-3 `}
                   data-text="Heading"
                   contentEditable={false}
-            onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   {text.faqQuestion[0]}
                 </h2>
@@ -312,10 +360,12 @@ export const faqComponent = ({
               className="appearance-none hidden peer"
             />
             <p
+              id="faq-sub-paragraph"
+              style={getElementStyle("faq-sub-paragraph")}
               className={`hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 `}
               data-text="Type a paragraph"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqAnswer[0]}
             </p>
@@ -325,10 +375,12 @@ export const faqComponent = ({
             <label htmlFor="id-show-menu-2" className="show-menu">
               <div className="">
                 <h2
+                  id="faq-sub-heading"
+                  style={getElementStyle("faq-sub-heading")}
                   className={`hover:underline hover:cursor-pointer mb-3 `}
                   data-text="Heading"
                   contentEditable={false}
-            onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   {text.faqQuestion[1]}
                 </h2>
@@ -341,10 +393,12 @@ export const faqComponent = ({
               role="button"
             />
             <p
+              id="faq-sub-paragraph"
+              style={getElementStyle("faq-sub-paragraph")}
               className={`hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 `}
               data-text="Type a paragraph"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqAnswer[1]}
             </p>
@@ -354,10 +408,12 @@ export const faqComponent = ({
             <label htmlFor="id-show-menu-3" className="show-menu">
               <div className="">
                 <h2
+                  id="faq-sub-heading"
+                  style={getElementStyle("faq-sub-heading")}
                   className={`hover:underline hover:cursor-pointer mb-3 `}
                   data-text="Heading"
                   contentEditable={false}
-            onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   {text.faqQuestion[2]}
                 </h2>
@@ -370,10 +426,12 @@ export const faqComponent = ({
               role="button"
             />
             <p
+              id="faq-sub-paragraph"
+              style={getElementStyle("faq-sub-paragraph")}
               className={`hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 `}
               data-text="Type a paragraph"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqAnswer[2]}
             </p>
@@ -383,10 +441,12 @@ export const faqComponent = ({
             <label htmlFor="id-show-menu-4" className="show-menu">
               <div className="">
                 <h2
+                  id="faq-sub-heading"
+                  style={getElementStyle("faq-sub-heading")}
                   className={`hover:underline hover:cursor-pointer mb-3 `}
                   data-text="Header"
                   contentEditable={false}
-            onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   {text.faqQuestion[3]}
                 </h2>
@@ -399,10 +459,12 @@ export const faqComponent = ({
               role="button"
             />
             <p
+              id="faq-sub-paragraph"
+              style={getElementStyle("faq-sub-paragraph")}
               className={`hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 `}
               data-text="Type a paragraph"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqAnswer[3]}
             </p>
@@ -413,6 +475,8 @@ export const faqComponent = ({
     <section
       className="py-10"
       onClick={handleDivClick}
+      id="faq-section"
+      style={getStyle("faq-section")}
     >
       <div
         className={`${
@@ -421,6 +485,8 @@ export const faqComponent = ({
       >
         <div className="mb-5">
           <h1
+            id="faq-heading"
+            style={getElementStyle("faq-heading")}
             className={`text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
             contentEditable={false}
@@ -429,6 +495,8 @@ export const faqComponent = ({
             {text.FAQsHeader[0]}
           </h1>
           <p
+            id="faq-paragraph"
+            style={getElementStyle("faq-paragraph")}
             className={``}
             data-text="Type a paragraph"
             contentEditable={false}
@@ -447,10 +515,12 @@ export const faqComponent = ({
             <label htmlFor="id-show-menu-1" className="show-menu">
               <div className="">
                 <h2
+                  id="faq-sub-heading"
+                  style={getElementStyle("faq-sub-heading")}
                   className={`hover:underline hover:cursor-pointer mb-3 `}
                   data-text="Heading"
                   contentEditable={false}
-            onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   {text.faqQuestion[0]}
                 </h2>
@@ -462,10 +532,12 @@ export const faqComponent = ({
               className="appearance-none hidden peer"
             />
             <p
+              id="faq-sub-paragraph"
+              style={getElementStyle("faq-sub-paragraph")}
               className={`hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 `}
               data-text="Type a paragraph"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqAnswer[0]}
             </p>
@@ -475,10 +547,12 @@ export const faqComponent = ({
             <label htmlFor="id-show-menu-2" className="show-menu">
               <div className="">
                 <h2
+                  id="faq-sub-heading"
+                  style={getElementStyle("faq-sub-heading")}
                   className={`hover:underline hover:cursor-pointer mb-3 `}
                   data-text="Type a paragraph"
                   contentEditable={false}
-            onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   {text.faqQuestion[1]}
                 </h2>
@@ -491,10 +565,12 @@ export const faqComponent = ({
               role="button"
             />
             <p
+              id="faq-sub-paragraph"
+              style={getElementStyle("faq-sub-paragraph")}
               className={`hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 `}
               data-text="Type a paragraph"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqAnswer[1]}
             </p>
@@ -504,10 +580,12 @@ export const faqComponent = ({
             <label htmlFor="id-show-menu-3" className="show-menu">
               <div className="">
                 <h2
+                  id="faq-sub-heading"
+                  style={getElementStyle("faq-sub-heading")}
                   className={`hover:underline hover:cursor-pointer mb-3 `}
                   data-text="Heading"
                   contentEditable={false}
-            onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   {text.faqQuestion[2]}
                 </h2>
@@ -520,10 +598,12 @@ export const faqComponent = ({
               role="button"
             />
             <p
+              id="faq-sub-paragraph"
+              style={getElementStyle("faq-sub-paragraph")}
               className={`hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 `}
               data-text="Type a paragraph"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqAnswer[2]}
             </p>
@@ -533,10 +613,12 @@ export const faqComponent = ({
             <label htmlFor="id-show-menu-4" className="show-menu">
               <div className="">
                 <h2
+                  id="faq-sub-heading"
+                  style={getElementStyle("faq-sub-heading")}
                   className={`hover:underline hover:cursor-pointer mb-3 `}
                   data-text="Heading"
                   contentEditable={false}
-            onClick={handleTextClick}
+                  onClick={handleTextClick}
                 >
                   {text.faqQuestion[3]}
                 </h2>
@@ -549,10 +631,12 @@ export const faqComponent = ({
               role="button"
             />
             <p
+              id="faq-sub-paragraph"
+              style={getElementStyle("faq-sub-paragraph")}
               className={`hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3 `}
               data-text="Type a paragraph"
               contentEditable={false}
-            onClick={handleTextClick}
+              onClick={handleTextClick}
             >
               {text.faqAnswer[3]}
             </p>
