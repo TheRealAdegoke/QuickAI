@@ -67,92 +67,92 @@ const DesignModal = () => {
     }
   }, [currentIndex]);
 
-  const saveDesign = async () => {
-    setLoading(true);
-    try {
-      const canvas = await html2canvas(photoRef.current, { useCORS: true });
-      const dataURL = canvas.toDataURL();
-      const formData = new FormData();
-      formData.append("file", dataURL);
-      formData.append("upload_preset", `${cloudinaryFormDataAppend}`);
+  // const saveDesign = async () => {
+  //   setLoading(true);
+  //   try {
+  //     const canvas = await html2canvas(photoRef.current, { useCORS: true });
+  //     const dataURL = canvas.toDataURL();
+  //     const formData = new FormData();
+  //     formData.append("file", dataURL);
+  //     formData.append("upload_preset", `${cloudinaryFormDataAppend}`);
 
-      const cloudinaryResponse = await axios.post(
-        `${cloudinaryBaseURL}`,
-        formData
-      );
-      const cloudinaryURL = cloudinaryResponse.data.secure_url;
+  //     const cloudinaryResponse = await axios.post(
+  //       `${cloudinaryBaseURL}`,
+  //       formData
+  //     );
+  //     const cloudinaryURL = cloudinaryResponse.data.secure_url;
 
-      const postData = {
-        prompt: userInput || selectedIdea,
-        navStyle: {
-          index: navIndex,
-          style: reactElementToJSXString(navElement, {
-            showFunctions: true,
-            functionValue: (fn) => fn,
-          }),
-        },
-        heroStyle: {
-          index: heroIndex,
-          style: reactElementToJSXString(heroElement, {
-            showFunctions: true,
-            functionValue: (fn) => fn,
-          }),
-        },
-        sectionOneStyle: {
-          index: featuresWithCardIndex,
-          style: reactElementToJSXString(featuresWithCardElement, {
-            showFunctions: true,
-            functionValue: (fn) => fn,
-          }),
-        },
-        sectionTwoStyle: {
-          index: featuresIndex,
-          style: reactElementToJSXString(featuresElement, {
-            showFunctions: true,
-            functionValue: (fn) => fn,
-          }),
-        },
-        sectionThreeStyle: {
-          index: testimonialIndex,
-          style: reactElementToJSXString(testimonialElement, {
-            showFunctions: true,
-            functionValue: (fn) => fn,
-          }),
-        },
-        sectionFourStyle: {
-          index: teamIndex,
-          style: reactElementToJSXString(teamElement, {
-            showFunctions: true,
-            functionValue: (fn) => fn,
-          }),
-        },
-        sectionFiveStyle: {
-          index: faqIndex,
-          style: reactElementToJSXString(faqElement, {
-            showFunctions: true,
-            functionValue: (fn) => fn,
-          }),
-        },
-        footerStyle: {
-          index: footerIndex,
-          style: reactElementToJSXString(footerElement, {
-            showFunctions: true,
-            functionValue: (fn) => fn,
-          }),
-        },
-        webDesignImagePreview: cloudinaryURL,
-      };
+  //     const postData = {
+  //       prompt: userInput || selectedIdea,
+  //       navStyle: {
+  //         index: navIndex,
+  //         style: reactElementToJSXString(navElement, {
+  //           showFunctions: true,
+  //           functionValue: (fn) => fn,
+  //         }),
+  //       },
+  //       heroStyle: {
+  //         index: heroIndex,
+  //         style: reactElementToJSXString(heroElement, {
+  //           showFunctions: true,
+  //           functionValue: (fn) => fn,
+  //         }),
+  //       },
+  //       sectionOneStyle: {
+  //         index: featuresWithCardIndex,
+  //         style: reactElementToJSXString(featuresWithCardElement, {
+  //           showFunctions: true,
+  //           functionValue: (fn) => fn,
+  //         }),
+  //       },
+  //       sectionTwoStyle: {
+  //         index: featuresIndex,
+  //         style: reactElementToJSXString(featuresElement, {
+  //           showFunctions: true,
+  //           functionValue: (fn) => fn,
+  //         }),
+  //       },
+  //       sectionThreeStyle: {
+  //         index: testimonialIndex,
+  //         style: reactElementToJSXString(testimonialElement, {
+  //           showFunctions: true,
+  //           functionValue: (fn) => fn,
+  //         }),
+  //       },
+  //       sectionFourStyle: {
+  //         index: teamIndex,
+  //         style: reactElementToJSXString(teamElement, {
+  //           showFunctions: true,
+  //           functionValue: (fn) => fn,
+  //         }),
+  //       },
+  //       sectionFiveStyle: {
+  //         index: faqIndex,
+  //         style: reactElementToJSXString(faqElement, {
+  //           showFunctions: true,
+  //           functionValue: (fn) => fn,
+  //         }),
+  //       },
+  //       footerStyle: {
+  //         index: footerIndex,
+  //         style: reactElementToJSXString(footerElement, {
+  //           showFunctions: true,
+  //           functionValue: (fn) => fn,
+  //         }),
+  //       },
+  //       webDesignImagePreview: cloudinaryURL,
+  //     };
 
-      await axiosInstance.post("/save-landing-styles", postData);
+  //     await axiosInstance.post("/save-landing-styles", postData);
 
-      clearDesigns();
-      handleUserData();
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  //     clearDesigns();
+  //     handleUserData();
+  //   } catch (error) {
+  //     console.error(error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   const allElementsDisplayed = currentIndex >= elements.length - 1;
 
@@ -179,7 +179,7 @@ const DesignModal = () => {
             .slice(0, currentIndex + 1)
             .map(
               (item, idx) =>
-                item.index !== undefined && <div key={idx}>{item.element}</div>
+              <div key={idx}>{item.element}</div>
             )}
         </main>
 

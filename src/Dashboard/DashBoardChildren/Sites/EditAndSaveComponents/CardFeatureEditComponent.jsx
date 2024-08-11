@@ -7,7 +7,8 @@ import CardFeatureImage4 from "../../../../assets/CardFeatureImage/CardFeatureIm
 import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
 export const CardFeaturesImages = () => {
-  const { setFeaturesWithCardIndex, setSectionModal } = useContext(DashContext);
+  const { setFeaturesWithCardIndex, setSectionModal, addElement } =
+    useContext(DashContext);
   const images = [
     {
       index: 0,
@@ -42,6 +43,7 @@ export const CardFeaturesImages = () => {
               onClick={() => {
                 setFeaturesWithCardIndex(item.index);
                 setSectionModal(false);
+                addElement("featuresWithCards", item.index);
               }}
             >
               <img src={item.image} alt="" className="rounded-[8px] w-full" />
