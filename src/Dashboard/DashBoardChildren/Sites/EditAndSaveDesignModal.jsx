@@ -12,7 +12,6 @@ const EditAndSaveDesignModal = () => {
     setDisplayEditModal,
     setCurrentSection,
     setChangeSectionHeaderText,
-    divStyles,
   } = useContext(DashContext);
   const { elements } = ElementArray();
 

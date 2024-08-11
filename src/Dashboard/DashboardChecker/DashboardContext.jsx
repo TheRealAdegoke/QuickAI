@@ -71,7 +71,7 @@ export const DashboardProvider = ({ children }) => {
     "FAQ",
     "Team",
   ];
-  const [heroBackGroundStyle, setHeroBackGroundStyle] = useState("")
+  const [heroBackGroundStyle, setHeroBackGroundStyle] = useState("");
   const [cardFeatureBackGroundStyle, setcardFeatureBackGroundStyle] =
     useState("");
   const [clickedText, setClickedText] = useState("");
@@ -82,6 +82,8 @@ export const DashboardProvider = ({ children }) => {
   const [sectionModal, setSectionModal] = useState(false);
   const [divStyles, setDivStyles] = useState({});
   const defaultBackgroundColor = "#ffffff";
+  const [generatedElements, setGeneratedElements] = useState([]);
+  const [elements, setElements] = useState([]);
 
   useEffect(() => {
     if (!shuffled && webContentObject.randomButtonText) {
@@ -160,6 +162,17 @@ export const DashboardProvider = ({ children }) => {
     }
   }, [geminiResponses, shuffled]);
 
+  const getStyle = (id) => {
+    if (divStyles[id] && Object.keys(divStyles[id]).length > 0) {
+      return divStyles[id];
+    }
+    return { background: defaultBackgroundColor };
+  };
+
+  const getElementStyle = (id) => {
+    return elementStyles[id] || {};
+  };
+
   // useEffect(() => {
   //   const timeout = setTimeout(() => {
   //     setText((prevText) => ({
@@ -188,7 +201,8 @@ export const DashboardProvider = ({ children }) => {
 
   const handleGenerateNav = () => {
     const randomNavIndex = Math.floor(
-      Math.random() * navComponents({ text, location }).length
+      Math.random() *
+        navComponents({ text, location, getStyle, getElementStyle }).length
     );
     const randomHeroIndex = Math.floor(
       Math.random() *
@@ -196,46 +210,81 @@ export const DashboardProvider = ({ children }) => {
           text,
           buttonIndex,
           location,
+          getStyle,
+          getElementStyle,
           handleDivClick,
           backGroundStyle,
         }).length
     );
     const randomButtonsIndex = Math.floor(
-      Math.random() * WebButtonsArray({ text, buttonIndex, location }).length
+      Math.random() *
+        WebButtonsArray({
+          text,
+          buttonIndex,
+          location,
+          getStyle,
+          getElementStyle,
+        }).length
     );
     const randomfeaturesWithCardIndex = Math.floor(
       Math.random() *
-        featuresWithCardsComponent({ text, location, handleDivClick }).length
+        featuresWithCardsComponent({
+          text,
+          location,
+          getStyle,
+          getElementStyle,
+          handleDivClick,
+        }).length
     );
     const randomfeaturesIndex = Math.floor(
-      Math.random() * featuresComponents({ text, location }).length
+      Math.random() *
+        featuresComponents({ text, location, getStyle, getElementStyle }).length
     );
     const randomTestimonialIndex = Math.floor(
-      Math.random() * testimonialComponent({ text, location }).length
+      Math.random() *
+        testimonialComponent({ text, location, getStyle, getElementStyle })
+          .length
     );
     const randomFaqIndex = Math.floor(
-      Math.random() * faqComponent({ text, location }).length
+      Math.random() *
+        faqComponent({ text, location, getStyle, getElementStyle }).length
     );
     const randomTeamIndex = Math.floor(
-      Math.random() * teamComponent({ text, location }).length
+      Math.random() *
+        teamComponent({ text, location, getStyle, getElementStyle }).length
     );
     const randomContactIndex = Math.floor(
-      Math.random() * contactComponent({ text, location }).length
+      Math.random() *
+        contactComponent({ text, location, getStyle, getElementStyle }).length
     );
     const randomFooterIndex = Math.floor(
-      Math.random() * footerComponent({ text, location }).length
+      Math.random() *
+        footerComponent({ text, location, getStyle, getElementStyle }).length
     );
 
-    setNavIndex(randomNavIndex);
-    setHeroIndex(randomHeroIndex);
-    setButtonIndex(randomButtonsIndex);
-    setFeaturesWithCardIndex(randomfeaturesWithCardIndex);
-    setFeaturesIndex(randomfeaturesIndex);
-    setTestimonialIndex(randomTestimonialIndex);
-    setFaqIndex(randomFaqIndex);
-    setTeamIndex(randomTeamIndex);
-    setContactIndex(randomContactIndex);
-    setFooterIndex(randomFooterIndex);
+    const newGeneratedElements = [
+      { type: "header", index: randomNavIndex },
+      { type: "hero", index: randomHeroIndex },
+      { type: "featuresWithCards", index: randomfeaturesWithCardIndex },
+      { type: "classicFeatures", index: randomfeaturesIndex },
+      { type: "testimonial", index: randomTestimonialIndex },
+      { type: "faq", index: randomFaqIndex },
+      { type: "team", index: randomTeamIndex },
+      { type: "footer", index: randomFooterIndex },
+    ];
+
+    // setNavIndex(randomNavIndex);
+    // setHeroIndex(randomHeroIndex);
+    // setButtonIndex(randomButtonsIndex);
+    // setFeaturesWithCardIndex(randomfeaturesWithCardIndex);
+    // setFeaturesIndex(randomfeaturesIndex);
+    // setTestimonialIndex(randomTestimonialIndex);
+    // setFaqIndex(randomFaqIndex);
+    // setTeamIndex(randomTeamIndex);
+    // setContactIndex(randomContactIndex);
+    // setFooterIndex(randomFooterIndex);
+    setGeneratedElements(newGeneratedElements);
+    setElements(newGeneratedElements);
     setShowDesignModal(true);
   };
 
@@ -381,6 +430,13 @@ export const DashboardProvider = ({ children }) => {
     handleBGColorClick(backGroundStyle);
   }, [backGroundStyle]);
 
+  const addElement = (componentType, index) => {
+    setElements((prevElements) => [
+      ...prevElements,
+      { type: componentType, index: index },
+    ]);
+  };
+
   return (
     <DashContext.Provider
       value={{
@@ -480,6 +536,11 @@ export const DashboardProvider = ({ children }) => {
         divStyles,
         defaultBackgroundColor,
         elementStyles,
+        elements,
+        addElement,
+        getStyle,
+        getElementStyle,
+        generatedElements,
       }}
     >
       {children}
