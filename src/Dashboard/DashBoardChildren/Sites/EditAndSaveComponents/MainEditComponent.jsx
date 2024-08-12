@@ -1,7 +1,5 @@
 import React, { useContext, useState } from "react";
 import { Button } from "../EditAndSaveDesignModal";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
 import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
 const MainEditComponent = () => {
@@ -11,22 +9,25 @@ const MainEditComponent = () => {
     setChangeSectionHeaderText,
     setIsPattern,
     buttons,
-    currentSection,
-    setCurrentSection,
     setClickedIndex,
     setColor1,
     setColor2,
     setSectionModal,
+    setActiveSection,
+    setCurrentSection,
   } = useContext(DashContext);
 
   return (
     <>
       <div>
-        <h1 className="text-[rgba(255,255,255,0.8)] text-sm font-medium border-[rgba(255,255,255,0.5)] border-b-[1px] px-2 py-2">
-          Edit your landing page from our gallery of designs.
-        </h1>
+        <div className="text-[rgba(255,255,255,0.8)] px-2 py-2">
+          <h1 className="layout-text text-2xl mb-1">Select a layout</h1>
+          <p className="text-xs">
+            Edit your landing page from our gallery of designs.
+          </p>
+        </div>
 
-        <DndProvider backend={HTML5Backend}>
+        <div className="h-[70v] overflow-y-scroll">
           {buttons.map((id, index) => (
             <Button
               key={`${id}-${index}`}
@@ -37,14 +38,15 @@ const MainEditComponent = () => {
               setChangeSectionHeaderText={setChangeSectionHeaderText}
               setIsPattern={setIsPattern}
               buttons={buttons}
-              currentSection={currentSection}
-              setCurrentSection={setCurrentSection}
               setClickedIndex={setClickedIndex}
               setColor1={setColor1}
               setColor2={setColor2}
+              setSectionModal={setSectionModal}
+              setActiveSection={setActiveSection}
+              setCurrentSection={setCurrentSection}
             />
           ))}
-        </DndProvider>
+        </div>
 
         <button
           className="bg-white py-1 px-3 rounded w-[200px] mx-auto block font-medium"

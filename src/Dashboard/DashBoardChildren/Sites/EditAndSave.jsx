@@ -25,6 +25,10 @@ const EditAndSave = () => {
     displayEditModal,
     sectionModal,
     setSectionModal,
+    activeSection,
+    setActiveSection,
+    currentSection,
+    setCurrentSection,
   } = useContext(DashContext);
   const modalRef = useRef(null);
   const resizableRef = useRef(null);
@@ -36,15 +40,6 @@ const EditAndSave = () => {
   const [initialWidth, setInitialWidth] = useState(0);
   const [initialX, setInitialX] = useState(0);
   const [deviceWidth, setDeviceWidth] = useState(window.innerWidth);
-  const [activeSection, setActiveSection] = useState({
-    Header: true,
-    Hero: false,
-    CardFeatures: false,
-    ClassicFeatures: false,
-    Testimonial: false,
-    FAQ: false,
-    Team: false,
-  });
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -255,13 +250,22 @@ const EditAndSave = () => {
                 className="bg-[rgb(20,21,24)] py-2 px-2 text-xl rounded-lg text-[rgba(255,255,255,0.8)] mt-5"
                 onClick={() => {
                   setSectionModal(false);
+                  setCurrentSection(false)
                 }}
               >
                 <IoClose />
               </button>
             </div>
-            <div className="h-[90%] rounded-[8px] flex">
-              <div className="w-[20%] h-full py-5 pl-4">
+            <div
+              className={`${
+                currentSection ? "h-full" : ""
+              } h-[90%] rounded-[8px] flex`}
+            >
+              <div
+                className={`${
+                  currentSection ? "hidden" : "block"
+                } w-[20%] h-full py-5 pl-4`}
+              >
                 <div className="text-[rgba(255,255,255,0.8)] flex flex-col gap-2 text-lg">
                   <button
                     className={`${
@@ -281,19 +285,19 @@ const EditAndSave = () => {
                   </button>
                   <button
                     className={`${
-                      activeSection.CardFeatures ? "bg-[rgb(7,20,59)]" : ""
+                      activeSection.Card ? "bg-[rgb(7,20,59)]" : ""
                     } text-left pl-2 py-1 rounded-md`}
-                    onClick={() => setActiveSection({ CardFeatures: true })}
+                    onClick={() => setActiveSection({ Card: true })}
                   >
-                    Card Features
+                    Card
                   </button>
                   <button
                     className={`${
-                      activeSection.ClassicFeatures ? "bg-[rgb(7,20,59)]" : ""
+                      activeSection.Classic ? "bg-[rgb(7,20,59)]" : ""
                     } text-left pl-2 py-1 rounded-md`}
-                    onClick={() => setActiveSection({ ClassicFeatures: true })}
+                    onClick={() => setActiveSection({ Classic: true })}
                   >
-                    Classic Features
+                    Classic
                   </button>
                   <button
                     className={`${
@@ -321,12 +325,20 @@ const EditAndSave = () => {
                   </button>
                 </div>
               </div>
-              <div className="w-[80%] h-full py-5 px-4">
-                <div className="bg-[rgb(20,21,24)] py-1 rounded-lg pl-2 text-[rgba(255,255,255,0.8)] mb-5">
+              <div
+                className={`${
+                  currentSection ? "w-full mt-10" : "w-[80%]"
+                } h-full py-5 px-4`}
+              >
+                <div
+                  className={`${
+                    currentSection ? "hidden" : ""
+                  } bg-[rgb(20,21,24)] py-[0.4rem] rounded-lg pl-2 text-[rgba(255,255,255,0.8)] mb-5`}
+                >
                   {activeSection.Header && "Header"}
                   {activeSection.Hero && "Hero"}
-                  {activeSection.CardFeatures && "Card Feature"}
-                  {activeSection.ClassicFeatures && "Classical Feature"}
+                  {activeSection.Card && "Card Feature"}
+                  {activeSection.Classic && "Classical Feature"}
                   {activeSection.Testimonial && "Testimonial"}
                   {activeSection.FAQ && "FAQ"}
                   {activeSection.Team && "Team"}
@@ -335,8 +347,8 @@ const EditAndSave = () => {
                 <div className="flex flex-wrap gap-3 justify-evenly px-2 h-[70%] overflow-y-scroll">
                   {activeSection.Header && <HeaderImages />}
                   {activeSection.Hero && <HeroImages />}
-                  {activeSection.CardFeatures && <CardFeaturesImages />}
-                  {activeSection.ClassicFeatures && <ClassicalFeaturesImages />}
+                  {activeSection.Card && <CardFeaturesImages />}
+                  {activeSection.Classic && <ClassicalFeaturesImages />}
                   {activeSection.Testimonial && <TestimonialImages />}
                   {activeSection.FAQ && <FAQImages />}
                   {activeSection.Team && <TeamImages />}
