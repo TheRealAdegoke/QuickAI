@@ -26,13 +26,11 @@ export const heroComponents = ({
     classNames += " hover:border-[2px] hover:border-[rgb(0,111,173)]";
   }
 
-  // "rgb(26,26,26)"; divStyles === "" ? divStyles["hero-section"] : ""
-
   return [
     <section
       onClick={handleDivClick}
-      id="hero-section"
-      style={getStyle("hero-section")}
+      id="hero-section-1"
+      style={getStyle("hero-section-1")}
     >
       <div className="py-10 px-5">
         <div className="flex justify-center gap-10 max-lg:flex-col">
@@ -117,8 +115,8 @@ export const heroComponents = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="hero-section"
-      style={getStyle("hero-section")}
+      id="hero-section-2"
+      style={getStyle("hero-section-2")}
     >
       <div
         className={`${
@@ -195,8 +193,8 @@ export const heroComponents = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="hero-section"
-      style={getStyle("hero-section")}
+      id="hero-section-3"
+      style={getStyle("hero-section-3")}
     >
       <div
         className={`${
@@ -246,8 +244,8 @@ export const heroComponents = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="hero-section"
-      style={getStyle("hero-section")}
+      id="hero-section-4"
+      style={getStyle("hero-section-4")}
     >
       <div
         className={`${
@@ -297,8 +295,8 @@ export const heroComponents = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="hero-section"
-      style={getStyle("hero-section")}
+      id="hero-section-5"
+      style={getStyle("hero-section-5")}
     >
       <div
         className={`${
@@ -348,8 +346,8 @@ export const heroComponents = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="hero-section"
-      style={getStyle("hero-section")}
+      id="hero-section-6"
+      style={getStyle("hero-section-6")}
     >
       <div
         className={`${
@@ -399,8 +397,8 @@ export const heroComponents = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="hero-section"
-      style={getStyle("hero-section")}
+      id="hero-section-7"
+      style={getStyle("hero-section-7")}
     >
       <div
         className={`${
@@ -460,8 +458,8 @@ export const heroComponents = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="hero-section"
-      style={getStyle("hero-section")}
+      id="hero-section-8"
+      style={getStyle("hero-section-8")}
     >
       <div
         className={`${

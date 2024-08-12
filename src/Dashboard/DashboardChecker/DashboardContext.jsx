@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useRef, useState } from "react";
+import React, { createContext, useCallback, useEffect, useRef, useState } from "react";
 import { axiosInstance } from "../../Pages/AuthPages/AuthChecker/axiosInstance";
 import { message } from "antd";
 import { heroComponents } from "../Arrays/HeroSectionArray";
@@ -60,16 +60,18 @@ export const DashboardProvider = ({ children }) => {
   const [displayEditModal, setDisplayEditModal] = useState(false);
   const [changeSectionHeaderText, setChangeSectionHeaderText] = useState("");
   const [isPattern, setIsPattern] = useState(true);
+  const [isContent, setIsContent] = useState(true);
   const [clickedIndex, setClickedIndex] = useState(null);
-  const [currentSection, setCurrentSection] = useState(null);
+  const [currentSection, setCurrentSection] = useState(false);
   const buttons = [
     "Header",
     "Hero",
-    "Card Feature",
-    "Classical Feature",
+    "Card",
+    "Classic",
     "Testimonial",
     "FAQ",
     "Team",
+    "Footer"
   ];
   const [heroBackGroundStyle, setHeroBackGroundStyle] = useState("");
   const [cardFeatureBackGroundStyle, setcardFeatureBackGroundStyle] =
@@ -84,6 +86,16 @@ export const DashboardProvider = ({ children }) => {
   const defaultBackgroundColor = "#ffffff";
   const [generatedElements, setGeneratedElements] = useState([]);
   const [elements, setElements] = useState([]);
+  const [activeSection, setActiveSection] = useState({
+    Header: true,
+    Hero: false,
+    Card: false,
+    Classic: false,
+    Testimonial: false,
+    FAQ: false,
+    Team: false,
+  });
+  const newElementRef = useRef(null);
 
   useEffect(() => {
     if (!shuffled && webContentObject.randomButtonText) {
@@ -412,9 +424,12 @@ export const DashboardProvider = ({ children }) => {
     updateElementStyle("textAlign", textAlign);
   };
 
+  const handleDivClick = (event) => {
+    setSelectedDiv(event.currentTarget);
+  };
+
   const handleBGColorClick = (color) => {
     if (selectedDiv) {
-      // selectedDiv.style.background = color;
       setDivStyles((prevStyles) => ({
         ...prevStyles,
         [selectedDiv.id]: { ...prevStyles[selectedDiv.id], background: color },
@@ -422,20 +437,35 @@ export const DashboardProvider = ({ children }) => {
     }
   };
 
-  const handleDivClick = (event) => {
-    setSelectedDiv(event.currentTarget);
-  };
-
   useEffect(() => {
     handleBGColorClick(backGroundStyle);
   }, [backGroundStyle]);
 
-  const addElement = (componentType, index) => {
-    setElements((prevElements) => [
-      ...prevElements,
-      { type: componentType, index: index },
-    ]);
-  };
+   const addElement = (componentType, index) => {
+     setElements((prevElements) => {
+       const footerIndex = prevElements.findIndex((el) => el.type === "footer");
+       const newElement = {
+         type: componentType,
+         index: index,
+         key: Date.now(),
+       };
+
+       if (footerIndex === -1) {
+         return [...prevElements, newElement];
+       } else {
+         const newElements = [...prevElements];
+         newElements.splice(footerIndex, 0, newElement);
+         return newElements;
+       }
+     });
+
+     // Schedule scrolling after the state has been updated
+     setTimeout(() => {
+       if (newElementRef.current) {
+         newElementRef.current.scrollIntoView({ behavior: "smooth" });
+       }
+     }, 0);
+   };
 
   return (
     <DashContext.Provider
@@ -541,6 +571,11 @@ export const DashboardProvider = ({ children }) => {
         getStyle,
         getElementStyle,
         generatedElements,
+        isContent,
+        setIsContent,
+        activeSection,
+        setActiveSection,
+        newElementRef,
       }}
     >
       {children}
