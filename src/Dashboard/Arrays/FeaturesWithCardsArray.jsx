@@ -77,6 +77,7 @@ export const featuresWithCardsComponent = ({
                   id="features-with-card-sub-heading"
                   style={getElementStyle("features-with-card-sub-heading")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
+                  data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
@@ -86,6 +87,7 @@ export const featuresWithCardsComponent = ({
                   id="features-with-card-sub-paragraph"
                   style={getElementStyle("features-with-card-sub-paragraph")}
                   className={`text-[#231e41] `}
+                  data-text="Type a paragraph"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
@@ -112,6 +114,7 @@ export const featuresWithCardsComponent = ({
                   id="features-with-card-sub-heading"
                   style={getElementStyle("features-with-card-sub-heading")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
+                  data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
@@ -121,6 +124,7 @@ export const featuresWithCardsComponent = ({
                   id="features-with-card-sub-paragraph-2"
                   style={getElementStyle("features-with-card-sub-paragraph")}
                   className={`text-[#231e41] `}
+                  data-text="Type a paragraph"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
@@ -147,6 +151,7 @@ export const featuresWithCardsComponent = ({
                   id="features-with-card-sub-heading"
                   style={getElementStyle("features-with-card-sub-heading")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
+                  data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
@@ -156,6 +161,7 @@ export const featuresWithCardsComponent = ({
                   id="features-with-card-sub-paragraph"
                   style={getElementStyle("features-with-card-sub-paragraph")}
                   className={`text-[#231e41] `}
+                  data-text="Type a paragraph"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
@@ -172,6 +178,7 @@ export const featuresWithCardsComponent = ({
               id="features-with-card-button-text"
               style={getElementStyle("features-with-card-button-text")}
               className=""
+              data-text="Button text"
               contentEditable={false}
               onClick={handleTextClick}
             >
@@ -213,6 +220,7 @@ export const featuresWithCardsComponent = ({
               id="features-with-card-heading"
               style={getElementStyle("features-with-card-heading")}
               className={`text-[#231e41] text-3xl font-bold mb-1 `}
+              data-text="Heading"
               contentEditable={false}
               onClick={handleTextClick}
             >
@@ -222,6 +230,7 @@ export const featuresWithCardsComponent = ({
               id="features-with-card-paragraph"
               style={getElementStyle("features-with-card-paragraph")}
               className={`text-[#231e41] `}
+              data-text="Type a paragraph"
               contentEditable={false}
               onClick={handleTextClick}
             >
@@ -247,6 +256,7 @@ export const featuresWithCardsComponent = ({
                   id="features-with-card-sub-heading"
                   style={getElementStyle("features-with-card-sub-heading")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
+                  data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
@@ -256,6 +266,7 @@ export const featuresWithCardsComponent = ({
                   id="features-with-card-sub-paragraph"
                   style={getElementStyle("features-with-card-sub-paragraph")}
                   className={`text-[#231e41] `}
+                  data-text="Type a paragraph"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
@@ -282,6 +293,7 @@ export const featuresWithCardsComponent = ({
                   id="features-with-card-sub-heading"
                   style={getElementStyle("features-with-card-sub-heading")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
+                  data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
@@ -291,6 +303,7 @@ export const featuresWithCardsComponent = ({
                   id="features-with-card-sub-paragraph"
                   style={getElementStyle("features-with-card-sub-paragraph")}
                   className={`text-[#231e41] `}
+                  data-text="Type a paragraph"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
@@ -317,6 +330,7 @@ export const featuresWithCardsComponent = ({
                   id="features-with-card-sub-heading"
                   style={getElementStyle("features-with-card-sub-heading")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
+                  data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
@@ -326,6 +340,7 @@ export const featuresWithCardsComponent = ({
                   id="features-with-card-sub-paragraph-3"
                   style={getElementStyle("features-with-card-sub-paragraph-3")}
                   className={`text-[#231e41] `}
+                  data-text="Type a paragraph"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
@@ -342,6 +357,7 @@ export const featuresWithCardsComponent = ({
               id="features-with-card-button-text"
               style={getElementStyle("features-with-card-button-text")}
               className=""
+              data-text="Button text"
               contentEditable={false}
               onClick={handleTextClick}
             >
@@ -383,6 +399,7 @@ export const featuresWithCardsComponent = ({
               id="features-with-card-heading"
               style={getElementStyle("features-with-card-heading")}
               className={`text-[#231e41] text-3xl font-bold mb-1 `}
+              data-text="Heading"
               contentEditable={false}
               onClick={handleTextClick}
             >
@@ -392,6 +409,7 @@ export const featuresWithCardsComponent = ({
               id="features-with-card-paragraph"
               style={getElementStyle("features-with-card-paragraph")}
               className={`text-[#231e41] `}
+              data-text="Type a paragraph"
               contentEditable={false}
               onClick={handleTextClick}
             >
@@ -417,6 +435,7 @@ export const featuresWithCardsComponent = ({
                   id="features-with-card-sub-heading"
                   style={getElementStyle("features-with-card-sub-heading")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
+                  data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
@@ -426,6 +445,7 @@ export const featuresWithCardsComponent = ({
                   id="features-with-card-sub-paragraph"
                   style={getElementStyle("features-with-card-sub-paragraph")}
                   className={`text-[#231e41] `}
+                  data-text="Type a paragraph"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
@@ -454,6 +474,7 @@ export const featuresWithCardsComponent = ({
               id="features-with-card-button-text"
               style={getElementStyle("features-with-card-button-text")}
               className=""
+              data-text="Button text"
               contentEditable={false}
               onClick={handleTextClick}
             >
@@ -495,6 +516,7 @@ export const featuresWithCardsComponent = ({
               id="features-with-card-heading"
               style={getElementStyle("features-with-card-heading")}
               className={`text-[#231e41] text-3xl font-bold mb-1 `}
+              data-text="Heading"
               contentEditable={false}
               onClick={handleTextClick}
             >
@@ -504,6 +526,7 @@ export const featuresWithCardsComponent = ({
               id="features-with-card-paragraph"
               style={getElementStyle("features-with-card-paragraph")}
               className={`text-[#231e41] `}
+              data-text="Type a paragraph"
               contentEditable={false}
               onClick={handleTextClick}
             >
@@ -529,6 +552,7 @@ export const featuresWithCardsComponent = ({
                   id="features-with-card-sub-heading"
                   style={getElementStyle("features-with-card-sub-heading")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
+                  data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
@@ -538,6 +562,7 @@ export const featuresWithCardsComponent = ({
                   id="features-with-card-sub-paragraph"
                   style={getElementStyle("features-with-card-sub-paragraph")}
                   className={`text-[#231e41] `}
+                  data-text="Type a paragraph"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
@@ -566,6 +591,7 @@ export const featuresWithCardsComponent = ({
               id="features-with-card-button-text"
               style={getElementStyle("features-with-card-button-text")}
               className=""
+              data-text="Button text"
               contentEditable={false}
               onClick={handleTextClick}
             >
@@ -607,6 +633,7 @@ export const featuresWithCardsComponent = ({
               id="features-with-card-heading"
               style={getElementStyle("features-with-card-heading")}
               className={`text-[#231e41] text-3xl font-bold mb-1 `}
+              data-text="Heading"
               contentEditable={false}
               onClick={handleTextClick}
             >
@@ -616,6 +643,7 @@ export const featuresWithCardsComponent = ({
               id="features-with-card-paragraph"
               style={getElementStyle("features-with-card-paragraph")}
               className={`text-[#231e41] max-w-[500px] `}
+              data-text="Type a paragraph"
               contentEditable={false}
               onClick={handleTextClick}
             >
@@ -641,6 +669,7 @@ export const featuresWithCardsComponent = ({
                   id="features-with-card-sub-heading"
                   style={getElementStyle("features-with-card-sub-heading")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
+                  data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
@@ -650,6 +679,7 @@ export const featuresWithCardsComponent = ({
                   id="features-with-card-sub-paragraph"
                   style={getElementStyle("features-with-card-sub-paragraph")}
                   className={`text-[#231e41] `}
+                  data-text="Type a paragraph"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
@@ -676,6 +706,7 @@ export const featuresWithCardsComponent = ({
                   id="features-with-card-sub-heading"
                   style={getElementStyle("features-with-card-sub-heading")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
+                  data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
@@ -685,6 +716,7 @@ export const featuresWithCardsComponent = ({
                   id="features-with-card-sub-paragraph-2"
                   style={getElementStyle("features-with-card-sub-paragraph-2")}
                   className={`text-[#231e41] `}
+                  data-text="Type a paragraph"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
@@ -711,6 +743,7 @@ export const featuresWithCardsComponent = ({
                   id="features-with-card-sub-heading"
                   style={getElementStyle("features-with-card-sub-heading")}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
+                  data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
@@ -720,6 +753,7 @@ export const featuresWithCardsComponent = ({
                   id="features-with-card-sub-paragraph-3"
                   style={getElementStyle("features-with-card-sub-paragraph-3")}
                   className={`text-[#231e41] `}
+                  data-text="Type a paragraph"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
@@ -736,6 +770,7 @@ export const featuresWithCardsComponent = ({
               id="features-with-card-button-text"
               style={getElementStyle("features-with-card-button-text")}
               className=""
+              data-text="Button text"
               contentEditable={false}
               onClick={handleTextClick}
             >
