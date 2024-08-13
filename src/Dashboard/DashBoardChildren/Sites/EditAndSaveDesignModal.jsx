@@ -6,18 +6,16 @@ import { DashContext } from "../../DashboardChecker/DashboardContext";
 import reactElementToJSXString from "react-element-to-jsx-string";
 
 const EditAndSaveDesignModal = () => {
-  const { setDisplayEditModal, newElementRef } = useContext(DashContext);
+  const { setDisplayEditModal, newElementRef, elementsContainerRef } =
+    useContext(DashContext);
   const { elements } = ElementArray();
 
   const handleElementClick = () => {
     setDisplayEditModal(true);
-  };
-
-  const footerElement = elements.find((el) => el.type === "footer");
-  const otherElements = elements.filter((el) => el.type !== "footer");
+  };;
 
   return (
-    <div className="">
+    <div ref={elementsContainerRef} className="overflow-y-auto h-full">
       {elements.map((item, idx) => (
         <div
           ref={newElementRef}
@@ -26,7 +24,7 @@ const EditAndSaveDesignModal = () => {
             handleElementClick(idx);
             console.log(
               reactElementToJSXString(item.element, {
-                showFunctions: false,
+                showFunctions: true,
               })
             );
           }}

@@ -15,6 +15,7 @@ const MainEditComponent = () => {
     setSectionModal,
     setActiveSection,
     setCurrentSection,
+    setHeroIndex,
   } = useContext(DashContext);
 
   return (

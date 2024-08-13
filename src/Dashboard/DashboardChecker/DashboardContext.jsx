@@ -96,6 +96,7 @@ export const DashboardProvider = ({ children }) => {
     Team: false,
   });
   const newElementRef = useRef(null);
+  const elementsContainerRef = useRef(null);
 
   useEffect(() => {
     if (!shuffled && webContentObject.randomButtonText) {
@@ -460,11 +461,37 @@ export const DashboardProvider = ({ children }) => {
      });
 
      // Schedule scrolling after the state has been updated
-     setTimeout(() => {
-       if (newElementRef.current) {
-         newElementRef.current.scrollIntoView({ behavior: "smooth" });
-       }
-     }, 0);
+      // setTimeout(() => {
+      //   if (newElementRef.current && elementsContainerRef.current) {
+      //     const container = elementsContainerRef.current;
+      //     const element = newElementRef.current;
+      //     const elementTop = element.offsetTop;
+      //     const containerScrollTop = container.scrollTop;
+      //     const containerHeight = container.clientHeight;
+
+      //     if (
+      //       elementTop < containerScrollTop ||
+      //       elementTop > containerScrollTop + containerHeight
+      //     ) {
+      //       container.scrollTop =
+      //         elementTop - containerHeight / 2 + element.clientHeight / 2;
+      //     }
+      //   }
+      // }, 0);
+
+      setTimeout(() => {
+        if (newElementRef.current && elementsContainerRef.current) {
+          const container = elementsContainerRef.current;
+          const element = newElementRef.current;
+          const elementTop = element.offsetTop;
+
+          // Scroll to the exact top of the new element
+          container.scrollTo({
+            top: showDesignModal === false ? elementTop : elementTop - 700,
+            behavior: "smooth",
+          });
+        }
+      }, 0);
    };
 
   return (
@@ -576,6 +603,7 @@ export const DashboardProvider = ({ children }) => {
         activeSection,
         setActiveSection,
         newElementRef,
+        elementsContainerRef,
       }}
     >
       {children}
