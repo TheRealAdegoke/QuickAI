@@ -151,7 +151,7 @@ export const DashboardProvider = ({ children }) => {
 
       setText((text) => ({
         ...text,
-        heroHeaderText: webContentObject.heroHeader,
+        heroHeaderText: Array(100).fill(webContentObject.heroHeader),
         description: webContentObject.heroDescription,
         images: webContentObject.imageUrls || [],
         webLogo: webContentObject.logo,
@@ -227,6 +227,7 @@ export const DashboardProvider = ({ children }) => {
           getElementStyle,
           handleDivClick,
           backGroundStyle,
+          clickedText,
         }).length
     );
     const randomButtonsIndex = Math.floor(
@@ -395,8 +396,21 @@ export const DashboardProvider = ({ children }) => {
     const newText = event.target.value;
     setClickedText(newText);
     if (selectedElement) {
-      selectedElement.innerText = newText;
+      // selectedElement.innerText = newText;
+      const sectionIndex =
+        parseInt(selectedElement.closest("section").id.split("-").pop()) - 1;
+      setText((prevText) => ({
+        ...prevText,
+        heroHeaderText: prevText.heroHeaderText.map((text, index) =>
+          index === sectionIndex ? newText : text
+        ),
+      }));
     }
+
+    setText((prevText) => ({
+      ...prevText,
+      [selectedElement]: newText,
+    }));
   };
 
   const handleColorClick = (color) => {
@@ -459,25 +473,6 @@ export const DashboardProvider = ({ children }) => {
          return newElements;
        }
      });
-
-     // Schedule scrolling after the state has been updated
-      // setTimeout(() => {
-      //   if (newElementRef.current && elementsContainerRef.current) {
-      //     const container = elementsContainerRef.current;
-      //     const element = newElementRef.current;
-      //     const elementTop = element.offsetTop;
-      //     const containerScrollTop = container.scrollTop;
-      //     const containerHeight = container.clientHeight;
-
-      //     if (
-      //       elementTop < containerScrollTop ||
-      //       elementTop > containerScrollTop + containerHeight
-      //     ) {
-      //       container.scrollTop =
-      //         elementTop - containerHeight / 2 + element.clientHeight / 2;
-      //     }
-      //   }
-      // }, 0);
 
       setTimeout(() => {
         if (newElementRef.current && elementsContainerRef.current) {

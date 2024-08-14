@@ -12,7 +12,7 @@ const EditAndSaveDesignModal = () => {
 
   const handleElementClick = () => {
     setDisplayEditModal(true);
-  };;
+  };
 
   return (
     <div ref={elementsContainerRef} className="overflow-y-auto h-full">
