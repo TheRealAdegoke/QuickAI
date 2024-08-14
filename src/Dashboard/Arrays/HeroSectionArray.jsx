@@ -11,6 +11,7 @@ export const heroComponents = ({
   handleTextClick,
   getStyle,
   getElementStyle,
+  index,
 }) => {
   const buttonElement = WebButtonsArray({ text, buttonIndex, handleTextClick })[
     buttonIndex
@@ -129,14 +130,14 @@ export const heroComponents = ({
           } text-[rgb(33,37,41)] w-[40%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
         >
           <h1
-            id="hero-heading"
-            style={getElementStyle("hero-heading")}
+            id={`hero-heading-${index + 1}`}
+            style={getElementStyle(`hero-heading-${index + 1}`)}
             className={`font-bold xl:text-5xl text-3xl mb-4 `}
             data-text="Heading"
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.heroHeaderText}
+            {text.heroHeaderText[index]}
           </h1>
           <p
             id="hero-paragraph"
@@ -479,7 +480,7 @@ export const heroComponents = ({
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.heroHeaderText}
+            {text.heroHeaderText[index]}
           </h1>
           <p
             id="hero-paragraph"

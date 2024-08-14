@@ -77,6 +77,7 @@ const ElementArray = () => {
       handleTextAlignmentClick,
       getStyle,
       getElementStyle,
+      index
     })[index],
   });
 
