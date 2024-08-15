@@ -8,7 +8,7 @@ import TeamImage5 from "../../../../assets/TeamImage/TeamImage5.webp";
 import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
 export const TeamImages = () => {
-  const { setTeamIndex, setSectionModal } = useContext(DashContext);
+  const { setSectionModal, addElement } = useContext(DashContext);
   const images = [
     {
       index: 0,
@@ -45,8 +45,8 @@ export const TeamImages = () => {
               key={idx}
               className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] h-fit cursor-pointer"
               onClick={() => {
-                setTeamIndex(item.index);
                 setSectionModal(false);
+                addElement("team", item.index);
               }}
             >
               <img src={item.image} alt="" className="rounded-[8px] w-full" />

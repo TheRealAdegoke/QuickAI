@@ -10,7 +10,8 @@ import TestimonialImage7 from "../../../../assets/TestimonialImage/TestimonialIm
 import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
 export const TestimonialImages = () => {
-  const { setTestimonialIndex, setSectionModal } = useContext(DashContext);
+  const { setSectionModal, addElement } =
+    useContext(DashContext);
   const images = [
     {
       index: 0,
@@ -55,8 +56,8 @@ export const TestimonialImages = () => {
               key={idx}
               className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] cursor-pointer h-fit"
               onClick={() => {
-                setTestimonialIndex(item.index);
                 setSectionModal(false);
+                addElement("testimonial", item.index);
               }}
             >
               <img src={item.image} alt="" className="rounded-[8px] w-full" />

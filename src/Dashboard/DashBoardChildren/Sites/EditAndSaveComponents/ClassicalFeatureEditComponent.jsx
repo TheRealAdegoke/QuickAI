@@ -11,7 +11,8 @@ import ClassicFeatureImage8 from "../../../../assets/ClassicFeatureImage/Classic
 import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
 export const ClassicalFeaturesImages = () => {
-  const { setFeaturesIndex, setSectionModal } = useContext(DashContext);
+  const { setFeaturesIndex, setSectionModal, addElement } =
+    useContext(DashContext);
   const images = [
     {
       index: 0,
@@ -62,6 +63,7 @@ export const ClassicalFeaturesImages = () => {
               onClick={() => {
                 setFeaturesIndex(item.index);
                 setSectionModal(false);
+                addElement("classicFeatures", item.index);
               }}
             >
               <img src={item.image} alt="" className="rounded-[8px] w-full" />

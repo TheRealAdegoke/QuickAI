@@ -7,6 +7,7 @@ export const featuresComponents = ({
   handleTextClick,
   getStyle,
   getElementStyle,
+  index,
 }) => {
   let classNames = "";
 
