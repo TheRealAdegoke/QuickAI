@@ -9,6 +9,7 @@ export const featuresWithCardsComponent = ({
   handleTextClick,
   getStyle,
   getElementStyle,
+  index,
 }) => {
   let classNames = "";
 

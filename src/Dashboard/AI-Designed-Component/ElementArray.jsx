@@ -43,6 +43,7 @@ const ElementArray = () => {
     elements,
     getStyle,
     getElementStyle,
+    updateText,
   } = useContext(DashContext);
   const location = useLocation();
 
@@ -77,14 +78,65 @@ const ElementArray = () => {
       handleTextAlignmentClick,
       getStyle,
       getElementStyle,
-      index
+      index,
+      updateText,
     })[index],
   });
 
-  const renderedElements = elements.map(renderElement);
+  const renderedElements = elements
+    .filter(el => el.type !== "header") 
+    .map(renderElement);
 
   return {
-    elements: renderedElements,
+    elements: [
+      {
+        element: componentMap.header({
+          index: navIndex,
+          text,
+          buttonIndex,
+          isMobile,
+          backgroundStyle,
+          handleFocus,
+          handleBlur,
+          location,
+          handleDivClick,
+          handleTextClick,
+          handleTextareaChange,
+          handleColorClick,
+          handleFontSizeClick,
+          handleFontWeightClick,
+          handleFontStyleClick,
+          handleFontFamilyClick,
+          handleTextAlignmentClick,
+          getStyle,
+          getElementStyle,
+        })[navIndex],
+      },
+      ...renderedElements,
+      // {
+      //   element: componentMap.footer({
+      //     index: footerIndex,
+      //     text,
+      //     buttonIndex,
+      //     isMobile,
+      //     backgroundStyle,
+      //     handleFocus,
+      //     handleBlur,
+      //     location,
+      //     handleDivClick,
+      //     handleTextClick,
+      //     handleTextareaChange,
+      //     handleColorClick,
+      //     handleFontSizeClick,
+      //     handleFontWeightClick,
+      //     handleFontStyleClick,
+      //     handleFontFamilyClick,
+      //     handleTextAlignmentClick,
+      //     getStyle,
+      //     getElementStyle,
+      //   })[footerIndex],
+      // },
+    ],
     heroIndex,
     navIndex,
     featuresWithCardIndex,

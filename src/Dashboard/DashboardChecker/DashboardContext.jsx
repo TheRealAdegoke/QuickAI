@@ -152,7 +152,7 @@ export const DashboardProvider = ({ children }) => {
       setText((text) => ({
         ...text,
         heroHeaderText: Array(100).fill(webContentObject.heroHeader),
-        description: webContentObject.heroDescription,
+        description: Array(100).fill(webContentObject.heroDescription),
         images: webContentObject.imageUrls || [],
         webLogo: webContentObject.logo,
         buttonTexts: shuffledButtonTexts,
@@ -287,7 +287,7 @@ export const DashboardProvider = ({ children }) => {
       { type: "footer", index: randomFooterIndex },
     ];
 
-    // setNavIndex(randomNavIndex);
+    setNavIndex(randomNavIndex);
     // setHeroIndex(randomHeroIndex);
     // setButtonIndex(randomButtonsIndex);
     // setFeaturesWithCardIndex(randomfeaturesWithCardIndex);
@@ -296,7 +296,7 @@ export const DashboardProvider = ({ children }) => {
     // setFaqIndex(randomFaqIndex);
     // setTeamIndex(randomTeamIndex);
     // setContactIndex(randomContactIndex);
-    // setFooterIndex(randomFooterIndex);
+    setFooterIndex(randomFooterIndex);
     setGeneratedElements(newGeneratedElements);
     setElements(newGeneratedElements);
     setShowDesignModal(true);
@@ -394,15 +394,21 @@ export const DashboardProvider = ({ children }) => {
 
   const handleTextareaChange = (event) => {
     const newText = event.target.value;
+    const newText2 = event.target.value;
     setClickedText(newText);
     if (selectedElement) {
       // selectedElement.innerText = newText;
       const sectionIndex =
         parseInt(selectedElement.closest("section").id.split("-").pop()) - 1;
+        const sectionIndex2 =
+          parseInt(selectedElement.closest("section").id.split("-").pop()) - 1;
       setText((prevText) => ({
         ...prevText,
         heroHeaderText: prevText.heroHeaderText.map((text, index) =>
           index === sectionIndex ? newText : text
+        ),
+        description: prevText.description.map((text, index) =>
+          index === sectionIndex2 ? newText2 : text
         ),
       }));
     }
@@ -458,6 +464,12 @@ export const DashboardProvider = ({ children }) => {
 
    const addElement = (componentType, index) => {
      setElements((prevElements) => {
+      if (componentType === "footer") {
+        return prevElements.map((el) =>
+          el.type === "footer" ? { ...el, index } : el
+        );
+      }
+
        const footerIndex = prevElements.findIndex((el) => el.type === "footer");
        const newElement = {
          type: componentType,
@@ -474,19 +486,19 @@ export const DashboardProvider = ({ children }) => {
        }
      });
 
-      setTimeout(() => {
-        if (newElementRef.current && elementsContainerRef.current) {
-          const container = elementsContainerRef.current;
-          const element = newElementRef.current;
-          const elementTop = element.offsetTop;
+     setTimeout(() => {
+       if (newElementRef.current && elementsContainerRef.current) {
+         const container = elementsContainerRef.current;
+         const element = newElementRef.current;
+         const elementTop = element.offsetTop;
 
-          // Scroll to the exact top of the new element
-          container.scrollTo({
-            top: showDesignModal === false ? elementTop : elementTop - 700,
-            behavior: "smooth",
-          });
-        }
-      }, 0);
+         // Scroll to the exact top of the new element
+         container.scrollTo({
+           top: showDesignModal === false ? elementTop : elementTop - 700,
+           behavior: "smooth",
+         });
+       }
+     }, 0);
    };
 
   return (

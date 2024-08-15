@@ -10,7 +10,7 @@ import HeroImage7 from "../../../../assets/HeroImages/HeroImage7.webp";
 import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
 export const HeroImages = () => {
-  const { setHeroIndex, setSectionModal, addElement } =
+  const { setSectionModal, addElement } =
     useContext(DashContext);
 
   const images = [
@@ -57,7 +57,6 @@ export const HeroImages = () => {
               key={idx}
               className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] h-fit cursor-pointer"
               onClick={() => {
-                setHeroIndex(item.index);
                 setSectionModal(false);
                 addElement("hero", item.index);
               }}

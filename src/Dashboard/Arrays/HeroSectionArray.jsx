@@ -30,21 +30,21 @@ export const heroComponents = ({
   return [
     <section
       onClick={handleDivClick}
-      id="hero-section-1"
-      style={getStyle("hero-section-1")}
+      id={`hero-section-${index + 1}`}
+      style={getStyle(`hero-section-${index + 1}`)}
     >
       <div className="py-10 px-5">
         <div className="flex justify-center gap-10 max-lg:flex-col">
           <div className={`${isMobile ? "hidden" : ""} max-lg:hidden w-[50%]`}>
             <h1
-              id="hero-heading"
-              style={getElementStyle("hero-heading")}
+              id={`hero-heading-${index + 1}`}
+              style={getElementStyle(`hero-heading-${index + 1}`)}
               className={`text-6xl font-bold max-w-[500px] `}
               data-text="Heading"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {text.heroHeaderText}
+              {text.heroHeaderText[index]}
             </h1>
 
             <div className="w-[85%] grid grid-cols-3 gap-4 my-10">
@@ -98,8 +98,8 @@ export const heroComponents = ({
               } block max-lg:w-[95%] w-full h-[600px] max-lg:h-[400px] max-lg:max-w-[800px]`}
             />
             <p
-              id="hero-paragraph"
-              style={getElementStyle("hero-paragraph")}
+              id={`hero-paragraph-${index + 1}`}
+              style={getElementStyle(`hero-paragraph-${index + 1}`)}
               className={`${
                 isMobile ? "max-w-[400px]" : ""
               } my-5 max-lg:max-w-[400px]`}
@@ -107,7 +107,7 @@ export const heroComponents = ({
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {text.description}
+              {text.description[index]}
             </p>
             {buttonIndex !== undefined && buttonElement}
           </div>
@@ -116,8 +116,8 @@ export const heroComponents = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="hero-section-2"
-      style={getStyle("hero-section-2")}
+      id={`hero-section-${index + 1}`}
+      style={getStyle(`hero-section-${index + 1}`)}
     >
       <div
         className={`${
@@ -140,14 +140,14 @@ export const heroComponents = ({
             {text.heroHeaderText[index]}
           </h1>
           <p
-            id="hero-paragraph"
-            style={getElementStyle("hero-paragraph")}
+            id={`hero-paragraph-${index + 1}`}
+            style={getElementStyle(`hero-paragraph-${index + 1}`)}
             className={`font-medium `}
             data-text="Type a paragraph"
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.description}
+            {text.description[index]}
           </p>
           {buttonIndex !== undefined && buttonElement}
         </div>
@@ -194,8 +194,8 @@ export const heroComponents = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="hero-section-3"
-      style={getStyle("hero-section-3")}
+      id={`hero-section-${index + 1}`}
+      style={getStyle(`hero-section-${index + 1}`)}
     >
       <div
         className={`${
@@ -208,24 +208,24 @@ export const heroComponents = ({
           } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
         >
           <h1
-            id="hero-heading"
-            style={getElementStyle("hero-heading")}
+            id={`hero-heading-${index + 1}`}
+            style={getElementStyle(`hero-heading-${index + 1}`)}
             className={`font-bold xl:text-5xl text-3xl mb-4 `}
             data-text="Heading"
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.heroHeaderText}
+            {text.heroHeaderText[index]}
           </h1>
           <p
-            id="hero-paragraph"
-            style={getElementStyle("hero-paragraph")}
+            id={`hero-paragraph-${index + 1}`}
+            style={getElementStyle(`hero-paragraph-${index + 1}`)}
             className={`font-medium `}
             data-text="Type a paragraph"
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.description}
+            {text.description[index]}
           </p>
           {buttonIndex !== undefined && buttonElement}
         </div>
@@ -245,8 +245,8 @@ export const heroComponents = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="hero-section-4"
-      style={getStyle("hero-section-4")}
+      id={`hero-section-${index + 1}`}
+      style={getStyle(`hero-section-${index + 1}`)}
     >
       <div
         className={`${
@@ -259,14 +259,14 @@ export const heroComponents = ({
           } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
         >
           <h1
-            id="hero-heading"
-            style={getElementStyle("hero-heading")}
+            id={`hero-heading-${index + 1}`}
+            style={getElementStyle(`hero-heading-${index + 1}`)}
             className={`font-bold xl:text-5xl text-3xl mb-4 `}
             data-text="Heading"
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.heroHeaderText}
+            {text.heroHeaderText[index]}
           </h1>
           <p
             id="hero-paragraph"
@@ -296,8 +296,8 @@ export const heroComponents = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="hero-section-5"
-      style={getStyle("hero-section-5")}
+      id={`hero-section-${index + 1}`}
+      style={getStyle(`hero-section-${index + 1}`)}
     >
       <div
         className={`${
@@ -310,14 +310,14 @@ export const heroComponents = ({
           } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
         >
           <h1
-            id="hero-heading"
-            style={getElementStyle("hero-heading")}
+            id={`hero-heading-${index + 1}`}
+            style={getElementStyle(`hero-heading-${index + 1}`)}
             className={`font-bold xl:text-5xl text-3xl mb-4 `}
             data-text="Heading"
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.heroHeaderText}
+            {text.heroHeaderText[index]}
           </h1>
           <p
             id="hero-paragraph"
@@ -347,8 +347,8 @@ export const heroComponents = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="hero-section-6"
-      style={getStyle("hero-section-6")}
+      id={`hero-section-${index + 1}`}
+      style={getStyle(`hero-section-${index + 1}`)}
     >
       <div
         className={`${
@@ -361,14 +361,14 @@ export const heroComponents = ({
           } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
         >
           <h1
-            id="hero-heading"
-            style={getElementStyle("hero-heading")}
+            id={`hero-heading-${index + 1}`}
+            style={getElementStyle(`hero-heading-${index + 1}`)}
             className={`font-bold xl:text-5xl text-3xl mb-4 `}
             data-text="Heading"
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.heroHeaderText}
+            {text.heroHeaderText[index]}
           </h1>
           <p
             id="hero-paragraph"
@@ -398,8 +398,8 @@ export const heroComponents = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="hero-section-7"
-      style={getStyle("hero-section-7")}
+      id={`hero-section-${index + 1}`}
+      style={getStyle(`hero-section-${index + 1}`)}
     >
       <div
         className={`${
@@ -422,14 +422,14 @@ export const heroComponents = ({
           } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16 max-lg:my-10`}
         >
           <h1
-            id="hero-heading"
-            style={getElementStyle("hero-heading")}
+            id={`hero-heading-${index + 1}`}
+            style={getElementStyle(`hero-heading-${index + 1}`)}
             className={`font-bold xl:text-4xl xl:text-center text-3xl mb-4 `}
             data-text="Heading"
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.heroHeaderText}
+            {text.heroHeaderText[index]}
           </h1>
           <p
             id="hero-paragraph"
@@ -459,8 +459,8 @@ export const heroComponents = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="hero-section-8"
-      style={getStyle("hero-section-8")}
+      id={`hero-section-${index + 1}`}
+      style={getStyle(`hero-section-${index + 1}`)}
     >
       <div
         className={`${
@@ -471,8 +471,8 @@ export const heroComponents = ({
           className={`${isMobile ? "w-full" : ""} mb-10 w-[50%] max-lg:w-full`}
         >
           <h1
-            id="hero-heading"
-            style={getElementStyle("hero-heading")}
+            id={`hero-heading-${index + 1}`}
+            style={getElementStyle(`hero-heading-${index + 1}`)}
             className={`${
               isMobile ? "text-center mx-auto" : ""
             } text-[#231e41] max-lg:text-center text-6xl max-sm:text-5xl max-w-[650px] max-sm:max-w-[400px] font-semibold mb-6 max-lg:mx-auto `}

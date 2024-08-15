@@ -6,7 +6,7 @@ import FAQImage3 from "../../../../assets/FAQImage/FAQImage3.webp";
 import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
 export const FAQImages = () => {
-  const { setFaqIndex, setSectionModal } = useContext(DashContext);
+  const { setFaqIndex, setSectionModal, addElement } = useContext(DashContext);
   const images = [
     {
       index: 0,
@@ -37,6 +37,7 @@ export const FAQImages = () => {
               onClick={() => {
                 setFaqIndex(item.index);
                 setSectionModal(false);
+                addElement("faq", item.index);
               }}
             >
               <img src={item.image} alt="" className="rounded-[8px] w-full" />

@@ -5,7 +5,14 @@ import NavImage2 from "../../../../assets/NavImage/NavImage2.webp";
 import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
 export const HeaderImages = () => {
-  const { setNavIndex, setSectionModal } = useContext(DashContext);
+  const {
+    setNavIndex,
+    setSectionModal,
+    elements,
+    setElements,
+    setFooterIndex,
+    addElement,
+  } = useContext(DashContext);
   const images = [
     {
       index: 0,
@@ -21,6 +28,24 @@ export const HeaderImages = () => {
     },
   ];
 
+  // const updateNavIndex = (newIndex) => {
+  //   setNavIndex(newIndex);
+  //   setElements((prevElements) => {
+  //     const newElements = [...prevElements];
+  //     const headerIndex = newElements.findIndex((el) => el.type === "header");
+  //     if (headerIndex !== -1) {
+  //       newElements[headerIndex] = {
+  //         ...newElements[headerIndex],
+  //         index: newIndex,
+  //       };
+  //     } else {
+  //       newElements.unshift({ type: "header", index: newIndex });
+  //     }
+  //     return newElements;
+  //   });
+  // };
+
+
   return (
     <>
       {images.map(
@@ -30,8 +55,9 @@ export const HeaderImages = () => {
               key={idx}
               className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-full h-fit cursor-pointer"
               onClick={() => {
-                setNavIndex(item.index);
                 setSectionModal(false);
+                setNavIndex(item.index);
+                addElement("footer", item.index);;
               }}
             >
               <img
