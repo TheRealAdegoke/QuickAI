@@ -10,6 +10,7 @@ export const featuresWithCardsComponent = ({
   getStyle,
   getElementStyle,
   index,
+  isEdited,
 }) => {
   let classNames = "";
 
@@ -39,25 +40,39 @@ export const featuresWithCardsComponent = ({
         >
           <div className="">
             <h1
-              id="features-with-card-heading"
-              style={getElementStyle("features-with-card-heading")}
+              id={`features-with-card-heading-${index + 1}`}
+              style={getElementStyle(`features-with-card-heading-${index + 1}`)}
               className={`text-[#231e41] text-3xl font-bold mb-1 `}
               data-text="Heading"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {text.featureHeader[0]}
+              {isEdited[`features-with-card-heading-${index + 1}`]
+                ? document.getElementById(
+                    `features-with-card-heading-${index + 1}`
+                  )?.innerText
+                : document.getElementById(
+                    `features-with-card-heading-${index + 1}`
+                  )?.innerText || text.featureHeader[0]}
             </h1>
             <p
-              id="features-with-card-paragraph"
-              style={getElementStyle("features-with-card-paragraph")}
+              id={`features-with-card-paragraph-${index + 1}`}
+              style={getElementStyle(
+                `features-with-card-paragraph-${index + 1}`
+              )}
               className={`text-[#231e41] max-w-[500px] `}
               data-text="Type a paragraph"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              Here's some more information about this amazing feature. You can
-              use basic formatting and also multiple paragraphs.
+              {isEdited[`features-with-card-paragraph-${index + 1}`]
+                ? document.getElementById(
+                    `features-with-card-paragraph-${index + 1}`
+                  )?.innerText
+                : document.getElementById(
+                    `features-with-card-paragraph-${index + 1}`
+                  )?.innerText ||
+                  "Here's some more information about this amazing feature. You can use basic formatting and also multiple paragraphs."}
             </p>
           </div>
 
@@ -75,14 +90,22 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id="features-with-card-sub-heading"
-                  style={getElementStyle("features-with-card-sub-heading")}
+                  id={`features-with-card-sub-heading-${index + 1}`}
+                  style={getElementStyle(
+                    `features-with-card-sub-heading-${index + 1}`
+                  )}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
-                  Item One
+                  {isEdited[`features-with-card-sub-heading-${index + 1}`]
+                    ? document.getElementById(
+                        `features-with-card-sub-heading-${index + 1}`
+                      )?.innerText
+                    : document.getElementById(
+                        `features-with-card-sub-heading-${index + 1}`
+                      )?.innerText || "Item One"}
                 </h2>
                 <p
                   id="features-with-card-sub-paragraph"
@@ -112,14 +135,20 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id="features-with-card-sub-heading"
-                  style={getElementStyle("features-with-card-sub-heading")}
+                  id={`features-with-card-sub-heading-${index + 1}`}
+                  style={getElementStyle(
+                    `features-with-card-sub-heading-${index + 1}`
+                  )}
                   className={`capitalize text-xl font-semibold text-[#231e41] `}
                   data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
-                  Item two
+                  {isEdited[`features-with-card-sub-heading-${index + 1}`]
+                    ? document.getElementById(`features-with-card-sub-heading-${index + 1}`)
+                        ?.innerText
+                    : document.getElementById(`features-with-card-sub-heading-${index + 1}`)
+                        ?.innerText || "Item Two"}
                 </h2>
                 <p
                   id="features-with-card-sub-paragraph-2"
@@ -218,25 +247,39 @@ export const featuresWithCardsComponent = ({
         >
           <div className={`${isMobile ? "mt-4" : ""} max-lg:mt-4`}>
             <h1
-              id="features-with-card-heading"
-              style={getElementStyle("features-with-card-heading")}
+              id={`features-with-card-heading-${index + 1}`}
+              style={getElementStyle(`features-with-card-heading-${index + 1}`)}
               className={`text-[#231e41] text-3xl font-bold mb-1 `}
               data-text="Heading"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {text.featureHeader[0]}
+              {isEdited[`features-with-card-heading-${index + 1}`]
+                ? document.getElementById(
+                    `features-with-card-heading-${index + 1}`
+                  )?.innerText
+                : document.getElementById(
+                    `features-with-card-heading-${index + 1}`
+                  )?.innerText || text.featureHeader[0]}
             </h1>
             <p
-              id="features-with-card-paragraph"
-              style={getElementStyle("features-with-card-paragraph")}
+              id={`features-with-card-paragraph-${index + 1}`}
+              style={getElementStyle(
+                `features-with-card-paragraph-${index + 1}`
+              )}
               className={`text-[#231e41] `}
               data-text="Type a paragraph"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              Here's some more information about this amazing feature. You can
-              use basic formatting and also multiple paragraphs.
+              {isEdited[`features-with-card-paragraph-${index + 1}`]
+                ? document.getElementById(
+                    `features-with-card-paragraph-${index + 1}`
+                  )?.innerText
+                : document.getElementById(
+                    `features-with-card-paragraph-${index + 1}`
+                  )?.innerText ||
+                  "Here's some more information about this amazing feature. You can use basic formatting and also multiple paragraphs."}
             </p>
           </div>
 

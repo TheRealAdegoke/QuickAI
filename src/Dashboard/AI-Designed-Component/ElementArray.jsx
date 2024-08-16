@@ -44,6 +44,10 @@ const ElementArray = () => {
     getStyle,
     getElementStyle,
     updateText,
+    selectedElement,
+    clickedText,
+    texts,
+    isEdited,
   } = useContext(DashContext);
   const location = useLocation();
 
@@ -80,6 +84,10 @@ const ElementArray = () => {
       getElementStyle,
       index,
       updateText,
+      selectedElement,
+      clickedText,
+      texts,
+      isEdited,
     })[index],
   });
 
