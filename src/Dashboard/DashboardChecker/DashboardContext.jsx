@@ -61,7 +61,7 @@ export const DashboardProvider = ({ children }) => {
   const [changeSectionHeaderText, setChangeSectionHeaderText] = useState("");
   const [isPattern, setIsPattern] = useState(true);
   const [isContent, setIsContent] = useState(true);
-  const [clickedIndex, setClickedIndex] = useState(null);
+  const [clickedIndex, setClickedIndex] = useState("");
   const [currentSection, setCurrentSection] = useState(false);
   const buttons = [
     "Header",
@@ -97,6 +97,7 @@ export const DashboardProvider = ({ children }) => {
   });
   const newElementRef = useRef(null);
   const elementsContainerRef = useRef(null);
+  const [isEdited, setIsEdited] = useState({});
 
   useEffect(() => {
     if (!shuffled && webContentObject.randomButtonText) {
@@ -151,8 +152,8 @@ export const DashboardProvider = ({ children }) => {
 
       setText((text) => ({
         ...text,
-        heroHeaderText: Array(100).fill(webContentObject.heroHeader),
-        description: Array(100).fill(webContentObject.heroDescription),
+        heroHeaderText: webContentObject.heroHeader,
+        description: webContentObject.heroDescription,
         images: webContentObject.imageUrls || [],
         webLogo: webContentObject.logo,
         buttonTexts: shuffledButtonTexts,
@@ -390,33 +391,17 @@ export const DashboardProvider = ({ children }) => {
   const handleTextClick = (event) => {
     setClickedText(event.target.innerText);
     setSelectedElement(event.target);
+    setIsEdited((prev) => ({ ...prev, [event.target.id]: true }));
   };
 
   const handleTextareaChange = (event) => {
     const newText = event.target.value;
-    const newText2 = event.target.value;
     setClickedText(newText);
     if (selectedElement) {
-      // selectedElement.innerText = newText;
-      const sectionIndex =
-        parseInt(selectedElement.closest("section").id.split("-").pop()) - 1;
-        const sectionIndex2 =
-          parseInt(selectedElement.closest("section").id.split("-").pop()) - 1;
-      setText((prevText) => ({
-        ...prevText,
-        heroHeaderText: prevText.heroHeaderText.map((text, index) =>
-          index === sectionIndex ? newText : text
-        ),
-        description: prevText.description.map((text, index) =>
-          index === sectionIndex2 ? newText2 : text
-        ),
-      }));
+      selectedElement.innerText = newText;
+      document.getElementById(selectedElement.id).innerText = newText;
+      setIsEdited((prev) => ({ ...prev, [selectedElement.id]: true }));
     }
-
-    setText((prevText) => ({
-      ...prevText,
-      [selectedElement]: newText,
-    }));
   };
 
   const handleColorClick = (color) => {
@@ -611,6 +596,7 @@ export const DashboardProvider = ({ children }) => {
         setActiveSection,
         newElementRef,
         elementsContainerRef,
+        isEdited,
       }}
     >
       {children}

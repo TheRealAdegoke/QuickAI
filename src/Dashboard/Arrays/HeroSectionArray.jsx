@@ -12,6 +12,7 @@ export const heroComponents = ({
   getStyle,
   getElementStyle,
   index,
+  isEdited,
 }) => {
   const buttonElement = WebButtonsArray({ text, buttonIndex, handleTextClick })[
     buttonIndex
@@ -44,7 +45,11 @@ export const heroComponents = ({
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {text.heroHeaderText[index]}
+              {isEdited[`hero-heading-${index + 1}`]
+                ? document.getElementById(`hero-heading-${index + 1}`)
+                    ?.innerText
+                : document.getElementById(`hero-heading-${index + 1}`)
+                    ?.innerText || text.heroHeaderText}
             </h1>
 
             <div className="w-[85%] grid grid-cols-3 gap-4 my-10">
@@ -107,7 +112,11 @@ export const heroComponents = ({
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {text.description[index]}
+              {isEdited[`hero-paragraph-${index + 1}`]
+                ? document.getElementById(`hero-paragraph-${index + 1}`)
+                    ?.innerText
+                : document.getElementById(`hero-paragraph-${index + 1}`)
+                    ?.innerText || text.description}
             </p>
             {buttonIndex !== undefined && buttonElement}
           </div>
@@ -137,7 +146,10 @@ export const heroComponents = ({
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.heroHeaderText[index]}
+            {isEdited[`hero-heading-${index + 1}`]
+              ? document.getElementById(`hero-heading-${index + 1}`)?.innerText
+              : document.getElementById(`hero-heading-${index + 1}`)
+                  ?.innerText || text.heroHeaderText}
           </h1>
           <p
             id={`hero-paragraph-${index + 1}`}
@@ -147,7 +159,11 @@ export const heroComponents = ({
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.description[index]}
+            {isEdited[`hero-paragraph-${index + 1}`]
+              ? document.getElementById(`hero-paragraph-${index + 1}`)
+                  ?.innerText
+              : document.getElementById(`hero-paragraph-${index + 1}`)
+                  ?.innerText || text.description}
           </p>
           {buttonIndex !== undefined && buttonElement}
         </div>
@@ -215,7 +231,10 @@ export const heroComponents = ({
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.heroHeaderText[index]}
+            {isEdited[`hero-heading-${index + 1}`]
+              ? document.getElementById(`hero-heading-${index + 1}`)?.innerText
+              : document.getElementById(`hero-heading-${index + 1}`)
+                  ?.innerText || text.heroHeaderText}
           </h1>
           <p
             id={`hero-paragraph-${index + 1}`}
@@ -225,7 +244,11 @@ export const heroComponents = ({
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.description[index]}
+            {isEdited[`hero-paragraph-${index + 1}`]
+              ? document.getElementById(`hero-paragraph-${index + 1}`)
+                  ?.innerText
+              : document.getElementById(`hero-paragraph-${index + 1}`)
+                  ?.innerText || text.description}
           </p>
           {buttonIndex !== undefined && buttonElement}
         </div>
@@ -266,17 +289,24 @@ export const heroComponents = ({
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.heroHeaderText[index]}
+            {isEdited[`hero-heading-${index + 1}`]
+              ? document.getElementById(`hero-heading-${index + 1}`)?.innerText
+              : document.getElementById(`hero-heading-${index + 1}`)
+                  ?.innerText || text.heroHeaderText}
           </h1>
           <p
-            id="hero-paragraph"
-            style={getElementStyle("hero-paragraph")}
+            id={`hero-paragraph-${index + 1}`}
+            style={getElementStyle(`hero-paragraph-${index + 1}`)}
             className={`font-medium `}
             data-text="Type a paragraph"
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.description}
+            {isEdited[`hero-paragraph-${index + 1}`]
+              ? document.getElementById(`hero-paragraph-${index + 1}`)
+                  ?.innerText
+              : document.getElementById(`hero-paragraph-${index + 1}`)
+                  ?.innerText || text.description}
           </p>
           {buttonIndex !== undefined && buttonElement}
         </div>
@@ -317,17 +347,24 @@ export const heroComponents = ({
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.heroHeaderText[index]}
+            {isEdited[`hero-heading-${index + 1}`]
+              ? document.getElementById(`hero-heading-${index + 1}`)?.innerText
+              : document.getElementById(`hero-heading-${index + 1}`)
+                  ?.innerText || text.heroHeaderText}
           </h1>
           <p
-            id="hero-paragraph"
-            style={getElementStyle("hero-paragraph")}
+            id={`hero-paragraph-${index + 1}`}
+            style={getElementStyle(`hero-paragraph-${index + 1}`)}
             className={`font-medium `}
             data-text="Type a paragraph"
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.description}
+            {isEdited[`hero-paragraph-${index + 1}`]
+              ? document.getElementById(`hero-paragraph-${index + 1}`)
+                  ?.innerText
+              : document.getElementById(`hero-paragraph-${index + 1}`)
+                  ?.innerText || text.description}
           </p>
           {buttonIndex !== undefined && buttonElement}
         </div>
@@ -368,17 +405,24 @@ export const heroComponents = ({
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.heroHeaderText[index]}
+            {isEdited[`hero-heading-${index + 1}`]
+              ? document.getElementById(`hero-heading-${index + 1}`)?.innerText
+              : document.getElementById(`hero-heading-${index + 1}`)
+                  ?.innerText || text.heroHeaderText}
           </h1>
           <p
-            id="hero-paragraph"
-            style={getElementStyle("hero-paragraph")}
+            id={`hero-paragraph-${index + 1}`}
+            style={getElementStyle(`hero-paragraph-${index + 1}`)}
             className={`font-medium `}
             data-text="Type a paragraph"
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.description}
+            {isEdited[`hero-paragraph-${index + 1}`]
+              ? document.getElementById(`hero-paragraph-${index + 1}`)
+                  ?.innerText
+              : document.getElementById(`hero-paragraph-${index + 1}`)
+                  ?.innerText || text.description}
           </p>
           {buttonIndex !== undefined && buttonElement}
         </div>
@@ -429,17 +473,24 @@ export const heroComponents = ({
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.heroHeaderText[index]}
+            {isEdited[`hero-heading-${index + 1}`]
+              ? document.getElementById(`hero-heading-${index + 1}`)?.innerText
+              : document.getElementById(`hero-heading-${index + 1}`)
+                  ?.innerText || text.heroHeaderText}
           </h1>
           <p
-            id="hero-paragraph"
-            style={getElementStyle("hero-paragraph")}
+            id={`hero-paragraph-${index + 1}`}
+            style={getElementStyle(`hero-paragraph-${index + 1}`)}
             className={`font-medium `}
             data-text="Type a paragraph"
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.description}
+            {isEdited[`hero-paragraph-${index + 1}`]
+              ? document.getElementById(`hero-paragraph-${index + 1}`)
+                  ?.innerText
+              : document.getElementById(`hero-paragraph-${index + 1}`)
+                  ?.innerText || text.description}
           </p>
           <div className={`${isMobile ? "mt-10" : ""} max-lg:mt-10 mt-5`}>
             {buttonIndex !== undefined && buttonElement}
@@ -480,11 +531,14 @@ export const heroComponents = ({
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.heroHeaderText[index]}
+            {isEdited[`hero-heading-${index + 1}`]
+              ? document.getElementById(`hero-heading-${index + 1}`)?.innerText
+              : document.getElementById(`hero-heading-${index + 1}`)
+                  ?.innerText || text.heroHeaderText}
           </h1>
           <p
-            id="hero-paragraph"
-            style={getElementStyle("hero-paragraph")}
+            id={`hero-paragraph-${index + 1}`}
+            style={getElementStyle(`hero-paragraph-${index + 1}`)}
             className={`${
               isMobile ? "text-center mx-auto" : ""
             } text-[#231e41] text-sm max-lg:text-center max-w-[350px] max-lg:mx-auto font-medium mb-6 `}
@@ -492,7 +546,11 @@ export const heroComponents = ({
             contentEditable={false}
             onClick={handleTextClick}
           >
-            {text.description}
+            {isEdited[`hero-paragraph-${index + 1}`]
+              ? document.getElementById(`hero-paragraph-${index + 1}`)
+                  ?.innerText
+              : document.getElementById(`hero-paragraph-${index + 1}`)
+                  ?.innerText || text.description}
           </p>
           {buttonIndex !== undefined && buttonElement}
         </div>
