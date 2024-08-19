@@ -90,21 +90,23 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id={`features-with-card-sub-heading-${index + 1}`}
+                  id={`features-with-card-sub-heading-text-1`}
+                  className={`features-with-card-sub-heading-${
+                    index + 1
+                  } capitalize text-xl font-semibold text-[#231e41]`}
                   style={getElementStyle(
                     `features-with-card-sub-heading-${index + 1}`
                   )}
-                  className={`capitalize text-xl font-semibold text-[#231e41] `}
                   data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
-                  {isEdited[`features-with-card-sub-heading-${index + 1}`]
+                  {isEdited[`features-with-card-sub-heading-text-1`]
                     ? document.getElementById(
-                        `features-with-card-sub-heading-${index + 1}`
+                        `features-with-card-sub-heading-text-1`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-heading-${index + 1}`
+                        `features-with-card-sub-heading-text-1`
                       )?.innerText || "Item One"}
                 </h2>
                 <p
@@ -135,20 +137,24 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id={`features-with-card-sub-heading-${index + 1}`}
+                  id={`features-with-card-sub-heading-text-2`}
+                  className={`features-with-card-sub-heading-${
+                    index + 1
+                  } capitalize text-xl font-semibold text-[#231e41]`}
                   style={getElementStyle(
                     `features-with-card-sub-heading-${index + 1}`
                   )}
-                  className={`capitalize text-xl font-semibold text-[#231e41] `}
                   data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
-                  {isEdited[`features-with-card-sub-heading-${index + 1}`]
-                    ? document.getElementById(`features-with-card-sub-heading-${index + 1}`)
-                        ?.innerText
-                    : document.getElementById(`features-with-card-sub-heading-${index + 1}`)
-                        ?.innerText || "Item Two"}
+                  {isEdited[`features-with-card-sub-heading-text-2`]
+                    ? document.getElementById(
+                        `features-with-card-sub-heading-text-2`
+                      )?.innerText
+                    : document.getElementById(
+                        `features-with-card-sub-heading-text-2`
+                      )?.innerText || "Item Two"}
                 </h2>
                 <p
                   id="features-with-card-sub-paragraph-2"

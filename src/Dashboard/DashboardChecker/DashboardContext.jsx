@@ -183,9 +183,10 @@ export const DashboardProvider = ({ children }) => {
     return { background: defaultBackgroundColor };
   };
 
-  const getElementStyle = (id) => {
-    return elementStyles[id] || {};
+  const getElementStyle = (className) => {
+    return elementStyles[className] || {};
   };
+
 
   // useEffect(() => {
   //   const timeout = setTimeout(() => {
@@ -376,17 +377,18 @@ export const DashboardProvider = ({ children }) => {
     setIsFocused(false);
   };
 
-  const updateElementStyle = (property, value) => {
+  const updateElementStyle = (className, property, value) => {
     if (selectedElement) {
       setElementStyles((prevStyles) => ({
         ...prevStyles,
-        [selectedElement.id]: {
-          ...prevStyles[selectedElement.id],
+        [className]: {
+          ...prevStyles[className],
           [property]: value,
         },
       }));
     }
   };
+
 
   const handleTextClick = (event) => {
     setClickedText(event.target.innerText);
@@ -405,31 +407,63 @@ export const DashboardProvider = ({ children }) => {
   };
 
   const handleColorClick = (color) => {
-    updateElementStyle("color", color);
+    if (selectedElement) {
+      updateElementStyle(
+        selectedElement.className.split(" ")[0],
+        "color",
+        color
+      );
+    }
   };
 
   const handleFontSizeClick = (fontSize) => {
-    updateElementStyle("fontSize", fontSize);
-    updateElementStyle("wordWrap", "break-word");
-    updateElementStyle("lineHeight", "1.2");
+    if (selectedElement) {
+      const className = selectedElement.className.split(" ")[0];
+      updateElementStyle(className, "fontSize", fontSize);
+      updateElementStyle(className, "wordWrap", "break-word");
+      updateElementStyle(className, "lineHeight", "1.2");
+    }
   };
 
   const handleFontWeightClick = (fontWeight) => {
-    updateElementStyle("fontWeight", fontWeight);
+    if (selectedElement) {
+      updateElementStyle(
+        selectedElement.className.split(" ")[0],
+        "fontWeight",
+        fontWeight
+      );
+    }
   };
 
   const handleFontStyleClick = (fontStyle) => {
-    updateElementStyle("fontStyle", fontStyle);
+    if (selectedElement) {
+      updateElementStyle(
+        selectedElement.className.split(" ")[0],
+        "fontStyle",
+        fontStyle
+      );
+    }
   };
 
   const handleFontFamilyClick = (fontFamily) => {
-    updateElementStyle("fontFamily", fontFamily);
+    if (selectedElement) {
+      updateElementStyle(
+        selectedElement.className.split(" ")[0],
+        "fontFamily",
+        fontFamily
+      );
+    }
   };
 
   const handleTextAlignmentClick = (textAlign) => {
-    updateElementStyle("textAlign", textAlign);
+    if (selectedElement) {
+      updateElementStyle(
+        selectedElement.className.split(" ")[0],
+        "textAlign",
+        textAlign
+      );
+    }
   };
-
   const handleDivClick = (event) => {
     setSelectedDiv(event.currentTarget);
   };
