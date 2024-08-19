@@ -24,7 +24,7 @@ const EditAndSaveDesignModal = () => {
             handleElementClick(idx);
             console.log(
               reactElementToJSXString(item.element, {
-                showFunctions: true,
+                showFunctions: false,
               })
             );
           }}
