@@ -22,11 +22,20 @@ const EditAndSaveDesignModal = () => {
           key={item.key || idx}
           onClick={() => {
             handleElementClick(idx);
-            console.log(
-              reactElementToJSXString(item.element, {
-                showFunctions: false,
-              })
+
+            // Convert the React element to a string
+            let elementString = reactElementToJSXString(item.element, {
+              showFunctions: false,
+            });
+
+            // Replace dangerouslySetInnerHTML with direct content inside any HTML tag
+            elementString = elementString.replace(
+              /<(\w+)([^>]*)dangerouslySetInnerHTML={{\s*__html:\s*'([^']*)'\s*}}\s*([^>]*)\/?>/g,
+              (_, tagName, beforeAttributes, content, afterAttributes) =>
+                `<${tagName}${beforeAttributes}${afterAttributes}>${content}</${tagName}>`
             );
+
+            console.log(elementString);
           }}
         >
           {item.element}

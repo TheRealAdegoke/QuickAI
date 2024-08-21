@@ -140,16 +140,18 @@ export const heroComponents = ({
         >
           <h1
             id={`hero-heading-${index + 1}`}
-            style={getElementStyle(`hero-heading-${index + 1}`)}
-            className={`font-bold xl:text-5xl text-3xl mb-4 `}
+            style={getElementStyle(`hero-heading-elemeny-1`)}
+            className={`hero-heading-elemeny-1 font-bold xl:text-5xl text-3xl mb-4 `}
             data-text="Heading"
             contentEditable={false}
             onClick={handleTextClick}
+            dangerouslySetInnerHTML={{
+              __html: isEdited[`hero-heading-${index + 1}`]
+                ? document.getElementById(`hero-heading-${index + 1}`)
+                    ?.innerHTML || text.heroHeaderText
+                : text.heroHeaderText,
+            }}
           >
-            {isEdited[`hero-heading-${index + 1}`]
-              ? document.getElementById(`hero-heading-${index + 1}`)?.innerText
-              : document.getElementById(`hero-heading-${index + 1}`)
-                  ?.innerText || text.heroHeaderText}
           </h1>
           <p
             id={`hero-paragraph-${index + 1}`}
