@@ -396,15 +396,33 @@ export const DashboardProvider = ({ children }) => {
     setIsEdited((prev) => ({ ...prev, [event.target.id]: true }));
   };
 
+  // const handleTextareaChange = (event) => {
+  //   const newText = event.target.value;
+  //   const formattedText = newText.split("\n").join("<br/>");
+  //   setClickedText(newText);
+  //   if (selectedElement) {
+  //     selectedElement.innerText = formattedText;
+  //     document.getElementById(selectedElement.id).innerText = formattedText;
+  //     setIsEdited((prev) => ({ ...prev, [selectedElement.id]: true }));
+  //   }
+  // };
+
   const handleTextareaChange = (event) => {
     const newText = event.target.value;
     setClickedText(newText);
+
     if (selectedElement) {
-      selectedElement.innerText = newText;
-      document.getElementById(selectedElement.id).innerText = newText;
+      // Split the newText by newline characters and join them with <br/> tags
+      const formattedText = newText.split("\n").join("<br/>");
+
+      // Use dangerouslySetInnerHTML by updating the innerHTML directly
+      selectedElement.innerHTML = formattedText;
+
+      // Mark the element as edited
       setIsEdited((prev) => ({ ...prev, [selectedElement.id]: true }));
     }
   };
+
 
   const handleColorClick = (color) => {
     if (selectedElement) {
