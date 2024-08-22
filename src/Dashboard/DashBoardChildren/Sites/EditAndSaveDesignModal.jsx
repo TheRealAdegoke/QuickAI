@@ -35,6 +35,12 @@ const EditAndSaveDesignModal = () => {
                 `<${tagName}${beforeAttributes}${afterAttributes}>${content}</${tagName}>`
             );
 
+            // Remove any unintended self-closing slash on tags
+            elementString = elementString.replace(/\/>/g, ">");
+
+            // Ensure that <br> tags are self-closing
+            elementString = elementString.replace(/<br>/g, "<br />");
+
             console.log(elementString);
           }}
         >
