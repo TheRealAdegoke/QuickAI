@@ -230,6 +230,7 @@ export const DashboardProvider = ({ children }) => {
           handleDivClick,
           backGroundStyle,
           clickedText,
+          isEdited,
         }).length
     );
     const randomButtonsIndex = Math.floor(
@@ -240,6 +241,7 @@ export const DashboardProvider = ({ children }) => {
           location,
           getStyle,
           getElementStyle,
+          isEdited,
         }).length
     );
     const randomfeaturesWithCardIndex = Math.floor(
@@ -250,32 +252,44 @@ export const DashboardProvider = ({ children }) => {
           getStyle,
           getElementStyle,
           handleDivClick,
+          isEdited,
         }).length
     );
     const randomfeaturesIndex = Math.floor(
       Math.random() *
-        featuresComponents({ text, location, getStyle, getElementStyle }).length
+        featuresComponents({
+          text,
+          location,
+          getStyle,
+          getElementStyle,
+          isEdited,
+        }).length
     );
     const randomTestimonialIndex = Math.floor(
       Math.random() *
-        testimonialComponent({ text, location, getStyle, getElementStyle })
-          .length
+        testimonialComponent({
+          text,
+          location,
+          getStyle,
+          getElementStyle,
+          isEdited,
+        }).length
     );
     const randomFaqIndex = Math.floor(
       Math.random() *
-        faqComponent({ text, location, getStyle, getElementStyle }).length
+        faqComponent({ text, location, getStyle, getElementStyle, isEdited }).length
     );
     const randomTeamIndex = Math.floor(
       Math.random() *
-        teamComponent({ text, location, getStyle, getElementStyle }).length
+        teamComponent({ text, location, getStyle, getElementStyle, isEdited }).length
     );
     const randomContactIndex = Math.floor(
       Math.random() *
-        contactComponent({ text, location, getStyle, getElementStyle }).length
+        contactComponent({ text, location, getStyle, getElementStyle, isEdited }).length
     );
     const randomFooterIndex = Math.floor(
       Math.random() *
-        footerComponent({ text, location, getStyle, getElementStyle }).length
+        footerComponent({ text, location, getStyle, getElementStyle, isEdited }).length
     );
 
     const newGeneratedElements = [
