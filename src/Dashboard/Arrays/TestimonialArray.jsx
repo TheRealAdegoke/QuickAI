@@ -7,6 +7,8 @@ export const testimonialComponent = ({
   handleTextClick,
   getStyle,
   getElementStyle,
+  index,
+  isEdited,
 }) => {
   let classNames = "";
 
@@ -25,25 +27,35 @@ export const testimonialComponent = ({
     >
       <div className="py-32 text-black w-[90%] max-w-[1000px] mx-auto">
         <h1
-          id="testimonial-heading"
-          style={getElementStyle("testimonial-heading")}
-          className={`text-center text-3xl font-semibold capitalize mb-5 `}
+          id={`testimonial-heading-${index + 1}`}
+          style={getElementStyle(`testimonial-heading-${index + 1}`)}
+          className={`testimonial-heading-${
+            index + 1
+          } text-center text-3xl font-semibold capitalize mb-5 `}
           data-text="Heading"
           contentEditable={false}
           onClick={handleTextClick}
-        >
-          {text.customerHeader[0]}
-        </h1>
+          dangerouslySetInnerHTML={{
+            __html: isEdited[`testimonial-heading-${index + 1}`]
+              ? document.getElementById(`testimonial-heading-${index + 1}`)
+                  ?.innerHTML || text.customerHeader[0]
+              : text.customerHeader[0],
+          }}
+        ></h1>
         <p
-          id="testimonial-paragraph"
-          style={getElementStyle("testimonial-paragraph")}
-          className={`text-center text-xl `}
+          id={`testimonial-paragraph-${index + 1}`}
+          style={getElementStyle(`testimonial-paragraph-${index + 1}`)}
+          className={`testimonial-paragraph-${index + 1} text-center text-xl `}
           data-text="Type a paragraph"
           contentEditable={false}
           onClick={handleTextClick}
-        >
-          {text.customerReviewText[0]}
-        </p>
+          dangerouslySetInnerHTML={{
+            __html: isEdited[`testimonial-paragraph-${index + 1}`]
+              ? document.getElementById(`testimonial-paragraph-${index + 1}`)
+                  ?.innerHTML || text.customerReviewText[0]
+              : text.customerReviewText[0],
+          }}
+        ></p>
 
         <div className="my-8 flex items-center justify-center gap-3">
           <img
@@ -53,24 +65,38 @@ export const testimonialComponent = ({
           />
           <div className="text-sm font-semibold">
             <p
-              id="testimonial-name-header-paragraph"
-              style={getElementStyle("testimonial-name-header-paragraph")}
-              className={``}
+              id={`testimonial-name-header-paragraph-${index + 1}`}
+              style={getElementStyle(
+                `testimonial-name-header-paragraph-${index + 1}`
+              )}
+              className={`testimonial-name-header-paragraph-${index + 1}`}
               data-text="Type a paragraph"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              Gabriel
+              {isEdited[`testimonial-name-header-paragraph-${index + 1}`]
+                ? document.getElementById(
+                    `testimonial-name-header-paragraph-${index + 1}`
+                  )?.innerText
+                : document.getElementById(
+                    `testimonial-name-header-paragraph-${index + 1}`
+                  )?.innerText || "Gabriel"}
             </p>
             <p
-              id="testimonial-name-paragraph"
-              style={getElementStyle("testimonial-name-paragraph")}
-              className={``}
+              id={`testimonial-name-paragraph-${index + 1}`}
+              style={getElementStyle(`testimonial-name-paragraph-${index + 1}`)}
+              className={`testimonial-name-paragraph-${index + 1}`}
               data-text="Type a paragraph"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              Founder QuickUI
+              {isEdited[`testimonial-name-paragraph-${index + 1}`]
+                ? document.getElementById(
+                    `testimonial-name-paragraph-${index + 1}`
+                  )?.innerText
+                : document.getElementById(
+                    `testimonial-name-paragraph-${index + 1}`
+                  )?.innerText || "Founder QuickUI"}
             </p>
           </div>
         </div>

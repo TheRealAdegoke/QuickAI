@@ -70,15 +70,20 @@ const TestDesignModal = () => {
     isFocused,
     handleFocus,
     handleBlur,
+    location,
+    handleDivClick,
+    handleTextClick,
+    getStyle,
+    getElementStyle,
+    index,
+    isEdited,
   } = useContext(DashContext);
   const [clickedText, setClickedText] = useState("");
   const [selectedElement, setSelectedElement] = useState(null);
-  const [selectedDiv, setSelectedDiv] = useState(null)
+  const [selectedDiv, setSelectedDiv] = useState(null);
   const [backGroundStyle, setBackGroundStyle] = useState("");
-  const [showColorPicker, setShowColorPicker] = useState(true)
+  const [showColorPicker, setShowColorPicker] = useState(true);
   const [bg, setbg] = useState("");
-
-
 
   const navElement = navComponents({
     text,
@@ -92,307 +97,425 @@ const TestDesignModal = () => {
     isFocused,
     handleFocus,
     handleBlur,
-    location
+    location,
   })[4];
 
-   const handleTextClick = (event) => {
-     setClickedText(event.target.innerText);
-     setSelectedElement(event.target);
-   };
+  //  const handleTextClick = (event) => {
+  //    setClickedText(event.target.innerText);
+  //    setSelectedElement(event.target);
+  //  };
 
-   const handleTextareaChange = (event) => {
-     const newText = event.target.value;
-     setClickedText(newText);
-     if (selectedElement) {
-       selectedElement.innerText = newText;
-     }
-   };
+  const handleTextareaChange = (event) => {
+    const newText = event.target.value;
+    setClickedText(newText);
+    if (selectedElement) {
+      selectedElement.innerText = newText;
+    }
+  };
 
-   const handleColorClick = (
-     color,
-   ) => {
-     if (selectedElement) {
-       selectedElement.style.color = color
-     }
-   };
+  const handleColorClick = (color) => {
+    if (selectedElement) {
+      selectedElement.style.color = color;
+    }
+  };
 
-   const handleFontSizeClick = (fontSize) => {
-     if (selectedElement) {
-       selectedElement.style.fontSize = fontSize;
-     }
-   };
+  const handleFontSizeClick = (fontSize) => {
+    if (selectedElement) {
+      selectedElement.style.fontSize = fontSize;
+    }
+  };
 
-   const handleFontWeightClick = (fontWeight) => {
-     if (selectedElement) {
-       selectedElement.style.fontWeight = fontWeight;
-     }
-   };
+  const handleFontWeightClick = (fontWeight) => {
+    if (selectedElement) {
+      selectedElement.style.fontWeight = fontWeight;
+    }
+  };
 
-   const handleFontStyleClick = (fontStyle) => {
-     if (selectedElement) {
-       selectedElement.style.fontStyle = fontStyle;
-     }
-   };
+  const handleFontStyleClick = (fontStyle) => {
+    if (selectedElement) {
+      selectedElement.style.fontStyle = fontStyle;
+    }
+  };
 
-   const handleFontFamilyClick = (FontFamily) => {
-     if (selectedElement) {
-       selectedElement.style.fontFamily = FontFamily;
-     }
-   };
+  const handleFontFamilyClick = (FontFamily) => {
+    if (selectedElement) {
+      selectedElement.style.fontFamily = FontFamily;
+    }
+  };
 
-   const handleTextAlignmentClick = (textAlign) => {
-     if (selectedElement) {
-       selectedElement.style.textAlign = textAlign;
-     }
-   };
+  const handleTextAlignmentClick = (textAlign) => {
+    if (selectedElement) {
+      selectedElement.style.textAlign = textAlign;
+    }
+  };
 
-   const handleBGColorClick = (
-     color,
-   ) => {
-     if (selectedDiv) {
+  const handleBGColorClick = (color) => {
+    if (selectedDiv) {
       setbg(color);
-     }
-   };
+    }
+  };
 
-   const handleDivClick = (event) => {
-     setSelectedDiv(event.currentTarget);
-   };
+  //  const handleDivClick = (event) => {
+  //    setSelectedDiv(event.currentTarget);
+  //  };
 
-   useEffect(() => {
-     handleBGColorClick(backGroundStyle);
-   }, [backGroundStyle]);
+  useEffect(() => {
+    handleBGColorClick(backGroundStyle);
+  }, [backGroundStyle]);
 
-   useEffect(() => {
-     if (!showColorPicker) {
-       setSelectedDiv(null);
-     }
-   }, [showColorPicker]);
-
+  useEffect(() => {
+    if (!showColorPicker) {
+      setSelectedDiv(null);
+    }
+  }, [showColorPicker]);
 
   return (
     <main className="bg-white w-full mt-5 max-md:mt-0 mx-10 h-[93vh] max-md:h-[89vh] max-[499px]:mx-4 overflow-scroll overflow-x-hidden pt-14 select-none">
       {/* {element} */}
-
-      <button
-        onClick={() => {
-          setShowColorPicker(!showColorPicker);
-        }}
-        className="text-black"
+      <section
+        onClick={handleDivClick}
+        id="features-section"
+        style={getStyle("features-section")}
       >
-        Toggle color picker
-      </button>
-
-      {showColorPicker ? (
-        <TestColorPickerComponent setBackGroundStyle={setBackGroundStyle} />
-      ) : (
-        ""
-      )}
-
-      <div className="">
-        <div
-          style={{ backgroundColor: bg }}
-          className={`size-[400px] border-[2px] border-[black]`}
-          onClick={handleDivClick}
-        >
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Consectetur consequuntur, expedita facere nostrum natus molestiae
-            alias adipisci vitae, esse neque vero nemo rerum eum fuga doloremque
-            perferendis eligendi tenetur inventore.
-          </p>
-        </div>
-        <div
-          style={{ backgroundColor: bg }}
-          className={`size-[40px] border-[2px] border-[black]`}
-          onClick={handleDivClick}
-        ></div>
-        <div
-          style={{ backgroundColor: bg }}
-          className={`size-[40px] border-[2px] border-[black]`}
-          onClick={handleDivClick}
-        ></div>
-      </div>
-
-      <textarea
-        name=""
-        id=""
-        className="bg-[black] text-white size-[400px] fixed right-0 z-50"
-        value={clickedText}
-        placeholder="Typing..."
-        onChange={handleTextareaChange}
-      ></textarea>
-
-      <div className="color-container flex gap-4 justify-center">
-        <div
-          className="size-4 rounded-full bg-[red] cursor-pointer"
-          onClick={() => {
-            handleColorClick("red"), handleBGColorClick("red");
-          }}
-        ></div>
-        <div
-          className="size-4 rounded-full bg-[blue] cursor-pointer"
-          onClick={() => {
-            handleColorClick("blue"), handleBGColorClick("blue");
-          }}
-        ></div>
-        <div
-          className="size-4 rounded-full bg-[black] cursor-pointer"
-          onClick={() => {
-            handleColorClick("black"), handleBGColorClick("black");
-          }}
-        ></div>
-      </div>
-
-      <section style={{}}>
         <div
           className={`${
-            isMobile ? "h-[750px] flex-col" : ""
-          } h-[600px] max-lg:h-[750px] my-5 flex lg:gap-8 lg:justify-evenly max-lg:flex-col max-w-[1200px] mx-auto lg:pl-5`}
+            isMobile ? "flex-col gap-0 px-6" : ""
+          } text-black py-32 max-w-[1000px] mx-auto flex max-lg:flex-col gap-5 max-lg:gap-0 items-start max-lg:px-6`}
         >
-          <div
-            className={`${
-              isMobile ? "w-[90%]" : ""
-            } text-[rgb(33,37,41)] w-[40%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
-          >
-            <h1 className={`font-bold xl:text-5xl text-3xl mb-4 outline-none`}>
-              {text.heroHeaderText}
-            </h1>
-            <p
-              className={`font-medium outline-none`}
+          <div className="flex flex-col justify-start items-start mt-8 w-[35%] max-w-[280px] max-lg:w-[90%]">
+            <h1
+              id={`features-heading-${index + 1}`}
+              style={getElementStyle(`features-heading-${index + 1}`)}
+              className={`features-heading-${
+                index + 1
+              } text-3xl font-bold my-2 text-center `}
+              data-text="Heading"
+              contentEditable={false}
               onClick={handleTextClick}
+              dangerouslySetInnerHTML={{
+                __html: isEdited[`features-heading-${index + 1}`]
+                  ? document.getElementById(`features-heading-${index + 1}`)
+                      ?.innerHTML || text.featureHeader[1]
+                  : text.featureHeader[1],
+              }}
+            ></h1>
+            <p
+              id={`features-paragraph-${index + 1}`}
+              style={getElementStyle(`features-paragraph-${index + 1}`)}
+              className={`features-paragraph-${index + 1}`}
               data-text="Type a paragraph"
               contentEditable={false}
-            >
-              {text.description}
-            </p>
-            {buttonIndex !== undefined && buttonElement}
-          </div>
-          <div
-            className={`${
-              isMobile ? "w-full max-w-[500px] mx-auto" : ""
-            } relative w-[55%] h-full max-lg:w-full max-lg:max-w-[500px] max-lg:mx-auto`}
-          >
-            <div
-              className={`${
-                isMobile ? "left-[35%] transform -translate-x-1/2" : ""
-              } w-[250px] h-[400px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3 mb-4 absolute top-2 max-lg:left-[35%] max-lg:transform max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:top-1/2 max-xl:top-2 max-xl:right-32 z-20`}
-            >
-              <img
-                src={testImage}
-                alt={testImage}
-                className="h-[350px] rounded-[35px] object-cover"
-              />
-            </div>
-            <div
-              className={`${
-                isMobile ? "left-[60%] transform -translate-x-1/2" : ""
-              } w-[260px] h-[480px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3 absolute max-lg:left-[60%] max-lg:transform max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:top-1/2 top-[7%] right-0 xl:right-[28%] z-10`}
-            >
-              <img
-                src={testImage}
-                alt={testImage}
-                className="h-[420px] rounded-[35px] object-cover"
-              />
-            </div>
-            <div
-              className={`${
-                isMobile ? "hidden" : ""
-              } w-[260px] h-[450px] bg-[rgb(33,37,41)] rounded-[35px] px-3 py-3 absolute top-14 right-5 max-xl:hidden`}
-            >
-              <img
-                src={testImage}
-                alt={testImage}
-                className="h-full rounded-[35px] object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="flex flex-wrap gap-2 items-center justify-center">
-        <button
-          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
-          onClick={() => handleTextAlignmentClick("left")}
-        >
-          Left
-        </button>
-
-        <button
-          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
-          onClick={() => handleTextAlignmentClick("right")}
-        >
-          Right
-        </button>
-
-        <button
-          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
-          onClick={() => handleTextAlignmentClick("center")}
-        >
-          Center
-        </button>
-
-        <button
-          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
-          onClick={() => handleTextAlignmentClick("justify")}
-        >
-          Justify
-        </button>
-
-        <button
-          className={`bg-[rgb(9,11,14)] rounded-[5px] px-2 py-1 w-[100px] text-nowrap`}
-          onClick={() => handleColorClick("", "2rem")}
-        >
-          size
-        </button>
-      </div>
-
-      <section style={{}}>
-        <div
-          className={`${
-            isMobile ? "flex-col-reverse" : ""
-          } py-5 max-w-[1200px] mx-auto flex justify-center max-lg:flex-col-reverse`}
-        >
-          <div
-            className={`${
-              isMobile ? "w-[90%]" : ""
-            } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
-          >
-            <h1
-              className={`font-bold xl:text-5xl text-3xl mb-4`}
               onClick={handleTextClick}
-              data-text="Heading"
-              contentEditable={true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            >
-              {text.heroHeaderText}
-            </h1>
-            <p
-              className={`font-medium`}
-              onClick={handleTextClick}
-              data-text="Heading"
-              contentEditable={true}
-              suppressContentEditableWarning
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            >
-              {text.description}
-            </p>
-            {buttonIndex !== undefined && buttonElement}
+              dangerouslySetInnerHTML={{
+                __html: isEdited[`features-paragraph-${index + 1}`]
+                  ? document.getElementById(`features-paragraph-${index + 1}`)
+                      ?.innerHTML || text.description
+                  : text.description,
+              }}
+            ></p>
+            <button className="capitalize block text-white bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] px-5 py-1 rounded-full font-semibold text-sm my-3">
+              <span
+                id={`features-button-text-1-${index + 1}`}
+                style={getElementStyle(
+                  `features-button-text-style-${index + 1}`
+                )}
+                className={`features-button-text-style-${index + 1}`}
+                data-text="Button text"
+                contentEditable={false}
+                onClick={handleTextClick}
+              >
+                {isEdited[`features-button-text-1-${index + 1}`]
+                  ? document.getElementById(
+                      `features-button-text-1-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `features-button-text-1-${index + 1}`
+                    )?.innerText || text.buttonTexts[5]}
+              </span>
+            </button>
           </div>
 
-          <div
-            className={`${
-              isMobile ? "w-full" : ""
-            } w-[45%] max-lg:w-full mb-10`}
-          >
-            <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
-              <img
-                src={testImage}
-                alt={testImage}
-                className="object-cover h-full w-full"
-              />
+          <div className="my-10 flex justify-between flex-wrap max-[594px]:flex-col gap-8 w-full max-[594px]:w-full">
+            <div
+              className={`${
+                isMobile ? "w-[45%]" : ""
+              } flex flex-col gap-2 justify-start items-start text-left text-black w-[30%] max-w-[300px] max-[594px]:w-full max-lg:w-[45%] rounded-xl`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="um-icon _92496331"
+                fill="currentColor"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"></path>
+              </svg>
+              <h2
+                id={`features-sub-heading-text-1-${index + 1}`}
+                style={getElementStyle(`features-sub-heading-${index + 1}`)}
+                className={`features-sub-heading-${index + 1} font-semibold `}
+                data-text="Heading"
+                contentEditable={false}
+                onClick={handleTextClick}
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`features-sub-heading-text-1-${index + 1}`]
+                    ? document.getElementById(
+                        `features-sub-heading-text-1-${index + 1}`
+                      )?.innerHTML || "Item 1"
+                    : "Item 1",
+                }}
+              ></h2>
+              <p
+                id={`features-sub-paragraph-text-1-${index + 1}`}
+                style={getElementStyle(`features-sub-paragraph-${index + 1}`)}
+                className={`features-sub-paragraph-${index + 1}`}
+                data-text="Type a paragraph"
+                contentEditable={false}
+                onClick={handleTextClick}
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`features-sub-paragraph-text-1-${index + 1}`]
+                    ? document.getElementById(
+                        `features-sub-paragraph-text-1-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
+            </div>
+
+            <div
+              className={`${
+                isMobile ? "w-[45%]" : ""
+              } flex flex-col gap-2 justify-start items-start text-left text-black w-[30%] max-w-[300px] max-[594px]:w-full max-lg:w-[45%] rounded-xl`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="um-icon _92496331"
+                fill="currentColor"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"></path>
+              </svg>
+              <h2
+                id={`features-sub-heading-text-2-${index + 1}`}
+                style={getElementStyle(`features-sub-heading-${index + 1}`)}
+                className={`features-sub-heading-${index + 1} font-semibold `}
+                data-text="Heading"
+                contentEditable={false}
+                onClick={handleTextClick}
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`features-sub-heading-text-2-${index + 1}`]
+                    ? document.getElementById(
+                        `features-sub-heading-text-2-${index + 1}`
+                      )?.innerHTML || "Item 2"
+                    : "Item 2",
+                }}
+              ></h2>
+              <p
+                id={`features-sub-paragraph-text-2-${index + 1}`}
+                style={getElementStyle(`features-sub-paragraph-${index + 1}`)}
+                className={`features-sub-paragraph-${index + 1}`}
+                data-text="Type a paragraph"
+                contentEditable={false}
+                onClick={handleTextClick}
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`features-sub-paragraph-text-2-${index + 1}`]
+                    ? document.getElementById(
+                        `features-sub-paragraph-text-2-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
+            </div>
+
+            <div
+              className={`${
+                isMobile ? "w-[45%]" : ""
+              } flex flex-col gap-2 justify-start items-start text-left text-black w-[30%] max-w-[300px] max-[594px]:w-full max-lg:w-[45%] rounded-xl`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="um-icon _92496331"
+                fill="currentColor"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path d="M19.36 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.64-4.96z"></path>
+              </svg>
+              <h2
+                id={`features-sub-heading-text-3-${index + 1}`}
+                style={getElementStyle(`features-sub-heading-${index + 1}`)}
+                className={`features-sub-heading-${index + 1} font-semibold `}
+                data-text="Heading"
+                contentEditable={false}
+                onClick={handleTextClick}
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`features-sub-heading-text-3-${index + 1}`]
+                    ? document.getElementById(
+                        `features-sub-heading-text-3-${index + 1}`
+                      )?.innerHTML || "Item 3"
+                    : "Item 3",
+                }}
+              ></h2>
+              <p
+                id={`features-sub-paragraph-text-3-${index + 1}`}
+                style={getElementStyle(`features-sub-paragraph-${index + 1}`)}
+                className={`features-sub-paragraph-${index + 1}`}
+                data-text="Type a paragraph"
+                contentEditable={false}
+                onClick={handleTextClick}
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`features-sub-paragraph-text-3-${index + 1}`]
+                    ? document.getElementById(
+                        `features-sub-paragraph-text-3-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
+            </div>
+
+            <div
+              className={`${
+                isMobile ? "w-[45%]" : ""
+              } flex flex-col gap-2 justify-start items-start text-left text-black w-[30%] max-w-[300px] max-[594px]:w-full max-lg:w-[45%] rounded-xl`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="um-icon _92496331"
+                fill="currentColor"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"></path>
+              </svg>
+              <h2
+                id={`features-sub-heading-text-4-${index + 1}`}
+                style={getElementStyle(`features-sub-heading-${index + 1}`)}
+                className={`features-sub-heading-${index + 1} font-semibold `}
+                data-text="Heading"
+                contentEditable={false}
+                onClick={handleTextClick}
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`features-sub-heading-text-4-${index + 1}`]
+                    ? document.getElementById(
+                        `features-sub-heading-text-4-${index + 1}`
+                      )?.innerHTML || "Item 4"
+                    : "Item 4",
+                }}
+              ></h2>
+              <p
+                id={`features-sub-paragraph-text-4-${index + 1}`}
+                style={getElementStyle(`features-sub-paragraph-${index + 1}`)}
+                className={`features-sub-paragraph-${index + 1}`}
+                data-text="Type a paragraph"
+                contentEditable={false}
+                onClick={handleTextClick}
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`features-sub-paragraph-text-4-${index + 1}`]
+                    ? document.getElementById(
+                        `features-sub-paragraph-text-4-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
+            </div>
+
+            <div
+              className={`${
+                isMobile ? "w-[45%]" : ""
+              } flex flex-col gap-2 justify-start items-start text-left text-black w-[30%] max-w-[300px] max-[594px]:w-full max-lg:w-[45%] rounded-xl`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="um-icon _92496331"
+                fill="currentColor"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path>
+              </svg>
+              <h2
+                id={`features-sub-heading-text-5-${index + 1}`}
+                style={getElementStyle(`features-sub-heading-${index + 1}`)}
+                className={`features-sub-heading-${index + 1} font-semibold `}
+                data-text="Heading"
+                contentEditable={false}
+                onClick={handleTextClick}
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`features-sub-heading-text-5-${index + 1}`]
+                    ? document.getElementById(
+                        `features-sub-heading-text-5-${index + 1}`
+                      )?.innerHTML || "Item 5"
+                    : "Item 5",
+                }}
+              ></h2>
+              <p
+                id={`features-sub-paragraph-text-5-${index + 1}`}
+                style={getElementStyle(`features-sub-paragraph-${index + 1}`)}
+                className={`features-sub-paragraph-${index + 1}`}
+                data-text="Type a paragraph"
+                contentEditable={false}
+                onClick={handleTextClick}
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`features-sub-paragraph-text-5-${index + 1}`]
+                    ? document.getElementById(
+                        `features-sub-paragraph-text-5-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
+            </div>
+
+            <div
+              className={`${
+                isMobile ? "w-[45%]" : ""
+              } flex flex-col gap-2 justify-start items-start text-left text-black w-[30%] max-w-[300px] max-[594px]:w-full max-lg:w-[45%] rounded-xl`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="um-icon _92496331"
+                fill="currentColor"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z"></path>
+              </svg>
+              <h2
+                id={`features-sub-heading-text-6-${index + 1}`}
+                style={getElementStyle(`features-sub-heading-${index + 1}`)}
+                className={`features-sub-heading-${index + 1} font-semibold `}
+                data-text="Heading"
+                contentEditable={false}
+                onClick={handleTextClick}
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`features-sub-heading-text-6-${index + 1}`]
+                    ? document.getElementById(
+                        `features-sub-heading-text-6-${index + 1}`
+                      )?.innerHTML || "Item 6"
+                    : "Item 6",
+                }}
+              ></h2>
+              <p
+                id={`features-sub-paragraph-text-6-${index + 1}`}
+                style={getElementStyle(`features-sub-paragraph-${index + 1}`)}
+                className={`features-sub-paragraph-${index + 1}`}
+                data-text="Type a paragraph"
+                contentEditable={false}
+                onClick={handleTextClick}
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`features-sub-paragraph-text-6-${index + 1}`]
+                    ? document.getElementById(
+                        `features-sub-paragraph-text-6-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
             </div>
           </div>
         </div>
@@ -455,9 +578,8 @@ export const TestColorPickerComponent = ({ setBackGroundStyle }) => {
     const newBackground = isGradient
       ? `linear-gradient(90deg, ${hex1} 0%, ${hex2} 100%)`
       : hex1;
-      setBackGroundStyle(newBackground);
+    setBackGroundStyle(newBackground);
   }, [isGradient, hex1, hex2]);
-
 
   return (
     <section className="bg-[rgb(36,37,40)] py-5 rounded-[8px] px-2">
