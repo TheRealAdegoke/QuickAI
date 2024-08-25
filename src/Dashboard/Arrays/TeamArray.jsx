@@ -7,6 +7,8 @@ export const teamComponent = ({
   handleTextClick,
   getStyle,
   getElementStyle,
+  index,
+  isEdited,
 }) => {
   let classNames = "";
 
@@ -20,31 +22,41 @@ export const teamComponent = ({
   return [
     <section
       onClick={handleDivClick}
-      id="team-section"
-      style={getStyle("team-section")}
+      id={`team-section-${index + 1}`}
+      style={getStyle(`team-section-${index + 1}`)}
     >
       <div className="text-black py-32 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1
-            id="team-heading"
-            style={getElementStyle("team-heading")}
-            className={`text-3xl font-bold text-[#212529] mb-2 `}
+            id={`team-heading-${index + 1}`}
+            style={getElementStyle(`team-heading-${index + 1}`)}
+            className={`team-heading-${
+              index + 1
+            } text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
             contentEditable={false}
             onClick={handleTextClick}
-          >
-            {text.teamHeader[0]}
-          </h1>
+            dangerouslySetInnerHTML={{
+              __html: isEdited[`team-heading-${index + 1}`]
+                ? document.getElementById(`team-heading-${index + 1}`)
+                    ?.innerHTML || text.teamHeader[0]
+                : text.teamHeader[0],
+            }}
+          ></h1>
           <p
-            id="team-paragraph"
-            style={getElementStyle("team-paragraph")}
-            className={``}
+            id={`team-paragraph-${index + 1}`}
+            style={getElementStyle(`team-paragraph-${index + 1}`)}
+            className={`team-paragraph-${index + 1}`}
             data-text="Type a paragraph"
             contentEditable={false}
             onClick={handleTextClick}
-          >
-            {text.teamParagraphTexts[0]}
-          </p>
+            dangerouslySetInnerHTML={{
+              __html: isEdited[`team-paragraph-${index + 1}`]
+                ? document.getElementById(`team-paragraph-${index + 1}`)
+                    ?.innerHTML || text.teamParagraphTexts[0]
+                : text.teamParagraphTexts[0],
+            }}
+          ></p>
         </div>
 
         <div
@@ -67,24 +79,40 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                id="team-name-header-paragraph"
-                style={getElementStyle("team-name-header-paragraph")}
-                className={`font-semibold `}
+                id={`team-name-header-paragraph-text-1-${index + 1}`}
+                style={getElementStyle(
+                  `team-name-header-paragraph-${index + 1}`
+                )}
+                className={`team-name-header-paragraph-${
+                  index + 1
+                } font-semibold`}
                 data-text="Heading"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Gabriel
+                {isEdited[`team-name-header-paragraph-text-1-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-header-paragraph-text-1-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-header-paragraph-text-1-${index + 1}`
+                    )?.innerText || "Gabriel"}
               </h1>
               <p
-                id="team-name-paragraph"
-                style={getElementStyle("team-name-paragraph")}
-                className={``}
+                id={`team-name-paragraph-text-1-${index + 1}`}
+                style={getElementStyle(`team-name-paragraph-${index + 1}`)}
+                className={`team-name-paragraph-${index + 1}`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Founder
+                {isEdited[`team-name-paragraph-text-1-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-paragraph-text-1-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-paragraph-text-1-${index + 1}`
+                    )?.innerText || "Founder"}
               </p>
               <div className="flex gap-3 justify-center my-3">
                 <svg
@@ -114,16 +142,20 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                id="team-sub-paragraph"
-                style={getElementStyle("team-sub-paragraph")}
-                className={`mt-6 `}
+                id={`team-sub-paragraph-text-1-${index + 1}`}
+                style={getElementStyle(`team-sub-paragraph-${index + 1}`)}
+                className={`team-sub-paragraph-${index + 1} mt-6`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`team-sub-paragraph-text-1-${index + 1}`]
+                    ? document.getElementById(
+                        `team-sub-paragraph-text-1-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
             </div>
           </div>
 
@@ -142,24 +174,40 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                id="team-name-header-paragraph"
-                style={getElementStyle("team-name-header-paragraph")}
-                className={`font-semibold `}
+                id={`team-name-header-paragraph-text-2-${index + 1}`}
+                style={getElementStyle(
+                  `team-name-header-paragraph-${index + 1}`
+                )}
+                className={`team-name-header-paragraph-${
+                  index + 1
+                } font-semibold`}
                 data-text="Heading"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Gabriel
+                {isEdited[`team-name-header-paragraph-text-2-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-header-paragraph-text-2-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-header-paragraph-text-2-${index + 1}`
+                    )?.innerText || "Gabriel"}
               </h1>
               <p
-                id="team-name-paragraph"
-                style={getElementStyle("team-name-paragraph")}
-                className={``}
+                id={`team-name-paragraph-text-2-${index + 1}`}
+                style={getElementStyle(`team-name-paragraph-${index + 1}`)}
+                className={`team-name-paragraph-${index + 1}`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Founder
+                {isEdited[`team-name-paragraph-text-2-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-paragraph-text-2-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-paragraph-text-2-${index + 1}`
+                    )?.innerText || "Founder"}
               </p>
               <div className="flex gap-3 justify-center my-3">
                 <svg
@@ -189,16 +237,20 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                id="team-sub-paragraph"
-                style={getElementStyle("team-sub-paragraph")}
-                className={`mt-6 `}
+                id={`team-sub-paragraph-text-2-${index + 1}`}
+                style={getElementStyle(`team-sub-paragraph-${index + 1}`)}
+                className={`team-sub-paragraph-${index + 1} mt-6`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`team-sub-paragraph-text-2-${index + 1}`]
+                    ? document.getElementById(
+                        `team-sub-paragraph-text-2-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
             </div>
           </div>
 
@@ -217,24 +269,40 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                id="team-name-header-paragraph"
-                style={getElementStyle("team-name-header-paragraph")}
-                className={`font-semibold `}
+                id={`team-name-header-paragraph-text-3-${index + 1}`}
+                style={getElementStyle(
+                  `team-name-header-paragraph-${index + 1}`
+                )}
+                className={`team-name-header-paragraph-${
+                  index + 1
+                } font-semibold`}
                 data-text="Heading"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Gabriel
+                {isEdited[`team-name-header-paragraph-text-3-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-header-paragraph-text-3-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-header-paragraph-text-3-${index + 1}`
+                    )?.innerText || "Gabriel"}
               </h1>
               <p
-                id="team-name-paragraph"
-                style={getElementStyle("team-name-paragraph")}
-                className={``}
+                id={`team-name-paragraph-text-3-${index + 1}`}
+                style={getElementStyle(`team-name-paragraph-${index + 1}`)}
+                className={`team-name-paragraph-${index + 1}`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Founder
+                {isEdited[`team-name-paragraph-text-3-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-paragraph-text-3-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-paragraph-text-3-${index + 1}`
+                    )?.innerText || "Founder"}
               </p>
               <div className="flex gap-3 justify-center my-3">
                 <svg
@@ -264,16 +332,20 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                id="team-sub-paragraph"
-                style={getElementStyle("team-sub-paragraph")}
-                className={`mt-6 `}
+                id={`team-sub-paragraph-text-3-${index + 1}`}
+                style={getElementStyle(`team-sub-paragraph-${index + 1}`)}
+                className={`team-sub-paragraph-${index + 1} mt-6`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`team-sub-paragraph-text-3-${index + 1}`]
+                    ? document.getElementById(
+                        `team-sub-paragraph-text-3-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
             </div>
           </div>
         </div>
@@ -281,31 +353,41 @@ export const teamComponent = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="team-section"
-      style={getStyle("team-section")}
+      id={`team-section-${index + 1}`}
+      style={getStyle(`team-section-${index + 1}`)}
     >
       <div className="text-black py-32 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1
-            id="team-heading"
-            style={getElementStyle("team-heading")}
-            className={`text-3xl font-bold text-[#212529] mb-2 `}
+            id={`team-heading-${index + 1}`}
+            style={getElementStyle(`team-heading-${index + 1}`)}
+            className={`team-heading-${
+              index + 1
+            } text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
             contentEditable={false}
             onClick={handleTextClick}
-          >
-            {text.teamHeader[0]}
-          </h1>
+            dangerouslySetInnerHTML={{
+              __html: isEdited[`team-heading-${index + 1}`]
+                ? document.getElementById(`team-heading-${index + 1}`)
+                    ?.innerHTML || text.teamHeader[0]
+                : text.teamHeader[0],
+            }}
+          ></h1>
           <p
-            id="team-paragraph"
-            style={getElementStyle("team-paragraph")}
-            className={``}
+            id={`team-paragraph-${index + 1}`}
+            style={getElementStyle(`team-paragraph-${index + 1}`)}
+            className={`team-paragraph-${index + 1}`}
             data-text="Type a paragraph"
             contentEditable={false}
             onClick={handleTextClick}
-          >
-            {text.teamParagraphTexts[0]}
-          </p>
+            dangerouslySetInnerHTML={{
+              __html: isEdited[`team-paragraph-${index + 1}`]
+                ? document.getElementById(`team-paragraph-${index + 1}`)
+                    ?.innerHTML || text.teamParagraphTexts[0]
+                : text.teamParagraphTexts[0],
+            }}
+          ></p>
         </div>
 
         <div
@@ -328,24 +410,40 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                id="team-name-header-paragraph"
-                style={getElementStyle("team-name-header-paragraph")}
-                className={`font-semibold `}
+                id={`team-name-header-paragraph-text-1-${index + 1}`}
+                style={getElementStyle(
+                  `team-name-header-paragraph-${index + 1}`
+                )}
+                className={`team-name-header-paragraph-${
+                  index + 1
+                } font-semibold`}
                 data-text="Heading"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Gabriel
+                {isEdited[`team-name-header-paragraph-text-1-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-header-paragraph-text-1-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-header-paragraph-text-1-${index + 1}`
+                    )?.innerText || "Gabriel"}
               </h1>
               <p
-                id="team-name-paragraph"
-                style={getElementStyle("team-name-paragraph")}
-                className={``}
+                id={`team-name-paragraph-text-1-${index + 1}`}
+                style={getElementStyle(`team-name-paragraph-${index + 1}`)}
+                className={`team-name-paragraph-${index + 1}`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Founder
+                {isEdited[`team-name-paragraph-text-1-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-paragraph-text-1-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-paragraph-text-1-${index + 1}`
+                    )?.innerText || "Founder"}
               </p>
               <div className="flex gap-3 justify-center my-3">
                 <svg
@@ -375,16 +473,20 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                id="team-sub-paragraph"
-                style={getElementStyle("team-sub-paragraph")}
-                className={`mt-6 `}
+                id={`team-sub-paragraph-text-1-${index + 1}`}
+                style={getElementStyle(`team-sub-paragraph-${index + 1}`)}
+                className={`team-sub-paragraph-${index + 1} mt-6`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`team-sub-paragraph-text-1-${index + 1}`]
+                    ? document.getElementById(
+                        `team-sub-paragraph-text-1-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
             </div>
           </div>
 
@@ -403,24 +505,40 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                id="team-name-header-paragraph"
-                style={getElementStyle("team-name-header-paragraph")}
-                className={`font-semibold `}
+                id={`team-name-header-paragraph-text-2-${index + 1}`}
+                style={getElementStyle(
+                  `team-name-header-paragraph-${index + 1}`
+                )}
+                className={`team-name-header-paragraph-${
+                  index + 1
+                } font-semibold`}
                 data-text="Heading"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Gabriel
+                {isEdited[`team-name-header-paragraph-text-2-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-header-paragraph-text-2-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-header-paragraph-text-2-${index + 1}`
+                    )?.innerText || "Gabriel"}
               </h1>
               <p
-                id="team-name-paragraph"
-                style={getElementStyle("team-name-paragraph")}
-                className={``}
+                id={`team-name-paragraph-text-2-${index + 1}`}
+                style={getElementStyle(`team-name-paragraph-${index + 1}`)}
+                className={`team-name-paragraph-${index + 1}`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Founder
+                {isEdited[`team-name-paragraph-text-2-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-paragraph-text-2-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-paragraph-text-2-${index + 1}`
+                    )?.innerText || "Founder"}
               </p>
               <div className="flex gap-3 justify-center my-3">
                 <svg
@@ -450,16 +568,20 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                id="team-sub-paragraph"
-                style={getElementStyle("team-sub-paragraph")}
-                className={`mt-6 `}
+                id={`team-sub-paragraph-text-2-${index + 1}`}
+                style={getElementStyle(`team-sub-paragraph-${index + 1}`)}
+                className={`team-sub-paragraph-${index + 1} mt-6`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`team-sub-paragraph-text-2-${index + 1}`]
+                    ? document.getElementById(
+                        `team-sub-paragraph-text-2-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
             </div>
           </div>
 
@@ -478,24 +600,40 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                id="team-name-header-paragraph"
-                style={getElementStyle("team-name-header-paragraph")}
-                className={`font-semibold `}
+                id={`team-name-header-paragraph-text-3-${index + 1}`}
+                style={getElementStyle(
+                  `team-name-header-paragraph-${index + 1}`
+                )}
+                className={`team-name-header-paragraph-${
+                  index + 1
+                } font-semibold`}
                 data-text="Heading"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Gabriel
+                {isEdited[`team-name-header-paragraph-text-3-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-header-paragraph-text-3-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-header-paragraph-text-3-${index + 1}`
+                    )?.innerText || "Gabriel"}
               </h1>
               <p
-                id="team-name-paragraph"
-                style={getElementStyle("team-name-paragraph")}
-                className={``}
+                id={`team-name-paragraph-text-3-${index + 1}`}
+                style={getElementStyle(`team-name-paragraph-${index + 1}`)}
+                className={`team-name-paragraph-${index + 1}`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Founder
+                {isEdited[`team-name-paragraph-text-3-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-paragraph-text-3-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-paragraph-text-3-${index + 1}`
+                    )?.innerText || "Founder"}
               </p>
               <div className="flex gap-3 justify-center my-3">
                 <svg
@@ -525,16 +663,20 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                id="team-sub-paragraph"
-                style={getElementStyle("team-sub-paragraph")}
-                className={``}
+                id={`team-sub-paragraph-text-3-${index + 1}`}
+                style={getElementStyle(`team-sub-paragraph-${index + 1}`)}
+                className={`team-sub-paragraph-${index + 1} mt-6`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`team-sub-paragraph-text-3-${index + 1}`]
+                    ? document.getElementById(
+                        `team-sub-paragraph-text-3-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
             </div>
           </div>
         </div>
@@ -542,31 +684,41 @@ export const teamComponent = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="team-section"
-      style={getStyle("team-section")}
+      id={`team-section-${index + 1}`}
+      style={getStyle(`team-section-${index + 1}`)}
     >
       <div className="text-black py-32 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1
-            id="team-heading"
-            style={getElementStyle("team-heading")}
-            className={`text-3xl font-bold text-[#212529] mb-2 `}
+            id={`team-heading-${index + 1}`}
+            style={getElementStyle(`team-heading-${index + 1}`)}
+            className={`team-heading-${
+              index + 1
+            } text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
             contentEditable={false}
             onClick={handleTextClick}
-          >
-            {text.teamHeader[0]}
-          </h1>
+            dangerouslySetInnerHTML={{
+              __html: isEdited[`team-heading-${index + 1}`]
+                ? document.getElementById(`team-heading-${index + 1}`)
+                    ?.innerHTML || text.teamHeader[0]
+                : text.teamHeader[0],
+            }}
+          ></h1>
           <p
-            id="team-paragraph"
-            style={getElementStyle("team-paragraph")}
-            className={``}
+            id={`team-paragraph-${index + 1}`}
+            style={getElementStyle(`team-paragraph-${index + 1}`)}
+            className={`team-paragraph-${index + 1}`}
             data-text="Type a paragraph"
             contentEditable={false}
             onClick={handleTextClick}
-          >
-            {text.teamParagraphTexts[0]}
-          </p>
+            dangerouslySetInnerHTML={{
+              __html: isEdited[`team-paragraph-${index + 1}`]
+                ? document.getElementById(`team-paragraph-${index + 1}`)
+                    ?.innerHTML || text.teamParagraphTexts[0]
+                : text.teamParagraphTexts[0],
+            }}
+          ></p>
         </div>
 
         <div
@@ -589,24 +741,40 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                id="team-name-header-paragraph"
-                style={getElementStyle("team-name-header-paragraph")}
-                className={`font-semibold `}
+                id={`team-name-header-paragraph-text-1-${index + 1}`}
+                style={getElementStyle(
+                  `team-name-header-paragraph-${index + 1}`
+                )}
+                className={`team-name-header-paragraph-${
+                  index + 1
+                } font-semibold`}
                 data-text="Heading"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Gabriel
+                {isEdited[`team-name-header-paragraph-text-1-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-header-paragraph-text-1-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-header-paragraph-text-1-${index + 1}`
+                    )?.innerText || "Gabriel"}
               </h1>
               <p
-                id="team-name-paragraph"
-                style={getElementStyle("team-name-paragraph")}
-                className={``}
+                id={`team-name-paragraph-text-1-${index + 1}`}
+                style={getElementStyle(`team-name-paragraph-${index + 1}`)}
+                className={`team-name-paragraph-${index + 1}`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Founder
+                {isEdited[`team-name-paragraph-text-1-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-paragraph-text-1-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-paragraph-text-1-${index + 1}`
+                    )?.innerText || "Founder"}
               </p>
               <div className="flex gap-3 justify-center my-3">
                 <svg
@@ -636,16 +804,20 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                id="team-sub-paragraph"
-                style={getElementStyle("team-sub-paragraph")}
-                className={`mt-6 `}
+                id={`team-sub-paragraph-text-1-${index + 1}`}
+                style={getElementStyle(`team-sub-paragraph-${index + 1}`)}
+                className={`team-sub-paragraph-${index + 1} mt-6`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`team-sub-paragraph-text-1-${index + 1}`]
+                    ? document.getElementById(
+                        `team-sub-paragraph-text-1-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
             </div>
           </div>
 
@@ -664,24 +836,40 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                id="team-heading"
-                style={getElementStyle("team-heading")}
-                className={`font-semibold `}
+                id={`team-name-header-paragraph-text-2-${index + 1}`}
+                style={getElementStyle(
+                  `team-name-header-paragraph-${index + 1}`
+                )}
+                className={`team-name-header-paragraph-${
+                  index + 1
+                } font-semibold`}
                 data-text="Heading"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Gabriel
+                {isEdited[`team-name-header-paragraph-text-2-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-header-paragraph-text-2-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-header-paragraph-text-2-${index + 1}`
+                    )?.innerText || "Gabriel"}
               </h1>
               <p
-                id="team-paragraph"
-                style={getElementStyle("team-paragraph")}
-                className={``}
+                id={`team-name-paragraph-text-2-${index + 1}`}
+                style={getElementStyle(`team-name-paragraph-${index + 1}`)}
+                className={`team-name-paragraph-${index + 1}`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Founder
+                {isEdited[`team-name-paragraph-text-2-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-paragraph-text-2-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-paragraph-text-2-${index + 1}`
+                    )?.innerText || "Founder"}
               </p>
               <div className="flex gap-3 justify-center my-3">
                 <svg
@@ -711,16 +899,20 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                id="team-sub-paragraph"
-                style={getElementStyle("team-sub-paragraph")}
-                className={`mt-6 `}
+                id={`team-sub-paragraph-text-2-${index + 1}`}
+                style={getElementStyle(`team-sub-paragraph-${index + 1}`)}
+                className={`team-sub-paragraph-${index + 1} mt-6`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`team-sub-paragraph-text-2-${index + 1}`]
+                    ? document.getElementById(
+                        `team-sub-paragraph-text-2-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
             </div>
           </div>
 
@@ -739,24 +931,40 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                id="team-name-header-paragraph"
-                style={getElementStyle("team-name-header-paragraph")}
-                className={`font-semibold `}
+                id={`team-name-header-paragraph-text-3-${index + 1}`}
+                style={getElementStyle(
+                  `team-name-header-paragraph-${index + 1}`
+                )}
+                className={`team-name-header-paragraph-${
+                  index + 1
+                } font-semibold`}
                 data-text="Heading"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Gabriel
+                {isEdited[`team-name-header-paragraph-text-3-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-header-paragraph-text-3-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-header-paragraph-text-3-${index + 1}`
+                    )?.innerText || "Gabriel"}
               </h1>
               <p
-                id="team-name-paragraph"
-                style={getElementStyle("team-name-paragraph")}
-                className={``}
+                id={`team-name-paragraph-text-3-${index + 1}`}
+                style={getElementStyle(`team-name-paragraph-${index + 1}`)}
+                className={`team-name-paragraph-${index + 1}`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Founder
+                {isEdited[`team-name-paragraph-text-3-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-paragraph-text-3-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-paragraph-text-3-${index + 1}`
+                    )?.innerText || "Founder"}
               </p>
               <div className="flex gap-3 justify-center my-3">
                 <svg
@@ -786,16 +994,20 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                id="team-sub-paragraph"
-                style={getElementStyle("team-sub-paragraph")}
-                className={`mt-6 `}
+                id={`team-sub-paragraph-text-3-${index + 1}`}
+                style={getElementStyle(`team-sub-paragraph-${index + 1}`)}
+                className={`team-sub-paragraph-${index + 1} mt-6`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`team-sub-paragraph-text-3-${index + 1}`]
+                    ? document.getElementById(
+                        `team-sub-paragraph-text-3-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
             </div>
           </div>
         </div>
@@ -803,31 +1015,41 @@ export const teamComponent = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="team-section"
-      style={getStyle("team-section")}
+      id={`team-section-${index + 1}`}
+      style={getStyle(`team-section-${index + 1}`)}
     >
       <div className="text-black py-32 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1
-            id="team-heading"
-            style={getElementStyle("team-heading")}
-            className={`text-3xl font-bold text-[#212529] mb-2 `}
+            id={`team-heading-${index + 1}`}
+            style={getElementStyle(`team-heading-${index + 1}`)}
+            className={`team-heading-${
+              index + 1
+            } text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
             contentEditable={false}
             onClick={handleTextClick}
-          >
-            {text.teamHeader[0]}
-          </h1>
+            dangerouslySetInnerHTML={{
+              __html: isEdited[`team-heading-${index + 1}`]
+                ? document.getElementById(`team-heading-${index + 1}`)
+                    ?.innerHTML || text.teamHeader[0]
+                : text.teamHeader[0],
+            }}
+          ></h1>
           <p
-            id="team-paragraph"
-            style={getElementStyle("team-paragraph")}
-            className={``}
+            id={`team-paragraph-${index + 1}`}
+            style={getElementStyle(`team-paragraph-${index + 1}`)}
+            className={`team-paragraph-${index + 1}`}
             data-text="Type a paragraph"
             contentEditable={false}
             onClick={handleTextClick}
-          >
-            {text.teamParagraphTexts[0]}
-          </p>
+            dangerouslySetInnerHTML={{
+              __html: isEdited[`team-paragraph-${index + 1}`]
+                ? document.getElementById(`team-paragraph-${index + 1}`)
+                    ?.innerHTML || text.teamParagraphTexts[0]
+                : text.teamParagraphTexts[0],
+            }}
+          ></p>
         </div>
 
         <div
@@ -850,24 +1072,40 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                id="team-name-header-paragraph"
-                style={getElementStyle("team-name-header-paragraph")}
-                className={`font-semibold `}
+                id={`team-name-header-paragraph-text-1-${index + 1}`}
+                style={getElementStyle(
+                  `team-name-header-paragraph-${index + 1}`
+                )}
+                className={`team-name-header-paragraph-${
+                  index + 1
+                } font-semibold`}
                 data-text="Heading"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Gabriel
+                {isEdited[`team-name-header-paragraph-text-1-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-header-paragraph-text-1-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-header-paragraph-text-1-${index + 1}`
+                    )?.innerText || "Gabriel"}
               </h1>
               <p
-                id="team-name-paragraph"
-                style={getElementStyle("team-name-paragraph")}
-                className={``}
+                id={`team-name-paragraph-text-1-${index + 1}`}
+                style={getElementStyle(`team-name-paragraph-${index + 1}`)}
+                className={`team-name-paragraph-${index + 1}`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Founder
+                {isEdited[`team-name-paragraph-text-1-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-paragraph-text-1-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-paragraph-text-1-${index + 1}`
+                    )?.innerText || "Founder"}
               </p>
               <div className="flex gap-3 justify-center my-3">
                 <svg
@@ -897,16 +1135,20 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                id="team-sub-paragraph"
-                style={getElementStyle("team-sub-paragraph")}
-                className={`mt-6 `}
+                id={`team-sub-paragraph-text-1-${index + 1}`}
+                style={getElementStyle(`team-sub-paragraph-${index + 1}`)}
+                className={`team-sub-paragraph-${index + 1} mt-6`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`team-sub-paragraph-text-1-${index + 1}`]
+                    ? document.getElementById(
+                        `team-sub-paragraph-text-1-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
             </div>
           </div>
 
@@ -925,24 +1167,40 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                id="team-name-header-paragraph"
-                style={getElementStyle("team-name-header-paragraph")}
-                className={`font-semibold `}
+                id={`team-name-header-paragraph-text-2-${index + 1}`}
+                style={getElementStyle(
+                  `team-name-header-paragraph-${index + 1}`
+                )}
+                className={`team-name-header-paragraph-${
+                  index + 1
+                } font-semibold`}
                 data-text="Heading"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Gabriel
+                {isEdited[`team-name-header-paragraph-text-2-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-header-paragraph-text-2-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-header-paragraph-text-2-${index + 1}`
+                    )?.innerText || "Gabriel"}
               </h1>
               <p
-                id="team-name-paragraph"
-                style={getElementStyle("team-name-paragraph")}
-                className={``}
+                id={`team-name-paragraph-text-2-${index + 1}`}
+                style={getElementStyle(`team-name-paragraph-${index + 1}`)}
+                className={`team-name-paragraph-${index + 1}`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Founder
+                {isEdited[`team-name-paragraph-text-2-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-paragraph-text-2-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-paragraph-text-2-${index + 1}`
+                    )?.innerText || "Founder"}
               </p>
               <div className="flex gap-3 justify-center my-3">
                 <svg
@@ -972,16 +1230,20 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                id="team-sub-paragraph"
-                style={getElementStyle("team-sub-paragraph")}
-                className={`mt-6 `}
+                id={`team-sub-paragraph-text-2-${index + 1}`}
+                style={getElementStyle(`team-sub-paragraph-${index + 1}`)}
+                className={`team-sub-paragraph-${index + 1} mt-6`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`team-sub-paragraph-text-2-${index + 1}`]
+                    ? document.getElementById(
+                        `team-sub-paragraph-text-2-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
             </div>
           </div>
 
@@ -1000,24 +1262,40 @@ export const teamComponent = ({
 
             <div className="text-center mt-4 px-8">
               <h1
-                id="team-name-header-paragraph"
-                style={getElementStyle("team-name-header-paragraph")}
-                className={`font-semibold `}
+                id={`team-name-header-paragraph-text-3-${index + 1}`}
+                style={getElementStyle(
+                  `team-name-header-paragraph-${index + 1}`
+                )}
+                className={`team-name-header-paragraph-${
+                  index + 1
+                } font-semibold`}
                 data-text="Heading"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Gabriel
+                {isEdited[`team-name-header-paragraph-text-3-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-header-paragraph-text-3-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-header-paragraph-text-3-${index + 1}`
+                    )?.innerText || "Gabriel"}
               </h1>
               <p
-                id="team-name-paragraph"
-                style={getElementStyle("team-name-paragraph")}
-                className={``}
+                id={`team-name-paragraph-text-3-${index + 1}`}
+                style={getElementStyle(`team-name-paragraph-${index + 1}`)}
+                className={`team-name-paragraph-${index + 1}`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Founder
+                {isEdited[`team-name-paragraph-text-3-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-paragraph-text-3-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-paragraph-text-3-${index + 1}`
+                    )?.innerText || "Founder"}
               </p>
               <div className="flex gap-3 justify-center my-3">
                 <svg
@@ -1047,16 +1325,20 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                id="team-sub-paragraph"
-                style={getElementStyle("team-sub-paragraph")}
-                className={`mt-6 `}
+                id={`team-sub-paragraph-text-3-${index + 1}`}
+                style={getElementStyle(`team-sub-paragraph-${index + 1}`)}
+                className={`team-sub-paragraph-${index + 1} mt-6`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`team-sub-paragraph-text-3-${index + 1}`]
+                    ? document.getElementById(
+                        `team-sub-paragraph-text-3-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
             </div>
           </div>
         </div>
@@ -1064,31 +1346,41 @@ export const teamComponent = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="team-section"
-      style={getStyle("team-section")}
+      id={`team-section-${index + 1}`}
+      style={getStyle(`team-section-${index + 1}`)}
     >
       <div className="text-black py-32 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1
-            id="team-heading"
-            style={getElementStyle("team-heading")}
-            className={`text-3xl font-bold text-[#212529] mb-2 `}
+            id={`team-heading-${index + 1}`}
+            style={getElementStyle(`team-heading-${index + 1}`)}
+            className={`team-heading-${
+              index + 1
+            } text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
             contentEditable={false}
             onClick={handleTextClick}
-          >
-            {text.teamHeader[0]}
-          </h1>
+            dangerouslySetInnerHTML={{
+              __html: isEdited[`team-heading-${index + 1}`]
+                ? document.getElementById(`team-heading-${index + 1}`)
+                    ?.innerHTML || text.teamHeader[0]
+                : text.teamHeader[0],
+            }}
+          ></h1>
           <p
-            id="team-paragraph"
-            style={getElementStyle("team-paragraph")}
-            className={``}
+            id={`team-paragraph-${index + 1}`}
+            style={getElementStyle(`team-paragraph-${index + 1}`)}
+            className={`team-paragraph-${index + 1}`}
             data-text="Type a paragraph"
             contentEditable={false}
             onClick={handleTextClick}
-          >
-            {text.teamParagraphTexts[0]}
-          </p>
+            dangerouslySetInnerHTML={{
+              __html: isEdited[`team-paragraph-${index + 1}`]
+                ? document.getElementById(`team-paragraph-${index + 1}`)
+                    ?.innerHTML || text.teamParagraphTexts[0]
+                : text.teamParagraphTexts[0],
+            }}
+          ></p>
         </div>
 
         <div
@@ -1111,24 +1403,40 @@ export const teamComponent = ({
 
             <div className="text-left mt-4 px-8">
               <h1
-                id="team-name-header-paragraph"
-                style={getElementStyle("team-name-header-paragraph")}
-                className={`font-semibold `}
+                id={`team-name-header-paragraph-text-1-${index + 1}`}
+                style={getElementStyle(
+                  `team-name-header-paragraph-${index + 1}`
+                )}
+                className={`team-name-header-paragraph-${
+                  index + 1
+                } font-semibold`}
                 data-text="Heading"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Gabriel
+                {isEdited[`team-name-header-paragraph-text-1-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-header-paragraph-text-1-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-header-paragraph-text-1-${index + 1}`
+                    )?.innerText || "Gabriel"}
               </h1>
               <p
-                id="team-name-paragraph"
-                style={getElementStyle("team-name-paragraph")}
-                className={``}
+                id={`team-name-paragraph-text-1-${index + 1}`}
+                style={getElementStyle(`team-name-paragraph-${index + 1}`)}
+                className={`team-name-paragraph-${index + 1}`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Founder
+                {isEdited[`team-name-paragraph-text-1-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-paragraph-text-1-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-paragraph-text-1-${index + 1}`
+                    )?.innerText || "Founder"}
               </p>
               <div className="flex gap-3 justify-start my-3">
                 <svg
@@ -1158,16 +1466,20 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                id="team-sub-paragraph"
-                style={getElementStyle("team-sub-paragraph")}
-                className={`mt-6 `}
+                id={`team-sub-paragraph-text-1-${index + 1}`}
+                style={getElementStyle(`team-sub-paragraph-${index + 1}`)}
+                className={`team-sub-paragraph-${index + 1} mt-6`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`team-sub-paragraph-text-1-${index + 1}`]
+                    ? document.getElementById(
+                        `team-sub-paragraph-text-1-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
             </div>
           </div>
 
@@ -1186,24 +1498,40 @@ export const teamComponent = ({
 
             <div className="text-left mt-4 px-8">
               <h1
-                id="team-name-header-paragraph"
-                style={getElementStyle("team-name-header-paragraph")}
-                className={`font-semibold `}
+                id={`team-name-header-paragraph-text-2-${index + 1}`}
+                style={getElementStyle(
+                  `team-name-header-paragraph-${index + 1}`
+                )}
+                className={`team-name-header-paragraph-${
+                  index + 1
+                } font-semibold`}
                 data-text="Heading"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Gabriel
+                {isEdited[`team-name-header-paragraph-text-2-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-header-paragraph-text-2-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-header-paragraph-text-2-${index + 1}`
+                    )?.innerText || "Gabriel"}
               </h1>
               <p
-                id="team-name-paragraph"
-                style={getElementStyle("team-name-paragraph")}
-                className={``}
+                id={`team-name-paragraph-text-2-${index + 1}`}
+                style={getElementStyle(`team-name-paragraph-${index + 1}`)}
+                className={`team-name-paragraph-${index + 1}`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Founder
+                {isEdited[`team-name-paragraph-text-2-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-paragraph-text-2-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-paragraph-text-2-${index + 1}`
+                    )?.innerText || "Founder"}
               </p>
               <div className="flex gap-3 justify-start my-3">
                 <svg
@@ -1233,16 +1561,20 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                id="team-sub-paragraph"
-                style={getElementStyle("team-sub-paragraph")}
-                className={`mt-6 `}
+                id={`team-sub-paragraph-text-2-${index + 1}`}
+                style={getElementStyle(`team-sub-paragraph-${index + 1}`)}
+                className={`team-sub-paragraph-${index + 1} mt-6`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`team-sub-paragraph-text-2-${index + 1}`]
+                    ? document.getElementById(
+                        `team-sub-paragraph-text-2-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
             </div>
           </div>
 
@@ -1261,24 +1593,40 @@ export const teamComponent = ({
 
             <div className="text-left mt-4 px-8">
               <h1
-                id="team-name-header-paragraph"
-                style={getElementStyle("team-name-header-paragraph")}
-                className={`font-semibold `}
-                data-text="Type a paragraph"
+                id={`team-name-header-paragraph-text-3-${index + 1}`}
+                style={getElementStyle(
+                  `team-name-header-paragraph-${index + 1}`
+                )}
+                className={`team-name-header-paragraph-${
+                  index + 1
+                } font-semibold`}
+                data-text="Heading"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Gabriel
+                {isEdited[`team-name-header-paragraph-text-3-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-header-paragraph-text-3-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-header-paragraph-text-3-${index + 1}`
+                    )?.innerText || "Gabriel"}
               </h1>
               <p
-                id="team-name-paragraph"
-                style={getElementStyle("team-name-paragraph")}
-                className={``}
+                id={`team-name-paragraph-text-3-${index + 1}`}
+                style={getElementStyle(`team-name-paragraph-${index + 1}`)}
+                className={`team-name-paragraph-${index + 1}`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Founder
+                {isEdited[`team-name-paragraph-text-3-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-paragraph-text-3-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-paragraph-text-3-${index + 1}`
+                    )?.innerText || "Founder"}
               </p>
               <div className="flex gap-3 justify-start my-3">
                 <svg
@@ -1308,16 +1656,20 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                id="team-sub-paragraph"
-                style={getElementStyle("team-sub-paragraph")}
-                className={`mt-6 `}
+                id={`team-sub-paragraph-text-3-${index + 1}`}
+                style={getElementStyle(`team-sub-paragraph-${index + 1}`)}
+                className={`team-sub-paragraph-${index + 1} mt-6`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`team-sub-paragraph-text-3-${index + 1}`]
+                    ? document.getElementById(
+                        `team-sub-paragraph-text-3-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
             </div>
           </div>
         </div>
@@ -1325,31 +1677,41 @@ export const teamComponent = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id="team-section"
-      style={getStyle("team-section")}
+      id={`team-section-${index + 1}`}
+      style={getStyle(`team-section-${index + 1}`)}
     >
       <div className="text-black py-32 w-[90%] max-w-[1000px] mx-auto">
         <div className="mb-10 text-center">
           <h1
-            id="team-heading"
-            style={getElementStyle("team-heading")}
-            className={`text-3xl font-bold text-[#212529] mb-2 `}
+            id={`team-heading-${index + 1}`}
+            style={getElementStyle(`team-heading-${index + 1}`)}
+            className={`team-heading-${
+              index + 1
+            } text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
             contentEditable={false}
             onClick={handleTextClick}
-          >
-            {text.teamHeader[0]}
-          </h1>
+            dangerouslySetInnerHTML={{
+              __html: isEdited[`team-heading-${index + 1}`]
+                ? document.getElementById(`team-heading-${index + 1}`)
+                    ?.innerHTML || text.teamHeader[0]
+                : text.teamHeader[0],
+            }}
+          ></h1>
           <p
-            id="team-paragraph"
-            style={getElementStyle("team-paragraph")}
-            className={``}
+            id={`team-paragraph-${index + 1}`}
+            style={getElementStyle(`team-paragraph-${index + 1}`)}
+            className={`team-paragraph-${index + 1}`}
             data-text="Type a paragraph"
             contentEditable={false}
             onClick={handleTextClick}
-          >
-            {text.teamParagraphTexts[0]}
-          </p>
+            dangerouslySetInnerHTML={{
+              __html: isEdited[`team-paragraph-${index + 1}`]
+                ? document.getElementById(`team-paragraph-${index + 1}`)
+                    ?.innerHTML || text.teamParagraphTexts[0]
+                : text.teamParagraphTexts[0],
+            }}
+          ></p>
         </div>
 
         <div
@@ -1372,24 +1734,40 @@ export const teamComponent = ({
 
             <div className="text-left mt-4 px-8">
               <h1
-                id="team-name-header-paragraph"
-                style={getElementStyle("team-name-header-paragraph")}
-                className={`font-semibold `}
+                id={`team-name-header-paragraph-text-1-${index + 1}`}
+                style={getElementStyle(
+                  `team-name-header-paragraph-${index + 1}`
+                )}
+                className={`team-name-header-paragraph-${
+                  index + 1
+                } font-semibold`}
                 data-text="Heading"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Gabriel
+                {isEdited[`team-name-header-paragraph-text-1-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-header-paragraph-text-1-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-header-paragraph-text-1-${index + 1}`
+                    )?.innerText || "Gabriel"}
               </h1>
               <p
-                id="team-name-paragraph"
-                style={getElementStyle("team-name-paragraph")}
-                className={``}
+                id={`team-name-paragraph-text-1-${index + 1}`}
+                style={getElementStyle(`team-name-paragraph-${index + 1}`)}
+                className={`team-name-paragraph-${index + 1}`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Founder
+                {isEdited[`team-name-paragraph-text-1-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-paragraph-text-1-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-paragraph-text-1-${index + 1}`
+                    )?.innerText || "Founder"}
               </p>
               <div className="flex gap-3 justify-start my-3">
                 <svg
@@ -1419,16 +1797,20 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                id="team-sub-paragraph"
-                style={getElementStyle("team-sub-paragraph")}
-                className={`mt-6 `}
+                id={`team-sub-paragraph-text-1-${index + 1}`}
+                style={getElementStyle(`team-sub-paragraph-${index + 1}`)}
+                className={`team-sub-paragraph-${index + 1} mt-6`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`team-sub-paragraph-text-1-${index + 1}`]
+                    ? document.getElementById(
+                        `team-sub-paragraph-text-1-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
             </div>
           </div>
 
@@ -1447,24 +1829,40 @@ export const teamComponent = ({
 
             <div className="text-left mt-4 px-8">
               <h1
-                id="team-name-header-paragraph"
-                style={getElementStyle("team-name-header-paragraph")}
-                className={`font-semibold `}
+                id={`team-name-header-paragraph-text-2-${index + 1}`}
+                style={getElementStyle(
+                  `team-name-header-paragraph-${index + 1}`
+                )}
+                className={`team-name-header-paragraph-${
+                  index + 1
+                } font-semibold`}
                 data-text="Heading"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Gabriel
+                {isEdited[`team-name-header-paragraph-text-2-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-header-paragraph-text-2-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-header-paragraph-text-2-${index + 1}`
+                    )?.innerText || "Gabriel"}
               </h1>
               <p
-                id="team-name-paragraph"
-                style={getElementStyle("team-name-paragraph")}
-                className={``}
+                id={`team-name-paragraph-text-2-${index + 1}`}
+                style={getElementStyle(`team-name-paragraph-${index + 1}`)}
+                className={`team-name-paragraph-${index + 1}`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Founder
+                {isEdited[`team-name-paragraph-text-2-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-paragraph-text-2-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-paragraph-text-2-${index + 1}`
+                    )?.innerText || "Founder"}
               </p>
               <div className="flex gap-3 justify-start my-3">
                 <svg
@@ -1494,16 +1892,20 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                id="team-sub-paragraph"
-                style={getElementStyle("team-sub-paragraph")}
-                className={`mt-6 `}
+                id={`team-sub-paragraph-text-2-${index + 1}`}
+                style={getElementStyle(`team-sub-paragraph-${index + 1}`)}
+                className={`team-sub-paragraph-${index + 1} mt-6`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`team-sub-paragraph-text-2-${index + 1}`]
+                    ? document.getElementById(
+                        `team-sub-paragraph-text-2-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
             </div>
           </div>
 
@@ -1522,24 +1924,40 @@ export const teamComponent = ({
 
             <div className="text-left mt-4 px-8">
               <h1
-                id="team-name-header-paragraph"
-                style={getElementStyle("team-name-header-paragraph")}
-                className={`font-semibold `}
+                id={`team-name-header-paragraph-text-3-${index + 1}`}
+                style={getElementStyle(
+                  `team-name-header-paragraph-${index + 1}`
+                )}
+                className={`team-name-header-paragraph-${
+                  index + 1
+                } font-semibold`}
                 data-text="Heading"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Gabriel
+                {isEdited[`team-name-header-paragraph-text-3-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-header-paragraph-text-3-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-header-paragraph-text-3-${index + 1}`
+                    )?.innerText || "Gabriel"}
               </h1>
               <p
-                id="team-name-paragraph"
-                style={getElementStyle("team-name-paragraph")}
-                className={``}
+                id={`team-name-paragraph-text-3-${index + 1}`}
+                style={getElementStyle(`team-name-paragraph-${index + 1}`)}
+                className={`team-name-paragraph-${index + 1}`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                Founder
+                {isEdited[`team-name-paragraph-text-3-${index + 1}`]
+                  ? document.getElementById(
+                      `team-name-paragraph-text-3-${index + 1}`
+                    )?.innerText
+                  : document.getElementById(
+                      `team-name-paragraph-text-3-${index + 1}`
+                    )?.innerText || "Founder"}
               </p>
               <div className="flex gap-3 justify-start my-3">
                 <svg
@@ -1569,16 +1987,20 @@ export const teamComponent = ({
                 </svg>
               </div>
               <p
-                id="team-sub-paragraph"
-                style={getElementStyle("team-sub-paragraph")}
-                className={`mt-6 `}
+                id={`team-sub-paragraph-text-3-${index + 1}`}
+                style={getElementStyle(`team-sub-paragraph-${index + 1}`)}
+                className={`team-sub-paragraph-${index + 1} mt-6`}
                 data-text="Type a paragraph"
                 contentEditable={false}
                 onClick={handleTextClick}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-              </p>
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[`team-sub-paragraph-text-3-${index + 1}`]
+                    ? document.getElementById(
+                        `team-sub-paragraph-text-3-${index + 1}`
+                      )?.innerHTML || text.description
+                    : text.description,
+                }}
+              ></p>
             </div>
           </div>
         </div>
