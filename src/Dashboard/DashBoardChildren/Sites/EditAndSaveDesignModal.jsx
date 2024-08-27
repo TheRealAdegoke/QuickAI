@@ -36,14 +36,16 @@ const EditAndSaveDesignModal = (idx) => {
     // Remove any unintended self-closing slash on tags
     elementString = elementString.replace(/\/>/g, ">");
 
-    // Ensure that <br> tags are self-closing
+    // Ensure that <br>, <img>, and <path> tags are self-closing
     elementString = elementString.replace(/<br>/g, "<br />");
     elementString = elementString.replace(/<img([^>]*)>/g, "<img$1 />");
+    elementString = elementString.replace(/<path([^>]*)>/g, "<path$1 />");
 
     console.log(elementString);
     setDisplayCode(elementString);
     setDisplayEditModal(true);
   };
+
 
   return (
     <div ref={elementsContainerRef} className="overflow-y-auto h-full">
