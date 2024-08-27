@@ -4,13 +4,44 @@ import { MdFolder } from "react-icons/md";
 import ElementArray from "../../AI-Designed-Component/ElementArray";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
 import reactElementToJSXString from "react-element-to-jsx-string";
+import ComponentCode from "./EditAndSaveComponents/ComponentCode";
 
-const EditAndSaveDesignModal = () => {
-  const { setDisplayEditModal, newElementRef, elementsContainerRef } =
-    useContext(DashContext);
+const EditAndSaveDesignModal = (idx) => {
+  const {
+    setDisplayEditModal,
+    newElementRef,
+    elementsContainerRef,
+    displayCode,
+    setDisplayCode,
+    setIsMobile,
+    isMobile,
+  } = useContext(DashContext);
   const { elements } = ElementArray();
+  const tempDivRef = useRef(null);
 
-  const handleElementClick = () => {
+
+  const handleElementClick = (item) => {
+    // Convert the React element to a string
+    let elementString = reactElementToJSXString(item, {
+      showFunctions: false,
+    });
+
+    // Replace dangerouslySetInnerHTML with direct content inside any HTML tag
+    elementString = elementString.replace(
+      /<(\w+)([^>]*)dangerouslySetInnerHTML={{\s*__html:\s*'([^']*)'\s*}}\s*([^>]*)\/?>/g,
+      (_, tagName, beforeAttributes, content, afterAttributes) =>
+        `<${tagName}${beforeAttributes}${afterAttributes}>${content}</${tagName}>`
+    );
+
+    // Remove any unintended self-closing slash on tags
+    elementString = elementString.replace(/\/>/g, ">");
+
+    // Ensure that <br> tags are self-closing
+    elementString = elementString.replace(/<br>/g, "<br />");
+    elementString = elementString.replace(/<img([^>]*)>/g, "<img$1 />");
+
+    console.log(elementString);
+    setDisplayCode(elementString);
     setDisplayEditModal(true);
   };
 
@@ -21,32 +52,19 @@ const EditAndSaveDesignModal = () => {
           ref={newElementRef}
           key={item.key || idx}
           onClick={() => {
-            handleElementClick(idx);
-
-            // Convert the React element to a string
-            let elementString = reactElementToJSXString(item.element, {
-              showFunctions: false,
-            });
-
-            // Replace dangerouslySetInnerHTML with direct content inside any HTML tag
-            elementString = elementString.replace(
-              /<(\w+)([^>]*)dangerouslySetInnerHTML={{\s*__html:\s*'([^']*)'\s*}}\s*([^>]*)\/?>/g,
-              (_, tagName, beforeAttributes, content, afterAttributes) =>
-                `<${tagName}${beforeAttributes}${afterAttributes}>${content}</${tagName}>`
-            );
-
-            // Remove any unintended self-closing slash on tags
-            elementString = elementString.replace(/\/>/g, ">");
-
-            // Ensure that <br> tags are self-closing
-            elementString = elementString.replace(/<br>/g, "<br />");
-
-            console.log(elementString);
+            handleElementClick(item.element);
           }}
         >
           {item.element}
         </div>
       ))}
+      <div className=" invisible">
+        <ComponentCode
+          handleElementClick={handleElementClick}
+          setIsMobile={setIsMobile}
+          displayCode={displayCode}
+        />
+      </div>
     </div>
   );
 };
@@ -77,7 +95,7 @@ export const Button = ({
       [id]: true, // This will set the correct property to true
     };
 
-    console.log("New active section:", newActiveSection);
+    // console.log("New active section:", newActiveSection);
     setActiveSection(newActiveSection);
   };
 

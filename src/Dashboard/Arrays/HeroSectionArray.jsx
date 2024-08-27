@@ -591,3 +591,4 @@ export const heroComponents = ({
     </section>,
   ];
 };
+

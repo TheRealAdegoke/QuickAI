@@ -1,26 +1,12 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { IoIosArrowRoundBack } from "react-icons/io";
-import testImage from "../../../../assets/Default-Card.jpg";
-import { HeroImages } from "./HeroEditComponent";
 import { DashContext } from "../../../DashboardChecker/DashboardContext";
-import { HeaderImages } from "./HeaderEditComponent";
-import { CardFeaturesImages } from "./CardFeatureEditComponent";
-import { ClassicalFeaturesImages } from "./ClassicalFeatureEditComponent";
-import { TestimonialImages } from "./TestimonialEditComponent";
-import { FAQImages } from "./FAQEditComponent";
-import { TeamImages } from "./TeamEditComponent";
 import { ColorPickerComponent } from "./ColorPicker";
 import EditContentComponent from "./EditContentComponent";
 
 const EditDesignModalComponent = () => {
   const {
     setDisplayEditModal,
-    changeSectionHeaderText,
-    isPattern,
-    setIsPattern,
-    setHeroBackGroundStyle,
-    setcardFeatureBackGroundStyle,
-    backGroundStyle,
     setBackGroundStyle,
     setSelectedDiv,
     isContent,
@@ -41,6 +27,7 @@ const EditDesignModalComponent = () => {
             onClick={() => {
               setDisplayEditModal(false);
               setSelectedDiv(null);
+              setIsContent(true);
             }}
             className="text-white font-semibold text-2xl w-[50px] border-[rgba(255,255,255,0.5)] border-[1px] px-2 py-1 rounded-[5px] flex justify-center"
           >
@@ -83,7 +70,6 @@ const EditDesignModalComponent = () => {
                   <div className="mb-4">
                     <ColorPickerComponent
                       setBackGroundStyle={setBackGroundStyle}
-                      setSelectedDiv={setSelectedDiv}
                     />
                   </div>
                 )}
