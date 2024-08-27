@@ -18,9 +18,11 @@ import { TestimonialImages } from "./EditAndSaveComponents/TestimonialEditCompon
 import { FAQImages } from "./EditAndSaveComponents/FAQEditComponent";
 import { TeamImages } from "./EditAndSaveComponents/TeamEditComponent";
 import { IoClose } from "react-icons/io5";
+import ComponentCode from "./EditAndSaveComponents/ComponentCode";
 
 const EditAndSave = () => {
   const {
+    isMobile,
     setIsMobile,
     displayEditModal,
     sectionModal,
@@ -29,6 +31,8 @@ const EditAndSave = () => {
     setActiveSection,
     currentSection,
     setCurrentSection,
+    displayCode,
+    setDisplayCode,
   } = useContext(DashContext);
   const modalRef = useRef(null);
   const resizableRef = useRef(null);
@@ -141,7 +145,7 @@ const EditAndSave = () => {
               onClick={() => {
                 setDevMode(!devMode);
                 setEnabled(!enabled);
-                setIsMobile(true);
+                setIsMobile(false);
               }}
             >
               <Switch
@@ -189,7 +193,7 @@ const EditAndSave = () => {
           <div
             className={`${
               window.innerWidth < 1000 ? "hidden" : ""
-            } bg-[rgb(9,11,14)] w-[23%] min-w-[23%] max-w-[23%] min-[1350px]:w-[20%] min-[1350px]:min-w-[20%] min-[1350px]:max-w-[20%] h-[87vh] border-[1px] rounded-[8px] border-[rgba(255,255,255,0.3)] overflow-y-scroll`}
+            } ${enabled ? "hidden" : "block"} bg-[rgb(9,11,14)] w-[20%] min-w-[20%] max-w-[20%] min-[1350px]:w-[20%] min-[1350px]:min-w-[20%] min-[1350px]:max-w-[20%] h-[87vh] border-[1px] rounded-[8px] border-[rgba(255,255,255,0.3)] overflow-y-scroll`}
           >
             {displayEditModal ? (
               <EditDesignModalComponent />
@@ -201,7 +205,7 @@ const EditAndSave = () => {
           <div
             className={`${
               enabled && window.innerWidth > 1000
-                ? "w-[48%] max-w-[48%] min-[1350px]:max-w-[55%] min-[1350px]:w-[55%]"
+                ? "w-[64%] max-w-[64%] min-[1350px]:max-w-[64%] min-[1350px]:w-[64%]"
                 : "w-[75%] mx-auto"
             } max-md:w-[95%]`}
           >
@@ -235,8 +239,13 @@ const EditAndSave = () => {
           <div
             className={`${
               enabled && window.innerWidth > 1000 ? "right-0" : "right-[-999px]"
-            } w-[23%] min-w-[23%] max-w-[23%] min-[1350px]:w-[20%] min-[1350px]:min-w-[20%] min-[1350px]:max-w-[20%] absolute  h-[90vh] bg-[rgb(9,11,14)] border-[1px] rounded-[8px] border-[rgba(255,255,255,0.3)] transition-all ease-in-out duration-150`}
-          ></div>
+            } w-[35%] min-w-[35%] max-w-[35%] min-[1350px]:w-[35%] min-[1350px]:min-w-[35%] min-[1350px]:max-w-[35%] absolute  h-[90vh] bg-[rgb(9,11,14)] border-[1px] rounded-[8px] border-[rgba(255,255,255,0.3)] transition-all ease-in-out duration-150`}
+          >
+            <ComponentCode
+              displayCode={displayCode}
+              setIsMobile={setIsMobile}
+            />
+          </div>
         </section>
 
         <div
@@ -250,7 +259,7 @@ const EditAndSave = () => {
                 className="bg-[rgb(20,21,24)] py-2 px-2 text-xl rounded-lg text-[rgba(255,255,255,0.8)] mt-5"
                 onClick={() => {
                   setSectionModal(false);
-                  setCurrentSection(false)
+                  setCurrentSection(false);
                 }}
               >
                 <IoClose />

@@ -104,7 +104,7 @@ const EditContentComponent = () => {
       <div>
         <textarea
           className="bg-[rgb(42,42,47)] text-white h-[70px] min-h-[70px] max-h-[70px] w-[95%] mx-auto ml-2 outline-none px-2 py-1 rounded-md"
-          placeholder="Typing..."
+          placeholder="Click on a text to edit"
           value={clickedText}
           onChange={handleTextareaChange}
         ></textarea>

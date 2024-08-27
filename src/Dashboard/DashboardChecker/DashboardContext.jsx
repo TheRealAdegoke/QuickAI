@@ -98,6 +98,7 @@ export const DashboardProvider = ({ children }) => {
   const newElementRef = useRef(null);
   const elementsContainerRef = useRef(null);
   const [isEdited, setIsEdited] = useState({});
+  const [displayCode, setDisplayCode] = useState("")
 
   useEffect(() => {
     if (!shuffled && webContentObject.randomButtonText) {
@@ -496,6 +497,7 @@ export const DashboardProvider = ({ children }) => {
       );
     }
   };
+  
   const handleDivClick = (event) => {
     setSelectedDiv(event.currentTarget);
   };
@@ -583,7 +585,6 @@ export const DashboardProvider = ({ children }) => {
         clickedIndex,
         buttons,
         currentSection,
-        isFocused,
         heroBackGroundStyle,
         cardFeatureBackGroundStyle,
         clickedText,
@@ -627,7 +628,6 @@ export const DashboardProvider = ({ children }) => {
         setIsPattern,
         setClickedIndex,
         setCurrentSection,
-        setIsFocused,
         handleFocus,
         handleBlur,
         setHeroBackGroundStyle,
@@ -663,6 +663,8 @@ export const DashboardProvider = ({ children }) => {
         newElementRef,
         elementsContainerRef,
         isEdited,
+        displayCode,
+        setDisplayCode,
       }}
     >
       {children}
