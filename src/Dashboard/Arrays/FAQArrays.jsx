@@ -43,9 +43,9 @@ export const faqComponent = ({
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
               __html: isEdited[`faq-heading-${index + 1}`]
-                ? document.getElementById(`faq-heading-${index + 1}`)
-                    ?.innerHTML || text.FAQsHeader[0]
-                : text.FAQsHeader[0],
+                ? document.getElementById(`faq-heading-${index + 1}`)?.innerHTML
+                : document.getElementById(`faq-heading-${index + 1}`)
+                    ?.innerHTML || text.FAQsHeader[0],
             }}
           ></h1>
           <p
@@ -58,8 +58,9 @@ export const faqComponent = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`faq-paragraph-${index + 1}`]
                 ? document.getElementById(`faq-paragraph-${index + 1}`)
-                    ?.innerHTML || text.faqParagraphText[0]
-                : text.faqParagraphText[0],
+                    ?.innerHTML
+                : document.getElementById(`faq-paragraph-${index + 1}`)
+                    ?.innerHTML || text.faqParagraphText[0],
             }}
           ></p>
         </div>
@@ -83,8 +84,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-heading-text-1-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-heading-text-1-${index + 1}`
-                    )?.innerHTML || "Question 1"
-                  : "Question 1",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-heading-text-1-${index + 1}`
+                    )?.innerHTML || "Question 1",
               }}
             ></h2>
             <p
@@ -98,8 +101,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-paragraph-text-1-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0]
-                  : text.faqAnswer[0],
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-paragraph-text-1-${index + 1}`
+                    )?.innerHTML || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -118,8 +123,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-heading-text-2-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-heading-text-2-${index + 1}`
-                    )?.innerHTML || "Question 2"
-                  : "Question 2",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-heading-text-2-${index + 1}`
+                    )?.innerHTML || "Question 2",
               }}
             ></h2>
             <p
@@ -133,8 +140,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-paragraph-text-2-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0]
-                  : text.faqAnswer[0],
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-paragraph-text-2-${index + 1}`
+                    )?.innerHTML || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -153,8 +162,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-heading-text-3-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-heading-text-3-${index + 1}`
-                    )?.innerHTML || "Question 3"
-                  : "Question 3",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-heading-text-3-${index + 1}`
+                    )?.innerHTML || "Question 3",
               }}
             ></h2>
             <p
@@ -168,8 +179,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-paragraph-text-3-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0]
-                  : text.faqAnswer[0],
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-paragraph-text-3-${index + 1}`
+                    )?.innerHTML || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -188,8 +201,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-heading-text-4-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-heading-text-4-${index + 1}`
-                    )?.innerHTML || "Question 4"
-                  : "Question 4",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-heading-text-4-${index + 1}`
+                    )?.innerHTML || "Question 4",
               }}
             ></h2>
             <p
@@ -203,8 +218,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-paragraph-text-4-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-paragraph-text-4-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0]
-                  : text.faqAnswer[0],
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-paragraph-text-4-${index + 1}`
+                    )?.innerHTML || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -234,9 +251,9 @@ export const faqComponent = ({
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
               __html: isEdited[`faq-heading-${index + 1}`]
-                ? document.getElementById(`faq-heading-${index + 1}`)
-                    ?.innerHTML || text.FAQsHeader[0]
-                : text.FAQsHeader[0],
+                ? document.getElementById(`faq-heading-${index + 1}`)?.innerHTML
+                : document.getElementById(`faq-heading-${index + 1}`)
+                    ?.innerHTML || text.FAQsHeader[0],
             }}
           ></h1>
           <p
@@ -249,8 +266,9 @@ export const faqComponent = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`faq-paragraph-${index + 1}`]
                 ? document.getElementById(`faq-paragraph-${index + 1}`)
-                    ?.innerHTML || text.faqParagraphText[0]
-                : text.faqParagraphText[0],
+                    ?.innerHTML
+                : document.getElementById(`faq-paragraph-${index + 1}`)
+                    ?.innerHTML || text.faqParagraphText[0],
             }}
           ></p>
         </div>
@@ -274,8 +292,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-heading-text-1-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-heading-text-1-${index + 1}`
-                    )?.innerHTML || "Question 1"
-                  : "Question 1",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-heading-text-1-${index + 1}`
+                    )?.innerHTML || "Question 1",
               }}
             ></h2>
             <p
@@ -289,8 +309,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-paragraph-text-1-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0]
-                  : text.faqAnswer[0],
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-paragraph-text-1-${index + 1}`
+                    )?.innerHTML || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -309,8 +331,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-heading-text-2-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-heading-text-2-${index + 1}`
-                    )?.innerHTML || "Question 2"
-                  : "Question 2",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-heading-text-2-${index + 1}`
+                    )?.innerHTML || "Question 2",
               }}
             ></h2>
             <p
@@ -324,8 +348,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-paragraph-text-2-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0]
-                  : text.faqAnswer[0],
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-paragraph-text-2-${index + 1}`
+                    )?.innerHTML || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -344,8 +370,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-heading-text-3-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-heading-text-3-${index + 1}`
-                    )?.innerHTML || "Question 3"
-                  : "Question 3",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-heading-text-3-${index + 1}`
+                    )?.innerHTML || "Question 3",
               }}
             ></h2>
             <p
@@ -359,8 +387,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-paragraph-text-3-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0]
-                  : text.faqAnswer[0],
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-paragraph-text-3-${index + 1}`
+                    )?.innerHTML || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -379,8 +409,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-heading-text-4-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-heading-text-4-${index + 1}`
-                    )?.innerHTML || "Question 4"
-                  : "Question 4",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-heading-text-4-${index + 1}`
+                    )?.innerHTML || "Question 4",
               }}
             ></h2>
             <p
@@ -394,8 +426,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-paragraph-text-4-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-paragraph-text-4-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0]
-                  : text.faqAnswer[0],
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-paragraph-text-4-${index + 1}`
+                    )?.innerHTML || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -425,9 +459,9 @@ export const faqComponent = ({
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
               __html: isEdited[`faq-heading-${index + 1}`]
-                ? document.getElementById(`faq-heading-${index + 1}`)
-                    ?.innerHTML || text.FAQsHeader[0]
-                : text.FAQsHeader[0],
+                ? document.getElementById(`faq-heading-${index + 1}`)?.innerHTML
+                : document.getElementById(`faq-heading-${index + 1}`)
+                    ?.innerHTML || text.FAQsHeader[0],
             }}
           ></h1>
           <p
@@ -440,8 +474,9 @@ export const faqComponent = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`faq-paragraph-${index + 1}`]
                 ? document.getElementById(`faq-paragraph-${index + 1}`)
-                    ?.innerHTML || text.faqParagraphText[0]
-                : text.faqParagraphText[0],
+                    ?.innerHTML
+                : document.getElementById(`faq-paragraph-${index + 1}`)
+                    ?.innerHTML || text.faqParagraphText[0],
             }}
           ></p>
         </div>
@@ -467,8 +502,10 @@ export const faqComponent = ({
                     __html: isEdited[`faq-sub-heading-text-1-${index + 1}`]
                       ? document.getElementById(
                           `faq-sub-heading-text-1-${index + 1}`
-                        )?.innerHTML || "Question 1"
-                      : "Question 1",
+                        )?.innerHTML
+                      : document.getElementById(
+                          `faq-sub-heading-text-1-${index + 1}`
+                        )?.innerHTML || "Question 1",
                   }}
                 ></h2>
               </div>
@@ -491,8 +528,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-paragraph-text-1-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0]
-                  : text.faqAnswer[0],
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-paragraph-text-1-${index + 1}`
+                    )?.innerHTML || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -513,8 +552,10 @@ export const faqComponent = ({
                     __html: isEdited[`faq-sub-heading-text-2-${index + 1}`]
                       ? document.getElementById(
                           `faq-sub-heading-text-2-${index + 1}`
-                        )?.innerHTML || "Question 2"
-                      : "Question 2",
+                        )?.innerHTML
+                      : document.getElementById(
+                          `faq-sub-heading-text-2-${index + 1}`
+                        )?.innerHTML || "Question 2",
                   }}
                 ></h2>
               </div>
@@ -538,8 +579,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-paragraph-text-2-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0]
-                  : text.faqAnswer[0],
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-paragraph-text-2-${index + 1}`
+                    )?.innerHTML || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -560,8 +603,10 @@ export const faqComponent = ({
                     __html: isEdited[`faq-sub-heading-text-3-${index + 1}`]
                       ? document.getElementById(
                           `faq-sub-heading-text-3-${index + 1}`
-                        )?.innerHTML || "Question 3"
-                      : "Question 3",
+                        )?.innerHTML
+                      : document.getElementById(
+                          `faq-sub-heading-text-3-${index + 1}`
+                        )?.innerHTML || "Question 3",
                   }}
                 ></h2>
               </div>
@@ -585,8 +630,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-paragraph-text-3-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0]
-                  : text.faqAnswer[0],
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-paragraph-text-3-${index + 1}`
+                    )?.innerHTML || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -607,8 +654,10 @@ export const faqComponent = ({
                     __html: isEdited[`faq-sub-heading-text-4-${index + 1}`]
                       ? document.getElementById(
                           `faq-sub-heading-text-4-${index + 1}`
-                        )?.innerHTML || "Question 4"
-                      : "Question 4",
+                        )?.innerHTML
+                      : document.getElementById(
+                          `faq-sub-heading-text-4-${index + 1}`
+                        )?.innerHTML || "Question 4",
                   }}
                 ></h2>
               </div>
@@ -632,8 +681,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-paragraph-text-4-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-paragraph-text-4-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0]
-                  : text.faqAnswer[0],
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-paragraph-text-4-${index + 1}`
+                    )?.innerHTML || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -663,9 +714,9 @@ export const faqComponent = ({
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
               __html: isEdited[`faq-heading-${index + 1}`]
-                ? document.getElementById(`faq-heading-${index + 1}`)
-                    ?.innerHTML || text.FAQsHeader[0]
-                : text.FAQsHeader[0],
+                ? document.getElementById(`faq-heading-${index + 1}`)?.innerHTML
+                : document.getElementById(`faq-heading-${index + 1}`)
+                    ?.innerHTML || text.FAQsHeader[0],
             }}
           ></h1>
           <p
@@ -678,8 +729,9 @@ export const faqComponent = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`faq-paragraph-${index + 1}`]
                 ? document.getElementById(`faq-paragraph-${index + 1}`)
-                    ?.innerHTML || text.faqParagraphText[0]
-                : text.faqParagraphText[0],
+                    ?.innerHTML
+                : document.getElementById(`faq-paragraph-${index + 1}`)
+                    ?.innerHTML || text.faqParagraphText[0],
             }}
           ></p>
         </div>
@@ -708,8 +760,10 @@ export const faqComponent = ({
                     __html: isEdited[`faq-sub-heading-text-1-${index + 1}`]
                       ? document.getElementById(
                           `faq-sub-heading-text-1-${index + 1}`
-                        )?.innerHTML || "Question 1"
-                      : "Question 1",
+                        )?.innerHTML
+                      : document.getElementById(
+                          `faq-sub-heading-text-1-${index + 1}`
+                        )?.innerHTML || "Question 1",
                   }}
                 ></h2>
               </div>
@@ -732,8 +786,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-paragraph-text-1-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0]
-                  : text.faqAnswer[0],
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-paragraph-text-1-${index + 1}`
+                    )?.innerHTML || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -757,8 +813,10 @@ export const faqComponent = ({
                     __html: isEdited[`faq-sub-heading-text-2-${index + 1}`]
                       ? document.getElementById(
                           `faq-sub-heading-text-2-${index + 1}`
-                        )?.innerHTML || "Question 2"
-                      : "Question 2",
+                        )?.innerHTML
+                      : document.getElementById(
+                          `faq-sub-heading-text-2-${index + 1}`
+                        )?.innerHTML || "Question 2",
                   }}
                 ></h2>
               </div>
@@ -781,8 +839,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-paragraph-text-2-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0]
-                  : text.faqAnswer[0],
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-paragraph-text-2-${index + 1}`
+                    )?.innerHTML || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -806,8 +866,10 @@ export const faqComponent = ({
                     __html: isEdited[`faq-sub-heading-text-3-${index + 1}`]
                       ? document.getElementById(
                           `faq-sub-heading-text-3-${index + 1}`
-                        )?.innerHTML || "Question 3"
-                      : "Question 3",
+                        )?.innerHTML
+                      : document.getElementById(
+                          `faq-sub-heading-text-3-${index + 1}`
+                        )?.innerHTML || "Question 3",
                   }}
                 ></h2>
               </div>
@@ -830,8 +892,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-paragraph-text-3-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0]
-                  : text.faqAnswer[0],
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-paragraph-text-3-${index + 1}`
+                    )?.innerHTML || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -855,8 +919,10 @@ export const faqComponent = ({
                     __html: isEdited[`faq-sub-heading-text-4-${index + 1}`]
                       ? document.getElementById(
                           `faq-sub-heading-text-4-${index + 1}`
-                        )?.innerHTML || "Question 4"
-                      : "Question 4",
+                        )?.innerHTML
+                      : document.getElementById(
+                          `faq-sub-heading-text-4-${index + 1}`
+                        )?.innerHTML || "Question 4",
                   }}
                 ></h2>
               </div>
@@ -879,8 +945,10 @@ export const faqComponent = ({
                 __html: isEdited[`faq-sub-paragraph-text-4-${index + 1}`]
                   ? document.getElementById(
                       `faq-sub-paragraph-text-4-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0]
-                  : text.faqAnswer[0],
+                    )?.innerHTML
+                  : document.getElementById(
+                      `faq-sub-paragraph-text-4-${index + 1}`
+                    )?.innerHTML || text.faqAnswer[0],
               }}
             ></p>
           </div>

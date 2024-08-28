@@ -17,8 +17,6 @@ const EditAndSaveDesignModal = (idx) => {
     isMobile,
   } = useContext(DashContext);
   const { elements } = ElementArray();
-  const tempDivRef = useRef(null);
-
 
   const handleElementClick = (item) => {
     // Convert the React element to a string
@@ -36,10 +34,12 @@ const EditAndSaveDesignModal = (idx) => {
     // Remove any unintended self-closing slash on tags
     elementString = elementString.replace(/\/>/g, ">");
 
-    // Ensure that <br>, <img>, and <path> tags are self-closing
+    // Ensure that <br>, <img> tags are self-closing
     elementString = elementString.replace(/<br>/g, "<br />");
     elementString = elementString.replace(/<img([^>]*)>/g, "<img$1 />");
-    elementString = elementString.replace(/<path([^>]*)>/g, "<path$1 />");
+    
+    // Ensure that <path> tags have a closing tag
+    elementString = elementString.replace(/<path([^>]*)>/g, "<path$1></path>");
 
     console.log(elementString);
     setDisplayCode(elementString);
@@ -60,13 +60,6 @@ const EditAndSaveDesignModal = (idx) => {
           {item.element}
         </div>
       ))}
-      <div className=" invisible">
-        <ComponentCode
-          handleElementClick={handleElementClick}
-          setIsMobile={setIsMobile}
-          displayCode={displayCode}
-        />
-      </div>
     </div>
   );
 };

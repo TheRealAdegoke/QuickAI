@@ -12,6 +12,7 @@ import { teamComponent } from "../Arrays/TeamArray";
 import { contactComponent } from "../Arrays/ContactArray";
 import { footerComponent } from "../Arrays/Footer";
 import { webContentObject } from "../Arrays/Arrays";
+import { v4 as uuidv4 } from "uuid";
 
 export const DashContext = createContext();
 export const DashboardProvider = ({ children }) => {
@@ -99,6 +100,7 @@ export const DashboardProvider = ({ children }) => {
   const elementsContainerRef = useRef(null);
   const [isEdited, setIsEdited] = useState({});
   const [displayCode, setDisplayCode] = useState("")
+  const [elementUniqueIds, setElementUniqueIds] = useState({});
 
   useEffect(() => {
     if (!shuffled && webContentObject.randomButtonText) {
@@ -177,15 +179,17 @@ export const DashboardProvider = ({ children }) => {
     }
   }, [geminiResponses, shuffled]);
 
-  const getStyle = (id) => {
-    if (divStyles[id] && Object.keys(divStyles[id]).length > 0) {
-      return divStyles[id];
+  const getStyle = (id, uniqueId) => {
+    const fullId = `${id}-${uniqueId}`;
+    if (divStyles[fullId] && Object.keys(divStyles[fullId]).length > 0) {
+      return divStyles[fullId];
     }
     return { background: defaultBackgroundColor };
   };
 
-  const getElementStyle = (className) => {
-    return elementStyles[className] || {};
+  const getElementStyle = (className, uniqueId) => {
+    const fullClassName = `${className}-${uniqueId}`;
+    return elementStyles[fullClassName] || {};
   };
 
 
@@ -411,16 +415,6 @@ export const DashboardProvider = ({ children }) => {
     setIsEdited((prev) => ({ ...prev, [event.target.id]: true }));
   };
 
-  // const handleTextareaChange = (event) => {
-  //   const newText = event.target.value;
-  //   const formattedText = newText.split("\n").join("<br/>");
-  //   setClickedText(newText);
-  //   if (selectedElement) {
-  //     selectedElement.innerText = formattedText;
-  //     document.getElementById(selectedElement.id).innerText = formattedText;
-  //     setIsEdited((prev) => ({ ...prev, [selectedElement.id]: true }));
-  //   }
-  // };
 
   const handleTextareaChange = (event) => {
     const newText = event.target.value;
@@ -516,6 +510,7 @@ export const DashboardProvider = ({ children }) => {
   }, [backGroundStyle]);
 
    const addElement = (componentType, index) => {
+    const newUniqueId = uuidv4();
      setElements((prevElements) => {
       if (componentType === "footer") {
         return prevElements.map((el) =>
@@ -523,11 +518,14 @@ export const DashboardProvider = ({ children }) => {
         );
       }
 
+      setElementUniqueIds((prev) => ({ ...prev, [newUniqueId]: true }));
+
        const footerIndex = prevElements.findIndex((el) => el.type === "footer");
        const newElement = {
          type: componentType,
          index: index,
          key: Date.now(),
+         uniqueId: newUniqueId,
        };
 
        if (footerIndex === -1) {
@@ -665,6 +663,7 @@ export const DashboardProvider = ({ children }) => {
         isEdited,
         displayCode,
         setDisplayCode,
+        elementUniqueIds,
       }}
     >
       {children}

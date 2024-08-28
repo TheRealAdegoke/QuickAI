@@ -62,7 +62,7 @@ const ElementArray = () => {
     footer: footerComponent
   };
 
-  const renderElement = ({ type, index }) => ({
+  const renderElement = ({ type, index, uniqueId }) => ({
     element: componentMap[type]({
       text,
       buttonIndex,
@@ -88,6 +88,7 @@ const ElementArray = () => {
       clickedText,
       texts,
       isEdited,
+      uniqueId,
     })[index],
   });
 
