@@ -13,11 +13,11 @@ const EditDesignModalComponent = () => {
     setIsContent,
   } = useContext(DashContext);
 
-  // useEffect(() => {
-  //   if (setIsContent) {
-  //     setSelectedDiv(null);
-  //   }
-  // }, [setIsContent]);
+  useEffect(() => {
+    if (setIsContent) {
+      setSelectedDiv(null);
+    }
+  }, [setIsContent]);
 
   return (
     <>

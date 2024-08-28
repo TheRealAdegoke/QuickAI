@@ -39,8 +39,9 @@ export const featuresComponents = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`features-heading-${index + 1}`]
                 ? document.getElementById(`features-heading-${index + 1}`)
-                    ?.innerHTML || text.featureHeader[1]
-                : text.featureHeader[1],
+                    ?.innerHTML
+                : document.getElementById(`features-heading-${index + 1}`)
+                    ?.innerHTML || text.featureHeader[1],
             }}
           ></h1>
           <p
@@ -53,8 +54,9 @@ export const featuresComponents = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`features-paragraph-${index + 1}`]
                 ? document.getElementById(`features-paragraph-${index + 1}`)
-                    ?.innerHTML || text.description
-                : text.description,
+                    ?.innerHTML
+                : document.getElementById(`features-paragraph-${index + 1}`)
+                    ?.innerHTML || text.description,
             }}
           ></p>
         </div>
@@ -90,8 +92,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-1-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-1-${index + 1}`
-                    )?.innerHTML || "Item 1"
-                  : "Item 1",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-1-${index + 1}`
+                    )?.innerHTML || "Item 1",
               }}
             ></h2>
             <p
@@ -105,8 +109,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-1-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-1-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-black bg-white px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -157,8 +163,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-2-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-2-${index + 1}`
-                    )?.innerHTML || "Item 2"
-                  : "Item 2",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-2-${index + 1}`
+                    )?.innerHTML || "Item 2",
               }}
             ></h2>
             <p
@@ -172,8 +180,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-2-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-2-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-black bg-white px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -224,8 +234,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-3-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-3-${index + 1}`
-                    )?.innerHTML || "Item 3"
-                  : "Item 3",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-3-${index + 1}`
+                    )?.innerHTML || "Item 3",
               }}
             ></h2>
             <p
@@ -239,8 +251,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-3-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-3-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-black bg-white px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -291,8 +305,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-4-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-4-${index + 1}`
-                    )?.innerHTML || "Item 4"
-                  : "Item 4",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-4-${index + 1}`
+                    )?.innerHTML || "Item 4",
               }}
             ></h2>
             <p
@@ -306,8 +322,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-4-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-4-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-4-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-black bg-white px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -358,8 +376,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-5-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-5-${index + 1}`
-                    )?.innerHTML || "Item 5"
-                  : "Item 5",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-5-${index + 1}`
+                    )?.innerHTML || "Item 5",
               }}
             ></h2>
             <p
@@ -373,8 +393,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-5-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-5-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-5-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-black bg-white px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -425,8 +447,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-6-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-6-${index + 1}`
-                    )?.innerHTML || "Item 6"
-                  : "Item 6",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-6-${index + 1}`
+                    )?.innerHTML || "Item 6",
               }}
             ></h2>
             <p
@@ -440,8 +464,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-6-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-6-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-6-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-black bg-white px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -487,8 +513,9 @@ export const featuresComponents = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`features-heading-${index + 1}`]
                 ? document.getElementById(`features-heading-${index + 1}`)
-                    ?.innerHTML || text.featureHeader[1]
-                : text.featureHeader[1],
+                    ?.innerHTML
+                : document.getElementById(`features-heading-${index + 1}`)
+                    ?.innerHTML || text.featureHeader[1],
             }}
           ></h1>
           <p
@@ -501,8 +528,9 @@ export const featuresComponents = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`features-paragraph-${index + 1}`]
                 ? document.getElementById(`features-paragraph-${index + 1}`)
-                    ?.innerHTML || text.description
-                : text.description,
+                    ?.innerHTML
+                : document.getElementById(`features-paragraph-${index + 1}`)
+                    ?.innerHTML || text.description,
             }}
           ></p>
         </div>
@@ -538,8 +566,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-1-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-1-${index + 1}`
-                    )?.innerHTML || "Item 1"
-                  : "Item 1",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-1-${index + 1}`
+                    )?.innerHTML || "Item 1",
               }}
             ></h2>
             <p
@@ -553,8 +583,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-1-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-1-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-white bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -605,8 +637,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-2-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-2-${index + 1}`
-                    )?.innerHTML || "Item 2"
-                  : "Item 2",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-2-${index + 1}`
+                    )?.innerHTML || "Item 2",
               }}
             ></h2>
             <p
@@ -620,8 +654,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-2-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-2-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-white bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -672,8 +708,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-3-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-3-${index + 1}`
-                    )?.innerHTML || "Item 3"
-                  : "Item 3",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-3-${index + 1}`
+                    )?.innerHTML || "Item 3",
               }}
             ></h2>
             <p
@@ -687,8 +725,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-3-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-3-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-white bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -739,8 +779,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-4-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-4-${index + 1}`
-                    )?.innerHTML || "Item 4"
-                  : "Item 4",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-4-${index + 1}`
+                    )?.innerHTML || "Item 4",
               }}
             ></h2>
             <p
@@ -754,8 +796,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-4-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-4-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-4-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-white bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -806,8 +850,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-5-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-5-${index + 1}`
-                    )?.innerHTML || "Item 5"
-                  : "Item 5",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-5-${index + 1}`
+                    )?.innerHTML || "Item 5",
               }}
             ></h2>
             <p
@@ -821,8 +867,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-5-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-5-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-5-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-white bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -873,8 +921,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-6-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-6-${index + 1}`
-                    )?.innerHTML || "Item 6"
-                  : "Item 6",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-6-${index + 1}`
+                    )?.innerHTML || "Item 6",
               }}
             ></h2>
             <p
@@ -888,8 +938,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-6-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-6-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-6-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-white bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -935,8 +987,9 @@ export const featuresComponents = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`features-heading-${index + 1}`]
                 ? document.getElementById(`features-heading-${index + 1}`)
-                    ?.innerHTML || text.featureHeader[1]
-                : text.featureHeader[1],
+                    ?.innerHTML
+                : document.getElementById(`features-heading-${index + 1}`)
+                    ?.innerHTML || text.featureHeader[1],
             }}
           ></h1>
           <p
@@ -949,8 +1002,9 @@ export const featuresComponents = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`features-paragraph-${index + 1}`]
                 ? document.getElementById(`features-paragraph-${index + 1}`)
-                    ?.innerHTML || text.description
-                : text.description,
+                    ?.innerHTML
+                : document.getElementById(`features-paragraph-${index + 1}`)
+                    ?.innerHTML || text.description,
             }}
           ></p>
         </div>
@@ -986,8 +1040,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-1-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-1-${index + 1}`
-                    )?.innerHTML || "Item 1"
-                  : "Item 1",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-1-${index + 1}`
+                    )?.innerHTML || "Item 1",
               }}
             ></h2>
             <p
@@ -1001,8 +1057,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-1-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-1-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-white bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -1053,8 +1111,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-2-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-2-${index + 1}`
-                    )?.innerHTML || "Item 2"
-                  : "Item 2",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-2-${index + 1}`
+                    )?.innerHTML || "Item 2",
               }}
             ></h2>
             <p
@@ -1068,8 +1128,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-2-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-2-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-white bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -1120,8 +1182,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-3-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-3-${index + 1}`
-                    )?.innerHTML || "Item 3"
-                  : "Item 3",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-3-${index + 1}`
+                    )?.innerHTML || "Item 3",
               }}
             ></h2>
             <p
@@ -1135,8 +1199,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-3-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-3-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-white bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -1187,8 +1253,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-4-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-4-${index + 1}`
-                    )?.innerHTML || "Item 4"
-                  : "Item 4",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-4-${index + 1}`
+                    )?.innerHTML || "Item 4",
               }}
             ></h2>
             <p
@@ -1202,8 +1270,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-4-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-4-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-4-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-white bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -1254,8 +1324,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-5-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-5-${index + 1}`
-                    )?.innerHTML || "Item 5"
-                  : "Item 5",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-5-${index + 1}`
+                    )?.innerHTML || "Item 5",
               }}
             ></h2>
             <p
@@ -1269,8 +1341,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-5-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-5-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-5-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-white bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -1321,8 +1395,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-6-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-6-${index + 1}`
-                    )?.innerHTML || "Item 6"
-                  : "Item 6",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-6-${index + 1}`
+                    )?.innerHTML || "Item 6",
               }}
             ></h2>
             <p
@@ -1336,8 +1412,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-6-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-6-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-6-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-white bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -1383,8 +1461,9 @@ export const featuresComponents = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`features-heading-${index + 1}`]
                 ? document.getElementById(`features-heading-${index + 1}`)
-                    ?.innerHTML || text.featureHeader[1]
-                : text.featureHeader[1],
+                    ?.innerHTML
+                : document.getElementById(`features-heading-${index + 1}`)
+                    ?.innerHTML || text.featureHeader[1],
             }}
           ></h1>
           <p
@@ -1397,8 +1476,9 @@ export const featuresComponents = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`features-paragraph-${index + 1}`]
                 ? document.getElementById(`features-paragraph-${index + 1}`)
-                    ?.innerHTML || text.description
-                : text.description,
+                    ?.innerHTML
+                : document.getElementById(`features-paragraph-${index + 1}`)
+                    ?.innerHTML || text.description,
             }}
           ></p>
         </div>
@@ -1434,8 +1514,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-1-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-1-${index + 1}`
-                    )?.innerHTML || "Item 1"
-                  : "Item 1",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-1-${index + 1}`
+                    )?.innerHTML || "Item 1",
               }}
             ></h2>
             <p
@@ -1449,8 +1531,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-1-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-1-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -1481,8 +1565,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-2-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-2-${index + 1}`
-                    )?.innerHTML || "Item 2"
-                  : "Item 2",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-2-${index + 1}`
+                    )?.innerHTML || "Item 2",
               }}
             ></h2>
             <p
@@ -1496,8 +1582,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-2-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-2-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -1528,8 +1616,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-3-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-3-${index + 1}`
-                    )?.innerHTML || "Item 3"
-                  : "Item 3",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-3-${index + 1}`
+                    )?.innerHTML || "Item 3",
               }}
             ></h2>
             <p
@@ -1543,8 +1633,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-3-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-3-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -1575,8 +1667,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-4-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-4-${index + 1}`
-                    )?.innerHTML || "Item 4"
-                  : "Item 4",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-4-${index + 1}`
+                    )?.innerHTML || "Item 4",
               }}
             ></h2>
             <p
@@ -1590,8 +1684,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-4-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-4-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-4-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -1622,8 +1718,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-5-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-5-${index + 1}`
-                    )?.innerHTML || "Item 5"
-                  : "Item 5",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-5-${index + 1}`
+                    )?.innerHTML || "Item 5",
               }}
             ></h2>
             <p
@@ -1637,8 +1735,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-5-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-5-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-5-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -1669,8 +1769,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-6-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-6-${index + 1}`
-                    )?.innerHTML || "Item 6"
-                  : "Item 6",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-6-${index + 1}`
+                    )?.innerHTML || "Item 6",
               }}
             ></h2>
             <p
@@ -1684,8 +1786,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-6-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-6-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-6-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -1711,8 +1815,9 @@ export const featuresComponents = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`features-heading-${index + 1}`]
                 ? document.getElementById(`features-heading-${index + 1}`)
-                    ?.innerHTML || text.featureHeader[1]
-                : text.featureHeader[1],
+                    ?.innerHTML
+                : document.getElementById(`features-heading-${index + 1}`)
+                    ?.innerHTML || text.featureHeader[1],
             }}
           ></h1>
           <p
@@ -1725,8 +1830,9 @@ export const featuresComponents = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`features-paragraph-${index + 1}`]
                 ? document.getElementById(`features-paragraph-${index + 1}`)
-                    ?.innerHTML || text.description
-                : text.description,
+                    ?.innerHTML
+                : document.getElementById(`features-paragraph-${index + 1}`)
+                    ?.innerHTML || text.description,
             }}
           ></p>
         </div>
@@ -1762,8 +1868,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-1-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-1-${index + 1}`
-                    )?.innerHTML || "Item 1"
-                  : "Item 1",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-1-${index + 1}`
+                    )?.innerHTML || "Item 1",
               }}
             ></h2>
             <p
@@ -1777,8 +1885,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-1-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-1-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -1809,8 +1919,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-2-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-2-${index + 1}`
-                    )?.innerHTML || "Item 2"
-                  : "Item 2",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-2-${index + 1}`
+                    )?.innerHTML || "Item 2",
               }}
             ></h2>
             <p
@@ -1824,8 +1936,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-2-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-2-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -1856,8 +1970,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-3-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-3-${index + 1}`
-                    )?.innerHTML || "Item 3"
-                  : "Item 3",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-3-${index + 1}`
+                    )?.innerHTML || "Item 3",
               }}
             ></h2>
             <p
@@ -1871,8 +1987,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-3-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-3-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -1903,8 +2021,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-4-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-4-${index + 1}`
-                    )?.innerHTML || "Item 4"
-                  : "Item 4",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-4-${index + 1}`
+                    )?.innerHTML || "Item 4",
               }}
             ></h2>
             <p
@@ -1918,8 +2038,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-4-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-4-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-4-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -1950,8 +2072,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-5-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-5-${index + 1}`
-                    )?.innerHTML || "Item 5"
-                  : "Item 5",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-5-${index + 1}`
+                    )?.innerHTML || "Item 5",
               }}
             ></h2>
             <p
@@ -1965,8 +2089,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-5-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-5-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-5-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -1997,8 +2123,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-6-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-6-${index + 1}`
-                    )?.innerHTML || "Item 6"
-                  : "Item 6",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-6-${index + 1}`
+                    )?.innerHTML || "Item 6",
               }}
             ></h2>
             <p
@@ -2012,8 +2140,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-6-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-6-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-6-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -2039,8 +2169,9 @@ export const featuresComponents = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`features-heading-${index + 1}`]
                 ? document.getElementById(`features-heading-${index + 1}`)
-                    ?.innerHTML || text.featureHeader[1]
-                : text.featureHeader[1],
+                    ?.innerHTML
+                : document.getElementById(`features-heading-${index + 1}`)
+                    ?.innerHTML || text.featureHeader[1],
             }}
           ></h1>
           <p
@@ -2053,8 +2184,9 @@ export const featuresComponents = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`features-paragraph-${index + 1}`]
                 ? document.getElementById(`features-paragraph-${index + 1}`)
-                    ?.innerHTML || text.description
-                : text.description,
+                    ?.innerHTML
+                : document.getElementById(`features-paragraph-${index + 1}`)
+                    ?.innerHTML || text.description,
             }}
           ></p>
         </div>
@@ -2090,8 +2222,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-1-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-1-${index + 1}`
-                    )?.innerHTML || "Item 1"
-                  : "Item 1",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-1-${index + 1}`
+                    )?.innerHTML || "Item 1",
               }}
             ></h2>
             <p
@@ -2105,8 +2239,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-1-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-1-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-black bg-white px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -2157,8 +2293,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-2-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-2-${index + 1}`
-                    )?.innerHTML || "Item 2"
-                  : "Item 2",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-2-${index + 1}`
+                    )?.innerHTML || "Item 2",
               }}
             ></h2>
             <p
@@ -2172,8 +2310,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-2-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-2-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-black bg-white px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -2224,8 +2364,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-3-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-3-${index + 1}`
-                    )?.innerHTML || "Item 3"
-                  : "Item 3",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-3-${index + 1}`
+                    )?.innerHTML || "Item 3",
               }}
             ></h2>
             <p
@@ -2239,8 +2381,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-3-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-3-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-black bg-white px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -2291,8 +2435,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-4-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-4-${index + 1}`
-                    )?.innerHTML || "Item 4"
-                  : "Item 4",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-4-${index + 1}`
+                    )?.innerHTML || "Item 4",
               }}
             ></h2>
             <p
@@ -2306,8 +2452,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-4-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-4-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-4-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -2338,8 +2486,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-5-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-5-${index + 1}`
-                    )?.innerHTML || "Item 5"
-                  : "Item 5",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-5-${index + 1}`
+                    )?.innerHTML || "Item 5",
               }}
             ></h2>
             <p
@@ -2353,8 +2503,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-5-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-5-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-5-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -2385,8 +2537,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-6-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-6-${index + 1}`
-                    )?.innerHTML || "Item 6"
-                  : "Item 6",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-6-${index + 1}`
+                    )?.innerHTML || "Item 6",
               }}
             ></h2>
             <p
@@ -2400,8 +2554,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-6-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-6-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-6-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -2427,8 +2583,9 @@ export const featuresComponents = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`features-heading-${index + 1}`]
                 ? document.getElementById(`features-heading-${index + 1}`)
-                    ?.innerHTML || text.featureHeader[1]
-                : text.featureHeader[1],
+                    ?.innerHTML
+                : document.getElementById(`features-heading-${index + 1}`)
+                    ?.innerHTML || text.featureHeader[1],
             }}
           ></h1>
           <p
@@ -2441,8 +2598,9 @@ export const featuresComponents = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`features-paragraph-${index + 1}`]
                 ? document.getElementById(`features-paragraph-${index + 1}`)
-                    ?.innerHTML || text.description
-                : text.description,
+                    ?.innerHTML
+                : document.getElementById(`features-paragraph-${index + 1}`)
+                    ?.innerHTML || text.description,
             }}
           ></p>
         </div>
@@ -2478,8 +2636,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-1-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-1-${index + 1}`
-                    )?.innerHTML || "Item 1"
-                  : "Item 1",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-1-${index + 1}`
+                    )?.innerHTML || "Item 1",
               }}
             ></h2>
             <p
@@ -2493,8 +2653,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-1-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-1-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-white bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -2545,8 +2707,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-2-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-2-${index + 1}`
-                    )?.innerHTML || "Item 2"
-                  : "Item 2",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-2-${index + 1}`
+                    )?.innerHTML || "Item 2",
               }}
             ></h2>
             <p
@@ -2560,8 +2724,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-2-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-2-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-white bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -2612,8 +2778,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-3-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-3-${index + 1}`
-                    )?.innerHTML || "Item 3"
-                  : "Item 3",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-3-${index + 1}`
+                    )?.innerHTML || "Item 3",
               }}
             ></h2>
             <p
@@ -2627,8 +2795,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-3-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-3-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
             <button className="capitalize block text-white bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -2679,8 +2849,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-4-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-4-${index + 1}`
-                    )?.innerHTML || "Item 4"
-                  : "Item 4",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-4-${index + 1}`
+                    )?.innerHTML || "Item 4",
               }}
             ></h2>
             <p
@@ -2694,8 +2866,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-4-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-4-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-4-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -2726,8 +2900,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-5-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-5-${index + 1}`
-                    )?.innerHTML || "Item 5"
-                  : "Item 5",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-5-${index + 1}`
+                    )?.innerHTML || "Item 5",
               }}
             ></h2>
             <p
@@ -2741,8 +2917,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-5-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-5-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-5-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -2773,8 +2951,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-6-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-6-${index + 1}`
-                    )?.innerHTML || "Item 6"
-                  : "Item 6",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-6-${index + 1}`
+                    )?.innerHTML || "Item 6",
               }}
             ></h2>
             <p
@@ -2788,8 +2968,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-6-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-6-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-6-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -2815,8 +2997,9 @@ export const featuresComponents = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`features-heading-${index + 1}`]
                 ? document.getElementById(`features-heading-${index + 1}`)
-                    ?.innerHTML || text.featureHeader[1]
-                : text.featureHeader[1],
+                    ?.innerHTML
+                : document.getElementById(`features-heading-${index + 1}`)
+                    ?.innerHTML || text.featureHeader[1],
             }}
           ></h1>
           <p
@@ -2829,8 +3012,9 @@ export const featuresComponents = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`features-paragraph-${index + 1}`]
                 ? document.getElementById(`features-paragraph-${index + 1}`)
-                    ?.innerHTML || text.description
-                : text.description,
+                    ?.innerHTML
+                : document.getElementById(`features-paragraph-${index + 1}`)
+                    ?.innerHTML || text.description,
             }}
           ></p>
         </div>
@@ -2866,8 +3050,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-1-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-1-${index + 1}`
-                    )?.innerHTML || "Item 1"
-                  : "Item 1",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-1-${index + 1}`
+                    )?.innerHTML || "Item 1",
               }}
             ></h2>
             <p
@@ -2881,8 +3067,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-1-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-1-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -2913,8 +3101,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-2-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-2-${index + 1}`
-                    )?.innerHTML || "Item 2"
-                  : "Item 2",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-2-${index + 1}`
+                    )?.innerHTML || "Item 2",
               }}
             ></h2>
             <p
@@ -2928,8 +3118,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-2-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-2-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -2960,8 +3152,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-3-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-3-${index + 1}`
-                    )?.innerHTML || "Item 3"
-                  : "Item 3",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-3-${index + 1}`
+                    )?.innerHTML || "Item 3",
               }}
             ></h2>
             <p
@@ -2975,8 +3169,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-3-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-3-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -3007,8 +3203,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-4-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-4-${index + 1}`
-                    )?.innerHTML || "Item 4"
-                  : "Item 4",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-4-${index + 1}`
+                    )?.innerHTML || "Item 4",
               }}
             ></h2>
             <p
@@ -3022,8 +3220,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-4-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-4-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-4-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -3054,8 +3254,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-5-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-5-${index + 1}`
-                    )?.innerHTML || "Item 5"
-                  : "Item 5",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-5-${index + 1}`
+                    )?.innerHTML || "Item 5",
               }}
             ></h2>
             <p
@@ -3069,8 +3271,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-5-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-5-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-5-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -3101,8 +3305,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-6-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-6-${index + 1}`
-                    )?.innerHTML || "Item 6"
-                  : "Item 6",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-6-${index + 1}`
+                    )?.innerHTML || "Item 6",
               }}
             ></h2>
             <p
@@ -3116,8 +3322,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-6-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-6-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-6-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -3147,8 +3355,9 @@ export const featuresComponents = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`features-heading-${index + 1}`]
                 ? document.getElementById(`features-heading-${index + 1}`)
-                    ?.innerHTML || text.featureHeader[1]
-                : text.featureHeader[1],
+                    ?.innerHTML
+                : document.getElementById(`features-heading-${index + 1}`)
+                    ?.innerHTML || text.featureHeader[1],
             }}
           ></h1>
           <p
@@ -3161,8 +3370,9 @@ export const featuresComponents = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`features-paragraph-${index + 1}`]
                 ? document.getElementById(`features-paragraph-${index + 1}`)
-                    ?.innerHTML || text.description
-                : text.description,
+                    ?.innerHTML
+                : document.getElementById(`features-paragraph-${index + 1}`)
+                    ?.innerHTML || text.description,
             }}
           ></p>
           <button className="capitalize block text-white bg-gradient-to-b from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] px-5 py-1 rounded-full font-semibold text-sm my-3">
@@ -3210,8 +3420,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-1-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-1-${index + 1}`
-                    )?.innerHTML || "Item 1"
-                  : "Item 1",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-1-${index + 1}`
+                    )?.innerHTML || "Item 1",
               }}
             ></h2>
             <p
@@ -3225,8 +3437,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-1-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-1-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -3257,8 +3471,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-2-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-2-${index + 1}`
-                    )?.innerHTML || "Item 2"
-                  : "Item 2",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-2-${index + 1}`
+                    )?.innerHTML || "Item 2",
               }}
             ></h2>
             <p
@@ -3272,8 +3488,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-2-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-2-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -3304,8 +3522,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-3-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-3-${index + 1}`
-                    )?.innerHTML || "Item 3"
-                  : "Item 3",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-3-${index + 1}`
+                    )?.innerHTML || "Item 3",
               }}
             ></h2>
             <p
@@ -3319,8 +3539,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-3-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-3-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -3351,8 +3573,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-4-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-4-${index + 1}`
-                    )?.innerHTML || "Item 4"
-                  : "Item 4",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-4-${index + 1}`
+                    )?.innerHTML || "Item 4",
               }}
             ></h2>
             <p
@@ -3366,8 +3590,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-4-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-4-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-4-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -3398,8 +3624,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-5-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-5-${index + 1}`
-                    )?.innerHTML || "Item 5"
-                  : "Item 5",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-5-${index + 1}`
+                    )?.innerHTML || "Item 5",
               }}
             ></h2>
             <p
@@ -3413,8 +3641,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-5-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-5-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-5-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -3445,8 +3675,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-heading-text-6-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-heading-text-6-${index + 1}`
-                    )?.innerHTML || "Item 6"
-                  : "Item 6",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-heading-text-6-${index + 1}`
+                    )?.innerHTML || "Item 6",
               }}
             ></h2>
             <p
@@ -3460,8 +3692,10 @@ export const featuresComponents = ({
                 __html: isEdited[`features-sub-paragraph-text-6-${index + 1}`]
                   ? document.getElementById(
                       `features-sub-paragraph-text-6-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-sub-paragraph-text-6-${index + 1}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -3469,4 +3703,4 @@ export const featuresComponents = ({
       </div>
     </section>,
   ];
-}; 
+};

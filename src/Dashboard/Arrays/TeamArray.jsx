@@ -39,8 +39,9 @@ export const teamComponent = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`team-heading-${index + 1}`]
                 ? document.getElementById(`team-heading-${index + 1}`)
-                    ?.innerHTML || text.teamHeader[0]
-                : text.teamHeader[0],
+                    ?.innerHTML
+                : document.getElementById(`team-heading-${index + 1}`)
+                    ?.innerHTML || text.teamHeader[0],
             }}
           ></h1>
           <p
@@ -53,8 +54,9 @@ export const teamComponent = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`team-paragraph-${index + 1}`]
                 ? document.getElementById(`team-paragraph-${index + 1}`)
-                    ?.innerHTML || text.teamParagraphTexts[0]
-                : text.teamParagraphTexts[0],
+                    ?.innerHTML
+                : document.getElementById(`team-paragraph-${index + 1}`)
+                    ?.innerHTML || text.teamParagraphTexts[0],
             }}
           ></p>
         </div>
@@ -152,8 +154,10 @@ export const teamComponent = ({
                   __html: isEdited[`team-sub-paragraph-text-1-${index + 1}`]
                     ? document.getElementById(
                         `team-sub-paragraph-text-1-${index + 1}`
-                      )?.innerHTML || text.description
-                    : text.description,
+                      )?.innerHTML
+                    : document.getElementById(
+                        `team-sub-paragraph-text-1-${index + 1}`
+                      )?.innerHTML || text.description,
                 }}
               ></p>
             </div>
@@ -247,8 +251,10 @@ export const teamComponent = ({
                   __html: isEdited[`team-sub-paragraph-text-2-${index + 1}`]
                     ? document.getElementById(
                         `team-sub-paragraph-text-2-${index + 1}`
-                      )?.innerHTML || text.description
-                    : text.description,
+                      )?.innerHTML
+                    : document.getElementById(
+                        `team-sub-paragraph-text-2-${index + 1}`
+                      )?.innerHTML || text.description,
                 }}
               ></p>
             </div>
@@ -342,8 +348,10 @@ export const teamComponent = ({
                   __html: isEdited[`team-sub-paragraph-text-3-${index + 1}`]
                     ? document.getElementById(
                         `team-sub-paragraph-text-3-${index + 1}`
-                      )?.innerHTML || text.description
-                    : text.description,
+                      )?.innerHTML
+                    : document.getElementById(
+                        `team-sub-paragraph-text-3-${index + 1}`
+                      )?.innerHTML || text.description,
                 }}
               ></p>
             </div>
@@ -370,8 +378,9 @@ export const teamComponent = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`team-heading-${index + 1}`]
                 ? document.getElementById(`team-heading-${index + 1}`)
-                    ?.innerHTML || text.teamHeader[0]
-                : text.teamHeader[0],
+                    ?.innerHTML
+                : document.getElementById(`team-heading-${index + 1}`)
+                    ?.innerHTML || text.teamHeader[0],
             }}
           ></h1>
           <p
@@ -384,8 +393,9 @@ export const teamComponent = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`team-paragraph-${index + 1}`]
                 ? document.getElementById(`team-paragraph-${index + 1}`)
-                    ?.innerHTML || text.teamParagraphTexts[0]
-                : text.teamParagraphTexts[0],
+                    ?.innerHTML
+                : document.getElementById(`team-paragraph-${index + 1}`)
+                    ?.innerHTML || text.teamParagraphTexts[0],
             }}
           ></p>
         </div>
@@ -483,8 +493,10 @@ export const teamComponent = ({
                   __html: isEdited[`team-sub-paragraph-text-1-${index + 1}`]
                     ? document.getElementById(
                         `team-sub-paragraph-text-1-${index + 1}`
-                      )?.innerHTML || text.description
-                    : text.description,
+                      )?.innerHTML
+                    : document.getElementById(
+                        `team-sub-paragraph-text-1-${index + 1}`
+                      )?.innerHTML || text.description,
                 }}
               ></p>
             </div>
@@ -578,8 +590,10 @@ export const teamComponent = ({
                   __html: isEdited[`team-sub-paragraph-text-2-${index + 1}`]
                     ? document.getElementById(
                         `team-sub-paragraph-text-2-${index + 1}`
-                      )?.innerHTML || text.description
-                    : text.description,
+                      )?.innerHTML
+                    : document.getElementById(
+                        `team-sub-paragraph-text-2-${index + 1}`
+                      )?.innerHTML || text.description,
                 }}
               ></p>
             </div>
@@ -673,8 +687,10 @@ export const teamComponent = ({
                   __html: isEdited[`team-sub-paragraph-text-3-${index + 1}`]
                     ? document.getElementById(
                         `team-sub-paragraph-text-3-${index + 1}`
-                      )?.innerHTML || text.description
-                    : text.description,
+                      )?.innerHTML
+                    : document.getElementById(
+                        `team-sub-paragraph-text-3-${index + 1}`
+                      )?.innerHTML || text.description,
                 }}
               ></p>
             </div>
@@ -701,8 +717,9 @@ export const teamComponent = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`team-heading-${index + 1}`]
                 ? document.getElementById(`team-heading-${index + 1}`)
-                    ?.innerHTML || text.teamHeader[0]
-                : text.teamHeader[0],
+                    ?.innerHTML
+                : document.getElementById(`team-heading-${index + 1}`)
+                    ?.innerHTML || text.teamHeader[0],
             }}
           ></h1>
           <p
@@ -715,8 +732,9 @@ export const teamComponent = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`team-paragraph-${index + 1}`]
                 ? document.getElementById(`team-paragraph-${index + 1}`)
-                    ?.innerHTML || text.teamParagraphTexts[0]
-                : text.teamParagraphTexts[0],
+                    ?.innerHTML
+                : document.getElementById(`team-paragraph-${index + 1}`)
+                    ?.innerHTML || text.teamParagraphTexts[0],
             }}
           ></p>
         </div>
@@ -814,8 +832,10 @@ export const teamComponent = ({
                   __html: isEdited[`team-sub-paragraph-text-1-${index + 1}`]
                     ? document.getElementById(
                         `team-sub-paragraph-text-1-${index + 1}`
-                      )?.innerHTML || text.description
-                    : text.description,
+                      )?.innerHTML
+                    : document.getElementById(
+                        `team-sub-paragraph-text-1-${index + 1}`
+                      )?.innerHTML || text.description,
                 }}
               ></p>
             </div>
@@ -909,8 +929,10 @@ export const teamComponent = ({
                   __html: isEdited[`team-sub-paragraph-text-2-${index + 1}`]
                     ? document.getElementById(
                         `team-sub-paragraph-text-2-${index + 1}`
-                      )?.innerHTML || text.description
-                    : text.description,
+                      )?.innerHTML
+                    : document.getElementById(
+                        `team-sub-paragraph-text-2-${index + 1}`
+                      )?.innerHTML || text.description,
                 }}
               ></p>
             </div>
@@ -1004,8 +1026,10 @@ export const teamComponent = ({
                   __html: isEdited[`team-sub-paragraph-text-3-${index + 1}`]
                     ? document.getElementById(
                         `team-sub-paragraph-text-3-${index + 1}`
-                      )?.innerHTML || text.description
-                    : text.description,
+                      )?.innerHTML
+                    : document.getElementById(
+                        `team-sub-paragraph-text-3-${index + 1}`
+                      )?.innerHTML || text.description,
                 }}
               ></p>
             </div>
@@ -1032,8 +1056,9 @@ export const teamComponent = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`team-heading-${index + 1}`]
                 ? document.getElementById(`team-heading-${index + 1}`)
-                    ?.innerHTML || text.teamHeader[0]
-                : text.teamHeader[0],
+                    ?.innerHTML
+                : document.getElementById(`team-heading-${index + 1}`)
+                    ?.innerHTML || text.teamHeader[0],
             }}
           ></h1>
           <p
@@ -1046,8 +1071,9 @@ export const teamComponent = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`team-paragraph-${index + 1}`]
                 ? document.getElementById(`team-paragraph-${index + 1}`)
-                    ?.innerHTML || text.teamParagraphTexts[0]
-                : text.teamParagraphTexts[0],
+                    ?.innerHTML
+                : document.getElementById(`team-paragraph-${index + 1}`)
+                    ?.innerHTML || text.teamParagraphTexts[0],
             }}
           ></p>
         </div>
@@ -1145,8 +1171,10 @@ export const teamComponent = ({
                   __html: isEdited[`team-sub-paragraph-text-1-${index + 1}`]
                     ? document.getElementById(
                         `team-sub-paragraph-text-1-${index + 1}`
-                      )?.innerHTML || text.description
-                    : text.description,
+                      )?.innerHTML
+                    : document.getElementById(
+                        `team-sub-paragraph-text-1-${index + 1}`
+                      )?.innerHTML || text.description,
                 }}
               ></p>
             </div>
@@ -1240,8 +1268,10 @@ export const teamComponent = ({
                   __html: isEdited[`team-sub-paragraph-text-2-${index + 1}`]
                     ? document.getElementById(
                         `team-sub-paragraph-text-2-${index + 1}`
-                      )?.innerHTML || text.description
-                    : text.description,
+                      )?.innerHTML
+                    : document.getElementById(
+                        `team-sub-paragraph-text-2-${index + 1}`
+                      )?.innerHTML || text.description,
                 }}
               ></p>
             </div>
@@ -1335,8 +1365,10 @@ export const teamComponent = ({
                   __html: isEdited[`team-sub-paragraph-text-3-${index + 1}`]
                     ? document.getElementById(
                         `team-sub-paragraph-text-3-${index + 1}`
-                      )?.innerHTML || text.description
-                    : text.description,
+                      )?.innerHTML
+                    : document.getElementById(
+                        `team-sub-paragraph-text-3-${index + 1}`
+                      )?.innerHTML || text.description,
                 }}
               ></p>
             </div>
@@ -1363,8 +1395,9 @@ export const teamComponent = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`team-heading-${index + 1}`]
                 ? document.getElementById(`team-heading-${index + 1}`)
-                    ?.innerHTML || text.teamHeader[0]
-                : text.teamHeader[0],
+                    ?.innerHTML
+                : document.getElementById(`team-heading-${index + 1}`)
+                    ?.innerHTML || text.teamHeader[0],
             }}
           ></h1>
           <p
@@ -1377,8 +1410,9 @@ export const teamComponent = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`team-paragraph-${index + 1}`]
                 ? document.getElementById(`team-paragraph-${index + 1}`)
-                    ?.innerHTML || text.teamParagraphTexts[0]
-                : text.teamParagraphTexts[0],
+                    ?.innerHTML
+                : document.getElementById(`team-paragraph-${index + 1}`)
+                    ?.innerHTML || text.teamParagraphTexts[0],
             }}
           ></p>
         </div>
@@ -1476,8 +1510,10 @@ export const teamComponent = ({
                   __html: isEdited[`team-sub-paragraph-text-1-${index + 1}`]
                     ? document.getElementById(
                         `team-sub-paragraph-text-1-${index + 1}`
-                      )?.innerHTML || text.description
-                    : text.description,
+                      )?.innerHTML
+                    : document.getElementById(
+                        `team-sub-paragraph-text-1-${index + 1}`
+                      )?.innerHTML || text.description,
                 }}
               ></p>
             </div>
@@ -1571,8 +1607,10 @@ export const teamComponent = ({
                   __html: isEdited[`team-sub-paragraph-text-2-${index + 1}`]
                     ? document.getElementById(
                         `team-sub-paragraph-text-2-${index + 1}`
-                      )?.innerHTML || text.description
-                    : text.description,
+                      )?.innerHTML
+                    : document.getElementById(
+                        `team-sub-paragraph-text-2-${index + 1}`
+                      )?.innerHTML || text.description,
                 }}
               ></p>
             </div>
@@ -1666,8 +1704,10 @@ export const teamComponent = ({
                   __html: isEdited[`team-sub-paragraph-text-3-${index + 1}`]
                     ? document.getElementById(
                         `team-sub-paragraph-text-3-${index + 1}`
-                      )?.innerHTML || text.description
-                    : text.description,
+                      )?.innerHTML
+                    : document.getElementById(
+                        `team-sub-paragraph-text-3-${index + 1}`
+                      )?.innerHTML || text.description,
                 }}
               ></p>
             </div>
@@ -1694,8 +1734,9 @@ export const teamComponent = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`team-heading-${index + 1}`]
                 ? document.getElementById(`team-heading-${index + 1}`)
-                    ?.innerHTML || text.teamHeader[0]
-                : text.teamHeader[0],
+                    ?.innerHTML
+                : document.getElementById(`team-heading-${index + 1}`)
+                    ?.innerHTML || text.teamHeader[0],
             }}
           ></h1>
           <p
@@ -1708,8 +1749,9 @@ export const teamComponent = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`team-paragraph-${index + 1}`]
                 ? document.getElementById(`team-paragraph-${index + 1}`)
-                    ?.innerHTML || text.teamParagraphTexts[0]
-                : text.teamParagraphTexts[0],
+                    ?.innerHTML
+                : document.getElementById(`team-paragraph-${index + 1}`)
+                    ?.innerHTML || text.teamParagraphTexts[0],
             }}
           ></p>
         </div>
@@ -1807,8 +1849,10 @@ export const teamComponent = ({
                   __html: isEdited[`team-sub-paragraph-text-1-${index + 1}`]
                     ? document.getElementById(
                         `team-sub-paragraph-text-1-${index + 1}`
-                      )?.innerHTML || text.description
-                    : text.description,
+                      )?.innerHTML
+                    : document.getElementById(
+                        `team-sub-paragraph-text-1-${index + 1}`
+                      )?.innerHTML || text.description,
                 }}
               ></p>
             </div>
@@ -1902,8 +1946,10 @@ export const teamComponent = ({
                   __html: isEdited[`team-sub-paragraph-text-2-${index + 1}`]
                     ? document.getElementById(
                         `team-sub-paragraph-text-2-${index + 1}`
-                      )?.innerHTML || text.description
-                    : text.description,
+                      )?.innerHTML
+                    : document.getElementById(
+                        `team-sub-paragraph-text-2-${index + 1}`
+                      )?.innerHTML || text.description,
                 }}
               ></p>
             </div>
@@ -1997,8 +2043,10 @@ export const teamComponent = ({
                   __html: isEdited[`team-sub-paragraph-text-3-${index + 1}`]
                     ? document.getElementById(
                         `team-sub-paragraph-text-3-${index + 1}`
-                      )?.innerHTML || text.description
-                    : text.description,
+                      )?.innerHTML
+                    : document.getElementById(
+                        `team-sub-paragraph-text-3-${index + 1}`
+                      )?.innerHTML || text.description,
                 }}
               ></p>
             </div>

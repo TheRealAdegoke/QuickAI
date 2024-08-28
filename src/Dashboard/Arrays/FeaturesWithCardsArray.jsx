@@ -11,6 +11,7 @@ export const featuresWithCardsComponent = ({
   getElementStyle,
   index,
   isEdited,
+  uniqueId,
 }) => {
   let classNames = "";
 
@@ -25,8 +26,8 @@ export const featuresWithCardsComponent = ({
   return [
     <section
       onClick={handleDivClick}
-      id={`features-with-card-section-${index + 1}`}
-      style={getStyle(`features-with-card-section-${index + 1}`)}
+      id={`features-with-card-section-${index + 1}-${uniqueId}`}
+      style={getStyle(`features-with-card-section-${index + 1}`, uniqueId)}
     >
       <div
         className={`${
@@ -40,39 +41,51 @@ export const featuresWithCardsComponent = ({
         >
           <div className="">
             <h1
-              id={`features-with-card-heading-${index + 1}`}
-              style={getElementStyle(`features-with-card-heading-${index + 1}`)}
+              id={`features-with-card-heading-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `features-with-card-heading-${index + 1}`,
+                    uniqueId
+              )}
               className={`features-with-card-heading-${
                 index + 1
-              } text-[#231e41] text-3xl font-bold mb-1 break-words`}
+              }-${uniqueId} text-[#231e41] text-3xl font-bold mb-1 break-words`}
               data-text="Heading"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`features-with-card-heading-${index + 1}`]
+                __html: isEdited[
+                  `features-with-card-heading-${index + 1}-${uniqueId}`
+                ]
                   ? document.getElementById(
-                      `features-with-card-heading-${index + 1}`
-                    )?.innerHTML || text.featureHeader[0]
-                  : text.featureHeader[0],
+                      `features-with-card-heading-${index + 1}-${uniqueId}`
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-with-card-heading-${index + 1}-${uniqueId}`
+                    )?.innerHTML || text.featureHeader[0],
               }}
             ></h1>
             <p
-              id={`features-with-card-paragraph-${index + 1}`}
+              id={`features-with-card-paragraph-${index + 1}-${uniqueId}`}
               style={getElementStyle(
-                `features-with-card-paragraph-${index + 1}`
+                `features-with-card-paragraph-${index + 1}`,
+                    uniqueId
               )}
               className={`features-with-card-paragraph-${
                 index + 1
-              } text-[#231e41] max-w-[500px] break-words`}
+              }-${uniqueId} text-[#231e41] max-w-[500px] break-words`}
               data-text="Type a paragraph"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`features-with-card-paragraph-${index + 1}`]
+                __html: isEdited[
+                  `features-with-card-paragraph-${index + 1}-${uniqueId}`
+                ]
                   ? document.getElementById(
-                      `features-with-card-paragraph-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                      `features-with-card-paragraph-${index + 1}-${uniqueId}`
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-with-card-paragraph-${index + 1}-${uniqueId}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -91,47 +104,65 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id={`features-with-card-sub-heading-text-1-${index + 1}`}
+                  id={`features-with-card-sub-heading-text-1-${
+                    index + 1
+                  }-${uniqueId}`}
                   className={`features-with-card-sub-heading-${
                     index + 1
-                  } capitalize text-xl font-semibold text-[#231e41]`}
+                  }-${uniqueId} capitalize text-xl font-semibold text-[#231e41]`}
                   style={getElementStyle(
-                    `features-with-card-sub-heading-${index + 1}`
+                    `features-with-card-sub-heading-${index + 1}`,
+                    uniqueId
                   )}
                   data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
                   {isEdited[
-                    `features-with-card-sub-heading-text-1-${index + 1}`
+                    `features-with-card-sub-heading-text-1-${
+                      index + 1
+                    }-${uniqueId}`
                   ]
                     ? document.getElementById(
-                        `features-with-card-sub-heading-text-1-${index + 1}`
+                        `features-with-card-sub-heading-text-1-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-heading-text-1-${index + 1}`
+                        `features-with-card-sub-heading-text-1-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText || "Item One"}
                 </h2>
                 <p
-                  id={`features-with-card-sub-paragraph-text-1-${index + 1}`}
+                  id={`features-with-card-sub-paragraph-text-1-${
+                    index + 1
+                  }-${uniqueId}`}
                   style={getElementStyle(
-                    `features-with-card-sub-paragraph-${index + 1}`
+                    `features-with-card-sub-paragraph-${index + 1}`,
+                    uniqueId
                   )}
                   className={`features-with-card-sub-paragraph-${
                     index + 1
-                  } text-[#231e41] `}
+                  }-${uniqueId} text-[#231e41] `}
                   data-text="Type a paragraph"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
                   {isEdited[
-                    `features-with-card-sub-paragraph-text-1-${index + 1}`
+                    `features-with-card-sub-paragraph-text-1-${
+                      index + 1
+                    }-${uniqueId}`
                   ]
                     ? document.getElementById(
-                        `features-with-card-sub-paragraph-text-1-${index + 1}`
+                        `features-with-card-sub-paragraph-text-1-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-paragraph-text-1-${index + 1}`
+                        `features-with-card-sub-paragraph-text-1-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText || text.description}
                 </p>
               </div>
@@ -150,47 +181,65 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id={`features-with-card-sub-heading-text-2-${index + 1}`}
+                  id={`features-with-card-sub-heading-text-2-${
+                    index + 1
+                  }-${uniqueId}`}
                   className={`features-with-card-sub-heading-${
                     index + 1
-                  } capitalize text-xl font-semibold text-[#231e41]`}
+                  }-${uniqueId} capitalize text-xl font-semibold text-[#231e41]`}
                   style={getElementStyle(
-                    `features-with-card-sub-heading-${index + 1}`
+                    `features-with-card-sub-heading-${index + 1}`,
+                    uniqueId
                   )}
                   data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
                   {isEdited[
-                    `features-with-card-sub-heading-text-2-${index + 1}`
+                    `features-with-card-sub-heading-text-2-${
+                      index + 1
+                    }-${uniqueId}`
                   ]
                     ? document.getElementById(
-                        `features-with-card-sub-heading-text-2-${index + 1}`
+                        `features-with-card-sub-heading-text-2-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-heading-text-2-${index + 1}`
+                        `features-with-card-sub-heading-text-2-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText || "Item Two"}
                 </h2>
                 <p
-                  id={`features-with-card-sub-paragraph-text-2-${index + 1}`}
+                  id={`features-with-card-sub-paragraph-text-2-${
+                    index + 1
+                  }-${uniqueId}`}
                   style={getElementStyle(
-                    `features-with-card-sub-paragraph-${index + 1}`
+                    `features-with-card-sub-paragraph-${index + 1}`,
+                    uniqueId
                   )}
                   className={`features-with-card-sub-paragraph-${
                     index + 1
-                  } text-[#231e41] `}
+                  }-${uniqueId} text-[#231e41] `}
                   data-text="Type a paragraph"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
                   {isEdited[
-                    `features-with-card-sub-paragraph-text-2-${index + 1}`
+                    `features-with-card-sub-paragraph-text-2-${
+                      index + 1
+                    }-${uniqueId}`
                   ]
                     ? document.getElementById(
-                        `features-with-card-sub-paragraph-text-2-${index + 1}`
+                        `features-with-card-sub-paragraph-text-2-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-paragraph-text-2-${index + 1}`
+                        `features-with-card-sub-paragraph-text-2-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText || text.description}
                 </p>
               </div>
@@ -209,47 +258,65 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id={`features-with-card-sub-heading-text-3-${index + 1}`}
+                  id={`features-with-card-sub-heading-text-3-${
+                    index + 1
+                  }-${uniqueId}`}
                   className={`features-with-card-sub-heading-${
                     index + 1
-                  } capitalize text-xl font-semibold text-[#231e41]`}
+                  }-${uniqueId} capitalize text-xl font-semibold text-[#231e41]`}
                   style={getElementStyle(
-                    `features-with-card-sub-heading-${index + 1}`
+                    `features-with-card-sub-heading-${index + 1}`,
+                    uniqueId
                   )}
                   data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
                   {isEdited[
-                    `features-with-card-sub-heading-text-3-${index + 1}`
+                    `features-with-card-sub-heading-text-3-${
+                      index + 1
+                    }-${uniqueId}`
                   ]
                     ? document.getElementById(
-                        `features-with-card-sub-heading-text-3-${index + 1}`
+                        `features-with-card-sub-heading-text-3-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-heading-text-3-${index + 1}`
+                        `features-with-card-sub-heading-text-3-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText || "Item Three"}
                 </h2>
                 <p
-                  id={`features-with-card-sub-paragraph-text-3-${index + 1}`}
+                  id={`features-with-card-sub-paragraph-text-3-${
+                    index + 1
+                  }-${uniqueId}`}
                   style={getElementStyle(
-                    `features-with-card-sub-paragraph-${index + 1}`
+                    `features-with-card-sub-paragraph-${index + 1}`,
+                    uniqueId
                   )}
                   className={`features-with-card-sub-paragraph-${
                     index + 1
-                  } text-[#231e41] `}
+                  }-${uniqueId} text-[#231e41] `}
                   data-text="Type a paragraph"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
                   {isEdited[
-                    `features-with-card-sub-paragraph-text-3-${index + 1}`
+                    `features-with-card-sub-paragraph-text-3-${
+                      index + 1
+                    }-${uniqueId}`
                   ]
                     ? document.getElementById(
-                        `features-with-card-sub-paragraph-text-3-${index + 1}`
+                        `features-with-card-sub-paragraph-text-3-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-paragraph-text-3-${index + 1}`
+                        `features-with-card-sub-paragraph-text-3-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText || text.description}
                 </p>
               </div>
@@ -258,21 +325,26 @@ export const featuresWithCardsComponent = ({
 
           <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
             <span
-              id={`features-with-card-button-text-${index + 1}`}
+              id={`features-with-card-button-text-${index + 1}-${uniqueId}`}
               style={getElementStyle(
-                `features-with-card-button-text-style-${index + 1}`
+                `features-with-card-button-text-style-${index + 1}`,
+                uniqueId
               )}
-              className={`features-with-card-button-text-style-${index + 1}`}
+              className={`features-with-card-button-text-style-${
+                index + 1
+              }-${uniqueId}`}
               data-text="Button text"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {isEdited[`features-with-card-button-text-${index + 1}`]
+              {isEdited[
+                `features-with-card-button-text-${index + 1}-${uniqueId}`
+              ]
                 ? document.getElementById(
-                    `features-with-card-button-text-${index + 1}`
+                    `features-with-card-button-text-${index + 1}-${uniqueId}`
                   )?.innerText
                 : document.getElementById(
-                    `features-with-card-button-text-${index + 1}`
+                    `features-with-card-button-text-${index + 1}-${uniqueId}`
                   )?.innerText || text.buttonTexts[4]}
             </span>
           </button>
@@ -293,8 +365,8 @@ export const featuresWithCardsComponent = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id={`features-with-card-section-${index + 1}`}
-      style={getStyle(`features-with-card-section-${index + 1}`)}
+      id={`features-with-card-section-${index + 1}-${uniqueId}`}
+      style={getStyle(`features-with-card-section-${index + 1}`, uniqueId)}
     >
       <div
         className={`${
@@ -308,39 +380,51 @@ export const featuresWithCardsComponent = ({
         >
           <div className="">
             <h1
-              id={`features-with-card-heading-${index + 1}`}
-              style={getElementStyle(`features-with-card-heading-${index + 1}`)}
+              id={`features-with-card-heading-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `features-with-card-heading-${index + 1}`,
+                    uniqueId
+              )}
               className={`features-with-card-heading-${
                 index + 1
-              } text-[#231e41] text-3xl font-bold mb-1 break-words`}
+              }-${uniqueId} text-[#231e41] text-3xl font-bold mb-1 break-words`}
               data-text="Heading"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`features-with-card-heading-${index + 1}`]
+                __html: isEdited[
+                  `features-with-card-heading-${index + 1}-${uniqueId}`
+                ]
                   ? document.getElementById(
-                      `features-with-card-heading-${index + 1}`
-                    )?.innerHTML || text.featureHeader[0]
-                  : text.featureHeader[0],
+                      `features-with-card-heading-${index + 1}-${uniqueId}`
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-with-card-heading-${index + 1}-${uniqueId}`
+                    )?.innerHTML || text.featureHeader[0],
               }}
             ></h1>
             <p
-              id={`features-with-card-paragraph-${index + 1}`}
+              id={`features-with-card-paragraph-${index + 1}-${uniqueId}`}
               style={getElementStyle(
-                `features-with-card-paragraph-${index + 1}`
+                `features-with-card-paragraph-${index + 1}`,
+                    uniqueId
               )}
               className={`features-with-card-paragraph-${
                 index + 1
-              } text-[#231e41] max-w-[500px] break-words`}
+              }-${uniqueId} text-[#231e41] max-w-[500px] break-words`}
               data-text="Type a paragraph"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`features-with-card-paragraph-${index + 1}`]
+                __html: isEdited[
+                  `features-with-card-paragraph-${index + 1}-${uniqueId}`
+                ]
                   ? document.getElementById(
-                      `features-with-card-paragraph-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                      `features-with-card-paragraph-${index + 1}-${uniqueId}`
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-with-card-paragraph-${index + 1}-${uniqueId}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -359,47 +443,66 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id={`features-with-card-sub-heading-text-1-${index + 1}`}
+                  id={`features-with-card-sub-heading-text-1-${
+                    index + 1
+                  }-${uniqueId}`}
                   className={`features-with-card-sub-heading-${
                     index + 1
-                  } capitalize text-xl font-semibold text-[#231e41]`}
+                  }-${uniqueId} capitalize text-xl font-semibold text-[#231e41]`}
                   style={getElementStyle(
-                    `features-with-card-sub-heading-${index + 1}`
+                    `features-with-card-sub-heading-${index + 1}`,
+                    uniqueId,
+                    uniqueId
                   )}
                   data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
                   {isEdited[
-                    `features-with-card-sub-heading-text-1-${index + 1}`
+                    `features-with-card-sub-heading-text-1-${
+                      index + 1
+                    }-${uniqueId}`
                   ]
                     ? document.getElementById(
-                        `features-with-card-sub-heading-text-1-${index + 1}`
+                        `features-with-card-sub-heading-text-1-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-heading-text-1-${index + 1}`
+                        `features-with-card-sub-heading-text-1-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText || "Item One"}
                 </h2>
                 <p
-                  id={`features-with-card-sub-paragraph-text-1-${index + 1}`}
+                  id={`features-with-card-sub-paragraph-text-1-${
+                    index + 1
+                  }-${uniqueId}`}
                   style={getElementStyle(
-                    `features-with-card-sub-paragraph-${index + 1}`
+                    `features-with-card-sub-paragraph-${index + 1}`,
+                    uniqueId
                   )}
                   className={`features-with-card-sub-paragraph-${
                     index + 1
-                  } text-[#231e41] `}
+                  }-${uniqueId} text-[#231e41] `}
                   data-text="Type a paragraph"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
                   {isEdited[
-                    `features-with-card-sub-paragraph-text-1-${index + 1}`
+                    `features-with-card-sub-paragraph-text-1-${
+                      index + 1
+                    }-${uniqueId}`
                   ]
                     ? document.getElementById(
-                        `features-with-card-sub-paragraph-text-1-${index + 1}`
+                        `features-with-card-sub-paragraph-text-1-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-paragraph-text-1-${index + 1}`
+                        `features-with-card-sub-paragraph-text-1-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText || text.description}
                 </p>
               </div>
@@ -418,47 +521,66 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id={`features-with-card-sub-heading-text-2-${index + 1}`}
+                  id={`features-with-card-sub-heading-text-2-${
+                    index + 1
+                  }-${uniqueId}`}
                   className={`features-with-card-sub-heading-${
                     index + 1
-                  } capitalize text-xl font-semibold text-[#231e41]`}
+                  }-${uniqueId} capitalize text-xl font-semibold text-[#231e41]`}
                   style={getElementStyle(
-                    `features-with-card-sub-heading-${index + 1}`
+                    `features-with-card-sub-heading-${index + 1}`,
+                    uniqueId,
+                    uniqueId
                   )}
                   data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
                   {isEdited[
-                    `features-with-card-sub-heading-text-2-${index + 1}`
+                    `features-with-card-sub-heading-text-2-${
+                      index + 1
+                    }-${uniqueId}`
                   ]
                     ? document.getElementById(
-                        `features-with-card-sub-heading-text-2-${index + 1}`
+                        `features-with-card-sub-heading-text-2-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-heading-text-2-${index + 1}`
+                        `features-with-card-sub-heading-text-2-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText || "Item Two"}
                 </h2>
                 <p
-                  id={`features-with-card-sub-paragraph-text-2-${index + 1}`}
+                  id={`features-with-card-sub-paragraph-text-2-${
+                    index + 1
+                  }-${uniqueId}`}
                   style={getElementStyle(
-                    `features-with-card-sub-paragraph-${index + 1}`
+                    `features-with-card-sub-paragraph-${index + 1}`,
+                    uniqueId
                   )}
                   className={`features-with-card-sub-paragraph-${
                     index + 1
-                  } text-[#231e41] `}
+                  }-${uniqueId} text-[#231e41] `}
                   data-text="Type a paragraph"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
                   {isEdited[
-                    `features-with-card-sub-paragraph-text-2-${index + 1}`
+                    `features-with-card-sub-paragraph-text-2-${
+                      index + 1
+                    }-${uniqueId}`
                   ]
                     ? document.getElementById(
-                        `features-with-card-sub-paragraph-text-2-${index + 1}`
+                        `features-with-card-sub-paragraph-text-2-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-paragraph-text-2-${index + 1}`
+                        `features-with-card-sub-paragraph-text-2-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText || text.description}
                 </p>
               </div>
@@ -477,47 +599,66 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id={`features-with-card-sub-heading-text-3-${index + 1}`}
+                  id={`features-with-card-sub-heading-text-3-${
+                    index + 1
+                  }-${uniqueId}`}
                   className={`features-with-card-sub-heading-${
                     index + 1
-                  } capitalize text-xl font-semibold text-[#231e41]`}
+                  }-${uniqueId} capitalize text-xl font-semibold text-[#231e41]`}
                   style={getElementStyle(
-                    `features-with-card-sub-heading-${index + 1}`
+                    `features-with-card-sub-heading-${index + 1}`,
+                    uniqueId,
+                    uniqueId
                   )}
                   data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
                   {isEdited[
-                    `features-with-card-sub-heading-text-3-${index + 1}`
+                    `features-with-card-sub-heading-text-3-${
+                      index + 1
+                    }-${uniqueId}`
                   ]
                     ? document.getElementById(
-                        `features-with-card-sub-heading-text-3-${index + 1}`
+                        `features-with-card-sub-heading-text-3-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-heading-text-3-${index + 1}`
+                        `features-with-card-sub-heading-text-3-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText || "Item Three"}
                 </h2>
                 <p
-                  id={`features-with-card-sub-paragraph-text-3-${index + 1}`}
+                  id={`features-with-card-sub-paragraph-text-3-${
+                    index + 1
+                  }-${uniqueId}`}
                   style={getElementStyle(
-                    `features-with-card-sub-paragraph-${index + 1}`
+                    `features-with-card-sub-paragraph-${index + 1}`,
+                    uniqueId
                   )}
                   className={`features-with-card-sub-paragraph-${
                     index + 1
-                  } text-[#231e41] `}
+                  }-${uniqueId} text-[#231e41] `}
                   data-text="Type a paragraph"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
                   {isEdited[
-                    `features-with-card-sub-paragraph-text-3-${index + 1}`
+                    `features-with-card-sub-paragraph-text-3-${
+                      index + 1
+                    }-${uniqueId}`
                   ]
                     ? document.getElementById(
-                        `features-with-card-sub-paragraph-text-3-${index + 1}`
+                        `features-with-card-sub-paragraph-text-3-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-paragraph-text-3-${index + 1}`
+                        `features-with-card-sub-paragraph-text-3-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText || text.description}
                 </p>
               </div>
@@ -526,21 +667,26 @@ export const featuresWithCardsComponent = ({
 
           <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
             <span
-              id={`features-with-card-button-text-${index + 1}`}
+              id={`features-with-card-button-text-${index + 1}-${uniqueId}`}
               style={getElementStyle(
-                `features-with-card-button-text-style-${index + 1}`
+                `features-with-card-button-text-style-${index + 1}`,
+                uniqueId
               )}
-              className={`features-with-card-button-text-style-${index + 1}`}
+              className={`features-with-card-button-text-style-${
+                index + 1
+              }-${uniqueId}`}
               data-text="Button text"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {isEdited[`features-with-card-button-text-${index + 1}`]
+              {isEdited[
+                `features-with-card-button-text-${index + 1}-${uniqueId}`
+              ]
                 ? document.getElementById(
-                    `features-with-card-button-text-${index + 1}`
+                    `features-with-card-button-text-${index + 1}-${uniqueId}`
                   )?.innerText
                 : document.getElementById(
-                    `features-with-card-button-text-${index + 1}`
+                    `features-with-card-button-text-${index + 1}-${uniqueId}`
                   )?.innerText || text.buttonTexts[4]}
             </span>
           </button>
@@ -561,8 +707,8 @@ export const featuresWithCardsComponent = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id={`features-with-card-section-${index + 1}`}
-      style={getStyle(`features-with-card-section-${index + 1}`)}
+      id={`features-with-card-section-${index + 1}-${uniqueId}`}
+      style={getStyle(`features-with-card-section-${index + 1}`, uniqueId)}
     >
       <div
         className={`${
@@ -576,39 +722,51 @@ export const featuresWithCardsComponent = ({
         >
           <div className="">
             <h1
-              id={`features-with-card-heading-${index + 1}`}
-              style={getElementStyle(`features-with-card-heading-${index + 1}`)}
+              id={`features-with-card-heading-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `features-with-card-heading-${index + 1}`,
+                    uniqueId
+              )}
               className={`features-with-card-heading-${
                 index + 1
-              } text-[#231e41] text-3xl font-bold mb-1 break-words`}
+              }-${uniqueId} text-[#231e41] text-3xl font-bold mb-1 break-words`}
               data-text="Heading"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`features-with-card-heading-${index + 1}`]
+                __html: isEdited[
+                  `features-with-card-heading-${index + 1}-${uniqueId}`
+                ]
                   ? document.getElementById(
-                      `features-with-card-heading-${index + 1}`
-                    )?.innerHTML || text.featureHeader[0]
-                  : text.featureHeader[0],
+                      `features-with-card-heading-${index + 1}-${uniqueId}`
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-with-card-heading-${index + 1}-${uniqueId}`
+                    )?.innerHTML || text.featureHeader[0],
               }}
             ></h1>
             <p
-              id={`features-with-card-paragraph-${index + 1}`}
+              id={`features-with-card-paragraph-${index + 1}-${uniqueId}`}
               style={getElementStyle(
-                `features-with-card-paragraph-${index + 1}`
+                `features-with-card-paragraph-${index + 1}`,
+                    uniqueId
               )}
               className={`features-with-card-paragraph-${
                 index + 1
-              } text-[#231e41] max-w-[500px] break-words`}
+              }-${uniqueId} text-[#231e41] max-w-[500px] break-words`}
               data-text="Type a paragraph"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`features-with-card-paragraph-${index + 1}`]
+                __html: isEdited[
+                  `features-with-card-paragraph-${index + 1}-${uniqueId}`
+                ]
                   ? document.getElementById(
-                      `features-with-card-paragraph-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                      `features-with-card-paragraph-${index + 1}-${uniqueId}`
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-with-card-paragraph-${index + 1}-${uniqueId}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -627,47 +785,66 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id={`features-with-card-sub-heading-text-1-${index + 1}`}
+                  id={`features-with-card-sub-heading-text-1-${
+                    index + 1
+                  }-${uniqueId}`}
                   className={`features-with-card-sub-heading-${
                     index + 1
-                  } capitalize text-xl font-semibold text-[#231e41]`}
+                  }-${uniqueId} capitalize text-xl font-semibold text-[#231e41]`}
                   style={getElementStyle(
-                    `features-with-card-sub-heading-${index + 1}`
+                    `features-with-card-sub-heading-${index + 1}`,
+                    uniqueId,
+                    uniqueId
                   )}
                   data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
                   {isEdited[
-                    `features-with-card-sub-heading-text-1-${index + 1}`
+                    `features-with-card-sub-heading-text-1-${
+                      index + 1
+                    }-${uniqueId}`
                   ]
                     ? document.getElementById(
-                        `features-with-card-sub-heading-text-1-${index + 1}`
+                        `features-with-card-sub-heading-text-1-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-heading-text-1-${index + 1}`
+                        `features-with-card-sub-heading-text-1-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText || "Item One"}
                 </h2>
                 <p
-                  id={`features-with-card-sub-paragraph-text-1-${index + 1}`}
+                  id={`features-with-card-sub-paragraph-text-1-${
+                    index + 1
+                  }-${uniqueId}`}
                   style={getElementStyle(
-                    `features-with-card-sub-paragraph-${index + 1}`
+                    `features-with-card-sub-paragraph-${index + 1}`,
+                    uniqueId
                   )}
                   className={`features-with-card-sub-paragraph-${
                     index + 1
-                  } text-[#231e41] `}
+                  }-${uniqueId} text-[#231e41] `}
                   data-text="Type a paragraph"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
                   {isEdited[
-                    `features-with-card-sub-paragraph-text-1-${index + 1}`
+                    `features-with-card-sub-paragraph-text-1-${
+                      index + 1
+                    }-${uniqueId}`
                   ]
                     ? document.getElementById(
-                        `features-with-card-sub-paragraph-text-1-${index + 1}`
+                        `features-with-card-sub-paragraph-text-1-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-paragraph-text-1-${index + 1}`
+                        `features-with-card-sub-paragraph-text-1-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText || text.description}
                 </p>
               </div>
@@ -688,21 +865,26 @@ export const featuresWithCardsComponent = ({
 
           <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
             <span
-              id={`features-with-card-button-text-${index + 1}`}
+              id={`features-with-card-button-text-${index + 1}-${uniqueId}`}
               style={getElementStyle(
-                `features-with-card-button-text-style-${index + 1}`
+                `features-with-card-button-text-style-${index + 1}`,
+                uniqueId
               )}
-              className={`features-with-card-button-text-style-${index + 1}`}
+              className={`features-with-card-button-text-style-${
+                index + 1
+              }-${uniqueId}`}
               data-text="Button text"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {isEdited[`features-with-card-button-text-${index + 1}`]
+              {isEdited[
+                `features-with-card-button-text-${index + 1}-${uniqueId}`
+              ]
                 ? document.getElementById(
-                    `features-with-card-button-text-${index + 1}`
+                    `features-with-card-button-text-${index + 1}-${uniqueId}`
                   )?.innerText
                 : document.getElementById(
-                    `features-with-card-button-text-${index + 1}`
+                    `features-with-card-button-text-${index + 1}-${uniqueId}`
                   )?.innerText || text.buttonTexts[4]}
             </span>
           </button>
@@ -723,8 +905,8 @@ export const featuresWithCardsComponent = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id={`features-with-card-section-${index + 1}`}
-      style={getStyle(`features-with-card-section-${index + 1}`)}
+      id={`features-with-card-section-${index + 1}-${uniqueId}`}
+      style={getStyle(`features-with-card-section-${index + 1}`, uniqueId)}
     >
       <div
         className={`${
@@ -738,39 +920,51 @@ export const featuresWithCardsComponent = ({
         >
           <div className="">
             <h1
-              id={`features-with-card-heading-${index + 1}`}
-              style={getElementStyle(`features-with-card-heading-${index + 1}`)}
+              id={`features-with-card-heading-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `features-with-card-heading-${index + 1}`,
+                    uniqueId
+              )}
               className={`features-with-card-heading-${
                 index + 1
-              } text-[#231e41] text-3xl font-bold mb-1 break-words`}
+              }-${uniqueId} text-[#231e41] text-3xl font-bold mb-1 break-words`}
               data-text="Heading"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`features-with-card-heading-${index + 1}`]
+                __html: isEdited[
+                  `features-with-card-heading-${index + 1}-${uniqueId}`
+                ]
                   ? document.getElementById(
-                      `features-with-card-heading-${index + 1}`
-                    )?.innerHTML || text.featureHeader[0]
-                  : text.featureHeader[0],
+                      `features-with-card-heading-${index + 1}-${uniqueId}`
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-with-card-heading-${index + 1}-${uniqueId}`
+                    )?.innerHTML || text.featureHeader[0],
               }}
             ></h1>
             <p
-              id={`features-with-card-paragraph-${index + 1}`}
+              id={`features-with-card-paragraph-${index + 1}-${uniqueId}`}
               style={getElementStyle(
-                `features-with-card-paragraph-${index + 1}`
+                `features-with-card-paragraph-${index + 1}`,
+                    uniqueId
               )}
               className={`features-with-card-paragraph-${
                 index + 1
-              } text-[#231e41] max-w-[500px] break-words`}
+              }-${uniqueId} text-[#231e41] max-w-[500px] break-words`}
               data-text="Type a paragraph"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`features-with-card-paragraph-${index + 1}`]
+                __html: isEdited[
+                  `features-with-card-paragraph-${index + 1}-${uniqueId}`
+                ]
                   ? document.getElementById(
-                      `features-with-card-paragraph-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                      `features-with-card-paragraph-${index + 1}-${uniqueId}`
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-with-card-paragraph-${index + 1}-${uniqueId}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -789,47 +983,66 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id={`features-with-card-sub-heading-text-1-${index + 1}`}
+                  id={`features-with-card-sub-heading-text-1-${
+                    index + 1
+                  }-${uniqueId}`}
                   className={`features-with-card-sub-heading-${
                     index + 1
-                  } capitalize text-xl font-semibold text-[#231e41]`}
+                  }-${uniqueId} capitalize text-xl font-semibold text-[#231e41]`}
                   style={getElementStyle(
-                    `features-with-card-sub-heading-${index + 1}`
+                    `features-with-card-sub-heading-${index + 1}`,
+                    uniqueId,
+                    uniqueId
                   )}
                   data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
                   {isEdited[
-                    `features-with-card-sub-heading-text-1-${index + 1}`
+                    `features-with-card-sub-heading-text-1-${
+                      index + 1
+                    }-${uniqueId}`
                   ]
                     ? document.getElementById(
-                        `features-with-card-sub-heading-text-1-${index + 1}`
+                        `features-with-card-sub-heading-text-1-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-heading-text-1-${index + 1}`
+                        `features-with-card-sub-heading-text-1-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText || "Item One"}
                 </h2>
                 <p
-                  id={`features-with-card-sub-paragraph-text-1-${index + 1}`}
+                  id={`features-with-card-sub-paragraph-text-1-${
+                    index + 1
+                  }-${uniqueId}`}
                   style={getElementStyle(
-                    `features-with-card-sub-paragraph-${index + 1}`
+                    `features-with-card-sub-paragraph-${index + 1}`,
+                    uniqueId
                   )}
                   className={`features-with-card-sub-paragraph-${
                     index + 1
-                  } text-[#231e41] `}
+                  }-${uniqueId} text-[#231e41] `}
                   data-text="Type a paragraph"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
                   {isEdited[
-                    `features-with-card-sub-paragraph-text-1-${index + 1}`
+                    `features-with-card-sub-paragraph-text-1-${
+                      index + 1
+                    }-${uniqueId}`
                   ]
                     ? document.getElementById(
-                        `features-with-card-sub-paragraph-text-1-${index + 1}`
+                        `features-with-card-sub-paragraph-text-1-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-paragraph-text-1-${index + 1}`
+                        `features-with-card-sub-paragraph-text-1-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText || text.description}
                 </p>
               </div>
@@ -850,21 +1063,26 @@ export const featuresWithCardsComponent = ({
 
           <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
             <span
-              id={`features-with-card-button-text-${index + 1}`}
+              id={`features-with-card-button-text-${index + 1}-${uniqueId}`}
               style={getElementStyle(
-                `features-with-card-button-text-style-${index + 1}`
+                `features-with-card-button-text-style-${index + 1}`,
+                uniqueId
               )}
-              className={`features-with-card-button-text-style-${index + 1}`}
+              className={`features-with-card-button-text-style-${
+                index + 1
+              }-${uniqueId}`}
               data-text="Button text"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {isEdited[`features-with-card-button-text-${index + 1}`]
+              {isEdited[
+                `features-with-card-button-text-${index + 1}-${uniqueId}`
+              ]
                 ? document.getElementById(
-                    `features-with-card-button-text-${index + 1}`
+                    `features-with-card-button-text-${index + 1}-${uniqueId}`
                   )?.innerText
                 : document.getElementById(
-                    `features-with-card-button-text-${index + 1}`
+                    `features-with-card-button-text-${index + 1}-${uniqueId}`
                   )?.innerText || text.buttonTexts[4]}
             </span>
           </button>
@@ -885,8 +1103,8 @@ export const featuresWithCardsComponent = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id={`features-with-card-section-${index + 1}`}
-      style={getStyle(`features-with-card-section-${index + 1}`)}
+      id={`features-with-card-section-${index + 1}-${uniqueId}`}
+      style={getStyle(`features-with-card-section-${index + 1}`, uniqueId)}
     >
       <div
         className={`${
@@ -900,39 +1118,51 @@ export const featuresWithCardsComponent = ({
         >
           <div className="">
             <h1
-              id={`features-with-card-heading-${index + 1}`}
-              style={getElementStyle(`features-with-card-heading-${index + 1}`)}
+              id={`features-with-card-heading-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `features-with-card-heading-${index + 1}`,
+                    uniqueId
+              )}
               className={`features-with-card-heading-${
                 index + 1
-              } text-[#231e41] text-3xl font-bold mb-1 break-words`}
+              }-${uniqueId} text-[#231e41] text-3xl font-bold mb-1 break-words`}
               data-text="Heading"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`features-with-card-heading-${index + 1}`]
+                __html: isEdited[
+                  `features-with-card-heading-${index + 1}-${uniqueId}`
+                ]
                   ? document.getElementById(
-                      `features-with-card-heading-${index + 1}`
-                    )?.innerHTML || text.featureHeader[0]
-                  : text.featureHeader[0],
+                      `features-with-card-heading-${index + 1}-${uniqueId}`
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-with-card-heading-${index + 1}-${uniqueId}`
+                    )?.innerHTML || text.featureHeader[0],
               }}
             ></h1>
             <p
-              id={`features-with-card-paragraph-${index + 1}`}
+              id={`features-with-card-paragraph-${index + 1}-${uniqueId}`}
               style={getElementStyle(
-                `features-with-card-paragraph-${index + 1}`
+                `features-with-card-paragraph-${index + 1}`,
+                    uniqueId
               )}
               className={`features-with-card-paragraph-${
                 index + 1
-              } text-[#231e41] max-w-[500px] break-words`}
+              }-${uniqueId} text-[#231e41] max-w-[500px] break-words`}
               data-text="Type a paragraph"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`features-with-card-paragraph-${index + 1}`]
+                __html: isEdited[
+                  `features-with-card-paragraph-${index + 1}-${uniqueId}`
+                ]
                   ? document.getElementById(
-                      `features-with-card-paragraph-${index + 1}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                      `features-with-card-paragraph-${index + 1}-${uniqueId}`
+                    )?.innerHTML
+                  : document.getElementById(
+                      `features-with-card-paragraph-${index + 1}-${uniqueId}`
+                    )?.innerHTML || text.description,
               }}
             ></p>
           </div>
@@ -951,47 +1181,66 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id={`features-with-card-sub-heading-text-1-${index + 1}`}
+                  id={`features-with-card-sub-heading-text-1-${
+                    index + 1
+                  }-${uniqueId}`}
                   className={`features-with-card-sub-heading-${
                     index + 1
-                  } capitalize text-xl font-semibold text-[#231e41]`}
+                  }-${uniqueId} capitalize text-xl font-semibold text-[#231e41]`}
                   style={getElementStyle(
-                    `features-with-card-sub-heading-${index + 1}`
+                    `features-with-card-sub-heading-${index + 1}`,
+                    uniqueId,
+                    uniqueId
                   )}
                   data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
                   {isEdited[
-                    `features-with-card-sub-heading-text-1-${index + 1}`
+                    `features-with-card-sub-heading-text-1-${
+                      index + 1
+                    }-${uniqueId}`
                   ]
                     ? document.getElementById(
-                        `features-with-card-sub-heading-text-1-${index + 1}`
+                        `features-with-card-sub-heading-text-1-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-heading-text-1-${index + 1}`
+                        `features-with-card-sub-heading-text-1-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText || "Item One"}
                 </h2>
                 <p
-                  id={`features-with-card-sub-paragraph-text-1-${index + 1}`}
+                  id={`features-with-card-sub-paragraph-text-1-${
+                    index + 1
+                  }-${uniqueId}`}
                   style={getElementStyle(
-                    `features-with-card-sub-paragraph-${index + 1}`
+                    `features-with-card-sub-paragraph-${index + 1}`,
+                    uniqueId
                   )}
                   className={`features-with-card-sub-paragraph-${
                     index + 1
-                  } text-[#231e41] `}
+                  }-${uniqueId} text-[#231e41] `}
                   data-text="Type a paragraph"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
                   {isEdited[
-                    `features-with-card-sub-paragraph-text-1-${index + 1}`
+                    `features-with-card-sub-paragraph-text-1-${
+                      index + 1
+                    }-${uniqueId}`
                   ]
                     ? document.getElementById(
-                        `features-with-card-sub-paragraph-text-1-${index + 1}`
+                        `features-with-card-sub-paragraph-text-1-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-paragraph-text-1-${index + 1}`
+                        `features-with-card-sub-paragraph-text-1-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText || text.description}
                 </p>
               </div>
@@ -1010,47 +1259,66 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id={`features-with-card-sub-heading-text-2-${index + 1}`}
+                  id={`features-with-card-sub-heading-text-2-${
+                    index + 1
+                  }-${uniqueId}`}
                   className={`features-with-card-sub-heading-${
                     index + 1
-                  } capitalize text-xl font-semibold text-[#231e41]`}
+                  }-${uniqueId} capitalize text-xl font-semibold text-[#231e41]`}
                   style={getElementStyle(
-                    `features-with-card-sub-heading-${index + 1}`
+                    `features-with-card-sub-heading-${index + 1}`,
+                    uniqueId,
+                    uniqueId
                   )}
                   data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
                   {isEdited[
-                    `features-with-card-sub-heading-text-2-${index + 1}`
+                    `features-with-card-sub-heading-text-2-${
+                      index + 1
+                    }-${uniqueId}`
                   ]
                     ? document.getElementById(
-                        `features-with-card-sub-heading-text-2-${index + 1}`
+                        `features-with-card-sub-heading-text-2-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-heading-text-2-${index + 1}`
+                        `features-with-card-sub-heading-text-2-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText || "Item Two"}
                 </h2>
                 <p
-                  id={`features-with-card-sub-paragraph-text-2-${index + 1}`}
+                  id={`features-with-card-sub-paragraph-text-2-${
+                    index + 1
+                  }-${uniqueId}`}
                   style={getElementStyle(
-                    `features-with-card-sub-paragraph-${index + 1}`
+                    `features-with-card-sub-paragraph-${index + 1}`,
+                    uniqueId
                   )}
                   className={`features-with-card-sub-paragraph-${
                     index + 1
-                  } text-[#231e41] `}
+                  }-${uniqueId} text-[#231e41] `}
                   data-text="Type a paragraph"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
                   {isEdited[
-                    `features-with-card-sub-paragraph-text-2-${index + 1}`
+                    `features-with-card-sub-paragraph-text-2-${
+                      index + 1
+                    }-${uniqueId}`
                   ]
                     ? document.getElementById(
-                        `features-with-card-sub-paragraph-text-2-${index + 1}`
+                        `features-with-card-sub-paragraph-text-2-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-paragraph-text-2-${index + 1}`
+                        `features-with-card-sub-paragraph-text-2-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText || text.description}
                 </p>
               </div>
@@ -1069,47 +1337,66 @@ export const featuresWithCardsComponent = ({
 
               <div className="mt-2">
                 <h2
-                  id={`features-with-card-sub-heading-text-3-${index + 1}`}
+                  id={`features-with-card-sub-heading-text-3-${
+                    index + 1
+                  }-${uniqueId}`}
                   className={`features-with-card-sub-heading-${
                     index + 1
-                  } capitalize text-xl font-semibold text-[#231e41]`}
+                  }-${uniqueId} capitalize text-xl font-semibold text-[#231e41]`}
                   style={getElementStyle(
-                    `features-with-card-sub-heading-${index + 1}`
+                    `features-with-card-sub-heading-${index + 1}`,
+                    uniqueId,
+                    uniqueId
                   )}
                   data-text="Heading"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
                   {isEdited[
-                    `features-with-card-sub-heading-text-3-${index + 1}`
+                    `features-with-card-sub-heading-text-3-${
+                      index + 1
+                    }-${uniqueId}`
                   ]
                     ? document.getElementById(
-                        `features-with-card-sub-heading-text-3-${index + 1}`
+                        `features-with-card-sub-heading-text-3-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-heading-text-3-${index + 1}`
+                        `features-with-card-sub-heading-text-3-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText || "Item Three"}
                 </h2>
                 <p
-                  id={`features-with-card-sub-paragraph-text-3-${index + 1}`}
+                  id={`features-with-card-sub-paragraph-text-3-${
+                    index + 1
+                  }-${uniqueId}`}
                   style={getElementStyle(
-                    `features-with-card-sub-paragraph-${index + 1}`
+                    `features-with-card-sub-paragraph-${index + 1}`,
+                    uniqueId
                   )}
                   className={`features-with-card-sub-paragraph-${
                     index + 1
-                  } text-[#231e41] `}
+                  }-${uniqueId} text-[#231e41] `}
                   data-text="Type a paragraph"
                   contentEditable={false}
                   onClick={handleTextClick}
                 >
                   {isEdited[
-                    `features-with-card-sub-paragraph-text-3-${index + 1}`
+                    `features-with-card-sub-paragraph-text-3-${
+                      index + 1
+                    }-${uniqueId}`
                   ]
                     ? document.getElementById(
-                        `features-with-card-sub-paragraph-text-3-${index + 1}`
+                        `features-with-card-sub-paragraph-text-3-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText
                     : document.getElementById(
-                        `features-with-card-sub-paragraph-text-3-${index + 1}`
+                        `features-with-card-sub-paragraph-text-3-${
+                          index + 1
+                        }-${uniqueId}`
                       )?.innerText || text.description}
                 </p>
               </div>
@@ -1118,21 +1405,26 @@ export const featuresWithCardsComponent = ({
 
           <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
             <span
-              id={`features-with-card-button-text-${index + 1}`}
+              id={`features-with-card-button-text-${index + 1}-${uniqueId}`}
               style={getElementStyle(
-                `features-with-card-button-text-style-${index + 1}`
+                `features-with-card-button-text-style-${index + 1}`,
+                uniqueId
               )}
-              className={`features-with-card-button-text-style-${index + 1}`}
+              className={`features-with-card-button-text-style-${
+                index + 1
+              }-${uniqueId}`}
               data-text="Button text"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {isEdited[`features-with-card-button-text-${index + 1}`]
+              {isEdited[
+                `features-with-card-button-text-${index + 1}-${uniqueId}`
+              ]
                 ? document.getElementById(
-                    `features-with-card-button-text-${index + 1}`
+                    `features-with-card-button-text-${index + 1}-${uniqueId}`
                   )?.innerText
                 : document.getElementById(
-                    `features-with-card-button-text-${index + 1}`
+                    `features-with-card-button-text-${index + 1}-${uniqueId}`
                   )?.innerText || text.buttonTexts[4]}
             </span>
           </button>

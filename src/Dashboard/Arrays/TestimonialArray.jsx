@@ -38,8 +38,9 @@ export const testimonialComponent = ({
           dangerouslySetInnerHTML={{
             __html: isEdited[`testimonial-heading-${index + 1}`]
               ? document.getElementById(`testimonial-heading-${index + 1}`)
-                  ?.innerHTML || text.customerHeader[0]
-              : text.customerHeader[0],
+                  ?.innerHTML
+              : document.getElementById(`testimonial-heading-${index + 1}`)
+                  ?.innerHTML || text.customerHeader[0],
           }}
         ></h1>
         <p
@@ -52,8 +53,9 @@ export const testimonialComponent = ({
           dangerouslySetInnerHTML={{
             __html: isEdited[`testimonial-paragraph-${index + 1}`]
               ? document.getElementById(`testimonial-paragraph-${index + 1}`)
-                  ?.innerHTML || text.customerReviewText[0]
-              : text.customerReviewText[0],
+                  ?.innerHTML
+              : document.getElementById(`testimonial-paragraph-${index + 1}`)
+                  ?.innerHTML || text.customerReviewText[0],
           }}
         ></p>
 
@@ -120,8 +122,9 @@ export const testimonialComponent = ({
           dangerouslySetInnerHTML={{
             __html: isEdited[`testimonial-heading-${index + 1}`]
               ? document.getElementById(`testimonial-heading-${index + 1}`)
-                  ?.innerHTML || text.customerHeader[0]
-              : text.customerHeader[0],
+                  ?.innerHTML
+              : document.getElementById(`testimonial-heading-${index + 1}`)
+                  ?.innerHTML || text.customerHeader[0],
           }}
         ></h1>
         <p
@@ -134,8 +137,9 @@ export const testimonialComponent = ({
           dangerouslySetInnerHTML={{
             __html: isEdited[`testimonial-paragraph-${index + 1}`]
               ? document.getElementById(`testimonial-paragraph-${index + 1}`)
-                  ?.innerHTML || text.customerParagraphText[0]
-              : text.customerParagraphText[0],
+                  ?.innerHTML
+              : document.getElementById(`testimonial-paragraph-${index + 1}`)
+                  ?.innerHTML || text.customerParagraphText[0],
           }}
         ></p>
 
@@ -152,8 +156,10 @@ export const testimonialComponent = ({
                 __html: isEdited[`testimonial-icon-text-1-${index + 1}`]
                   ? document.getElementById(
                       `testimonial-icon-text-1-${index + 1}`
-                    )?.innerHTML || "★★★★★"
-                  : "★★★★★",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `testimonial-icon-text-1-${index + 1}`
+                    )?.innerHTML || "★★★★★",
               }}
             ></p>
             <h2
@@ -169,8 +175,10 @@ export const testimonialComponent = ({
                 __html: isEdited[`testimonial-sub-heading-text-1-${index + 1}`]
                   ? document.getElementById(
                       `testimonial-sub-heading-text-1-${index + 1}`
-                    )?.innerHTML || "The Most Amazing product ever"
-                  : "The Most Amazing product ever",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `testimonial-sub-heading-text-1-${index + 1}`
+                    )?.innerHTML || "The Most Amazing product ever",
               }}
             ></h2>
             <p
@@ -188,8 +196,10 @@ export const testimonialComponent = ({
                 ]
                   ? document.getElementById(
                       `testimonial-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML || text.customerReviewText[0]
-                  : text.customerReviewText[0],
+                    )?.innerHTML
+                  : document.getElementById(
+                      `testimonial-sub-paragraph-text-1-${index + 1}`
+                    )?.innerHTML || text.customerReviewText[0],
               }}
             ></p>
             <p
@@ -225,8 +235,10 @@ export const testimonialComponent = ({
                 __html: isEdited[`testimonial-icon-text-2-${index + 1}`]
                   ? document.getElementById(
                       `testimonial-icon-text-2-${index + 1}`
-                    )?.innerHTML || "★★★★★"
-                  : "★★★★★",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `testimonial-icon-text-2-${index + 1}`
+                    )?.innerHTML || "★★★★★",
               }}
             ></p>
             <h2
@@ -242,8 +254,10 @@ export const testimonialComponent = ({
                 __html: isEdited[`testimonial-sub-heading-text-2-${index + 1}`]
                   ? document.getElementById(
                       `testimonial-sub-heading-text-2-${index + 1}`
-                    )?.innerHTML || "The Most Amazing product ever"
-                  : "The Most Amazing product ever",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `testimonial-sub-heading-text-2-${index + 1}`
+                    )?.innerHTML || "The Most Amazing product ever",
               }}
             ></h2>
             <p
@@ -261,8 +275,10 @@ export const testimonialComponent = ({
                 ]
                   ? document.getElementById(
                       `testimonial-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML || text.customerReviewText[1]
-                  : text.customerReviewText[1],
+                    )?.innerHTML
+                  : document.getElementById(
+                      `testimonial-sub-paragraph-text-2-${index + 1}`
+                    )?.innerHTML || text.customerReviewText[1],
               }}
             ></p>
             <p
@@ -298,8 +314,10 @@ export const testimonialComponent = ({
                 __html: isEdited[`testimonial-icon-text-3-${index + 1}`]
                   ? document.getElementById(
                       `testimonial-icon-text-3-${index + 1}`
-                    )?.innerHTML || "★★★★★"
-                  : "★★★★★",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `testimonial-icon-text-3-${index + 1}`
+                    )?.innerHTML || "★★★★★",
               }}
             ></p>
             <h2
@@ -315,8 +333,10 @@ export const testimonialComponent = ({
                 __html: isEdited[`testimonial-sub-heading-text-3-${index + 1}`]
                   ? document.getElementById(
                       `testimonial-sub-heading-text-3-${index + 1}`
-                    )?.innerHTML || "The Most Amazing product ever"
-                  : "The Most Amazing product ever",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `testimonial-sub-heading-text-3-${index + 1}`
+                    )?.innerHTML || "The Most Amazing product ever",
               }}
             ></h2>
             <p
@@ -334,8 +354,10 @@ export const testimonialComponent = ({
                 ]
                   ? document.getElementById(
                       `testimonial-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML || text.customerReviewText[2]
-                  : text.customerReviewText[2],
+                    )?.innerHTML
+                  : document.getElementById(
+                      `testimonial-sub-paragraph-text-3-${index + 1}`
+                    )?.innerHTML || text.customerReviewText[2],
               }}
             ></p>
             <p
@@ -380,8 +402,9 @@ export const testimonialComponent = ({
           dangerouslySetInnerHTML={{
             __html: isEdited[`testimonial-heading-${index + 1}`]
               ? document.getElementById(`testimonial-heading-${index + 1}`)
-                  ?.innerHTML || text.customerHeader[0]
-              : text.customerHeader[0],
+                  ?.innerHTML
+              : document.getElementById(`testimonial-heading-${index + 1}`)
+                  ?.innerHTML || text.customerHeader[0],
           }}
         ></h1>
         <p
@@ -394,8 +417,9 @@ export const testimonialComponent = ({
           dangerouslySetInnerHTML={{
             __html: isEdited[`testimonial-paragraph-${index + 1}`]
               ? document.getElementById(`testimonial-paragraph-${index + 1}`)
-                  ?.innerHTML || text.customerParagraphText[0]
-              : text.customerParagraphText[0],
+                  ?.innerHTML
+              : document.getElementById(`testimonial-paragraph-${index + 1}`)
+                  ?.innerHTML || text.customerParagraphText[0],
           }}
         ></p>
 
@@ -412,8 +436,10 @@ export const testimonialComponent = ({
                 __html: isEdited[`testimonial-icon-text-1-${index + 1}`]
                   ? document.getElementById(
                       `testimonial-icon-text-1-${index + 1}`
-                    )?.innerHTML || "★★★★★"
-                  : "★★★★★",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `testimonial-icon-text-1-${index + 1}`
+                    )?.innerHTML || "★★★★★",
               }}
             ></p>
             <h2
@@ -429,8 +455,10 @@ export const testimonialComponent = ({
                 __html: isEdited[`testimonial-sub-heading-text-1-${index + 1}`]
                   ? document.getElementById(
                       `testimonial-sub-heading-text-1-${index + 1}`
-                    )?.innerHTML || "The Most Amazing product ever"
-                  : "The Most Amazing product ever",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `testimonial-sub-heading-text-1-${index + 1}`
+                    )?.innerHTML || "The Most Amazing product ever",
               }}
             ></h2>
             <p
@@ -448,8 +476,10 @@ export const testimonialComponent = ({
                 ]
                   ? document.getElementById(
                       `testimonial-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML || text.customerReviewText[0]
-                  : text.customerReviewText[0],
+                    )?.innerHTML
+                  : document.getElementById(
+                      `testimonial-sub-paragraph-text-1-${index + 1}`
+                    )?.innerHTML || text.customerReviewText[0],
               }}
             ></p>
             <p
@@ -485,8 +515,10 @@ export const testimonialComponent = ({
                 __html: isEdited[`testimonial-icon-text-2-${index + 1}`]
                   ? document.getElementById(
                       `testimonial-icon-text-2-${index + 1}`
-                    )?.innerHTML || "★★★★★"
-                  : "★★★★★",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `testimonial-icon-text-2-${index + 1}`
+                    )?.innerHTML || "★★★★★",
               }}
             ></p>
             <h2
@@ -502,8 +534,10 @@ export const testimonialComponent = ({
                 __html: isEdited[`testimonial-sub-heading-text-2-${index + 1}`]
                   ? document.getElementById(
                       `testimonial-sub-heading-text-2-${index + 1}`
-                    )?.innerHTML || "The Most Amazing product ever"
-                  : "The Most Amazing product ever",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `testimonial-sub-heading-text-2-${index + 1}`
+                    )?.innerHTML || "The Most Amazing product ever",
               }}
             ></h2>
             <p
@@ -521,8 +555,10 @@ export const testimonialComponent = ({
                 ]
                   ? document.getElementById(
                       `testimonial-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML || text.customerReviewText[1]
-                  : text.customerReviewText[1],
+                    )?.innerHTML
+                  : document.getElementById(
+                      `testimonial-sub-paragraph-text-2-${index + 1}`
+                    )?.innerHTML || text.customerReviewText[1],
               }}
             ></p>
             <p
@@ -558,8 +594,10 @@ export const testimonialComponent = ({
                 __html: isEdited[`testimonial-icon-text-3-${index + 1}`]
                   ? document.getElementById(
                       `testimonial-icon-text-3-${index + 1}`
-                    )?.innerHTML || "★★★★★"
-                  : "★★★★★",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `testimonial-icon-text-3-${index + 1}`
+                    )?.innerHTML || "★★★★★",
               }}
             ></p>
             <h2
@@ -575,8 +613,10 @@ export const testimonialComponent = ({
                 __html: isEdited[`testimonial-sub-heading-text-3-${index + 1}`]
                   ? document.getElementById(
                       `testimonial-sub-heading-text-3-${index + 1}`
-                    )?.innerHTML || "The Most Amazing product ever"
-                  : "The Most Amazing product ever",
+                    )?.innerHTML
+                  : document.getElementById(
+                      `testimonial-sub-heading-text-3-${index + 1}`
+                    )?.innerHTML || "The Most Amazing product ever",
               }}
             ></h2>
             <p
@@ -594,8 +634,10 @@ export const testimonialComponent = ({
                 ]
                   ? document.getElementById(
                       `testimonial-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML || text.customerReviewText[2]
-                  : text.customerReviewText[2],
+                    )?.innerHTML
+                  : document.getElementById(
+                      `testimonial-sub-paragraph-text-3-${index + 1}`
+                    )?.innerHTML || text.customerReviewText[2],
               }}
             ></p>
             <p
@@ -641,8 +683,9 @@ export const testimonialComponent = ({
           dangerouslySetInnerHTML={{
             __html: isEdited[`testimonial-heading-${index + 1}`]
               ? document.getElementById(`testimonial-heading-${index + 1}`)
-                  ?.innerHTML || text.customerHeader[0]
-              : text.customerHeader[0],
+                  ?.innerHTML
+              : document.getElementById(`testimonial-heading-${index + 1}`)
+                  ?.innerHTML || text.customerHeader[0],
           }}
         ></h1>
         <p
@@ -655,8 +698,9 @@ export const testimonialComponent = ({
           dangerouslySetInnerHTML={{
             __html: isEdited[`testimonial-paragraph-${index + 1}`]
               ? document.getElementById(`testimonial-paragraph-${index + 1}`)
-                  ?.innerHTML || text.customerReviewText[0]
-              : text.customerReviewText[0],
+                  ?.innerHTML
+              : document.getElementById(`testimonial-paragraph-${index + 1}`)
+                  ?.innerHTML || text.customerReviewText[0],
           }}
         ></p>
 
@@ -724,8 +768,9 @@ export const testimonialComponent = ({
           dangerouslySetInnerHTML={{
             __html: isEdited[`testimonial-heading-${index + 1}`]
               ? document.getElementById(`testimonial-heading-${index + 1}`)
-                  ?.innerHTML || text.customerHeader[0]
-              : text.customerHeader[0],
+                  ?.innerHTML
+              : document.getElementById(`testimonial-heading-${index + 1}`)
+                  ?.innerHTML || text.customerHeader[0],
           }}
         ></h1>
         <p
@@ -738,8 +783,9 @@ export const testimonialComponent = ({
           dangerouslySetInnerHTML={{
             __html: isEdited[`testimonial-paragraph-${index + 1}`]
               ? document.getElementById(`testimonial-paragraph-${index + 1}`)
-                  ?.innerHTML || text.customerReviewText[0]
-              : text.customerReviewText[0],
+                  ?.innerHTML
+              : document.getElementById(`testimonial-paragraph-${index + 1}`)
+                  ?.innerHTML || text.customerReviewText[0],
           }}
         ></p>
 
@@ -806,8 +852,9 @@ export const testimonialComponent = ({
           dangerouslySetInnerHTML={{
             __html: isEdited[`testimonial-heading-${index + 1}`]
               ? document.getElementById(`testimonial-heading-${index + 1}`)
-                  ?.innerHTML || text.customerHeader[0]
-              : text.customerHeader[0],
+                  ?.innerHTML
+              : document.getElementById(`testimonial-heading-${index + 1}`)
+                  ?.innerHTML || text.customerHeader[0],
           }}
         ></h1>
         <p
@@ -820,8 +867,9 @@ export const testimonialComponent = ({
           dangerouslySetInnerHTML={{
             __html: isEdited[`testimonial-paragraph-${index + 1}`]
               ? document.getElementById(`testimonial-paragraph-${index + 1}`)
-                  ?.innerHTML || text.customerReviewText[0]
-              : text.customerReviewText[0],
+                  ?.innerHTML
+              : document.getElementById(`testimonial-paragraph-${index + 1}`)
+                  ?.innerHTML || text.customerReviewText[0],
           }}
         ></p>
 
@@ -900,8 +948,9 @@ export const testimonialComponent = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`testimonial-heading-${index + 1}`]
                 ? document.getElementById(`testimonial-heading-${index + 1}`)
-                    ?.innerHTML || text.customerHeader[0]
-                : text.customerHeader[0],
+                    ?.innerHTML
+                : document.getElementById(`testimonial-heading-${index + 1}`)
+                    ?.innerHTML || text.customerHeader[0],
             }}
           ></h1>
           <p
@@ -916,8 +965,9 @@ export const testimonialComponent = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`testimonial-paragraph-${index + 1}`]
                 ? document.getElementById(`testimonial-paragraph-${index + 1}`)
-                    ?.innerHTML || text.customerReviewText[0]
-                : text.customerReviewText[0],
+                    ?.innerHTML
+                : document.getElementById(`testimonial-paragraph-${index + 1}`)
+                    ?.innerHTML || text.customerReviewText[0],
             }}
           ></p>
         </div>
@@ -954,8 +1004,9 @@ export const testimonialComponent = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`testimonial-heading-${index + 1}`]
                 ? document.getElementById(`testimonial-heading-${index + 1}`)
-                    ?.innerHTML || text.customerHeader[0]
-                : text.customerHeader[0],
+                    ?.innerHTML
+                : document.getElementById(`testimonial-heading-${index + 1}`)
+                    ?.innerHTML || text.customerHeader[0],
             }}
           ></h1>
           <p
@@ -970,8 +1021,9 @@ export const testimonialComponent = ({
             dangerouslySetInnerHTML={{
               __html: isEdited[`testimonial-paragraph-${index + 1}`]
                 ? document.getElementById(`testimonial-paragraph-${index + 1}`)
-                    ?.innerHTML || text.customerReviewText[0]
-                : text.customerReviewText[0],
+                    ?.innerHTML
+                : document.getElementById(`testimonial-paragraph-${index + 1}`)
+                    ?.innerHTML || text.customerReviewText[0],
             }}
           ></p>
         </div>
