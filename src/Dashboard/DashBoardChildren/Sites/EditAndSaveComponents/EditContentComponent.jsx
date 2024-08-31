@@ -14,6 +14,13 @@ const EditContentComponent = () => {
     handleFontFamilyClick,
     handleTextAlignmentClick,
   } = useContext(DashContext);
+  const [colorType, setColorType] = useState(true); // true for HEX, false for RGB
+  const [customColor, setCustomColor] = useState({
+    hex: "",
+    r: "",
+    g: "",
+    b: "",
+  });
   const textColor = [
     "#ffffff", // White
     "#000000", // Black
@@ -94,10 +101,46 @@ const EditContentComponent = () => {
     }
   };
 
+  const handleCustomColorChange = (e, type) => {
+    let value = e.target.value;
+
+    if (type === "hex") {
+      // Remove any non-alphanumeric characters
+      value = value.replace(/[^a-fA-F0-9]/g, "");
+
+      // Limit to 6 characters
+      value = value.slice(0, 6);
+    } else {
+      // For RGB inputs, only allow numbers and limit to 3 characters
+      value = value.replace(/\D/g, "").slice(0, 3);
+
+      // Ensure the value is between 0 and 255
+      value = Math.min(255, Math.max(0, parseInt(value) || 0)).toString();
+    }
+
+    setCustomColor((prev) => ({ ...prev, [type]: value }));
+  };
+
+  const handleCustomColorSubmit = () => {
+    let color;
+    if (colorType) {
+      // HEX
+      color = customColor.hex.startsWith("#")
+        ? customColor.hex
+        : `#${customColor.hex}`;
+    } else {
+      // RGB
+      color = `rgb(${customColor.r}, ${customColor.g}, ${customColor.b})`;
+    }
+    handleColorClick(color);
+  };
+
   useEffect(() => {
-    setFontValue(value)
-    handleFontSizeClick(btn.fontSizeType ? `${fontValue}px` : `${fontValue}rem`);
-  }, [value])
+    setFontValue(value);
+    handleFontSizeClick(
+      btn.fontSizeType ? `${fontValue}px` : `${fontValue}rem`
+    );
+  }, [value]);
 
   return (
     <>
@@ -145,48 +188,42 @@ const EditContentComponent = () => {
                         <input
                           type="text"
                           className="w-[80px] h-[25px] text-center bg-[rgb(37,39,45)] border-[1px] rounded-[3px] border-[rgba(145,151,155,0.65)] uppercase outline-none"
+                          value={customColor.hex}
+                          onChange={(e) => handleCustomColorChange(e, "hex")}
                         />
                       </div>
                     ) : (
                       <div className="flex gap-2">
-                        <div className="flex gap-1 flex-col justify-center items-center">
-                          <input
-                            type="text"
-                            className="w-[40px] h-[25px] text-center bg-[rgb(37,39,45)] border-[1px] rounded-[3px] border-[rgba(145,151,155,0.65)] uppercase outline-none"
-                          />
-                          <span>R</span>
-                        </div>
-
-                        <div className="flex gap-1 flex-col justify-center items-center">
-                          <input
-                            type="text"
-                            className="w-[40px] h-[25px] text-center bg-[rgb(37,39,45)] border-[1px] rounded-[3px] border-[rgba(145,151,155,0.65)] uppercase outline-none"
-                          />
-                          <span>G</span>
-                        </div>
-
-                        <div className="flex gap-1 flex-col justify-center items-center">
-                          <input
-                            type="text"
-                            className="w-[40px] h-[25px] text-center bg-[rgb(37,39,45)] border-[1px] rounded-[3px] border-[rgba(145,151,155,0.65)] uppercase outline-none"
-                          />
-                          <span>B</span>
-                        </div>
+                        {["r", "g", "b"].map((color) => (
+                          <div
+                            key={color}
+                            className="flex gap-1 flex-col justify-center items-center"
+                          >
+                            <input
+                              type="text"
+                              className="w-[40px] h-[25px] text-center bg-[rgb(37,39,45)] border-[1px] rounded-[3px] border-[rgba(145,151,155,0.65)] uppercase outline-none"
+                              value={customColor[color]}
+                              onChange={(e) =>
+                                handleCustomColorChange(e, color)
+                              }
+                            />
+                            <span>{color.toUpperCase()}</span>
+                          </div>
+                        ))}
                       </div>
                     )}
                   </div>
 
-                  <button
-                    className="w-[50px] text-center bg-transparent border-[1px] rounded-[3px] border-[rgb(145,151,155)] text-[rgb(145,151,155)] text-sm bg-[rgb(37,39,45)] font-medium flex justify-center items-center h-[25px]"
-                    onClick={() => {
-                      setBtn((prevState) => ({
-                        colorType: !prevState.colorType,
-                      }));
-                    }}
-                  >
-                    {btn.colorType ? "HEX" : "RGB"}
+                  <button className="w-[50px] text-center bg-transparent border-[1px] rounded-[3px] border-[rgb(145,151,155)] text-[rgb(145,151,155)] text-sm bg-[rgb(37,39,45)] font-medium flex justify-center items-center h-[25px]">
+                    HEX
                   </button>
                 </div>
+                <button
+                  className="mt-2 w-full bg-[rgb(37,39,45)] border-[1px] rounded-[3px] border-[rgb(145,151,155)] text-[rgb(145,151,155)] text-sm font-medium py-1"
+                  onClick={handleCustomColorSubmit}
+                >
+                  Apply Custom Color
+                </button>
               </div>
 
               <div className="color-container my-3 bg-[rgb(36,37,40)] rounded-[5px] px-2 py-4 w-full flex gap-4 justify-center flex-wrap">

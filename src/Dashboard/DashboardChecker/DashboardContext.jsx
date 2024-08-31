@@ -101,6 +101,7 @@ export const DashboardProvider = ({ children }) => {
   const [isEdited, setIsEdited] = useState({});
   const [displayCode, setDisplayCode] = useState("")
   const [elementUniqueIds, setElementUniqueIds] = useState({});
+  const lastClickedDivRef = useRef(null);
 
   useEffect(() => {
     if (!shuffled && webContentObject.randomButtonText) {
@@ -493,6 +494,7 @@ export const DashboardProvider = ({ children }) => {
   };
   
   const handleDivClick = (event) => {
+    lastClickedDivRef.current = event.currentTarget;
     setSelectedDiv(event.currentTarget);
   };
 
@@ -664,6 +666,8 @@ export const DashboardProvider = ({ children }) => {
         displayCode,
         setDisplayCode,
         elementUniqueIds,
+        lastClickedDivRef,
+        setElements,
       }}
     >
       {children}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaChevronLeft } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
 import { MdOutlineManageAccounts } from "react-icons/md";
@@ -32,8 +32,9 @@ const EditAndSave = () => {
     currentSection,
     setCurrentSection,
     displayCode,
-    setDisplayCode,
+    setShowDesignModal,
   } = useContext(DashContext);
+  const navigate = useNavigate()
   const modalRef = useRef(null);
   const resizableRef = useRef(null);
   const [enabled, setEnabled] = useState(false);
@@ -126,6 +127,48 @@ const EditAndSave = () => {
     };
   }, [isResizingRight, isResizingLeft]);
 
+   useEffect(() => {
+     const onBeforeUnload = (ev) => {
+       ev.returnValue = "Anything you wanna put here!";
+       return "Anything here as well, doesn't matter!";
+     };
+
+     const onPopState = (event) => {
+       const message =
+         "Are you sure you want to go back? Your changes may not be saved.";
+       event.preventDefault(); // Cancel the event
+       if (window.confirm(message)) {
+         // If user confirms, allow navigation
+         window.removeEventListener("popstate", onPopState);
+         window.history.back();
+       } else {
+         // If user cancels, push a new state to prevent navigation
+         window.history.pushState(null, "", window.location.href);
+       }
+     };
+
+     window.addEventListener("beforeunload", onBeforeUnload);
+     window.addEventListener("popstate", onPopState);
+
+     // Push a new state to enable popstate handling
+     window.history.pushState(null, "", window.location.href);
+
+     return () => {
+       window.removeEventListener("beforeunload", onBeforeUnload);
+       window.removeEventListener("popstate", onPopState);
+     };
+   }, []);
+
+  const handleButtonClick = () => {
+    const confirmExit = window.confirm(
+      "Are you sure you want to leave? Your changes may not be saved."
+    );
+    if (confirmExit) {
+      setShowDesignModal(false);
+      navigate("/home")
+    }
+  };
+
   return (
     <>
       <main className="bg-[rgb(30,30,30)] min-h-[100vh]">
@@ -134,9 +177,9 @@ const EditAndSave = () => {
           className="py-2 flex justify-between items-center px-3 fixed w-full top-0 z-50 my"
         >
           <div>
-            <Link to="/home">
+            <button onClick={handleButtonClick}>
               <FaChevronLeft className="text-white text-2xl" />
-            </Link>
+            </button>
           </div>
           <WebLogo />
           <div className="text-white text-xl flex gap-5">
@@ -191,9 +234,9 @@ const EditAndSave = () => {
           } pt-16 flex gap-10 overflow-hidden select-none relative edit-and-save-section`}
         >
           <div
-            className={`${
-              window.innerWidth < 1000 ? "hidden" : ""
-            } ${enabled ? "hidden" : "block"} bg-[rgb(9,11,14)] w-[20%] min-w-[20%] max-w-[20%] min-[1350px]:w-[20%] min-[1350px]:min-w-[20%] min-[1350px]:max-w-[20%] h-[87vh] border-[1px] rounded-[8px] border-[rgba(255,255,255,0.3)] overflow-y-scroll`}
+            className={`${window.innerWidth < 1000 ? "hidden" : ""} ${
+              enabled ? "hidden" : "block"
+            } bg-[rgb(9,11,14)] w-[20%] min-w-[20%] max-w-[20%] min-[1350px]:w-[20%] min-[1350px]:min-w-[20%] min-[1350px]:max-w-[20%] h-[87vh] border-[1px] rounded-[8px] border-[rgba(255,255,255,0.3)] overflow-y-scroll`}
           >
             {displayEditModal ? (
               <EditDesignModalComponent />
