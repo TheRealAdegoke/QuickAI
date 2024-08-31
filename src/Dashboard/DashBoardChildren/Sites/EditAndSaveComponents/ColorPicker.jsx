@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { RgbaColorPicker } from "react-colorful";
 import { hexToRgba, rgbaToHex } from "./ColorUtils";
 
-export const ColorPickerComponent = ({ setBackGroundStyle }) => {
+export const ColorPickerComponent = ({
+  setBackGroundStyle,
+  lastClickedDivRef,
+  setSelectedDiv,
+}) => {
   const [isActive, setIsActive] = useState(0);
   const [isGradient, setIsGradient] = useState(false);
   const [color1, setColor1] = useState({ r: 255, g: 255, b: 255, a: 1 });
@@ -28,6 +32,7 @@ export const ColorPickerComponent = ({ setBackGroundStyle }) => {
   }, [hex1, hex2, isActive]);
 
   const handleColorChange = (newColor) => {
+    setSelectedDiv(lastClickedDivRef.current);
     if (isActive === 0) {
       setColor1(newColor);
     } else {

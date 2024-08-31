@@ -4,48 +4,108 @@ import { MdFolder } from "react-icons/md";
 import ElementArray from "../../AI-Designed-Component/ElementArray";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
 import reactElementToJSXString from "react-element-to-jsx-string";
-import ComponentCode from "./EditAndSaveComponents/ComponentCode";
+import { FaChevronDown } from "react-icons/fa";
+import { FaChevronUp } from "react-icons/fa";
+import { MdDeleteOutline } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+import { IoIosUndo } from "react-icons/io";
 
-const EditAndSaveDesignModal = (idx) => {
+const EditAndSaveDesignModal = () => {
   const {
     setDisplayEditModal,
     newElementRef,
     elementsContainerRef,
-    displayCode,
     setDisplayCode,
-    setIsMobile,
-    isMobile,
+    setElements,
   } = useContext(DashContext);
+  const navigate = useNavigate();
   const { elements } = ElementArray();
+  const [iconText, setIconText] = useState({
+    up: false,
+    down: false,
+    undo: false,
+  });
+  const [selectedItemIndex, setSelectedItemIndex] = useState(null);
+  const [lastDeletedElement, setLastDeletedElement] = useState(null);
 
-  const handleElementClick = (item) => {
-    // Convert the React element to a string
-    let elementString = reactElementToJSXString(item, {
-      showFunctions: false,
-    });
+  useEffect(() => {
+    if (elements.length === 1) {
+      navigate("/home");
+    }
+  }, [elements, navigate]);
 
-    // Replace dangerouslySetInnerHTML with direct content inside any HTML tag
+  const handleElementClick = (item, index) => {
+    let elementString = reactElementToJSXString(item, { showFunctions: true });
     elementString = elementString.replace(
-      /<(\w+)([^>]*)dangerouslySetInnerHTML={{\s*__html:\s*'([^']*)'\s*}}\s*([^>]*)\/?>/g,
+      /<(\w+)([^>]*)dangerouslySetInnerHTML={{\s*__html:\s*'([^']*)'\s*([^>]*)\/?>/g,
       (_, tagName, beforeAttributes, content, afterAttributes) =>
         `<${tagName}${beforeAttributes}${afterAttributes}>${content}</${tagName}>`
     );
-
-    // Remove any unintended self-closing slash on tags
     elementString = elementString.replace(/\/>/g, ">");
-
-    // Ensure that <br>, <img> tags are self-closing
     elementString = elementString.replace(/<br>/g, "<br />");
     elementString = elementString.replace(/<img([^>]*)>/g, "<img$1 />");
-    
-    // Ensure that <path> tags have a closing tag
     elementString = elementString.replace(/<path([^>]*)>/g, "<path$1></path>");
 
-    console.log(elementString);
+    // console.log(elementString);
     setDisplayCode(elementString);
     setDisplayEditModal(true);
+    setSelectedItemIndex(index);
   };
 
+  const moveElementUp = (index) => {
+    if (index > 1) {
+      setElements((prevElements) => {
+        const newElements = [...prevElements];
+        [newElements[index], newElements[index - 1]] = [
+          newElements[index - 1],
+          newElements[index],
+        ];
+        return newElements;
+      });
+      setSelectedItemIndex(index - 1);
+    }
+  };
+
+  const moveElementDown = (index) => {
+    if (index < elements.length - 2) {
+      setElements((prevElements) => {
+        const newElements = [...prevElements];
+        [newElements[index], newElements[index + 1]] = [
+          newElements[index + 1],
+          newElements[index],
+        ];
+        return newElements;
+      });
+      setSelectedItemIndex(index + 1);
+    }
+  };
+
+  const handleDeleteElement = (index) => {
+    setElements((prevElements) => {
+      const deletedElement = prevElements[index];
+      setLastDeletedElement({ element: deletedElement, index });
+      return prevElements.filter((_, i) => i !== index);
+    });
+    setSelectedItemIndex(null);
+    setDisplayEditModal(false);
+    setDisplayCode("");
+  };
+
+  const handleUndo = () => {
+    if (lastDeletedElement) {
+      setElements((prevElements) => {
+        const newElements = [...prevElements];
+        newElements.splice(
+          lastDeletedElement.index,
+          0,
+          lastDeletedElement.element
+        );
+        return newElements;
+      });
+      setSelectedItemIndex(lastDeletedElement.index);
+      setLastDeletedElement(null);
+    }
+  };
 
   return (
     <div ref={elementsContainerRef} className="overflow-y-auto h-full">
@@ -53,11 +113,65 @@ const EditAndSaveDesignModal = (idx) => {
         <div
           ref={newElementRef}
           key={item.key || idx}
-          onClick={() => {
-            handleElementClick(item.element);
-          }}
+          onClick={() => handleElementClick(item.element, idx)}
+          className="relative"
         >
           {item.element}
+
+          {selectedItemIndex === idx &&
+            selectedItemIndex !== 0 &&
+            selectedItemIndex !== elements.length - 1 && (
+              <div className="absolute top-0 left-0 text-3xl flex justify-between gap-3 px-1 py-1 border-black border-[1px] w-[150px] bg-white">
+                <div
+                  className="relative"
+                  onClick={() => moveElementUp(idx)}
+                  onMouseEnter={() => setIconText({ up: true })}
+                  onMouseLeave={() => setIconText({ up: false })}
+                >
+                  <FaChevronUp className="cursor-pointer text-2xl" />
+                  <span
+                    className={`${
+                      iconText.up ? "block" : "hidden"
+                    } bg-black text-white text-sm text-center pb-1 absolute top-[40px] w-[100px]`}
+                  >
+                    Move Up
+                  </span>
+                </div>
+                <div
+                  className="relative"
+                  onClick={() => moveElementDown(idx)}
+                  onMouseEnter={() => setIconText({ down: true })}
+                  onMouseLeave={() => setIconText({ down: false })}
+                >
+                  <FaChevronDown className="cursor-pointer text-2xl" />
+                  <span
+                    className={`${
+                      iconText.down ? "block" : "hidden"
+                    } bg-black text-white text-sm text-center pb-1 absolute top-[40px] right-[-30px] w-[100px]`}
+                  >
+                    Move down
+                  </span>
+                </div>
+                <div
+                  className="relative"
+                  onClick={handleUndo}
+                  onMouseEnter={() => setIconText({ undo: true })}
+                  onMouseLeave={() => setIconText({ undo: false })}
+                >
+                  <IoIosUndo className="cursor-pointer text-2xl" />
+                  <span
+                    className={`${
+                      iconText.undo ? "block" : "hidden"
+                    } bg-black text-white text-sm text-center pb-1 absolute top-[40px] right-[-30px] w-[100px]`}
+                  >
+                    Undo
+                  </span>
+                </div>
+                <div onClick={() => handleDeleteElement(idx)}>
+                  <MdDeleteOutline className="text-[red] cursor-pointer text-2xl" />
+                </div>
+              </div>
+            )}
         </div>
       ))}
     </div>
