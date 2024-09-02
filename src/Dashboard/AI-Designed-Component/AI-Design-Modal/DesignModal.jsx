@@ -174,13 +174,13 @@ const DesignModal = () => {
             </Link>
           )}
         </div>
-        <main ref={scrollRef} className="bg-white h-[90%] overflow-y-scroll">
-          {elements
-            .slice(0, currentIndex + 1)
-            .map(
-              (item, idx) =>
-              <div key={idx}>{item.element}</div>
-            )}
+        <main
+          ref={scrollRef}
+          className="bg-white text-black h-[90%] overflow-y-scroll"
+        >
+          {elements.slice(0, currentIndex + 1).map((item, idx) => (
+            <div key={idx}>{item.element}</div>
+          ))}
         </main>
 
         <div ref={photoRef} className="-z-50 relative">

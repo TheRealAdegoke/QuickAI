@@ -3,8 +3,6 @@ import testImage from "../../assets/Default-Card.jpg";
 export const featuresWithCardsComponent = ({
   text,
   isMobile,
-  isFocused,
-  location,
   handleDivClick,
   handleTextClick,
   getStyle,
@@ -12,16 +10,8 @@ export const featuresWithCardsComponent = ({
   index,
   isEdited,
   uniqueId,
+  elementContent,
 }) => {
-  let classNames = "";
-
-  if (location.pathname === "/home") {
-    classNames = "";
-  } else if (location.pathname !== "/home" && isFocused) {
-    classNames = "";
-  } else {
-    classNames += " hover:border-[2px] hover:border-[rgb(0,111,173)]";
-  }
 
   return [
     <section
@@ -44,48 +34,50 @@ export const featuresWithCardsComponent = ({
               id={`features-with-card-heading-${index + 1}-${uniqueId}`}
               style={getElementStyle(
                 `features-with-card-heading-${index + 1}`,
-                    uniqueId
+                uniqueId
               )}
               className={`features-with-card-heading-${
                 index + 1
               }-${uniqueId} text-[#231e41] text-3xl font-bold mb-1 break-words`}
               data-text="Heading"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
                 __html: isEdited[
                   `features-with-card-heading-${index + 1}-${uniqueId}`
                 ]
-                  ? document.getElementById(
+                  ? elementContent[
                       `features-with-card-heading-${index + 1}-${uniqueId}`
-                    )?.innerHTML
-                  : document.getElementById(
+                    ]
+                  : elementContent[
                       `features-with-card-heading-${index + 1}-${uniqueId}`
-                    )?.innerHTML || text.featureHeader[0],
+                    ] || text.featureHeader[0],
               }}
             ></h1>
             <p
               id={`features-with-card-paragraph-${index + 1}-${uniqueId}`}
               style={getElementStyle(
                 `features-with-card-paragraph-${index + 1}`,
-                    uniqueId
+                uniqueId
               )}
               className={`features-with-card-paragraph-${
                 index + 1
               }-${uniqueId} text-[#231e41] max-w-[500px] break-words`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
                 __html: isEdited[
                   `features-with-card-paragraph-${index + 1}-${uniqueId}`
                 ]
-                  ? document.getElementById(
+                  ? elementContent[
                       `features-with-card-paragraph-${index + 1}-${uniqueId}`
-                    )?.innerHTML
-                  : document.getElementById(
+                    ]
+                  : elementContent[
                       `features-with-card-paragraph-${index + 1}-${uniqueId}`
-                    )?.innerHTML || text.description,
+                    ] || text.description,
               }}
             ></p>
           </div>
@@ -123,16 +115,16 @@ export const featuresWithCardsComponent = ({
                       index + 1
                     }-${uniqueId}`
                   ]
-                    ? document.getElementById(
+                    ? elementContent[
                         `features-with-card-sub-heading-text-1-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText
-                    : document.getElementById(
+                      ]
+                    : elementContent[
                         `features-with-card-sub-heading-text-1-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText || "Item One"}
+                      ] || "Item One"}
                 </h2>
                 <p
                   id={`features-with-card-sub-paragraph-text-1-${
@@ -154,16 +146,16 @@ export const featuresWithCardsComponent = ({
                       index + 1
                     }-${uniqueId}`
                   ]
-                    ? document.getElementById(
+                    ? elementContent[
                         `features-with-card-sub-paragraph-text-1-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText
-                    : document.getElementById(
+                      ]
+                    : elementContent[
                         `features-with-card-sub-paragraph-text-1-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText || text.description}
+                      ] || text.description}
                 </p>
               </div>
             </div>
@@ -200,16 +192,16 @@ export const featuresWithCardsComponent = ({
                       index + 1
                     }-${uniqueId}`
                   ]
-                    ? document.getElementById(
+                    ? elementContent[
                         `features-with-card-sub-heading-text-2-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText
-                    : document.getElementById(
+                      ]
+                    : elementContent[
                         `features-with-card-sub-heading-text-2-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText || "Item Two"}
+                      ] || "Item Two"}
                 </h2>
                 <p
                   id={`features-with-card-sub-paragraph-text-2-${
@@ -231,16 +223,16 @@ export const featuresWithCardsComponent = ({
                       index + 1
                     }-${uniqueId}`
                   ]
-                    ? document.getElementById(
+                    ? elementContent[
                         `features-with-card-sub-paragraph-text-2-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText
-                    : document.getElementById(
+                      ]
+                    : elementContent[
                         `features-with-card-sub-paragraph-text-2-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText || text.description}
+                      ] || text.description}
                 </p>
               </div>
             </div>
@@ -277,16 +269,16 @@ export const featuresWithCardsComponent = ({
                       index + 1
                     }-${uniqueId}`
                   ]
-                    ? document.getElementById(
+                    ? elementContent[
                         `features-with-card-sub-heading-text-3-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText
-                    : document.getElementById(
+                      ]
+                    : elementContent[
                         `features-with-card-sub-heading-text-3-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText || "Item Three"}
+                      ] || "Item Three"}
                 </h2>
                 <p
                   id={`features-with-card-sub-paragraph-text-3-${
@@ -308,16 +300,16 @@ export const featuresWithCardsComponent = ({
                       index + 1
                     }-${uniqueId}`
                   ]
-                    ? document.getElementById(
+                    ? elementContent[
                         `features-with-card-sub-paragraph-text-3-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText
-                    : document.getElementById(
+                      ]
+                    : elementContent[
                         `features-with-card-sub-paragraph-text-3-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText || text.description}
+                      ] || text.description}
                 </p>
               </div>
             </div>
@@ -340,12 +332,12 @@ export const featuresWithCardsComponent = ({
               {isEdited[
                 `features-with-card-button-text-${index + 1}-${uniqueId}`
               ]
-                ? document.getElementById(
+                ? elementContent[
                     `features-with-card-button-text-${index + 1}-${uniqueId}`
-                  )?.innerText
-                : document.getElementById(
+                  ]
+                : elementContent[
                     `features-with-card-button-text-${index + 1}-${uniqueId}`
-                  )?.innerText || text.buttonTexts[4]}
+                  ] || text.buttonTexts[4]}
             </span>
           </button>
         </div>
@@ -383,7 +375,7 @@ export const featuresWithCardsComponent = ({
               id={`features-with-card-heading-${index + 1}-${uniqueId}`}
               style={getElementStyle(
                 `features-with-card-heading-${index + 1}`,
-                    uniqueId
+                uniqueId
               )}
               className={`features-with-card-heading-${
                 index + 1
@@ -395,19 +387,19 @@ export const featuresWithCardsComponent = ({
                 __html: isEdited[
                   `features-with-card-heading-${index + 1}-${uniqueId}`
                 ]
-                  ? document.getElementById(
+                  ? elementContent[
                       `features-with-card-heading-${index + 1}-${uniqueId}`
-                    )?.innerHTML
-                  : document.getElementById(
+                    ]
+                  : elementContent[
                       `features-with-card-heading-${index + 1}-${uniqueId}`
-                    )?.innerHTML || text.featureHeader[0],
+                    ] || text.featureHeader[0],
               }}
             ></h1>
             <p
               id={`features-with-card-paragraph-${index + 1}-${uniqueId}`}
               style={getElementStyle(
                 `features-with-card-paragraph-${index + 1}`,
-                    uniqueId
+                uniqueId
               )}
               className={`features-with-card-paragraph-${
                 index + 1
@@ -419,12 +411,12 @@ export const featuresWithCardsComponent = ({
                 __html: isEdited[
                   `features-with-card-paragraph-${index + 1}-${uniqueId}`
                 ]
-                  ? document.getElementById(
+                  ? elementContent[
                       `features-with-card-paragraph-${index + 1}-${uniqueId}`
-                    )?.innerHTML
-                  : document.getElementById(
+                    ]
+                  : elementContent[
                       `features-with-card-paragraph-${index + 1}-${uniqueId}`
-                    )?.innerHTML || text.description,
+                    ] || text.description,
               }}
             ></p>
           </div>
@@ -463,16 +455,16 @@ export const featuresWithCardsComponent = ({
                       index + 1
                     }-${uniqueId}`
                   ]
-                    ? document.getElementById(
+                    ? elementContent[
                         `features-with-card-sub-heading-text-1-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText
-                    : document.getElementById(
+                      ]
+                    : elementContent[
                         `features-with-card-sub-heading-text-1-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText || "Item One"}
+                      ] || "Item One"}
                 </h2>
                 <p
                   id={`features-with-card-sub-paragraph-text-1-${
@@ -494,16 +486,16 @@ export const featuresWithCardsComponent = ({
                       index + 1
                     }-${uniqueId}`
                   ]
-                    ? document.getElementById(
+                    ? elementContent[
                         `features-with-card-sub-paragraph-text-1-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText
-                    : document.getElementById(
+                      ]
+                    : elementContent[
                         `features-with-card-sub-paragraph-text-1-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText || text.description}
+                      ] || text.description}
                 </p>
               </div>
             </div>
@@ -541,16 +533,16 @@ export const featuresWithCardsComponent = ({
                       index + 1
                     }-${uniqueId}`
                   ]
-                    ? document.getElementById(
+                    ? elementContent[
                         `features-with-card-sub-heading-text-2-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText
-                    : document.getElementById(
+                      ]
+                    : elementContent[
                         `features-with-card-sub-heading-text-2-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText || "Item Two"}
+                      ] || "Item Two"}
                 </h2>
                 <p
                   id={`features-with-card-sub-paragraph-text-2-${
@@ -572,16 +564,16 @@ export const featuresWithCardsComponent = ({
                       index + 1
                     }-${uniqueId}`
                   ]
-                    ? document.getElementById(
+                    ? elementContent[
                         `features-with-card-sub-paragraph-text-2-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText
-                    : document.getElementById(
+                      ]
+                    : elementContent[
                         `features-with-card-sub-paragraph-text-2-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText || text.description}
+                      ] || text.description}
                 </p>
               </div>
             </div>
@@ -619,16 +611,16 @@ export const featuresWithCardsComponent = ({
                       index + 1
                     }-${uniqueId}`
                   ]
-                    ? document.getElementById(
+                    ? elementContent[
                         `features-with-card-sub-heading-text-3-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText
-                    : document.getElementById(
+                      ]
+                    : elementContent[
                         `features-with-card-sub-heading-text-3-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText || "Item Three"}
+                      ] || "Item Three"}
                 </h2>
                 <p
                   id={`features-with-card-sub-paragraph-text-3-${
@@ -650,16 +642,16 @@ export const featuresWithCardsComponent = ({
                       index + 1
                     }-${uniqueId}`
                   ]
-                    ? document.getElementById(
+                    ? elementContent[
                         `features-with-card-sub-paragraph-text-3-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText
-                    : document.getElementById(
+                      ]
+                    : elementContent[
                         `features-with-card-sub-paragraph-text-3-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText || text.description}
+                      ] || text.description}
                 </p>
               </div>
             </div>
@@ -682,12 +674,12 @@ export const featuresWithCardsComponent = ({
               {isEdited[
                 `features-with-card-button-text-${index + 1}-${uniqueId}`
               ]
-                ? document.getElementById(
+                ? elementContent[
                     `features-with-card-button-text-${index + 1}-${uniqueId}`
-                  )?.innerText
-                : document.getElementById(
+                  ]
+                : elementContent[
                     `features-with-card-button-text-${index + 1}-${uniqueId}`
-                  )?.innerText || text.buttonTexts[4]}
+                  ] || text.buttonTexts[4]}
             </span>
           </button>
         </div>
@@ -725,7 +717,7 @@ export const featuresWithCardsComponent = ({
               id={`features-with-card-heading-${index + 1}-${uniqueId}`}
               style={getElementStyle(
                 `features-with-card-heading-${index + 1}`,
-                    uniqueId
+                uniqueId
               )}
               className={`features-with-card-heading-${
                 index + 1
@@ -737,19 +729,19 @@ export const featuresWithCardsComponent = ({
                 __html: isEdited[
                   `features-with-card-heading-${index + 1}-${uniqueId}`
                 ]
-                  ? document.getElementById(
+                  ? elementContent[
                       `features-with-card-heading-${index + 1}-${uniqueId}`
-                    )?.innerHTML
-                  : document.getElementById(
+                    ]
+                  : elementContent[
                       `features-with-card-heading-${index + 1}-${uniqueId}`
-                    )?.innerHTML || text.featureHeader[0],
+                    ] || text.featureHeader[0],
               }}
             ></h1>
             <p
               id={`features-with-card-paragraph-${index + 1}-${uniqueId}`}
               style={getElementStyle(
                 `features-with-card-paragraph-${index + 1}`,
-                    uniqueId
+                uniqueId
               )}
               className={`features-with-card-paragraph-${
                 index + 1
@@ -761,12 +753,12 @@ export const featuresWithCardsComponent = ({
                 __html: isEdited[
                   `features-with-card-paragraph-${index + 1}-${uniqueId}`
                 ]
-                  ? document.getElementById(
+                  ? elementContent[
                       `features-with-card-paragraph-${index + 1}-${uniqueId}`
-                    )?.innerHTML
-                  : document.getElementById(
+                    ]
+                  : elementContent[
                       `features-with-card-paragraph-${index + 1}-${uniqueId}`
-                    )?.innerHTML || text.description,
+                    ] || text.description,
               }}
             ></p>
           </div>
@@ -805,16 +797,16 @@ export const featuresWithCardsComponent = ({
                       index + 1
                     }-${uniqueId}`
                   ]
-                    ? document.getElementById(
+                    ? elementContent[
                         `features-with-card-sub-heading-text-1-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText
-                    : document.getElementById(
+                      ]
+                    : elementContent[
                         `features-with-card-sub-heading-text-1-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText || "Item One"}
+                      ] || "Item One"}
                 </h2>
                 <p
                   id={`features-with-card-sub-paragraph-text-1-${
@@ -836,16 +828,16 @@ export const featuresWithCardsComponent = ({
                       index + 1
                     }-${uniqueId}`
                   ]
-                    ? document.getElementById(
+                    ? elementContent[
                         `features-with-card-sub-paragraph-text-1-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText
-                    : document.getElementById(
+                      ]
+                    : elementContent[
                         `features-with-card-sub-paragraph-text-1-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText || text.description}
+                      ] || text.description}
                 </p>
               </div>
             </div>
@@ -880,12 +872,12 @@ export const featuresWithCardsComponent = ({
               {isEdited[
                 `features-with-card-button-text-${index + 1}-${uniqueId}`
               ]
-                ? document.getElementById(
+                ? elementContent[
                     `features-with-card-button-text-${index + 1}-${uniqueId}`
-                  )?.innerText
-                : document.getElementById(
+                  ]
+                : elementContent[
                     `features-with-card-button-text-${index + 1}-${uniqueId}`
-                  )?.innerText || text.buttonTexts[4]}
+                  ] || text.buttonTexts[4]}
             </span>
           </button>
         </div>
@@ -923,7 +915,7 @@ export const featuresWithCardsComponent = ({
               id={`features-with-card-heading-${index + 1}-${uniqueId}`}
               style={getElementStyle(
                 `features-with-card-heading-${index + 1}`,
-                    uniqueId
+                uniqueId
               )}
               className={`features-with-card-heading-${
                 index + 1
@@ -935,19 +927,19 @@ export const featuresWithCardsComponent = ({
                 __html: isEdited[
                   `features-with-card-heading-${index + 1}-${uniqueId}`
                 ]
-                  ? document.getElementById(
+                  ? elementContent[
                       `features-with-card-heading-${index + 1}-${uniqueId}`
-                    )?.innerHTML
-                  : document.getElementById(
+                    ]
+                  : elementContent[
                       `features-with-card-heading-${index + 1}-${uniqueId}`
-                    )?.innerHTML || text.featureHeader[0],
+                    ] || text.featureHeader[0],
               }}
             ></h1>
             <p
               id={`features-with-card-paragraph-${index + 1}-${uniqueId}`}
               style={getElementStyle(
                 `features-with-card-paragraph-${index + 1}`,
-                    uniqueId
+                uniqueId
               )}
               className={`features-with-card-paragraph-${
                 index + 1
@@ -959,12 +951,12 @@ export const featuresWithCardsComponent = ({
                 __html: isEdited[
                   `features-with-card-paragraph-${index + 1}-${uniqueId}`
                 ]
-                  ? document.getElementById(
+                  ? elementContent[
                       `features-with-card-paragraph-${index + 1}-${uniqueId}`
-                    )?.innerHTML
-                  : document.getElementById(
+                    ]
+                  : elementContent[
                       `features-with-card-paragraph-${index + 1}-${uniqueId}`
-                    )?.innerHTML || text.description,
+                    ] || text.description,
               }}
             ></p>
           </div>
@@ -1003,16 +995,16 @@ export const featuresWithCardsComponent = ({
                       index + 1
                     }-${uniqueId}`
                   ]
-                    ? document.getElementById(
+                    ? elementContent[
                         `features-with-card-sub-heading-text-1-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText
-                    : document.getElementById(
+                      ]
+                    : elementContent[
                         `features-with-card-sub-heading-text-1-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText || "Item One"}
+                      ] || "Item One"}
                 </h2>
                 <p
                   id={`features-with-card-sub-paragraph-text-1-${
@@ -1034,16 +1026,16 @@ export const featuresWithCardsComponent = ({
                       index + 1
                     }-${uniqueId}`
                   ]
-                    ? document.getElementById(
+                    ? elementContent[
                         `features-with-card-sub-paragraph-text-1-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText
-                    : document.getElementById(
+                      ]
+                    : elementContent[
                         `features-with-card-sub-paragraph-text-1-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText || text.description}
+                      ] || text.description}
                 </p>
               </div>
             </div>
@@ -1078,12 +1070,12 @@ export const featuresWithCardsComponent = ({
               {isEdited[
                 `features-with-card-button-text-${index + 1}-${uniqueId}`
               ]
-                ? document.getElementById(
+                ? elementContent[
                     `features-with-card-button-text-${index + 1}-${uniqueId}`
-                  )?.innerText
-                : document.getElementById(
+                  ]
+                : elementContent[
                     `features-with-card-button-text-${index + 1}-${uniqueId}`
-                  )?.innerText || text.buttonTexts[4]}
+                  ] || text.buttonTexts[4]}
             </span>
           </button>
         </div>
@@ -1121,7 +1113,7 @@ export const featuresWithCardsComponent = ({
               id={`features-with-card-heading-${index + 1}-${uniqueId}`}
               style={getElementStyle(
                 `features-with-card-heading-${index + 1}`,
-                    uniqueId
+                uniqueId
               )}
               className={`features-with-card-heading-${
                 index + 1
@@ -1133,19 +1125,19 @@ export const featuresWithCardsComponent = ({
                 __html: isEdited[
                   `features-with-card-heading-${index + 1}-${uniqueId}`
                 ]
-                  ? document.getElementById(
+                  ? elementContent[
                       `features-with-card-heading-${index + 1}-${uniqueId}`
-                    )?.innerHTML
-                  : document.getElementById(
+                    ]
+                  : elementContent[
                       `features-with-card-heading-${index + 1}-${uniqueId}`
-                    )?.innerHTML || text.featureHeader[0],
+                    ] || text.featureHeader[0],
               }}
             ></h1>
             <p
               id={`features-with-card-paragraph-${index + 1}-${uniqueId}`}
               style={getElementStyle(
                 `features-with-card-paragraph-${index + 1}`,
-                    uniqueId
+                uniqueId
               )}
               className={`features-with-card-paragraph-${
                 index + 1
@@ -1157,12 +1149,12 @@ export const featuresWithCardsComponent = ({
                 __html: isEdited[
                   `features-with-card-paragraph-${index + 1}-${uniqueId}`
                 ]
-                  ? document.getElementById(
+                  ? elementContent[
                       `features-with-card-paragraph-${index + 1}-${uniqueId}`
-                    )?.innerHTML
-                  : document.getElementById(
+                    ]
+                  : elementContent[
                       `features-with-card-paragraph-${index + 1}-${uniqueId}`
-                    )?.innerHTML || text.description,
+                    ] || text.description,
               }}
             ></p>
           </div>
@@ -1201,16 +1193,16 @@ export const featuresWithCardsComponent = ({
                       index + 1
                     }-${uniqueId}`
                   ]
-                    ? document.getElementById(
+                    ? elementContent[
                         `features-with-card-sub-heading-text-1-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText
-                    : document.getElementById(
+                      ]
+                    : elementContent[
                         `features-with-card-sub-heading-text-1-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText || "Item One"}
+                      ] || "Item One"}
                 </h2>
                 <p
                   id={`features-with-card-sub-paragraph-text-1-${
@@ -1232,16 +1224,16 @@ export const featuresWithCardsComponent = ({
                       index + 1
                     }-${uniqueId}`
                   ]
-                    ? document.getElementById(
+                    ? elementContent[
                         `features-with-card-sub-paragraph-text-1-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText
-                    : document.getElementById(
+                      ]
+                    : elementContent[
                         `features-with-card-sub-paragraph-text-1-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText || text.description}
+                      ] || text.description}
                 </p>
               </div>
             </div>
@@ -1279,16 +1271,16 @@ export const featuresWithCardsComponent = ({
                       index + 1
                     }-${uniqueId}`
                   ]
-                    ? document.getElementById(
+                    ? elementContent[
                         `features-with-card-sub-heading-text-2-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText
-                    : document.getElementById(
+                      ]
+                    : elementContent[
                         `features-with-card-sub-heading-text-2-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText || "Item Two"}
+                      ] || "Item Two"}
                 </h2>
                 <p
                   id={`features-with-card-sub-paragraph-text-2-${
@@ -1310,16 +1302,16 @@ export const featuresWithCardsComponent = ({
                       index + 1
                     }-${uniqueId}`
                   ]
-                    ? document.getElementById(
+                    ? elementContent[
                         `features-with-card-sub-paragraph-text-2-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText
-                    : document.getElementById(
+                      ]
+                    : elementContent[
                         `features-with-card-sub-paragraph-text-2-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText || text.description}
+                      ] || text.description}
                 </p>
               </div>
             </div>
@@ -1357,16 +1349,16 @@ export const featuresWithCardsComponent = ({
                       index + 1
                     }-${uniqueId}`
                   ]
-                    ? document.getElementById(
+                    ? elementContent[
                         `features-with-card-sub-heading-text-3-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText
-                    : document.getElementById(
+                      ]
+                    : elementContent[
                         `features-with-card-sub-heading-text-3-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText || "Item Three"}
+                      ] || "Item Three"}
                 </h2>
                 <p
                   id={`features-with-card-sub-paragraph-text-3-${
@@ -1388,16 +1380,16 @@ export const featuresWithCardsComponent = ({
                       index + 1
                     }-${uniqueId}`
                   ]
-                    ? document.getElementById(
+                    ? elementContent[
                         `features-with-card-sub-paragraph-text-3-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText
-                    : document.getElementById(
+                      ]
+                    : elementContent[
                         `features-with-card-sub-paragraph-text-3-${
                           index + 1
                         }-${uniqueId}`
-                      )?.innerText || text.description}
+                      ] || text.description}
                 </p>
               </div>
             </div>
@@ -1420,12 +1412,12 @@ export const featuresWithCardsComponent = ({
               {isEdited[
                 `features-with-card-button-text-${index + 1}-${uniqueId}`
               ]
-                ? document.getElementById(
+                ? elementContent[
                     `features-with-card-button-text-${index + 1}-${uniqueId}`
-                  )?.innerText
-                : document.getElementById(
+                  ]
+                : elementContent[
                     `features-with-card-button-text-${index + 1}-${uniqueId}`
-                  )?.innerText || text.buttonTexts[4]}
+                  ] || text.buttonTexts[4]}
             </span>
           </button>
         </div>

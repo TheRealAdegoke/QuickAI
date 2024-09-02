@@ -1,30 +1,21 @@
 export const faqComponent = ({
   text,
   isMobile,
-  isFocused,
-  location,
   handleDivClick,
   handleTextClick,
   getStyle,
   getElementStyle,
   index,
   isEdited,
+  uniqueId,
+  elementContent,
 }) => {
-  let classNames = "";
-
-  if (location.pathname === "/home") {
-    classNames = "";
-  } else if (location.pathname !== "/home" && isFocused) {
-    classNames = "";
-  } else {
-    classNames += " hover:border-[2px] hover:border-[rgb(0,111,173)]";
-  }
 
   return [
     <section
       onClick={handleDivClick}
-      id={`faq-section-${index + 1}`}
-      style={getStyle(`faq-section-${index + 1}`)}
+      id={`faq-section-${index + 1}-${uniqueId}`}
+      style={getStyle(`faq-section-${index + 1}`, uniqueId)}
     >
       <div
         className={`${
@@ -33,34 +24,35 @@ export const faqComponent = ({
       >
         <div className="mb-10">
           <h1
-            id={`faq-heading-${index + 1}`}
-            style={getElementStyle(`faq-heading-${index + 1}`)}
+            id={`faq-heading-${index + 1}-${uniqueId}`}
+            style={getElementStyle(`faq-heading-${index + 1}`, uniqueId)}
             className={`faq-heading-${
               index + 1
-            } text-3xl font-bold text-[#212529] mb-2 `}
+            }-${uniqueId} text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
-              __html: isEdited[`faq-heading-${index + 1}`]
-                ? document.getElementById(`faq-heading-${index + 1}`)?.innerHTML
-                : document.getElementById(`faq-heading-${index + 1}`)
-                    ?.innerHTML || text.FAQsHeader[0],
+              __html: isEdited[`faq-heading-${index + 1}-${uniqueId}`]
+                ? elementContent[`faq-heading-${index + 1}-${uniqueId}`]
+                : elementContent[`faq-heading-${index + 1}-${uniqueId}`] ||
+                  text.FAQsHeader[0],
             }}
           ></h1>
           <p
-            id={`faq-paragraph-${index + 1}`}
-            style={getElementStyle(`faq-paragraph-${index + 1}`)}
-            className={`faq-paragraph-${index + 1}`}
+            id={`faq-paragraph-${index + 1}-${uniqueId}`}
+            style={getElementStyle(`faq-paragraph-${index + 1}`, uniqueId)}
+            className={`faq-paragraph-${index + 1}-${uniqueId}`}
             data-text="Type a paragraph"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
-              __html: isEdited[`faq-paragraph-${index + 1}`]
-                ? document.getElementById(`faq-paragraph-${index + 1}`)
-                    ?.innerHTML
-                : document.getElementById(`faq-paragraph-${index + 1}`)
-                    ?.innerHTML || text.faqParagraphText[0],
+              __html: isEdited[`faq-paragraph-${index + 1}-${uniqueId}`]
+                ? elementContent[`faq-paragraph-${index + 1}-${uniqueId}`]
+                : elementContent[`faq-paragraph-${index + 1}-${uniqueId}`] ||
+                  text.faqParagraphText[0],
             }}
           ></p>
         </div>
@@ -74,37 +66,46 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""} w-[40%] max-lg:w-[80%]`}
           >
             <h2
-              id={`faq-sub-heading-text-1-${index + 1}`}
-              style={getElementStyle(`faq-sub-heading-${index + 1}`)}
-              className={`faq-sub-heading-${index + 1}`}
+              id={`faq-sub-heading-text-1-${index + 1}-${uniqueId}`}
+              style={getElementStyle(`faq-sub-heading-${index + 1}`, uniqueId)}
+              className={`faq-sub-heading-${index + 1}-${uniqueId}`}
               data-text="Heading"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-heading-text-1-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-heading-text-1-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-heading-text-1-${index + 1}`
-                    )?.innerHTML || "Question 1",
+                __html: isEdited[
+                  `faq-sub-heading-text-1-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `faq-sub-heading-text-1-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `faq-sub-heading-text-1-${index + 1}-${uniqueId}`
+                    ] || "Question 1",
               }}
             ></h2>
             <p
-              id={`faq-sub-paragraph-text-1-${index + 1}`}
-              style={getElementStyle(`faq-sub-paragraph-${index + 1}`)}
-              className={`faq-sub-paragraph-${index + 1} my-2`}
+              id={`faq-sub-paragraph-text-1-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `faq-sub-paragraph-${index + 1}`,
+                uniqueId
+              )}
+              className={`faq-sub-paragraph-${index + 1}-${uniqueId} my-2`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-paragraph-text-1-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0],
+                __html: isEdited[
+                  `faq-sub-paragraph-text-1-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `faq-sub-paragraph-text-1-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `faq-sub-paragraph-text-1-${index + 1}-${uniqueId}`
+                    ] || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -113,37 +114,46 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""} w-[40%] max-lg:w-[80%]`}
           >
             <h2
-              id={`faq-sub-heading-text-2-${index + 1}`}
-              style={getElementStyle(`faq-sub-heading-${index + 1}`)}
-              className={`faq-sub-heading-${index + 1}`}
+              id={`faq-sub-heading-text-2-${index + 1}-${uniqueId}`}
+              style={getElementStyle(`faq-sub-heading-${index + 1}`, uniqueId)}
+              className={`faq-sub-heading-${index + 1}-${uniqueId}`}
               data-text="Heading"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-heading-text-2-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-heading-text-2-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-heading-text-2-${index + 1}`
-                    )?.innerHTML || "Question 2",
+                __html: isEdited[
+                  `faq-sub-heading-text-2-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `faq-sub-heading-text-2-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `faq-sub-heading-text-2-${index + 1}-${uniqueId}`
+                    ] || "Question 2",
               }}
             ></h2>
             <p
-              id={`faq-sub-paragraph-text-2-${index + 1}`}
-              style={getElementStyle(`faq-sub-paragraph-${index + 1}`)}
-              className={`faq-sub-paragraph-${index + 1} my-2`}
+              id={`faq-sub-paragraph-text-2-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `faq-sub-paragraph-${index + 1}`,
+                uniqueId
+              )}
+              className={`faq-sub-paragraph-${index + 1}-${uniqueId} my-2`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-paragraph-text-2-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0],
+                __html: isEdited[
+                  `faq-sub-paragraph-text-2-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `faq-sub-paragraph-text-2-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `faq-sub-paragraph-text-2-${index + 1}-${uniqueId}`
+                    ] || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -152,37 +162,42 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""} w-[40%] max-lg:w-[80%]`}
           >
             <h2
-              id={`faq-sub-heading-text-3-${index + 1}`}
-              style={getElementStyle(`faq-sub-heading-${index + 1}`)}
-              className={`faq-sub-heading-${index + 1}`}
+              id={`faq-sub-heading-text-3-${index + 1}-${uniqueId}`}
+              style={getElementStyle(`faq-sub-heading-${index + 1}`, uniqueId)}
+              className={`faq-sub-heading-${index + 1}-${uniqueId}`}
               data-text="Heading"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-heading-text-3-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-heading-text-3-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-heading-text-3-${index + 1}`
-                    )?.innerHTML || "Question 3",
+                __html: isEdited[
+                  `faq-sub-heading-text-3-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `faq-sub-heading-text-3-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `faq-sub-heading-text-3-${index + 1}-${uniqueId}`
+                    ] || "Question 3",
               }}
             ></h2>
             <p
-              id={`faq-sub-paragraph-text-3-${index + 1}`}
-              style={getElementStyle(`faq-sub-paragraph-${index + 1}`)}
-              className={`faq-sub-paragraph-${index + 1} my-2`}
+              id={`faq-sub-paragraph-text-3-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `faq-sub-paragraph-${index + 1}`,
+                uniqueId
+              )}
+              className={`faq-sub-paragraph-${index + 1}-${uniqueId} my-2`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-paragraph-text-3-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0],
+                __html: isEdited[`faq-sub-paragraph-${index + 1}-${uniqueId}`]
+                  ? elementContent[`faq-sub-paragraph-${index + 1}-${uniqueId}`]
+                  : elementContent[
+                      `faq-sub-paragraph-${index + 1}-${uniqueId}`
+                    ] || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -191,37 +206,50 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""} w-[40%] max-lg:w-[80%]`}
           >
             <h2
-              id={`faq-sub-heading-text-4-${index + 1}`}
-              style={getElementStyle(`faq-sub-heading-${index + 1}`)}
-              className={`faq-sub-heading-${index + 1}`}
+              id={`faq-sub-heading-text-4-${index + 1}-${uniqueId}`}
+              style={getElementStyle(`faq-sub-heading-${index + 1}`, uniqueId)}
+              className={`faq-sub-heading-${index + 1}-${uniqueId}`}
               data-text="Heading"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-heading-text-4-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-heading-text-4-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-heading-text-4-${index + 1}`
-                    )?.innerHTML || "Question 4",
+                __html: isEdited[
+                  `faq-sub-heading-text-4-${index + 1}-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `faq-sub-heading-text-4-${index + 1}-${
+                        index + 1
+                      }-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `faq-sub-heading-text-4-${index + 1}-${
+                        index + 1
+                      }-${uniqueId}`
+                    ] || "Question 4",
               }}
             ></h2>
             <p
-              id={`faq-sub-paragraph-text-4-${index + 1}`}
-              style={getElementStyle(`faq-sub-paragraph-${index + 1}`)}
-              className={`faq-sub-paragraph-${index + 1} my-2`}
+              id={`faq-sub-paragraph-text-4-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `faq-sub-paragraph-${index + 1}`,
+                uniqueId
+              )}
+              className={`faq-sub-paragraph-${index + 1}-${uniqueId} my-2`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-paragraph-text-4-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-paragraph-text-4-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-paragraph-text-4-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0],
+                __html: isEdited[
+                  `faq-sub-paragraph-text-4-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `faq-sub-paragraph-text-4-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `faq-sub-paragraph-text-4-${index + 1}-${uniqueId}`
+                    ] || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -231,8 +259,8 @@ export const faqComponent = ({
     <section
       className="py-10"
       onClick={handleDivClick}
-      id={`faq-section-${index + 1}`}
-      style={getStyle(`faq-section-${index + 1}`)}
+      id={`faq-section-${index + 1}-${uniqueId}`}
+      style={getStyle(`faq-section-${index + 1}`, uniqueId)}
     >
       <div
         className={`${
@@ -241,34 +269,35 @@ export const faqComponent = ({
       >
         <div className="mb-10">
           <h1
-            id={`faq-heading-${index + 1}`}
-            style={getElementStyle(`faq-heading-${index + 1}`)}
+            id={`faq-heading-${index + 1}-${uniqueId}`}
+            style={getElementStyle(`faq-heading-${index + 1}`, uniqueId)}
             className={`faq-heading-${
               index + 1
-            } text-3xl font-bold text-[#212529] mb-2 `}
+            }-${uniqueId} text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
-              __html: isEdited[`faq-heading-${index + 1}`]
-                ? document.getElementById(`faq-heading-${index + 1}`)?.innerHTML
-                : document.getElementById(`faq-heading-${index + 1}`)
-                    ?.innerHTML || text.FAQsHeader[0],
+              __html: isEdited[`faq-heading-${index + 1}-${uniqueId}`]
+                ? elementContent[`faq-heading-${index + 1}-${uniqueId}`]
+                : elementContent[`faq-heading-${index + 1}-${uniqueId}`] ||
+                  text.FAQsHeader[0],
             }}
           ></h1>
           <p
-            id={`faq-paragraph-${index + 1}`}
-            style={getElementStyle(`faq-paragraph-${index + 1}`)}
-            className={`faq-paragraph-${index + 1}`}
+            id={`faq-paragraph-${index + 1}-${uniqueId}`}
+            style={getElementStyle(`faq-paragraph-${index + 1}`, uniqueId)}
+            className={`faq-paragraph-${index + 1}-${uniqueId}`}
             data-text="Type a paragraph"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
-              __html: isEdited[`faq-paragraph-${index + 1}`]
-                ? document.getElementById(`faq-paragraph-${index + 1}`)
-                    ?.innerHTML
-                : document.getElementById(`faq-paragraph-${index + 1}`)
-                    ?.innerHTML || text.faqParagraphText[0],
+              __html: isEdited[`faq-paragraph-${index + 1}-${uniqueId}`]
+                ? elementContent[`faq-paragraph-${index + 1}-${uniqueId}`]
+                : elementContent[`faq-paragraph-${index + 1}-${uniqueId}`] ||
+                  text.faqParagraphText[0],
             }}
           ></p>
         </div>
@@ -282,37 +311,46 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""} w-[40%] max-lg:w-[80%]`}
           >
             <h2
-              id={`faq-sub-heading-text-1-${index + 1}`}
-              style={getElementStyle(`faq-sub-heading-${index + 1}`)}
-              className={`faq-sub-heading-${index + 1}`}
+              id={`faq-sub-heading-text-1-${index + 1}-${uniqueId}`}
+              style={getElementStyle(`faq-sub-heading-${index + 1}`, uniqueId)}
+              className={`faq-sub-heading-${index + 1}-${uniqueId}`}
               data-text="Heading"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-heading-text-1-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-heading-text-1-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-heading-text-1-${index + 1}`
-                    )?.innerHTML || "Question 1",
+                __html: isEdited[
+                  `faq-sub-heading-text-1-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `faq-sub-heading-text-1-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `faq-sub-heading-text-1-${index + 1}-${uniqueId}`
+                    ] || "Question 1",
               }}
             ></h2>
             <p
-              id={`faq-sub-paragraph-text-1-${index + 1}`}
-              style={getElementStyle(`faq-sub-paragraph-${index + 1}`)}
-              className={`faq-sub-paragraph-${index + 1} my-2`}
+              id={`faq-sub-paragraph-text-1-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `faq-sub-paragraph-${index + 1}`,
+                uniqueId
+              )}
+              className={`faq-sub-paragraph-${index + 1}-${uniqueId} my-2`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-paragraph-text-1-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0],
+                __html: isEdited[
+                  `faq-sub-paragraph-text-1-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `faq-sub-paragraph-text-1-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `faq-sub-paragraph-text-1-${index + 1}-${uniqueId}`
+                    ] || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -321,37 +359,46 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""} w-[40%] max-lg:w-[80%]`}
           >
             <h2
-              id={`faq-sub-heading-text-2-${index + 1}`}
-              style={getElementStyle(`faq-sub-heading-${index + 1}`)}
-              className={`faq-sub-heading-${index + 1}`}
+              id={`faq-sub-heading-text-2-${index + 1}-${uniqueId}`}
+              style={getElementStyle(`faq-sub-heading-${index + 1}`, uniqueId)}
+              className={`faq-sub-heading-${index + 1}-${uniqueId}`}
               data-text="Heading"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-heading-text-2-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-heading-text-2-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-heading-text-2-${index + 1}`
-                    )?.innerHTML || "Question 2",
+                __html: isEdited[
+                  `faq-sub-heading-text-2-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `faq-sub-heading-text-2-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `faq-sub-heading-text-2-${index + 1}-${uniqueId}`
+                    ] || "Question 2",
               }}
             ></h2>
             <p
-              id={`faq-sub-paragraph-text-2-${index + 1}`}
-              style={getElementStyle(`faq-sub-paragraph-${index + 1}`)}
-              className={`faq-sub-paragraph-${index + 1} my-2`}
+              id={`faq-sub-paragraph-text-2-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `faq-sub-paragraph-${index + 1}`,
+                uniqueId
+              )}
+              className={`faq-sub-paragraph-${index + 1}-${uniqueId} my-2`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-paragraph-text-2-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0],
+                __html: isEdited[
+                  `faq-sub-paragraph-text-2-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `faq-sub-paragraph-text-2-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `faq-sub-paragraph-text-2-${index + 1}-${uniqueId}`
+                    ] || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -360,37 +407,42 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""} w-[40%] max-lg:w-[80%]`}
           >
             <h2
-              id={`faq-sub-heading-text-3-${index + 1}`}
-              style={getElementStyle(`faq-sub-heading-${index + 1}`)}
-              className={`faq-sub-heading-${index + 1}`}
+              id={`faq-sub-heading-text-3-${index + 1}-${uniqueId}`}
+              style={getElementStyle(`faq-sub-heading-${index + 1}`, uniqueId)}
+              className={`faq-sub-heading-${index + 1}-${uniqueId}`}
               data-text="Heading"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-heading-text-3-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-heading-text-3-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-heading-text-3-${index + 1}`
-                    )?.innerHTML || "Question 3",
+                __html: isEdited[
+                  `faq-sub-heading-text-3-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `faq-sub-heading-text-3-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `faq-sub-heading-text-3-${index + 1}-${uniqueId}`
+                    ] || "Question 3",
               }}
             ></h2>
             <p
-              id={`faq-sub-paragraph-text-3-${index + 1}`}
-              style={getElementStyle(`faq-sub-paragraph-${index + 1}`)}
-              className={`faq-sub-paragraph-${index + 1} my-2`}
+              id={`faq-sub-paragraph-text-3-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `faq-sub-paragraph-${index + 1}`,
+                uniqueId
+              )}
+              className={`faq-sub-paragraph-${index + 1}-${uniqueId} my-2`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-paragraph-text-3-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0],
+                __html: isEdited[`faq-sub-paragraph-${index + 1}-${uniqueId}`]
+                  ? elementContent[`faq-sub-paragraph-${index + 1}-${uniqueId}`]
+                  : elementContent[
+                      `faq-sub-paragraph-${index + 1}-${uniqueId}`
+                    ] || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -399,37 +451,50 @@ export const faqComponent = ({
             className={`${isMobile ? "w-[80%]" : ""} w-[40%] max-lg:w-[80%]`}
           >
             <h2
-              id={`faq-sub-heading-text-4-${index + 1}`}
-              style={getElementStyle(`faq-sub-heading-${index + 1}`)}
-              className={`faq-sub-heading-${index + 1}`}
+              id={`faq-sub-heading-text-4-${index + 1}-${uniqueId}`}
+              style={getElementStyle(`faq-sub-heading-${index + 1}`, uniqueId)}
+              className={`faq-sub-heading-${index + 1}-${uniqueId}`}
               data-text="Heading"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-heading-text-4-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-heading-text-4-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-heading-text-4-${index + 1}`
-                    )?.innerHTML || "Question 4",
+                __html: isEdited[
+                  `faq-sub-heading-text-4-${index + 1}-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `faq-sub-heading-text-4-${index + 1}-${
+                        index + 1
+                      }-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `faq-sub-heading-text-4-${index + 1}-${
+                        index + 1
+                      }-${uniqueId}`
+                    ] || "Question 4",
               }}
             ></h2>
             <p
-              id={`faq-sub-paragraph-text-4-${index + 1}`}
-              style={getElementStyle(`faq-sub-paragraph-${index + 1}`)}
-              className={`faq-sub-paragraph-${index + 1} my-2`}
+              id={`faq-sub-paragraph-text-4-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `faq-sub-paragraph-${index + 1}`,
+                uniqueId
+              )}
+              className={`faq-sub-paragraph-${index + 1}-${uniqueId} my-2`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-paragraph-text-4-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-paragraph-text-4-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-paragraph-text-4-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0],
+                __html: isEdited[
+                  `faq-sub-paragraph-text-4-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `faq-sub-paragraph-text-4-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `faq-sub-paragraph-text-4-${index + 1}-${uniqueId}`
+                    ] || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -439,8 +504,8 @@ export const faqComponent = ({
     <section
       className="py-10"
       onClick={handleDivClick}
-      id={`faq-section-${index + 1}`}
-      style={getStyle(`faq-section-${index + 1}`)}
+      id={`faq-section-${index + 1}-${uniqueId}`}
+      style={getStyle(`faq-section-${index + 1}`, uniqueId)}
     >
       <div
         className={`${
@@ -449,34 +514,35 @@ export const faqComponent = ({
       >
         <div className="mb-5">
           <h1
-            id={`faq-heading-${index + 1}`}
-            style={getElementStyle(`faq-heading-${index + 1}`)}
+            id={`faq-heading-${index + 1}-${uniqueId}`}
+            style={getElementStyle(`faq-heading-${index + 1}`, uniqueId)}
             className={`faq-heading-${
               index + 1
-            } text-3xl font-bold text-[#212529] mb-2 `}
+            }-${uniqueId} text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
-              __html: isEdited[`faq-heading-${index + 1}`]
-                ? document.getElementById(`faq-heading-${index + 1}`)?.innerHTML
-                : document.getElementById(`faq-heading-${index + 1}`)
-                    ?.innerHTML || text.FAQsHeader[0],
+              __html: isEdited[`faq-heading-${index + 1}-${uniqueId}`]
+                ? elementContent[`faq-heading-${index + 1}-${uniqueId}`]
+                : elementContent[`faq-heading-${index + 1}-${uniqueId}`] ||
+                  text.FAQsHeader[0],
             }}
           ></h1>
           <p
-            id={`faq-paragraph-${index + 1}`}
-            style={getElementStyle(`faq-paragraph-${index + 1}`)}
-            className={`faq-paragraph-${index + 1}`}
+            id={`faq-paragraph-${index + 1}-${uniqueId}`}
+            style={getElementStyle(`faq-paragraph-${index + 1}`, uniqueId)}
+            className={`faq-paragraph-${index + 1}-${uniqueId}`}
             data-text="Type a paragraph"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
-              __html: isEdited[`faq-paragraph-${index + 1}`]
-                ? document.getElementById(`faq-paragraph-${index + 1}`)
-                    ?.innerHTML
-                : document.getElementById(`faq-paragraph-${index + 1}`)
-                    ?.innerHTML || text.faqParagraphText[0],
+              __html: isEdited[`faq-paragraph-${index + 1}-${uniqueId}`]
+                ? elementContent[`faq-paragraph-${index + 1}-${uniqueId}`]
+                : elementContent[`faq-paragraph-${index + 1}-${uniqueId}`] ||
+                  text.faqParagraphText[0],
             }}
           ></p>
         </div>
@@ -487,204 +553,248 @@ export const faqComponent = ({
           } flex flex-wrap justify-between max-lg:flex-col gap-5 bg-white border-solid shadow-2xl rounded-xl pt-5`}
         >
           <div className="w-full border-b-[2px] pl-5">
-            <label htmlFor="id-show-menu-1" className="show-menu">
+            <label htmlFor={`id-show-menu-1-${index + 1}-${uniqueId}`} className="show-menu">
               <div className="">
                 <h2
-                  id={`faq-sub-heading-text-1-${index + 1}`}
-                  style={getElementStyle(`faq-sub-heading-${index + 1}`)}
+                  id={`faq-sub-heading-text-1-${index + 1}-${uniqueId}`}
+                  style={getElementStyle(
+                    `faq-sub-heading-${index + 1}`,
+                    uniqueId
+                  )}
                   className={`faq-sub-heading-${
                     index + 1
-                  } hover:underline hover:cursor-pointer mb-3`}
+                  }-${uniqueId} hover:underline hover:cursor-pointer mb-3`}
                   data-text="Heading"
+                  data-uses-dangerously-set-inner-html="true"
                   contentEditable={false}
                   onClick={handleTextClick}
                   dangerouslySetInnerHTML={{
-                    __html: isEdited[`faq-sub-heading-text-1-${index + 1}`]
-                      ? document.getElementById(
-                          `faq-sub-heading-text-1-${index + 1}`
-                        )?.innerHTML
-                      : document.getElementById(
-                          `faq-sub-heading-text-1-${index + 1}`
-                        )?.innerHTML || "Question 1",
+                    __html: isEdited[
+                      `faq-sub-heading-text-1-${index + 1}-${uniqueId}`
+                    ]
+                      ? elementContent[
+                          `faq-sub-heading-text-1-${index + 1}-${uniqueId}`
+                        ]
+                      : elementContent[
+                          `faq-sub-heading-text-1-${index + 1}-${uniqueId}`
+                        ] || "Question 1",
                   }}
                 ></h2>
               </div>
             </label>
             <input
               type="checkbox"
-              id="id-show-menu-1"
+              id={`id-show-menu-1-${index + 1}-${uniqueId}`}
               className="appearance-none hidden peer"
             />
             <p
-              id={`faq-sub-paragraph-text-1-${index + 1}`}
-              style={getElementStyle(`faq-sub-paragraph-${index + 1}`)}
+              id={`faq-sub-paragraph-text-1-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `faq-sub-paragraph-${index + 1}`,
+                uniqueId
+              )}
               className={`faq-sub-paragraph-${
                 index + 1
-              } hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3`}
+              }-${uniqueId} hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-paragraph-text-1-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0],
+                __html: isEdited[
+                  `faq-sub-paragraph-text-1-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `faq-sub-paragraph-text-1-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `faq-sub-paragraph-text-1-${index + 1}-${uniqueId}`
+                    ] || text.faqAnswer[0],
               }}
             ></p>
           </div>
 
           <div className="w-full border-b-[2px] pl-5">
-            <label htmlFor="id-show-menu-2" className="show-menu">
+            <label htmlFor={`id-show-menu-2-${index + 1}-${uniqueId}`} className="show-menu">
               <div className="">
                 <h2
-                  id={`faq-sub-heading-text-2-${index + 1}`}
-                  style={getElementStyle(`faq-sub-heading-${index + 1}`)}
+                  id={`faq-sub-heading-text-2-${index + 1}-${uniqueId}`}
+                  style={getElementStyle(
+                    `faq-sub-heading-${index + 1}`,
+                    uniqueId
+                  )}
                   className={`faq-sub-heading-${
                     index + 1
-                  } hover:underline hover:cursor-pointer mb-3`}
+                  }-${uniqueId} hover:underline hover:cursor-pointer mb-3`}
                   data-text="Heading"
+                  data-uses-dangerously-set-inner-html="true"
                   contentEditable={false}
                   onClick={handleTextClick}
                   dangerouslySetInnerHTML={{
-                    __html: isEdited[`faq-sub-heading-text-2-${index + 1}`]
-                      ? document.getElementById(
-                          `faq-sub-heading-text-2-${index + 1}`
-                        )?.innerHTML
-                      : document.getElementById(
-                          `faq-sub-heading-text-2-${index + 1}`
-                        )?.innerHTML || "Question 2",
+                    __html: isEdited[
+                      `faq-sub-heading-text-2-${index + 1}-${uniqueId}`
+                    ]
+                      ? elementContent[
+                          `faq-sub-heading-text-2-${index + 1}-${uniqueId}`
+                        ]
+                      : elementContent[
+                          `faq-sub-heading-text-2-${index + 1}-${uniqueId}`
+                        ] || "Question 2",
                   }}
                 ></h2>
               </div>
             </label>
             <input
               type="checkbox"
-              id="id-show-menu-2"
+              id={`id-show-menu-2-${index + 1}-${uniqueId}`}
               className="appearance-none hidden peer"
               role="button"
             />
             <p
-              id={`faq-sub-paragraph-text-2-${index + 1}`}
-              style={getElementStyle(`faq-sub-paragraph-${index + 1}`)}
+              id={`faq-sub-paragraph-text-2-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `faq-sub-paragraph-${index + 1}`,
+                uniqueId
+              )}
               className={`faq-sub-paragraph-${
                 index + 1
-              } hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3`}
+              }-${uniqueId} hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-paragraph-text-2-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0],
+                __html: isEdited[
+                  `faq-sub-paragraph-text-2-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `faq-sub-paragraph-text-2-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `faq-sub-paragraph-text-2-${index + 1}-${uniqueId}`
+                    ] || text.faqAnswer[0],
               }}
             ></p>
           </div>
 
           <div className="w-full border-b-[2px] pl-5">
-            <label htmlFor="id-show-menu-3" className="show-menu">
+            <label htmlFor={`id-show-menu-3-${index + 1}-${uniqueId}`} className="show-menu">
               <div className="">
                 <h2
-                  id={`faq-sub-heading-text-3-${index + 1}`}
-                  style={getElementStyle(`faq-sub-heading-${index + 1}`)}
+                  id={`faq-sub-heading-text-3-${index + 1}-${uniqueId}`}
+                  style={getElementStyle(
+                    `faq-sub-heading-${index + 1}`,
+                    uniqueId
+                  )}
                   className={`faq-sub-heading-${
                     index + 1
-                  } hover:underline hover:cursor-pointer mb-3`}
+                  }-${uniqueId} hover:underline hover:cursor-pointer mb-3`}
                   data-text="Heading"
+                  data-uses-dangerously-set-inner-html="true"
                   contentEditable={false}
                   onClick={handleTextClick}
                   dangerouslySetInnerHTML={{
-                    __html: isEdited[`faq-sub-heading-text-3-${index + 1}`]
-                      ? document.getElementById(
-                          `faq-sub-heading-text-3-${index + 1}`
-                        )?.innerHTML
-                      : document.getElementById(
-                          `faq-sub-heading-text-3-${index + 1}`
-                        )?.innerHTML || "Question 3",
+                    __html: isEdited[
+                      `faq-sub-heading-text-3-${index + 1}-${uniqueId}`
+                    ]
+                      ? elementContent[
+                          `faq-sub-heading-text-3-${index + 1}-${uniqueId}`
+                        ]
+                      : elementContent[
+                          `faq-sub-heading-text-3-${index + 1}-${uniqueId}`
+                        ] || "Question 3",
                   }}
                 ></h2>
               </div>
             </label>
             <input
               type="checkbox"
-              id="id-show-menu-3"
+              id={`id-show-menu-3-${index + 1}-${uniqueId}`}
               className="appearance-none hidden peer"
               role="button"
             />
             <p
-              id={`faq-sub-paragraph-text-3-${index + 1}`}
-              style={getElementStyle(`faq-sub-paragraph-${index + 1}`)}
+              id={`faq-sub-paragraph-text-3-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `faq-sub-paragraph-${index + 1}`,
+                uniqueId
+              )}
               className={`faq-sub-paragraph-${
                 index + 1
-              } hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3`}
+              }-${uniqueId} hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-paragraph-text-3-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0],
+                __html: isEdited[`faq-sub-paragraph-${index + 1}-${uniqueId}`]
+                  ? elementContent[`faq-sub-paragraph-${index + 1}-${uniqueId}`]
+                  : elementContent[
+                      `faq-sub-paragraph-${index + 1}-${uniqueId}`
+                    ] || text.faqAnswer[0],
               }}
             ></p>
           </div>
 
           <div className="w-full pl-5">
-            <label htmlFor="id-show-menu-4" className="show-menu">
+            <label htmlFor={`id-show-menu-4-${index + 1}-${uniqueId}`} className="show-menu">
               <div className="">
                 <h2
-                  id={`faq-sub-heading-text-4-${index + 1}`}
-                  style={getElementStyle(`faq-sub-heading-${index + 1}`)}
+                  id={`faq-sub-heading-text-4-${index + 1}-${uniqueId}`}
+                  style={getElementStyle(
+                    `faq-sub-heading-${index + 1}`,
+                    uniqueId
+                  )}
                   className={`faq-sub-heading-${
                     index + 1
-                  } hover:underline hover:cursor-pointer mb-3`}
+                  }-${uniqueId} hover:underline hover:cursor-pointer mb-3`}
                   data-text="Heading"
+                  data-uses-dangerously-set-inner-html="true"
                   contentEditable={false}
                   onClick={handleTextClick}
                   dangerouslySetInnerHTML={{
-                    __html: isEdited[`faq-sub-heading-text-4-${index + 1}`]
-                      ? document.getElementById(
-                          `faq-sub-heading-text-4-${index + 1}`
-                        )?.innerHTML
-                      : document.getElementById(
-                          `faq-sub-heading-text-4-${index + 1}`
-                        )?.innerHTML || "Question 4",
+                    __html: isEdited[
+                      `faq-sub-heading-text-4-${index + 1}-${uniqueId}`
+                    ]
+                      ? elementContent[
+                          `faq-sub-heading-text-4-${index + 1}-${uniqueId}`
+                        ]
+                      : elementContent[
+                          `faq-sub-heading-text-4-${index + 1}-${uniqueId}`
+                        ] || "Question 4",
                   }}
                 ></h2>
               </div>
             </label>
             <input
               type="checkbox"
-              id="id-show-menu-4"
+              id={`id-show-menu-4-${index + 1}-${uniqueId}`}
               className="appearance-none hidden peer"
               role="button"
             />
             <p
-              id={`faq-sub-paragraph-text-4-${index + 1}`}
-              style={getElementStyle(`faq-sub-paragraph-${index + 1}`)}
+              id={`faq-sub-paragraph-text-4-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `faq-sub-paragraph-${index + 1}`,
+                uniqueId
+              )}
               className={`faq-sub-paragraph-${
                 index + 1
-              } hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3`}
+              }-${uniqueId} hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-paragraph-text-4-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-paragraph-text-4-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-paragraph-text-4-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0],
+                __html: isEdited[
+                  `faq-sub-paragraph-text-4-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `faq-sub-paragraph-text-4-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `faq-sub-paragraph-text-4-${index + 1}-${uniqueId}`
+                    ] || text.faqAnswer[0],
               }}
             ></p>
           </div>
@@ -694,8 +804,8 @@ export const faqComponent = ({
     <section
       className="py-10"
       onClick={handleDivClick}
-      id={`faq-section-${index + 1}`}
-      style={getStyle(`faq-section-${index + 1}`)}
+      id={`faq-section-${index + 1}-${uniqueId}`}
+      style={getStyle(`faq-section-${index + 1}`, uniqueId)}
     >
       <div
         className={`${
@@ -704,34 +814,35 @@ export const faqComponent = ({
       >
         <div className="mb-5">
           <h1
-            id={`faq-heading-${index + 1}`}
-            style={getElementStyle(`faq-heading-${index + 1}`)}
+            id={`faq-heading-${index + 1}-${uniqueId}`}
+            style={getElementStyle(`faq-heading-${index + 1}`, uniqueId)}
             className={`faq-heading-${
               index + 1
-            } text-3xl font-bold text-[#212529] mb-2 `}
+            }-${uniqueId} text-3xl font-bold text-[#212529] mb-2 `}
             data-text="Heading"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
-              __html: isEdited[`faq-heading-${index + 1}`]
-                ? document.getElementById(`faq-heading-${index + 1}`)?.innerHTML
-                : document.getElementById(`faq-heading-${index + 1}`)
-                    ?.innerHTML || text.FAQsHeader[0],
+              __html: isEdited[`faq-heading-${index + 1}-${uniqueId}`]
+                ? elementContent[`faq-heading-${index + 1}-${uniqueId}`]
+                : elementContent[`faq-heading-${index + 1}-${uniqueId}`] ||
+                  text.FAQsHeader[0],
             }}
           ></h1>
           <p
-            id={`faq-paragraph-${index + 1}`}
-            style={getElementStyle(`faq-paragraph-${index + 1}`)}
-            className={`faq-paragraph-${index + 1}`}
+            id={`faq-paragraph-${index + 1}-${uniqueId}`}
+            style={getElementStyle(`faq-paragraph-${index + 1}`, uniqueId)}
+            className={`faq-paragraph-${index + 1}-${uniqueId}`}
             data-text="Type a paragraph"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
-              __html: isEdited[`faq-paragraph-${index + 1}`]
-                ? document.getElementById(`faq-paragraph-${index + 1}`)
-                    ?.innerHTML
-                : document.getElementById(`faq-paragraph-${index + 1}`)
-                    ?.innerHTML || text.faqParagraphText[0],
+              __html: isEdited[`faq-paragraph-${index + 1}-${uniqueId}`]
+                ? elementContent[`faq-paragraph-${index + 1}-${uniqueId}`]
+                : elementContent[`faq-paragraph-${index + 1}-${uniqueId}`] ||
+                  text.faqParagraphText[0],
             }}
           ></p>
         </div>
@@ -743,212 +854,256 @@ export const faqComponent = ({
         >
           <div className="w-full">
             <label
-              htmlFor={`id-show-menu-1-${index + 1}`}
+              htmlFor={`id-show-menu-1-${index + 1}-${uniqueId}`}
               className="show-menu"
             >
               <div className="">
                 <h2
-                  id={`faq-sub-heading-text-1-${index + 1}`}
-                  style={getElementStyle(`faq-sub-heading-${index + 1}`)}
+                  id={`faq-sub-heading-text-1-${index + 1}-${uniqueId}`}
+                  style={getElementStyle(
+                    `faq-sub-heading-${index + 1}`,
+                    uniqueId
+                  )}
                   className={`faq-sub-heading-${
                     index + 1
-                  } hover:underline hover:cursor-pointer mb-3`}
+                  }-${uniqueId} hover:underline hover:cursor-pointer mb-3`}
                   data-text="Heading"
+                  data-uses-dangerously-set-inner-html="true"
                   contentEditable={false}
                   onClick={handleTextClick}
                   dangerouslySetInnerHTML={{
-                    __html: isEdited[`faq-sub-heading-text-1-${index + 1}`]
-                      ? document.getElementById(
-                          `faq-sub-heading-text-1-${index + 1}`
-                        )?.innerHTML
-                      : document.getElementById(
-                          `faq-sub-heading-text-1-${index + 1}`
-                        )?.innerHTML || "Question 1",
+                    __html: isEdited[
+                      `faq-sub-heading-text-1-${index + 1}-${uniqueId}`
+                    ]
+                      ? elementContent[
+                          `faq-sub-heading-text-1-${index + 1}-${uniqueId}`
+                        ]
+                      : elementContent[
+                          `faq-sub-heading-text-1-${index + 1}-${uniqueId}`
+                        ] || "Question 1",
                   }}
                 ></h2>
               </div>
             </label>
             <input
               type="checkbox"
-              id={`id-show-menu-1-${index + 1}`}
+              id={`id-show-menu-1-${index + 1}-${uniqueId}`}
               className="appearance-none hidden peer"
             />
             <p
-              id={`faq-sub-paragraph-text-1-${index + 1}`}
-              style={getElementStyle(`faq-sub-paragraph-${index + 1}`)}
+              id={`faq-sub-paragraph-text-1-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `faq-sub-paragraph-${index + 1}`,
+                uniqueId
+              )}
               className={`faq-sub-paragraph-${
                 index + 1
-              } hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3`}
+              }-${uniqueId} hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-paragraph-text-1-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0],
+                __html: isEdited[
+                  `faq-sub-paragraph-text-1-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `faq-sub-paragraph-text-1-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `faq-sub-paragraph-text-1-${index + 1}-${uniqueId}`
+                    ] || text.faqAnswer[0],
               }}
             ></p>
           </div>
 
           <div className="w-full">
             <label
-              htmlFor={`id-show-menu-2-${index + 1}`}
+              htmlFor={`id-show-menu-2-${index + 1}-${uniqueId}`}
               className="show-menu"
             >
               <div className="">
                 <h2
-                  id={`faq-sub-heading-text-2-${index + 1}`}
-                  style={getElementStyle(`faq-sub-heading-${index + 1}`)}
+                  id={`faq-sub-heading-text-2-${index + 1}-${uniqueId}`}
+                  style={getElementStyle(
+                    `faq-sub-heading-${index + 1}`,
+                    uniqueId
+                  )}
                   className={`faq-sub-heading-${
                     index + 1
-                  } hover:underline hover:cursor-pointer mb-3`}
+                  }-${uniqueId} hover:underline hover:cursor-pointer mb-3`}
                   data-text="Heading"
+                  data-uses-dangerously-set-inner-html="true"
                   contentEditable={false}
                   onClick={handleTextClick}
                   dangerouslySetInnerHTML={{
-                    __html: isEdited[`faq-sub-heading-text-2-${index + 1}`]
-                      ? document.getElementById(
-                          `faq-sub-heading-text-2-${index + 1}`
-                        )?.innerHTML
-                      : document.getElementById(
-                          `faq-sub-heading-text-2-${index + 1}`
-                        )?.innerHTML || "Question 2",
+                    __html: isEdited[
+                      `faq-sub-heading-text-2-${index + 1}-${uniqueId}`
+                    ]
+                      ? elementContent[
+                          `faq-sub-heading-text-2-${index + 1}-${uniqueId}`
+                        ]
+                      : elementContent[
+                          `faq-sub-heading-text-2-${index + 1}-${uniqueId}`
+                        ] || "Question 2",
                   }}
                 ></h2>
               </div>
             </label>
             <input
               type="checkbox"
-              id={`id-show-menu-2-${index + 1}`}
+              id={`id-show-menu-2-${index + 1}-${uniqueId}`}
               className="appearance-none hidden peer"
             />
             <p
-              id={`faq-sub-paragraph-text-2-${index + 1}`}
-              style={getElementStyle(`faq-sub-paragraph-${index + 1}`)}
+              id={`faq-sub-paragraph-text-2-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `faq-sub-paragraph-${index + 1}`,
+                uniqueId
+              )}
               className={`faq-sub-paragraph-${
                 index + 1
-              } hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3`}
+              }-${uniqueId} hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-paragraph-text-2-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0],
+                __html: isEdited[
+                  `faq-sub-paragraph-text-2-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `faq-sub-paragraph-text-2-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `faq-sub-paragraph-text-2-${index + 1}-${uniqueId}`
+                    ] || text.faqAnswer[0],
               }}
             ></p>
           </div>
 
           <div className="w-full">
             <label
-              htmlFor={`id-show-menu-3-${index + 1}`}
+              htmlFor={`id-show-menu-3-${index + 1}-${uniqueId}`}
               className="show-menu"
             >
               <div className="">
                 <h2
-                  id={`faq-sub-heading-text-3-${index + 1}`}
-                  style={getElementStyle(`faq-sub-heading-${index + 1}`)}
+                  id={`faq-sub-heading-text-3-${index + 1}-${uniqueId}`}
+                  style={getElementStyle(
+                    `faq-sub-heading-${index + 1}`,
+                    uniqueId
+                  )}
                   className={`faq-sub-heading-${
                     index + 1
-                  } hover:underline hover:cursor-pointer mb-3`}
+                  }-${uniqueId} hover:underline hover:cursor-pointer mb-3`}
                   data-text="Heading"
+                  data-uses-dangerously-set-inner-html="true"
                   contentEditable={false}
                   onClick={handleTextClick}
                   dangerouslySetInnerHTML={{
-                    __html: isEdited[`faq-sub-heading-text-3-${index + 1}`]
-                      ? document.getElementById(
-                          `faq-sub-heading-text-3-${index + 1}`
-                        )?.innerHTML
-                      : document.getElementById(
-                          `faq-sub-heading-text-3-${index + 1}`
-                        )?.innerHTML || "Question 3",
+                    __html: isEdited[
+                      `faq-sub-heading-text-3-${index + 1}-${uniqueId}`
+                    ]
+                      ? elementContent[
+                          `faq-sub-heading-text-3-${index + 1}-${uniqueId}`
+                        ]
+                      : elementContent[
+                          `faq-sub-heading-text-3-${index + 1}-${uniqueId}`
+                        ] || "Question 3",
                   }}
                 ></h2>
               </div>
             </label>
             <input
               type="checkbox"
-              id={`id-show-menu-3-${index + 1}`}
+              id={`id-show-menu-3-${index + 1}-${uniqueId}`}
               className="appearance-none hidden peer"
             />
             <p
-              id={`faq-sub-paragraph-text-3-${index + 1}`}
-              style={getElementStyle(`faq-sub-paragraph-${index + 1}`)}
+              id={`faq-sub-paragraph-text-3-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `faq-sub-paragraph-${index + 1}`,
+                uniqueId
+              )}
               className={`faq-sub-paragraph-${
                 index + 1
-              } hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3`}
+              }-${uniqueId} hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-paragraph-text-3-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0],
+                __html: isEdited[`faq-sub-paragraph-${index + 1}-${uniqueId}`]
+                  ? elementContent[`faq-sub-paragraph-${index + 1}-${uniqueId}`]
+                  : elementContent[
+                      `faq-sub-paragraph-${index + 1}-${uniqueId}`
+                    ] || text.faqAnswer[0],
               }}
             ></p>
           </div>
 
           <div className="w-full">
             <label
-              htmlFor={`id-show-menu-4-${index + 1}`}
+              htmlFor={`id-show-menu-4-${index + 1}-${uniqueId}`}
               className="show-menu"
             >
               <div className="">
                 <h2
-                  id={`faq-sub-heading-text-4-${index + 1}`}
-                  style={getElementStyle(`faq-sub-heading-${index + 1}`)}
+                  id={`faq-sub-heading-text-4-${index + 1}-${uniqueId}`}
+                  style={getElementStyle(
+                    `faq-sub-heading-${index + 1}`,
+                    uniqueId
+                  )}
                   className={`faq-sub-heading-${
                     index + 1
-                  } hover:underline hover:cursor-pointer mb-3`}
+                  }-${uniqueId} hover:underline hover:cursor-pointer mb-3`}
                   data-text="Heading"
+                  data-uses-dangerously-set-inner-html="true"
                   contentEditable={false}
                   onClick={handleTextClick}
                   dangerouslySetInnerHTML={{
-                    __html: isEdited[`faq-sub-heading-text-4-${index + 1}`]
-                      ? document.getElementById(
-                          `faq-sub-heading-text-4-${index + 1}`
-                        )?.innerHTML
-                      : document.getElementById(
-                          `faq-sub-heading-text-4-${index + 1}`
-                        )?.innerHTML || "Question 4",
+                    __html: isEdited[
+                      `faq-sub-heading-text-4-${index + 1}-${uniqueId}`
+                    ]
+                      ? elementContent[
+                          `faq-sub-heading-text-4-${index + 1}-${uniqueId}`
+                        ]
+                      : elementContent[
+                          `faq-sub-heading-text-4-${index + 1}-${uniqueId}`
+                        ] || "Question 4",
                   }}
                 ></h2>
               </div>
             </label>
             <input
               type="checkbox"
-              id={`id-show-menu-4-${index + 1}`}
+              id={`id-show-menu-4-${index + 1}-${uniqueId}`}
               className="appearance-none hidden peer"
             />
             <p
-              id={`faq-sub-paragraph-text-4-${index + 1}`}
-              style={getElementStyle(`faq-sub-paragraph-${index + 1}`)}
+              id={`faq-sub-paragraph-text-4-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `faq-sub-paragraph-${index + 1}`,
+                uniqueId
+              )}
               className={`faq-sub-paragraph-${
                 index + 1
-              } hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3`}
+              }-${uniqueId} hidden transition-all duration-75 peer-checked:block peer-checked:opacity-100 lg:opacity-100 mb-3`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
-                __html: isEdited[`faq-sub-paragraph-text-4-${index + 1}`]
-                  ? document.getElementById(
-                      `faq-sub-paragraph-text-4-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `faq-sub-paragraph-text-4-${index + 1}`
-                    )?.innerHTML || text.faqAnswer[0],
+                __html: isEdited[
+                  `faq-sub-paragraph-text-4-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `faq-sub-paragraph-text-4-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `faq-sub-paragraph-text-4-${index + 1}-${uniqueId}`
+                    ] || text.faqAnswer[0],
               }}
             ></p>
           </div>

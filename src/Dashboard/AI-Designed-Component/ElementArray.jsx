@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { DashContext } from "../DashboardChecker/DashboardContext";
-import { useLocation } from "react-router-dom";
 
 const ElementArray = () => {
   const {
@@ -29,8 +28,6 @@ const ElementArray = () => {
     backgroundStyle,
     clickedIndex,
     setClickedIndex,
-    handleFocus,
-    handleBlur,
     handleDivClick,
     handleTextClick,
     handleTextareaChange,
@@ -48,8 +45,8 @@ const ElementArray = () => {
     clickedText,
     texts,
     isEdited,
+    elementContent,
   } = useContext(DashContext);
-  const location = useLocation();
 
   const componentMap = {
     header: navComponents,
@@ -59,7 +56,7 @@ const ElementArray = () => {
     testimonial: testimonialComponent,
     faq: faqComponent,
     team: teamComponent,
-    footer: footerComponent
+    footer: footerComponent,
   };
 
   const renderElement = ({ type, index, uniqueId }) => ({
@@ -68,9 +65,6 @@ const ElementArray = () => {
       buttonIndex,
       isMobile,
       backgroundStyle,
-      handleFocus,
-      handleBlur,
-      location,
       handleDivClick,
       handleTextClick,
       handleTextareaChange,
@@ -89,11 +83,12 @@ const ElementArray = () => {
       texts,
       isEdited,
       uniqueId,
+      elementContent,
     })[index],
   });
 
   const renderedElements = elements
-    .filter(el => el.type !== "header") 
+    .filter((el) => el.type !== "header")
     .map(renderElement);
 
   return {
@@ -105,9 +100,6 @@ const ElementArray = () => {
           buttonIndex,
           isMobile,
           backgroundStyle,
-          handleFocus,
-          handleBlur,
-          location,
           handleDivClick,
           handleTextClick,
           handleTextareaChange,

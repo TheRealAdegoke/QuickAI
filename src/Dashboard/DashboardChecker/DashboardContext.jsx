@@ -1,4 +1,10 @@
-import React, { createContext, useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  createContext,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { axiosInstance } from "../../Pages/AuthPages/AuthChecker/axiosInstance";
 import { message } from "antd";
 import { heroComponents } from "../Arrays/HeroSectionArray";
@@ -57,7 +63,6 @@ export const DashboardProvider = ({ children }) => {
     webLogo: "",
     buttonTexts: [],
   });
-  const [isFocused, setIsFocused] = useState(false);
   const [displayEditModal, setDisplayEditModal] = useState(false);
   const [changeSectionHeaderText, setChangeSectionHeaderText] = useState("");
   const [isPattern, setIsPattern] = useState(true);
@@ -72,13 +77,14 @@ export const DashboardProvider = ({ children }) => {
     "Testimonial",
     "FAQ",
     "Team",
-    "Footer"
+    "Footer",
   ];
   const [heroBackGroundStyle, setHeroBackGroundStyle] = useState("");
   const [cardFeatureBackGroundStyle, setcardFeatureBackGroundStyle] =
     useState("");
   const [clickedText, setClickedText] = useState("");
   const [selectedElement, setSelectedElement] = useState(null);
+  const [elementContent, setElementContent] = useState({});
   const [elementStyles, setElementStyles] = useState({});
   const [backGroundStyle, setBackGroundStyle] = useState("");
   const [selectedDiv, setSelectedDiv] = useState(null);
@@ -99,7 +105,7 @@ export const DashboardProvider = ({ children }) => {
   const newElementRef = useRef(null);
   const elementsContainerRef = useRef(null);
   const [isEdited, setIsEdited] = useState({});
-  const [displayCode, setDisplayCode] = useState("")
+  const [displayCode, setDisplayCode] = useState("");
   const [elementUniqueIds, setElementUniqueIds] = useState({});
   const lastClickedDivRef = useRef(null);
 
@@ -193,7 +199,6 @@ export const DashboardProvider = ({ children }) => {
     return elementStyles[fullClassName] || {};
   };
 
-
   // useEffect(() => {
   //   const timeout = setTimeout(() => {
   //     setText((prevText) => ({
@@ -237,6 +242,7 @@ export const DashboardProvider = ({ children }) => {
           backGroundStyle,
           clickedText,
           isEdited,
+          elementContent,
         }).length
     );
     const randomButtonsIndex = Math.floor(
@@ -248,6 +254,7 @@ export const DashboardProvider = ({ children }) => {
           getStyle,
           getElementStyle,
           isEdited,
+          elementContent,
         }).length
     );
     const randomfeaturesWithCardIndex = Math.floor(
@@ -259,6 +266,7 @@ export const DashboardProvider = ({ children }) => {
           getElementStyle,
           handleDivClick,
           isEdited,
+          elementContent,
         }).length
     );
     const randomfeaturesIndex = Math.floor(
@@ -269,6 +277,7 @@ export const DashboardProvider = ({ children }) => {
           getStyle,
           getElementStyle,
           isEdited,
+          elementContent,
         }).length
     );
     const randomTestimonialIndex = Math.floor(
@@ -279,23 +288,52 @@ export const DashboardProvider = ({ children }) => {
           getStyle,
           getElementStyle,
           isEdited,
+          elementContent,
         }).length
     );
     const randomFaqIndex = Math.floor(
       Math.random() *
-        faqComponent({ text, location, getStyle, getElementStyle, isEdited }).length
+        faqComponent({
+          text,
+          location,
+          getStyle,
+          getElementStyle,
+          isEdited,
+          elementContent,
+        }).length
     );
     const randomTeamIndex = Math.floor(
       Math.random() *
-        teamComponent({ text, location, getStyle, getElementStyle, isEdited }).length
+        teamComponent({
+          text,
+          location,
+          getStyle,
+          getElementStyle,
+          isEdited,
+          elementContent,
+        }).length
     );
     const randomContactIndex = Math.floor(
       Math.random() *
-        contactComponent({ text, location, getStyle, getElementStyle, isEdited }).length
+        contactComponent({
+          text,
+          location,
+          getStyle,
+          getElementStyle,
+          isEdited,
+          elementContent,
+        }).length
     );
     const randomFooterIndex = Math.floor(
       Math.random() *
-        footerComponent({ text, location, getStyle, getElementStyle, isEdited }).length
+        footerComponent({
+          text,
+          location,
+          getStyle,
+          getElementStyle,
+          isEdited,
+          elementContent,
+        }).length
     );
 
     const newGeneratedElements = [
@@ -389,14 +427,6 @@ export const DashboardProvider = ({ children }) => {
     setButtonIndex(undefined);
   };
 
-  const handleFocus = () => {
-    setIsFocused(true);
-  };
-
-  const handleBlur = () => {
-    setIsFocused(false);
-  };
-
   const updateElementStyle = (className, property, value) => {
     if (selectedElement) {
       setElementStyles((prevStyles) => ({
@@ -409,27 +439,38 @@ export const DashboardProvider = ({ children }) => {
     }
   };
 
-
   const handleTextClick = (event) => {
+    const elementId = event.target.id;
     setClickedText(event.target.innerText);
     setSelectedElement(event.target);
-    setIsEdited((prev) => ({ ...prev, [event.target.id]: true }));
+    setIsEdited((prev) => ({ ...prev, [elementId]: true }));
+    setElementContent((prev) => ({
+      ...prev,
+      [elementId]: event.target.innerHTML,
+    }));
   };
-
 
   const handleTextareaChange = (event) => {
     const newText = event.target.value;
     setClickedText(newText);
 
     if (selectedElement) {
-      // Split the newText by newline characters and join them with <br/> tags
-      const formattedText = newText.split("\n").join("<br/>");
+      const elementId = selectedElement.id;
 
-      // Use dangerouslySetInnerHTML by updating the innerHTML directly
-      selectedElement.innerHTML = formattedText;
+      // Check if the element uses dangerouslySetInnerHTML
+      const usesDangerouslySetInnerHTML =
+        selectedElement.getAttribute("data-uses-dangerously-set-inner-html") ===
+        "true";
 
-      // Mark the element as edited
-      setIsEdited((prev) => ({ ...prev, [selectedElement.id]: true }));
+      const formattedText = usesDangerouslySetInnerHTML
+        ? newText.split("\n").join("<br/>")
+        : newText;
+
+      // Update the state instead of directly modifying the DOM
+      setElementContent((prev) => ({
+        ...prev,
+        [elementId]: formattedText,
+      }));
     }
   };
 
@@ -492,7 +533,7 @@ export const DashboardProvider = ({ children }) => {
       );
     }
   };
-  
+
   const handleDivClick = (event) => {
     lastClickedDivRef.current = event.currentTarget;
     setSelectedDiv(event.currentTarget);
@@ -511,9 +552,9 @@ export const DashboardProvider = ({ children }) => {
     handleBGColorClick(backGroundStyle);
   }, [backGroundStyle]);
 
-   const addElement = (componentType, index) => {
+  const addElement = (componentType, index) => {
     const newUniqueId = uuidv4();
-     setElements((prevElements) => {
+    setElements((prevElements) => {
       if (componentType === "footer") {
         return prevElements.map((el) =>
           el.type === "footer" ? { ...el, index } : el
@@ -522,37 +563,37 @@ export const DashboardProvider = ({ children }) => {
 
       setElementUniqueIds((prev) => ({ ...prev, [newUniqueId]: true }));
 
-       const footerIndex = prevElements.findIndex((el) => el.type === "footer");
-       const newElement = {
-         type: componentType,
-         index: index,
-         key: Date.now(),
-         uniqueId: newUniqueId,
-       };
+      const footerIndex = prevElements.findIndex((el) => el.type === "footer");
+      const newElement = {
+        type: componentType,
+        index: index,
+        key: Date.now(),
+        uniqueId: newUniqueId,
+      };
 
-       if (footerIndex === -1) {
-         return [...prevElements, newElement];
-       } else {
-         const newElements = [...prevElements];
-         newElements.splice(footerIndex, 0, newElement);
-         return newElements;
-       }
-     });
+      if (footerIndex === -1) {
+        return [...prevElements, newElement];
+      } else {
+        const newElements = [...prevElements];
+        newElements.splice(footerIndex, 0, newElement);
+        return newElements;
+      }
+    });
 
-     setTimeout(() => {
-       if (newElementRef.current && elementsContainerRef.current) {
-         const container = elementsContainerRef.current;
-         const element = newElementRef.current;
-         const elementTop = element.offsetTop;
+    setTimeout(() => {
+      if (newElementRef.current && elementsContainerRef.current) {
+        const container = elementsContainerRef.current;
+        const element = newElementRef.current;
+        const elementTop = element.offsetTop;
 
-         // Scroll to the exact top of the new element
-         container.scrollTo({
-           top: showDesignModal === false ? elementTop : elementTop - 700,
-           behavior: "smooth",
-         });
-       }
-     }, 0);
-   };
+        // Scroll to the exact top of the new element
+        container.scrollTo({
+          top: showDesignModal === false ? elementTop : elementTop - 700,
+          behavior: "smooth",
+        });
+      }
+    }, 0);
+  };
 
   return (
     <DashContext.Provider
@@ -578,7 +619,6 @@ export const DashboardProvider = ({ children }) => {
         footerIndex,
         text,
         isMobile,
-        isFocused,
         displayEditModal,
         changeSectionHeaderText,
         isPattern,
@@ -622,14 +662,11 @@ export const DashboardProvider = ({ children }) => {
         setTeamIndex,
         setContactIndex,
         setFooterIndex,
-        setIsFocused,
         setDisplayEditModal,
         setChangeSectionHeaderText,
         setIsPattern,
         setClickedIndex,
         setCurrentSection,
-        handleFocus,
-        handleBlur,
         setHeroBackGroundStyle,
         setcardFeatureBackGroundStyle,
         setClickedText,
@@ -668,6 +705,10 @@ export const DashboardProvider = ({ children }) => {
         elementUniqueIds,
         lastClickedDivRef,
         setElements,
+        setIsEdited,
+        elementContent,
+        setElementContent,
+        setElementStyles,
       }}
     >
       {children}
