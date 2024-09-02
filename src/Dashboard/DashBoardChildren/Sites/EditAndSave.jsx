@@ -33,6 +33,7 @@ const EditAndSave = () => {
     setCurrentSection,
     displayCode,
     setShowDesignModal,
+    setElementStyles,
   } = useContext(DashContext);
   const navigate = useNavigate()
   const modalRef = useRef(null);
@@ -165,6 +166,7 @@ const EditAndSave = () => {
     );
     if (confirmExit) {
       setShowDesignModal(false);
+      setElementStyles({})
       navigate("/home")
     }
   };

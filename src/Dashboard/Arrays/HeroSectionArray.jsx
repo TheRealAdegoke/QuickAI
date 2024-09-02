@@ -5,8 +5,6 @@ export const heroComponents = ({
   text,
   buttonIndex,
   isMobile,
-  isFocused,
-  location,
   handleDivClick,
   handleTextClick,
   getStyle,
@@ -14,20 +12,11 @@ export const heroComponents = ({
   index,
   isEdited,
   uniqueId,
+  elementContent,
 }) => {
   const buttonElement = WebButtonsArray({ text, buttonIndex, handleTextClick })[
     buttonIndex
   ];
-
-  let classNames = "";
-
-  if (location.pathname === "/home") {
-    classNames = "";
-  } else if (location.pathname !== "/home" && isFocused) {
-    classNames = "";
-  } else {
-    classNames += " hover:border-[2px] hover:border-[rgb(0,111,173)]";
-  }
 
   return [
     <section
@@ -35,7 +24,7 @@ export const heroComponents = ({
       id={`hero-section-${index + 1}-${uniqueId}`}
       style={getStyle(`hero-section-${index + 1}`, uniqueId)}
     >
-      <div className="py-10 px-5">
+      <div className="py-24 px-5">
         <div className="flex justify-center gap-10 max-lg:flex-col">
           <div className={`${isMobile ? "hidden" : ""} max-lg:hidden w-[50%]`}>
             <h1
@@ -45,16 +34,14 @@ export const heroComponents = ({
                 index + 1
               }-${uniqueId} text-6xl font-bold max-w-[500px] break-words`}
               data-text="Heading"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
                 __html: isEdited[`hero-heading-${index + 1}-${uniqueId}`]
-                  ? document.getElementById(
-                      `hero-heading-${index + 1}-${uniqueId}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `hero-heading-${index + 1}-${uniqueId}`
-                    )?.innerHTML || text.heroHeaderText,
+                  ? elementContent[`hero-heading-${index + 1}-${uniqueId}`]
+                  : elementContent[`hero-heading-${index + 1}-${uniqueId}`] ||
+                    text.heroHeaderText,
               }}
             ></h1>
 
@@ -115,14 +102,14 @@ export const heroComponents = ({
                 isMobile ? "max-w-[400px]" : ""
               } my-5 max-lg:max-w-[400px] break-words`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
                 __html: isEdited[`hero-paragraph-${index + 1}-${uniqueId}`]
-                  ? document.getElementById(
-                      `hero-paragraph-${index + 1}-${uniqueId}`
-                    )?.innerHTML || text.description
-                  : text.description,
+                  ? elementContent[`hero-paragraph-${index + 1}-${uniqueId}`]
+                  : elementContent[`hero-paragraph-${index + 1}-${uniqueId}`] ||
+                    text.description,
               }}
             ></p>
             {buttonIndex !== undefined && buttonElement}
@@ -138,7 +125,7 @@ export const heroComponents = ({
       <div
         className={`${
           isMobile ? "h-[750px] flex-col" : ""
-        } min-h-[600px] max-lg:h-[750px] py-5 flex lg:gap-8 lg:justify-evenly max-lg:flex-col max-w-[1200px] mx-auto lg:pl-5`}
+        } min-h-[600px] max-lg:h-[750px] pt-10 flex lg:gap-8 lg:justify-evenly max-lg:flex-col max-w-[1200px] mx-auto lg:pl-5`}
       >
         <div
           className={`${
@@ -152,16 +139,14 @@ export const heroComponents = ({
               index + 1
             }-${uniqueId} font-bold xl:text-5xl text-3xl mb-4 break-words`}
             data-text="Heading"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
               __html: isEdited[`hero-heading-${index + 1}-${uniqueId}`]
-                ? document.getElementById(
-                    `hero-heading-${index + 1}-${uniqueId}`
-                  )?.innerHTML
-                : document.getElementById(
-                    `hero-heading-${index + 1}-${uniqueId}`
-                  )?.innerHTML || text.heroHeaderText,
+                ? elementContent[`hero-heading-${index + 1}-${uniqueId}`]
+                : elementContent[`hero-heading-${index + 1}-${uniqueId}`] ||
+                  text.heroHeaderText,
             }}
           ></h1>
           <p
@@ -171,16 +156,14 @@ export const heroComponents = ({
               index + 1
             }-${uniqueId} font-medium break-words`}
             data-text="Type a paragraph"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
               __html: isEdited[`hero-paragraph-${index + 1}-${uniqueId}`]
-                ? document.getElementById(
-                    `hero-paragraph-${index + 1}-${uniqueId}`
-                  )?.innerHTML
-                : document.getElementById(
-                    `hero-paragraph-${index + 1}-${uniqueId}`
-                  )?.innerHTML || text.description,
+                ? elementContent[`hero-paragraph-${index + 1}-${uniqueId}`]
+                : elementContent[`hero-paragraph-${index + 1}-${uniqueId}`] ||
+                  text.description,
             }}
           ></p>
           {buttonIndex !== undefined && buttonElement}
@@ -234,7 +217,7 @@ export const heroComponents = ({
       <div
         className={`${
           isMobile ? "flex-col" : ""
-        } py-5 max-w-[1000px] mx-auto flex justify-center max-lg:flex-col`}
+        } py-24 max-w-[1000px] mx-auto flex justify-center max-lg:flex-col`}
       >
         <div
           className={`${
@@ -248,16 +231,14 @@ export const heroComponents = ({
               index + 1
             }-${uniqueId} font-bold xl:text-5xl text-3xl mb-4 break-words`}
             data-text="Heading"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
               __html: isEdited[`hero-heading-${index + 1}-${uniqueId}`]
-                ? document.getElementById(
-                    `hero-heading-${index + 1}-${uniqueId}`
-                  )?.innerHTML
-                : document.getElementById(
-                    `hero-heading-${index + 1}-${uniqueId}`
-                  )?.innerHTML || text.heroHeaderText,
+                ? elementContent[`hero-heading-${index + 1}-${uniqueId}`]
+                : elementContent[`hero-heading-${index + 1}-${uniqueId}`] ||
+                  text.heroHeaderText,
             }}
           ></h1>
           <p
@@ -267,16 +248,14 @@ export const heroComponents = ({
               index + 1
             }-${uniqueId} font-medium break-words`}
             data-text="Type a paragraph"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
               __html: isEdited[`hero-paragraph-${index + 1}-${uniqueId}`]
-                ? document.getElementById(
-                    `hero-paragraph-${index + 1}-${uniqueId}`
-                  )?.innerHTML
-                : document.getElementById(
-                    `hero-paragraph-${index + 1}-${uniqueId}`
-                  )?.innerHTML || text.description,
+                ? elementContent[`hero-paragraph-${index + 1}-${uniqueId}`]
+                : elementContent[`hero-paragraph-${index + 1}-${uniqueId}`] ||
+                  text.description,
             }}
           ></p>
           {buttonIndex !== undefined && buttonElement}
@@ -303,7 +282,7 @@ export const heroComponents = ({
       <div
         className={`${
           isMobile ? "flex-col" : ""
-        } py-5 max-w-[1000px] mx-auto flex flex-row-reverse justify-center max-lg:flex-col`}
+        } py-24 max-w-[1000px] mx-auto flex flex-row-reverse justify-center max-lg:flex-col`}
       >
         <div
           className={`${
@@ -317,16 +296,14 @@ export const heroComponents = ({
               index + 1
             }-${uniqueId} font-bold xl:text-5xl text-3xl mb-4 break-words`}
             data-text="Heading"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
               __html: isEdited[`hero-heading-${index + 1}-${uniqueId}`]
-                ? document.getElementById(
-                    `hero-heading-${index + 1}-${uniqueId}`
-                  )?.innerHTML
-                : document.getElementById(
-                    `hero-heading-${index + 1}-${uniqueId}`
-                  )?.innerHTML || text.heroHeaderText,
+                ? elementContent[`hero-heading-${index + 1}-${uniqueId}`]
+                : elementContent[`hero-heading-${index + 1}-${uniqueId}`] ||
+                  text.heroHeaderText,
             }}
           ></h1>
           <p
@@ -336,16 +313,14 @@ export const heroComponents = ({
               index + 1
             }-${uniqueId} font-medium break-words`}
             data-text="Type a paragraph"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
               __html: isEdited[`hero-paragraph-${index + 1}-${uniqueId}`]
-                ? document.getElementById(
-                    `hero-paragraph-${index + 1}-${uniqueId}`
-                  )?.innerHTML
-                : document.getElementById(
-                    `hero-paragraph-${index + 1}-${uniqueId}`
-                  )?.innerHTML || text.description,
+                ? elementContent[`hero-paragraph-${index + 1}-${uniqueId}`]
+                : elementContent[`hero-paragraph-${index + 1}-${uniqueId}`] ||
+                  text.description,
             }}
           ></p>
           {buttonIndex !== undefined && buttonElement}
@@ -372,7 +347,7 @@ export const heroComponents = ({
       <div
         className={`${
           isMobile ? "flex-col-reverse" : ""
-        } py-5 max-w-[1200px] mx-auto flex justify-center max-lg:flex-col-reverse`}
+        } py-24 max-w-[1200px] mx-auto flex justify-center max-lg:flex-col-reverse`}
       >
         <div
           className={`${
@@ -386,16 +361,14 @@ export const heroComponents = ({
               index + 1
             }-${uniqueId} font-bold xl:text-5xl text-3xl mb-4 break-words`}
             data-text="Heading"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
               __html: isEdited[`hero-heading-${index + 1}-${uniqueId}`]
-                ? document.getElementById(
-                    `hero-heading-${index + 1}-${uniqueId}`
-                  )?.innerHTML
-                : document.getElementById(
-                    `hero-heading-${index + 1}-${uniqueId}`
-                  )?.innerHTML || text.heroHeaderText,
+                ? elementContent[`hero-heading-${index + 1}-${uniqueId}`]
+                : elementContent[`hero-heading-${index + 1}-${uniqueId}`] ||
+                  text.heroHeaderText,
             }}
           ></h1>
           <p
@@ -405,16 +378,14 @@ export const heroComponents = ({
               index + 1
             }-${uniqueId} font-medium break-words`}
             data-text="Type a paragraph"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
               __html: isEdited[`hero-paragraph-${index + 1}-${uniqueId}`]
-                ? document.getElementById(
-                    `hero-paragraph-${index + 1}-${uniqueId}`
-                  )?.innerHTML
-                : document.getElementById(
-                    `hero-paragraph-${index + 1}-${uniqueId}`
-                  )?.innerHTML || text.description,
+                ? elementContent[`hero-paragraph-${index + 1}-${uniqueId}`]
+                : elementContent[`hero-paragraph-${index + 1}-${uniqueId}`] ||
+                  text.description,
             }}
           ></p>
           {buttonIndex !== undefined && buttonElement}
@@ -441,7 +412,7 @@ export const heroComponents = ({
       <div
         className={`${
           isMobile ? "flex-col-reverse" : ""
-        } py-5 max-w-[1200px] mx-auto flex flex-row-reverse justify-center max-lg:flex-col-reverse`}
+        } py-24 max-w-[1200px] mx-auto flex flex-row-reverse justify-center max-lg:flex-col-reverse`}
       >
         <div
           className={`${
@@ -455,16 +426,14 @@ export const heroComponents = ({
               index + 1
             }-${uniqueId} font-bold xl:text-5xl text-3xl mb-4 break-words`}
             data-text="Heading"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
               __html: isEdited[`hero-heading-${index + 1}-${uniqueId}`]
-                ? document.getElementById(
-                    `hero-heading-${index + 1}-${uniqueId}`
-                  )?.innerHTML
-                : document.getElementById(
-                    `hero-heading-${index + 1}-${uniqueId}`
-                  )?.innerHTML || text.heroHeaderText,
+                ? elementContent[`hero-heading-${index + 1}-${uniqueId}`]
+                : elementContent[`hero-heading-${index + 1}-${uniqueId}`] ||
+                  text.heroHeaderText,
             }}
           ></h1>
           <p
@@ -474,16 +443,14 @@ export const heroComponents = ({
               index + 1
             }-${uniqueId} font-medium break-words`}
             data-text="Type a paragraph"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
               __html: isEdited[`hero-paragraph-${index + 1}-${uniqueId}`]
-                ? document.getElementById(
-                    `hero-paragraph-${index + 1}-${uniqueId}`
-                  )?.innerHTML
-                : document.getElementById(
-                    `hero-paragraph-${index + 1}-${uniqueId}`
-                  )?.innerHTML || text.description,
+                ? elementContent[`hero-paragraph-${index + 1}-${uniqueId}`]
+                : elementContent[`hero-paragraph-${index + 1}-${uniqueId}`] ||
+                  text.description,
             }}
           ></p>
           {buttonIndex !== undefined && buttonElement}
@@ -510,7 +477,7 @@ export const heroComponents = ({
       <div
         className={`${
           isMobile ? "flex-col" : ""
-        } max-w-[1200px] mx-auto flex justify-center gap-5 max-lg:flex-col py-10`}
+        } max-w-[1200px] mx-auto flex justify-center gap-5 max-lg:flex-col py-24`}
       >
         <div className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full`}>
           <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
@@ -534,16 +501,14 @@ export const heroComponents = ({
               index + 1
             }-${uniqueId} font-bold xl:text-4xl xl:text-center text-3xl mb-4 break-words`}
             data-text="Heading"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
               __html: isEdited[`hero-heading-${index + 1}-${uniqueId}`]
-                ? document.getElementById(
-                    `hero-heading-${index + 1}-${uniqueId}`
-                  )?.innerHTML
-                : document.getElementById(
-                    `hero-heading-${index + 1}-${uniqueId}`
-                  )?.innerHTML || text.heroHeaderText,
+                ? elementContent[`hero-heading-${index + 1}-${uniqueId}`]
+                : elementContent[`hero-heading-${index + 1}-${uniqueId}`] ||
+                  text.heroHeaderText,
             }}
           ></h1>
           <p
@@ -553,16 +518,14 @@ export const heroComponents = ({
               index + 1
             }-${uniqueId} font-medium break-words`}
             data-text="Type a paragraph"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
               __html: isEdited[`hero-paragraph-${index + 1}-${uniqueId}`]
-                ? document.getElementById(
-                    `hero-paragraph-${index + 1}-${uniqueId}`
-                  )?.innerHTML
-                : document.getElementById(
-                    `hero-paragraph-${index + 1}-${uniqueId}`
-                  )?.innerHTML || text.description,
+                ? elementContent[`hero-paragraph-${index + 1}-${uniqueId}`]
+                : elementContent[`hero-paragraph-${index + 1}-${uniqueId}`] ||
+                  text.description,
             }}
           ></p>
           <div className={`${isMobile ? "mt-10" : ""} max-lg:mt-10 mt-5`}>
@@ -589,7 +552,7 @@ export const heroComponents = ({
       <div
         className={`${
           isMobile ? "flex-col w-[90%] max-w-[600px]" : ""
-        } py-10 flex max-lg:flex-col max-lg:w-[90%] items-center justify-between lg:px-5 max-w-[1000px] mx-auto max-lg:max-w-[600px]`}
+        } py-24 flex max-lg:flex-col max-lg:w-[90%] items-center justify-between lg:px-5 max-w-[1000px] mx-auto max-lg:max-w-[600px]`}
       >
         <div
           className={`${isMobile ? "w-full" : ""} mb-10 w-[50%] max-lg:w-full`}
@@ -601,16 +564,14 @@ export const heroComponents = ({
               isMobile ? "text-center mx-auto" : ""
             } text-[#231e41] max-lg:text-center text-6xl max-sm:text-5xl max-w-[650px] max-sm:max-w-[400px] font-semibold mb-6 max-lg:mx-auto break-words`}
             data-text="Heading"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
               __html: isEdited[`hero-heading-${index + 1}-${uniqueId}`]
-                ? document.getElementById(
-                    `hero-heading-${index + 1}-${uniqueId}`
-                  )?.innerHTML
-                : document.getElementById(
-                    `hero-heading-${index + 1}-${uniqueId}`
-                  )?.innerHTML || text.heroHeaderText,
+                ? elementContent[`hero-heading-${index + 1}-${uniqueId}`]
+                : elementContent[`hero-heading-${index + 1}-${uniqueId}`] ||
+                  text.heroHeaderText,
             }}
           ></h1>
           <p
@@ -620,16 +581,14 @@ export const heroComponents = ({
               isMobile ? "text-center mx-auto" : ""
             } text-[#231e41] text-sm max-lg:text-center max-w-[350px] max-lg:mx-auto font-medium mb-6 break-words`}
             data-text="Type a paragraph"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
               __html: isEdited[`hero-paragraph-${index + 1}-${uniqueId}`]
-                ? document.getElementById(
-                    `hero-paragraph-${index + 1}-${uniqueId}`
-                  )?.innerHTML
-                : document.getElementById(
-                    `hero-paragraph-${index + 1}-${uniqueId}`
-                  )?.innerHTML || text.description,
+                ? elementContent[`hero-paragraph-${index + 1}-${uniqueId}`]
+                : elementContent[`hero-paragraph-${index + 1}-${uniqueId}`] ||
+                  text.description,
             }}
           ></p>
           {buttonIndex !== undefined && buttonElement}

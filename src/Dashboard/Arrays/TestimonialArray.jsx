@@ -1,61 +1,60 @@
 export const testimonialComponent = ({
   text,
   isMobile,
-  isFocused,
-  location,
   handleDivClick,
   handleTextClick,
   getStyle,
   getElementStyle,
   index,
   isEdited,
+  uniqueId,
+  elementContent,
 }) => {
-  let classNames = "";
 
-  if (location.pathname === "/home") {
-    classNames = "";
-  } else if (location.pathname !== "/home" && isFocused) {
-    classNames = "";
-  } else {
-    classNames += " hover:border-[2px] hover:border-[rgb(0,111,173)]";
-  }
   return [
     <section
       onClick={handleDivClick}
-      id={`testimonial-section-${index + 1}`}
-      style={getStyle(`testimonial-section-${index + 1}`)}
+      id={`testimonial-section-${index + 1}-${uniqueId}`}
+      style={getStyle(`testimonial-section-${index + 1}`, uniqueId)}
     >
       <div className="py-32 text-black w-[90%] max-w-[1000px] mx-auto">
         <h1
-          id={`testimonial-heading-${index + 1}`}
-          style={getElementStyle(`testimonial-heading-${index + 1}`)}
+          id={`testimonial-heading-${index + 1}-${uniqueId}`}
+          style={getElementStyle(`testimonial-heading-${index + 1}`, uniqueId)}
           className={`testimonial-heading-${
             index + 1
-          } text-center text-3xl font-semibold capitalize mb-5 `}
+          }-${uniqueId} text-center text-3xl font-semibold capitalize mb-5 `}
           data-text="Heading"
+          data-uses-dangerously-set-inner-html="true"
           contentEditable={false}
           onClick={handleTextClick}
           dangerouslySetInnerHTML={{
-            __html: isEdited[`testimonial-heading-${index + 1}`]
-              ? document.getElementById(`testimonial-heading-${index + 1}`)
-                  ?.innerHTML
-              : document.getElementById(`testimonial-heading-${index + 1}`)
-                  ?.innerHTML || text.customerHeader[0],
+            __html: isEdited[`testimonial-heading-${index + 1}-${uniqueId}`]
+              ? elementContent[`testimonial-heading-${index + 1}-${uniqueId}`]
+              : elementContent[
+                  `testimonial-heading-${index + 1}-${uniqueId}`
+                ] || text.customerHeader[0],
           }}
         ></h1>
         <p
-          id={`testimonial-paragraph-${index + 1}`}
-          style={getElementStyle(`testimonial-paragraph-${index + 1}`)}
-          className={`testimonial-paragraph-${index + 1} text-center text-xl `}
+          id={`testimonial-paragraph-${index + 1}-${uniqueId}`}
+          style={getElementStyle(
+            `testimonial-paragraph-${index + 1}`,
+            uniqueId
+          )}
+          className={`testimonial-paragraph-${
+            index + 1
+          }-${uniqueId} text-center text-xl `}
           data-text="Type a paragraph"
+          data-uses-dangerously-set-inner-html="true"
           contentEditable={false}
           onClick={handleTextClick}
           dangerouslySetInnerHTML={{
-            __html: isEdited[`testimonial-paragraph-${index + 1}`]
-              ? document.getElementById(`testimonial-paragraph-${index + 1}`)
-                  ?.innerHTML
-              : document.getElementById(`testimonial-paragraph-${index + 1}`)
-                  ?.innerHTML || text.customerReviewText[0],
+            __html: isEdited[`testimonial-paragraph-${index + 1}-${uniqueId}`]
+              ? elementContent[`testimonial-paragraph-${index + 1}-${uniqueId}`]
+              : elementContent[
+                  `testimonial-paragraph-${index + 1}-${uniqueId}`
+                ] || text.customerReviewText[0],
           }}
         ></p>
 
@@ -67,38 +66,48 @@ export const testimonialComponent = ({
           />
           <div className="text-sm font-semibold">
             <p
-              id={`testimonial-name-header-paragraph-${index + 1}`}
+              id={`testimonial-name-header-paragraph-${index + 1}-${uniqueId}`}
               style={getElementStyle(
-                `testimonial-name-header-paragraph-${index + 1}`
+                `testimonial-name-header-paragraph-${index + 1}`,
+                uniqueId
               )}
-              className={`testimonial-name-header-paragraph-${index + 1}`}
+              className={`testimonial-name-header-paragraph-${
+                index + 1
+              }-${uniqueId}`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {isEdited[`testimonial-name-header-paragraph-${index + 1}`]
-                ? document.getElementById(
-                    `testimonial-name-header-paragraph-${index + 1}`
-                  )?.innerText
-                : document.getElementById(
-                    `testimonial-name-header-paragraph-${index + 1}`
-                  )?.innerText || "Gabriel"}
+              {isEdited[
+                `testimonial-name-header-paragraph-${index + 1}-${uniqueId}`
+              ]
+                ? elementContent[
+                    `testimonial-name-header-paragraph-${index + 1}-${uniqueId}`
+                  ]
+                : elementContent[
+                    `testimonial-name-header-paragraph-${index + 1}-${uniqueId}`
+                  ] || "Gabriel"}
             </p>
             <p
-              id={`testimonial-name-paragraph-${index + 1}`}
-              style={getElementStyle(`testimonial-name-paragraph-${index + 1}`)}
-              className={`testimonial-name-paragraph-${index + 1}`}
+              id={`testimonial-name-paragraph-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `testimonial-name-paragraph-${index + 1}`,
+                uniqueId
+              )}
+              className={`testimonial-name-paragraph-${index + 1}-${uniqueId}`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {isEdited[`testimonial-name-paragraph-${index + 1}`]
-                ? document.getElementById(
-                    `testimonial-name-paragraph-${index + 1}`
-                  )?.innerText
-                : document.getElementById(
-                    `testimonial-name-paragraph-${index + 1}`
-                  )?.innerText || "Founder QuickUI"}
+              {isEdited[`testimonial-name-paragraph-${index + 1}-${uniqueId}`]
+                ? elementContent[
+                    `testimonial-name-paragraph-${index + 1}-${uniqueId}`
+                  ]
+                : elementContent[
+                    `testimonial-name-paragraph-${index + 1}-${uniqueId}`
+                  ] || "Founder QuickUI"}
             </p>
           </div>
         </div>
@@ -106,279 +115,371 @@ export const testimonialComponent = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id={`testimonial-section-${index + 1}`}
-      style={getStyle(`testimonial-section-${index + 1}`)}
+      id={`testimonial-section-${index + 1}-${uniqueId}`}
+      style={getStyle(`testimonial-section-${index + 1}`, uniqueId)}
     >
       <div className="py-32 text-black w-[90%] max-w-[1000px] mx-auto">
         <h1
-          id={`testimonial-heading-${index + 1}`}
-          style={getElementStyle(`testimonial-heading-${index + 1}`)}
+          id={`testimonial-heading-${index + 1}-${uniqueId}`}
+          style={getElementStyle(`testimonial-heading-${index + 1}`, uniqueId)}
           className={`testimonial-heading-${
             index + 1
-          } text-3xl font-semibold capitalize mb-1 `}
+          }-${uniqueId} text-3xl font-semibold capitalize mb-1 `}
           data-text="Heading"
+          data-uses-dangerously-set-inner-html="true"
           contentEditable={false}
           onClick={handleTextClick}
           dangerouslySetInnerHTML={{
-            __html: isEdited[`testimonial-heading-${index + 1}`]
-              ? document.getElementById(`testimonial-heading-${index + 1}`)
-                  ?.innerHTML
-              : document.getElementById(`testimonial-heading-${index + 1}`)
-                  ?.innerHTML || text.customerHeader[0],
+            __html: isEdited[`testimonial-heading-${index + 1}-${uniqueId}`]
+              ? elementContent[`testimonial-heading-${index + 1}-${uniqueId}`]
+              : elementContent[
+                  `testimonial-heading-${index + 1}-${uniqueId}`
+                ] || text.customerHeader[0],
           }}
         ></h1>
         <p
-          id={`testimonial-paragraph-${index + 1}`}
-          style={getElementStyle(`testimonial-paragraph-${index + 1}`)}
-          className={`testimonial-paragraph-${index + 1} text-base`}
+          id={`testimonial-paragraph-${index + 1}-${uniqueId}`}
+          style={getElementStyle(
+            `testimonial-paragraph-${index + 1}`,
+            uniqueId
+          )}
+          className={`testimonial-paragraph-${index + 1}-${uniqueId} text-base`}
           data-text="Type a paragraph"
+          data-uses-dangerously-set-inner-html="true"
           contentEditable={false}
           onClick={handleTextClick}
           dangerouslySetInnerHTML={{
-            __html: isEdited[`testimonial-paragraph-${index + 1}`]
-              ? document.getElementById(`testimonial-paragraph-${index + 1}`)
-                  ?.innerHTML
-              : document.getElementById(`testimonial-paragraph-${index + 1}`)
-                  ?.innerHTML || text.customerParagraphText[0],
+            __html: isEdited[`testimonial-paragraph-${index + 1}-${uniqueId}`]
+              ? elementContent[`testimonial-paragraph-${index + 1}-${uniqueId}`]
+              : elementContent[
+                  `testimonial-paragraph-${index + 1}-${uniqueId}`
+                ] || text.customerParagraphText[0],
           }}
         ></p>
 
         <div className="flex flex-wrap justify-evenly gap-8 mt-10 max-[600px]:gap-5 max-[600px]:flex-col">
           <div className="flex flex-col gap-1 w-[30%] max-[600px]:w-[90%]">
             <p
-              id={`testimonial-icon-text-1-${index + 1}`}
-              style={getElementStyle(`testimonial-icon-${index + 1}`)}
-              className={`testimonial-icon-${index + 1}`}
+              id={`testimonial-icon-text-1-${index + 1}-${uniqueId}`}
+              style={getElementStyle(`testimonial-icon-${index + 1}`, uniqueId)}
+              className={`testimonial-icon-${index + 1}-${uniqueId}`}
               data-text="Type a paragraph"
-              contentEditable={false}
-              onClick={handleTextClick}
-              dangerouslySetInnerHTML={{
-                __html: isEdited[`testimonial-icon-text-1-${index + 1}`]
-                  ? document.getElementById(
-                      `testimonial-icon-text-1-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `testimonial-icon-text-1-${index + 1}`
-                    )?.innerHTML || "★★★★★",
-              }}
-            ></p>
-            <h2
-              id={`testimonial-sub-heading-text-1-${index + 1}`}
-              style={getElementStyle(`testimonial-sub-heading-${index + 1}`)}
-              className={`testimonial-sub-heading-${
-                index + 1
-              } text-base font-semibold`}
-              data-text="Heading"
-              contentEditable={false}
-              onClick={handleTextClick}
-              dangerouslySetInnerHTML={{
-                __html: isEdited[`testimonial-sub-heading-text-1-${index + 1}`]
-                  ? document.getElementById(
-                      `testimonial-sub-heading-text-1-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `testimonial-sub-heading-text-1-${index + 1}`
-                    )?.innerHTML || "The Most Amazing product ever",
-              }}
-            ></h2>
-            <p
-              id={`testimonial-sub-paragraph-text-1-${index + 1}`}
-              style={getElementStyle(`testimonial-sub-paragraph-${index + 1}`)}
-              className={`testimonial-sub-paragraph-${
-                index + 1
-              } text-sm md:min-h-[9rem] `}
-              data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
                 __html: isEdited[
-                  `testimonial-sub-paragraph-text-1-${index + 1}`
+                  `testimonial-icon-text-1-${index + 1}-${uniqueId}`
                 ]
-                  ? document.getElementById(
-                      `testimonial-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `testimonial-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML || text.customerReviewText[0],
+                  ? elementContent[
+                      `testimonial-icon-text-1-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `testimonial-icon-text-1-${index + 1}-${uniqueId}`
+                    ] || "★★★★★",
+              }}
+            ></p>
+            <h2
+              id={`testimonial-sub-heading-text-1-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `testimonial-sub-heading-${index + 1}`,
+                uniqueId
+              )}
+              className={`testimonial-sub-heading-${
+                index + 1
+              }-${uniqueId} text-base font-semibold`}
+              data-text="Heading"
+              data-uses-dangerously-set-inner-html="true"
+              contentEditable={false}
+              onClick={handleTextClick}
+              dangerouslySetInnerHTML={{
+                __html: isEdited[
+                  `testimonial-sub-heading-text-1-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `testimonial-sub-heading-text-1-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `testimonial-sub-heading-text-1-${index + 1}-${uniqueId}`
+                    ] || "The Most Amazing product ever",
+              }}
+            ></h2>
+            <p
+              id={`testimonial-sub-paragraph-text-1-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `testimonial-sub-paragraph-${index + 1}`,
+                uniqueId
+              )}
+              className={`testimonial-sub-paragraph-${
+                index + 1
+              }-${uniqueId} text-sm md:min-h-[9rem] `}
+              data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
+              contentEditable={false}
+              onClick={handleTextClick}
+              dangerouslySetInnerHTML={{
+                __html: isEdited[
+                  `testimonial-sub-paragraph-text-1-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `testimonial-sub-paragraph-text-1-${
+                        index + 1
+                      }-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `testimonial-sub-paragraph-text-1-${
+                        index + 1
+                      }-${uniqueId}`
+                    ] || text.customerReviewText[0],
               }}
             ></p>
             <p
-              id={`testimonial-name-header-paragraph-text-1-${index + 1}`}
+              id={`testimonial-name-header-paragraph-text-1-${
+                index + 1
+              }-${uniqueId}`}
               style={getElementStyle(
-                `testimonial-name-header-paragraph-${index + 1}`
+                `testimonial-name-header-paragraph-${index + 1}`,
+                uniqueId
               )}
               className={`testimonial-name-header-paragraph-${
                 index + 1
-              } max-lg:mt-3`}
+              }-${uniqueId} max-lg:mt-3`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {isEdited[`testimonial-name-header-paragraph-text-1-${index + 1}`]
-                ? document.getElementById(
-                    `testimonial-name-header-paragraph-text-1-${index + 1}`
-                  )?.innerText
-                : document.getElementById(
-                    `testimonial-name-header-paragraph-text-1-${index + 1}`
-                  )?.innerText || "Gabriel - Founder"}
+              {isEdited[
+                `testimonial-name-header-paragraph-text-1-${
+                  index + 1
+                }-${uniqueId}`
+              ]
+                ? elementContent[
+                    `testimonial-name-header-paragraph-text-1-${
+                      index + 1
+                    }-${uniqueId}`
+                  ]
+                : elementContent[
+                    `testimonial-name-header-paragraph-text-1-${
+                      index + 1
+                    }-${uniqueId}`
+                  ] || "Gabriel - Founder"}
             </p>
           </div>
           <div className="flex flex-col gap-1 w-[30%] max-[600px]:w-[90%]">
             <p
-              id={`testimonial-icon-text-2-${index + 1}`}
-              style={getElementStyle(`testimonial-icon-${index + 1}`)}
-              className={`testimonial-icon-${index + 1}`}
+              id={`testimonial-icon-text-2-${index + 1}-${uniqueId}`}
+              style={getElementStyle(`testimonial-icon-${index + 1}`, uniqueId)}
+              className={`testimonial-icon-${index + 1}-${uniqueId}`}
               data-text="Type a paragraph"
-              contentEditable={false}
-              onClick={handleTextClick}
-              dangerouslySetInnerHTML={{
-                __html: isEdited[`testimonial-icon-text-2-${index + 1}`]
-                  ? document.getElementById(
-                      `testimonial-icon-text-2-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `testimonial-icon-text-2-${index + 1}`
-                    )?.innerHTML || "★★★★★",
-              }}
-            ></p>
-            <h2
-              id={`testimonial-sub-heading-text-2-${index + 1}`}
-              style={getElementStyle(`testimonial-sub-heading-${index + 1}`)}
-              className={`testimonial-sub-heading-${
-                index + 1
-              } text-base font-semibold`}
-              data-text="Heading"
-              contentEditable={false}
-              onClick={handleTextClick}
-              dangerouslySetInnerHTML={{
-                __html: isEdited[`testimonial-sub-heading-text-2-${index + 1}`]
-                  ? document.getElementById(
-                      `testimonial-sub-heading-text-2-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `testimonial-sub-heading-text-2-${index + 1}`
-                    )?.innerHTML || "The Most Amazing product ever",
-              }}
-            ></h2>
-            <p
-              id={`testimonial-sub-paragraph-text-2-${index + 1}`}
-              style={getElementStyle(`testimonial-sub-paragraph-${index + 1}`)}
-              className={`testimonial-sub-paragraph-${
-                index + 1
-              } text-sm md:min-h-[9rem] `}
-              data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
                 __html: isEdited[
-                  `testimonial-sub-paragraph-text-2-${index + 1}`
+                  `testimonial-icon-text-2-${index + 1}-${uniqueId}`
                 ]
-                  ? document.getElementById(
-                      `testimonial-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `testimonial-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML || text.customerReviewText[1],
+                  ? elementContent[
+                      `testimonial-icon-text-2-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `testimonial-icon-text-2-${index + 1}-${uniqueId}`
+                    ] || "★★★★★",
+              }}
+            ></p>
+            <h2
+              id={`testimonial-sub-heading-text-2-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `testimonial-sub-heading-${index + 1}`,
+                uniqueId
+              )}
+              className={`testimonial-sub-heading-${
+                index + 1
+              }-${uniqueId} text-base font-semibold`}
+              data-text="Heading"
+              data-uses-dangerously-set-inner-html="true"
+              contentEditable={false}
+              onClick={handleTextClick}
+              dangerouslySetInnerHTML={{
+                __html: isEdited[
+                  `testimonial-sub-heading-text-2-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `testimonial-sub-heading-text-2-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `testimonial-sub-heading-text-2-${index + 1}-${uniqueId}`
+                    ] || "The Most Amazing product ever",
+              }}
+            ></h2>
+            <p
+              id={`testimonial-sub-paragraph-text-2-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `testimonial-sub-paragraph-${index + 1}`,
+                uniqueId
+              )}
+              className={`testimonial-sub-paragraph-${
+                index + 1
+              }-${uniqueId} text-sm md:min-h-[9rem] `}
+              data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
+              contentEditable={false}
+              onClick={handleTextClick}
+              dangerouslySetInnerHTML={{
+                __html: isEdited[
+                  `testimonial-sub-paragraph-text-2-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `testimonial-sub-paragraph-text-2-${
+                        index + 1
+                      }-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `testimonial-sub-paragraph-text-2-${
+                        index + 1
+                      }-${uniqueId}`
+                    ] || text.customerReviewText[1],
               }}
             ></p>
             <p
-              id={`testimonial-name-header-paragraph-text-2-${index + 1}`}
+              id={`testimonial-name-header-paragraph-text-2-${
+                index + 1
+              }-${uniqueId}`}
               style={getElementStyle(
-                `testimonial-name-header-paragraph-${index + 1}`
+                `testimonial-name-header-paragraph-${index + 1}`,
+                uniqueId
               )}
               className={`testimonial-name-header-paragraph-${
                 index + 1
-              } max-lg:mt-3`}
+              }-${uniqueId} max-lg:mt-3`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {isEdited[`testimonial-name-header-paragraph-text-2-${index + 1}`]
-                ? document.getElementById(
-                    `testimonial-name-header-paragraph-text-2-${index + 1}`
-                  )?.innerText
-                : document.getElementById(
-                    `testimonial-name-header-paragraph-text-2-${index + 1}`
-                  )?.innerText || "Gabriel - Founder"}
+              {isEdited[
+                `testimonial-name-header-paragraph-text-2-${
+                  index + 1
+                }-${uniqueId}`
+              ]
+                ? elementContent[
+                    `testimonial-name-header-paragraph-text-2-${
+                      index + 1
+                    }-${uniqueId}`
+                  ]
+                : elementContent[
+                    `testimonial-name-header-paragraph-text-2-${
+                      index + 1
+                    }-${uniqueId}`
+                  ] || "Gabriel - Founder"}
             </p>
           </div>
           <div className="flex flex-col gap-1 w-[30%] max-[600px]:w-[90%]">
             <p
-              id={`testimonial-icon-text-3-${index + 1}`}
-              style={getElementStyle(`testimonial-icon-${index + 1}`)}
-              className={`testimonial-icon-${index + 1}`}
+              id={`testimonial-icon-text-3-${index + 1}-${uniqueId}`}
+              style={getElementStyle(`testimonial-icon-${index + 1}`, uniqueId)}
+              className={`testimonial-icon-${index + 1}-${uniqueId}`}
               data-text="Type a paragraph"
-              contentEditable={false}
-              onClick={handleTextClick}
-              dangerouslySetInnerHTML={{
-                __html: isEdited[`testimonial-icon-text-3-${index + 1}`]
-                  ? document.getElementById(
-                      `testimonial-icon-text-3-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `testimonial-icon-text-3-${index + 1}`
-                    )?.innerHTML || "★★★★★",
-              }}
-            ></p>
-            <h2
-              id={`testimonial-sub-heading-text-3-${index + 1}`}
-              style={getElementStyle(`testimonial-sub-heading-${index + 1}`)}
-              className={`testimonial-sub-heading-${
-                index + 1
-              } text-base font-semibold`}
-              data-text="Heading"
-              contentEditable={false}
-              onClick={handleTextClick}
-              dangerouslySetInnerHTML={{
-                __html: isEdited[`testimonial-sub-heading-text-3-${index + 1}`]
-                  ? document.getElementById(
-                      `testimonial-sub-heading-text-3-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `testimonial-sub-heading-text-3-${index + 1}`
-                    )?.innerHTML || "The Most Amazing product ever",
-              }}
-            ></h2>
-            <p
-              id={`testimonial-sub-paragraph-text-3-${index + 1}`}
-              style={getElementStyle(`testimonial-sub-paragraph-${index + 1}`)}
-              className={`testimonial-sub-paragraph-${
-                index + 1
-              } text-sm md:min-h-[9rem] `}
-              data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
                 __html: isEdited[
-                  `testimonial-sub-paragraph-text-3-${index + 1}`
+                  `testimonial-icon-text-3-${index + 1}-${uniqueId}`
                 ]
-                  ? document.getElementById(
-                      `testimonial-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `testimonial-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML || text.customerReviewText[2],
+                  ? elementContent[
+                      `testimonial-icon-text-3-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `testimonial-icon-text-3-${index + 1}-${uniqueId}`
+                    ] || "★★★★★",
+              }}
+            ></p>
+            <h2
+              id={`testimonial-sub-heading-text-3-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `testimonial-sub-heading-${index + 1}`,
+                uniqueId
+              )}
+              className={`testimonial-sub-heading-${
+                index + 1
+              }-${uniqueId} text-base font-semibold`}
+              data-text="Heading"
+              data-uses-dangerously-set-inner-html="true"
+              contentEditable={false}
+              onClick={handleTextClick}
+              dangerouslySetInnerHTML={{
+                __html: isEdited[
+                  `testimonial-sub-heading-text-3-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `testimonial-sub-heading-text-3-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `testimonial-sub-heading-text-3-${index + 1}-${uniqueId}`
+                    ] || "The Most Amazing product ever",
+              }}
+            ></h2>
+            <p
+              id={`testimonial-sub-paragraph-text-3-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `testimonial-sub-paragraph-${index + 1}`,
+                uniqueId
+              )}
+              className={`testimonial-sub-paragraph-${
+                index + 1
+              }-${uniqueId} text-sm md:min-h-[9rem] `}
+              data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
+              contentEditable={false}
+              onClick={handleTextClick}
+              dangerouslySetInnerHTML={{
+                __html: isEdited[
+                  `testimonial-sub-paragraph-text-3-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `testimonial-sub-paragraph-text-3-${
+                        index + 1
+                      }-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `testimonial-sub-paragraph-text-3-${
+                        index + 1
+                      }-${uniqueId}`
+                    ] || text.customerReviewText[2],
               }}
             ></p>
             <p
-              id={`testimonial-name-header-paragraph-text-3-${index + 1}`}
+              id={`testimonial-name-header-paragraph-text-3-${
+                index + 1
+              }-${uniqueId}`}
               style={getElementStyle(
-                `testimonial-name-header-paragraph-${index + 1}`
+                `testimonial-name-header-paragraph-${index + 1}`,
+                uniqueId
               )}
               className={`testimonial-name-header-paragraph-${
                 index + 1
-              } max-lg:mt-3`}
+              }-${uniqueId} max-lg:mt-3`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {isEdited[`testimonial-name-header-paragraph-text-3-${index + 1}`]
-                ? document.getElementById(
-                    `testimonial-name-header-paragraph-text-3-${index + 1}`
-                  )?.innerText
-                : document.getElementById(
-                    `testimonial-name-header-paragraph-text-3-${index + 1}`
-                  )?.innerText || "Gabriel - Founder"}
+              {isEdited[
+                `testimonial-name-header-paragraph-text-3-${
+                  index + 1
+                }-${uniqueId}`
+              ]
+                ? elementContent[
+                    `testimonial-name-header-paragraph-text-3-${
+                      index + 1
+                    }-${uniqueId}`
+                  ]
+                : elementContent[
+                    `testimonial-name-header-paragraph-text-3-${
+                      index + 1
+                    }-${uniqueId}`
+                  ] || "Gabriel - Founder"}
             </p>
           </div>
         </div>
@@ -386,279 +487,373 @@ export const testimonialComponent = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id={`testimonial-section-${index + 1}`}
-      style={getStyle(`testimonial-section-${index + 1}`)}
+      id={`testimonial-section-${index + 1}-${uniqueId}`}
+      style={getStyle(`testimonial-section-${index + 1}`, uniqueId)}
     >
       <div className="py-32 text-black w-[90%] max-w-[1000px] mx-auto">
         <h1
-          id={`testimonial-heading-${index + 1}`}
-          style={getElementStyle(`testimonial-heading-${index + 1}`)}
+          id={`testimonial-heading-${index + 1}-${uniqueId}`}
+          style={getElementStyle(`testimonial-heading-${index + 1}`, uniqueId)}
           className={`testimonial-heading-${
             index + 1
-          } text-3xl font-semibold capitalize mb-1 text-center`}
+          }-${uniqueId} text-3xl font-semibold capitalize mb-1 text-center`}
           data-text="Heading"
+          data-uses-dangerously-set-inner-html="true"
           contentEditable={false}
           onClick={handleTextClick}
           dangerouslySetInnerHTML={{
-            __html: isEdited[`testimonial-heading-${index + 1}`]
-              ? document.getElementById(`testimonial-heading-${index + 1}`)
-                  ?.innerHTML
-              : document.getElementById(`testimonial-heading-${index + 1}`)
-                  ?.innerHTML || text.customerHeader[0],
+            __html: isEdited[`testimonial-heading-${index + 1}-${uniqueId}`]
+              ? elementContent[`testimonial-heading-${index + 1}-${uniqueId}`]
+              : elementContent[
+                  `testimonial-heading-${index + 1}-${uniqueId}`
+                ] || text.customerHeader[0],
           }}
         ></h1>
         <p
-          id={`testimonial-paragraph-${index + 1}`}
-          style={getElementStyle(`testimonial-paragraph-${index + 1}`)}
-          className={`testimonial-paragraph-${index + 1} text-base text-center`}
+          id={`testimonial-paragraph-${index + 1}-${uniqueId}`}
+          style={getElementStyle(
+            `testimonial-paragraph-${index + 1}`,
+            uniqueId
+          )}
+          className={`testimonial-paragraph-${
+            index + 1
+          }-${uniqueId} text-base text-center`}
           data-text="Type a paragraph"
+          data-uses-dangerously-set-inner-html="true"
           contentEditable={false}
           onClick={handleTextClick}
           dangerouslySetInnerHTML={{
-            __html: isEdited[`testimonial-paragraph-${index + 1}`]
-              ? document.getElementById(`testimonial-paragraph-${index + 1}`)
-                  ?.innerHTML
-              : document.getElementById(`testimonial-paragraph-${index + 1}`)
-                  ?.innerHTML || text.customerParagraphText[0],
+            __html: isEdited[`testimonial-paragraph-${index + 1}-${uniqueId}`]
+              ? elementContent[`testimonial-paragraph-${index + 1}-${uniqueId}`]
+              : elementContent[
+                  `testimonial-paragraph-${index + 1}-${uniqueId}`
+                ] || text.customerParagraphText[0],
           }}
         ></p>
 
         <div className="flex flex-wrap justify-evenly mt-10 max-[600px]:gap-5 max-[600px]:flex-col text-center">
           <div className="flex flex-col gap-1 w-[30%] max-[600px]:w-[90%]">
             <p
-              id={`testimonial-icon-text-1-${index + 1}`}
-              style={getElementStyle(`testimonial-icon-${index + 1}`)}
-              className={`testimonial-icon-${index + 1}`}
+              id={`testimonial-icon-text-1-${index + 1}-${uniqueId}`}
+              style={getElementStyle(`testimonial-icon-${index + 1}`, uniqueId)}
+              className={`testimonial-icon-${index + 1}-${uniqueId}`}
               data-text="Type a paragraph"
-              contentEditable={false}
-              onClick={handleTextClick}
-              dangerouslySetInnerHTML={{
-                __html: isEdited[`testimonial-icon-text-1-${index + 1}`]
-                  ? document.getElementById(
-                      `testimonial-icon-text-1-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `testimonial-icon-text-1-${index + 1}`
-                    )?.innerHTML || "★★★★★",
-              }}
-            ></p>
-            <h2
-              id={`testimonial-sub-heading-text-1-${index + 1}`}
-              style={getElementStyle(`testimonial-sub-heading-${index + 1}`)}
-              className={`testimonial-sub-heading-${
-                index + 1
-              } text-base font-semibold`}
-              data-text="Heading"
-              contentEditable={false}
-              onClick={handleTextClick}
-              dangerouslySetInnerHTML={{
-                __html: isEdited[`testimonial-sub-heading-text-1-${index + 1}`]
-                  ? document.getElementById(
-                      `testimonial-sub-heading-text-1-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `testimonial-sub-heading-text-1-${index + 1}`
-                    )?.innerHTML || "The Most Amazing product ever",
-              }}
-            ></h2>
-            <p
-              id={`testimonial-sub-paragraph-text-1-${index + 1}`}
-              style={getElementStyle(`testimonial-sub-paragraph-${index + 1}`)}
-              className={`testimonial-sub-paragraph-${
-                index + 1
-              } text-sm md:min-h-[9rem] `}
-              data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
                 __html: isEdited[
-                  `testimonial-sub-paragraph-text-1-${index + 1}`
+                  `testimonial-icon-text-1-${index + 1}-${uniqueId}`
                 ]
-                  ? document.getElementById(
-                      `testimonial-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `testimonial-sub-paragraph-text-1-${index + 1}`
-                    )?.innerHTML || text.customerReviewText[0],
+                  ? elementContent[
+                      `testimonial-icon-text-1-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `testimonial-icon-text-1-${index + 1}-${uniqueId}`
+                    ] || "★★★★★",
+              }}
+            ></p>
+            <h2
+              id={`testimonial-sub-heading-text-1-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `testimonial-sub-heading-${index + 1}`,
+                uniqueId
+              )}
+              className={`testimonial-sub-heading-${
+                index + 1
+              }-${uniqueId} text-base font-semibold`}
+              data-text="Heading"
+              data-uses-dangerously-set-inner-html="true"
+              contentEditable={false}
+              onClick={handleTextClick}
+              dangerouslySetInnerHTML={{
+                __html: isEdited[
+                  `testimonial-sub-heading-text-1-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `testimonial-sub-heading-text-1-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `testimonial-sub-heading-text-1-${index + 1}-${uniqueId}`
+                    ] || "The Most Amazing product ever",
+              }}
+            ></h2>
+            <p
+              id={`testimonial-sub-paragraph-text-1-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `testimonial-sub-paragraph-${index + 1}`,
+                uniqueId
+              )}
+              className={`testimonial-sub-paragraph-${
+                index + 1
+              }-${uniqueId} text-sm md:min-h-[9rem] `}
+              data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
+              contentEditable={false}
+              onClick={handleTextClick}
+              dangerouslySetInnerHTML={{
+                __html: isEdited[
+                  `testimonial-sub-paragraph-text-1-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `testimonial-sub-paragraph-text-1-${
+                        index + 1
+                      }-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `testimonial-sub-paragraph-text-1-${
+                        index + 1
+                      }-${uniqueId}`
+                    ] || text.customerReviewText[0],
               }}
             ></p>
             <p
-              id={`testimonial-name-header-paragraph-text-1-${index + 1}`}
+              id={`testimonial-name-header-paragraph-text-1-${
+                index + 1
+              }-${uniqueId}`}
               style={getElementStyle(
-                `testimonial-name-header-paragraph-${index + 1}`
+                `testimonial-name-header-paragraph-${index + 1}`,
+                uniqueId
               )}
               className={`testimonial-name-header-paragraph-${
                 index + 1
-              } max-lg:mt-3`}
+              }-${uniqueId} max-lg:mt-3`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {isEdited[`testimonial-name-header-paragraph-text-1-${index + 1}`]
-                ? document.getElementById(
-                    `testimonial-name-header-paragraph-text-1-${index + 1}`
-                  )?.innerText
-                : document.getElementById(
-                    `testimonial-name-header-paragraph-text-1-${index + 1}`
-                  )?.innerText || "Gabriel - Founder"}
+              {isEdited[
+                `testimonial-name-header-paragraph-text-1-${
+                  index + 1
+                }-${uniqueId}`
+              ]
+                ? elementContent[
+                    `testimonial-name-header-paragraph-text-1-${
+                      index + 1
+                    }-${uniqueId}`
+                  ]
+                : elementContent[
+                    `testimonial-name-header-paragraph-text-1-${
+                      index + 1
+                    }-${uniqueId}`
+                  ] || "Gabriel - Founder"}
             </p>
           </div>
           <div className="flex flex-col gap-1 w-[30%] max-[600px]:w-[90%]">
             <p
-              id={`testimonial-icon-text-2-${index + 1}`}
-              style={getElementStyle(`testimonial-icon-${index + 1}`)}
-              className={`testimonial-icon-${index + 1}`}
+              id={`testimonial-icon-text-2-${index + 1}-${uniqueId}`}
+              style={getElementStyle(`testimonial-icon-${index + 1}`, uniqueId)}
+              className={`testimonial-icon-${index + 1}-${uniqueId}`}
               data-text="Type a paragraph"
-              contentEditable={false}
-              onClick={handleTextClick}
-              dangerouslySetInnerHTML={{
-                __html: isEdited[`testimonial-icon-text-2-${index + 1}`]
-                  ? document.getElementById(
-                      `testimonial-icon-text-2-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `testimonial-icon-text-2-${index + 1}`
-                    )?.innerHTML || "★★★★★",
-              }}
-            ></p>
-            <h2
-              id={`testimonial-sub-heading-text-2-${index + 1}`}
-              style={getElementStyle(`testimonial-sub-heading-${index + 1}`)}
-              className={`testimonial-sub-heading-${
-                index + 1
-              } text-base font-semibold`}
-              data-text="Heading"
-              contentEditable={false}
-              onClick={handleTextClick}
-              dangerouslySetInnerHTML={{
-                __html: isEdited[`testimonial-sub-heading-text-2-${index + 1}`]
-                  ? document.getElementById(
-                      `testimonial-sub-heading-text-2-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `testimonial-sub-heading-text-2-${index + 1}`
-                    )?.innerHTML || "The Most Amazing product ever",
-              }}
-            ></h2>
-            <p
-              id={`testimonial-sub-paragraph-text-2-${index + 1}`}
-              style={getElementStyle(`testimonial-sub-paragraph-${index + 1}`)}
-              className={`testimonial-sub-paragraph-${
-                index + 1
-              } text-sm md:min-h-[9rem] `}
-              data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
                 __html: isEdited[
-                  `testimonial-sub-paragraph-text-2-${index + 1}`
+                  `testimonial-icon-text-2-${index + 1}-${uniqueId}`
                 ]
-                  ? document.getElementById(
-                      `testimonial-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `testimonial-sub-paragraph-text-2-${index + 1}`
-                    )?.innerHTML || text.customerReviewText[1],
+                  ? elementContent[
+                      `testimonial-icon-text-2-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `testimonial-icon-text-2-${index + 1}-${uniqueId}`
+                    ] || "★★★★★",
+              }}
+            ></p>
+            <h2
+              id={`testimonial-sub-heading-text-2-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `testimonial-sub-heading-${index + 1}`,
+                uniqueId
+              )}
+              className={`testimonial-sub-heading-${
+                index + 1
+              }-${uniqueId} text-base font-semibold`}
+              data-text="Heading"
+              data-uses-dangerously-set-inner-html="true"
+              contentEditable={false}
+              onClick={handleTextClick}
+              dangerouslySetInnerHTML={{
+                __html: isEdited[
+                  `testimonial-sub-heading-text-2-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `testimonial-sub-heading-text-2-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `testimonial-sub-heading-text-2-${index + 1}-${uniqueId}`
+                    ] || "The Most Amazing product ever",
+              }}
+            ></h2>
+            <p
+              id={`testimonial-sub-paragraph-text-2-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `testimonial-sub-paragraph-${index + 1}`,
+                uniqueId
+              )}
+              className={`testimonial-sub-paragraph-${
+                index + 1
+              }-${uniqueId} text-sm md:min-h-[9rem] `}
+              data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
+              contentEditable={false}
+              onClick={handleTextClick}
+              dangerouslySetInnerHTML={{
+                __html: isEdited[
+                  `testimonial-sub-paragraph-text-2-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `testimonial-sub-paragraph-text-2-${
+                        index + 1
+                      }-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `testimonial-sub-paragraph-text-2-${
+                        index + 1
+                      }-${uniqueId}`
+                    ] || text.customerReviewText[1],
               }}
             ></p>
             <p
-              id={`testimonial-name-header-paragraph-text-2-${index + 1}`}
+              id={`testimonial-name-header-paragraph-text-2-${
+                index + 1
+              }-${uniqueId}`}
               style={getElementStyle(
-                `testimonial-name-header-paragraph-${index + 1}`
+                `testimonial-name-header-paragraph-${index + 1}`,
+                uniqueId
               )}
               className={`testimonial-name-header-paragraph-${
                 index + 1
-              } max-lg:mt-3`}
+              }-${uniqueId} max-lg:mt-3`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {isEdited[`testimonial-name-header-paragraph-text-2-${index + 1}`]
-                ? document.getElementById(
-                    `testimonial-name-header-paragraph-text-2-${index + 1}`
-                  )?.innerText
-                : document.getElementById(
-                    `testimonial-name-header-paragraph-text-2-${index + 1}`
-                  )?.innerText || "Gabriel - Founder"}
+              {isEdited[
+                `testimonial-name-header-paragraph-text-2-${
+                  index + 1
+                }-${uniqueId}`
+              ]
+                ? elementContent[
+                    `testimonial-name-header-paragraph-text-2-${
+                      index + 1
+                    }-${uniqueId}`
+                  ]
+                : elementContent[
+                    `testimonial-name-header-paragraph-text-2-${
+                      index + 1
+                    }-${uniqueId}`
+                  ] || "Gabriel - Founder"}
             </p>
           </div>
           <div className="flex flex-col gap-1 w-[30%] max-[600px]:w-[90%]">
             <p
-              id={`testimonial-icon-text-3-${index + 1}`}
-              style={getElementStyle(`testimonial-icon-${index + 1}`)}
-              className={`testimonial-icon-${index + 1}`}
+              id={`testimonial-icon-text-3-${index + 1}-${uniqueId}`}
+              style={getElementStyle(`testimonial-icon-${index + 1}`, uniqueId)}
+              className={`testimonial-icon-${index + 1}-${uniqueId}`}
               data-text="Type a paragraph"
-              contentEditable={false}
-              onClick={handleTextClick}
-              dangerouslySetInnerHTML={{
-                __html: isEdited[`testimonial-icon-text-3-${index + 1}`]
-                  ? document.getElementById(
-                      `testimonial-icon-text-3-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `testimonial-icon-text-3-${index + 1}`
-                    )?.innerHTML || "★★★★★",
-              }}
-            ></p>
-            <h2
-              id={`testimonial-sub-heading-text-3-${index + 1}`}
-              style={getElementStyle(`testimonial-sub-heading-${index + 1}`)}
-              className={`testimonial-sub-heading-${
-                index + 1
-              } text-base font-semibold`}
-              data-text="Heading"
-              contentEditable={false}
-              onClick={handleTextClick}
-              dangerouslySetInnerHTML={{
-                __html: isEdited[`testimonial-sub-heading-text-3-${index + 1}`]
-                  ? document.getElementById(
-                      `testimonial-sub-heading-text-3-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `testimonial-sub-heading-text-3-${index + 1}`
-                    )?.innerHTML || "The Most Amazing product ever",
-              }}
-            ></h2>
-            <p
-              id={`testimonial-sub-paragraph-text-3-${index + 1}`}
-              style={getElementStyle(`testimonial-sub-paragraph-${index + 1}`)}
-              className={`testimonial-sub-paragraph-${
-                index + 1
-              } text-sm md:min-h-[9rem] `}
-              data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
                 __html: isEdited[
-                  `testimonial-sub-paragraph-text-3-${index + 1}`
+                  `testimonial-icon-text-3-${index + 1}-${uniqueId}`
                 ]
-                  ? document.getElementById(
-                      `testimonial-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML
-                  : document.getElementById(
-                      `testimonial-sub-paragraph-text-3-${index + 1}`
-                    )?.innerHTML || text.customerReviewText[2],
+                  ? elementContent[
+                      `testimonial-icon-text-3-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `testimonial-icon-text-3-${index + 1}-${uniqueId}`
+                    ] || "★★★★★",
+              }}
+            ></p>
+            <h2
+              id={`testimonial-sub-heading-text-3-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `testimonial-sub-heading-${index + 1}`,
+                uniqueId
+              )}
+              className={`testimonial-sub-heading-${
+                index + 1
+              }-${uniqueId} text-base font-semibold`}
+              data-text="Heading"
+              data-uses-dangerously-set-inner-html="true"
+              contentEditable={false}
+              onClick={handleTextClick}
+              dangerouslySetInnerHTML={{
+                __html: isEdited[
+                  `testimonial-sub-heading-text-3-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `testimonial-sub-heading-text-3-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `testimonial-sub-heading-text-3-${index + 1}-${uniqueId}`
+                    ] || "The Most Amazing product ever",
+              }}
+            ></h2>
+            <p
+              id={`testimonial-sub-paragraph-text-3-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `testimonial-sub-paragraph-${index + 1}`,
+                uniqueId
+              )}
+              className={`testimonial-sub-paragraph-${
+                index + 1
+              }-${uniqueId} text-sm md:min-h-[9rem] `}
+              data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
+              contentEditable={false}
+              onClick={handleTextClick}
+              dangerouslySetInnerHTML={{
+                __html: isEdited[
+                  `testimonial-sub-paragraph-text-3-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `testimonial-sub-paragraph-text-3-${
+                        index + 1
+                      }-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `testimonial-sub-paragraph-text-3-${
+                        index + 1
+                      }-${uniqueId}`
+                    ] || text.customerReviewText[2],
               }}
             ></p>
             <p
-              id={`testimonial-name-header-paragraph-text-3-${index + 1}`}
+              id={`testimonial-name-header-paragraph-text-3-${
+                index + 1
+              }-${uniqueId}`}
               style={getElementStyle(
-                `testimonial-name-header-paragraph-${index + 1}`
+                `testimonial-name-header-paragraph-${index + 1}`,
+                uniqueId
               )}
               className={`testimonial-name-header-paragraph-${
                 index + 1
-              } max-lg:mt-3`}
+              }-${uniqueId} max-lg:mt-3`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {isEdited[`testimonial-name-header-paragraph-text-3-${index + 1}`]
-                ? document.getElementById(
-                    `testimonial-name-header-paragraph-text-3-${index + 1}`
-                  )?.innerText
-                : document.getElementById(
-                    `testimonial-name-header-paragraph-text-3-${index + 1}`
-                  )?.innerText || "Gabriel - Founder"}
+              {isEdited[
+                `testimonial-name-header-paragraph-text-3-${
+                  index + 1
+                }-${uniqueId}`
+              ]
+                ? elementContent[
+                    `testimonial-name-header-paragraph-text-3-${
+                      index + 1
+                    }-${uniqueId}`
+                  ]
+                : elementContent[
+                    `testimonial-name-header-paragraph-text-3-${
+                      index + 1
+                    }-${uniqueId}`
+                  ] || "Gabriel - Founder"}
             </p>
           </div>
         </div>
@@ -667,40 +862,45 @@ export const testimonialComponent = ({
     <section
       className="py-10"
       onClick={handleDivClick}
-      id={`testimonial-section-${index + 1}`}
-      style={getStyle(`testimonial-section-${index + 1}`)}
+      id={`testimonial-section-${index + 1}-${uniqueId}`}
+      style={getStyle(`testimonial-section-${index + 1}`, uniqueId)}
     >
       <div className="py-32 text-black w-[90%] max-w-[1000px] mx-auto bg-white border-solid shadow-xl rounded-lg p-5">
         <h1
-          id={`testimonial-heading-${index + 1}`}
-          style={getElementStyle(`testimonial-heading-${index + 1}`)}
+          id={`testimonial-heading-${index + 1}-${uniqueId}`}
+          style={getElementStyle(`testimonial-heading-${index + 1}`, uniqueId)}
           className={`testimonial-heading-${
             index + 1
-          } text-3xl font-semibold capitalize mb-5 `}
+          }-${uniqueId} text-3xl font-semibold capitalize mb-5 `}
           data-text="Heading"
+          data-uses-dangerously-set-inner-html="true"
           contentEditable={false}
           onClick={handleTextClick}
           dangerouslySetInnerHTML={{
-            __html: isEdited[`testimonial-heading-${index + 1}`]
-              ? document.getElementById(`testimonial-heading-${index + 1}`)
-                  ?.innerHTML
-              : document.getElementById(`testimonial-heading-${index + 1}`)
-                  ?.innerHTML || text.customerHeader[0],
+            __html: isEdited[`testimonial-heading-${index + 1}-${uniqueId}`]
+              ? elementContent[`testimonial-heading-${index + 1}-${uniqueId}`]
+              : elementContent[
+                  `testimonial-heading-${index + 1}-${uniqueId}`
+                ] || text.customerHeader[0],
           }}
         ></h1>
         <p
-          id={`testimonial-paragraph-${index + 1}`}
-          style={getElementStyle(`testimonial-paragraph-${index + 1}`)}
-          className={`testimonial-paragraph-${index + 1} text-xl `}
+          id={`testimonial-paragraph-${index + 1}-${uniqueId}`}
+          style={getElementStyle(
+            `testimonial-paragraph-${index + 1}`,
+            uniqueId
+          )}
+          className={`testimonial-paragraph-${index + 1}-${uniqueId} text-xl `}
           data-text="Type a paragraph"
+          data-uses-dangerously-set-inner-html="true"
           contentEditable={false}
           onClick={handleTextClick}
           dangerouslySetInnerHTML={{
-            __html: isEdited[`testimonial-paragraph-${index + 1}`]
-              ? document.getElementById(`testimonial-paragraph-${index + 1}`)
-                  ?.innerHTML
-              : document.getElementById(`testimonial-paragraph-${index + 1}`)
-                  ?.innerHTML || text.customerReviewText[0],
+            __html: isEdited[`testimonial-paragraph-${index + 1}-${uniqueId}`]
+              ? elementContent[`testimonial-paragraph-${index + 1}-${uniqueId}`]
+              : elementContent[
+                  `testimonial-paragraph-${index + 1}-${uniqueId}`
+                ] || text.customerReviewText[0],
           }}
         ></p>
 
@@ -712,38 +912,48 @@ export const testimonialComponent = ({
           />
           <div className="text-sm font-semibold">
             <p
-              id={`testimonial-name-header-paragraph-${index + 1}`}
+              id={`testimonial-name-header-paragraph-${index + 1}-${uniqueId}`}
               style={getElementStyle(
-                `testimonial-name-header-paragraph-${index + 1}`
+                `testimonial-name-header-paragraph-${index + 1}`,
+                uniqueId
               )}
-              className={`testimonial-name-header-paragraph-${index + 1}`}
+              className={`testimonial-name-header-paragraph-${
+                index + 1
+              }-${uniqueId}`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {isEdited[`testimonial-name-header-paragraph-${index + 1}`]
-                ? document.getElementById(
-                    `testimonial-name-header-paragraph-${index + 1}`
-                  )?.innerText
-                : document.getElementById(
-                    `testimonial-name-header-paragraph-${index + 1}`
-                  )?.innerText || "Gabriel"}
+              {isEdited[
+                `testimonial-name-header-paragraph-${index + 1}-${uniqueId}`
+              ]
+                ? elementContent[
+                    `testimonial-name-header-paragraph-${index + 1}-${uniqueId}`
+                  ]
+                : elementContent[
+                    `testimonial-name-header-paragraph-${index + 1}-${uniqueId}`
+                  ] || "Gabriel"}
             </p>
             <p
-              id={`testimonial-name-paragraph-${index + 1}`}
-              style={getElementStyle(`testimonial-name-paragraph-${index + 1}`)}
-              className={`testimonial-name-paragraph-${index + 1}`}
+              id={`testimonial-name-paragraph-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `testimonial-name-paragraph-${index + 1}`,
+                uniqueId
+              )}
+              className={`testimonial-name-paragraph-${index + 1}-${uniqueId}`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {isEdited[`testimonial-name-paragraph-${index + 1}`]
-                ? document.getElementById(
-                    `testimonial-name-paragraph-${index + 1}`
-                  )?.innerText
-                : document.getElementById(
-                    `testimonial-name-paragraph-${index + 1}`
-                  )?.innerText || "Founder QuickUI"}
+              {isEdited[`testimonial-name-paragraph-${index + 1}-${uniqueId}`]
+                ? elementContent[
+                    `testimonial-name-paragraph-${index + 1}-${uniqueId}`
+                  ]
+                : elementContent[
+                    `testimonial-name-paragraph-${index + 1}-${uniqueId}`
+                  ] || "Founder QuickUI"}
             </p>
           </div>
         </div>
@@ -752,40 +962,47 @@ export const testimonialComponent = ({
     <section
       className="py-10"
       onClick={handleDivClick}
-      id={`testimonial-section-${index + 1}`}
-      style={getStyle(`testimonial-section-${index + 1}`)}
+      id={`testimonial-section-${index + 1}-${uniqueId}`}
+      style={getStyle(`testimonial-section-${index + 1}`, uniqueId)}
     >
       <div className="py-32 text-black w-[90%] max-w-[1000px] mx-auto bg-white border-solid shadow-xl rounded-lg p-5">
         <h1
-          id={`testimonial-heading-${index + 1}`}
-          style={getElementStyle(`testimonial-heading-${index + 1}`)}
+          id={`testimonial-heading-${index + 1}-${uniqueId}`}
+          style={getElementStyle(`testimonial-heading-${index + 1}`, uniqueId)}
           className={`testimonial-heading-${
             index + 1
-          } text-center text-3xl font-semibold capitalize mb-5 `}
+          }-${uniqueId} text-center text-3xl font-semibold capitalize mb-5 `}
           data-text="Heading"
+          data-uses-dangerously-set-inner-html="true"
           contentEditable={false}
           onClick={handleTextClick}
           dangerouslySetInnerHTML={{
-            __html: isEdited[`testimonial-heading-${index + 1}`]
-              ? document.getElementById(`testimonial-heading-${index + 1}`)
-                  ?.innerHTML
-              : document.getElementById(`testimonial-heading-${index + 1}`)
-                  ?.innerHTML || text.customerHeader[0],
+            __html: isEdited[`testimonial-heading-${index + 1}-${uniqueId}`]
+              ? elementContent[`testimonial-heading-${index + 1}-${uniqueId}`]
+              : elementContent[
+                  `testimonial-heading-${index + 1}-${uniqueId}`
+                ] || text.customerHeader[0],
           }}
         ></h1>
         <p
-          id={`testimonial-paragraph-${index + 1}`}
-          style={getElementStyle(`testimonial-paragraph-${index + 1}`)}
-          className={`testimonial-paragraph-${index + 1} text-center text-xl `}
+          id={`testimonial-paragraph-${index + 1}-${uniqueId}`}
+          style={getElementStyle(
+            `testimonial-paragraph-${index + 1}`,
+            uniqueId
+          )}
+          className={`testimonial-paragraph-${
+            index + 1
+          }-${uniqueId} text-center text-xl `}
           data-text="Type a paragraph"
+          data-uses-dangerously-set-inner-html="true"
           contentEditable={false}
           onClick={handleTextClick}
           dangerouslySetInnerHTML={{
-            __html: isEdited[`testimonial-paragraph-${index + 1}`]
-              ? document.getElementById(`testimonial-paragraph-${index + 1}`)
-                  ?.innerHTML
-              : document.getElementById(`testimonial-paragraph-${index + 1}`)
-                  ?.innerHTML || text.customerReviewText[0],
+            __html: isEdited[`testimonial-paragraph-${index + 1}-${uniqueId}`]
+              ? elementContent[`testimonial-paragraph-${index + 1}-${uniqueId}`]
+              : elementContent[
+                  `testimonial-paragraph-${index + 1}-${uniqueId}`
+                ] || text.customerReviewText[0],
           }}
         ></p>
 
@@ -797,38 +1014,48 @@ export const testimonialComponent = ({
           />
           <div className="text-sm font-semibold">
             <p
-              id={`testimonial-name-header-paragraph-${index + 1}`}
+              id={`testimonial-name-header-paragraph-${index + 1}-${uniqueId}`}
               style={getElementStyle(
-                `testimonial-name-header-paragraph-${index + 1}`
+                `testimonial-name-header-paragraph-${index + 1}`,
+                uniqueId
               )}
-              className={`testimonial-name-header-paragraph-${index + 1}`}
+              className={`testimonial-name-header-paragraph-${
+                index + 1
+              }-${uniqueId}`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {isEdited[`testimonial-name-header-paragraph-${index + 1}`]
-                ? document.getElementById(
-                    `testimonial-name-header-paragraph-${index + 1}`
-                  )?.innerText
-                : document.getElementById(
-                    `testimonial-name-header-paragraph-${index + 1}`
-                  )?.innerText || "Gabriel"}
+              {isEdited[
+                `testimonial-name-header-paragraph-${index + 1}-${uniqueId}`
+              ]
+                ? elementContent[
+                    `testimonial-name-header-paragraph-${index + 1}-${uniqueId}`
+                  ]
+                : elementContent[
+                    `testimonial-name-header-paragraph-${index + 1}-${uniqueId}`
+                  ] || "Gabriel"}
             </p>
             <p
-              id={`testimonial-name-paragraph-${index + 1}`}
-              style={getElementStyle(`testimonial-name-paragraph-${index + 1}`)}
-              className={`testimonial-name-paragraph-${index + 1}`}
+              id={`testimonial-name-paragraph-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `testimonial-name-paragraph-${index + 1}`,
+                uniqueId
+              )}
+              className={`testimonial-name-paragraph-${index + 1}-${uniqueId}`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {isEdited[`testimonial-name-paragraph-${index + 1}`]
-                ? document.getElementById(
-                    `testimonial-name-paragraph-${index + 1}`
-                  )?.innerText
-                : document.getElementById(
-                    `testimonial-name-paragraph-${index + 1}`
-                  )?.innerText || "Founder QuickUI"}
+              {isEdited[`testimonial-name-paragraph-${index + 1}-${uniqueId}`]
+                ? elementContent[
+                    `testimonial-name-paragraph-${index + 1}-${uniqueId}`
+                  ]
+                : elementContent[
+                    `testimonial-name-paragraph-${index + 1}-${uniqueId}`
+                  ] || "Founder QuickUI"}
             </p>
           </div>
         </div>
@@ -836,40 +1063,45 @@ export const testimonialComponent = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id={`testimonial-section-${index + 1}`}
-      style={getStyle(`testimonial-section-${index + 1}`)}
+      id={`testimonial-section-${index + 1}-${uniqueId}`}
+      style={getStyle(`testimonial-section-${index + 1}`, uniqueId)}
     >
       <div className="py-32 text-black w-[90%] max-w-[1000px] mx-auto">
         <h1
-          id={`testimonial-heading-${index + 1}`}
-          style={getElementStyle(`testimonial-heading-${index + 1}`)}
+          id={`testimonial-heading-${index + 1}-${uniqueId}`}
+          style={getElementStyle(`testimonial-heading-${index + 1}`, uniqueId)}
           className={`testimonial-heading-${
             index + 1
-          } text-3xl font-semibold capitalize mb-5 `}
+          }-${uniqueId} text-3xl font-semibold capitalize mb-5 `}
           data-text="Heading"
+          data-uses-dangerously-set-inner-html="true"
           contentEditable={false}
           onClick={handleTextClick}
           dangerouslySetInnerHTML={{
-            __html: isEdited[`testimonial-heading-${index + 1}`]
-              ? document.getElementById(`testimonial-heading-${index + 1}`)
-                  ?.innerHTML
-              : document.getElementById(`testimonial-heading-${index + 1}`)
-                  ?.innerHTML || text.customerHeader[0],
+            __html: isEdited[`testimonial-heading-${index + 1}-${uniqueId}`]
+              ? elementContent[`testimonial-heading-${index + 1}-${uniqueId}`]
+              : elementContent[
+                  `testimonial-heading-${index + 1}-${uniqueId}`
+                ] || text.customerHeader[0],
           }}
         ></h1>
         <p
-          id={`testimonial-paragraph-${index + 1}`}
-          style={getElementStyle(`testimonial-paragraph-${index + 1}`)}
-          className={`testimonial-paragraph-${index + 1} text-xl `}
+          id={`testimonial-paragraph-${index + 1}-${uniqueId}`}
+          style={getElementStyle(
+            `testimonial-paragraph-${index + 1}`,
+            uniqueId
+          )}
+          className={`testimonial-paragraph-${index + 1}-${uniqueId} text-xl `}
           data-text="Type a paragraph"
+          data-uses-dangerously-set-inner-html="true"
           contentEditable={false}
           onClick={handleTextClick}
           dangerouslySetInnerHTML={{
-            __html: isEdited[`testimonial-paragraph-${index + 1}`]
-              ? document.getElementById(`testimonial-paragraph-${index + 1}`)
-                  ?.innerHTML
-              : document.getElementById(`testimonial-paragraph-${index + 1}`)
-                  ?.innerHTML || text.customerReviewText[0],
+            __html: isEdited[`testimonial-paragraph-${index + 1}-${uniqueId}`]
+              ? elementContent[`testimonial-paragraph-${index + 1}-${uniqueId}`]
+              : elementContent[
+                  `testimonial-paragraph-${index + 1}-${uniqueId}`
+                ] || text.customerReviewText[0],
           }}
         ></p>
 
@@ -881,38 +1113,48 @@ export const testimonialComponent = ({
           />
           <div className="text-sm font-semibold">
             <p
-              id={`testimonial-name-header-paragraph-${index + 1}`}
+              id={`testimonial-name-header-paragraph-${index + 1}-${uniqueId}`}
               style={getElementStyle(
-                `testimonial-name-header-paragraph-${index + 1}`
+                `testimonial-name-header-paragraph-${index + 1}`,
+                uniqueId
               )}
-              className={`testimonial-name-header-paragraph-${index + 1}`}
+              className={`testimonial-name-header-paragraph-${
+                index + 1
+              }-${uniqueId}`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {isEdited[`testimonial-name-header-paragraph-${index + 1}`]
-                ? document.getElementById(
-                    `testimonial-name-header-paragraph-${index + 1}`
-                  )?.innerText
-                : document.getElementById(
-                    `testimonial-name-header-paragraph-${index + 1}`
-                  )?.innerText || "Gabriel"}
+              {isEdited[
+                `testimonial-name-header-paragraph-${index + 1}-${uniqueId}`
+              ]
+                ? elementContent[
+                    `testimonial-name-header-paragraph-${index + 1}-${uniqueId}`
+                  ]
+                : elementContent[
+                    `testimonial-name-header-paragraph-${index + 1}-${uniqueId}`
+                  ] || "Gabriel"}
             </p>
             <p
-              id={`testimonial-name-paragraph-${index + 1}`}
-              style={getElementStyle(`testimonial-name-paragraph-${index + 1}`)}
-              className={`testimonial-name-paragraph-${index + 1}`}
+              id={`testimonial-name-paragraph-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `testimonial-name-paragraph-${index + 1}`,
+                uniqueId
+              )}
+              className={`testimonial-name-paragraph-${index + 1}-${uniqueId}`}
               data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {isEdited[`testimonial-name-paragraph-${index + 1}`]
-                ? document.getElementById(
-                    `testimonial-name-paragraph-${index + 1}`
-                  )?.innerText
-                : document.getElementById(
-                    `testimonial-name-paragraph-${index + 1}`
-                  )?.innerText || "Founder QuickUI"}
+              {isEdited[`testimonial-name-paragraph-${index + 1}-${uniqueId}`]
+                ? elementContent[
+                    `testimonial-name-paragraph-${index + 1}-${uniqueId}`
+                  ]
+                : elementContent[
+                    `testimonial-name-paragraph-${index + 1}-${uniqueId}`
+                  ] || "Founder QuickUI"}
             </p>
           </div>
         </div>
@@ -920,8 +1162,8 @@ export const testimonialComponent = ({
     </section>,
     <section
       onClick={handleDivClick}
-      id={`testimonial-section-${index + 1}`}
-      style={getStyle(`testimonial-section-${index + 1}`)}
+      id={`testimonial-section-${index + 1}-${uniqueId}`}
+      style={getStyle(`testimonial-section-${index + 1}`, uniqueId)}
     >
       <div
         className={`${
@@ -937,37 +1179,47 @@ export const testimonialComponent = ({
         </div>
         <div className="">
           <h1
-            id={`testimonial-heading-${index + 1}`}
-            style={getElementStyle(`testimonial-heading-${index + 1}`)}
+            id={`testimonial-heading-${index + 1}-${uniqueId}`}
+            style={getElementStyle(
+              `testimonial-heading-${index + 1}`,
+              uniqueId
+            )}
             className={`testimonial-heading-${
               index + 1
-            } text-3xl font-semibold capitalize mb-3 `}
+            }-${uniqueId} text-3xl font-semibold capitalize mb-3 `}
             data-text="Heading"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
-              __html: isEdited[`testimonial-heading-${index + 1}`]
-                ? document.getElementById(`testimonial-heading-${index + 1}`)
-                    ?.innerHTML
-                : document.getElementById(`testimonial-heading-${index + 1}`)
-                    ?.innerHTML || text.customerHeader[0],
+              __html: isEdited[`testimonial-heading-${index + 1}-${uniqueId}`]
+                ? elementContent[`testimonial-heading-${index + 1}-${uniqueId}`]
+                : elementContent[
+                    `testimonial-heading-${index + 1}-${uniqueId}`
+                  ] || text.customerHeader[0],
             }}
           ></h1>
           <p
-            id={`testimonial-paragraph-${index + 1}`}
-            style={getElementStyle(`testimonial-paragraph-${index + 1}`)}
+            id={`testimonial-paragraph-${index + 1}-${uniqueId}`}
+            style={getElementStyle(
+              `testimonial-paragraph-${index + 1}`,
+              uniqueId
+            )}
             className={`testimonial-paragraph-${
               index + 1
-            } text-xl max-w-[700px]`}
+            }-${uniqueId} text-xl max-w-[700px]`}
             data-text="Type a paragraph"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
-              __html: isEdited[`testimonial-paragraph-${index + 1}`]
-                ? document.getElementById(`testimonial-paragraph-${index + 1}`)
-                    ?.innerHTML
-                : document.getElementById(`testimonial-paragraph-${index + 1}`)
-                    ?.innerHTML || text.customerReviewText[0],
+              __html: isEdited[`testimonial-paragraph-${index + 1}-${uniqueId}`]
+                ? elementContent[
+                    `testimonial-paragraph-${index + 1}-${uniqueId}`
+                  ]
+                : elementContent[
+                    `testimonial-paragraph-${index + 1}-${uniqueId}`
+                  ] || text.customerReviewText[0],
             }}
           ></p>
         </div>
@@ -976,8 +1228,8 @@ export const testimonialComponent = ({
     <section
       className="py-10"
       onClick={handleDivClick}
-      id={`testimonial-section-${index + 1}`}
-      style={getStyle(`testimonial-section-${index + 1}`)}
+      id={`testimonial-section-${index + 1}-${uniqueId}`}
+      style={getStyle(`testimonial-section-${index + 1}`, uniqueId)}
     >
       <div
         className={`${
@@ -993,37 +1245,47 @@ export const testimonialComponent = ({
         </div>
         <div className="">
           <h1
-            id={`testimonial-heading-${index + 1}`}
-            style={getElementStyle(`testimonial-heading-${index + 1}`)}
+            id={`testimonial-heading-${index + 1}-${uniqueId}`}
+            style={getElementStyle(
+              `testimonial-heading-${index + 1}`,
+              uniqueId
+            )}
             className={`testimonial-heading-${
               index + 1
-            } text-3xl font-semibold capitalize mb-3 `}
+            }-${uniqueId} text-3xl font-semibold capitalize mb-3 `}
             data-text="Heading"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
-              __html: isEdited[`testimonial-heading-${index + 1}`]
-                ? document.getElementById(`testimonial-heading-${index + 1}`)
-                    ?.innerHTML
-                : document.getElementById(`testimonial-heading-${index + 1}`)
-                    ?.innerHTML || text.customerHeader[0],
+              __html: isEdited[`testimonial-heading-${index + 1}-${uniqueId}`]
+                ? elementContent[`testimonial-heading-${index + 1}-${uniqueId}`]
+                : elementContent[
+                    `testimonial-heading-${index + 1}-${uniqueId}`
+                  ] || text.customerHeader[0],
             }}
           ></h1>
           <p
-            id={`testimonial-paragraph-${index + 1}`}
-            style={getElementStyle(`testimonial-paragraph-${index + 1}`)}
+            id={`testimonial-paragraph-${index + 1}-${uniqueId}`}
+            style={getElementStyle(
+              `testimonial-paragraph-${index + 1}`,
+              uniqueId
+            )}
             className={`testimonial-paragraph-${
               index + 1
-            } text-xl max-w-[700px]`}
+            }-${uniqueId} text-xl max-w-[700px]`}
             data-text="Type a paragraph"
+            data-uses-dangerously-set-inner-html="true"
             contentEditable={false}
             onClick={handleTextClick}
             dangerouslySetInnerHTML={{
-              __html: isEdited[`testimonial-paragraph-${index + 1}`]
-                ? document.getElementById(`testimonial-paragraph-${index + 1}`)
-                    ?.innerHTML
-                : document.getElementById(`testimonial-paragraph-${index + 1}`)
-                    ?.innerHTML || text.customerReviewText[0],
+              __html: isEdited[`testimonial-paragraph-${index + 1}-${uniqueId}`]
+                ? elementContent[
+                    `testimonial-paragraph-${index + 1}-${uniqueId}`
+                  ]
+                : elementContent[
+                    `testimonial-paragraph-${index + 1}-${uniqueId}`
+                  ] || text.customerReviewText[0],
             }}
           ></p>
         </div>

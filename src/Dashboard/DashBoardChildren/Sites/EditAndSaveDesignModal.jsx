@@ -26,7 +26,7 @@ const EditAndSaveDesignModal = () => {
     undo: false,
   });
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
-  const [lastDeletedElement, setLastDeletedElement] = useState(null);
+  const [deletedElements, setDeletedElements] = useState([]);
 
   useEffect(() => {
     if (elements.length === 1) {
@@ -46,7 +46,6 @@ const EditAndSaveDesignModal = () => {
     elementString = elementString.replace(/<img([^>]*)>/g, "<img$1 />");
     elementString = elementString.replace(/<path([^>]*)>/g, "<path$1></path>");
 
-    // console.log(elementString);
     setDisplayCode(elementString);
     setDisplayEditModal(true);
     setSelectedItemIndex(index);
@@ -83,7 +82,10 @@ const EditAndSaveDesignModal = () => {
   const handleDeleteElement = (index) => {
     setElements((prevElements) => {
       const deletedElement = prevElements[index];
-      setLastDeletedElement({ element: deletedElement, index });
+      setDeletedElements((prev) => [
+        ...prev,
+        { element: deletedElement, index },
+      ]);
       return prevElements.filter((_, i) => i !== index);
     });
     setSelectedItemIndex(null);
@@ -92,18 +94,15 @@ const EditAndSaveDesignModal = () => {
   };
 
   const handleUndo = () => {
-    if (lastDeletedElement) {
+    if (deletedElements.length > 0) {
+      const lastDeleted = deletedElements[deletedElements.length - 1];
       setElements((prevElements) => {
         const newElements = [...prevElements];
-        newElements.splice(
-          lastDeletedElement.index,
-          0,
-          lastDeletedElement.element
-        );
+        newElements.splice(lastDeleted.index, 0, lastDeleted.element);
         return newElements;
       });
-      setSelectedItemIndex(lastDeletedElement.index);
-      setLastDeletedElement(null);
+      setSelectedItemIndex(lastDeleted.index);
+      setDeletedElements((prev) => prev.slice(0, -1));
     }
   };
 
@@ -121,7 +120,7 @@ const EditAndSaveDesignModal = () => {
           {selectedItemIndex === idx &&
             selectedItemIndex !== 0 &&
             selectedItemIndex !== elements.length - 1 && (
-              <div className="absolute top-0 left-0 text-3xl flex justify-between gap-3 px-1 py-1 border-black border-[1px] w-[150px] bg-white">
+              <div className={`max-[1000px]:hidden absolute top-0 left-0 text-3xl flex justify-between gap-3 px-1 py-1 border-black border-[1px] w-[150px] bg-white`}>
                 <div
                   className="relative"
                   onClick={() => moveElementUp(idx)}
