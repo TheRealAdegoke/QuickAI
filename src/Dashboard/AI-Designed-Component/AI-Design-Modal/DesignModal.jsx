@@ -15,6 +15,8 @@ const DesignModal = () => {
     selectedIdea,
     handleUserData,
     clearDesigns,
+    handleGenerateNav,
+    setShowDesignModal
   } = useContext(DashContext);
   const scrollRef = useRef(null);
   const photoRef = useRef(null);
@@ -163,14 +165,22 @@ const DesignModal = () => {
           showDesignModal ? "block" : "hidden"
         } w-full mt-5 max-md:mt-0 mx-10 h-[93vh] max-md:h-[89vh] max-[499px]:mx-4 overflow-hidden`}
       >
-        <div className="mb-5 flex justify-end items-end">
+        <div className="mb-5 flex justify-end gap-3 items-end">
+          <button
+            type="submit"
+            onClick={() => {
+              setShowDesignModal(false)
+            }}
+            className="text-black bg-white w-[150px] hover:bg-[rgba(255,255,255,0.9)] block p-3 rounded-[5px] font-medium text-center"
+          >
+            Cancel
+          </button>
           {allElementsDisplayed && (
             <Link
               to="/site/manage"
-              type="submit"
               className="text-black bg-white w-[150px] hover:bg-[rgba(255,255,255,0.9)] block p-3 rounded-[5px] font-medium text-center"
             >
-              Edit and Save
+              Edit
             </Link>
           )}
         </div>

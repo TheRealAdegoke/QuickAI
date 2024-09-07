@@ -186,6 +186,12 @@ const EditAndSave = () => {
           <WebLogo />
           <div className="text-white text-xl flex gap-5">
             <button
+              type="submit"
+              className="text-black bg-white w-[150px] hover:bg-[rgba(255,255,255,0.9)] block px-3 py-2 rounded-[5px] font-medium text-center"
+            >
+              Save
+            </button>
+            <button
               className=""
               onClick={() => {
                 setDevMode(!devMode);
