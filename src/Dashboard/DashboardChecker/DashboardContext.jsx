@@ -229,7 +229,14 @@ export const DashboardProvider = ({ children }) => {
   const handleGenerateNav = () => {
     const randomNavIndex = Math.floor(
       Math.random() *
-        navComponents({ text, location, getStyle, getElementStyle }).length
+        navComponents({
+          text,
+          location,
+          getStyle,
+          getElementStyle,
+          isEdited,
+          elementContent,
+        }).length
     );
     const randomHeroIndex = Math.floor(
       Math.random() *

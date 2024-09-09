@@ -98,9 +98,9 @@ export const footerComponent = ({
             isMobile ? "flex-col gap-10" : ""
           } text-[rgb(42,42,47)] flex max-md:flex-col max-md:gap-10 justify-evenly w-[70%]`}
         >
-          <div>
+          <div className="w-[30%]">
             <h2
-              id={`footer-sub-heading-${index + 1}-${uniqueId}`}
+              id={`footer-sub-first-heading-${index + 1}-${uniqueId}`}
               className={`footer-sub-heading-${
                 index + 1
               }-${uniqueId} font-semibold`}
@@ -112,15 +112,15 @@ export const footerComponent = ({
               contentEditable={false}
               onClick={handleTextClick}
             >
-              {isEdited[`footer-sub-heading-${index + 1}-${uniqueId}`]
-                ? elementContent[`footer-sub-heading-${index + 1}-${uniqueId}`]
+              {isEdited[`footer-sub-first-heading-${index + 1}-${uniqueId}`]
+                ? elementContent[`footer-sub-first-heading-${index + 1}-${uniqueId}`]
                 : elementContent[
-                    `footer-sub-heading-${index + 1}-${uniqueId}`
+                    `footer-sub-first-heading-${index + 1}-${uniqueId}`
                   ] || "Features"}
             </h2>
             <div>
               <p
-                id={`footer-sub-paragraph-${index + 1}-${uniqueId}`}
+                id={`footer-sub-paragraph-first-text-1-${index + 1}-${uniqueId}`}
                 className={`footer-sub-paragraph-${
                   index + 1
                 }-${uniqueId} cursor-pointer hover:underline text-sm`}
@@ -132,89 +132,317 @@ export const footerComponent = ({
                 contentEditable={false}
                 onClick={handleTextClick}
               >
-                {isEdited[`footer-sub-paragraph-${index + 1}-${uniqueId}`]
+                {isEdited[
+                  `footer-sub-paragraph-first-text-1-${index + 1}-${uniqueId}`
+                ]
                   ? elementContent[
-                      `footer-sub-paragraph-${index + 1}-${uniqueId}`
+                      `footer-sub-paragraph-first-text-1-${index + 1}-${uniqueId}`
                     ]
                   : elementContent[
-                      `footer-sub-paragraph-${index + 1}-${uniqueId}`
+                      `footer-sub-paragraph-first-text-1-${index + 1}-${uniqueId}`
                     ] || "Something Great"}
               </p>
               <p
-                className="cursor-pointer hover:underline text-sm"
+                id={`footer-sub-paragraph-first-text-2-${index + 1}-${uniqueId}`}
+                className={`footer-sub-paragraph-${
+                  index + 1
+                }-${uniqueId} cursor-pointer hover:underline text-sm`}
+                style={getElementStyle(
+                  `footer-sub-paragraph-${index + 1}`,
+                  uniqueId
+                )}
+                data-text="Type a paragraph"
+                contentEditable={false}
                 onClick={handleTextClick}
               >
-                Another Thing
+                {isEdited[
+                  `footer-sub-paragraph-first-text-2-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `footer-sub-paragraph-first-text-2-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `footer-sub-paragraph-first-text-2-${index + 1}-${uniqueId}`
+                    ] || "Another Thing"}
               </p>
               <p
-                className="cursor-pointer hover:underline text-sm"
+                id={`footer-sub-paragraph-first-text-3-${index + 1}-${uniqueId}`}
+                className={`footer-sub-paragraph-${
+                  index + 1
+                }-${uniqueId} cursor-pointer hover:underline text-sm`}
+                style={getElementStyle(
+                  `footer-sub-paragraph-${index + 1}`,
+                  uniqueId
+                )}
+                data-text="Type a paragraph"
+                contentEditable={false}
                 onClick={handleTextClick}
               >
-                So many Features
+                {isEdited[
+                  `footer-sub-paragraph-first-text-3-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `footer-sub-paragraph-first-text-3-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `footer-sub-paragraph-first-text-3-${index + 1}-${uniqueId}`
+                    ] || "So many Features"}
               </p>
               <p
-                className="cursor-pointer hover:underline text-sm"
+                id={`footer-sub-paragraph-first-text-4-${index + 1}-${uniqueId}`}
+                className={`footer-sub-paragraph-${
+                  index + 1
+                }-${uniqueId} cursor-pointer hover:underline text-sm`}
+                style={getElementStyle(
+                  `footer-sub-paragraph-${index + 1}`,
+                  uniqueId
+                )}
+                data-text="Type a paragraph"
+                contentEditable={false}
                 onClick={handleTextClick}
               >
-                It's Amazing
+                {isEdited[
+                  `footer-sub-paragraph-first-text-4-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `footer-sub-paragraph-first-text-4-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `footer-sub-paragraph-first-text-4-${index + 1}-${uniqueId}`
+                    ] || "It's Amazing"}
               </p>
             </div>
           </div>
 
-          <div>
-            <h2 className="font-semibold" onClick={handleTextClick}>
-              Company
+          <div className="w-[30%]">
+            <h2
+              id={`footer-sub-second-heading-${index + 1}-${uniqueId}`}
+              className={`footer-sub-heading-${
+                index + 1
+              }-${uniqueId} font-semibold`}
+              style={getElementStyle(
+                `footer-sub-heading-${index + 1}`,
+                uniqueId
+              )}
+              data-text="Heading"
+              contentEditable={false}
+              onClick={handleTextClick}
+            >
+              {isEdited[`footer-sub-second-heading-${index + 1}-${uniqueId}`]
+                ? elementContent[`footer-sub-second-heading-${index + 1}-${uniqueId}`]
+                : elementContent[
+                    `footer-sub-second-heading-${index + 1}-${uniqueId}`
+                  ] || "Company"}
             </h2>
             <div>
               <p
-                className="cursor-pointer hover:underline text-sm"
+                id={`footer-sub-paragraph-second-text-1-${
+                  index + 1
+                }-${uniqueId}`}
+                className={`footer-sub-paragraph-${
+                  index + 1
+                }-${uniqueId} cursor-pointer hover:underline text-sm`}
+                style={getElementStyle(
+                  `footer-sub-paragraph-${index + 1}`,
+                  uniqueId
+                )}
+                data-text="Type a paragraph"
+                contentEditable={false}
                 onClick={handleTextClick}
               >
-                Blog
+                {isEdited[
+                  `footer-sub-paragraph-second-text-1-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `footer-sub-paragraph-second-text-1-${
+                        index + 1
+                      }-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `footer-sub-paragraph-second-text-1-${
+                        index + 1
+                      }-${uniqueId}`
+                    ] || "Blogs"}
               </p>
               <p
-                className="cursor-pointer hover:underline text-sm"
+                id={`footer-sub-paragraph-second-text-2-${
+                  index + 1
+                }-${uniqueId}`}
+                className={`footer-sub-paragraph-${
+                  index + 1
+                }-${uniqueId} cursor-pointer hover:underline text-sm`}
+                style={getElementStyle(
+                  `footer-sub-paragraph-${index + 1}`,
+                  uniqueId
+                )}
+                data-text="Type a paragraph"
+                contentEditable={false}
                 onClick={handleTextClick}
               >
-                About Us
+                {isEdited[
+                  `footer-sub-paragraph-second-text-2-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `footer-sub-paragraph-second-text-2-${
+                        index + 1
+                      }-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `footer-sub-paragraph-second-text-2-${
+                        index + 1
+                      }-${uniqueId}`
+                    ] || "Contact"}
               </p>
               <p
-                className="cursor-pointer hover:underline text-sm"
+                id={`footer-sub-paragraph-second-text-3-${
+                  index + 1
+                }-${uniqueId}`}
+                className={`footer-sub-paragraph-${
+                  index + 1
+                }-${uniqueId} cursor-pointer hover:underline text-sm`}
+                style={getElementStyle(
+                  `footer-sub-paragraph-${index + 1}`,
+                  uniqueId
+                )}
+                data-text="Type a paragraph"
+                contentEditable={false}
                 onClick={handleTextClick}
               >
-                Contact
+                {isEdited[
+                  `footer-sub-paragraph-second-text-3-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `footer-sub-paragraph-second-text-3-${
+                        index + 1
+                      }-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `footer-sub-paragraph-second-text-3-${
+                        index + 1
+                      }-${uniqueId}`
+                    ] || "About Us"}
               </p>
               <p
-                className="cursor-pointer hover:underline text-sm"
+                id={`footer-sub-paragraph-second-text-4-${
+                  index + 1
+                }-${uniqueId}`}
+                className={`footer-sub-paragraph-${
+                  index + 1
+                }-${uniqueId} cursor-pointer hover:underline text-sm`}
+                style={getElementStyle(
+                  `footer-sub-paragraph-${index + 1}`,
+                  uniqueId
+                )}
+                data-text="Type a paragraph"
+                contentEditable={false}
                 onClick={handleTextClick}
               >
-                Jobs
+                {isEdited[
+                  `footer-sub-paragraph-second-text-4-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `footer-sub-paragraph-second-text-4-${
+                        index + 1
+                      }-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `footer-sub-paragraph-second-text-4-${
+                        index + 1
+                      }-${uniqueId}`
+                    ] || "Jobs"}
               </p>
             </div>
           </div>
 
-          <div>
-            <h2 className="font-semibold" onClick={handleTextClick}>
-              Legal
+          <div className="w-[30%]">
+            <h2
+              id={`footer-sub-third-heading-${index + 1}-${uniqueId}`}
+              className={`footer-sub-heading-${
+                index + 1
+              }-${uniqueId} font-semibold`}
+              style={getElementStyle(
+                `footer-sub-heading-${index + 1}`,
+                uniqueId
+              )}
+              data-text="Heading"
+              contentEditable={false}
+              onClick={handleTextClick}
+            >
+              {isEdited[`footer-sub-third-heading-${index + 1}-${uniqueId}`]
+                ? elementContent[`footer-sub-third-heading-${index + 1}-${uniqueId}`]
+                : elementContent[
+                    `footer-sub-third-heading-${index + 1}-${uniqueId}`
+                  ] || "Legal"}
             </h2>
             <div>
               <p
-                className="cursor-pointer hover:underline text-sm"
+                id={`footer-sub-paragraph-third-text-1-${index + 1}-${uniqueId}`}
+                className={`footer-sub-paragraph-${
+                  index + 1
+                }-${uniqueId} cursor-pointer hover:underline text-sm`}
+                style={getElementStyle(
+                  `footer-sub-paragraph-${index + 1}`,
+                  uniqueId
+                )}
+                data-text="Type a paragraph"
+                contentEditable={false}
                 onClick={handleTextClick}
               >
-                Privacy Policy
+                {isEdited[
+                  `footer-sub-paragraph-third-text-1-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `footer-sub-paragraph-third-text-1-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `footer-sub-paragraph-third-text-1-${index + 1}-${uniqueId}`
+                    ] || "Privacy Policy"}
               </p>
               <p
-                className="cursor-pointer hover:underline text-sm"
+                id={`footer-sub-paragraph-third-text-2-${index + 1}-${uniqueId}`}
+                className={`footer-sub-paragraph-${
+                  index + 1
+                }-${uniqueId} cursor-pointer hover:underline text-sm`}
+                style={getElementStyle(
+                  `footer-sub-paragraph-${index + 1}`,
+                  uniqueId
+                )}
+                data-text="Type a paragraph"
+                contentEditable={false}
                 onClick={handleTextClick}
               >
-                Terms of Use
+                {isEdited[
+                  `footer-sub-paragraph-third-text-2-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `footer-sub-paragraph-third-text-2-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `footer-sub-paragraph-third-text-2-${index + 1}-${uniqueId}`
+                    ] || "Terms of Use"}
               </p>
               <p
-                className="cursor-pointer hover:underline text-sm"
+                id={`footer-sub-paragraph-third-text-3-${index + 1}-${uniqueId}`}
+                className={`footer-sub-paragraph-${
+                  index + 1
+                }-${uniqueId} cursor-pointer hover:underline text-sm`}
+                style={getElementStyle(
+                  `footer-sub-paragraph-${index + 1}`,
+                  uniqueId
+                )}
+                data-text="Type a paragraph"
+                contentEditable={false}
                 onClick={handleTextClick}
               >
-                Cookie Policy
+                {isEdited[
+                  `footer-sub-paragraph-third-text-3-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `footer-sub-paragraph-third-text-3-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `footer-sub-paragraph-third-text-3-${index + 1}-${uniqueId}`
+                    ] || "Cookie Policy"}
               </p>
             </div>
           </div>
