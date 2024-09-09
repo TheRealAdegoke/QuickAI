@@ -19,6 +19,7 @@ import { FAQImages } from "./EditAndSaveComponents/FAQEditComponent";
 import { TeamImages } from "./EditAndSaveComponents/TeamEditComponent";
 import { IoClose } from "react-icons/io5";
 import ComponentCode from "./EditAndSaveComponents/ComponentCode";
+import FooterImages from "./EditAndSaveComponents/FooterEditComponent";
 
 const EditAndSave = () => {
   const {
@@ -383,6 +384,14 @@ const EditAndSave = () => {
                   >
                     Team
                   </button>
+                  <button
+                    className={`${
+                      activeSection.Footer ? "bg-[rgb(7,20,59)]" : ""
+                    } text-left pl-2 py-1 rounded-md`}
+                    onClick={() => setActiveSection({ Footer: true })}
+                  >
+                    Footer
+                  </button>
                 </div>
               </div>
               <div
@@ -402,6 +411,7 @@ const EditAndSave = () => {
                   {activeSection.Testimonial && "Testimonial"}
                   {activeSection.FAQ && "FAQ"}
                   {activeSection.Team && "Team"}
+                  {activeSection.Footer && "Footer"}
                 </div>
 
                 <div className="flex flex-wrap gap-3 justify-evenly px-2 h-[70%] overflow-y-scroll">
@@ -411,7 +421,8 @@ const EditAndSave = () => {
                   {activeSection.Classic && <ClassicalFeaturesImages />}
                   {activeSection.Testimonial && <TestimonialImages />}
                   {activeSection.FAQ && <FAQImages />}
-                  {activeSection.Team && <TeamImages />}
+                  {activeSection.Team && <TeamImages/>}
+                  {activeSection.Footer && <FooterImages />}
                 </div>
               </div>
             </div>

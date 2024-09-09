@@ -101,6 +101,7 @@ export const DashboardProvider = ({ children }) => {
     Testimonial: false,
     FAQ: false,
     Team: false,
+    Footer: false,
   });
   const newElementRef = useRef(null);
   const elementsContainerRef = useRef(null);
@@ -474,7 +475,6 @@ export const DashboardProvider = ({ children }) => {
     }
   };
 
-
   const handleColorClick = (color) => {
     if (selectedElement) {
       updateElementStyle(
@@ -581,7 +581,12 @@ export const DashboardProvider = ({ children }) => {
     });
 
     setTimeout(() => {
-      if (newElementRef.current && elementsContainerRef.current) {
+      if (
+        newElementRef.current &&
+        elementsContainerRef.current &&
+        componentType !== "footer" &&
+        componentType !== "header"
+      ) {
         const container = elementsContainerRef.current;
         const element = newElementRef.current;
         const elementTop = element.offsetTop;

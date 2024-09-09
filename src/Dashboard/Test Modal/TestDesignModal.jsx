@@ -71,11 +71,13 @@ const TestDesignModal = () => {
     handleFocus,
     handleBlur,
     location,
+    uniqueId,
+    elementContent,
     handleDivClick,
-    handleTextClick,
+    index,
     getStyle,
     getElementStyle,
-    index,
+    handleTextClick,
     isEdited,
   } = useContext(DashContext);
   const [clickedText, setClickedText] = useState("");
@@ -173,45 +175,96 @@ const TestDesignModal = () => {
     <main className="bg-white w-full mt-5 max-md:mt-0 mx-10 h-[93vh] max-md:h-[89vh] max-[499px]:mx-4 overflow-scroll overflow-x-hidden pt-14 select-none">
       {/* {element} */}
       <section
-        id="hero-section-3"
-        onClick={function noRefCheck() {}}
-        style={{
-          background: "#ffffff",
-        }}
+        onClick={handleDivClick}
+        id={`hero-section-${index + 1}-${uniqueId}`}
+        style={getStyle(`hero-section-${index + 1}`, uniqueId)}
       >
-        <div className=" py-5 max-w-[1000px] mx-auto flex justify-center max-lg:flex-col">
-          <div className=" text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16">
-            <h1
-              className="hero-heading-3 font-bold xl:text-5xl text-3xl mb-4 break-words"
-              data-text="Heading"
-              id="hero-heading-3"
-              onClick={function noRefCheck() {}}
-              style={{}}
+        <div className="py-24 px-5 text-black">
+          <div className="flex justify-center gap-10 max-lg:flex-col">
+            <div
+              className={`${isMobile ? "hidden" : ""} max-lg:hidden w-[50%]`}
             >
-              Lorem ipsum dolor sit amet
-            </h1>
-            <p
-              className="hero-paragraph-3 font-medium break-words"
-              data-text="Type a paragraph"
-              id="hero-paragraph-3"
-              onClick={function noRefCheck() {}}
-              style={{}}
+              <h1
+                id={`hero-heading-${index + 1}-${uniqueId}`}
+                style={getElementStyle(`hero-heading-${index + 1}`, uniqueId)}
+                className={`hero-heading-${
+                  index + 1
+                }-${uniqueId} text-6xl font-bold max-w-[500px] break-words`}
+                data-text="Heading"
+                
+                contentEditable={false}
+                onClick={handleTextClick}
+              >
+                Lorem ipsum dolor sit amet.
+              </h1>
+
+              <div className="w-[85%] grid grid-cols-3 gap-4 my-10">
+                <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[250px]  p-3 rounded-[8px] col-span-3">
+                  <img
+                    src={testImage}
+                    alt={testImage}
+                    className="rounded-[8px] w-full h-full object-cover"
+                  />
+                </div>
+                <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[200px] p-3 rounded-[8px]">
+                  <img
+                    src={testImage}
+                    alt={testImage}
+                    className="rounded-[8px] w-full h-full object-cover"
+                  />
+                </div>
+                <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[200px]  p-3 rounded-[8px]">
+                  <img
+                    src={testImage}
+                    alt={testImage}
+                    className="rounded-[8px] w-full h-full object-cover"
+                  />
+                </div>
+                <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[200px]  p-3 rounded-[8px]">
+                  <img
+                    src={testImage}
+                    alt={testImage}
+                    className="rounded-[8px] w-full h-full object-cover"
+                  />
+                </div>
+                <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[250px]  p-3 rounded-[8px] col-span-3">
+                  <img
+                    src={testImage}
+                    alt={testImage}
+                    className="rounded-[8px] w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className={`${
+                isMobile ? "max-w-[800px] w-[95%] mx-auto" : ""
+              } max-lg:max-w-[800px] max-lg:w-[95%] max-lg:mx-auto w-[50%]`}
             >
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-              commodo ligula eget dolor. Aenean massa.
-            </p>
-          </div>
-          <div className=" w-[45%] max-lg:w-full mt-10">
-            <div className="w-[260px] mx-auto h-[480px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3">
               <img
-                alt="/src/assets/Default-Card.jpg"
-                className="h-[420px] rounded-[35px] object-cover"
-                src="/src/assets/Default-Card.jpg"
+                src={testImage}
+                alt={testImage}
+                className={`${
+                  isMobile ? "max-w-[800px] w-[95%] h-[400px]" : ""
+                } block max-lg:w-[95%] w-full h-[600px] max-lg:h-[400px] max-lg:max-w-[800px]`}
               />
+              <p
+                id={`hero-paragraph-${index + 1}-${uniqueId}`}
+                style={getElementStyle(`hero-paragraph-${index + 1}`, uniqueId)}
+                className={`hero-paragraph-${index + 1}-${uniqueId} ${
+                  isMobile ? "max-w-[400px]" : ""
+                } my-5 max-lg:max-w-[400px] break-words`}
+                data-text="Type a paragraph"
+                data-uses-dangerously-set-inner-html="true"
+                contentEditable={false}
+                onClick={handleTextClick}
+              >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, doloribus asperiores? Dolorem perspiciatis eum tempora officia, harum incidunt.</p>
+              {/* {buttonIndex !== undefined && buttonElement} */}
             </div>
           </div>
         </div>
       </section>
+      ,
     </main>
   );
 };
