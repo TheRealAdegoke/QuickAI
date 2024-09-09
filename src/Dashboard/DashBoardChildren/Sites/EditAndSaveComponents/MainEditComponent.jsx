@@ -28,7 +28,7 @@ const MainEditComponent = () => {
           </p>
         </div>
 
-        <div className="h-[70v] overflow-y-scroll">
+        <div className="h-[70v] overflow-y-scroll ml-[0.6rem]">
           {buttons.map((id, index) => (
             <Button
               key={`${id}-${index}`}
@@ -50,7 +50,7 @@ const MainEditComponent = () => {
         </div>
 
         <button
-          className="bg-white py-1 px-3 rounded w-[200px] mx-auto block font-medium"
+          className="bg-white py-1 px-3 rounded w-[15vw] mx-auto block font-medium"
           onClick={() => {
             setSectionModal(true);
           }}
