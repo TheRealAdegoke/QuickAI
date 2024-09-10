@@ -12,6 +12,8 @@ import WebPreview from "./src/Dashboard/DashBoardChildren/Sites/WebPreview";
 import Pricing from "./src/Pages/LandingPages/Main/Pricing";
 import { useEffect } from "react";
 import EditAndSave from "./src/Dashboard/DashBoardChildren/Sites/EditAndSave";
+import ProfileSettings from "./src/Dashboard/DashBoardChildren/AccountSettings/ProfileSettings";
+import AccountSettings from "./src/Dashboard/DashBoardChildren/AccountSettings/AccountSettings";
 
 function ScrollToTopOnMount() {
   const { pathname } = useLocation();
@@ -40,7 +42,9 @@ const AppRoutes = () => {
           <Route path="/generate" element={<Generate />} />
           <Route path="/site" element={<Sites />} />
           <Route path="/site/preview/:id" element={<WebPreview />} />
-          <Route path="/site/manage" element={<EditAndSave/>} />
+          <Route path="/site/manage" element={<EditAndSave />} />
+          <Route path="/settings" element={<ProfileSettings />} />
+          <Route path="/account" element={<AccountSettings />} />
         </Routes>
       </BrowserRouter>
     </>
