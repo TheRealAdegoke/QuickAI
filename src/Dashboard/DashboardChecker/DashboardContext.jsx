@@ -226,7 +226,7 @@ export const DashboardProvider = ({ children }) => {
   //   return () => clearTimeout(timeout);
   // }, [geminiResponses, text]);
 
-  const handleGenerateNav = () => {
+  const handleGenerateDesigns = () => {
     const randomNavIndex = Math.floor(
       Math.random() *
         navComponents({
@@ -414,7 +414,7 @@ export const DashboardProvider = ({ children }) => {
       } else {
         setShowDesignModal(true);
       }
-      handleGenerateNav();
+      handleGenerateDesigns();
     } catch (error) {
       console.error(error.response.data.error);
       message.error(error.response.data.error);
@@ -433,6 +433,8 @@ export const DashboardProvider = ({ children }) => {
     setNavIndex(undefined);
     setHeroIndex(undefined);
     setButtonIndex(undefined);
+    setDivStyles({});
+    setElementStyles({});
   };
 
   const updateElementStyle = (className, property, value) => {
@@ -647,7 +649,7 @@ export const DashboardProvider = ({ children }) => {
         handleUserData,
         setGeminiResponses,
         handleGeminiResponses,
-        handleGenerateNav,
+        handleGenerateDesigns,
         setUserInput,
         setSelectedIdea,
         setLoading,

@@ -69,7 +69,6 @@ export const navComponents = ({
         />
 
         <div
-          style={getStyle(`header-section-${index + 1}`, uniqueId)}
           className={`${
             isMobile
               ? "absolute left-0 top-14 w-full h-[400px] px-0"
@@ -228,7 +227,6 @@ export const navComponents = ({
         />
 
         <div
-          style={getStyle(`header-section-${index + 1}`, uniqueId)}
           className={`${
             isMobile
               ? "flex flex-col items-center absolute left-0 top-14 w-full h-[89vh] pt-10"

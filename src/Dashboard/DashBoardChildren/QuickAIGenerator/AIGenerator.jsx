@@ -11,7 +11,8 @@ const AIGenerator = () => {
   const {
     closeSideNav,
     showDesignModal,
-    handleGenerateNav,
+    handleGenerateDesigns,
+    handleGeminiResponses,
     userInput,
     setUserInput,
     selectedIdea,
@@ -49,10 +50,10 @@ const AIGenerator = () => {
     }
   };
 
-  const handleprompt = async (e) => {
+  const handleprompt = (e) => {
     e.preventDefault();
     try {
-      await handleGenerateNav();
+      handleGeminiResponses();
     } catch (error) {
       console.error(error);
     }
@@ -168,7 +169,7 @@ const AIGenerator = () => {
                   )}
                 </button>
               </form>
-              <p className="mt-4">QuickAI content generating is limited!</p>
+              <p className="mt-4">QuickUI content generating is limited!</p>
             </div>
           </div>
         </div>

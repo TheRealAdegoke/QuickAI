@@ -102,7 +102,7 @@ const Register = () => {
 
         <div
           data-aos="zoom-in"
-          className="bg-[rgb(2,8,16)] w-4/5 max-w-[400px] h-auto mx-auto border border-[rgb(64,65,67)] rounded-[8px]"
+          className="bg-[rgb(2,8,16)] w-4/5 max-w-[400px] h-auto mx-auto border border-[rgb(64,65,67)] rounded-[8px] pb-10"
         >
           <form className="px-6" onSubmit={handleRegistration}>
             <div className="mt-4 mb-6">
@@ -182,14 +182,14 @@ const Register = () => {
             </button>
           </form>
 
-          <div className="relative text-[rgb(201,209,217)]">
+          {/* <div className="relative text-[rgb(201,209,217)]">
             <hr className="my-5 border-[rgb(64,65,67)]" />
             <span className="absolute-center bg-[rgb(2,8,16)] flex items-center justify-center rounded-full  w-[40px] text-center h-[40px] text-[1.2rem]">
               or
             </span>
-          </div>
+          </div> */}
 
-          <button
+          {/* <button
             className="w-4/5 lg:w-[350px] mx-auto text-center my-4 hover:bg-[rgb(42,42,47)] py-2 rounded-[5px] flex items-center justify-center gap-2 cursor-pointer border border-[rgb(64,65,67)]"
             onClick={googleRegister}
             disabled={googleLoading}
@@ -206,7 +206,7 @@ const Register = () => {
                 </span>
               </div>
             )}
-          </button>
+          </button> */}
           {errorMessage && (
             <div className="w-4/5 lg:w-[350px] mx-auto text-center my-4 bg-[rgb(253,236,234)] py-2 rounded-[5px] text-[rgb(97,62,55)]">
               {errorMessage}
