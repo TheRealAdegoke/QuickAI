@@ -84,7 +84,7 @@ const Sites = () => {
 
   return (
     <Dashboard>
-      <main className="p-10 overflow-y-scroll h-[95%] max-sm:h-[90%]">
+      <main className="p-10 overflow-y-scroll h-[90%] max-sm:h-[90%]">
         {userData === undefined ? (
           <div className="flex justify-center items-center h-full">
             <ImSpinner6 className="animate-spin text-2xl text-white" />

@@ -163,7 +163,7 @@ const DesignModal = () => {
       <div
         className={`${
           showDesignModal ? "block" : "hidden"
-        } w-full mt-5 max-md:mt-0 mx-10 h-[93vh] max-md:h-[89vh] max-[499px]:mx-4 overflow-hidden`}
+        } w-full mt-0 max-md:mt-0 mx-10 h-[89vh] max-md:h-[89vh] max-[499px]:mx-4 overflow-hidden`}
       >
         <div className="mb-5 flex justify-end gap-3 items-end">
           <button

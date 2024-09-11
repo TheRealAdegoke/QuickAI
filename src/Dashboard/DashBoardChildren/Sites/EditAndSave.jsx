@@ -22,6 +22,7 @@ import ComponentCode from "./EditAndSaveComponents/ComponentCode";
 import FooterImages from "./EditAndSaveComponents/FooterEditComponent";
 
 const EditAndSave = () => {
+  const allowNavigation = useRef(false);
   const {
     isMobile,
     setIsMobile,
@@ -34,7 +35,7 @@ const EditAndSave = () => {
     setCurrentSection,
     displayCode,
     setShowDesignModal,
-    setElementStyles,
+    clearDesigns,
   } = useContext(DashContext);
   const navigate = useNavigate()
   const modalRef = useRef(null);
@@ -142,6 +143,7 @@ const EditAndSave = () => {
        if (window.confirm(message)) {
          // If user confirms, allow navigation
          window.removeEventListener("popstate", onPopState);
+         clearDesigns();
          window.history.back();
        } else {
          // If user cancels, push a new state to prevent navigation
@@ -167,7 +169,7 @@ const EditAndSave = () => {
     );
     if (confirmExit) {
       setShowDesignModal(false);
-      setElementStyles({})
+      clearDesigns();
       navigate("/home")
     }
   };
