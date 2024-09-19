@@ -9,6 +9,7 @@ import { ImSpinner6 } from "react-icons/im";
 import HeroDesignModal from "./HeroDesignModal";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Demo from "../../../assets/Demo.mp4"
 
 const Hero = () => {
   const {
@@ -20,6 +21,7 @@ const Hero = () => {
     selectedIdea,
     setSelectedIdea,
     loading,
+    handleGenerateDesigns,
   } = useContext(DashContext);
   const [text] = useTypewriter({
     words: placeholderText,
@@ -38,10 +40,10 @@ const Hero = () => {
     }
   };
 
-  const handleprompt = async (e) => {
+  const handleprompt = (e) => {
     e.preventDefault();
     try {
-      await handleGeminiResponses();
+      handleGenerateDesigns();
     } catch (error) {
       console.error(error);
     }
@@ -115,7 +117,7 @@ const Hero = () => {
                   ) : (
                     <div
                       className={`${
-                        userInput === ""
+                        userInput.trim() === ""
                           ? "input-btn-gradient-opacity cursor-not-allowed"
                           : "input-btn-gradient"
                       } input-btn-gradient rounded-[8px] py-3 px-3 text-white text-lg font-medium w-[120px]`}
@@ -164,10 +166,7 @@ const Hero = () => {
                     muted
                     className=""
                   >
-                    <source
-                      src="https://res.cloudinary.com/dpyp7innp/video/upload/v1717065164/phone_gif_kd1xia.mp4"
-                      type="video/mp4"
-                    />
+                    <source src={Demo} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </div>
@@ -185,10 +184,7 @@ const Hero = () => {
                     muted
                     className=""
                   >
-                    <source
-                      src="https://res.cloudinary.com/dpyp7innp/video/upload/v1717065185/desktop_gif_fwxrfk.mp4"
-                      type="video/mp4"
-                    />
+                    <source src={Demo} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </div>
@@ -209,10 +205,7 @@ const Hero = () => {
                   showDesignModal ? "hidden" : "hidden max-lg:block"
                 } `}
               >
-                <source
-                  src="https://res.cloudinary.com/dpyp7innp/video/upload/v1717065185/desktop_gif_fwxrfk.mp4"
-                  type="video/mp4"
-                />
+                <source src={Demo} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -222,7 +215,7 @@ const Hero = () => {
         {showDesignModal && (
           <div
             data-aos="zoom-in"
-            className="max-lg:hidden w-[90%] max-w-[1450px] mx-auto h-[600px] flex flex-col items-end"
+            className="max-lg:hidden w-[90%] max-w-[1450px] mx-auto h-[700px] flex flex-col items-end"
           >
             <Link
               to="/register"
@@ -233,7 +226,7 @@ const Hero = () => {
             </Link>
             <div
               ref={mainRef}
-              className="overflow-y-auto bg-white h-[600px] shadow-xl rounded-lg w-full"
+              className="overflow-y-auto bg-white h-[700px] shadow-xl rounded-lg w-full"
             >
               <HeroDesignModal mainRef={mainRef} />
             </div>
