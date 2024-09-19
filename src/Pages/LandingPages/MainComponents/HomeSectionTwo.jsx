@@ -4,6 +4,7 @@ import "aos/dist/aos.css";
 import { MdSaveAlt } from "react-icons/md";
 import { FaCode } from 'react-icons/fa6';
 import { FaCloudUploadAlt } from "react-icons/fa";
+import QuickUIGallery from "../../../assets/QuickUI-Gallery.webp";
 
 const HomeSectionTwo = () => {
     useEffect(() => {
@@ -14,55 +15,75 @@ const HomeSectionTwo = () => {
 
   return (
     <>
-      <section
-        data-aos="fade-up"
-        className="my-44 max-lg:my-32 w-[90%] max-w-[1500px] mx-auto"
-      >
-        <div className="mb-14">
-          <h2 className="text-center text-2xl sm:text-4xl font-semibold mb-4">
-            Do more with QuickUI
-          </h2>
-          <p className="text-[rgb(189,189,189)] text-xl text-center font-semibold max-lg:text-center max-lg:max-w-[500px] max-lg:mx-auto">
-            The simplest way to launch your new startup website and reach your
-            customers.
-          </p>
-        </div>
-
-        <div className="flex max-md:flex-col gap-5 justify-center max-md:items-center">
-          <div className="flex flex-col gap-3 border-[1px] border-[rgba(255,255,255,0.3)] rounded-xl py-4 px-5 w-[30%] max-md:w-full max-md:max-w-[500px]">
-            <div className="bg-[rgb(63,81,181)] max-w-[40px] flex justify-center items-center py-2 rounded-md">
-              <MdSaveAlt className="text-xl" />
-            </div>
-            <h3 className="text-xl">Save Designs</h3>
-            <p className="text-[rgb(189,189,189)]">
-              Did you create a landing page you absolutely love? No worries! You
-              can save any design you create and revisit it whenever you want.
-            </p>
+      <section data-aos="fade-up" className="mb-44">
+        <div className="max-w-screen-xl mx-auto py-8 px-4 lg:py-16 lg:px-6">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl tracking-tight font-bold text-primary-800">
+              Why Choose <span className="gradient-text">QuickUI</span>?
+            </h2>
           </div>
 
-          <div className="flex flex-col gap-3 border-[1px] border-[rgba(255,255,255,0.3)] rounded-xl py-4 px-5 w-[30%] max-md:w-full max-md:max-w-[500px]">
-            <div className="bg-[rgb(63,81,181)] max-w-[40px] flex justify-center items-center py-2 rounded-md">
-              <FaCode className="text-lg" />
+          <div className="flex flex-col md:flex-row">
+            <div className="mr-0 md:mr-8 mb-6 md:mb-0">
+              <img
+                className="w-full max-md:w-[90%] max-md:max-w-[500px] mx-auto"
+                src={QuickUIGallery}
+                alt="QuickUIGallery-Image"
+              />
             </div>
-            <h3 className="text-xl">Get Code</h3>
-            <p className="text-[rgb(189,189,189)] h-[100px] max-md:h-auto max-xl:h-[180px]">
-              Liked what you've designed? You can easily copy the code for your
-              landing page. It's quick and simple to share or use it elsewhere.
-            </p>
-            <p>Coming soon</p>
-          </div>
 
-          <div className="flex flex-col gap-3 border-[1px] border-[rgba(255,255,255,0.3)] rounded-xl py-4 px-5 w-[30%] max-md:w-full max-md:max-w-[500px]">
-            <div className="bg-[rgb(63,81,181)] max-w-[40px] flex justify-center items-center py-2 rounded-md">
-              <FaCloudUploadAlt className="text-lg" />
+            <div className="flex-1 flex flex-col sm:flex-row flex-wrap -mb-4 -mx-2">
+              <div className="w-full sm:w-1/2 mb-4 px-2">
+                <div className="h-full py-4 px-6 border border-[#33a9ff] border-t-0 border-l-0 rounded-br-xl">
+                  <h3 className="text-2xl font-bold text-md mb-6">
+                    Instant Code Generation
+                  </h3>
+                  <p className="text-sm">
+                    Generate clean, exportable code for every landing page you
+                    create. No more hours spent tweaking code – QuickUI delivers
+                    ready-to-use, responsive designs that you can deploy
+                    instantly.
+                  </p>
+                </div>
+              </div>
+              <div className="w-full sm:w-1/2 mb-4 px-2">
+                <div className="h-full py-4 px-6 border border-[#33a9ff] border-t-0 border-l-0 rounded-br-xl">
+                  <h3 className="text-2xl font-bold text-md mb-6">
+                    Customizable Templates
+                  </h3>
+                  <p className="text-sm">
+                    Choose from a library of professional templates designed for
+                    high conversions. Customize every element to fit your brand
+                    and unique message without any technical hassle.
+                  </p>
+                </div>
+              </div>
+
+              <div className="w-full sm:w-1/2 mb-4 px-2">
+                <div className="h-full py-4 px-6 border border-[#33a9ff] border-t-0 border-l-0 rounded-br-xl">
+                  <h3 className="text-2xl font-bold text-md mb-6">
+                    Real-time Preview
+                  </h3>
+                  <p className="text-sm">
+                    See your changes live as you edit. Our real-time preview
+                    feature ensures you never miss a detail, giving you complete
+                    control over every pixel before you hit save.
+                  </p>
+                </div>
+              </div>
+
+              <div className="w-full sm:w-1/2 mb-4 px-2">
+                <div className="h-full py-4 px-6 border border-[#33a9ff] border-t-0 border-l-0 rounded-br-xl">
+                  <h3 className="text-2xl font-bold text-md mb-6">
+                    No Coding Required
+                  </h3>
+                  <p className="text-sm">
+                    Focus on creativity, not code. QuickUI makes it simple for anyone to design
+                    like a pro, even without technical skills.
+                  </p>
+                </div>
+              </div>
             </div>
-            <h3 className="text-xl">Publish Site</h3>
-            <p className="text-[rgb(189,189,189)] h-[100px] max-md:h-auto max-xl:h-[180px]">
-              Ready to show off your website to the world? With our publish
-              feature, it's easy to make your site live. Share your site
-              with others and make your mark online.
-            </p>
-            <p>Coming soon</p>
           </div>
         </div>
       </section>

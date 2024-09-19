@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import designExample from "../../../assets/QuickUIDesign.png";
+import HomeSectionOneImage from "../../../assets/HomeSectionOneImage.webp";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -10,58 +10,25 @@ const HomeSectionOne = () => {
     });
   }, []);
 
-
   return (
     <>
       <section
         data-aos="fade-up"
-        className="my-44 max-lg:my-32 w-[90%] max-w-[1500px] mx-auto"
+        className="bg-gradient-to-r from-[rgb(10,4,17)] to-[rgb(4,8,16)] w-full my-44 max-md:mt-32 p-10 flex"
       >
-        <div className="mb-14">
-          <h2 className="text-center text-2xl sm:text-4xl font-semibold mb-4">
-            Generate your website with AI
+        <div>
+          <h2 className="text-[2.25rem] font-extrabold max-w-[950px] mb-5">
+            Create Beautiful, Responsive Landing Pages in Minutes with{" "}
+            <span className="gradient-text">QuickUI</span> – No Coding Required.
           </h2>
-          <p className="text-[rgb(189,189,189)] text-xl text-center font-semibold max-lg:text-center max-lg:max-w-[500px] max-lg:mx-auto">
-            Use AI to generate content for your website, including text and
-            images
+          <p className="max-w-[800px] font-semibold">
+            <span className="gradient-text">QuickUI</span> is your one-stop
+            solution for creating beautiful, high-converting landing pages
+            without writing a single line of code. Whether you’re launching a
+            startup, promoting a product, or running a marketing campaign,{" "}
+            <span className="gradient-text">QuickUI</span> makes it easy to
+            bring your vision to life.
           </p>
-        </div>
-
-        <div className="flex max-lg:flex-col gap-10 max-w-[1300px] mx-auto">
-          <div className="w-[50%] max-2xl:w-[55%] max-lg:w-full">
-            <img src={designExample} alt="" className="block h-[100p]" />
-          </div>
-
-          <div className="w-[50%] max-2xl:w-[40%] max-lg:w-full">
-            <div className="mb-8 max-w-[500px]">
-              <h3 className="text-xl text-[rgb(238,238,238)] font-semibold mb-2">
-                Simple Design
-              </h3>
-              <p className="text-[rgb(189,189,189)]">
-                We use AI to create your content and select design elements, but
-                we handle the design to ensure beautiful outcomes consistently.
-              </p>
-            </div>
-            <div className="mb-8 max-w-[500px]">
-              <h3 className="text-xl text-[rgb(238,238,238)] font-semibold mb-2">
-                Great Content
-              </h3>
-              <p className="text-[rgb(189,189,189)]">
-                You'll be amazed at the quality of the AI-generated results.
-                Whether it's Header or Hero sections, you'll receive a strong
-                foundation for your project.
-              </p>
-            </div>
-            <div className="mb-8 max-w-[500px]">
-              <h3 className="text-xl text-[rgb(238,238,238)] font-semibold mb-2">
-                Responsive on every device
-              </h3>
-              <p className="text-[rgb(189,189,189)]">
-                Your content will look fantastic on any screen size without
-                extra work. We've already sorted out responsive design for you.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
     </>

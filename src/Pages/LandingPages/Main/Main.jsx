@@ -5,6 +5,8 @@ import Hero from "../MainComponents/Hero";
 import HomeSectionOne from "../MainComponents/HomeSectionOne";
 import HomeSectionTwo from "../MainComponents/HomeSectionTwo";
 import Footer from "../MainComponents/Footer";
+import HomeSectionThree from "../MainComponents/HomeSectionThree";
+import HomeSectionFour from "../MainComponents/HomeSectionFour";
 
 const Main = () => {
   const navigate = useNavigate();
@@ -33,9 +35,33 @@ const Main = () => {
       <Hero />
       <HomeSectionOne />
       <HomeSectionTwo />
+      <HomeSectionThree/>
+      <HomeSectionFour/>
       <Footer />
     </main>
   );
 };
 
 export default Main;
+
+ {
+   /* <section
+        data-aos="fade-up"
+        className="bg-gradient-to-r from-[rgb(10,4,17)] to-[rgb(4,8,16)] w-full my-44 p-10 flex"
+      >
+        <div>
+          <h2 className="text-[2.25rem] font-extrabold max-w-[950px] mb-5">
+            Create Beautiful, Responsive Landing Pages in Minutes with{" "}
+            <span className="gradient-text">QuickUI</span> – No Coding Required.
+          </h2>
+          <p className="max-w-[800px] font-semibold">
+            <span className="gradient-text">QuickUI</span> is your one-stop
+            solution for creating beautiful, high-converting landing pages
+            without writing a single line of code. Whether you’re launching a
+            startup, promoting a product, or running a marketing campaign,{" "}
+            <span className="gradient-text">QuickUI</span> makes it easy to
+            bring your vision to life.
+          </p>
+        </div>
+      </section> */
+ }

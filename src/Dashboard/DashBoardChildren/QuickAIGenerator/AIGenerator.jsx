@@ -53,7 +53,7 @@ const AIGenerator = () => {
   const handleprompt = (e) => {
     e.preventDefault();
     try {
-      handleGeminiResponses();
+      handleGenerateDesigns();
     } catch (error) {
       console.error(error);
     }

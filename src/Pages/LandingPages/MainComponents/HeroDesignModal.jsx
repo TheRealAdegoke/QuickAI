@@ -1,7 +1,8 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
-import { DashContext } from '../../../Dashboard/DashboardChecker/DashboardContext';
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { DashContext } from "../../../Dashboard/DashboardChecker/DashboardContext";
+import ElementArray from "../../../Dashboard/AI-Designed-Component/ElementArray";
 
-const HeroDesignModal = ({mainRef}) => {
+const HeroDesignModal = ({ mainRef }) => {
   const {
     heroIndex,
     navIndex,
@@ -24,34 +25,35 @@ const HeroDesignModal = ({mainRef}) => {
     text,
     buttonIndex,
   } = useContext(DashContext);
-    const [autoScroll, setAutoScroll] = useState(true);
-    const [currentIndex, setCurrentIndex] = useState(0);
+  const { elements } = ElementArray();
+  const [autoScroll, setAutoScroll] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const elements = [
-    {
-      index: navIndex,
-      element: navComponents({ text, buttonIndex })[navIndex],
-    },
-    {
-      index: heroIndex,
-      element: heroComponents({ text, buttonIndex })[heroIndex],
-    },
-    {
-      index: featuresWithCardIndex,
-      element: featuresWithCardsComponent({ text })[featuresWithCardIndex],
-    },
-    {
-      index: featuresIndex,
-      element: featuresComponents({ text })[featuresIndex],
-    },
-    {
-      index: testimonialIndex,
-      element: testimonialComponent({ text })[testimonialIndex],
-    },
-    { index: faqIndex, element: faqComponent({ text })[faqIndex] },
-    { index: teamIndex, element: teamComponent({ text })[teamIndex] },
-    { index: footerIndex, element: footerComponent({ text })[footerIndex] },
-  ];
+  // const elements = [
+  //   {
+  //     index: navIndex,
+  //     element: navComponents({ text, buttonIndex })[navIndex],
+  //   },
+  //   {
+  //     index: heroIndex,
+  //     element: heroComponents({ text, buttonIndex })[heroIndex],
+  //   },
+  //   {
+  //     index: featuresWithCardIndex,
+  //     element: featuresWithCardsComponent({ text })[featuresWithCardIndex],
+  //   },
+  //   {
+  //     index: featuresIndex,
+  //     element: featuresComponents({ text })[featuresIndex],
+  //   },
+  //   {
+  //     index: testimonialIndex,
+  //     element: testimonialComponent({ text })[testimonialIndex],
+  //   },
+  //   { index: faqIndex, element: faqComponent({ text })[faqIndex] },
+  //   { index: teamIndex, element: teamComponent({ text })[teamIndex] },
+  //   { index: footerIndex, element: footerComponent({ text })[footerIndex] },
+  // ];
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -76,17 +78,14 @@ const HeroDesignModal = ({mainRef}) => {
   return (
     <>
       <section className="">
-        {elements.slice(0, currentIndex + 1).map(
-          (item, idx) =>
-            item.index !== undefined && (
-              <div key={idx} className="">
-                {item.element}
-              </div>
-            )
-        )}
+        {elements.slice(0, currentIndex + 1).map((item, idx) => (
+          <div key={item.key || idx} className="text-black">
+            {item.element}
+          </div>
+        ))}
       </section>
     </>
   );
-}
+};
 
-export default HeroDesignModal
+export default HeroDesignModal;
