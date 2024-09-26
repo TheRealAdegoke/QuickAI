@@ -9,6 +9,8 @@ import { ImSpinner6 } from "react-icons/im";
 import parse from "html-react-parser";
 import WebLogo from "../../../assets/WebLogo";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
+import reactElementToJSXString from "react-element-to-jsx-string";
+import JsxParser from "react-jsx-parser";
 
 const WebPreview = () => {
   const { userData } = useContext(DashContext);
@@ -77,30 +79,26 @@ const WebPreview = () => {
                 itemsDropdown ? "block" : "hidden"
               } dashboard-navigation-darkmode w-full max-w-[190px] mx-auto flex-col items-start gap-2 border-zinc-600 border-[1px] px-2 py-1 rounded-[5px] font-semibold fixed top-16 right-[0.7%] z-50 text-white`}
             >
-              <button className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">
+              <Link to="/account" className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">
                 <MdOutlineManageAccounts />
                 Account
-              </button>
-              <button className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">
+              </Link>
+              <Link to="/settings" className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">
                 <IoSettingsOutline />
                 Settings
-              </button>
+              </Link>
             </div>
           </div>
           <div className="pt-14">
-            {historyData.navStyle && parse(historyData.navStyle.style)}
-            {historyData.heroStyle && parse(historyData.heroStyle.style)}
-            {historyData.sectionOneStyle &&
-              parse(historyData.sectionOneStyle.style)}
-            {historyData.sectionTwoStyle &&
-              parse(historyData.sectionTwoStyle.style)}
-            {historyData.sectionThreeStyle &&
-              parse(historyData.sectionThreeStyle.style)}
-            {historyData.sectionFourStyle &&
-              parse(historyData.sectionFourStyle.style)}
-            {historyData.sectionFiveStyle &&
-              parse(historyData.sectionFiveStyle.style)}
-            {historyData.footerStyle && parse(historyData.footerStyle.style)}
+            {/* {historyData.navStyle && parse(historyData.navStyle.style)} */}
+            {historyData.style &&
+              historyData.style.map((styles, index) => (
+                <div key={index}>
+                  {/* {parse(styles)} */}
+                  {/* {styles} */}
+                  <JsxParser jsx={styles} />
+                </div>
+              ))}
           </div>
         </main>
       )}

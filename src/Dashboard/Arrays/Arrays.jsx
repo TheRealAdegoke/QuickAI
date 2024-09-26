@@ -188,16 +188,6 @@ const customerParagraphText = [
 
 const customerReviewText = [
   "QuickUI is incredibly cool. The builder is easy to use and gets you beautiful results. The team is also pretty cool. I might be a bit biased so take a look for yourself!",
-  "QuickUI is simply amazing. The intuitive builder makes it easy to create stunning results. Plus, the team behind it is fantastic. Don't just take my word for it—check it out yourself!",
-  "With QuickUI, creating beautiful designs is a breeze. The user-friendly builder and the awesome team make it a standout choice. But don't just rely on my opinion, explore it yourself!",
-  "QuickUI offers an incredibly user-friendly builder that delivers gorgeous results. The team is great, too. See for yourself and experience the ease of use!",
-  "QuickUI: where cool meets functionality. Our intuitive builder crafts stunning designs with ease. Plus, our team? They're rockstars. But hey, don't just take our word for it. Try it out and see!",
-  "Discover the magic of QuickUI! Our simple yet powerful builder creates gorgeous designs in no time. Oh, and did we mention our team is pretty amazing too? But hey, don't just take our word for it—explore and decide for yourself!",
-  "Unleash your creativity with QuickUI! Our builder makes crafting beautiful designs a breeze. And guess what? Our team is pretty awesome too. But don't just take our word for it—experience it firsthand!",
-  "Elevate your designs with QuickUI! Our builder simplifies the process and delivers stunning outcomes. Plus, our team is pretty awesome. But hey, don't just take our word for it—see it in action!",
-  "Join the QuickUI revolution! Our intuitive builder helps you craft stunning designs effortlessly. And our team? Well, they're the best. But hey, don't take our word for it—experience it firsthand!",
-  "Experience the ease and beauty of QuickUI! Our builder makes design a breeze, and our team is pretty cool too. But hey, why listen to us? See it in action and judge for yourself!",
-  "Experience the awesomeness of QuickUI! Our user-friendly builder delivers stunning results effortlessly. And hey, we think our team is pretty awesome too. But don't just take our word for it—see for yourself!",
 ];
 
 const teamParagraphText = [

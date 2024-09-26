@@ -50,10 +50,10 @@ const AIGenerator = () => {
     }
   };
 
-  const handleprompt = (e) => {
+  const handleprompt = async (e) => {
     e.preventDefault();
     try {
-      handleGenerateDesigns();
+      await handleGeminiResponses();
     } catch (error) {
       console.error(error);
     }
@@ -142,10 +142,21 @@ const AIGenerator = () => {
                   className={`my-2 ml-2`}
                   type="submit"
                   onClick={handleprompt}
-                  disabled={loading}
+                  disabled={
+                    loading ||
+                    (userInput.length >= selectedIdea.length &&
+                      userInput.trim() === "")
+                  }
                 >
                   {window.innerWidth < 766 ? (
-                    <div className="block bg-[rgb(201,209,217)] rounded-[8px] p-2 text-[rgb(9,11,14)]">
+                    <div
+                      className={`${
+                        userInput.length >= selectedIdea.length &&
+                        userInput.trim() === ""
+                          ? "bg-[rgb(201,209,217)] cursor-not-allowed opacity-50"
+                          : "bg-[rgb(201,209,217)]"
+                      } block rounded-[8px] p-2 text-[rgb(9,11,14)]`}
+                    >
                       {loading ? (
                         <span>
                           <ImSpinner6 className="animate-spin text-2xl text-black block mx-auto" />
@@ -155,7 +166,14 @@ const AIGenerator = () => {
                       )}
                     </div>
                   ) : (
-                    <div className="bg-[rgb(201,209,217)] rounded-[8px] py-3 px-3 text-[rgb(9,11,14)] text-lg font-semibold w-[120px]">
+                    <div
+                      className={`${
+                        userInput.length >= selectedIdea.length &&
+                        userInput.trim() === ""
+                          ? "bg-[rgb(201,209,217)] cursor-not-allowed opacity-50"
+                          : "bg-[rgb(201,209,217)]"
+                      } rounded-[8px] py-3 px-3 text-[rgb(9,11,14)] text-lg font-semibold w-[120px]`}
+                    >
                       {loading ? (
                         <span>
                           <ImSpinner6 className="animate-spin text-2xl text-black block mx-auto" />

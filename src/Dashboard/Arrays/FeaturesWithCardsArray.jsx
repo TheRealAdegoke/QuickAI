@@ -12,7 +12,6 @@ export const featuresWithCardsComponent = ({
   uniqueId,
   elementContent,
 }) => {
-
   return [
     <section
       onClick={handleDivClick}
@@ -348,8 +347,8 @@ export const featuresWithCardsComponent = ({
           } w-[40%] max-lg:w-full max-lg:mt-5`}
         >
           <img
-            src={testImage}
-            alt={testImage}
+            src={text.images[6]}
+            alt="quickui-lib-image"
             className="block h-[550px] mx-auto object-cover rounded-xl"
           />
         </div>
@@ -690,8 +689,8 @@ export const featuresWithCardsComponent = ({
           } w-[40%] max-lg:w-full max-lg:mt-5`}
         >
           <img
-            src={testImage}
-            alt={testImage}
+            src={text.images[7]}
+            alt="quickui-lib-image"
             className="block h-[550px] mx-auto object-cover rounded-xl"
           />
         </div>
@@ -848,8 +847,8 @@ export const featuresWithCardsComponent = ({
               } w-full max-lg:mt-5 max-lg:hidden`}
             >
               <img
-                src={testImage}
-                alt={testImage}
+                src={text.images[8]}
+                alt="quickui-lib-image"
                 className="block w-full h-[300px] mx-auto object-cover rounded-xl"
               />
             </div>
@@ -888,8 +887,8 @@ export const featuresWithCardsComponent = ({
           } w-[40%] max-lg:w-full max-lg:mt-5`}
         >
           <img
-            src={testImage}
-            alt={testImage}
+            src={text.images[7]}
+            alt="quickui-lib-image"
             className="block w-full h-[550px] mx-auto object-cover rounded-xl"
           />
         </div>
@@ -1046,8 +1045,8 @@ export const featuresWithCardsComponent = ({
               } w-full max-lg:mt-5 max-lg:hidden`}
             >
               <img
-                src={testImage}
-                alt={testImage}
+                src={text.images[0]}
+                alt="quickui-lib-image"
                 className="block w-full h-[300px] mx-auto object-cover rounded-xl"
               />
             </div>
@@ -1086,8 +1085,8 @@ export const featuresWithCardsComponent = ({
           } w-[40%] max-lg:w-full max-lg:mt-5`}
         >
           <img
-            src={testImage}
-            alt={testImage}
+            src={text.images[8]}
+            alt="quickui-lib-image"
             className="block w-full h-[550px] mx-auto object-cover rounded-xl"
           />
         </div>
@@ -1434,8 +1433,8 @@ export const featuresWithCardsComponent = ({
               } bg-[linear-gradient(314deg,#212529_70%,#484e53_100%)] w-[80%] max-w-[400px] max-md:w-[80%] lg:w-[85%] max-md:max-w-[400px] h-[250px] mx-auto rounded-t-2xl flex justify-center items-center`}
             >
               <img
-                src={testImage}
-                alt={testImage}
+                src={text.images[9]}
+                alt="quickui-lib-image"
                 className="h-[230px] w-[95%] rounded-t-2xl block object-cover"
               />
             </div>

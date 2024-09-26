@@ -43,8 +43,12 @@ const Login = () => {
       await handleAuthentication();
       navigate("/home");
     } catch (error) {
-      console.error(error.response.data.error);
-      message.error(error.response.data.error);
+      console.error(error.response?.data?.error || error.message);
+      if (error.response?.status === 429) {
+        message.error("Too many attempts, please try again after 5 minutes");
+      } else {
+        message.error(error.response?.data?.error || "An error occurred");
+      }
     } finally {
       setLoading(false);
     }

@@ -111,7 +111,23 @@ export const DashboardProvider = ({ children }) => {
   const lastClickedDivRef = useRef(null);
 
   useEffect(() => {
-    if (!shuffled && webContentObject.randomButtonText) {
+    if (geminiResponses && Object.keys(geminiResponses).length > 0) {
+      setText((prevText) => ({
+        ...prevText,
+        heroHeaderText: geminiResponses.heroHeader,
+        images: geminiResponses.imageUrls || [],
+      }));
+      setShuffled(true);
+    }
+  }, [geminiResponses,]);
+
+  useEffect(() => {
+    if (
+      geminiResponses &&
+      Object.keys(geminiResponses).length > 0 &&
+      !shuffled &&
+      webContentObject.randomButtonText
+    ) {
       const shuffuleTextArray = (array) => {
         for (let i = array.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
@@ -163,9 +179,7 @@ export const DashboardProvider = ({ children }) => {
 
       setText((text) => ({
         ...text,
-        heroHeaderText: webContentObject.heroHeader,
         description: webContentObject.heroDescription,
-        images: webContentObject.imageUrls || [],
         webLogo: webContentObject.logo,
         buttonTexts: shuffledButtonTexts,
         featureHeader: shuffledFeatureHeadersTexts,
@@ -185,7 +199,9 @@ export const DashboardProvider = ({ children }) => {
 
       setShuffled(true);
     }
-  }, [geminiResponses, shuffled]);
+
+    console.log("HeroHeader: ", text.heroHeaderText);
+  }, [geminiResponses, shuffled, text]);
 
   const getStyle = (id, uniqueId) => {
     const fullId = `${id}-${uniqueId}`;
@@ -357,7 +373,7 @@ export const DashboardProvider = ({ children }) => {
 
     setNavIndex(randomNavIndex);
     // setHeroIndex(randomHeroIndex);
-    // setButtonIndex(randomButtonsIndex);
+    setButtonIndex(randomButtonsIndex);
     // setFeaturesWithCardIndex(randomfeaturesWithCardIndex);
     // setFeaturesIndex(randomfeaturesIndex);
     // setTestimonialIndex(randomTestimonialIndex);
@@ -414,6 +430,7 @@ export const DashboardProvider = ({ children }) => {
       } else {
         setShowDesignModal(true);
       }
+      console.log(response.data.heroHeader);
       handleGenerateDesigns();
     } catch (error) {
       console.error(error.response.data.error);
