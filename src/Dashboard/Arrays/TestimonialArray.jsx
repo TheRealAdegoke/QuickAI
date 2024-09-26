@@ -338,7 +338,7 @@ export const testimonialComponent = ({
                       `testimonial-sub-paragraph-text-2-${
                         index + 1
                       }-${uniqueId}`
-                    ] || text.customerReviewText[1],
+                    ] || text.customerReviewText[0],
               }}
             ></p>
             <p
@@ -446,7 +446,7 @@ export const testimonialComponent = ({
                       `testimonial-sub-paragraph-text-3-${
                         index + 1
                       }-${uniqueId}`
-                    ] || text.customerReviewText[2],
+                    ] || text.customerReviewText[0],
               }}
             ></p>
             <p
@@ -593,15 +593,15 @@ export const testimonialComponent = ({
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
                 __html: isEdited[
-                  `testimonial-sub-paragraph-text-1-${index + 1}-${uniqueId}`
+                  `testimonial-sub-paragraph-text-2-${index + 1}-${uniqueId}`
                 ]
                   ? elementContent[
-                      `testimonial-sub-paragraph-text-1-${
+                      `testimonial-sub-paragraph-text-2-${
                         index + 1
                       }-${uniqueId}`
                     ]
                   : elementContent[
-                      `testimonial-sub-paragraph-text-1-${
+                      `testimonial-sub-paragraph-text-2-${
                         index + 1
                       }-${uniqueId}`
                     ] || text.customerReviewText[0],
@@ -619,7 +619,6 @@ export const testimonialComponent = ({
                 index + 1
               }-${uniqueId} max-lg:mt-3`}
               data-text="Type a paragraph"
-              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
             >
@@ -712,7 +711,7 @@ export const testimonialComponent = ({
                       `testimonial-sub-paragraph-text-2-${
                         index + 1
                       }-${uniqueId}`
-                    ] || text.customerReviewText[1],
+                    ] || text.customerReviewText[0],
               }}
             ></p>
             <p
@@ -820,7 +819,7 @@ export const testimonialComponent = ({
                       `testimonial-sub-paragraph-text-3-${
                         index + 1
                       }-${uniqueId}`
-                    ] || text.customerReviewText[2],
+                    ] || text.customerReviewText[0],
               }}
             ></p>
             <p

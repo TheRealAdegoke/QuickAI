@@ -18,8 +18,6 @@ const Hero = () => {
     handleGeminiResponses,
     userInput,
     setUserInput,
-    selectedIdea,
-    setSelectedIdea,
     loading,
     handleGenerateDesigns,
   } = useContext(DashContext);
@@ -32,18 +30,13 @@ const Hero = () => {
 
   const handleChange = (e) => {
     const value = e.target.value;
-    if (value.length >= selectedIdea.length) {
-      setUserInput(value);
-    } else {
-      setSelectedIdea("");
-      setUserInput(value);
-    }
+    setUserInput(value);
   };
 
   const handleprompt = (e) => {
     e.preventDefault();
     try {
-      handleGenerateDesigns();
+      handleGeminiResponses();
     } catch (error) {
       console.error(error);
     }
@@ -86,7 +79,7 @@ const Hero = () => {
                   type="text"
                   name=""
                   id=""
-                  value={userInput || selectedIdea}
+                  value={userInput}
                   onChange={handleChange}
                   placeholder={text}
                   className="bg-transparent border-none outline-none text-xl w-full h-[66px] pl-4 rounded-[8px]"
@@ -96,12 +89,12 @@ const Hero = () => {
                   className={`my-2 ml-2`}
                   type="submit"
                   onClick={handleprompt}
-                  disabled={loading || userInput === ""}
+                  disabled={loading || userInput.trim() === ""}
                 >
                   {window.innerWidth < 766 ? (
                     <div
                       className={`${
-                        userInput === ""
+                        userInput.trim() === ""
                           ? "input-btn-gradient-opacity cursor-not-allowed"
                           : "input-btn-gradient"
                       } block rounded-[8px] p-2 text-white`}

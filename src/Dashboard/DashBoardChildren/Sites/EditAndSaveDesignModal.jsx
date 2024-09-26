@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { MdOutlineWeb } from "react-icons/md";
 import { MdFolder } from "react-icons/md";
-import ElementArray from "../../AI-Designed-Component/ElementArray";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
 import reactElementToJSXString from "react-element-to-jsx-string";
 import { FaChevronDown } from "react-icons/fa";
@@ -10,7 +9,7 @@ import { MdDeleteOutline } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { IoIosUndo } from "react-icons/io";
 
-const EditAndSaveDesignModal = () => {
+const EditAndSaveDesignModal = ({ elements, handleSaveElements }) => {
   const {
     setDisplayEditModal,
     newElementRef,
@@ -19,7 +18,6 @@ const EditAndSaveDesignModal = () => {
     setElements,
   } = useContext(DashContext);
   const navigate = useNavigate();
-  const { elements } = ElementArray();
   const [iconText, setIconText] = useState({
     up: false,
     down: false,
@@ -35,15 +33,31 @@ const EditAndSaveDesignModal = () => {
   }, [elements, navigate]);
 
   const handleElementClick = (item, index) => {
-    let elementString = reactElementToJSXString(item, { showFunctions: true });
+    let elementString = reactElementToJSXString(item, { showFunctions: false });
+
+    // Remove onClick attributes and their values, including the closing brace
+    elementString = elementString.replace(/\s*onClick={[^}]+}}/g, "");
+
+    // Remove id attributes and their values
+    elementString = elementString.replace(/\s*id="[^"]*"/g, "");
+
     elementString = elementString.replace(
-      /<(\w+)([^>]*)dangerouslySetInnerHTML={{\s*__html:\s*'([^']*)'\s*([^>]*)\/?>/g,
+      /\s*data-uses-dangerously-set-inner-html="[^"]*"/g,
+      ""
+    );
+
+    elementString = elementString.replace(/\s*data-text="[^"]*"/g, "");
+
+    elementString = elementString.replace(
+      /<(\w+)([^>]*)dangerouslySetInnerHTML={{\s*__html:\s*'([^']*)'\s*}}([^>]*)\/?>/g,
       (_, tagName, beforeAttributes, content, afterAttributes) =>
         `<${tagName}${beforeAttributes}${afterAttributes}>${content}</${tagName}>`
     );
+
     elementString = elementString.replace(/\/>/g, ">");
     elementString = elementString.replace(/<br>/g, "<br />");
     elementString = elementString.replace(/<img([^>]*)>/g, "<img$1 />");
+    elementString = elementString.replace(/<input([^>]*)>/g, "<input$1 />");
     elementString = elementString.replace(/<path([^>]*)>/g, "<path$1></path>");
 
     setDisplayCode(elementString);
@@ -106,74 +120,90 @@ const EditAndSaveDesignModal = () => {
     }
   };
 
-  return (
-    <div ref={elementsContainerRef} className="overflow-y-auto h-full">
-      {elements.map((item, idx) => (
-        <div
-          ref={newElementRef}
-          key={item.key || idx}
-          onClick={() => handleElementClick(item.element, idx)}
-          className="relative"
-        >
-          {item.element}
+  // const handleElementRef = (el) => {
+  //   if (el) {
+  //     newElementRef.current = el;
+  //     photoRef.current = el;
+  //   }
+  // };
 
-          {selectedItemIndex === idx &&
-            selectedItemIndex !== 0 &&
-            selectedItemIndex !== elements.length - 1 && (
-              <div className={`max-[1000px]:hidden absolute top-0 left-0 text-3xl flex justify-between gap-3 px-1 py-1 border-black border-[1px] w-[150px] bg-white`}>
+  
+  return (
+    <>
+      <div
+        ref={elementsContainerRef}
+        className="overflow-y-auto h-full"
+        onClick={handleSaveElements}
+      >
+        {elements.map((item, idx) => (
+          <div
+            ref={newElementRef}
+            key={item.key || idx}
+            onClick={() => handleElementClick(item.element, idx)}
+            className="relative"
+          >
+            {item.element}
+
+            {selectedItemIndex === idx &&
+              selectedItemIndex !== 0 &&
+              selectedItemIndex !== elements.length - 1 && (
                 <div
-                  className="relative"
-                  onClick={() => moveElementUp(idx)}
-                  onMouseEnter={() => setIconText({ up: true })}
-                  onMouseLeave={() => setIconText({ up: false })}
+                  className={`max-[1000px]:hidden absolute top-0 left-0 text-3xl flex justify-between gap-3 px-1 py-1 border-black border-[1px] w-[150px] bg-white`}
                 >
-                  <FaChevronUp className="cursor-pointer text-2xl" />
-                  <span
-                    className={`${
-                      iconText.up ? "block" : "hidden"
-                    } bg-black text-white text-sm text-center pb-1 absolute top-[40px] w-[100px]`}
+                  <div
+                    className="relative"
+                    onClick={() => moveElementUp(idx)}
+                    onMouseEnter={() => setIconText({ up: true })}
+                    onMouseLeave={() => setIconText({ up: false })}
                   >
-                    Move Up
-                  </span>
-                </div>
-                <div
-                  className="relative"
-                  onClick={() => moveElementDown(idx)}
-                  onMouseEnter={() => setIconText({ down: true })}
-                  onMouseLeave={() => setIconText({ down: false })}
-                >
-                  <FaChevronDown className="cursor-pointer text-2xl" />
-                  <span
-                    className={`${
-                      iconText.down ? "block" : "hidden"
-                    } bg-black text-white text-sm text-center pb-1 absolute top-[40px] right-[-30px] w-[100px]`}
+                    <FaChevronUp className="cursor-pointer text-2xl" />
+                    <span
+                      className={`${
+                        iconText.up ? "block" : "hidden"
+                      } bg-black text-white text-sm text-center pb-1 absolute top-[40px] w-[100px]`}
+                    >
+                      Move Up
+                    </span>
+                  </div>
+                  <div
+                    className="relative"
+                    onClick={() => moveElementDown(idx)}
+                    onMouseEnter={() => setIconText({ down: true })}
+                    onMouseLeave={() => setIconText({ down: false })}
                   >
-                    Move down
-                  </span>
-                </div>
-                <div
-                  className="relative"
-                  onClick={handleUndo}
-                  onMouseEnter={() => setIconText({ undo: true })}
-                  onMouseLeave={() => setIconText({ undo: false })}
-                >
-                  <IoIosUndo className="cursor-pointer text-2xl" />
-                  <span
-                    className={`${
-                      iconText.undo ? "block" : "hidden"
-                    } bg-black text-white text-sm text-center pb-1 absolute top-[40px] right-[-30px] w-[100px]`}
+                    <FaChevronDown className="cursor-pointer text-2xl" />
+                    <span
+                      className={`${
+                        iconText.down ? "block" : "hidden"
+                      } bg-black text-white text-sm text-center pb-1 absolute top-[40px] right-[-30px] w-[100px]`}
+                    >
+                      Move down
+                    </span>
+                  </div>
+                  <div
+                    className="relative"
+                    onClick={handleUndo}
+                    onMouseEnter={() => setIconText({ undo: true })}
+                    onMouseLeave={() => setIconText({ undo: false })}
                   >
-                    Undo
-                  </span>
+                    <IoIosUndo className="cursor-pointer text-2xl" />
+                    <span
+                      className={`${
+                        iconText.undo ? "block" : "hidden"
+                      } bg-black text-white text-sm text-center pb-1 absolute top-[40px] right-[-30px] w-[100px]`}
+                    >
+                      Undo
+                    </span>
+                  </div>
+                  <div onClick={() => handleDeleteElement(idx)}>
+                    <MdDeleteOutline className="text-[red] cursor-pointer text-2xl" />
+                  </div>
                 </div>
-                <div onClick={() => handleDeleteElement(idx)}>
-                  <MdDeleteOutline className="text-[red] cursor-pointer text-2xl" />
-                </div>
-              </div>
-            )}
-        </div>
-      ))}
-    </div>
+              )}
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 

@@ -20,9 +20,14 @@ import { TeamImages } from "./EditAndSaveComponents/TeamEditComponent";
 import { IoClose } from "react-icons/io5";
 import ComponentCode from "./EditAndSaveComponents/ComponentCode";
 import FooterImages from "./EditAndSaveComponents/FooterEditComponent";
+import ElementArray from "../../AI-Designed-Component/ElementArray";
+import reactElementToJSXString from "react-element-to-jsx-string";
+import axios from "axios";
+import { axiosInstance } from "../../../Pages/AuthPages/AuthChecker/axiosInstance";
+import html2canvas from "html2canvas";
+import { ImSpinner6 } from "react-icons/im";
 
 const EditAndSave = () => {
-  const allowNavigation = useRef(false);
   const {
     isMobile,
     setIsMobile,
@@ -36,8 +41,11 @@ const EditAndSave = () => {
     displayCode,
     setShowDesignModal,
     clearDesigns,
+    userInput,
+    selectedIdea,
   } = useContext(DashContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { elements } = ElementArray();
   const modalRef = useRef(null);
   const resizableRef = useRef(null);
   const [enabled, setEnabled] = useState(false);
@@ -48,6 +56,12 @@ const EditAndSave = () => {
   const [initialWidth, setInitialWidth] = useState(0);
   const [initialX, setInitialX] = useState(0);
   const [deviceWidth, setDeviceWidth] = useState(window.innerWidth);
+  const [designElements, setDesignElements] = useState("");
+  const cloudinaryBaseURL = import.meta.env.VITE_REACT_APP_CLOUDINARY_BASE_URL;
+  const cloudinaryFormDataAppend = import.meta.env
+    .VITE_REACT_APP_CLOUDINARY_FORM_DATA_APPEND;
+  const photoRef = useRef(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -130,38 +144,38 @@ const EditAndSave = () => {
     };
   }, [isResizingRight, isResizingLeft]);
 
-   useEffect(() => {
-     const onBeforeUnload = (ev) => {
-       ev.returnValue = "Anything you wanna put here!";
-       return "Anything here as well, doesn't matter!";
-     };
+  useEffect(() => {
+    const onBeforeUnload = (ev) => {
+      ev.returnValue = "Anything you wanna put here!";
+      return "Anything here as well, doesn't matter!";
+    };
 
-     const onPopState = (event) => {
-       const message =
-         "Are you sure you want to go back? Your changes may not be saved.";
-       event.preventDefault(); // Cancel the event
-       if (window.confirm(message)) {
-         // If user confirms, allow navigation
-         window.removeEventListener("popstate", onPopState);
-         clearDesigns();
-         window.history.back();
-       } else {
-         // If user cancels, push a new state to prevent navigation
-         window.history.pushState(null, "", window.location.href);
-       }
-     };
+    const onPopState = (event) => {
+      const message =
+        "Are you sure you want to go back? Your changes may not be saved.";
+      event.preventDefault(); // Cancel the event
+      if (window.confirm(message)) {
+        // If user confirms, allow navigation
+        window.removeEventListener("popstate", onPopState);
+        clearDesigns();
+        window.history.back();
+      } else {
+        // If user cancels, push a new state to prevent navigation
+        window.history.pushState(null, "", window.location.href);
+      }
+    };
 
-     window.addEventListener("beforeunload", onBeforeUnload);
-     window.addEventListener("popstate", onPopState);
+    window.addEventListener("beforeunload", onBeforeUnload);
+    window.addEventListener("popstate", onPopState);
 
-     // Push a new state to enable popstate handling
-     window.history.pushState(null, "", window.location.href);
+    // Push a new state to enable popstate handling
+    window.history.pushState(null, "", window.location.href);
 
-     return () => {
-       window.removeEventListener("beforeunload", onBeforeUnload);
-       window.removeEventListener("popstate", onPopState);
-     };
-   }, []);
+    return () => {
+      window.removeEventListener("beforeunload", onBeforeUnload);
+      window.removeEventListener("popstate", onPopState);
+    };
+  }, []);
 
   const handleButtonClick = () => {
     const confirmExit = window.confirm(
@@ -170,13 +184,83 @@ const EditAndSave = () => {
     if (confirmExit) {
       setShowDesignModal(false);
       clearDesigns();
-      navigate("/home")
+      navigate("/home");
+    }
+  };
+
+  const handleSaveElements = () => {
+    const formattedElements = elements.map((item) => {
+      let elementString = reactElementToJSXString(item.element, {
+        showFunctions: false,
+      });
+
+      // Remove onClick attributes and their values, including the closing brace
+      elementString = elementString.replace(/\s*onClick={[^}]+}}/g, "");
+
+      // Remove id attributes and their values
+      elementString = elementString.replace(/\s*id="[^"]*"/g, "");
+
+      elementString = elementString.replace(
+        /\s*data-uses-dangerously-set-inner-html="[^"]*"/g,
+        ""
+      );
+
+      elementString = elementString.replace(/\s*data-text="[^"]*"/g, "");
+
+      elementString = elementString.replace(
+        /<(\w+)([^>]*)dangerouslySetInnerHTML={{\s*__html:\s*'([^']*)'\s*}}([^>]*)\/?>/g,
+        (_, tagName, beforeAttributes, content, afterAttributes) =>
+          `<${tagName}${beforeAttributes}${afterAttributes}>${content}</${tagName}>`
+      );
+
+      elementString = elementString.replace(/\/>/g, ">");
+      elementString = elementString.replace(/<br>/g, "<br />");
+      elementString = elementString.replace(/<img([^>]*)>/g, "<img$1 />");
+      elementString = elementString.replace(/<input([^>]*)>/g, "<input$1 />");
+      elementString = elementString.replace(
+        /<path([^>]*)>/g,
+        "<path$1></path>"
+      );
+      return elementString;
+    });
+    console.log(formattedElements);
+    setDesignElements(formattedElements);
+  };
+
+  const saveDesign = async () => {
+    setLoading(true);
+    try {
+      const canvas = await html2canvas(photoRef.current, { useCORS: true });
+      const dataURL = canvas.toDataURL();
+      const formData = new FormData();
+      formData.append("file", dataURL);
+      formData.append("upload_preset", `${cloudinaryFormDataAppend}`);
+
+      const cloudinaryResponse = await axios.post(
+        `${cloudinaryBaseURL}`,
+        formData
+      );
+      const cloudinaryURL = cloudinaryResponse.data.secure_url;
+
+      handleSaveElements();
+
+      const postData = {
+        prompt: userInput || selectedIdea,
+        style: designElements,
+        webDesignImagePreview: cloudinaryURL,
+      };
+
+      await axiosInstance.post("/save-landing-styles", postData);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <>
-      <main className="bg-[rgb(30,30,30)] min-h-[100vh]">
+      <main className="bg-[rgb(30,30,30)] h-[100vh] overflow-hidden">
         <div
           ref={modalRef}
           className="py-2 flex justify-between items-center px-3 fixed w-full top-0 z-50 my"
@@ -190,9 +274,16 @@ const EditAndSave = () => {
           <div className="text-white text-xl flex gap-5">
             <button
               type="submit"
-              className="text-black bg-white w-[150px] hover:bg-[rgba(255,255,255,0.9)] block px-3 py-2 rounded-[5px] font-medium text-center"
+              className="text-black bg-white min-w-[150px] hover:bg-[rgba(255,255,255,0.9)] block px-3 py-2 rounded-[5px] font-medium text-center"
+              onClick={saveDesign}
             >
-              Save
+              {loading ? (
+                <div>
+                  <ImSpinner6 className="animate-spin text-2xl text-black block mx-auto" />
+                </div>
+              ) : (
+                "Save"
+              )}
             </button>
             <button
               className=""
@@ -284,8 +375,13 @@ const EditAndSave = () => {
                 onMouseDown={handleMouseDownLeft}
               ></div>
               <div className="overflow-y-scroll h-full">
-                <EditAndSaveDesignModal />
+                <EditAndSaveDesignModal
+                  elements={elements}
+                  handleSaveElements={handleSaveElements}
+                  photoRef={photoRef}
+                />
               </div>
+
               <div className="overflow-y-scroll h-full"></div>
             </div>
           </div>
@@ -301,6 +397,20 @@ const EditAndSave = () => {
             />
           </div>
         </section>
+
+        <div className="relative -z-50 max-w-[1000px] mx-auto">
+          {elements.slice(0, 2).map((item, idx) => (
+            <div ref={photoRef} key={item.key || idx} className="relative">
+              {Array.isArray(item.element)
+                ? item.element
+                    .slice(0, 2)
+                    .map((el, index) => (
+                      <React.Fragment key={index}>{el}</React.Fragment>
+                    ))
+                : item.element}
+            </div>
+          ))}
+        </div>
 
         <div
           className={`${
@@ -423,7 +533,7 @@ const EditAndSave = () => {
                   {activeSection.Classic && <ClassicalFeaturesImages />}
                   {activeSection.Testimonial && <TestimonialImages />}
                   {activeSection.FAQ && <FAQImages />}
-                  {activeSection.Team && <TeamImages/>}
+                  {activeSection.Team && <TeamImages />}
                   {activeSection.Footer && <FooterImages />}
                 </div>
               </div>

@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
 
 export const navComponents = ({
   text,
@@ -85,8 +83,7 @@ export const navComponents = ({
                 isMobile ? "border-t-[1px]" : ""
               } max-lg:border-t-[1px] py-5 cursor-pointer hover:underline flex justify-center items-center`}
             >
-              <Link
-                to=""
+              <span
                 id={`list-link-text-1-${index + 1}-${uniqueId}`}
                 className={`list-link-text-${index + 1}-${uniqueId}`}
                 style={getElementStyle(`list-link-text-${index + 1}`, uniqueId)}
@@ -99,7 +96,7 @@ export const navComponents = ({
                   : elementContent[
                       `list-link-text-1-${index + 1}-${uniqueId}`
                     ] || text.buttonTexts[3]}
-              </Link>
+              </span>
             </li>
             <li
               className={`${
@@ -107,8 +104,7 @@ export const navComponents = ({
               } max-lg:border-t-[1px] py-5 cursor-pointer hover:underline flex justify-center items-center`}
               onClick={handleTextClick}
             >
-              <Link
-                to=""
+              <span
                 id={`list-link-text-2-${index + 1}-${uniqueId}`}
                 className={`list-link-text-${index + 1}-${uniqueId}`}
                 style={getElementStyle(`list-link-text-${index + 1}`, uniqueId)}
@@ -121,7 +117,7 @@ export const navComponents = ({
                   : elementContent[
                       `list-link-text-2-${index + 1}-${uniqueId}`
                     ] || text.buttonTexts[4]}
-              </Link>
+              </span>
             </li>
             <li
               className={`${
@@ -129,8 +125,7 @@ export const navComponents = ({
               } max-lg:border-t-[1px] py-5 cursor-pointer hover:underline flex justify-center items-center`}
               onClick={handleTextClick}
             >
-              <Link
-                to=""
+              <span
                 id={`list-link-text-3-${index + 1}-${uniqueId}`}
                 className={`list-link-text-${index + 1}-${uniqueId}`}
                 style={getElementStyle(`list-link-text-${index + 1}`, uniqueId)}
@@ -143,7 +138,7 @@ export const navComponents = ({
                   : elementContent[
                       `list-link-text-3-${index + 1}-${uniqueId}`
                     ] || text.buttonTexts[5]}
-              </Link>
+              </span>
             </li>
             <li
               className={`${
@@ -151,8 +146,7 @@ export const navComponents = ({
               } max-lg:border-t-[1px] py-5 cursor-pointer hover:underline flex justify-center items-center`}
               onClick={handleTextClick}
             >
-              <Link
-                to=""
+              <span
                 id={`list-link-text-4-${index + 1}-${uniqueId}`}
                 className={`list-link-text-${index + 1}-${uniqueId}`}
                 style={getElementStyle(`list-link-text-${index + 1}`, uniqueId)}
@@ -165,7 +159,7 @@ export const navComponents = ({
                   : elementContent[
                       `list-link-text-4-${index + 1}-${uniqueId}`
                     ] || text.buttonTexts[6]}
-              </Link>
+              </span>
             </li>
           </ul>
         </div>
@@ -242,8 +236,7 @@ export const navComponents = ({
               className="hover:text-[rgba(255,0,0)] max-lg:mt-8"
               onClick={handleTextClick}
             >
-              <Link
-                to=""
+              <span
                 id={`list-link-text-1-${index + 1}-${uniqueId}`}
                 className={`list-link-text-${index + 1}-${uniqueId}`}
                 style={getElementStyle(`list-link-text-${index + 1}`, uniqueId)}
@@ -256,14 +249,13 @@ export const navComponents = ({
                   : elementContent[
                       `list-link-text-1-${index + 1}-${uniqueId}`
                     ] || text.buttonTexts[4]}
-              </Link>
+              </span>
             </li>
             <li
               className="hover:text-[rgba(255,0,0)] max-lg:my-3"
               onClick={handleTextClick}
             >
-              <Link
-                to=""
+              <span
                 id={`list-link-text-2-${index + 1}-${uniqueId}`}
                 className={`list-link-text-${index + 1}-${uniqueId}`}
                 style={getElementStyle(`list-link-text-${index + 1}`, uniqueId)}
@@ -276,14 +268,13 @@ export const navComponents = ({
                   : elementContent[
                       `list-link-text-2-${index + 1}-${uniqueId}`
                     ] || text.buttonTexts[5]}
-              </Link>
+              </span>
             </li>
             <li
               className="hover:text-[rgba(255,0,0)] max-lg:my-3"
               onClick={handleTextClick}
             >
-              <Link
-                to=""
+              <span
                 id={`list-link-text-3-${index + 1}-${uniqueId}`}
                 className={`list-link-text-${index + 1}-${uniqueId}`}
                 style={getElementStyle(`list-link-text-${index + 1}`, uniqueId)}
@@ -296,7 +287,7 @@ export const navComponents = ({
                   : elementContent[
                       `list-link-text-3-${index + 1}-${uniqueId}`
                     ] || text.buttonTexts[6]}
-              </Link>
+              </span>
             </li>
           </ul>
 
@@ -309,8 +300,7 @@ export const navComponents = ({
               className="hover:text-[rgba(255,0,0)] max-lg:my-3"
               onClick={handleTextClick}
             >
-              <Link
-                to=""
+              <span
                 id={`list-link-text-4-${index + 1}-${uniqueId}`}
                 className={`list-link-text-${index + 1}-${uniqueId}`}
                 style={getElementStyle(`list-link-text-${index + 1}`, uniqueId)}
@@ -323,14 +313,13 @@ export const navComponents = ({
                   : elementContent[
                       `list-link-text-4-${index + 1}-${uniqueId}`
                     ] || "Login"}
-              </Link>
+              </span>
             </li>
             <li
               className="py-2 px-5 max-lg:px-10 rounded hover:text-[rgba(255,0,0)] max-lg:my-3"
               onClick={handleTextClick}
             >
-              <Link
-                to=""
+              <span
                 id={`list-link-text-5-${index + 1}-${uniqueId}`}
                 className={`list-link-text-${index + 1}-${uniqueId}`}
                 style={getElementStyle(`list-link-text-${index + 1}`, uniqueId)}
@@ -343,7 +332,7 @@ export const navComponents = ({
                   : elementContent[
                       `list-link-text-5-${index + 1}-${uniqueId}`
                     ] || "Sign up"}
-              </Link>
+              </span>
             </li>
           </ul>
         </div>
@@ -408,19 +397,19 @@ export const navComponents = ({
     //           className="hover:text-[rgba(255,0,0)] max-lg:mt-8"
     //           onClick={handleTextClick}
     //         >
-    //           <Link to="">{text.buttonTexts[4]}</Link>
+    //           <span >{text.buttonTexts[4]}</span>
     //         </li>
     //         <li
     //           className="hover:text-[rgba(255,0,0)] max-lg:my-3"
     //           onClick={handleTextClick}
     //         >
-    //           <Link to="">{text.buttonTexts[5]}</Link>
+    //           <span >{text.buttonTexts[5]}</span>
     //         </li>
     //         <li
     //           className="hover:text-[rgba(255,0,0)] max-lg:my-3"
     //           onClick={handleTextClick}
     //         >
-    //           <Link to="">{text.buttonTexts[6]}</Link>
+    //           <span >{text.buttonTexts[6]}</span>
     //         </li>
     //       </ul>
 
@@ -433,13 +422,13 @@ export const navComponents = ({
     //           className="hover:text-[rgba(255,0,0)] max-lg:my-3"
     //           onClick={handleTextClick}
     //         >
-    //           <Link to="">Login</Link>
+    //           <span >Login</span>
     //         </li>
     //         <li
     //           className="bg-[rgba(0,0,0,0.1)] py-2 px-5 max-lg:px-10 rounded hover:text-[rgba(255,0,0)] max-lg:my-3"
     //           onClick={handleTextClick}
     //         >
-    //           <Link to="">Sign Up</Link>
+    //           <span >Sign Up</span>
     //         </li>
     //       </ul>
     //     </div>

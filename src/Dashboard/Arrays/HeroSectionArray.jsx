@@ -1,5 +1,6 @@
 import { WebButtonsArray } from "./WebButtonsArray";
 import testImage from "../../assets/Default-Card.jpg";
+import { useState } from "react";
 
 export const heroComponents = ({
   text,
@@ -14,9 +15,16 @@ export const heroComponents = ({
   uniqueId,
   elementContent,
 }) => {
-  const buttonElement = WebButtonsArray({ text, buttonIndex, handleTextClick })[
-    buttonIndex
-  ];
+  const buttonElement = WebButtonsArray({
+    text,
+    buttonIndex,
+    handleTextClick,
+    getElementStyle,
+    index,
+    isEdited,
+    uniqueId,
+    elementContent,
+  })[buttonIndex];
 
   return [
     <section
@@ -48,36 +56,36 @@ export const heroComponents = ({
             <div className="w-[85%] grid grid-cols-3 gap-4 my-10">
               <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[250px]  p-3 rounded-[8px] col-span-3">
                 <img
-                  src={testImage}
-                  alt={testImage}
+                  src={text.images[0]}
+                  alt="quickui-lib-image"
                   className="rounded-[8px] w-full h-full object-cover"
                 />
               </div>
               <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[200px] p-3 rounded-[8px]">
                 <img
-                  src={testImage}
-                  alt={testImage}
+                  src={text.images[1]}
+                  alt="quickui-lib-image"
                   className="rounded-[8px] w-full h-full object-cover"
                 />
               </div>
               <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[200px]  p-3 rounded-[8px]">
                 <img
-                  src={testImage}
-                  alt={testImage}
+                  src={text.images[2]}
+                  alt="quickui-lib-image"
                   className="rounded-[8px] w-full h-full object-cover"
                 />
               </div>
               <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[200px]  p-3 rounded-[8px]">
                 <img
-                  src={testImage}
-                  alt={testImage}
+                  src={text.images[3]}
+                  alt="quickui-lib-image"
                   className="rounded-[8px] w-full h-full object-cover"
                 />
               </div>
               <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[250px]  p-3 rounded-[8px] col-span-3">
                 <img
-                  src={testImage}
-                  alt={testImage}
+                  src={text.images[4]}
+                  alt="quickui-lib-image"
                   className="rounded-[8px] w-full h-full object-cover"
                 />
               </div>
@@ -89,8 +97,8 @@ export const heroComponents = ({
             } max-lg:max-w-[800px] max-lg:w-[95%] max-lg:mx-auto w-[50%]`}
           >
             <img
-              src={testImage}
-              alt={testImage}
+              src={text.images[5]}
+              alt="quickui-lib-image"
               className={`${
                 isMobile ? "max-w-[800px] w-[95%] h-[400px]" : ""
               } block max-lg:w-[95%] w-full h-[600px] max-lg:h-[400px] max-lg:max-w-[800px]`}
@@ -179,8 +187,8 @@ export const heroComponents = ({
             } w-[250px] h-[400px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3 mb-4 absolute top-2 max-lg:left-[35%] max-lg:transform max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:top-1/2 max-xl:top-2 max-xl:right-32 z-20`}
           >
             <img
-              src={testImage}
-              alt={testImage}
+              src={text.images[0]}
+              alt="quickui-lib-image"
               className="h-[350px] rounded-[35px] object-cover"
             />
           </div>
@@ -190,8 +198,8 @@ export const heroComponents = ({
             } w-[260px] h-[480px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3 absolute max-lg:left-[60%] max-lg:transform max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:top-1/2 top-[7%] right-0 xl:right-[28%] z-10`}
           >
             <img
-              src={testImage}
-              alt={testImage}
+              src={text.images[1]}
+              alt="quickui-lib-image"
               className="h-[420px] rounded-[35px] object-cover"
             />
           </div>
@@ -201,8 +209,8 @@ export const heroComponents = ({
             } w-[260px] h-[450px] bg-[rgb(33,37,41)] rounded-[35px] px-3 py-3 absolute top-14 right-5 max-xl:hidden`}
           >
             <img
-              src={testImage}
-              alt={testImage}
+              src={text.images[2]}
+              alt="quickui-lib-image"
               className="h-full rounded-[35px] object-cover"
             />
           </div>
@@ -266,8 +274,8 @@ export const heroComponents = ({
         >
           <div className="w-[260px] mx-auto h-[480px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3">
             <img
-              src={testImage}
-              alt={testImage}
+              src={text.images[0]}
+              alt="quickui-lib-image"
               className="h-[420px] rounded-[35px] object-cover"
             />
           </div>
@@ -331,8 +339,8 @@ export const heroComponents = ({
         >
           <div className="w-[260px] mx-auto h-[480px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3">
             <img
-              src={testImage}
-              alt={testImage}
+              src={text.images[0]}
+              alt="quickui-lib-image"
               className="h-[420px] w-full rounded-[35px] object-cover"
             />
           </div>
@@ -396,8 +404,8 @@ export const heroComponents = ({
         >
           <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
             <img
-              src={testImage}
-              alt={testImage}
+              src={text.images[0]}
+              alt="quickui-lib-image"
               className="object-cover h-full w-full"
             />
           </div>
@@ -461,8 +469,8 @@ export const heroComponents = ({
         >
           <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
             <img
-              src={testImage}
-              alt={testImage}
+              src={text.images[0]}
+              alt="quickui-lib-image"
               className="object-cover h-full w-full"
             />
           </div>
@@ -482,8 +490,8 @@ export const heroComponents = ({
         <div className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full`}>
           <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
             <img
-              src={testImage}
-              alt={testImage}
+              src={text.images[0]}
+              alt="quickui-lib-image"
               className="object-cover h-full w-full"
             />
           </div>
@@ -536,8 +544,8 @@ export const heroComponents = ({
         <div className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full`}>
           <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
             <img
-              src={testImage}
-              alt={testImage}
+              src={text.images[1]}
+              alt="quickui-lib-image"
               className="object-cover h-full w-full"
             />
           </div>
@@ -600,8 +608,8 @@ export const heroComponents = ({
           } w-[45%] max-lg:w-full relative`}
         >
           <img
-            src={testImage}
-            alt={testImage}
+            src={text.images[0]}
+            alt="quickui-lib-image"
             className="block rounded-full w-[350px] h-[350px] mx-auto object-cover"
           />
         </div>
