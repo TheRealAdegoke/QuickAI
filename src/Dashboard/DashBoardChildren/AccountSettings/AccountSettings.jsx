@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { IoIosWarning } from "react-icons/io";
 import QuickUI from "../../../assets/Quick-logo-white.png";
+import { DashContext } from "../../DashboardChecker/DashboardContext";
+import { AuthContext } from "../../../Pages/AuthPages/AuthChecker/AuthContext";
 
 const AccountSettings = () => {
+  const { handleUserData, userData } = useContext(DashContext);
+  const { isAuthenticated } = useContext(AuthContext);
+  const checkoutURL = `https://quickuiorganization.lemonsqueezy.com/buy/46c4e41b-417e-4b31-a132-97ab51e96943?checkout[email]=${userData?.email}&checkout[name]=${userData?.fullname}`;
+
+  useEffect(() => {
+    handleUserData();
+  }, [isAuthenticated]);
+
   return (
     <>
       <main className="bg-[rgb(30,30,30)] min-h-[100vh]">
@@ -23,12 +33,13 @@ const AccountSettings = () => {
                     <p className="text-xl font-semibold">Free Plan</p>
                   </div>
 
-                  <div className="flex items-center gap-2">
-                    <div className="bg-[rgb(20,21,24)] px-5 py-1 rounded">
-                      <p className="font-semibold">Current</p>
+                  {userData && userData.status === "free" && (
+                    <div className="flex items-center gap-2">
+                      <div className="bg-[rgb(20,21,24)] px-5 py-1 rounded">
+                        <p className="font-semibold">Current</p>
+                      </div>
                     </div>
-                    <FaChevronRight className="text-white text-2xl" />
-                  </div>
+                  )}
                 </div>
               </div>
               <p className="font-semibold">
@@ -44,12 +55,27 @@ const AccountSettings = () => {
                     <p className="text-xl font-semibold">Premium Plan</p>
                   </div>
 
-                  <div className="flex items-center gap-2">
-                    {/* <div className="bg-[rgb(20,21,24)] px-5 py-1 rounded">
-                      <p className="font-semibold">Current</p>
-                    </div> */}
-                    <FaChevronRight className="text-white text-2xl" />
-                  </div>
+                  {userData && userData.status === "paid" ? (
+                    <div className="flex items-center gap-2">
+                      <div className="bg-[rgb(20,21,24)] px-5 py-1 rounded">
+                        <p className="font-semibold">Current</p>
+                      </div>
+                    </div>
+                  ) : (
+                    <Link
+                      to={checkoutURL}
+                      className="flex items-center gap-2"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.open(checkoutURL, "_blank");
+                      }}
+                    >
+                      <div className="bg-[rgb(20,21,24)] pl-5 pr-2 py-1 rounded flex items-center">
+                        <p className="font-semibold">Subscribe</p>
+                        <FaChevronRight className="text-white text-xl mt-1" />
+                      </div>
+                    </Link>
+                  )}
                 </div>
               </div>
               <p className="font-semibold">
