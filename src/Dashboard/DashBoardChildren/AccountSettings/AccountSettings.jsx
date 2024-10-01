@@ -9,7 +9,7 @@ import { AuthContext } from "../../../Pages/AuthPages/AuthChecker/AuthContext";
 const AccountSettings = () => {
   const { handleUserData, userData } = useContext(DashContext);
   const { isAuthenticated } = useContext(AuthContext);
-  const checkoutURL = `https://quickuiorganization.lemonsqueezy.com/buy/46c4e41b-417e-4b31-a132-97ab51e96943?checkout[email]=${userData?.email}&checkout[name]=${userData?.fullname}`;
+  const checkoutURL = `https://quickuiorganization.lemonsqueezy.com/buy/ce82c0d9-14fc-46b0-9d8c-5d314d1352d3?checkout[email]=${userData?.email}&checkout[name]=${userData?.fullname}`;
 
   useEffect(() => {
     handleUserData();
