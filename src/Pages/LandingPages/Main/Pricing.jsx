@@ -33,8 +33,7 @@ const Pricing = () => {
 
             <div className="my-5">
               <p className="flex items-center gap-2">
-                <IoMdCheckmarkCircleOutline />
-                3 trials
+                <IoMdCheckmarkCircleOutline />3 trials
               </p>
             </div>
 
@@ -76,6 +75,10 @@ const Pricing = () => {
               <p className="flex items-center gap-2">
                 <IoMdCheckmarkCircleOutline />
                 Access to editing site
+              </p>
+              <p className="flex items-center gap-2">
+                <IoMdCheckmarkCircleOutline />
+                Updates on new designs
               </p>
             </div>
 

@@ -45,7 +45,7 @@ const Hero = () => {
   useEffect(() => {
     AOS.init({
       duration: 1500,
-      once: true
+      once: true,
     });
   }, []);
 
@@ -89,12 +89,14 @@ const Hero = () => {
                   className={`my-2 ml-2`}
                   type="submit"
                   onClick={handleprompt}
-                  disabled={loading || userInput.trim() === ""}
+                  disabled={
+                    loading || userInput.trim() === "" || showDesignModal
+                  }
                 >
                   {window.innerWidth < 766 ? (
                     <div
                       className={`${
-                        userInput.trim() === ""
+                        userInput.trim() === "" || showDesignModal
                           ? "input-btn-gradient-opacity cursor-not-allowed"
                           : "input-btn-gradient"
                       } block rounded-[8px] p-2 text-white`}
@@ -110,7 +112,7 @@ const Hero = () => {
                   ) : (
                     <div
                       className={`${
-                        userInput.trim() === ""
+                        userInput.trim() === "" || showDesignModal
                           ? "input-btn-gradient-opacity cursor-not-allowed"
                           : "input-btn-gradient"
                       } input-btn-gradient rounded-[8px] py-3 px-3 text-white text-lg font-medium w-[120px]`}
@@ -159,7 +161,10 @@ const Hero = () => {
                     muted
                     className=""
                   >
-                    <source src="https://res.cloudinary.com/dpyp7innp/video/upload/v1727772894/Demo_dsyq75.mp4" type="video/mp4" />
+                    <source
+                      src="https://res.cloudinary.com/dpyp7innp/video/upload/v1727772894/Demo_dsyq75.mp4"
+                      type="video/mp4"
+                    />
                     Your browser does not support the video tag.
                   </video>
                 </div>
@@ -177,7 +182,10 @@ const Hero = () => {
                     muted
                     className=""
                   >
-                    <source src="https://res.cloudinary.com/dpyp7innp/video/upload/v1727772894/Demo_dsyq75.mp4" type="video/mp4" />
+                    <source
+                      src="https://res.cloudinary.com/dpyp7innp/video/upload/v1727772894/Demo_dsyq75.mp4"
+                      type="video/mp4"
+                    />
                     Your browser does not support the video tag.
                   </video>
                 </div>
@@ -198,7 +206,10 @@ const Hero = () => {
                   showDesignModal ? "hidden" : "hidden max-lg:block"
                 } `}
               >
-                <source src="https://res.cloudinary.com/dpyp7innp/video/upload/v1727772894/Demo_dsyq75.mp4" type="video/mp4" />
+                <source
+                  src="https://res.cloudinary.com/dpyp7innp/video/upload/v1727772894/Demo_dsyq75.mp4"
+                  type="video/mp4"
+                />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -213,7 +224,7 @@ const Hero = () => {
             <Link
               to="/register"
               type="submit"
-              className="text-black text-center bg-white w-[200px] hover:bg-[rgba(255,255,255,0.9)] block p-3 rounded-[5px] font-medium my-5"
+              className="text-black text-center bg-white w-[200px] hover:bg-[rgba(255,255,255,0.9)] block p-3 rounded-[5px] my-5 font-semibold"
             >
               Save Design
             </Link>
