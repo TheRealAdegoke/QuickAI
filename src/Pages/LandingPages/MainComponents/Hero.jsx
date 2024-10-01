@@ -224,7 +224,7 @@ const Hero = () => {
             <Link
               to="/register"
               type="submit"
-              className="text-black text-center bg-white w-[200px] hover:bg-[rgba(255,255,255,0.9)] block p-3 rounded-[5px] font-medium my-5 font-semibold"
+              className="text-black text-center bg-white w-[200px] hover:bg-[rgba(255,255,255,0.9)] block p-3 rounded-[5px] my-5 font-semibold"
             >
               Save Design
             </Link>
