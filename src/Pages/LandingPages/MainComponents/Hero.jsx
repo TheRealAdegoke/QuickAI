@@ -9,7 +9,7 @@ import { ImSpinner6 } from "react-icons/im";
 import HeroDesignModal from "./HeroDesignModal";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Demo from "../../../assets/Demo.mp4"
+// import Demo from "../../../assets/Demo.mp4"
 
 const Hero = () => {
   const {
@@ -159,7 +159,7 @@ const Hero = () => {
                     muted
                     className=""
                   >
-                    <source src={Demo} type="video/mp4" />
+                    <source src="https://res.cloudinary.com/dpyp7innp/video/upload/v1727772894/Demo_dsyq75.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </div>
@@ -177,7 +177,7 @@ const Hero = () => {
                     muted
                     className=""
                   >
-                    <source src={Demo} type="video/mp4" />
+                    <source src="https://res.cloudinary.com/dpyp7innp/video/upload/v1727772894/Demo_dsyq75.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </div>
@@ -198,7 +198,7 @@ const Hero = () => {
                   showDesignModal ? "hidden" : "hidden max-lg:block"
                 } `}
               >
-                <source src={Demo} type="video/mp4" />
+                <source src="https://res.cloudinary.com/dpyp7innp/video/upload/v1727772894/Demo_dsyq75.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>

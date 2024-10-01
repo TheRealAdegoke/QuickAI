@@ -10,8 +10,7 @@ import HeroImage7 from "../../../../assets/HeroImages/HeroImage7.webp";
 import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
 export const HeroImages = () => {
-  const { setSectionModal, addElement } =
-    useContext(DashContext);
+  const { setSectionModal, addElement, userData } = useContext(DashContext);
 
   const images = [
     {
@@ -55,10 +54,15 @@ export const HeroImages = () => {
           item.index !== undefined && (
             <div
               key={idx}
-              className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] h-fit cursor-pointer"
+              className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] h-fit cursor-pointer relative"
               onClick={() => {
                 setSectionModal(false);
-                addElement("hero", item.index);
+                addElement(
+                  "hero",
+                  userData.status === "free" && userData.trial === 0
+                    ? null
+                    : item.index
+                );
               }}
             >
               <img
@@ -66,6 +70,13 @@ export const HeroImages = () => {
                 alt=""
                 className="rounded-[8px] w-full h-full"
               />
+              <div
+                className={`${
+                  userData.status === "free" && userData.trial === 0
+                    ? "backdrop-blur"
+                    : ""
+                } w-full h-full absolute top-0`}
+              ></div>
             </div>
           )
       )}

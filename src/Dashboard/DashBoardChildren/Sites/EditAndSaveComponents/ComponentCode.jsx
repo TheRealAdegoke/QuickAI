@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { docco, nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { FaRegClipboard } from "react-icons/fa6";
 import { FaReact } from "react-icons/fa6";
 import { IoMdCode } from "react-icons/io";
+import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
 const ComponentCode = ({ displayCode }) => {
+  const { userData } = useContext(DashContext);
     const [isCodeFull, setIsCodeFull] = useState(true)
     const [copied, setCopied] = useState(false)
-    const fullCode = `import React from 'react'
+    const premiumUserFullCode = `import React from 'react'
 
 const Component = () => {
   
@@ -21,7 +23,31 @@ const Component = () => {
 
 export default Component`;
 
-const shortCode = `${displayCode}`
+const freeTrialFullCode = `import React from 'react'
+
+const Component = () => {
+  
+  return (
+    <>
+      Subscribe to get code
+    </>
+  );
+};
+
+export default Component`;
+
+const premiumUserShortCode = `${displayCode}`
+const freeTrialShortCode = `Subscribe to get code`;
+
+const fullCode =
+  userData.status === "free" && userData.trial === 0
+    ? freeTrialFullCode
+    : premiumUserFullCode
+
+  const shortCode =
+    userData.status === "free" && userData.trial === 0
+      ? freeTrialShortCode
+      : premiumUserShortCode
 
 const handleCopy = () => {
     navigator.clipboard.writeText(isCodeFull ? fullCode : shortCode)
@@ -48,7 +74,9 @@ const handleCopy = () => {
           {copied ? (
             <span className="text-sm font-medium">Copied</span>
           ) : (
-            <div className="flex items-center justify-center gap-2">
+            <div
+              className={`flex items-center justify-center gap-2`}
+            >
               <span className="text-sm font-medium">Copy Code</span>{" "}
               <FaRegClipboard />
             </div>
@@ -85,7 +113,7 @@ const handleCopy = () => {
             height: "100%",
             overflowY: "auto",
             paddingTop: "20px",
-            paddingBottom: "50px"
+            paddingBottom: "50px",
           }}
         >
           {isCodeFull ? fullCode : shortCode}

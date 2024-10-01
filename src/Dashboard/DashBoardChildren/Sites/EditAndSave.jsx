@@ -43,6 +43,8 @@ const EditAndSave = () => {
     clearDesigns,
     userInput,
     selectedIdea,
+    userData,
+    handleUserData
   } = useContext(DashContext);
   const navigate = useNavigate();
   const { elements } = ElementArray();
@@ -251,6 +253,8 @@ const EditAndSave = () => {
       };
 
       await axiosInstance.post("/save-landing-styles", postData);
+
+      handleUserData();
     } catch (error) {
       console.error(error);
     } finally {
@@ -274,15 +278,40 @@ const EditAndSave = () => {
           <div className="text-white text-xl flex gap-5">
             <button
               type="submit"
-              className="text-black bg-white min-w-[150px] hover:bg-[rgba(255,255,255,0.9)] block px-3 py-2 rounded-[5px] font-medium text-center"
+              className={`${
+                userData.status === "free" && userData.trial === 0
+              ? "cursor-not-allowed opacity-50" : ""} text-black bg-white min-w-[150px] hover:bg-[rgba(255,255,255,0.9)] block px-3 py-2 rounded-[5px] font-medium text-center`}
               onClick={saveDesign}
+              disabled={userData.status === "free" && userData.trial === 0}
             >
               {loading ? (
                 <div>
                   <ImSpinner6 className="animate-spin text-2xl text-black block mx-auto" />
                 </div>
               ) : (
-                "Save"
+                <span>
+                  {userData && userData.status === "free" ? (
+                    <span>
+                      {userData && userData.trial > 1 ? (
+                        <span className="flex items-center gap-2">
+                          Save
+                          <span className="text-sm">{`(${
+                            userData && userData.trial
+                          } trials)`}</span>
+                        </span>
+                      ) : (
+                        <span className="flex items-center gap-2">
+                          Save
+                          <span className="text-sm">{`(${
+                            userData && userData.trial
+                          } trial)`}</span>
+                        </span>
+                      )}
+                    </span>
+                  ) : (
+                    "Save"
+                  )}
+                </span>
               )}
             </button>
             <button
@@ -338,7 +367,7 @@ const EditAndSave = () => {
           <div
             className={`${window.innerWidth < 1000 ? "hidden" : ""} ${
               enabled ? "hidden" : "block"
-            } bg-[rgb(9,11,14)] w-[20%] min-w-[20%] max-w-[20%] min-[1350px]:w-[20%] min-[1350px]:min-w-[20%] min-[1350px]:max-w-[20%] h-[87vh] border-[1px] rounded-[8px] border-[rgba(255,255,255,0.3)] overflow-y-scroll`}
+            } bg-[rgb(9,11,14)] w-[20%] min-w-[20%] max-w-[20%] min-[1350px]:w-[20%] min-[1350px]:min-w-[20%] min-[1350px]:max-w-[20%] h-[87vh] border-[1px] rounded-[8px] border-[rgba(255,255,255,0.3)]`}
           >
             {displayEditModal ? (
               <EditDesignModalComponent />

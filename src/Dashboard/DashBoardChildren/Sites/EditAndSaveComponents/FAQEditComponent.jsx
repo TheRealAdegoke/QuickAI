@@ -6,7 +6,8 @@ import FAQImage3 from "../../../../assets/FAQImage/FAQImage3.webp";
 import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
 export const FAQImages = () => {
-  const { setFaqIndex, setSectionModal, addElement } = useContext(DashContext);
+  const { setSectionModal, addElement, userData } =
+    useContext(DashContext);
   const images = [
     {
       index: 0,
@@ -33,14 +34,25 @@ export const FAQImages = () => {
           item.index !== undefined && (
             <div
               key={idx}
-              className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] cursor-pointer h-fit"
+              className="bg-[rgb(42,42,47)] p-3 rounded-[8px] w-[45%] cursor-pointer h-fit relative"
               onClick={() => {
-                setFaqIndex(item.index);
                 setSectionModal(false);
-                addElement("faq", item.index);
+                addElement(
+                  "faq",
+                  userData.status === "free" && userData.trial === 0
+                    ? null
+                    : item.index
+                );
               }}
             >
               <img src={item.image} alt="" className="rounded-[8px] w-full" />
+              <div
+                className={`${
+                  userData.status === "free" && userData.trial === 0
+                    ? "backdrop-blur"
+                    : ""
+                } w-full h-full absolute top-0`}
+              ></div>
             </div>
           )
       )}

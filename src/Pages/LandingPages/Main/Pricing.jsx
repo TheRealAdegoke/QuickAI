@@ -34,11 +34,7 @@ const Pricing = () => {
             <div className="my-5">
               <p className="flex items-center gap-2">
                 <IoMdCheckmarkCircleOutline />
-                Unlimited Design
-              </p>
-              <p className="flex items-center gap-2">
-                <IoMdCheckmarkCircleOutline />
-                Save Design
+                3 trials
               </p>
             </div>
 
@@ -59,7 +55,7 @@ const Pricing = () => {
                 (one time payment)
               </span>
             </h2>
-            <p className="text-2xl my-2">$20</p>
+            <p className="text-2xl my-2">$60</p>
             <p className="text-[rgba(189,189,189)] font-semibold">
               Get access to all features forever
             </p>
@@ -76,10 +72,6 @@ const Pricing = () => {
               <p className="flex items-center gap-2">
                 <IoMdCheckmarkCircleOutline />
                 Access to code
-              </p>
-              <p className="flex items-center gap-2">
-                <IoMdCheckmarkCircleOutline />
-                Access to publishing site
               </p>
               <p className="flex items-center gap-2">
                 <IoMdCheckmarkCircleOutline />
