@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 import { ImSpinner6 } from "react-icons/im";
 import { message } from "antd";
@@ -29,8 +30,13 @@ const ForgotPassword = () => {
         "/auth/forgotpassword",
         postData
       );
-      console.log(response.data);
       message.success(response.data.message);
+      Cookies.set("resetToken", response.data.forgotpasswordToken, {
+        expires: 7,
+        sameSite: "Lax",
+        secure: true,
+        path: "/",
+      });
     } catch (error) {
       console.log(error.response.data.error);
       message.error(error.response.data.error);
