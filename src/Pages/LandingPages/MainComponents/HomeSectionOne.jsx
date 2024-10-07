@@ -16,7 +16,7 @@ const HomeSectionOne = () => {
         data-aos="fade-up"
         className="bg-gradient-to-r from-[rgb(10,4,17)] to-[rgb(4,8,16)] w-full my-44 max-md:mt-32 p-10 flex"
       >
-        <div>
+        <div className="2xl: min-[1600px]:ml-[5vw]  min-[1750px]:ml-[13%]">
           <h2 className="text-[2.25rem] font-extrabold max-w-[950px] mb-5">
             Create Beautiful, Responsive Landing Pages in Minutes with{" "}
             <span className="gradient-text">QuickUI</span> – No Coding Required.
