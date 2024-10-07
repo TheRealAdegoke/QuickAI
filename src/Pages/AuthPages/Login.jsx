@@ -41,7 +41,7 @@ const Login = () => {
     try {
       const response = await axiosInstance.post("/auth/login", postData);
       message.success(response.data.message);
-      
+
       // Save access and refresh tokens in cookies
       Cookies.set("accessToken", response.data.accessToken, {
         expires: 7,
@@ -140,7 +140,7 @@ const Login = () => {
                 </label>
                 <input
                   type="email"
-                  className="bg-[rgb(42,42,47)] border border-[rgb(64,65,67)] rounded-[5px] h-[40px] px-3 focus:border-[rgb(54,116,220)] outline-none"
+                  className="bg-[rgb(42,42,47)] border border-[rgb(64,65,67)] rounded-[5px] h-[40px] px-3 focus:border-[rgb(54,116,220)] outline-none lowercase"
                   placeholder="johndoe@example.com"
                   onChange={(e) => {
                     setEmail(e.target.value);
