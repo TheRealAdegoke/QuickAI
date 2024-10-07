@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { ImSpinner6 } from "react-icons/im";
 import { message } from "antd";
@@ -30,9 +31,18 @@ const ResetPassword = () => {
     setLoading(true);
 
     try {
-      const response = await axiosInstance.post("/auth/resetpassword", {
-        password,
-      });
+      const resetToken = Cookies.get("resetToken");
+      const response = await axiosInstance.post(
+        "/auth/resetpassword",
+        {
+          password,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${resetToken}`,
+          },
+        }
+      );
       setLoading(false);
       message.success(response.data.message);
       navigate("/login");
