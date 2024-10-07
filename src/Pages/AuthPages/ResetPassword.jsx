@@ -45,6 +45,7 @@ const ResetPassword = () => {
       );
       setLoading(false);
       message.success(response.data.message);
+      Cookies.remove("resetToken");
       navigate("/login");
     } catch (error) {
       setLoading(false);
