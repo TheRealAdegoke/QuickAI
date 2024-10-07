@@ -11,6 +11,7 @@ import WebLogo from "../../../assets/WebLogo";
 import { DashContext } from "../../DashboardChecker/DashboardContext";
 import reactElementToJSXString from "react-element-to-jsx-string";
 import JsxParser from "react-jsx-parser";
+import Cookies from "js-cookie";
 
 const WebPreview = () => {
   const { userData } = useContext(DashContext);
@@ -36,7 +37,12 @@ const WebPreview = () => {
   useEffect(() => {
     const fetchHistoryItem = async () => {
       try {
-        const response = await axiosInstance.get(`/auth/user-data/${id}`);
+        const accessToken = Cookies.get("accessToken");
+        const response = await axiosInstance.get(`/auth/user-data/${id}`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
         setHistoryData(response.data);
         setLoading(false);
       } catch (error) {
@@ -79,11 +85,17 @@ const WebPreview = () => {
                 itemsDropdown ? "block" : "hidden"
               } dashboard-navigation-darkmode w-full max-w-[190px] mx-auto flex-col items-start gap-2 border-zinc-600 border-[1px] px-2 py-1 rounded-[5px] font-semibold fixed top-16 right-[0.7%] z-50 text-white`}
             >
-              <Link to="/account" className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">
+              <Link
+                to="/account"
+                className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]"
+              >
                 <MdOutlineManageAccounts />
                 Account
               </Link>
-              <Link to="/settings" className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">
+              <Link
+                to="/settings"
+                className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]"
+              >
                 <IoSettingsOutline />
                 Settings
               </Link>

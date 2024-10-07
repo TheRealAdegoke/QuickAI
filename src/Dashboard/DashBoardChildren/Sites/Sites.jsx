@@ -8,6 +8,7 @@ import { Button, Popover } from "antd";
 import { IoIosCode } from "react-icons/io";
 import { axiosInstance } from "../../../Pages/AuthPages/AuthChecker/axiosInstance";
 import { message } from "antd";
+import Cookies from "js-cookie";
 
 const Sites = () => {
   const { userData, handleUserData } = useContext(DashContext);
@@ -45,9 +46,15 @@ const Sites = () => {
     });
     setLoading(true);
     try {
+      const accessToken = Cookies.get("accessToken");
       const response = await axiosInstance.post(
         `/auth/recreate-prompt-history/${id}`,
-        {}
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
       );
       message.success(response.data.message);
       handleUserData();
@@ -66,9 +73,14 @@ const Sites = () => {
     });
     setLoadingDelete(true);
     try {
+      const accessToken = Cookies.get("accessToken");
       const response = await axiosInstance.delete(
         `/auth/delete-prompt-history/${id}`,
-        {}
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
       );
       message.success(response.data.message);
       handleUserData();
@@ -79,8 +91,6 @@ const Sites = () => {
       setLoadingDelete(false);
     }
   };
-
-  
 
   return (
     <Dashboard>
@@ -133,8 +143,12 @@ const Sites = () => {
                                 color="rgb(36,37,40)"
                                 content={
                                   <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
-                                    <Link to={`/site/manage/${item._id}`} className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full">
-                                      Manage <IoIosCode className="text-[20px]" />
+                                    <Link
+                                      to={`/site/manage/${item._id}`}
+                                      className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
+                                    >
+                                      Manage{" "}
+                                      <IoIosCode className="text-[20px]" />
                                     </Link>
                                     <button
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
@@ -236,8 +250,12 @@ const Sites = () => {
                                 color="rgb(36,37,40)"
                                 content={
                                   <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
-                                    <Link to={`/site/manage/${item._id}`} className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full">
-                                      Manage <IoIosCode className="text-[20px]" />
+                                    <Link
+                                      to={`/site/manage/${item._id}`}
+                                      className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
+                                    >
+                                      Manage{" "}
+                                      <IoIosCode className="text-[20px]" />
                                     </Link>
                                     <button
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
@@ -339,8 +357,12 @@ const Sites = () => {
                                 color="rgb(36,37,40)"
                                 content={
                                   <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
-                                    <Link to={`/site/manage/${item._id}`} className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full">
-                                      Manage <IoIosCode className="text-[20px]" />
+                                    <Link
+                                      to={`/site/manage/${item._id}`}
+                                      className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
+                                    >
+                                      Manage{" "}
+                                      <IoIosCode className="text-[20px]" />
                                     </Link>
                                     <button
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
@@ -439,8 +461,12 @@ const Sites = () => {
                                 color="rgb(36,37,40)"
                                 content={
                                   <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
-                                    <Link to={`/site/manage/${item._id}`} className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full">
-                                      Manage <IoIosCode className="text-[20px]" />
+                                    <Link
+                                      to={`/site/manage/${item._id}`}
+                                      className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
+                                    >
+                                      Manage{" "}
+                                      <IoIosCode className="text-[20px]" />
                                     </Link>
                                     <button
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"

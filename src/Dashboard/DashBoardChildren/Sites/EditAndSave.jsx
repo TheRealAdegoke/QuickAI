@@ -26,6 +26,7 @@ import axios from "axios";
 import { axiosInstance } from "../../../Pages/AuthPages/AuthChecker/axiosInstance";
 import html2canvas from "html2canvas";
 import { ImSpinner6 } from "react-icons/im";
+import Cookies from "js-cookie";
 
 const EditAndSave = () => {
   const {
@@ -232,6 +233,7 @@ const EditAndSave = () => {
   const saveDesign = async () => {
     setLoading(true);
     try {
+      const accessToken = Cookies.get("accessToken");
       const canvas = await html2canvas(photoRef.current, { useCORS: true });
       const dataURL = canvas.toDataURL();
       const formData = new FormData();
@@ -252,7 +254,11 @@ const EditAndSave = () => {
         webDesignImagePreview: cloudinaryURL,
       };
 
-      await axiosInstance.post("/save-landing-styles", postData);
+      await axiosInstance.post("/save-landing-styles", postData, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
 
       handleUserData();
     } catch (error) {

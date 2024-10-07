@@ -1,24 +1,31 @@
 import { axiosInstance } from "../AuthChecker/axiosInstance";
 import React, { createContext, useEffect, useState } from "react";
+import Cookies from "js-cookie";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(undefined)
+  const [isAuthenticated, setIsAuthenticated] = useState(undefined);
 
   const handleAuthentication = async () => {
     try {
-        const response = await axiosInstance.get("/auth/loggedIn");
-        if (response.data.authenticated) {
-          setIsAuthenticated(true);
-        } else {
-          setIsAuthenticated(false);
-        }
+      const accessToken = Cookies.get("accessToken");
+      const response = await axiosInstance.get("/auth/loggedIn", {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      if (response.data.authenticated) {
+        setIsAuthenticated(true);
+      } else {
+        setIsAuthenticated(false);
+      }
+      
     } catch (error) {
       console.error(error.response.data.error);
       setIsAuthenticated(false);
     }
-  }
+  };
 
   const refreshAccessToken = async () => {
     try {
@@ -30,18 +37,19 @@ export const AuthProvider = ({ children }) => {
 
   const unAuthenticate = async () => {
     try {
-      await axiosInstance.post("/auth/logout");
-      handleAuthentication()
+      Cookies.remove("accessToken");
+      Cookies.remove("refreshToken");
+      handleAuthentication();
     } catch (error) {
       console.error("Error: ", error);
     }
-  }
+  };
 
   useEffect(() => {
-    handleAuthentication()
+    handleAuthentication();
     const interval = setInterval(refreshAccessToken, 5 * 60 * 1000);
     return () => clearInterval(interval);
-  }, [isAuthenticated])
+  }, [isAuthenticated]);
 
   return (
     <AuthContext.Provider

@@ -6,6 +6,7 @@ import React, {
   useState,
 } from "react";
 import { axiosInstance } from "../../Pages/AuthPages/AuthChecker/axiosInstance";
+import Cookies from "js-cookie";
 import { message } from "antd";
 import { heroComponents } from "../Arrays/HeroSectionArray";
 import { WebButtonsArray } from "../Arrays/WebButtonsArray";
@@ -388,10 +389,15 @@ export const DashboardProvider = ({ children }) => {
 
   const handleUserData = async () => {
     try {
-      const response = await axiosInstance.get("/auth/user-data");
+      const accessToken = Cookies.get("accessToken"); // Get access token from cookie
+      const response = await axiosInstance.get("/auth/user-data", {
+        headers: {
+          Authorization: `Bearer ${accessToken}`, // Send token in headers
+        },
+      });
       setUserData(response.data);
     } catch (error) {
-      console.error(error.response.data.error);
+      console.error(error.response ? error.response.data.error : error.message);
     }
   };
 
