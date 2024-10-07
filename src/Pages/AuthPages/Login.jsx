@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import Cookies from "js-cookie";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { ImSpinner6 } from "react-icons/im";
@@ -40,6 +41,21 @@ const Login = () => {
     try {
       const response = await axiosInstance.post("/auth/login", postData);
       message.success(response.data.message);
+      
+      // Save access and refresh tokens in cookies
+      Cookies.set("accessToken", response.data.accessToken, {
+        expires: 7,
+        sameSite: "Lax",
+        secure: true,
+        path: "/",
+      });
+      Cookies.set("refreshToken", response.data.refreshToken, {
+        expires: 7,
+        sameSite: "Lax",
+        secure: true,
+        path: "/",
+      });
+
       await handleAuthentication();
       navigate("/home");
     } catch (error) {

@@ -4,6 +4,7 @@ import { FaChevronLeft } from "react-icons/fa";
 import { message } from "antd";
 import { axiosInstance } from "../../../Pages/AuthPages/AuthChecker/axiosInstance";
 import { ImSpinner6 } from "react-icons/im";
+import Cookies from "js-cookie";
 
 const ProfileSettings = () => {
   const navigate = useNavigate();
@@ -25,9 +26,15 @@ const ProfileSettings = () => {
       newFullName,
     };
     try {
+      const accessToken = Cookies.get("accessToken");
       const response = await axiosInstance.put(
         "/auth/updateFullName",
-        postData
+        postData,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
       );
       message.success(response.data.message);
       navigate("/home");
@@ -56,9 +63,15 @@ const ProfileSettings = () => {
       confirmNewPassword,
     };
     try {
+      const accessToken = Cookies.get("accessToken");
       const response = await axiosInstance.put(
         "/auth/updatePassword",
-        postData
+        postData,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
       );
       message.success(response.data.message);
       navigate("/home");
