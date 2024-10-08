@@ -59,11 +59,11 @@ const Hero = () => {
           >
             <div className="flex flex-col justify-center gap-4">
               <h1 className="text-left max-lg:text-center text-[2.85rem] max-lg:text-[2.85rem] max-md:text-[2rem] max-md:max-w-[600px] max-md:mx-auto capitalize font-extrabold max-[1305px]:text-[2rem]">
-                Create website designs 10X faster with{" "}
+                Create Landing Pages 10X faster with{" "}
                 <span className="gradient-text">QuickUI</span>
               </h1>
               <p className="text-2xl text-[rgb(189,189,189)] font-semibold max-lg:text-center max-lg:max-w-[500px] max-lg:mx-auto">
-                Design websites super fast with QuickUI! No more long hours
+                Design Landing Pages super fast with QuickUI! No more long hours
                 coding.
               </p>
             </div>
