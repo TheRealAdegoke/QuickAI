@@ -11,6 +11,7 @@ export const featuresWithCardsComponent = ({
   isEdited,
   uniqueId,
   elementContent,
+  handleImageClick,
 }) => {
   return [
     <section
@@ -347,9 +348,22 @@ export const featuresWithCardsComponent = ({
           } w-[40%] max-lg:w-full max-lg:mt-5`}
         >
           <img
-            src={text.images[6]}
+            id={`features-with-card-image-${index + 1}-${uniqueId}`}
+            src={
+              elementContent[
+                `features-with-card-image-${index + 1}-${uniqueId}`
+              ] || text.images[6]
+            }
             alt="quickui-lib-image"
             className="block h-[550px] mx-auto object-cover rounded-xl"
+            onClick={() =>
+              handleImageClick(
+                elementContent[
+                  `features-with-card-image-${index + 1}-${uniqueId}`
+                ] || text.images[6],
+                `features-with-card-image-${index + 1}-${uniqueId}`
+              )
+            }
           />
         </div>
       </div>
@@ -689,9 +703,22 @@ export const featuresWithCardsComponent = ({
           } w-[40%] max-lg:w-full max-lg:mt-5`}
         >
           <img
-            src={text.images[7]}
+            id={`features-with-card-image-${index + 1}-${uniqueId}`}
+            src={
+              elementContent[
+                `features-with-card-image-${index + 1}-${uniqueId}`
+              ] || text.images[7]
+            }
             alt="quickui-lib-image"
             className="block h-[550px] mx-auto object-cover rounded-xl"
+            onClick={() =>
+              handleImageClick(
+                elementContent[
+                  `features-with-card-image-${index + 1}-${uniqueId}`
+                ] || text.images[7],
+                `features-with-card-image-${index + 1}-${uniqueId}`
+              )
+            }
           />
         </div>
       </div>
@@ -847,9 +874,22 @@ export const featuresWithCardsComponent = ({
               } w-full max-lg:mt-5 max-lg:hidden`}
             >
               <img
-                src={text.images[8]}
+                id={`features-with-card-image-${index + 1}-${uniqueId}`}
+                src={
+                  elementContent[
+                    `features-with-card-image-${index + 1}-${uniqueId}`
+                  ] || text.images[8]
+                }
                 alt="quickui-lib-image"
                 className="block w-full h-[300px] mx-auto object-cover rounded-xl"
+                onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `features-with-card-image-${index + 1}-${uniqueId}`
+                    ] || text.images[8],
+                    `features-with-card-image-${index + 1}-${uniqueId}`
+                  )
+                }
               />
             </div>
           </div>
@@ -887,9 +927,22 @@ export const featuresWithCardsComponent = ({
           } w-[40%] max-lg:w-full max-lg:mt-5`}
         >
           <img
-            src={text.images[7]}
+            id={`features-with-card-image-${index + 2}-${uniqueId}`}
+            src={
+              elementContent[
+                `features-with-card-image-${index + 2}-${uniqueId}`
+              ] || text.images[7]
+            }
             alt="quickui-lib-image"
             className="block w-full h-[550px] mx-auto object-cover rounded-xl"
+            onClick={() =>
+              handleImageClick(
+                elementContent[
+                  `features-with-card-image-${index + 2}-${uniqueId}`
+                ] || text.images[7],
+                `features-with-card-image-${index + 2}-${uniqueId}`
+              )
+            }
           />
         </div>
       </div>
@@ -1045,9 +1098,22 @@ export const featuresWithCardsComponent = ({
               } w-full max-lg:mt-5 max-lg:hidden`}
             >
               <img
-                src={text.images[0]}
+                id={`features-with-card-image-${index + 1}-${uniqueId}`}
+                src={
+                  elementContent[
+                    `features-with-card-image-${index + 1}-${uniqueId}`
+                  ] || text.images[7]
+                }
                 alt="quickui-lib-image"
                 className="block w-full h-[300px] mx-auto object-cover rounded-xl"
+                onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `features-with-card-image-${index + 1}-${uniqueId}`
+                    ] || text.images[7],
+                    `features-with-card-image-${index + 1}-${uniqueId}`
+                  )
+                }
               />
             </div>
           </div>
@@ -1085,9 +1151,22 @@ export const featuresWithCardsComponent = ({
           } w-[40%] max-lg:w-full max-lg:mt-5`}
         >
           <img
-            src={text.images[8]}
+            id={`features-with-card-image-${index + 2}-${uniqueId}`}
+            src={
+              elementContent[
+                `features-with-card-image-${index + 2}-${uniqueId}`
+              ] || text.images[8]
+            }
             alt="quickui-lib-image"
             className="block w-full h-[550px] mx-auto object-cover rounded-xl"
+            onClick={() =>
+              handleImageClick(
+                elementContent[
+                  `features-with-card-image-${index + 2}-${uniqueId}`
+                ] || text.images[8],
+                `features-with-card-image-${index + 2}-${uniqueId}`
+              )
+            }
           />
         </div>
       </div>
@@ -1433,9 +1512,22 @@ export const featuresWithCardsComponent = ({
               } bg-[linear-gradient(314deg,#212529_70%,#484e53_100%)] w-[80%] max-w-[400px] max-md:w-[80%] lg:w-[85%] max-md:max-w-[400px] h-[250px] mx-auto rounded-t-2xl flex justify-center items-center`}
             >
               <img
-                src={text.images[9]}
+                id={`features-with-card-image-${index + 1}-${uniqueId}`}
+                src={
+                  elementContent[
+                    `features-with-card-image-${index + 1}-${uniqueId}`
+                  ] || text.images[9]
+                }
                 alt="quickui-lib-image"
                 className="h-[230px] w-[95%] rounded-t-2xl block object-cover"
+                onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `features-with-card-image-${index + 1}-${uniqueId}`
+                    ] || text.images[9],
+                    `features-with-card-image-${index + 1}-${uniqueId}`
+                  )
+                }
               />
             </div>
             <div>

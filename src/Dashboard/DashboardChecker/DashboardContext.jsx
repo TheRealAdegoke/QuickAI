@@ -109,6 +109,8 @@ export const DashboardProvider = ({ children }) => {
   const [isEdited, setIsEdited] = useState({});
   const [displayCode, setDisplayCode] = useState("");
   const [elementUniqueIds, setElementUniqueIds] = useState({});
+  const [selectedImage, setSelectedImage] = useState("");
+  const [selectedHeroImageId, setSelectedHeroImageId] = useState(null);
   const lastClickedDivRef = useRef(null);
 
   useEffect(() => {
@@ -120,7 +122,7 @@ export const DashboardProvider = ({ children }) => {
       }));
       setShuffled(true);
     }
-  }, [geminiResponses,]);
+  }, [geminiResponses]);
 
   useEffect(() => {
     if (
@@ -268,6 +270,10 @@ export const DashboardProvider = ({ children }) => {
           clickedText,
           isEdited,
           elementContent,
+          selectedImage,
+          setSelectedImage,
+          handleImageClick,
+          handleGalleryImageClick,
         }).length
     );
     const randomButtonsIndex = Math.floor(
@@ -292,6 +298,10 @@ export const DashboardProvider = ({ children }) => {
           handleDivClick,
           isEdited,
           elementContent,
+          selectedImage,
+          setSelectedImage,
+          handleImageClick,
+          handleGalleryImageClick,
         }).length
     );
     const randomfeaturesIndex = Math.floor(
@@ -580,6 +590,22 @@ export const DashboardProvider = ({ children }) => {
     }
   };
 
+  const handleImageClick = (imageSrc, imageId) => {
+    setSelectedImage(imageSrc);
+    setSelectedHeroImageId(imageId);
+  };
+
+  const handleGalleryImageClick = (imageSrc) => {
+    setSelectedImage(imageSrc);
+    // Update the hero image
+    if (selectedHeroImageId) {
+      setElementContent((prevContent) => ({
+        ...prevContent,
+        [selectedHeroImageId]: imageSrc,
+      }));
+    }
+  };
+
   useEffect(() => {
     handleBGColorClick(backGroundStyle);
   }, [backGroundStyle]);
@@ -746,6 +772,10 @@ export const DashboardProvider = ({ children }) => {
         elementContent,
         setElementContent,
         setElementStyles,
+        selectedImage,
+        setSelectedImage,
+        handleImageClick,
+        handleGalleryImageClick,
       }}
     >
       {children}

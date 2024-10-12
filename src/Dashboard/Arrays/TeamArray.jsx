@@ -9,8 +9,8 @@ export const teamComponent = ({
   isEdited,
   uniqueId,
   elementContent,
+  handleImageClick,
 }) => {
-  
   return [
     <section
       onClick={handleDivClick}
@@ -65,9 +65,24 @@ export const teamComponent = ({
           >
             <div className="w-[90%] mx-auto">
               <img
-                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                id={`team-paragraph-image-${index + 1}-${uniqueId}`}
+                src={
+                  elementContent[
+                    `team-paragraph-image-${index + 1}-${uniqueId}`
+                  ] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                }
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
+                onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `team-paragraph-image-${index + 1}-${uniqueId}`
+                    ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    `team-paragraph-image-${index + 1}-${uniqueId}`
+                  )
+                }
               />
             </div>
 
@@ -180,9 +195,24 @@ export const teamComponent = ({
           >
             <div className="w-[90%] mx-auto">
               <img
-                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                id={`team-paragraph-image-${index + 2}-${uniqueId}`}
+                src={
+                  elementContent[
+                    `team-paragraph-image-${index + 2}-${uniqueId}`
+                  ] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                }
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
+                onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `team-paragraph-image-${index + 2}-${uniqueId}`
+                    ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    `team-paragraph-image-${index + 2}-${uniqueId}`
+                  )
+                }
               />
             </div>
 
@@ -295,9 +325,24 @@ export const teamComponent = ({
           >
             <div className="w-[90%] mx-auto">
               <img
-                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                id={`team-paragraph-image-${index + 3}-${uniqueId}`}
+                src={
+                  elementContent[
+                    `team-paragraph-image-${index + 3}-${uniqueId}`
+                  ] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                }
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
+                onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `team-paragraph-image-${index + 3}-${uniqueId}`
+                    ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    `team-paragraph-image-${index + 3}-${uniqueId}`
+                  )
+                }
               />
             </div>
 
@@ -458,9 +503,24 @@ export const teamComponent = ({
           >
             <div className="w-[90%] mx-auto">
               <img
-                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                id={`team-paragraph-image-${index + 1}-${uniqueId}`}
+                src={
+                  elementContent[
+                    `team-paragraph-image-${index + 1}-${uniqueId}`
+                  ] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                }
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
+                onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `team-paragraph-image-${index + 1}-${uniqueId}`
+                    ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    `team-paragraph-image-${index + 1}-${uniqueId}`
+                  )
+                }
               />
             </div>
 
@@ -573,9 +633,24 @@ export const teamComponent = ({
           >
             <div className="w-[90%] mx-auto">
               <img
-                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                id={`team-paragraph-image-${index + 2}-${uniqueId}`}
+                src={
+                  elementContent[
+                    `team-paragraph-image-${index + 2}-${uniqueId}`
+                  ] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                }
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
+                onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `team-paragraph-image-${index + 2}-${uniqueId}`
+                    ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    `team-paragraph-image-${index + 2}-${uniqueId}`
+                  )
+                }
               />
             </div>
 
@@ -688,9 +763,24 @@ export const teamComponent = ({
           >
             <div className="w-[90%] mx-auto">
               <img
-                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                id={`team-paragraph-image-${index + 3}-${uniqueId}`}
+                src={
+                  elementContent[
+                    `team-paragraph-image-${index + 3}-${uniqueId}`
+                  ] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                }
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
+                onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `team-paragraph-image-${index + 3}-${uniqueId}`
+                    ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    `team-paragraph-image-${index + 3}-${uniqueId}`
+                  )
+                }
               />
             </div>
 
@@ -851,9 +941,22 @@ export const teamComponent = ({
           >
             <div className="w-[90%] mx-auto">
               <img
-                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                id={`team-paragraph-image-${index + 1}-${uniqueId}`}
+                src={
+                  elementContent[
+                    `team-paragraph-image-${index + 1}-${uniqueId}`
+                  ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                }
                 alt=""
                 className="block w-[150px] h-[150px] mx-auto object-cover rounded-full"
+                onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `team-paragraph-image-${index + 1}-${uniqueId}`
+                    ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    `team-paragraph-image-${index + 1}-${uniqueId}`
+                  )
+                }
               />
             </div>
 
@@ -966,9 +1069,22 @@ export const teamComponent = ({
           >
             <div className="w-[90%] mx-auto">
               <img
-                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                id={`team-paragraph-image-${index + 2}-${uniqueId}`}
+                src={
+                  elementContent[
+                    `team-paragraph-image-${index + 2}-${uniqueId}`
+                  ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                }
                 alt=""
                 className="block w-[150px] h-[150px] mx-auto object-cover rounded-full"
+                onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `team-paragraph-image-${index + 2}-${uniqueId}`
+                    ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    `team-paragraph-image-${index + 2}-${uniqueId}`
+                  )
+                }
               />
             </div>
 
@@ -1081,9 +1197,22 @@ export const teamComponent = ({
           >
             <div className="w-[90%] mx-auto">
               <img
-                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                id={`team-paragraph-image-${index + 3}-${uniqueId}`}
+                src={
+                  elementContent[
+                    `team-paragraph-image-${index + 3}-${uniqueId}`
+                  ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                }
                 alt=""
                 className="block w-[150px] h-[150px] mx-auto object-cover rounded-full"
+                onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `team-paragraph-image-${index + 3}-${uniqueId}`
+                    ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    `team-paragraph-image-${index + 3}-${uniqueId}`
+                  )
+                }
               />
             </div>
 
@@ -1244,9 +1373,22 @@ export const teamComponent = ({
           >
             <div className="w-[90%] mx-auto">
               <img
-                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                id={`team-paragraph-image-${index + 1}-${uniqueId}`}
+                src={
+                  elementContent[
+                    `team-paragraph-image-${index + 1}-${uniqueId}`
+                  ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                }
                 alt=""
                 className="block w-[150px] h-[150px] mx-auto object-cover rounded-full"
+                onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `team-paragraph-image-${index + 1}-${uniqueId}`
+                    ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    `team-paragraph-image-${index + 1}-${uniqueId}`
+                  )
+                }
               />
             </div>
 
@@ -1359,9 +1501,22 @@ export const teamComponent = ({
           >
             <div className="w-[90%] mx-auto">
               <img
-                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                id={`team-paragraph-image-${index + 2}-${uniqueId}`}
+                src={
+                  elementContent[
+                    `team-paragraph-image-${index + 2}-${uniqueId}`
+                  ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                }
                 alt=""
                 className="block w-[150px] h-[150px] mx-auto object-cover rounded-full"
+                onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `team-paragraph-image-${index + 2}-${uniqueId}`
+                    ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    `team-paragraph-image-${index + 2}-${uniqueId}`
+                  )
+                }
               />
             </div>
 
@@ -1474,9 +1629,22 @@ export const teamComponent = ({
           >
             <div className="w-[90%] mx-auto">
               <img
-                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                id={`team-paragraph-image-${index + 3}-${uniqueId}`}
+                src={
+                  elementContent[
+                    `team-paragraph-image-${index + 3}-${uniqueId}`
+                  ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                }
                 alt=""
                 className="block w-[150px] h-[150px] mx-auto object-cover rounded-full"
+                onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `team-paragraph-image-${index + 3}-${uniqueId}`
+                    ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    `team-paragraph-image-${index + 3}-${uniqueId}`
+                  )
+                }
               />
             </div>
 
@@ -1637,9 +1805,24 @@ export const teamComponent = ({
           >
             <div className="w-[90%] mx-auto">
               <img
-                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                id={`team-paragraph-image-${index + 1}-${uniqueId}`}
+                src={
+                  elementContent[
+                    `team-paragraph-image-${index + 1}-${uniqueId}`
+                  ] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                }
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
+                onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `team-paragraph-image-${index + 1}-${uniqueId}`
+                    ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    `team-paragraph-image-${index + 1}-${uniqueId}`
+                  )
+                }
               />
             </div>
 
@@ -1752,9 +1935,24 @@ export const teamComponent = ({
           >
             <div className="w-[90%] mx-auto">
               <img
-                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                id={`team-paragraph-image-${index + 2}-${uniqueId}`}
+                src={
+                  elementContent[
+                    `team-paragraph-image-${index + 2}-${uniqueId}`
+                  ] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                }
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
+                onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `team-paragraph-image-${index + 2}-${uniqueId}`
+                    ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    `team-paragraph-image-${index + 2}-${uniqueId}`
+                  )
+                }
               />
             </div>
 
@@ -1867,9 +2065,24 @@ export const teamComponent = ({
           >
             <div className="w-[90%] mx-auto">
               <img
-                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                id={`team-paragraph-image-${index + 3}-${uniqueId}`}
+                src={
+                  elementContent[
+                    `team-paragraph-image-${index + 3}-${uniqueId}`
+                  ] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                }
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
+                onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `team-paragraph-image-${index + 3}-${uniqueId}`
+                    ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    `team-paragraph-image-${index + 3}-${uniqueId}`
+                  )
+                }
               />
             </div>
 
@@ -2030,9 +2243,24 @@ export const teamComponent = ({
           >
             <div className="w-[90%] mx-auto">
               <img
-                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                id={`team-paragraph-image-${index + 1}-${uniqueId}`}
+                src={
+                  elementContent[
+                    `team-paragraph-image-${index + 1}-${uniqueId}`
+                  ] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                }
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
+                onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `team-paragraph-image-${index + 1}-${uniqueId}`
+                    ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    `team-paragraph-image-${index + 1}-${uniqueId}`
+                  )
+                }
               />
             </div>
 
@@ -2145,9 +2373,24 @@ export const teamComponent = ({
           >
             <div className="w-[90%] mx-auto">
               <img
-                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                id={`team-paragraph-image-${index + 2}-${uniqueId}`}
+                src={
+                  elementContent[
+                    `team-paragraph-image-${index + 2}-${uniqueId}`
+                  ] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                }
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
+                onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `team-paragraph-image-${index + 2}-${uniqueId}`
+                    ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    `team-paragraph-image-${index + 2}-${uniqueId}`
+                  )
+                }
               />
             </div>
 
@@ -2260,9 +2503,24 @@ export const teamComponent = ({
           >
             <div className="w-[90%] mx-auto">
               <img
-                src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                id={`team-paragraph-image-${index + 3}-${uniqueId}`}
+                src={
+                  elementContent[
+                    `team-paragraph-image-${index + 3}-${uniqueId}`
+                  ] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                }
                 alt=""
                 className="block w-full h-[250px] mx-auto object-cover rounded-lg"
+                onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `team-paragraph-image-${index + 3}-${uniqueId}`
+                    ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    `team-paragraph-image-${index + 3}-${uniqueId}`
+                  )
+                }
               />
             </div>
 

@@ -9,8 +9,8 @@ export const testimonialComponent = ({
   isEdited,
   uniqueId,
   elementContent,
+  handleImageClick,
 }) => {
-
   return [
     <section
       onClick={handleDivClick}
@@ -60,9 +60,20 @@ export const testimonialComponent = ({
 
         <div className="my-8 flex items-center justify-center gap-3">
           <img
-            src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+            id={`testimonial-image-${index + 1}-${uniqueId}`}
+            src={
+              elementContent[`testimonial-image-${index + 1}-${uniqueId}`] ||
+              "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+            }
             alt=""
             className="block rounded-full w-[50px] h-[50px] object-cover"
+            onClick={() =>
+              handleImageClick(
+                elementContent[`testimonial-image-${index + 1}-${uniqueId}`] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                `testimonial-image-${index + 1}-${uniqueId}`
+              )
+            }
           />
           <div className="text-sm font-semibold">
             <p
@@ -905,9 +916,20 @@ export const testimonialComponent = ({
 
         <div className="my-8 flex items-center gap-3">
           <img
-            src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+            id={`testimonial-image-${index + 1}-${uniqueId}`}
+            src={
+              elementContent[`testimonial-image-${index + 1}-${uniqueId}`] ||
+              "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+            }
             alt=""
             className="block rounded-full w-[50px] h-[50px] object-cover"
+            onClick={() =>
+              handleImageClick(
+                elementContent[`testimonial-image-${index + 1}-${uniqueId}`] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                `testimonial-image-${index + 1}-${uniqueId}`
+              )
+            }
           />
           <div className="text-sm font-semibold">
             <p
@@ -1007,9 +1029,20 @@ export const testimonialComponent = ({
 
         <div className="my-8 flex items-center justify-center gap-3">
           <img
-            src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+            id={`testimonial-image-${index + 1}-${uniqueId}`}
+            src={
+              elementContent[`testimonial-image-${index + 1}-${uniqueId}`] ||
+              "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+            }
             alt=""
             className="block rounded-full w-[50px] h-[50px] object-cover"
+            onClick={() =>
+              handleImageClick(
+                elementContent[`testimonial-image-${index + 1}-${uniqueId}`] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                `testimonial-image-${index + 1}-${uniqueId}`
+              )
+            }
           />
           <div className="text-sm font-semibold">
             <p
@@ -1106,9 +1139,20 @@ export const testimonialComponent = ({
 
         <div className="my-8 flex items-center gap-3">
           <img
-            src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+            id={`testimonial-image-${index + 1}-${uniqueId}`}
+            src={
+              elementContent[`testimonial-image-${index + 1}-${uniqueId}`] ||
+              "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+            }
             alt=""
             className="block rounded-full w-[50px] h-[50px] object-cover"
+            onClick={() =>
+              handleImageClick(
+                elementContent[`testimonial-image-${index + 1}-${uniqueId}`] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                `testimonial-image-${index + 1}-${uniqueId}`
+              )
+            }
           />
           <div className="text-sm font-semibold">
             <p
@@ -1171,9 +1215,22 @@ export const testimonialComponent = ({
       >
         <div className="flex items-center gap-3">
           <img
-            src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+            id={`testimonial-image-${index + 1}-${uniqueId}`}
+            src={
+              elementContent[`testimonial-image-${index + 1}-${uniqueId}`] ||
+              "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+            }
             alt=""
             className="block w-[150px] h-[200px] object-cover rounded-md"
+            onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `testimonial-image-${index + 1}-${uniqueId}`
+                    ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    `testimonial-image-${index + 1}-${uniqueId}`
+                  )
+                }
           />
         </div>
         <div className="">
@@ -1237,9 +1294,22 @@ export const testimonialComponent = ({
       >
         <div className="flex items-center gap-3">
           <img
-            src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+            id={`testimonial-image-${index + 1}-${uniqueId}`}
+            src={
+              elementContent[`testimonial-image-${index + 1}-${uniqueId}`] ||
+              "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+            }
             alt=""
             className="block w-[150px] h-[200px] object-cover rounded-md"
+            onClick={() =>
+                  handleImageClick(
+                    elementContent[
+                      `testimonial-image-${index + 1}-${uniqueId}`
+                    ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    `testimonial-image-${index + 1}-${uniqueId}`
+                  )
+                }
           />
         </div>
         <div className="">
