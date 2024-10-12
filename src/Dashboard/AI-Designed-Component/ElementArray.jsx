@@ -46,6 +46,8 @@ const ElementArray = () => {
     texts,
     isEdited,
     elementContent,
+    selectedImage,
+    handleImageClick,
   } = useContext(DashContext);
 
   const componentMap = {
@@ -84,6 +86,8 @@ const ElementArray = () => {
       isEdited,
       uniqueId,
       elementContent,
+      selectedImage,
+      handleImageClick,
     })[index],
   });
 

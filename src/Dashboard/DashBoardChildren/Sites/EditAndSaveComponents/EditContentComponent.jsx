@@ -1,10 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { IoIosClose } from "react-icons/io";
 import { Slider, ConfigProvider } from "antd";
 import { DashContext } from "../../../DashboardChecker/DashboardContext";
+import Demo from "../../../../assets/QuickUIDesign.png";
+import Cookies from "js-cookie";
+import { message } from "antd";
+import { axiosInstance } from "../../../../Pages/AuthPages/AuthChecker/axiosInstance";
+import { ImSpinner6 } from "react-icons/im";
 
 const EditContentComponent = () => {
   const {
+    userData,
     clickedText,
     handleTextareaChange,
     handleColorClick,
@@ -13,6 +19,10 @@ const EditContentComponent = () => {
     handleFontStyleClick,
     handleFontFamilyClick,
     handleTextAlignmentClick,
+    handleUserData,
+    selectedImage,
+    setSelectedImage,
+    handleGalleryImageClick,
   } = useContext(DashContext);
   const [colorType, setColorType] = useState(true); // true for HEX, false for RGB
   const [customColor, setCustomColor] = useState({
@@ -82,6 +92,11 @@ const EditContentComponent = () => {
     fontFamilyModal: false,
     alignModal: false,
   });
+  const [displayImageGallery, setDisplayImageGallery] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [previewUrl, setPreviewUrl] = useState(null);
+  const [uploading, setUploading] = useState(false);
+  const fileInputRef = useRef();
 
   const formatter = (value) => {
     const formattedValue = value
@@ -141,6 +156,68 @@ const EditContentComponent = () => {
       btn.fontSizeType ? `${fontValue}px` : `${fontValue}rem`
     );
   }, [value]);
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0]; // Get the selected file
+    setSelectedFile(file); // Set the selected file in state
+
+    // Check if the file is an image
+    if (file && file.type.startsWith("image/")) {
+      const reader = new FileReader(); // Create a new FileReader instance
+
+      // When the file is read, set the preview URL
+      reader.onloadend = () => {
+        setPreviewUrl(reader.result); // Set the preview URL (base64)
+      };
+
+      // Read the file as a Data URL (base64 encoded)
+      reader.readAsDataURL(file);
+    } else {
+      setPreviewUrl(null); // Clear preview if the file is not an image
+      message.warning(
+        "Please select a valid image file (jpeg, png, jpg, webp)."
+      );
+    }
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!selectedFile) {
+      message.warning("Please select a file before uploading.");
+      return;
+    }
+
+    // Create FormData object to send the file
+    const formData = new FormData();
+    formData.append("image", selectedFile);
+
+    try {
+      const accessToken = Cookies.get("accessToken");
+      setUploading(true);
+
+      // Send file to backend using Axios
+      const response = await axiosInstance.post("/auth/upload", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+
+      // Show success message and set the uploaded image URL
+      message.success(response.data.message);
+      handleUserData()
+      setPreviewUrl(null);
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      message.error(
+        error.response?.data?.error || "An error occurred during upload."
+      );
+    } finally {
+      setUploading(false);
+    }
+  };
 
   return (
     <>
@@ -681,6 +758,124 @@ const EditContentComponent = () => {
                     Justify
                   </button>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="">
+          <button
+            className={`bg-[rgb(36,37,40)] rounded-[5px] mt-10 px-2 py-2 w-full text-[rgb(145,151,155)] font-medium text-sm flex justify-between items-center`}
+            onClick={() => {
+              setDisplayImageGallery(true);
+            }}
+          >
+            <span>Picture </span>
+            <span>
+              {/* Display the selected image */}
+              <img
+                className="w-[40px] h-[30px] object-cover"
+                src={selectedImage}
+                alt="Selected"
+              />
+            </span>
+          </button>
+
+          <div
+            className={`${
+              displayImageGallery ? "block" : "hidden"
+            } w-[500px] h-[400px] bg-[rgb(36,37,40)] absolute left-[100%] bottom-[-4vw] z-[45] border-[rgba(255,255,255,0.5)] border-[1px] pt-2 rounded-[5px]`}
+          >
+            <div className="flex justify-end pr-5 mb-3 text-2xl">
+              <button
+                className="cursor-pointer text-[rgb(145,151,155)]"
+                onClick={() => {
+                  setDisplayImageGallery(false);
+                }}
+              >
+                <IoIosClose />
+              </button>
+            </div>
+
+            <div className="border-[rgba(255,255,255,0.5)] border-b-[1px] pb-2 px-2 flex justify-evenly">
+              <button className="text-[rgb(145,151,155)] font-medium text-sm">
+                Default
+              </button>
+              <button className="text-[rgb(145,151,155)] font-medium text-sm">
+                Illustrations
+              </button>
+              <button className="text-[rgb(145,151,155)] font-medium text-sm">
+                Vectors
+              </button>
+            </div>
+
+            {previewUrl && (
+              <div
+                className={`${
+                  displayImageGallery ? "block" : "hidden"
+                } w-[500px] h-[400px] bg-[rgb(36,37,40)] absolute bottom-[0vw] z-[45] border-[rgba(255,255,255,0.5)] border-[1px] pt-2 rounded-[5px]`}
+              >
+                <div className="flex">
+                  <button
+                    className="block text-[rgba(0,0,0,0.8)] font-medium text-sm bg-white w-[150px] mx-auto py-1 mb-3"
+                    onClick={() => {
+                      setPreviewUrl(null);
+                    }}
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    className="block text-[rgba(0,0,0,0.8)] font-medium text-sm bg-white w-[150px] mx-auto py-1 mb-3"
+                    onClick={handleSubmit}
+                    disabled={uploading}
+                  >
+                    {uploading ? (
+                      <div>
+                        <ImSpinner6 className="animate-spin text-black block mx-auto" />
+                      </div>
+                    ) : (
+                      "Save"
+                    )}
+                  </button>
+                </div>
+                <img
+                  src={previewUrl}
+                  alt="Selected"
+                  className="block w-[80%] h-[80%] mx-auto object-cover"
+                />
+              </div>
+            )}
+
+            <div className="default h-[83%] relative">
+              <div className="flex gap-4 flex-wrap px-6">
+                {userData.imageGallery &&
+                  userData.imageGallery.map((image, index) => (
+                    <img
+                      key={index}
+                      src={image}
+                      alt={image}
+                      className="block w-[50px] h-[50px] object-cover cursor-pointer my-2"
+                      onClick={() => {
+                        handleGalleryImageClick(image);
+                      }}
+                    />
+                  ))}
+              </div>
+              <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 bottom-[-5px] w-[80%]">
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                  ref={fileInputRef}
+                  className="hidden"
+                />
+                <button
+                  type="button"
+                  className="block text-[rgba(0,0,0,0.8)] font-medium text-sm bg-white w-full mx-auto py-1"
+                  onClick={() => fileInputRef.current.click()}
+                >
+                  Upload File
+                </button>
               </div>
             </div>
           </div>

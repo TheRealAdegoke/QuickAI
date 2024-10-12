@@ -14,6 +14,7 @@ export const heroComponents = ({
   isEdited,
   uniqueId,
   elementContent,
+  handleImageClick,
 }) => {
   const buttonElement = WebButtonsArray({
     text,
@@ -56,37 +57,92 @@ export const heroComponents = ({
             <div className="w-[85%] grid grid-cols-3 gap-4 my-10">
               <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[250px]  p-3 rounded-[8px] col-span-3">
                 <img
-                  src={text.images[0]}
+                  id={`hero-image-${index + 1}-${uniqueId}`}
+                  src={
+                    elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
+                    text.images[0]
+                  }
                   alt="quickui-lib-image"
                   className="rounded-[8px] w-full h-full object-cover"
+                  onClick={() =>
+                    handleImageClick(
+                      elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
+                        text.images[0],
+                      `hero-image-${index + 1}-${uniqueId}`
+                    )
+                  }
                 />
               </div>
               <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[200px] p-3 rounded-[8px]">
                 <img
-                  src={text.images[1]}
+                  id={`hero-image-${index + 2}-${uniqueId}`}
+                  src={
+                    elementContent[`hero-image-${index + 2}-${uniqueId}`] ||
+                    text.images[1]
+                  }
                   alt="quickui-lib-image"
                   className="rounded-[8px] w-full h-full object-cover"
+                  onClick={() =>
+                    handleImageClick(
+                      elementContent[`hero-image-${index + 2}-${uniqueId}`] ||
+                        text.images[1],
+                      `hero-image-${index + 2}-${uniqueId}`
+                    )
+                  }
                 />
               </div>
               <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[200px]  p-3 rounded-[8px]">
                 <img
-                  src={text.images[2]}
+                  id={`hero-image-${index + 3}-${uniqueId}`}
+                  src={
+                    elementContent[`hero-image-${index + 3}-${uniqueId}`] ||
+                    text.images[2]
+                  }
                   alt="quickui-lib-image"
                   className="rounded-[8px] w-full h-full object-cover"
+                  onClick={() =>
+                    handleImageClick(
+                      elementContent[`hero-image-${index + 3}-${uniqueId}`] ||
+                        text.images[2],
+                      `hero-image-${index + 3}-${uniqueId}`
+                    )
+                  }
                 />
               </div>
               <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[200px]  p-3 rounded-[8px]">
                 <img
-                  src={text.images[3]}
+                  id={`hero-image-${index + 4}-${uniqueId}`}
+                  src={
+                    elementContent[`hero-image-${index + 4}-${uniqueId}`] ||
+                    text.images[3]
+                  }
                   alt="quickui-lib-image"
                   className="rounded-[8px] w-full h-full object-cover"
+                  onClick={() =>
+                    handleImageClick(
+                      elementContent[`hero-image-${index + 4}-${uniqueId}`] ||
+                        text.images[3],
+                      `hero-image-${index + 4}-${uniqueId}`
+                    )
+                  }
                 />
               </div>
               <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[250px]  p-3 rounded-[8px] col-span-3">
                 <img
-                  src={text.images[4]}
+                  id={`hero-image-${index + 5}-${uniqueId}`}
+                  src={
+                    elementContent[`hero-image-${index + 5}-${uniqueId}`] ||
+                    text.images[4]
+                  }
                   alt="quickui-lib-image"
                   className="rounded-[8px] w-full h-full object-cover"
+                  onClick={() =>
+                    handleImageClick(
+                      elementContent[`hero-image-${index + 5}-${uniqueId}`] ||
+                        text.images[4],
+                      `hero-image-${index + 5}-${uniqueId}`
+                    )
+                  }
                 />
               </div>
             </div>
@@ -97,11 +153,22 @@ export const heroComponents = ({
             } max-lg:max-w-[800px] max-lg:w-[95%] max-lg:mx-auto w-[50%]`}
           >
             <img
-              src={text.images[5]}
+              id={`hero-image-${index + 6}-${uniqueId}`}
+              src={
+                elementContent[`hero-image-${index + 6}-${uniqueId}`] ||
+                text.images[5]
+              }
               alt="quickui-lib-image"
               className={`${
                 isMobile ? "max-w-[800px] w-[95%] h-[400px]" : ""
               } block max-lg:w-[95%] w-full h-[600px] max-lg:h-[400px] max-lg:max-w-[800px]`}
+              onClick={() =>
+                handleImageClick(
+                  elementContent[`hero-image-${index + 6}-${uniqueId}`] ||
+                    text.images[5],
+                  `hero-image-${index + 6}-${uniqueId}`
+                )
+              }
             />
             <p
               id={`hero-paragraph-${index + 1}-${uniqueId}`}
@@ -187,9 +254,20 @@ export const heroComponents = ({
             } w-[250px] h-[400px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3 mb-4 absolute top-2 max-lg:left-[35%] max-lg:transform max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:top-1/2 max-xl:top-2 max-xl:right-32 z-20`}
           >
             <img
-              src={text.images[0]}
+              id={`hero-image-${index + 1}-${uniqueId}`}
+              src={
+                elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
+                text.images[0]
+              }
               alt="quickui-lib-image"
               className="h-[350px] rounded-[35px] object-cover"
+              onClick={() =>
+                handleImageClick(
+                  elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
+                    text.images[0],
+                  `hero-image-${index + 1}-${uniqueId}`
+                )
+              }
             />
           </div>
           <div
@@ -198,9 +276,20 @@ export const heroComponents = ({
             } w-[260px] h-[480px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3 absolute max-lg:left-[60%] max-lg:transform max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:top-1/2 top-[7%] right-0 xl:right-[28%] z-10`}
           >
             <img
-              src={text.images[1]}
+              id={`hero-image-${index + 2}-${uniqueId}`}
+              src={
+                elementContent[`hero-image-${index + 2}-${uniqueId}`] ||
+                text.images[1]
+              }
               alt="quickui-lib-image"
               className="h-[420px] rounded-[35px] object-cover"
+              onClick={() =>
+                handleImageClick(
+                  elementContent[`hero-image-${index + 2}-${uniqueId}`] ||
+                    text.images[1],
+                  `hero-image-${index + 2}-${uniqueId}`
+                )
+              }
             />
           </div>
           <div
@@ -209,9 +298,20 @@ export const heroComponents = ({
             } w-[260px] h-[450px] bg-[rgb(33,37,41)] rounded-[35px] px-3 py-3 absolute top-14 right-5 max-xl:hidden`}
           >
             <img
-              src={text.images[2]}
+              id={`hero-image-${index + 3}-${uniqueId}`}
+              src={
+                elementContent[`hero-image-${index + 3}-${uniqueId}`] ||
+                text.images[2]
+              }
               alt="quickui-lib-image"
               className="h-full rounded-[35px] object-cover"
+              onClick={() =>
+                handleImageClick(
+                  elementContent[`hero-image-${index + 3}-${uniqueId}`] ||
+                    text.images[2],
+                  `hero-image-${index + 3}-${uniqueId}`
+                )
+              }
             />
           </div>
         </div>
@@ -274,9 +374,20 @@ export const heroComponents = ({
         >
           <div className="w-[260px] mx-auto h-[480px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3">
             <img
-              src={text.images[0]}
+              id={`hero-image-${index + 1}-${uniqueId}`}
+              src={
+                elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
+                text.images[0]
+              }
               alt="quickui-lib-image"
               className="h-[420px] rounded-[35px] object-cover"
+              onClick={() =>
+                handleImageClick(
+                  elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
+                    text.images[0],
+                  `hero-image-${index + 1}-${uniqueId}`
+                )
+              }
             />
           </div>
         </div>
@@ -339,9 +450,20 @@ export const heroComponents = ({
         >
           <div className="w-[260px] mx-auto h-[480px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3">
             <img
-              src={text.images[0]}
+              id={`hero-image-${index + 1}-${uniqueId}`}
+              src={
+                elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
+                text.images[0]
+              }
               alt="quickui-lib-image"
               className="h-[420px] w-full rounded-[35px] object-cover"
+              onClick={() =>
+                handleImageClick(
+                  elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
+                    text.images[0],
+                  `hero-image-${index + 1}-${uniqueId}`
+                )
+              }
             />
           </div>
         </div>
@@ -404,9 +526,20 @@ export const heroComponents = ({
         >
           <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
             <img
-              src={text.images[0]}
+              id={`hero-image-${index + 1}-${uniqueId}`}
+              src={
+                elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
+                text.images[0]
+              }
               alt="quickui-lib-image"
               className="object-cover h-full w-full"
+              onClick={() =>
+                handleImageClick(
+                  elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
+                    text.images[0],
+                  `hero-image-${index + 1}-${uniqueId}`
+                )
+              }
             />
           </div>
         </div>
@@ -469,9 +602,20 @@ export const heroComponents = ({
         >
           <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
             <img
-              src={text.images[0]}
+              id={`hero-image-${index + 1}-${uniqueId}`}
+              src={
+                elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
+                text.images[0]
+              }
               alt="quickui-lib-image"
               className="object-cover h-full w-full"
+              onClick={() =>
+                handleImageClick(
+                  elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
+                    text.images[0],
+                  `hero-image-${index + 1}-${uniqueId}`
+                )
+              }
             />
           </div>
         </div>
@@ -490,9 +634,20 @@ export const heroComponents = ({
         <div className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full`}>
           <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
             <img
-              src={text.images[0]}
+              id={`hero-image-${index + 1}-${uniqueId}`}
+              src={
+                elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
+                text.images[0]
+              }
               alt="quickui-lib-image"
               className="object-cover h-full w-full"
+              onClick={() =>
+                handleImageClick(
+                  elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
+                    text.images[0],
+                  `hero-image-${index + 1}-${uniqueId}`
+                )
+              }
             />
           </div>
         </div>
@@ -544,9 +699,20 @@ export const heroComponents = ({
         <div className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full`}>
           <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
             <img
-              src={text.images[1]}
+              id={`hero-image-${index + 2}-${uniqueId}`}
+              src={
+                elementContent[`hero-image-${index + 2}-${uniqueId}`] ||
+                text.images[1]
+              }
               alt="quickui-lib-image"
               className="object-cover h-full w-full"
+              onClick={() =>
+                handleImageClick(
+                  elementContent[`hero-image-${index + 2}-${uniqueId}`] ||
+                    text.images[1],
+                  `hero-image-${index + 2}-${uniqueId}`
+                )
+              }
             />
           </div>
         </div>
@@ -608,9 +774,20 @@ export const heroComponents = ({
           } w-[45%] max-lg:w-full relative`}
         >
           <img
-            src={text.images[0]}
+            id={`hero-image-${index + 1}-${uniqueId}`}
+            src={
+              elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
+              text.images[0]
+            }
             alt="quickui-lib-image"
             className="block rounded-full w-[350px] h-[350px] mx-auto object-cover"
+            onClick={() =>
+              handleImageClick(
+                elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
+                  text.images[0],
+                `hero-image-${index + 1}-${uniqueId}`
+              )
+            }
           />
         </div>
       </div>
