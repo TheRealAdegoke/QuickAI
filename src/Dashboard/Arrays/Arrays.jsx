@@ -94,7 +94,7 @@ export const randomIdeas = [
 ];
 
 export const vectors = [
-  "https://quickui.co/assets/Vector-32-qHYN0nDe.webp",
+  vectorOne,
   vectorTwo,
   vectorThree,
   vectorFour,
