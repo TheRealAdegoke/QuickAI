@@ -122,6 +122,7 @@ const ElementArray = () => {
           isEdited,
           uniqueId: navIndex,
           elementContent,
+          handleImageClick,
         })[navIndex],
       },
       ...renderedElements,

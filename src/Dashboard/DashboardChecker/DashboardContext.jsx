@@ -255,6 +255,7 @@ export const DashboardProvider = ({ children }) => {
           getElementStyle,
           isEdited,
           elementContent,
+          handleImageClick,
         }).length
     );
     const randomHeroIndex = Math.floor(
@@ -273,7 +274,6 @@ export const DashboardProvider = ({ children }) => {
           selectedImage,
           setSelectedImage,
           handleImageClick,
-          handleGalleryImageClick,
         }).length
     );
     const randomButtonsIndex = Math.floor(
@@ -301,7 +301,6 @@ export const DashboardProvider = ({ children }) => {
           selectedImage,
           setSelectedImage,
           handleImageClick,
-          handleGalleryImageClick,
         }).length
     );
     const randomfeaturesIndex = Math.floor(
