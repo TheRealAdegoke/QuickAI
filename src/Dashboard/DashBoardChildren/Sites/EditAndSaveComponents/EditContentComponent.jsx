@@ -100,7 +100,6 @@ const EditContentComponent = () => {
   const [imageGalleryType, setImageGalleryType] = useState({
     uploads: true,
     vectors: false,
-    illustrations: false,
     AI: false,
   });
   const fileInputRef = useRef();
@@ -166,6 +165,16 @@ const EditContentComponent = () => {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0]; // Get the selected file
+    const maxFileSize = 3 * 1024 * 1024; // 3 MB in bytes
+
+    // Check if the file is selected and its size
+    if (file && file.size > maxFileSize) {
+      setSelectedFile(null); // Clear the file selection
+      setPreviewUrl(null); // Clear preview
+      message.warning("File size should not exceed 3 MB."); // Display warning
+      return;
+    }
+
     setSelectedFile(file); // Set the selected file in state
 
     // Check if the file is an image
@@ -186,6 +195,7 @@ const EditContentComponent = () => {
       );
     }
   };
+
 
   // Handle form submission
   const handleSubmit = async (e) => {
@@ -806,7 +816,11 @@ const EditContentComponent = () => {
 
             <div className="border-[rgba(255,255,255,0.5)] border-b-[1px] pb-2 px-2 flex justify-evenly">
               <button
-                className="text-[rgb(145,151,155)] font-medium text-sm"
+                className={`${
+                  imageGalleryType.uploads
+                    ? "bg-[rgb(146,146,148)] text-[rgba(0,0,0)]"
+                    : "text-[rgb(145,151,155)]"
+                } font-medium text-sm px-8 py-1`}
                 onClick={() => {
                   setImageGalleryType({ uploads: true });
                 }}
@@ -814,7 +828,11 @@ const EditContentComponent = () => {
                 Uploads
               </button>
               <button
-                className="text-[rgb(145,151,155)] font-medium text-sm"
+                className={`${
+                  imageGalleryType.vectors
+                    ? "bg-[rgb(146,146,148)] text-[rgba(0,0,0)]"
+                    : "text-[rgb(145,151,155)]"
+                } font-medium text-sm px-8 py-1`}
                 onClick={() => {
                   setImageGalleryType({ vectors: true });
                 }}
@@ -822,15 +840,11 @@ const EditContentComponent = () => {
                 Vectors
               </button>
               <button
-                className="text-[rgb(145,151,155)] font-medium text-sm"
-                onClick={() => {
-                  setImageGalleryType({ illustrations: true });
-                }}
-              >
-                Illustrations
-              </button>
-              <button
-                className="text-[rgb(145,151,155)] font-medium text-sm"
+                className={`${
+                  imageGalleryType.AI
+                    ? "bg-[rgb(146,146,148)] text-[rgba(0,0,0)]"
+                    : "text-[rgb(145,151,155)]"
+                } font-medium text-sm px-8 py-1`}
                 onClick={() => {
                   setImageGalleryType({ AI: true });
                 }}
@@ -878,7 +892,7 @@ const EditContentComponent = () => {
 
             {imageGalleryType.uploads && (
               <div className="default h-[83%] relative">
-                <div className="flex gap-4 flex-wrap px-6">
+                <div className="flex justify-center gap-4 flex-wrap px-6 max-h-[87%] overflow-y-scroll">
                   {userData.imageGallery &&
                     userData.imageGallery.map((image, index) => (
                       <img
@@ -892,7 +906,7 @@ const EditContentComponent = () => {
                       />
                     ))}
                 </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 bottom-[-5px] w-[80%]">
+                <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 bottom-[-2px] w-[80%]">
                   <input
                     type="file"
                     accept="image/*"
@@ -902,8 +916,15 @@ const EditContentComponent = () => {
                   />
                   <button
                     type="button"
-                    className="block text-[rgba(0,0,0,0.8)] font-medium text-sm bg-white w-full mx-auto py-1"
+                    className={`${
+                      userData.status === "free" && userData.trial === 0
+                        ? " opacity-50 cursor-not-allowed"
+                        : ""
+                    } block text-[rgba(0,0,0,0.8)] font-medium text-sm bg-white w-full mx-auto py-1`}
                     onClick={() => fileInputRef.current.click()}
+                    disabled={
+                      userData.status === "free" && userData.trial === 0
+                    }
                   >
                     Upload File
                   </button>
@@ -912,43 +933,71 @@ const EditContentComponent = () => {
             )}
 
             {imageGalleryType.vectors && (
-              <div className="default h-[83%] overflow-y-scroll relative">
-                <div className="flex justify-center gap-4 flex-wrap px-6">
+              <div className="default h-[80%] overflow-y-scroll relative">
+                <div className="flex justify-center gap-4 flex-wrap px-6 relative">
                   {vectors.map((image, index) => (
                     <img
                       key={index}
                       src={image}
                       alt={image}
-                      className="block w-[50px] h-[50px] object-cover cursor-pointer my-2"
+                      className={`${
+                        userData.status === "free" && userData.trial === 0
+                          ? "pointer-events-none"
+                          : ""
+                      } block w-[50px] h-[50px] object-cover cursor-pointer my-2`}
                       onClick={() => {
-                        handleGalleryImageClick(image);
+                        handleGalleryImageClick(
+                          userData.status === "free" && userData.trial === 0
+                            ? null
+                            : image
+                        );
                       }}
                     />
                   ))}
+                  {userData.status === "free" && userData.trial === 0 && (
+                    <div
+                      className={`${
+                        userData.status === "free" && userData.trial === 0
+                          ? "backdrop-blur"
+                          : ""
+                      } w-full h-full absolute top-0`}
+                    ></div>
+                  )}
                 </div>
               </div>
             )}
 
-            {imageGalleryType.illustrations && (
-              <div className="default h-[83%] relative">
-                <h1>Illustrations</h1>
-              </div>
-            )}
-
             {imageGalleryType.AI && (
-              <div className="default h-[83%] overflow-y-scroll relative">
-                <div className="flex justify-center gap-4 flex-wrap px-6">
+              <div className="default h-[80%] overflow-y-scroll relative">
+                <div className="flex justify-center gap-4 flex-wrap px-6 relative">
                   {text.images.map((image, index) => (
                     <img
                       key={index}
                       src={image}
                       alt={image}
-                      className="block w-[50px] h-[50px] object-cover cursor-pointer my-2"
+                      className={`${
+                        userData.status === "free" && userData.trial === 0
+                          ? "pointer-events-none"
+                          : ""
+                      } block w-[50px] h-[50px] object-cover cursor-pointer my-2`}
                       onClick={() => {
-                        handleGalleryImageClick(image);
+                        handleGalleryImageClick(
+                          userData.status === "free" && userData.trial === 0
+                            ? null
+                            : image
+                        );
                       }}
                     />
                   ))}
+                  {userData.status === "free" && userData.trial === 0 && (
+                    <div
+                      className={`${
+                        userData.status === "free" && userData.trial === 0
+                          ? "backdrop-blur"
+                          : ""
+                      } w-full h-full absolute top-0`}
+                    ></div>
+                  )}
                 </div>
               </div>
             )}
