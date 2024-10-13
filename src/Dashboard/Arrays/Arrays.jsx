@@ -1,6 +1,55 @@
+import vectorOne from "../../assets/Vectors/Vector-1.webp";
+import vectorTwo from "../../assets/Vectors/Vector-2.webp";
+import vectorThree from "../../assets/Vectors/Vector-3.webp";
+import vectorFour from "../../assets/Vectors/Vector-4.webp";
+import vectorFive from "../../assets/Vectors/Vector-5.webp";
+import vectorSix from "../../assets/Vectors/Vector-6.webp";
+import vectorSeven from "../../assets/Vectors/Vector-7.webp";
+import vectorEight from "../../assets/Vectors/Vector-8.webp";
+import vectorNine from "../../assets/Vectors/Vector-9.webp";
+import vectorTen from "../../assets/Vectors/Vector-10.webp";
+import vectorEleven from "../../assets/Vectors/Vector-11.webp";
+import vectorTwelve from "../../assets/Vectors/Vector-12.webp";
+import vectorThirteen from "../../assets/Vectors/Vector-13.webp";
+import vectorFourteen from "../../assets/Vectors/Vector-14.webp";
+import vectorFifteen from "../../assets/Vectors/Vector-15.webp";
+import vectorSixteen from "../../assets/Vectors/Vector-16.webp";
+import vectorSeventeen from "../../assets/Vectors/Vector-17.webp";
+import vectorEighteen from "../../assets/Vectors/Vector-18.webp";
+import vectorNineteen from "../../assets/Vectors/Vector-19.webp";
+import vectorTwenty from "../../assets/Vectors/Vector-20.webp";
+import vectorTwentyOne from "../../assets/Vectors/Vector-21.webp";
+import vectorTwentyTwo from "../../assets/Vectors/Vector-22.webp";
+import vectorTwentyThree from "../../assets/Vectors/Vector-23.webp";
+import vectorTwentyFour from "../../assets/Vectors/Vector-24.webp";
+import vectorTwentyFive from "../../assets/Vectors/Vector-25.webp";
+import vectorTwentySix from "../../assets/Vectors/Vector-26.webp";
+import vectorTwentySeven from "../../assets/Vectors/Vector-27.webp";
+import vectorTwentyEight from "../../assets/Vectors/Vector-28.webp";
+import vectorTwentyNine from "../../assets/Vectors/Vector-29.webp";
+import vectorThirty from "../../assets/Vectors/Vector-30.webp";
+import vectorThirtyOne from "../../assets/Vectors/Vector-31.webp";
+import vectorThirtyTwo from "../../assets/Vectors/Vector-32.webp";
+import vectorThirtyThree from "../../assets/Vectors/Vector-33.webp";
+import vectorThirtyFour from "../../assets/Vectors/Vector-34.webp";
+import vectorThirtyFive from "../../assets/Vectors/Vector-35.webp";
+import vectorThirtySix from "../../assets/Vectors/Vector-36.webp";
+import vectorThirtySeven from "../../assets/Vectors/Vector-37.webp";
+import vectorThirtyEight from "../../assets/Vectors/Vector-38.webp";
+import vectorThirtyNine from "../../assets/Vectors/Vector-39.webp";
+import vectorForty from "../../assets/Vectors/Vector-40.webp";
+import vectorFortyOne from "../../assets/Vectors/Vector-41.webp";
+import vectorFortyTwo from "../../assets/Vectors/Vector-42.webp";
+import vectorFortyThree from "../../assets/Vectors/Vector-43.webp";
+import vectorFortyFour from "../../assets/Vectors/Vector-44.webp";
+import vectorFortyFive from "../../assets/Vectors/Vector-45.webp";
+import vectorFortySix from "../../assets/Vectors/Vector-46.webp";
+import vectorFortySeven from "../../assets/Vectors/Vector-47.webp";
+import vectorFortyEight from "../../assets/Vectors/Vector-48.webp";
+
 // Texts for input placeholder
 export const placeholderText = [
-  "I need a website for my...",
+  "I need a landing page for my...",
   "Photography Studio",
   "Fashion Brand",
   "Online Marketplace",
@@ -43,6 +92,58 @@ export const randomIdeas = [
   "Home Cleaning Subscription",
   "Virtual Language Exchange",
 ];
+
+export const vectors = [
+  vectorOne,
+  vectorTwo,
+  vectorThree,
+  vectorFour,
+  vectorFive,
+  vectorSix,
+  vectorSeven,
+  vectorEight,
+  vectorNine,
+  vectorTen,
+  vectorEleven,
+  vectorTwelve,
+  vectorThirteen,
+  vectorFourteen,
+  vectorFifteen,
+  vectorSixteen,
+  vectorSeventeen,
+  vectorEighteen,
+  vectorNineteen,
+  vectorTwenty,
+  vectorTwentyOne,
+  vectorTwentyTwo,
+  vectorTwentyThree,
+  vectorTwentyFour,
+  vectorTwentyFive,
+  vectorTwentySix,
+  vectorTwentySeven,
+  vectorTwentyEight,
+  vectorTwentyNine,
+  vectorThirty,
+  vectorThirtyOne,
+  vectorThirtyTwo,
+  vectorThirtyThree,
+  vectorThirtyFour,
+  vectorThirtyFive,
+  vectorThirtySix,
+  vectorThirtySeven,
+  vectorThirtyEight,
+  vectorThirtyNine,
+  vectorForty,
+  vectorFortyOne,
+  vectorFortyTwo,
+  vectorFortyThree,
+  vectorFortyFour,
+  vectorFortyFive,
+  vectorFortySix,
+  vectorFortySeven,
+  vectorFortyEight,
+];
+
 
 // The arrays below for generating contents randomly on each sections
 const randomButtonText = [
