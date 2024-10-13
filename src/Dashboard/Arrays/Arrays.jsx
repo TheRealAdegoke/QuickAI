@@ -94,7 +94,7 @@ export const randomIdeas = [
 ];
 
 export const vectors = [
-  "vectorOne",
+  vectorOne,
   vectorTwo,
   vectorThree,
   vectorFour,
