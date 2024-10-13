@@ -21,8 +21,8 @@ const EditContentComponent = () => {
     handleTextAlignmentClick,
     handleUserData,
     selectedImage,
-    setSelectedImage,
     handleGalleryImageClick,
+    text,
   } = useContext(DashContext);
   const [colorType, setColorType] = useState(true); // true for HEX, false for RGB
   const [customColor, setCustomColor] = useState({
@@ -96,6 +96,11 @@ const EditContentComponent = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
   const [uploading, setUploading] = useState(false);
+  const [imageGalleryType, setImageGalleryType] = useState({
+    uploads: true,
+    illustrations: false,
+    AI: false,
+  });
   const fileInputRef = useRef();
 
   const formatter = (value) => {
@@ -207,7 +212,7 @@ const EditContentComponent = () => {
 
       // Show success message and set the uploaded image URL
       message.success(response.data.message);
-      handleUserData()
+      handleUserData();
       setPreviewUrl(null);
     } catch (error) {
       console.error("Error uploading image:", error);
@@ -798,14 +803,29 @@ const EditContentComponent = () => {
             </div>
 
             <div className="border-[rgba(255,255,255,0.5)] border-b-[1px] pb-2 px-2 flex justify-evenly">
-              <button className="text-[rgb(145,151,155)] font-medium text-sm">
-                Default
+              <button
+                className="text-[rgb(145,151,155)] font-medium text-sm"
+                onClick={() => {
+                  setImageGalleryType({ uploads: true });
+                }}
+              >
+                Uploads
               </button>
-              <button className="text-[rgb(145,151,155)] font-medium text-sm">
+              <button
+                className="text-[rgb(145,151,155)] font-medium text-sm"
+                onClick={() => {
+                  setImageGalleryType({ illustrations: true });
+                }}
+              >
                 Illustrations
               </button>
-              <button className="text-[rgb(145,151,155)] font-medium text-sm">
-                Vectors
+              <button
+                className="text-[rgb(145,151,155)] font-medium text-sm"
+                onClick={() => {
+                  setImageGalleryType({ AI: true });
+                }}
+              >
+                AI Images
               </button>
             </div>
 
@@ -846,10 +866,51 @@ const EditContentComponent = () => {
               </div>
             )}
 
-            <div className="default h-[83%] relative">
-              <div className="flex gap-4 flex-wrap px-6">
-                {userData.imageGallery &&
-                  userData.imageGallery.map((image, index) => (
+            {imageGalleryType.uploads && (
+              <div className="default h-[83%] relative">
+                <div className="flex gap-4 flex-wrap px-6">
+                  {userData.imageGallery &&
+                    userData.imageGallery.map((image, index) => (
+                      <img
+                        key={index}
+                        src={image}
+                        alt={image}
+                        className="block w-[50px] h-[50px] object-cover cursor-pointer my-2"
+                        onClick={() => {
+                          handleGalleryImageClick(image);
+                        }}
+                      />
+                    ))}
+                </div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 bottom-[-5px] w-[80%]">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    ref={fileInputRef}
+                    className="hidden"
+                  />
+                  <button
+                    type="button"
+                    className="block text-[rgba(0,0,0,0.8)] font-medium text-sm bg-white w-full mx-auto py-1"
+                    onClick={() => fileInputRef.current.click()}
+                  >
+                    Upload File
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {imageGalleryType.illustrations && (
+              <div className="default h-[83%] relative">
+                <h1>Illustrations</h1>
+              </div>
+            )}
+
+            {imageGalleryType.AI && (
+              <div className="default h-[83%] relative">
+                <div className="flex gap-4 flex-wrap px-6">
+                  {text.images.map((image, index) => (
                     <img
                       key={index}
                       src={image}
@@ -860,24 +921,9 @@ const EditContentComponent = () => {
                       }}
                     />
                   ))}
+                </div>
               </div>
-              <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 bottom-[-5px] w-[80%]">
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handleFileChange}
-                  ref={fileInputRef}
-                  className="hidden"
-                />
-                <button
-                  type="button"
-                  className="block text-[rgba(0,0,0,0.8)] font-medium text-sm bg-white w-full mx-auto py-1"
-                  onClick={() => fileInputRef.current.click()}
-                >
-                  Upload File
-                </button>
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

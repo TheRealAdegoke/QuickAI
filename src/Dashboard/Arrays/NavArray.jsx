@@ -10,6 +10,7 @@ export const navComponents = ({
   isEdited,
   uniqueId = 0,
   elementContent,
+  handleImageClick,
 }) => {
   return [
     <nav
@@ -21,9 +22,20 @@ export const navComponents = ({
       <div className={`flex justify-between items-center px-5`}>
         <div className={`w-1/5 max-md:w-[30%] flex items-center gap-1 py-3`}>
           <img
-            src="https://res.cloudinary.com/dpyp7innp/image/upload/v1715591674/ad53c5d6-b066-455b-a840-7c1c3538e430.png"
+            id={`header-image-${index + 1}-${uniqueId}`}
+            src={
+              elementContent[`header-image-${index + 1}-${uniqueId}`] ||
+              "https://res.cloudinary.com/dpyp7innp/image/upload/v1715591674/ad53c5d6-b066-455b-a840-7c1c3538e430.png"
+            }
             alt="Web logo"
             className="w-[40px]"
+            onClick={() =>
+              handleImageClick(
+                elementContent[`header-image-${index + 1}-${uniqueId}`] ||
+                  "https://res.cloudinary.com/dpyp7innp/image/upload/v1715591674/ad53c5d6-b066-455b-a840-7c1c3538e430.png",
+                `header-image-${index + 1}-${uniqueId}`
+              )
+            }
           />
           <h1
             id={`nav-name-${index + 1}-${uniqueId}`}
@@ -175,9 +187,20 @@ export const navComponents = ({
       <div className={`flex justify-between items-center px-5`}>
         <div className="flex items-center gap-1 py-3">
           <img
-            src="https://res.cloudinary.com/dpyp7innp/image/upload/v1715591674/ad53c5d6-b066-455b-a840-7c1c3538e430.png"
+            id={`header-image-${index + 1}-${uniqueId}`}
+            src={
+              elementContent[`header-image-${index + 1}-${uniqueId}`] ||
+              "https://res.cloudinary.com/dpyp7innp/image/upload/v1715591674/ad53c5d6-b066-455b-a840-7c1c3538e430.png"
+            }
             alt="Web logo"
             className="w-[40px]"
+            onClick={() =>
+              handleImageClick(
+                elementContent[`header-image-${index + 1}-${uniqueId}`] ||
+                  "https://res.cloudinary.com/dpyp7innp/image/upload/v1715591674/ad53c5d6-b066-455b-a840-7c1c3538e430.png",
+                `header-image-${index + 1}-${uniqueId}`
+              )
+            }
           />
           <h1
             id={`nav-name-${index + 1}-${uniqueId}`}
