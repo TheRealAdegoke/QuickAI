@@ -7,6 +7,7 @@ import Cookies from "js-cookie";
 import { message } from "antd";
 import { axiosInstance } from "../../../../Pages/AuthPages/AuthChecker/axiosInstance";
 import { ImSpinner6 } from "react-icons/im";
+import { vectors } from "../../../Arrays/Arrays";
 
 const EditContentComponent = () => {
   const {
@@ -98,6 +99,7 @@ const EditContentComponent = () => {
   const [uploading, setUploading] = useState(false);
   const [imageGalleryType, setImageGalleryType] = useState({
     uploads: true,
+    vectors: false,
     illustrations: false,
     AI: false,
   });
@@ -814,6 +816,14 @@ const EditContentComponent = () => {
               <button
                 className="text-[rgb(145,151,155)] font-medium text-sm"
                 onClick={() => {
+                  setImageGalleryType({ vectors: true });
+                }}
+              >
+                Vectors
+              </button>
+              <button
+                className="text-[rgb(145,151,155)] font-medium text-sm"
+                onClick={() => {
                   setImageGalleryType({ illustrations: true });
                 }}
               >
@@ -901,6 +911,24 @@ const EditContentComponent = () => {
               </div>
             )}
 
+            {imageGalleryType.vectors && (
+              <div className="default h-[83%] overflow-y-scroll relative">
+                <div className="flex justify-center gap-4 flex-wrap px-6">
+                  {vectors.map((image, index) => (
+                    <img
+                      key={index}
+                      src={image}
+                      alt={image}
+                      className="block w-[50px] h-[50px] object-cover cursor-pointer my-2"
+                      onClick={() => {
+                        handleGalleryImageClick(image);
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+
             {imageGalleryType.illustrations && (
               <div className="default h-[83%] relative">
                 <h1>Illustrations</h1>
@@ -908,8 +936,8 @@ const EditContentComponent = () => {
             )}
 
             {imageGalleryType.AI && (
-              <div className="default h-[83%] relative">
-                <div className="flex gap-4 flex-wrap px-6">
+              <div className="default h-[83%] overflow-y-scroll relative">
+                <div className="flex justify-center gap-4 flex-wrap px-6">
                   {text.images.map((image, index) => (
                     <img
                       key={index}
