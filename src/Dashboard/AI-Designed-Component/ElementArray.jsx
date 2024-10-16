@@ -48,6 +48,7 @@ const ElementArray = () => {
     elementContent,
     selectedImage,
     handleImageClick,
+    defaultBackgroundColor
   } = useContext(DashContext);
 
   const componentMap = {
@@ -88,6 +89,7 @@ const ElementArray = () => {
       elementContent,
       selectedImage,
       handleImageClick,
+      defaultBackgroundColor,
     })[index],
   });
 
@@ -123,6 +125,7 @@ const ElementArray = () => {
           uniqueId: navIndex,
           elementContent,
           handleImageClick,
+          defaultBackgroundColor,
         })[navIndex],
       },
       ...renderedElements,

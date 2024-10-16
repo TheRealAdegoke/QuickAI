@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import Cookies from "js-cookie";
+import TestImage from "../../assets/preview-image.png";
 import { FcGoogle } from "react-icons/fc";
 import { ImSpinner6 } from "react-icons/im";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -240,6 +241,7 @@ const Register = () => {
           </Link>
         </div>
       </main>
+      <img src={TestImage} alt="" />
     </>
   );
 };
