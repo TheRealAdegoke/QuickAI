@@ -88,10 +88,13 @@ export const DashboardProvider = ({ children }) => {
   const [elementContent, setElementContent] = useState({});
   const [elementStyles, setElementStyles] = useState({});
   const [backGroundStyle, setBackGroundStyle] = useState("");
-  const [selectedDiv, setSelectedDiv] = useState(null);
+  const [selectedDiv, setSelectedDiv] = useState({
+    sectionBG: null,
+    card: null,
+    button: null,
+  });
   const [sectionModal, setSectionModal] = useState(false);
   const [divStyles, setDivStyles] = useState({});
-  const defaultBackgroundColor = "#ffffff";
   const [generatedElements, setGeneratedElements] = useState([]);
   const [elements, setElements] = useState([]);
   const [activeSection, setActiveSection] = useState({
@@ -111,7 +114,10 @@ export const DashboardProvider = ({ children }) => {
   const [elementUniqueIds, setElementUniqueIds] = useState({});
   const [selectedImage, setSelectedImage] = useState("");
   const [selectedHeroImageId, setSelectedHeroImageId] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("background");
   const lastClickedDivRef = useRef(null);
+  const lastClickedCardRef = useRef(null);
+  const lastClickedButtonRef = useRef(null);
 
   useEffect(() => {
     if (geminiResponses && Object.keys(geminiResponses).length > 0) {
@@ -206,7 +212,7 @@ export const DashboardProvider = ({ children }) => {
     console.log("HeroHeader: ", text.heroHeaderText);
   }, [geminiResponses, shuffled, text]);
 
-  const getStyle = (id, uniqueId) => {
+  const getStyle = (id, uniqueId, defaultBackgroundColor = "#ffffff") => {
     const fullId = `${id}-${uniqueId}`;
     if (divStyles[fullId] && Object.keys(divStyles[fullId]).length > 0) {
       return divStyles[fullId];
@@ -256,6 +262,7 @@ export const DashboardProvider = ({ children }) => {
           isEdited,
           elementContent,
           handleImageClick,
+          handleDivButtonClick,
         }).length
     );
     const randomHeroIndex = Math.floor(
@@ -274,6 +281,8 @@ export const DashboardProvider = ({ children }) => {
           selectedImage,
           setSelectedImage,
           handleImageClick,
+          handleCardClick,
+          handleDivButtonClick,
         }).length
     );
     const randomButtonsIndex = Math.floor(
@@ -286,6 +295,7 @@ export const DashboardProvider = ({ children }) => {
           getElementStyle,
           isEdited,
           elementContent,
+          handleDivButtonClick,
         }).length
     );
     const randomfeaturesWithCardIndex = Math.floor(
@@ -301,6 +311,8 @@ export const DashboardProvider = ({ children }) => {
           selectedImage,
           setSelectedImage,
           handleImageClick,
+          handleCardClick,
+          handleDivButtonClick,
         }).length
     );
     const randomfeaturesIndex = Math.floor(
@@ -382,14 +394,7 @@ export const DashboardProvider = ({ children }) => {
     ];
 
     setNavIndex(randomNavIndex);
-    // setHeroIndex(randomHeroIndex);
     setButtonIndex(randomButtonsIndex);
-    // setFeaturesWithCardIndex(randomfeaturesWithCardIndex);
-    // setFeaturesIndex(randomfeaturesIndex);
-    // setTestimonialIndex(randomTestimonialIndex);
-    // setFaqIndex(randomFaqIndex);
-    // setTeamIndex(randomTeamIndex);
-    // setContactIndex(randomContactIndex);
     setFooterIndex(randomFooterIndex);
     setGeneratedElements(newGeneratedElements);
     setElements(newGeneratedElements);
@@ -577,16 +582,59 @@ export const DashboardProvider = ({ children }) => {
 
   const handleDivClick = (event) => {
     lastClickedDivRef.current = event.currentTarget;
-    setSelectedDiv(event.currentTarget);
+    setSelectedDiv({ sectionBG: event.currentTarget });
+  };
+
+  const handleCardClick = (event) => {
+    lastClickedCardRef.current = event.currentTarget;
+    setSelectedOption("card")
+    setSelectedDiv({ card: event.currentTarget });
+  };
+
+  const handleDivButtonClick = (event) => {
+    lastClickedButtonRef.current = event.currentTarget;
+    setSelectedOption("button");
+    setSelectedDiv({ button: event.currentTarget });
   };
 
   const handleBGColorClick = (color) => {
-    if (selectedDiv) {
+    if (selectedDiv.sectionBG && selectedOption === "background") {
       setDivStyles((prevStyles) => ({
         ...prevStyles,
-        [selectedDiv.id]: { ...prevStyles[selectedDiv.id], background: color },
+        [selectedDiv.sectionBG.id]: {
+          ...prevStyles[selectedDiv.sectionBG.id],
+          background: color,
+        },
       }));
     }
+  };
+
+  const handleCardBGColorClick = (color) => {
+    if (selectedDiv.card && selectedOption === "card") {
+      setDivStyles((prevStyles) => ({
+        ...prevStyles,
+        [selectedDiv.card.id]: {
+          ...prevStyles[selectedDiv.card.id],
+          background: color,
+        },
+      }));
+    }
+  };
+
+  const handleButtonBGColorClick = (color) => {
+    if (selectedDiv.button && selectedOption === "button") {
+      setDivStyles((prevStyles) => ({
+        ...prevStyles,
+        [selectedDiv.button.id]: {
+          ...prevStyles[selectedDiv.button.id],
+          background: color,
+        },
+      }));
+    }
+  };
+
+  const handleOptionChange = (option) => {
+    setSelectedOption(option);
   };
 
   const handleImageClick = (imageSrc, imageId) => {
@@ -607,6 +655,8 @@ export const DashboardProvider = ({ children }) => {
 
   useEffect(() => {
     handleBGColorClick(backGroundStyle);
+    handleCardBGColorClick(backGroundStyle);
+    handleButtonBGColorClick(backGroundStyle);
   }, [backGroundStyle]);
 
   const addElement = (componentType, index) => {
@@ -748,7 +798,6 @@ export const DashboardProvider = ({ children }) => {
         sectionModal,
         setSectionModal,
         divStyles,
-        defaultBackgroundColor,
         elementStyles,
         elements,
         addElement,
@@ -775,6 +824,12 @@ export const DashboardProvider = ({ children }) => {
         setSelectedImage,
         handleImageClick,
         handleGalleryImageClick,
+        selectedOption,
+        handleOptionChange,
+        handleCardClick,
+        handleDivButtonClick,
+        lastClickedCardRef,
+        lastClickedButtonRef,
       }}
     >
       {children}

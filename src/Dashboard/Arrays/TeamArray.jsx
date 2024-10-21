@@ -10,6 +10,7 @@ export const teamComponent = ({
   uniqueId,
   elementContent,
   handleImageClick,
+  handleCardClick,
 }) => {
   return [
     <section
@@ -59,9 +60,16 @@ export const teamComponent = ({
           } flex flex-wrap max-md:flex-col gap-4`}
         >
           <div
+            id={`team-card-${index + 1}-${uniqueId}`}
             className={`${
               isMobile ? "w-[90%]" : "lg:w-[30%]"
-            } bg-gradient-to-t from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-white rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            } text-white rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            onClick={handleCardClick}
+            style={getStyle(
+              `team-card-${index + 1}`,
+              uniqueId,
+              "rgba(0,0,0,0.78)"
+            )}
           >
             <div className="w-[90%] mx-auto">
               <img
@@ -189,9 +197,16 @@ export const teamComponent = ({
           </div>
 
           <div
+            id={`team-card-${index + 1}-${uniqueId}`}
             className={`${
               isMobile ? "w-[90%]" : "lg:w-[30%]"
-            } bg-gradient-to-t from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-white rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            } text-white rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            onClick={handleCardClick}
+            style={getStyle(
+              `team-card-${index + 1}`,
+              uniqueId,
+              "rgba(0,0,0,0.78)"
+            )}
           >
             <div className="w-[90%] mx-auto">
               <img
@@ -319,9 +334,16 @@ export const teamComponent = ({
           </div>
 
           <div
+            id={`team-card-${index + 1}-${uniqueId}`}
             className={`${
               isMobile ? "w-[90%]" : "lg:w-[30%]"
-            } bg-gradient-to-t from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-white rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            } text-white rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            onClick={handleCardClick}
+            style={getStyle(
+              `team-card-${index + 1}`,
+              uniqueId,
+              "rgba(0,0,0,0.78)"
+            )}
           >
             <div className="w-[90%] mx-auto">
               <img
@@ -497,9 +519,12 @@ export const teamComponent = ({
           }  flex flex-wrap max-md:flex-col gap-4`}
         >
           <div
+            id={`team-card-${index + 1}-${uniqueId}`}
             className={`${
               isMobile ? "w-[90%]" : "lg:w-[30%]"
-            } bg-white border-solid shadow-2xl text-black rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            } border-solid shadow-2xl text-black rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            onClick={handleCardClick}
+            style={getStyle(`team-card-${index + 1}`, uniqueId)}
           >
             <div className="w-[90%] mx-auto">
               <img
@@ -627,9 +652,12 @@ export const teamComponent = ({
           </div>
 
           <div
+            id={`team-card-${index + 1}-${uniqueId}`}
             className={`${
               isMobile ? "w-[90%]" : "lg:w-[30%]"
-            } bg-white border-solid shadow-2xl text-black rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            } border-solid shadow-2xl text-black rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            onClick={handleCardClick}
+            style={getStyle(`team-card-${index + 1}`, uniqueId)}
           >
             <div className="w-[90%] mx-auto">
               <img
@@ -757,9 +785,15 @@ export const teamComponent = ({
           </div>
 
           <div
+            id={`team-card-${index + 1}-${uniqueId}`}
             className={`${
               isMobile ? "w-[90%]" : "lg:w-[30%]"
-            } bg-white border-solid shadow-2xl text-black rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            } border-solid shadow-2xl text-black rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            onClick={handleCardClick}
+            style={getStyle(
+              `team-card-${index + 1}`,
+              uniqueId
+            )}
           >
             <div className="w-[90%] mx-auto">
               <img
@@ -935,9 +969,16 @@ export const teamComponent = ({
           }  flex flex-wrap max-md:flex-col gap-4`}
         >
           <div
+            id={`team-card-${index + 1}-${uniqueId}`}
             className={`${
               isMobile ? "w-[90%]" : "lg:w-[30%]"
-            } bg-gradient-to-t from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-white rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            } text-white rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            onClick={handleCardClick}
+            style={getStyle(
+              `team-card-${index + 1}`,
+              uniqueId,
+              "rgba(0,0,0,0.78)"
+            )}
           >
             <div className="w-[90%] mx-auto">
               <img
@@ -945,7 +986,8 @@ export const teamComponent = ({
                 src={
                   elementContent[
                     `team-paragraph-image-${index + 1}-${uniqueId}`
-                  ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                  ] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 }
                 alt=""
                 className="block w-[150px] h-[150px] mx-auto object-cover rounded-full"
@@ -953,7 +995,8 @@ export const teamComponent = ({
                   handleImageClick(
                     elementContent[
                       `team-paragraph-image-${index + 1}-${uniqueId}`
-                    ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
                     `team-paragraph-image-${index + 1}-${uniqueId}`
                   )
                 }
@@ -1063,9 +1106,16 @@ export const teamComponent = ({
           </div>
 
           <div
+            id={`team-card-${index + 1}-${uniqueId}`}
             className={`${
               isMobile ? "w-[90%]" : "lg:w-[30%]"
-            } bg-gradient-to-t from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-white rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            } text-white rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            onClick={handleCardClick}
+            style={getStyle(
+              `team-card-${index + 1}`,
+              uniqueId,
+              "rgba(0,0,0,0.78)"
+            )}
           >
             <div className="w-[90%] mx-auto">
               <img
@@ -1073,7 +1123,8 @@ export const teamComponent = ({
                 src={
                   elementContent[
                     `team-paragraph-image-${index + 2}-${uniqueId}`
-                  ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                  ] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 }
                 alt=""
                 className="block w-[150px] h-[150px] mx-auto object-cover rounded-full"
@@ -1081,7 +1132,8 @@ export const teamComponent = ({
                   handleImageClick(
                     elementContent[
                       `team-paragraph-image-${index + 2}-${uniqueId}`
-                    ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
                     `team-paragraph-image-${index + 2}-${uniqueId}`
                   )
                 }
@@ -1191,9 +1243,16 @@ export const teamComponent = ({
           </div>
 
           <div
+            id={`team-card-${index + 1}-${uniqueId}`}
             className={`${
               isMobile ? "w-[90%]" : "lg:w-[30%]"
-            } bg-gradient-to-t from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-white rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            } text-white rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            onClick={handleCardClick}
+            style={getStyle(
+              `team-card-${index + 1}`,
+              uniqueId,
+              "rgba(0,0,0,0.78)"
+            )}
           >
             <div className="w-[90%] mx-auto">
               <img
@@ -1201,7 +1260,8 @@ export const teamComponent = ({
                 src={
                   elementContent[
                     `team-paragraph-image-${index + 3}-${uniqueId}`
-                  ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                  ] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 }
                 alt=""
                 className="block w-[150px] h-[150px] mx-auto object-cover rounded-full"
@@ -1209,7 +1269,8 @@ export const teamComponent = ({
                   handleImageClick(
                     elementContent[
                       `team-paragraph-image-${index + 3}-${uniqueId}`
-                    ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
                     `team-paragraph-image-${index + 3}-${uniqueId}`
                   )
                 }
@@ -1367,9 +1428,12 @@ export const teamComponent = ({
           }  flex flex-wrap max-md:flex-col gap-4`}
         >
           <div
+            id={`team-card-${index + 1}-${uniqueId}`}
             className={`${
               isMobile ? "w-[90%]" : "lg:w-[30%]"
-            } bg-white border-solid shadow-2xl text-black rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            } border-solid shadow-2xl text-black rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            onClick={handleCardClick}
+            style={getStyle(`team-card-${index + 1}`, uniqueId)}
           >
             <div className="w-[90%] mx-auto">
               <img
@@ -1377,7 +1441,8 @@ export const teamComponent = ({
                 src={
                   elementContent[
                     `team-paragraph-image-${index + 1}-${uniqueId}`
-                  ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                  ] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 }
                 alt=""
                 className="block w-[150px] h-[150px] mx-auto object-cover rounded-full"
@@ -1385,7 +1450,8 @@ export const teamComponent = ({
                   handleImageClick(
                     elementContent[
                       `team-paragraph-image-${index + 1}-${uniqueId}`
-                    ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
                     `team-paragraph-image-${index + 1}-${uniqueId}`
                   )
                 }
@@ -1495,9 +1561,12 @@ export const teamComponent = ({
           </div>
 
           <div
+            id={`team-card-${index + 1}-${uniqueId}`}
             className={`${
               isMobile ? "w-[90%]" : "lg:w-[30%]"
-            } bg-white border-solid shadow-2xl text-black rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            } border-solid shadow-2xl text-black rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            onClick={handleCardClick}
+            style={getStyle(`team-card-${index + 1}`, uniqueId)}
           >
             <div className="w-[90%] mx-auto">
               <img
@@ -1505,7 +1574,8 @@ export const teamComponent = ({
                 src={
                   elementContent[
                     `team-paragraph-image-${index + 2}-${uniqueId}`
-                  ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                  ] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 }
                 alt=""
                 className="block w-[150px] h-[150px] mx-auto object-cover rounded-full"
@@ -1513,7 +1583,8 @@ export const teamComponent = ({
                   handleImageClick(
                     elementContent[
                       `team-paragraph-image-${index + 2}-${uniqueId}`
-                    ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
                     `team-paragraph-image-${index + 2}-${uniqueId}`
                   )
                 }
@@ -1623,9 +1694,12 @@ export const teamComponent = ({
           </div>
 
           <div
+            id={`team-card-${index + 1}-${uniqueId}`}
             className={`${
               isMobile ? "w-[90%]" : "lg:w-[30%]"
-            } bg-white border-solid shadow-2xl text-black rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            } border-solid shadow-2xl text-black rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            onClick={handleCardClick}
+            style={getStyle(`team-card-${index + 1}`, uniqueId)}
           >
             <div className="w-[90%] mx-auto">
               <img
@@ -1633,7 +1707,8 @@ export const teamComponent = ({
                 src={
                   elementContent[
                     `team-paragraph-image-${index + 3}-${uniqueId}`
-                  ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                  ] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
                 }
                 alt=""
                 className="block w-[150px] h-[150px] mx-auto object-cover rounded-full"
@@ -1641,7 +1716,8 @@ export const teamComponent = ({
                   handleImageClick(
                     elementContent[
                       `team-paragraph-image-${index + 3}-${uniqueId}`
-                    ] || "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                    ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
                     `team-paragraph-image-${index + 3}-${uniqueId}`
                   )
                 }
@@ -1799,9 +1875,16 @@ export const teamComponent = ({
           }  flex flex-wrap max-md:flex-col gap-4`}
         >
           <div
+            id={`team-card-${index + 1}-${uniqueId}`}
             className={`${
               isMobile ? "w-[90%]" : "lg:w-[30%]"
-            } bg-gradient-to-t from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-white rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            } text-white rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            onClick={handleCardClick}
+            style={getStyle(
+              `team-card-${index + 1}`,
+              uniqueId,
+              "rgba(0,0,0,0.78)"
+            )}
           >
             <div className="w-[90%] mx-auto">
               <img
@@ -1929,9 +2012,16 @@ export const teamComponent = ({
           </div>
 
           <div
+            id={`team-card-${index + 1}-${uniqueId}`}
             className={`${
               isMobile ? "w-[90%]" : "lg:w-[30%]"
             } bg-gradient-to-t from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-white rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            onClick={handleCardClick}
+            style={getStyle(
+              `team-card-${index + 1}`,
+              uniqueId,
+              "rgba(0,0,0,0.78)"
+            )}
           >
             <div className="w-[90%] mx-auto">
               <img
@@ -2059,9 +2149,16 @@ export const teamComponent = ({
           </div>
 
           <div
+            id={`team-card-${index + 1}-${uniqueId}`}
             className={`${
               isMobile ? "w-[90%]" : "lg:w-[30%]"
-            } bg-gradient-to-t from-[rgba(0,0,0,0.78)] to-[rgb(0,0,0)] text-white rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            } text-white rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            onClick={handleCardClick}
+            style={getStyle(
+              `team-card-${index + 1}`,
+              uniqueId,
+              "rgba(0,0,0,0.78)"
+            )}
           >
             <div className="w-[90%] mx-auto">
               <img
@@ -2237,9 +2334,12 @@ export const teamComponent = ({
           }  flex flex-wrap max-md:flex-col gap-4`}
         >
           <div
+            id={`team-card-${index + 1}-${uniqueId}`}
             className={`${
               isMobile ? "w-[90%]" : "lg:w-[30%]"
-            } bg-white border-solid shadow-2xl text-black rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            } border-solid shadow-2xl text-black rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            onClick={handleCardClick}
+            style={getStyle(`team-card-${index + 1}`, uniqueId)}
           >
             <div className="w-[90%] mx-auto">
               <img
@@ -2367,9 +2467,12 @@ export const teamComponent = ({
           </div>
 
           <div
+            id={`team-card-${index + 1}-${uniqueId}`}
             className={`${
               isMobile ? "w-[90%]" : "lg:w-[30%]"
-            } bg-white border-solid shadow-2xl text-black rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            } border-solid shadow-2xl text-black rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            onClick={handleCardClick}
+            style={getStyle(`team-card-${index + 1}`, uniqueId)}
           >
             <div className="w-[90%] mx-auto">
               <img
@@ -2497,9 +2600,15 @@ export const teamComponent = ({
           </div>
 
           <div
+            id={`team-card-${index + 1}-${uniqueId}`}
             className={`${
               isMobile ? "w-[90%]" : "lg:w-[30%]"
-            } bg-white border-solid shadow-2xl text-black rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            } border-solid shadow-2xl text-black rounded-2xl w-[90%] max-w-[350px] mx-auto py-5`}
+            onClick={handleCardClick}
+            style={getStyle(
+              `team-card-${index + 1}`,
+              uniqueId
+            )}
           >
             <div className="w-[90%] mx-auto">
               <img

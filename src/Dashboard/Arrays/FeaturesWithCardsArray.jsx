@@ -12,6 +12,8 @@ export const featuresWithCardsComponent = ({
   uniqueId,
   elementContent,
   handleImageClick,
+  handleCardClick,
+  handleDivButtonClick,
 }) => {
   return [
     <section
@@ -315,7 +317,12 @@ export const featuresWithCardsComponent = ({
             </div>
           </div>
 
-          <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
+          <button
+            id={`features-with-card-button-${index + 1}-${uniqueId}`}
+            className="capitalize flex text-black shadow-lg px-8 py-2 rounded-full font-semibold text-sm my-3 border-[1px] border-[rgba(0,0,0,0.2)]"
+            onClick={handleDivButtonClick}
+            style={getStyle(`features-with-card-button-${index + 1}`, uniqueId)}
+          >
             <span
               id={`features-with-card-button-text-${index + 1}-${uniqueId}`}
               style={getElementStyle(
@@ -343,9 +350,12 @@ export const featuresWithCardsComponent = ({
         </div>
 
         <div
+          id={`features-with-card-card-${index + 1}-${uniqueId}`}
           className={`${
             isMobile ? "mt-5 w-full" : ""
           } w-[40%] max-lg:w-full max-lg:mt-5`}
+          onClick={handleCardClick}
+          style={getStyle(`features-with-card-card-${index + 1}`, uniqueId)}
         >
           <img
             id={`features-with-card-image-${index + 1}-${uniqueId}`}
@@ -670,7 +680,12 @@ export const featuresWithCardsComponent = ({
             </div>
           </div>
 
-          <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
+          <button
+            id={`features-with-card-button-${index + 1}-${uniqueId}`}
+            className="capitalize flex text-black shadow-lg px-8 py-2 rounded-full font-semibold text-sm my-3 border-[1px] border-[rgba(0,0,0,0.2)]"
+            onClick={handleDivButtonClick}
+            style={getStyle(`features-with-card-button-${index + 1}`, uniqueId)}
+          >
             <span
               id={`features-with-card-button-text-${index + 1}-${uniqueId}`}
               style={getElementStyle(
@@ -698,9 +713,12 @@ export const featuresWithCardsComponent = ({
         </div>
 
         <div
+          id={`features-with-card-card-${index + 1}-${uniqueId}`}
           className={`${
             isMobile ? "mt-5 w-full" : ""
           } w-[40%] max-lg:w-full max-lg:mt-5`}
+          onClick={handleCardClick}
+          style={getStyle(`features-with-card-card-${index + 1}`, uniqueId)}
         >
           <img
             id={`features-with-card-image-${index + 1}-${uniqueId}`}
@@ -869,9 +887,12 @@ export const featuresWithCardsComponent = ({
             </div>
 
             <div
+              id={`features-with-card-card-${index + 1}-${uniqueId}`}
               className={`${
                 isMobile ? "hidden" : ""
               } w-full max-lg:mt-5 max-lg:hidden`}
+              onClick={handleCardClick}
+              style={getStyle(`features-with-card-card-${index + 1}`, uniqueId)}
             >
               <img
                 id={`features-with-card-image-${index + 1}-${uniqueId}`}
@@ -894,7 +915,12 @@ export const featuresWithCardsComponent = ({
             </div>
           </div>
 
-          <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
+          <button
+            id={`features-with-card-button-${index + 1}-${uniqueId}`}
+            className="capitalize flex text-black shadow-lg px-8 py-2 rounded-full font-semibold text-sm my-3 border-[1px] border-[rgba(0,0,0,0.2)]"
+            onClick={handleDivButtonClick}
+            style={getStyle(`features-with-card-button-${index + 1}`, uniqueId)}
+          >
             <span
               id={`features-with-card-button-text-${index + 1}-${uniqueId}`}
               style={getElementStyle(
@@ -922,9 +948,12 @@ export const featuresWithCardsComponent = ({
         </div>
 
         <div
+          id={`features-with-card-card-${index + 1}-${uniqueId}`}
           className={`${
             isMobile ? "w-full mt-5" : ""
           } w-[40%] max-lg:w-full max-lg:mt-5`}
+          onClick={handleCardClick}
+          style={getStyle(`features-with-card-card-${index + 1}`, uniqueId)}
         >
           <img
             id={`features-with-card-image-${index + 2}-${uniqueId}`}
@@ -1093,9 +1122,12 @@ export const featuresWithCardsComponent = ({
             </div>
 
             <div
+              id={`features-with-card-card-${index + 1}-${uniqueId}`}
               className={`${
                 isMobile ? "hidden mt-5" : ""
               } w-full max-lg:mt-5 max-lg:hidden`}
+              onClick={handleCardClick}
+              style={getStyle(`features-with-card-card-${index + 1}`, uniqueId)}
             >
               <img
                 id={`features-with-card-image-${index + 1}-${uniqueId}`}
@@ -1118,7 +1150,12 @@ export const featuresWithCardsComponent = ({
             </div>
           </div>
 
-          <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
+          <button
+            id={`features-with-card-button-${index + 1}-${uniqueId}`}
+            className="capitalize flex text-black shadow-lg px-8 py-2 rounded-full font-semibold text-sm my-3 border-[1px] border-[rgba(0,0,0,0.2)]"
+            onClick={handleDivButtonClick}
+            style={getStyle(`features-with-card-button-${index + 1}`, uniqueId)}
+          >
             <span
               id={`features-with-card-button-text-${index + 1}-${uniqueId}`}
               style={getElementStyle(
@@ -1146,9 +1183,12 @@ export const featuresWithCardsComponent = ({
         </div>
 
         <div
+          id={`features-with-card-card-${index + 1}-${uniqueId}`}
           className={`${
             isMobile ? "w-full mt-5" : ""
           } w-[40%] max-lg:w-full max-lg:mt-5`}
+          onClick={handleCardClick}
+          style={getStyle(`features-with-card-card-${index + 1}`, uniqueId)}
         >
           <img
             id={`features-with-card-image-${index + 2}-${uniqueId}`}
@@ -1473,7 +1513,12 @@ export const featuresWithCardsComponent = ({
             </div>
           </div>
 
-          <button className="capitalize flex text-white bg-[rgba(0,0,0,0.9)] px-8 py-2 rounded-full font-semibold text-sm my-3">
+          <button
+            id={`features-with-card-button-${index + 1}-${uniqueId}`}
+            className="capitalize flex text-black shadow-lg px-8 py-2 rounded-full font-semibold text-sm my-3 border-[1px] border-[rgba(0,0,0,0.2)]"
+            onClick={handleDivButtonClick}
+            style={getStyle(`features-with-card-button-${index + 1}`, uniqueId)}
+          >
             <span
               id={`features-with-card-button-text-${index + 1}-${uniqueId}`}
               style={getElementStyle(

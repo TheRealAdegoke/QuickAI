@@ -1,13 +1,10 @@
 import React, { useContext } from "react";
-import ClassicFeatureImage0 from "../../../../assets/ClassicFeatureImage/ClassicFeatureImage0.webp";
 import ClassicFeatureImage1 from "../../../../assets/ClassicFeatureImage/ClassicFeatureImage1.webp";
 import ClassicFeatureImage2 from "../../../../assets/ClassicFeatureImage/ClassicFeatureImage2.webp";
 import ClassicFeatureImage3 from "../../../../assets/ClassicFeatureImage/ClassicFeatureImage3.webp";
 import ClassicFeatureImage4 from "../../../../assets/ClassicFeatureImage/ClassicFeatureImage4.webp";
 import ClassicFeatureImage5 from "../../../../assets/ClassicFeatureImage/ClassicFeatureImage5.webp";
 import ClassicFeatureImage6 from "../../../../assets/ClassicFeatureImage/ClassicFeatureImage6.webp";
-import ClassicFeatureImage7 from "../../../../assets/ClassicFeatureImage/ClassicFeatureImage7.webp";
-import ClassicFeatureImage8 from "../../../../assets/ClassicFeatureImage/ClassicFeatureImage8.webp";
 import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
 export const ClassicalFeaturesImages = () => {
@@ -16,39 +13,27 @@ export const ClassicalFeaturesImages = () => {
   const images = [
     {
       index: 0,
-      image: ClassicFeatureImage0,
-    },
-    {
-      index: 1,
       image: ClassicFeatureImage1,
     },
     {
-      index: 2,
+      index: 1,
       image: ClassicFeatureImage2,
     },
     {
-      index: 3,
+      index: 2,
       image: ClassicFeatureImage3,
     },
     {
-      index: 4,
+      index: 3,
       image: ClassicFeatureImage4,
     },
     {
-      index: 5,
+      index: 4,
       image: ClassicFeatureImage5,
     },
     {
-      index: 6,
+      index: 5,
       image: ClassicFeatureImage6,
-    },
-    {
-      index: 7,
-      image: ClassicFeatureImage7,
-    },
-    {
-      index: 8,
-      image: ClassicFeatureImage8,
     },
   ];
 
