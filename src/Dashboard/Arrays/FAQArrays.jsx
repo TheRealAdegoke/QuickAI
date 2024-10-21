@@ -9,8 +9,8 @@ export const faqComponent = ({
   isEdited,
   uniqueId,
   elementContent,
+  handleCardClick,
 }) => {
-
   return [
     <section
       onClick={handleDivClick}
@@ -263,9 +263,12 @@ export const faqComponent = ({
       style={getStyle(`faq-section-${index + 1}`, uniqueId)}
     >
       <div
+        id={`faq-card-${index + 1}-${uniqueId}`}
         className={`${
           isMobile ? "max-w-[800px]" : ""
-        } text-black py-32 w-[90%] max-lg:max-w-[400px] mx-auto max-w-[1000px] bg-white border-solid shadow-2xl rounded-xl p-5`}
+        } text-black py-32 w-[90%] max-lg:max-w-[400px] mx-auto max-w-[1000px] border-solid shadow-2xl rounded-xl p-5`}
+        onClick={handleCardClick}
+        style={getStyle(`faq-card-${index + 1}`, uniqueId)}
       >
         <div className="mb-10">
           <h1
@@ -508,9 +511,12 @@ export const faqComponent = ({
       style={getStyle(`faq-section-${index + 1}`, uniqueId)}
     >
       <div
+        id={`faq-card-${index + 1}-${uniqueId}`}
         className={`${
           isMobile ? "max-w-[800px]" : ""
-        } text-black py-32 w-[90%] max-lg:max-w-[400px] mx-auto max-w-[1000px] bg-white border-solid shadow-2xl rounded-xl p-5`}
+        } text-black py-32 w-[90%] max-lg:max-w-[400px] mx-auto max-w-[1000px] border-solid shadow-2xl rounded-xl p-5`}
+        onClick={handleCardClick}
+        style={getStyle(`faq-card-${index + 1}`, uniqueId)}
       >
         <div className="mb-5">
           <h1
@@ -553,7 +559,10 @@ export const faqComponent = ({
           } flex flex-wrap justify-between max-lg:flex-col gap-5 bg-white border-solid shadow-2xl rounded-xl pt-5`}
         >
           <div className="w-full border-b-[2px] pl-5">
-            <label htmlFor={`id-show-menu-1-${index + 1}-${uniqueId}`} className="show-menu">
+            <label
+              htmlFor={`id-show-menu-1-${index + 1}-${uniqueId}`}
+              className="show-menu"
+            >
               <div className="">
                 <h2
                   id={`faq-sub-heading-text-1-${index + 1}-${uniqueId}`}
@@ -615,7 +624,10 @@ export const faqComponent = ({
           </div>
 
           <div className="w-full border-b-[2px] pl-5">
-            <label htmlFor={`id-show-menu-2-${index + 1}-${uniqueId}`} className="show-menu">
+            <label
+              htmlFor={`id-show-menu-2-${index + 1}-${uniqueId}`}
+              className="show-menu"
+            >
               <div className="">
                 <h2
                   id={`faq-sub-heading-text-2-${index + 1}-${uniqueId}`}
@@ -678,7 +690,10 @@ export const faqComponent = ({
           </div>
 
           <div className="w-full border-b-[2px] pl-5">
-            <label htmlFor={`id-show-menu-3-${index + 1}-${uniqueId}`} className="show-menu">
+            <label
+              htmlFor={`id-show-menu-3-${index + 1}-${uniqueId}`}
+              className="show-menu"
+            >
               <div className="">
                 <h2
                   id={`faq-sub-heading-text-3-${index + 1}-${uniqueId}`}
@@ -737,7 +752,10 @@ export const faqComponent = ({
           </div>
 
           <div className="w-full pl-5">
-            <label htmlFor={`id-show-menu-4-${index + 1}-${uniqueId}`} className="show-menu">
+            <label
+              htmlFor={`id-show-menu-4-${index + 1}-${uniqueId}`}
+              className="show-menu"
+            >
               <div className="">
                 <h2
                   id={`faq-sub-heading-text-4-${index + 1}-${uniqueId}`}
@@ -808,9 +826,12 @@ export const faqComponent = ({
       style={getStyle(`faq-section-${index + 1}`, uniqueId)}
     >
       <div
+        id={`faq-card-${index + 1}-${uniqueId}`}
         className={`${
           isMobile ? "max-w-[800px]" : ""
-        } text-black py-32 w-[90%] max-lg:max-w-[400px] mx-auto max-w-[1000px] bg-white border-solid shadow-2xl rounded-xl p-5`}
+        } text-black py-32 w-[90%] max-lg:max-w-[400px] mx-auto max-w-[1000px] border-solid shadow-2xl rounded-xl p-5`}
+        onClick={handleCardClick}
+        style={getStyle(`faq-card-${index + 1}`, uniqueId)}
       >
         <div className="mb-5">
           <h1

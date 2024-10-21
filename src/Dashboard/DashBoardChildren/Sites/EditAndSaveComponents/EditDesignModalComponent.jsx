@@ -12,12 +12,16 @@ const EditDesignModalComponent = () => {
     isContent,
     setIsContent,
     lastClickedDivRef,
+    lastClickedCardRef,
+    lastClickedButtonRef,
     userData,
+    selectedOption,
+    handleOptionChange,
   } = useContext(DashContext);
 
   useEffect(() => {
     if (isContent === true) {
-      setSelectedDiv(null);
+      setSelectedDiv({ sectionBG: null });
     } else {
       // setSelectedDiv(lastClickedDivRef.current);
     }
@@ -54,16 +58,26 @@ const EditDesignModalComponent = () => {
                   >
                     Content
                   </button>
-                  <button
-                    className={`${
-                      isContent ? "" : "bg-[rgb(36,37,40)] rounded-[5px]"
-                    } px-2 py-1`}
-                    onClick={() => {
-                      setIsContent(false);
-                    }}
-                  >
-                    Background
-                  </button>
+                  <div className="">
+                    <button
+                      className={`${
+                        isContent ? "" : "bg-[rgb(36,37,40)] rounded-[5px]"
+                      } px-2 py-1`}
+                      onClick={() => {
+                        setIsContent(false);
+                      }}
+                    >
+                      <select
+                        className="bg-inherit border-none outline-none cursor-pointer"
+                        value={selectedOption}
+                        onChange={(e) => handleOptionChange(e.target.value)}
+                      >
+                        <option value="background">Background</option>
+                        <option value="card">Card</option>
+                        <option value="button">Button</option>
+                      </select>
+                    </button>
+                  </div>
                 </div>
 
                 {isContent ? (
@@ -75,7 +89,10 @@ const EditDesignModalComponent = () => {
                     <ColorPickerComponent
                       setBackGroundStyle={setBackGroundStyle}
                       lastClickedDivRef={lastClickedDivRef}
+                      lastClickedCardRef={lastClickedCardRef}
+                      lastClickedButtonRef={lastClickedButtonRef}
                       setSelectedDiv={setSelectedDiv}
+                      selectedOption={selectedOption}
                     />
                   </div>
                 )}

@@ -10,6 +10,7 @@ export const testimonialComponent = ({
   uniqueId,
   elementContent,
   handleImageClick,
+  handleCardClick,
 }) => {
   return [
     <section
@@ -875,7 +876,12 @@ export const testimonialComponent = ({
       id={`testimonial-section-${index + 1}-${uniqueId}`}
       style={getStyle(`testimonial-section-${index + 1}`, uniqueId)}
     >
-      <div className="py-32 text-black w-[90%] max-w-[1000px] mx-auto bg-white border-solid shadow-xl rounded-lg p-5">
+      <div
+        id={`testimonial-card-${index + 1}-${uniqueId}`}
+        className="py-32 text-black w-[90%] max-w-[1000px] mx-auto bg-white border-solid shadow-xl rounded-lg p-5"
+        onClick={handleCardClick}
+        style={getStyle(`testimonial-card-${index + 1}`, uniqueId)}
+      >
         <h1
           id={`testimonial-heading-${index + 1}-${uniqueId}`}
           style={getElementStyle(`testimonial-heading-${index + 1}`, uniqueId)}
@@ -986,7 +992,12 @@ export const testimonialComponent = ({
       id={`testimonial-section-${index + 1}-${uniqueId}`}
       style={getStyle(`testimonial-section-${index + 1}`, uniqueId)}
     >
-      <div className="py-32 text-black w-[90%] max-w-[1000px] mx-auto bg-white border-solid shadow-xl rounded-lg p-5">
+      <div
+        id={`testimonial-card-${index + 1}-${uniqueId}`}
+        className="py-32 text-black w-[90%] max-w-[1000px] mx-auto border-solid shadow-xl rounded-lg p-5"
+        onClick={handleCardClick}
+        style={getStyle(`testimonial-card-${index + 1}`, uniqueId)}
+      >
         <h1
           id={`testimonial-heading-${index + 1}-${uniqueId}`}
           style={getElementStyle(`testimonial-heading-${index + 1}`, uniqueId)}
@@ -1223,14 +1234,12 @@ export const testimonialComponent = ({
             alt=""
             className="block w-[150px] h-[200px] object-cover rounded-md"
             onClick={() =>
-                  handleImageClick(
-                    elementContent[
-                      `testimonial-image-${index + 1}-${uniqueId}`
-                    ] ||
-                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
-                    `testimonial-image-${index + 1}-${uniqueId}`
-                  )
-                }
+              handleImageClick(
+                elementContent[`testimonial-image-${index + 1}-${uniqueId}`] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                `testimonial-image-${index + 1}-${uniqueId}`
+              )
+            }
           />
         </div>
         <div className="">
@@ -1288,9 +1297,12 @@ export const testimonialComponent = ({
       style={getStyle(`testimonial-section-${index + 1}`, uniqueId)}
     >
       <div
+        id={`testimonial-card-${index + 1}-${uniqueId}`}
         className={`${
           isMobile ? "max-w-[350px] flex-col items-start gap-5" : ""
-        } py-32 text-black w-[90%] max-md:max-w-[350px] max-w-[1000px] mx-auto flex max-md:flex-col gap-10 items-center max-md:items-start max-md:gap-5 bg-white border-solid shadow-xl rounded-lg p-5`}
+        } py-32 text-black w-[90%] max-md:max-w-[350px] max-w-[1000px] mx-auto flex max-md:flex-col gap-10 items-center max-md:items-start max-md:gap-5 border-solid shadow-xl rounded-lg p-5`}
+        onClick={handleCardClick}
+        style={getStyle(`testimonial-card-${index + 1}`, uniqueId)}
       >
         <div className="flex items-center gap-3">
           <img
@@ -1302,14 +1314,12 @@ export const testimonialComponent = ({
             alt=""
             className="block w-[150px] h-[200px] object-cover rounded-md"
             onClick={() =>
-                  handleImageClick(
-                    elementContent[
-                      `testimonial-image-${index + 1}-${uniqueId}`
-                    ] ||
-                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
-                    `testimonial-image-${index + 1}-${uniqueId}`
-                  )
-                }
+              handleImageClick(
+                elementContent[`testimonial-image-${index + 1}-${uniqueId}`] ||
+                  "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                `testimonial-image-${index + 1}-${uniqueId}`
+              )
+            }
           />
         </div>
         <div className="">

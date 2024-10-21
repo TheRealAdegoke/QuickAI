@@ -5,7 +5,10 @@ import { hexToRgba, rgbaToHex } from "./ColorUtils";
 export const ColorPickerComponent = ({
   setBackGroundStyle,
   lastClickedDivRef,
+  lastClickedCardRef,
+  lastClickedButtonRef,
   setSelectedDiv,
+  selectedOption,
 }) => {
   const [isActive, setIsActive] = useState(0);
   const [isGradient, setIsGradient] = useState(false);
@@ -32,7 +35,13 @@ export const ColorPickerComponent = ({
   }, [hex1, hex2, isActive]);
 
   const handleColorChange = (newColor) => {
-    setSelectedDiv(lastClickedDivRef.current);
+    if (selectedOption === "background") {
+      setSelectedDiv({ sectionBG: lastClickedDivRef.current });
+    } else if (selectedOption === "card") {
+      setSelectedDiv({ card: lastClickedCardRef.current });
+    } else {
+      setSelectedDiv({ button: lastClickedButtonRef.current });
+    }
     if (isActive === 0) {
       setColor1(newColor);
     } else {

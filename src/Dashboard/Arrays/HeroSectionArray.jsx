@@ -1,6 +1,4 @@
 import { WebButtonsArray } from "./WebButtonsArray";
-import testImage from "../../assets/Default-Card.jpg";
-import { useState } from "react";
 
 export const heroComponents = ({
   text,
@@ -15,16 +13,20 @@ export const heroComponents = ({
   uniqueId,
   elementContent,
   handleImageClick,
+  handleDivButtonClick,
+  handleCardClick,
 }) => {
   const buttonElement = WebButtonsArray({
     text,
     buttonIndex,
     handleTextClick,
     getElementStyle,
+    getStyle,
     index,
     isEdited,
     uniqueId,
     elementContent,
+    handleDivButtonClick,
   })[buttonIndex];
 
   return [
@@ -55,7 +57,16 @@ export const heroComponents = ({
             ></h1>
 
             <div className="w-[85%] grid grid-cols-3 gap-4 my-10">
-              <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[250px]  p-3 rounded-[8px] col-span-3">
+              <div
+                id={`hero-image-card-${index + 1}-${uniqueId}`}
+                className="shadow-md h-[250px] p-3 rounded-[8px] col-span-3"
+                onClick={handleCardClick}
+                style={getStyle(
+                  `hero-image-card-${index + 1}`,
+                  uniqueId,
+                  "rgba(0,0,0,0.5)"
+                )}
+              >
                 <img
                   id={`hero-image-${index + 1}-${uniqueId}`}
                   src={
@@ -73,7 +84,16 @@ export const heroComponents = ({
                   }
                 />
               </div>
-              <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[200px] p-3 rounded-[8px]">
+              <div
+                id={`hero-image-card-${index + 1}-${uniqueId}`}
+                className="shadow-md h-[200px] p-3 rounded-[8px]"
+                onClick={handleCardClick}
+                style={getStyle(
+                  `hero-image-card-${index + 1}`,
+                  uniqueId,
+                  "rgba(0,0,0,0.5)"
+                )}
+              >
                 <img
                   id={`hero-image-${index + 2}-${uniqueId}`}
                   src={
@@ -91,7 +111,16 @@ export const heroComponents = ({
                   }
                 />
               </div>
-              <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[200px]  p-3 rounded-[8px]">
+              <div
+                id={`hero-image-card-${index + 1}-${uniqueId}`}
+                className="shadow-md h-[200px] p-3 rounded-[8px]"
+                onClick={handleCardClick}
+                style={getStyle(
+                  `hero-image-card-${index + 1}`,
+                  uniqueId,
+                  "rgba(0,0,0,0.5)"
+                )}
+              >
                 <img
                   id={`hero-image-${index + 3}-${uniqueId}`}
                   src={
@@ -109,7 +138,16 @@ export const heroComponents = ({
                   }
                 />
               </div>
-              <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[200px]  p-3 rounded-[8px]">
+              <div
+                id={`hero-image-card-${index + 1}-${uniqueId}`}
+                className="shadow-md h-[200px] p-3 rounded-[8px]"
+                onClick={handleCardClick}
+                style={getStyle(
+                  `hero-image-card-${index + 1}`,
+                  uniqueId,
+                  "rgba(0,0,0,0.5)"
+                )}
+              >
                 <img
                   id={`hero-image-${index + 4}-${uniqueId}`}
                   src={
@@ -127,7 +165,15 @@ export const heroComponents = ({
                   }
                 />
               </div>
-              <div className="bg-[rgba(0,0,0,0.5)] shadow-md h-[250px]  p-3 rounded-[8px] col-span-3">
+              <div
+                id={`hero-image-card-${index + 1}-${uniqueId}`}
+                className="shadow-md h-[200px] p-3 rounded-[8px] col-span-3"
+                style={getStyle(
+                  `hero-image-card-${index + 1}`,
+                  uniqueId,
+                  "rgba(0,0,0,0.5)"
+                )}
+              >
                 <img
                   id={`hero-image-${index + 5}-${uniqueId}`}
                   src={
@@ -249,9 +295,16 @@ export const heroComponents = ({
           } relative w-[55%] h-full max-lg:w-full max-lg:max-w-[500px] max-lg:mx-auto`}
         >
           <div
+            id={`hero-image-card-${index + 1}-${uniqueId}`}
             className={`${
               isMobile ? "left-[35%] transform -translate-x-1/2" : ""
-            } w-[250px] h-[400px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3 mb-4 absolute top-2 max-lg:left-[35%] max-lg:transform max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:top-1/2 max-xl:top-2 max-xl:right-32 z-20`}
+            } w-[250px] h-[400px] rounded-[35px] px-3 pt-3 mb-4 absolute top-2 max-lg:left-[35%] max-lg:transform max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:top-1/2 max-xl:top-2 max-xl:right-32 z-20`}
+            onClick={handleCardClick}
+            style={getStyle(
+              `hero-image-card-${index + 1}`,
+              uniqueId,
+              "rgb(33,37,41)"
+            )}
           >
             <img
               id={`hero-image-${index + 1}-${uniqueId}`}
@@ -271,9 +324,16 @@ export const heroComponents = ({
             />
           </div>
           <div
+            id={`hero-image-card-${index + 1}-${uniqueId}`}
             className={`${
               isMobile ? "left-[60%] transform -translate-x-1/2" : ""
-            } w-[260px] h-[480px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3 absolute max-lg:left-[60%] max-lg:transform max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:top-1/2 top-[7%] right-0 xl:right-[28%] z-10`}
+            } w-[260px] h-[480px] rounded-[35px] px-3 pt-3 absolute max-lg:left-[60%] max-lg:transform max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:top-1/2 top-[7%] right-0 xl:right-[28%] z-10`}
+            onClick={handleCardClick}
+            style={getStyle(
+              `hero-image-card-${index + 1}`,
+              uniqueId,
+              "rgb(33,37,41)"
+            )}
           >
             <img
               id={`hero-image-${index + 2}-${uniqueId}`}
@@ -293,9 +353,16 @@ export const heroComponents = ({
             />
           </div>
           <div
+            id={`hero-image-card-${index + 1}-${uniqueId}`}
             className={`${
               isMobile ? "hidden" : ""
-            } w-[260px] h-[450px] bg-[rgb(33,37,41)] rounded-[35px] px-3 py-3 absolute top-14 right-5 max-xl:hidden`}
+            } w-[260px] h-[450px] rounded-[35px] px-3 py-3 absolute top-14 right-5 max-xl:hidden`}
+            onClick={handleCardClick}
+            style={getStyle(
+              `hero-image-card-${index + 1}`,
+              uniqueId,
+              "rgb(33,37,41)"
+            )}
           >
             <img
               id={`hero-image-${index + 3}-${uniqueId}`}
@@ -372,7 +439,16 @@ export const heroComponents = ({
         <div
           className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full mt-10`}
         >
-          <div className="w-[260px] mx-auto h-[480px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3">
+          <div
+            id={`hero-image-card-${index + 1}-${uniqueId}`}
+            className="w-[260px] mx-auto h-[480px] rounded-[35px] px-3 pt-3"
+            onClick={handleCardClick}
+            style={getStyle(
+              `hero-image-card-${index + 1}`,
+              uniqueId,
+              "rgb(33,37,41)"
+            )}
+          >
             <img
               id={`hero-image-${index + 1}-${uniqueId}`}
               src={
@@ -448,7 +524,16 @@ export const heroComponents = ({
         <div
           className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full mt-10`}
         >
-          <div className="w-[260px] mx-auto h-[480px] bg-[rgb(33,37,41)] rounded-[35px] px-3 pt-3">
+          <div
+            id={`hero-image-card-${index + 1}-${uniqueId}`}
+            className="w-[260px] mx-auto h-[480px] rounded-[35px] px-3 pt-3"
+            onClick={handleCardClick}
+            style={getStyle(
+              `hero-image-card-${index + 1}`,
+              uniqueId,
+              "rgb(33,37,41)"
+            )}
+          >
             <img
               id={`hero-image-${index + 1}-${uniqueId}`}
               src={
@@ -524,7 +609,16 @@ export const heroComponents = ({
         <div
           className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full mb-10`}
         >
-          <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
+          <div
+            id={`hero-image-card-${index + 1}-${uniqueId}`}
+            className="mx-auto w-[90%] max-w-[500px] h-[500px] px-3 py-3"
+            onClick={handleCardClick}
+            style={getStyle(
+              `hero-image-card-${index + 1}`,
+              uniqueId,
+              "rgb(33,37,41)"
+            )}
+          >
             <img
               id={`hero-image-${index + 1}-${uniqueId}`}
               src={
@@ -600,7 +694,16 @@ export const heroComponents = ({
         <div
           className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full mb-10`}
         >
-          <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
+          <div
+            id={`hero-image-card-${index + 1}-${uniqueId}`}
+            className="mx-auto w-[90%] max-w-[500px] h-[500px] px-3 py-3"
+            onClick={handleCardClick}
+            style={getStyle(
+              `hero-image-card-${index + 1}`,
+              uniqueId,
+              "rgb(33,37,41)"
+            )}
+          >
             <img
               id={`hero-image-${index + 1}-${uniqueId}`}
               src={
@@ -632,7 +735,16 @@ export const heroComponents = ({
         } max-w-[1200px] mx-auto flex justify-center gap-5 max-lg:flex-col py-24`}
       >
         <div className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full`}>
-          <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
+          <div
+            id={`hero-image-card-${index + 1}-${uniqueId}`}
+            className="mx-auto w-[90%] max-w-[500px] h-[500px] px-3 py-3"
+            onClick={handleCardClick}
+            style={getStyle(
+              `hero-image-card-${index + 1}`,
+              uniqueId,
+              "rgb(33,37,41)"
+            )}
+          >
             <img
               id={`hero-image-${index + 1}-${uniqueId}`}
               src={
@@ -697,7 +809,16 @@ export const heroComponents = ({
         </div>
 
         <div className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full`}>
-          <div className="mx-auto w-[90%] max-w-[500px] h-[500px] bg-[rgb(33,37,41)] px-3 py-3">
+          <div
+            id={`hero-image-card-${index + 1}-${uniqueId}`}
+            className="mx-auto w-[90%] max-w-[500px] h-[500px] px-3 py-3"
+            onClick={handleCardClick}
+            style={getStyle(
+              `hero-image-card-${index + 1}`,
+              uniqueId,
+              "rgb(33,37,41)"
+            )}
+          >
             <img
               id={`hero-image-${index + 2}-${uniqueId}`}
               src={

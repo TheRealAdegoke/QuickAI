@@ -26,11 +26,11 @@ const EditAndSaveDesignModal = ({ elements, handleSaveElements }) => {
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
   const [deletedElements, setDeletedElements] = useState([]);
 
-  useEffect(() => {
-    if (elements.length === 1) {
-      navigate("/home");
-    }
-  }, [elements, navigate]);
+  // useEffect(() => {
+  //   if (elements.length === 1) {
+  //     navigate("/home");
+  //   }
+  // }, [elements, navigate]);
 
   const handleElementClick = (item, index) => {
     let elementString = reactElementToJSXString(item, { showFunctions: false });
