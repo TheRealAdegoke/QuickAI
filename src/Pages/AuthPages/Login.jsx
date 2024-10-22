@@ -9,7 +9,6 @@ import WebLogo from "../../assets/WebLogo";
 import { axiosInstance } from "./AuthChecker/axiosInstance";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Helmet } from "react-helmet";
 
 const Login = () => {
   const { isAuthenticated, handleAuthentication } = useContext(AuthContext);
@@ -109,57 +108,6 @@ const Login = () => {
 
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>QuickUI - Effortless Landing Page Creation</title>
-
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://quickui.co/login" />
-
-        {/* Meta Description */}
-        <meta
-          name="description"
-          content="QuickUI helps you create and customize landing pages effortlessly. No coding skills required. Get started today and build your next project with ease."
-        />
-
-        {/* Keywords for SEO */}
-        <meta
-          name="keywords"
-          content="QuickUI, landing pages, web design, create landing page, no code, easy web design, landing page builder"
-        />
-
-        {/* Open Graph for Social Sharing */}
-        <meta
-          property="og:title"
-          content="QuickUI - Effortless Landing Page Creation"
-        />
-        <meta
-          property="og:description"
-          content="Create and customize landing pages effortlessly with QuickUI. Get started today!"
-        />
-        <meta property="og:url" content="https://quickui.co/login" />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content="https://quickui.co/assets/preview-image-DktLHLuD.png"
-        />
-
-        {/* Twitter Card for Social Sharing */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="QuickUI - Effortless Landing Page Creation"
-        />
-        <meta
-          name="twitter:description"
-          content="QuickUI makes creating landing pages easy. Try it out today!"
-        />
-        <meta
-          name="twitter:image"
-          content="https://quickui.co/assets/preview-image-DktLHLuD.png"
-        />
-      </Helmet>
-
       <main className="bg-[rgb(3,11,21)] min-h-screen text-white">
         <div
           data-aos="zoom-in"
