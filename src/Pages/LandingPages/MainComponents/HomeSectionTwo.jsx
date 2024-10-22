@@ -46,9 +46,9 @@ const HomeSectionTwo = () => {
                 <p className="lg:max-w-[500px] max-sm:text-sm">
                   Your landing page's hero section is the first thing visitors
                   see—it sets the tone and grabs attention. A strong,
-                  captivating hero image can communicate your brand's value in
-                  seconds. QuickUI makes it easy to select or upload a hero
-                  image that reflects your brand, ensuring visitors are hooked
+                  captivating hero section can communicate your brand's value in
+                  seconds. QuickUI makes it easy to select a hero
+                  design that reflects your brand, ensuring visitors are hooked
                   from the very first glance.
                 </p>
               </div>
@@ -69,7 +69,7 @@ const HomeSectionTwo = () => {
                 </h3>
                 <p className="lg:max-w-[500px] max-sm:text-sm">
                   People connect with solutions when they clearly understand the
-                  problem. A well-chosen image that visualizes the customer's
+                  problem. A well-chosen section that visualizes the customer's
                   pain point creates a deeper connection. With QuickUI, you can
                   effortlessly design and customize this section, ensuring your
                   message resonates with your audience and highlights why your
@@ -92,7 +92,7 @@ const HomeSectionTwo = () => {
                   Showcasing the Solution
                 </h3>
                 <p className="lg:max-w-[500px] max-sm:text-sm">
-                  Next comes the solution image. It shows your product or
+                  Next comes the solution section. It shows your product or
                   service in action, solving the exact problem your audience
                   faces. QuickUI provides a streamlined process to add these
                   impactful visuals, ensuring your landing page effectively
@@ -115,7 +115,7 @@ const HomeSectionTwo = () => {
                   Building Trust with Testimonials
                 </h3>
                 <p className="lg:max-w-[500px] max-sm:text-sm">
-                  Trust is key to conversions. A testimonial image featuring
+                  Trust is key to conversions. A testimonial section featuring
                   real users or their success stories helps build credibility
                   and assurance. QuickUI helps you seamlessly integrate
                   testimonial sections with images and quotes, making your
