@@ -114,7 +114,7 @@ const Login = () => {
         <title>QuickUI - Effortless Landing Page Creation</title>
 
         {/* Canonical URL */}
-        <link rel="canonical" href="http://quickui.co" />
+        <link rel="canonical" href="https://quickui.co/login" />
 
         {/* Meta Description */}
         <meta
@@ -137,7 +137,7 @@ const Login = () => {
           property="og:description"
           content="Create and customize landing pages effortlessly with QuickUI. Get started today!"
         />
-        <meta property="og:url" content="http://quickui.co" />
+        <meta property="og:url" content="https://quickui.co/login" />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
