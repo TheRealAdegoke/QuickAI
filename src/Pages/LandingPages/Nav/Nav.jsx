@@ -31,8 +31,10 @@ const Nav = () => {
   useEffect(() => {
     if (location.pathname === "/pricing") {
       setActive(2);
-    } else {
+    } else if (location.pathname === "/") {
       setActive(1);
+    } else {
+      setActive(3);
     }
   }, [location]);
 
@@ -64,6 +66,15 @@ const Nav = () => {
               onClick={() => setActive(2)}
             >
               Pricing
+            </Link>
+            <Link
+              to="/blog"
+              className={`${
+                active === 3 ? "border-b-[2px] h-[60px]" : ""
+              } block text-center text-xl py-2`}
+              onClick={() => setActive(3)}
+            >
+              Blog
             </Link>
           </div>
 

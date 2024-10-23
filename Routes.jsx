@@ -14,6 +14,8 @@ import { useEffect } from "react";
 import EditAndSave from "./src/Dashboard/DashBoardChildren/Sites/EditAndSave";
 import ProfileSettings from "./src/Dashboard/DashBoardChildren/AccountSettings/ProfileSettings";
 import AccountSettings from "./src/Dashboard/DashBoardChildren/AccountSettings/AccountSettings";
+import Blog from "./src/Pages/BlogPage/Blog";
+import Article from "./src/Pages/BlogPage/Article";
 
 function ScrollToTopOnMount() {
   const { pathname } = useLocation();
@@ -45,6 +47,8 @@ const AppRoutes = () => {
           <Route path="/site/manage" element={<EditAndSave />} />
           <Route path="/settings" element={<ProfileSettings />} />
           <Route path="/account" element={<AccountSettings />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/article/:slug" element={<Article/>} />
         </Routes>
       </BrowserRouter>
     </>
