@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react'
-import Nav from '../Nav/Nav'
-import Footer from '../MainComponents/Footer';
+import React, { useEffect } from "react";
+import Nav from "../Nav/Nav";
+import Footer from "../MainComponents/Footer";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { TiArrowRightOutline } from "react-icons/ti";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Helmet } from "react-helmet";
 
 const Pricing = () => {
   useEffect(() => {
@@ -16,6 +17,35 @@ const Pricing = () => {
 
   return (
     <>
+      <Helmet>
+        <title>QuickUI - Effortless Landing Page Creation</title>
+        <meta
+          name="description"
+          content="QuickUI lets you easily create landing pages without coding. Build your next project faster with our intuitive platform."
+        />
+        <meta name="keywords" content="" create a landing page ai />
+        <meta
+          property="og:title"
+          content="QuickUI - Effortless Landing Page Creation"
+        />
+        <meta
+          property="og:description"
+          content="QuickUI helps you build and customize landing pages easily. No coding skills needed!"
+        />
+        <meta property="og:image" content="https://i.imgur.com/HSA0Pbh.png" />
+        <meta property="og:url" content="https://quickui.co/pricing" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="QuickUI - Effortless Landing Page Creation"
+        />
+        <meta
+          name="twitter:description"
+          content="Create and customize landing pages easily with QuickUI!"
+        />
+        <meta name="twitter:image" content="https://i.imgur.com/HSA0Pbh.png" />
+        <link rel="canonical" href="https://quickui.co/pricing" />
+      </Helmet>
       <main className="radial text-white min-h-screen pb-10 overflow-y-hidden">
         <Nav />
         <div data-aos="fade-up" className="pt-[150px] ">
@@ -100,6 +130,6 @@ const Pricing = () => {
       </main>
     </>
   );
-}
+};
 
-export default Pricing
+export default Pricing;
