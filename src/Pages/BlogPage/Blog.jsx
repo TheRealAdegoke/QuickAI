@@ -37,8 +37,8 @@ const Blog = () => {
 
   return (
     <>
-      {/* <Helmet>
-        <title>{latestArticle.title} | Your Blog Name</title>
+      <Helmet>
+        <title>{latestArticle.title}</title>
         <meta name="description" content={latestArticle.description} />
         <meta name="keywords" content={latestArticle.keyword} />
         <meta property="og:title" content={latestArticle.title} />
@@ -49,7 +49,7 @@ const Blog = () => {
           content={`https://yourwebsite.com/blog/article/${latestArticle.slug}`}
         />
         <meta name="twitter:card" content="summary_large_image" />
-      </Helmet> */}
+      </Helmet>
       <Nav />
       <main className="radial min-h-screen overflow-y-hidden pt-[100px]">
         <div className="mb-20">

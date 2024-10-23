@@ -9,6 +9,7 @@ import { FaChevronRight } from "react-icons/fa6";
 import DesignModal from "./AI-Designed-Component/AI-Design-Modal/DesignModal";
 import { DashContext } from "./DashboardChecker/DashboardContext";
 import TestDesignModal from "./Test Modal/TestDesignModal";
+import { Helmet } from "react-helmet";
 
 const Dashboard = ({ children }) => {
   const { isAuthenticated } = useContext(AuthContext);
@@ -33,9 +34,36 @@ const Dashboard = ({ children }) => {
 
   return (
     <>
-      <main
-        className={`dashboard-background h-screen flex text-white`}
-      >
+      <Helmet>
+        <title>QuickUI - Effortless Landing Page Creation</title>
+        <meta
+          name="description"
+          content="QuickUI lets you easily create landing pages without coding. Build your next project faster with our intuitive platform."
+        />
+        <meta name="keywords" content="create a landing page ai" />
+        <meta
+          property="og:title"
+          content="QuickUI - Effortless Landing Page Creation"
+        />
+        <meta
+          property="og:description"
+          content="QuickUI helps you build and customize landing pages easily. No coding skills needed!"
+        />
+        <meta property="og:image" content="https://i.imgur.com/HSA0Pbh.png" />
+        <meta property="og:url" content="https://quickui.co/home" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="QuickUI - Effortless Landing Page Creation"
+        />
+        <meta
+          name="twitter:description"
+          content="Create and customize landing pages easily with QuickUI!"
+        />
+        <meta name="twitter:image" content="https://i.imgur.com/HSA0Pbh.png" />
+        <link rel="canonical" href="https://quickui.co/home" />
+      </Helmet>
+      <main className={`dashboard-background h-screen flex text-white`}>
         {/* <SideBar /> */}
         <section
           className={`${
@@ -56,7 +84,7 @@ const Dashboard = ({ children }) => {
           <div className="flex justify-center">
             {showDesignModal ? <DesignModal /> : <AIGenerator />}
           </div>
-          
+
           <div className="flex justify-center">
             {testDesignModal && <TestDesignModal />}
           </div>

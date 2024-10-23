@@ -7,6 +7,7 @@ import WebLogo from "../../assets/WebLogo";
 import { axiosInstance } from "./AuthChecker/axiosInstance";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Helmet } from "react-helmet";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -46,6 +47,35 @@ const ForgotPassword = () => {
   };
   return (
     <>
+      <Helmet>
+        <title>QuickUI - Effortless Landing Page Creation</title>
+        <meta
+          name="description"
+          content="QuickUI lets you easily create landing pages without coding. Build your next project faster with our intuitive platform."
+        />
+        <meta name="keywords" content="create a landing page ai" />
+        <meta
+          property="og:title"
+          content="QuickUI - Effortless Landing Page Creation"
+        />
+        <meta
+          property="og:description"
+          content="QuickUI helps you build and customize landing pages easily. No coding skills needed!"
+        />
+        <meta property="og:image" content="https://i.imgur.com/HSA0Pbh.png" />
+        <meta property="og:url" content="https://quickui.co/forgotpassword" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="QuickUI - Effortless Landing Page Creation"
+        />
+        <meta
+          name="twitter:description"
+          content="Create and customize landing pages easily with QuickUI!"
+        />
+        <meta name="twitter:image" content="https://i.imgur.com/HSA0Pbh.png" />
+        <link rel="canonical" href="https://quickui.co/forgotpassword" />
+      </Helmet>
       <main className="bg-[rgb(3,11,21)] min-h-screen text-white">
         <div
           data-aos="zoom-in"
