@@ -33,7 +33,7 @@ const Main = () => {
           name="description"
           content="QuickUI lets you easily create landing pages without coding. Build your next project faster with our intuitive platform."
         />
-        <meta name="keywords" content="" create a landing page ai />
+        <meta name="keywords" content="create a landing page ai" />
         <meta
           property="og:title"
           content="QuickUI - Effortless Landing Page Creation"

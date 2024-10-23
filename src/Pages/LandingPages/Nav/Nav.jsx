@@ -94,7 +94,7 @@ const Nav = () => {
               ref={homeSidebarRef}
               className={`${
                 toggleNav ? "max-lg:block" : "max-lg:hidden"
-              } max-lg:absolute top-[85px] right-1 border-[rgba(255,255,255,0.2)] max-lg:border max-lg:w-[300px] max-lg:h-[300px] rounded-[8px] max-lg:bg-[linear-gradient(314deg,rgb(22,23,50)_70%,rgb(5,8,32)_100%)] shadow-2xl`}
+              } max-lg:absolute top-[85px] right-1 border-[rgba(255,255,255,0.2)] max-lg:border max-lg:w-[300px] max-lg:h-[350px] rounded-[8px] max-lg:bg-[linear-gradient(314deg,rgb(22,23,50)_70%,rgb(5,8,32)_100%)] shadow-2xl`}
             >
               <div className="flex justify-center lg:hidden my-2">
                 <img
@@ -127,6 +127,15 @@ const Nav = () => {
                 >
                   <span>
                     {location.pathname === "/pricing" ? "Home" : "Pricing"}
+                  </span>
+                </Link>
+
+                <Link
+                  to="/blog"
+                  className="block text-center border border-[rgba(255,255,255,0.2)] py-2 px-8 rounded-[8px] transition-all duration-300 ease-in-out hover:bg-[rgba(255,255,255,0.2)] lg:hidden"
+                >
+                  <span>
+                    Blog
                   </span>
                 </Link>
               </div>
