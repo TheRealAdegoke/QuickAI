@@ -187,7 +187,7 @@ const AIGenerator = () => {
                   )}
                 </button>
               </form>
-              <p className="mt-4">QuickUI content generating is limited!</p>
+              <p className="mt-4">QuickUI is still in its beta version</p>
             </div>
           </div>
         </div>

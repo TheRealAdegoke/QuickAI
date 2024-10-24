@@ -330,7 +330,8 @@ const faqAnswers = [
 
 const promptResponseForLogo = "Lorem";
 
-const promptResponseForHeroHeader = "Lorem ipsum dolor sit amet";
+const promptResponseForHeroHeader =
+  "The Tool for Building Stunning Landing Pages";
 
 const promptResponseForHeroDescription =
   "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.";

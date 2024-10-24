@@ -27,6 +27,7 @@ import { axiosInstance } from "../../../Pages/AuthPages/AuthChecker/axiosInstanc
 import html2canvas from "html2canvas";
 import { ImSpinner6 } from "react-icons/im";
 import Cookies from "js-cookie";
+import Chat from "./EditAndSaveComponents/Chat";
 
 const EditAndSave = () => {
   const {
@@ -286,7 +287,9 @@ const EditAndSave = () => {
               type="submit"
               className={`${
                 userData.status === "free" && userData.trial === 0
-              ? "cursor-not-allowed opacity-50" : ""} text-black bg-white min-w-[150px] hover:bg-[rgba(255,255,255,0.9)] block px-3 py-2 rounded-[5px] font-medium text-center`}
+                  ? "cursor-not-allowed opacity-50"
+                  : ""
+              } text-black bg-white min-w-[150px] hover:bg-[rgba(255,255,255,0.9)] block px-3 py-2 rounded-[5px] font-medium text-center`}
               onClick={saveDesign}
               disabled={userData.status === "free" && userData.trial === 0}
             >
@@ -445,6 +448,14 @@ const EditAndSave = () => {
                 : item.element}
             </div>
           ))}
+        </div>
+
+        <div
+          className={`${
+            window.innerWidth > 1000 ? "block" : "hidden"
+          } fixed bottom-0 right-5 z-50`}
+        >
+          <Chat />
         </div>
 
         <div
