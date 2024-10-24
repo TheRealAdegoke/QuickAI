@@ -123,7 +123,6 @@ export const DashboardProvider = ({ children }) => {
     if (geminiResponses && Object.keys(geminiResponses).length > 0) {
       setText((prevText) => ({
         ...prevText,
-        heroHeaderText: geminiResponses.heroHeader,
         images: geminiResponses.imageUrls || [],
       }));
       setShuffled(true);
@@ -188,6 +187,7 @@ export const DashboardProvider = ({ children }) => {
 
       setText((text) => ({
         ...text,
+        heroHeaderText: webContentObject.heroHeader,
         description: webContentObject.heroDescription,
         webLogo: webContentObject.logo,
         buttonTexts: shuffledButtonTexts,
@@ -208,8 +208,6 @@ export const DashboardProvider = ({ children }) => {
 
       setShuffled(true);
     }
-
-    console.log("HeroHeader: ", text.heroHeaderText);
   }, [geminiResponses, shuffled, text]);
 
   const getStyle = (id, uniqueId, defaultBackgroundColor = "#ffffff") => {
@@ -422,7 +420,7 @@ export const DashboardProvider = ({ children }) => {
     });
     setLoading(true);
     try {
-      const response = await axiosInstance.post("/quick-ai", {
+      const response = await axiosInstance.post("/quick-image", {
         prompt: userInput || selectedIdea,
       });
       setGeminiResponses({
