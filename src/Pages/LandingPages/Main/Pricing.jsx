@@ -111,6 +111,10 @@ const Pricing = () => {
                 </p>
                 <p className="flex items-center gap-2">
                   <IoMdCheckmarkCircleOutline />
+                  Access to QuickAI chatbot
+                </p>
+                <p className="flex items-center gap-2">
+                  <IoMdCheckmarkCircleOutline />
                   Updates on new designs
                 </p>
               </div>

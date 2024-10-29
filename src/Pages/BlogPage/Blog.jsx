@@ -19,7 +19,12 @@ const Blog = () => {
   // Calculate the starting and ending index for articles on the current page
   const startIndex = (page - 1) * articlesPerPage;
   const endIndex = startIndex + articlesPerPage;
-  const paginatedArticles = blogData.articles.slice(startIndex, endIndex); // Slice articles for the current page
+
+  // Reverse the articles and slice for pagination
+  const paginatedArticles = blogData.articles
+    .slice()
+    .reverse()
+    .slice(startIndex, endIndex); // Slice the reversed articles for the current page
 
   // Handle next page click
   const handleNextPage = () => {
@@ -67,7 +72,7 @@ const Blog = () => {
 
           {/* Latest Article */}
           {(() => {
-            const article = blogData.articles[blogData.articles.length - 1];
+            const article = latestArticle; // You can keep this unchanged as it already gets the latest article
             return (
               <article
                 key={article.slug}
@@ -107,8 +112,7 @@ const Blog = () => {
                     <img
                       src={article.imageUrl}
                       alt={article.title}
-                      className="w-full h-auto my-5"
-                      loading="lazy"
+                      className="w-full h-auto my-5 block rounded-lg shadow-md"
                     />
                   </div>
                 </div>
@@ -160,12 +164,11 @@ const Blog = () => {
                   key={article.id}
                   className="w-[30%] max-lg:w-[85%] max-w-[300px] max-lg:max-w-[500px] h-full"
                 >
-                  <div className="min-h-[350px] max-lg:min-h-[400px] border-[1px] border-[rgba(255,255,255,0.5)] hover:border-[rgb(9,105,221)] border-t-0 rounded-xl lg:mb-10 pb-5">
+                  <div className="min-h-[400px] max-lg:min-h-[400px] border-[1px] border-[rgba(255,255,255,0.5)] hover:border-[rgb(9,105,221)] border-t-0 rounded-xl lg:mb-10 pb-5">
                     <img
                       src={article.imageUrl}
                       alt={article.title}
-                      className="w-full rounded-t-xl mb-5"
-                      loading="lazy"
+                      className="w-full rounded-t-xl mb-5 block shadow-md"
                     />
                     <div className="px-3">
                       <h3 className="text-lg max-sm:text-xl font-bold mb-2">
