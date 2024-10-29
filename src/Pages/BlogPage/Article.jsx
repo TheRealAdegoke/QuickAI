@@ -62,22 +62,19 @@ const Article = () => {
     li: ({ children }) => (
       <li className="text-gray-300 text-lg my-5 max-md:text-sm">{children}</li>
     ),
+    img: ({ src, alt }) => (
+      <img src={src} alt={alt} className="w-full h-auto my-5 block rounded-lg shadow-md" />
+    ),
   };
 
   return (
     <>
       <Helmet>
         <title>{article.title} | Your Blog Name</title>
-        <meta
-          name="description"
-          content={article.description}
-        />
+        <meta name="description" content={article.description} />
         <meta name="keywords" content={article.keyword} />
         <meta property="og:title" content={article.title} />
-        <meta
-          property="og:description"
-          content={article.description}
-        />
+        <meta property="og:description" content={article.description} />
         <meta property="og:image" content={article.imageUrl} />
         <meta
           property="og:url"
@@ -85,10 +82,7 @@ const Article = () => {
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={article.title} />
-        <meta
-          name="twitter:description"
-          content={article.description}
-        />
+        <meta name="twitter:description" content={article.description} />
         <meta name="twitter:image" content={article.imageUrl} />
         <link
           rel="canonical"
@@ -133,7 +127,7 @@ const Article = () => {
             className="w-full h-auto my-5"
             loading="lazy"
           />
-          <div className="mb-10">
+          <div className="mb-20">
             <Markdown components={components}>{article.content}</Markdown>
           </div>
         </div>
