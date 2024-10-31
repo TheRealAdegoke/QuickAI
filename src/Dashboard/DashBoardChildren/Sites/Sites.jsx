@@ -56,9 +56,9 @@ import React from "react";
 
 const GeneratedComponent = () => {
   return (
-    <div>
+    <main>
       ${formattedContent}
-    </div>
+    </main>
   );
 };
 
@@ -138,9 +138,9 @@ This project was generated using QuickUI.
 
 const GeneratedComponent = () => {
   return (
-    <div>
+    <main>
       ${formattedContent}
-    </div>
+    </main>
   );
 };
 
