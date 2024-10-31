@@ -111,7 +111,14 @@ const Pricing = () => {
                 </p>
                 <p className="flex items-center gap-2">
                   <IoMdCheckmarkCircleOutline />
-                  Access to QuickAI chatbot
+                  Access to QuickUI chatbot
+                </p>
+                <p className="flex items-center gap-2 max-sm:flex-col max-sm:items-start max-sm:mb-3">
+                  <span className="flex items-center gap-2">
+                    <IoMdCheckmarkCircleOutline />
+                    Download landing page folder
+                  </span>{" "}
+                  <span className="text-xs">(React, Next)</span>
                 </p>
                 <p className="flex items-center gap-2">
                   <IoMdCheckmarkCircleOutline />
