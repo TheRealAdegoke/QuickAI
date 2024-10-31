@@ -9,6 +9,8 @@ import { IoIosCode } from "react-icons/io";
 import { axiosInstance } from "../../../Pages/AuthPages/AuthChecker/axiosInstance";
 import { message } from "antd";
 import Cookies from "js-cookie";
+import JSZip from "jszip";
+import { nextTemplateFiles, viteTemplateFiles } from "../../../utils/utils";
 
 const Sites = () => {
   const { userData, handleUserData } = useContext(DashContext);
@@ -38,6 +40,164 @@ const Sites = () => {
   yesterdayBoundary.setDate(todayBoundary.getDate() - 1);
   const pastSevenDaysBoundary = new Date(todayBoundary);
   pastSevenDaysBoundary.setDate(todayBoundary.getDate() - 7);
+
+  const handleDownloadForReact = (styleContent) => {
+    const cleanedContent =
+      typeof styleContent === "string"
+        ? styleContent
+        : String(styleContent || "");
+
+    const formattedContent = cleanedContent
+      .replace(/>,\s*([<])/g, ">\n      $1")
+      .replace(/,\s*(?=[<])/g, "\n      ");
+
+    const generatedComponentContent = `
+import React from "react";
+
+const GeneratedComponent = () => {
+  return (
+    <main>
+      ${formattedContent}
+    </main>
+  );
+};
+
+export default GeneratedComponent;
+`;
+
+    // Create a new ZIP file
+    const zip = new JSZip();
+
+    // Create the "QuickUI" folder in the ZIP
+    const quickUIFolder = zip.folder("QuickUI");
+
+    // Add all template files to the QuickUI folder
+    Object.entries(viteTemplateFiles).forEach(([path, content]) => {
+      quickUIFolder.file(path, content);
+    });
+
+    // Add the generated component to the QuickUI/src/components folder
+    quickUIFolder.file(
+      "src/components/GeneratedComponent.jsx",
+      generatedComponentContent
+    );
+
+    // Generate README
+    const readme = `# QuickUI Vite Project
+
+This project was generated using QuickUI.
+
+## Getting Started
+
+1. Extract the ZIP file
+2. Open terminal in the QuickUI project directory
+3. Install dependencies:
+   \`\`\`bash
+   npm install
+   \`\`\`
+4. Start the development server:
+   \`\`\`bash
+   npm run dev
+   \`\`\`
+
+## Project Structure
+- \`src/components/GeneratedComponent.jsx\` contains your generated UI component
+- The project is set up with React, Vite, and TailwindCSS
+`;
+
+    quickUIFolder.file("README.md", readme);
+
+    // Generate the ZIP file
+    zip.generateAsync({ type: "blob" }).then(function (content) {
+      // Create download link
+      const url = URL.createObjectURL(content);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "quickui-react-project.zip";
+      document.body.appendChild(link);
+      link.click();
+
+      // Cleanup
+      URL.revokeObjectURL(url);
+      document.body.removeChild(link);
+    });
+  };
+
+  const handleDownloadForNext = (styleContent) => {
+    const cleanedContent =
+      typeof styleContent === "string"
+        ? styleContent
+        : String(styleContent || "");
+
+    const formattedContent = cleanedContent
+      .replace(/>,\s*([<])/g, ">\n      $1")
+      .replace(/,\s*(?=[<])/g, "\n      ");
+
+    const generatedComponentContent = `
+'use client'
+
+const GeneratedComponent = () => {
+  return (
+    <main>
+      ${formattedContent}
+    </main>
+  );
+};
+
+export default GeneratedComponent;
+`;
+
+    const zip = new JSZip();
+    const quickUIFolder = zip.folder("QuickUI");
+
+    // Add template files
+    Object.entries(nextTemplateFiles).forEach(([path, content]) => {
+      quickUIFolder.file(path, content);
+    });
+
+    // Add generated component
+    quickUIFolder.file(
+      "src/components/GeneratedComponent.jsx",
+      generatedComponentContent
+    );
+
+    // Add README
+    const readme = `# QuickUI Next.js Project
+
+This project was generated using QuickUI.
+
+## Getting Started
+
+1. Extract the ZIP file
+2. Open terminal in the QuickUI project directory
+3. Install dependencies:
+   \`\`\`bash
+   npm install
+   \`\`\`
+4. Start the development server:
+   \`\`\`bash
+   npm run dev
+   \`\`\`
+
+## Project Structure
+- \`src/components/GeneratedComponent.jsx\` contains your generated UI component
+- The project is set up with Next.js 13 (App Router) and TailwindCSS
+`;
+
+    quickUIFolder.file("README.md", readme);
+
+    // Generate and download ZIP
+    zip.generateAsync({ type: "blob" }).then((content) => {
+      const url = URL.createObjectURL(content);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "quickui-next-project.zip";
+      document.body.appendChild(link);
+      link.click();
+      URL.revokeObjectURL(url);
+      document.body.removeChild(link);
+    });
+  };
 
   const handleHistoryDuplication = async (id) => {
     message.config({
@@ -143,13 +303,16 @@ const Sites = () => {
                                 color="rgb(36,37,40)"
                                 content={
                                   <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
-                                    <Link
-                                      to={`/site/manage/${item._id}`}
+                                    <a
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
+                                      onClick={() => handleDownloadForReact(item.style)}
                                     >
-                                      Manage{" "}
+                                      React{" "}
                                       <IoIosCode className="text-[20px]" />
-                                    </Link>
+                                    </a>
+                                    <a className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full" onClick={() => handleDownloadForNext(item.style)}>
+                                      Next <IoIosCode className="text-[20px]" />
+                                    </a>
                                     <button
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
                                       onClick={() => {
@@ -250,13 +413,16 @@ const Sites = () => {
                                 color="rgb(36,37,40)"
                                 content={
                                   <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
-                                    <Link
-                                      to={`/site/manage/${item._id}`}
+                                    <a
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
+                                      onClick={() => handleDownloadForReact(item.style)}
                                     >
-                                      Manage{" "}
+                                      React{" "}
                                       <IoIosCode className="text-[20px]" />
-                                    </Link>
+                                    </a>
+                                    <a className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full" onClick={() => handleDownloadForNext(item.style)}>
+                                      Next <IoIosCode className="text-[20px]" />
+                                    </a>
                                     <button
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
                                       onClick={() => {
@@ -357,13 +523,16 @@ const Sites = () => {
                                 color="rgb(36,37,40)"
                                 content={
                                   <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
-                                    <Link
-                                      to={`/site/manage/${item._id}`}
+                                    <a
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
+                                      onClick={() => handleDownloadForReact(item.style)}
                                     >
-                                      Manage{" "}
+                                      React{" "}
                                       <IoIosCode className="text-[20px]" />
-                                    </Link>
+                                    </a>
+                                    <a className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full" onClick={() => handleDownloadForNext(item.style)}>
+                                      Next <IoIosCode className="text-[20px]" />
+                                    </a>
                                     <button
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
                                       onClick={() => {
@@ -461,13 +630,16 @@ const Sites = () => {
                                 color="rgb(36,37,40)"
                                 content={
                                   <div className="flex flex-col gap-1 font-semibold text-[rgb(201,209,217)] p-3">
-                                    <Link
-                                      to={`/site/manage/${item._id}`}
+                                    <a
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
+                                      onClick={() => handleDownloadForReact(item.style)}
                                     >
-                                      Manage{" "}
+                                      React{" "}
                                       <IoIosCode className="text-[20px]" />
-                                    </Link>
+                                    </a>
+                                    <a className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full" onClick={() => handleDownloadForNext(item.style)}>
+                                      Next <IoIosCode className="text-[20px]" />
+                                    </a>
                                     <button
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
                                       onClick={() => {
