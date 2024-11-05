@@ -16,6 +16,7 @@ import ProfileSettings from "./src/Dashboard/DashBoardChildren/AccountSettings/P
 import AccountSettings from "./src/Dashboard/DashBoardChildren/AccountSettings/AccountSettings";
 import Blog from "./src/Pages/BlogPage/Blog";
 import Article from "./src/Pages/BlogPage/Article";
+import BusinessBlog from "./src/Pages/BlogPage/BusinessBlog";
 
 function ScrollToTopOnMount() {
   const { pathname } = useLocation();
@@ -48,7 +49,11 @@ const AppRoutes = () => {
           <Route path="/settings" element={<ProfileSettings />} />
           <Route path="/account" element={<AccountSettings />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/article/:slug" element={<Article/>} />
+          <Route path="/blog/article/:slug" element={<Article />} />
+          <Route
+            path="/blog/article/:location/:city"
+            element={<BusinessBlog />}
+          />
         </Routes>
       </BrowserRouter>
     </>
