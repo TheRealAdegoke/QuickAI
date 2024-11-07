@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../LandingPages/Nav/Nav";
 import Footer from "../LandingPages/MainComponents/Footer";
 import blogData from "./blog.json";
@@ -9,12 +9,14 @@ import { FaClock } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { Helmet } from "react-helmet";
+import axios from "axios";
 
 const Blog = () => {
   const latestArticle = blogData.articles[blogData.articles.length - 1];
   const articlesPerPage = 8; // Number of articles to display per page
   const totalArticles = blogData.articles.length; // Total number of articles
   const [page, setPage] = useState(1); // Current page state
+
 
   // Calculate the starting and ending index for articles on the current page
   const startIndex = (page - 1) * articlesPerPage;
