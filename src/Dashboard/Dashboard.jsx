@@ -1,11 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import {  useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Pages/AuthPages/AuthChecker/AuthContext";
-import SideBar from "./NavigationComponents/SideBar";
 import TopNav from "./NavigationComponents/TopNav";
 import AIGenerator from "./DashBoardChildren/QuickAIGenerator/AIGenerator";
-import { FaChevronLeft } from "react-icons/fa6";
-import { FaChevronRight } from "react-icons/fa6";
 import DesignModal from "./AI-Designed-Component/AI-Design-Modal/DesignModal";
 import { DashContext } from "./DashboardChecker/DashboardContext";
 import TestDesignModal from "./Test Modal/TestDesignModal";
