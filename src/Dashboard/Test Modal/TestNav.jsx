@@ -105,6 +105,39 @@ export const TestNavTwo = () => {
           </div>
         </div>
       </nav>
+      <div className="container mx-auto p-4">
+        <h1 className="text-2xl font-bold mb-4">
+          BusinessBlog for {city}, {location}
+        </h1>
+
+        {/* Additional blog content can be added here */}
+        <div className="mt-4">
+          <h2 className="text-xl mb-2">Local Business Information</h2>
+          <p>
+            Discover the latest business trends and opportunities in {city}.
+          </p>
+        </div>
+
+        {/* You might want to add related cities section */}
+        <div className="mt-8">
+          <h3 className="text-lg mb-2">Other Cities in {location}</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+            {countryCityData[location]
+              .filter((relatedCity) => relatedCity !== city)
+              .slice(0, 6)
+              .map((relatedCity) => (
+                <a
+                  key={relatedCity}
+                  href={`/blog/article/${location}/${relatedCity}`}
+                  className="text-blue-600 hover:text-blue-800"
+                >
+                  {relatedCity}
+                </a>
+              ))}
+          </div>
+        </div>
+      </div>
+      ;
     </>
   );
 };
