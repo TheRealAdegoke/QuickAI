@@ -7,6 +7,8 @@ import DesignModal from "./AI-Designed-Component/AI-Design-Modal/DesignModal";
 import { DashContext } from "./DashboardChecker/DashboardContext";
 import TestDesignModal from "./Test Modal/TestDesignModal";
 import { Helmet } from "react-helmet";
+import SideBar from "./NavigationComponents/SideBar";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Dashboard = ({ children }) => {
   const { isAuthenticated } = useContext(AuthContext);
@@ -61,14 +63,14 @@ const Dashboard = ({ children }) => {
         <link rel="canonical" href="https://quickui.co/home" />
       </Helmet>
       <main className={`dashboard-background h-screen flex text-white`}>
-        {/* <SideBar /> */}
+        <SideBar />
         <section
           className={`${
             location.pathname === "/home" ? "bg-image max-md:bg-none" : ""
           } w-full dashboard-navigation-darkmode rounded-[25px] my-1 mx-2 max-md:rounded-none max-md:m-0 relative`}
         >
           <TopNav />
-          {/* <button
+          <button
             className={`${
               showDesignModal ? "" : ""
             } absolute top-1/2 left-3 text-xl text-[rgb(95,95,95)] block cursor-pointer z-50 max-md:hidden`}
@@ -77,7 +79,7 @@ const Dashboard = ({ children }) => {
             }}
           >
             {closeSideNav ? <FaChevronLeft /> : <FaChevronRight />}
-          </button> */}
+          </button>
           <div className="flex justify-center">
             {showDesignModal ? <DesignModal /> : <AIGenerator />}
           </div>
