@@ -5,7 +5,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { ImSpinner6 } from "react-icons/im";
 import { Link } from "react-router-dom";
 import { Button, Popover } from "antd";
-import { IoIosCode } from "react-icons/io";
+import { MdFileDownload } from "react-icons/md";
 import { axiosInstance } from "../../../Pages/AuthPages/AuthChecker/axiosInstance";
 import { message } from "antd";
 import Cookies from "js-cookie";
@@ -308,10 +308,10 @@ This project was generated using QuickUI.
                                       onClick={() => handleDownloadForReact(item.style)}
                                     >
                                       React{" "}
-                                      <IoIosCode className="text-[20px]" />
+                                      <MdFileDownload className="text-[20px]" />
                                     </a>
                                     <a className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full" onClick={() => handleDownloadForNext(item.style)}>
-                                      Next <IoIosCode className="text-[20px]" />
+                                      Next <MdFileDownload className="text-[20px]" />
                                     </a>
                                     <button
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
@@ -418,10 +418,10 @@ This project was generated using QuickUI.
                                       onClick={() => handleDownloadForReact(item.style)}
                                     >
                                       React{" "}
-                                      <IoIosCode className="text-[20px]" />
+                                      <MdFileDownload className="text-[20px]" />
                                     </a>
                                     <a className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full" onClick={() => handleDownloadForNext(item.style)}>
-                                      Next <IoIosCode className="text-[20px]" />
+                                      Next <MdFileDownload className="text-[20px]" />
                                     </a>
                                     <button
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
@@ -528,10 +528,10 @@ This project was generated using QuickUI.
                                       onClick={() => handleDownloadForReact(item.style)}
                                     >
                                       React{" "}
-                                      <IoIosCode className="text-[20px]" />
+                                      <MdFileDownload className="text-[20px]" />
                                     </a>
                                     <a className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full" onClick={() => handleDownloadForNext(item.style)}>
-                                      Next <IoIosCode className="text-[20px]" />
+                                      Next <MdFileDownload className="text-[20px]" />
                                     </a>
                                     <button
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"
@@ -635,10 +635,10 @@ This project was generated using QuickUI.
                                       onClick={() => handleDownloadForReact(item.style)}
                                     >
                                       React{" "}
-                                      <IoIosCode className="text-[20px]" />
+                                      <MdFileDownload className="text-[20px]" />
                                     </a>
                                     <a className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full" onClick={() => handleDownloadForNext(item.style)}>
-                                      Next <IoIosCode className="text-[20px]" />
+                                      Next <MdFileDownload className="text-[20px]" />
                                     </a>
                                     <button
                                       className="cursor-pointer hover:bg-[#363636] hover:rounded-md py-1 px-2 flex items-center gap-1 w-full"

@@ -7,6 +7,7 @@ import { AuthContext } from "../../Pages/AuthPages/AuthChecker/AuthContext";
 import { FaChevronRight } from "react-icons/fa6";
 import { IoSettingsOutline } from "react-icons/io5";
 import { MdOutlineManageAccounts } from "react-icons/md";
+import { MdOutlineUpgrade } from "react-icons/md";
 import { CiLogout } from "react-icons/ci";
 import { DashContext } from "../DashboardChecker/DashboardContext";
 import { ImSpinner6 } from "react-icons/im";
@@ -22,6 +23,7 @@ const SideBar = () => {
   } = useContext(DashContext);
   const modalRef = useRef(null);
   const sidebarRef = useRef(null);
+  const checkoutURL = `https://quickuiorganization.lemonsqueezy.com/buy/ce82c0d9-14fc-46b0-9d8c-5d314d1352d3?checkout[email]=${userData?.email}&checkout[name]=${userData?.fullname}`;
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -80,7 +82,7 @@ const SideBar = () => {
   return (
     <>
       <aside
-      ref={window.innerWidth > 767 ? null : sidebarRef}
+        ref={window.innerWidth > 767 ? null : sidebarRef}
         className={`${
           closeSideNav ? "block" : "hidden"
         } dashboard-navigation-darkmode w-[250px] h-screen max-md:border-r-[1px] max-md:border-[rgb(26,26,26)] max-md:fixed z-50 p-2 flex flex-col justify-between`}
@@ -261,13 +263,30 @@ const SideBar = () => {
               userModal ? "flex" : "hidden"
             } bg-[rgb(36,37,40)] w-full max-w-[190px] max-lg:max-w-[175px] mx-auto flex-col items-start gap-2 border-zinc-600 border-[1px] px-2 py-1 rounded-[5px] max-md:hidden font-semibold fixed left-[0.7%] max-lg:left-[0.8%] bottom-20`}
           >
-            <Link to="/account" className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">
+            <Link
+              to="/account"
+              className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]"
+            >
               <MdOutlineManageAccounts />
               Account
             </Link>
-            <Link to="/settings" className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]">
+            <Link
+              to="/settings"
+              className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]"
+            >
               <IoSettingsOutline />
               Settings
+            </Link>
+            <Link
+              to={checkoutURL}
+              className="flex items-center gap-1 w-full hover:px-1 border-zinc-600 hover:border-[1px] rounded-[5px] px-1 py-1 hover:bg-[rgb(33,33,33)]"
+              onClick={(e) => {
+                e.preventDefault();
+                window.open(checkoutURL, "_blank");
+              }}
+            >
+              <MdOutlineUpgrade />
+              Upgrade
             </Link>
             <hr className="w-full" />
             <button
