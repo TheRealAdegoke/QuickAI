@@ -119,7 +119,7 @@ const BusinessBlog = () => {
         <meta property="og:image" content="https://i.imgur.com/HSA0Pbh.png" />
         <meta
           property="og:url"
-          content={`https://quickui.co/blog/article/${location}/${city}}`}
+          content={`https://quickui.co/blog/article/${location}/${city}`}
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -133,7 +133,7 @@ const BusinessBlog = () => {
         <meta name="twitter:image" content="https://i.imgur.com/HSA0Pbh.png" />
         <link
           rel="canonical"
-          href={`https://quickui.co/blog/article/${location}/${city}}`}
+          href={`https://quickui.co/blog/article/${location}/${city}`}
         />
       </Helmet>
       <Nav />
