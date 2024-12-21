@@ -18,9 +18,9 @@ const HomeSectionThree = () => {
               <div className="inline-block px-3 py-1 text-sm font-semibold text-indigo-100 rounded-lg md:text-center text-cn bg-[#202c47] bg-opacity-60 hover:cursor-pointer hover:bg-opacity-40">
                 Words from Others
               </div>
-              <h1 className="mb-5 text-3xl font-semibold text-white md:text-center md:text-5xl">
+              <h2 className="mb-5 text-3xl font-semibold text-white md:text-center md:text-5xl">
                 It's not just us.
-              </h1>
+              </h2>
               <p className="text-xl text-gray-100 md:text-center md:text-2xl">
                 Here's what others have to say about us.
               </p>
@@ -38,7 +38,11 @@ const HomeSectionThree = () => {
                         <img
                           src="https://pbs.twimg.com/profile_images/1276461929934942210/cqNhNk6v_400x400.jpg"
                           className="w-12 h-12 bg-center bg-cover border rounded-full"
-                          alt="random image"
+                          alt="Profile picture of a user"
+                          title="Profile picture"
+                          loading="lazy"
+                          width="48"
+                          height="48"
                         />
                         <div>
                           <h3 className="text-lg font-semibold text-white">
@@ -66,7 +70,11 @@ const HomeSectionThree = () => {
                         <img
                           src="https://pbs.twimg.com/profile_images/1276461929934942210/cqNhNk6v_400x400.jpg"
                           className="w-12 h-12 bg-center bg-cover border rounded-full"
-                          alt="random image"
+                          alt="Profile picture of a user"
+                          title="Profile picture"
+                          loading="lazy"
+                          width="48"
+                          height="48"
                         />
                         <div>
                           <h3 className="text-lg font-semibold text-white">
@@ -95,7 +103,11 @@ const HomeSectionThree = () => {
                         <img
                           src="https://pbs.twimg.com/profile_images/1276461929934942210/cqNhNk6v_400x400.jpg"
                           className="w-12 h-12 bg-center bg-cover border rounded-full"
-                          alt="random image"
+                          alt="Profile picture of a user"
+                          title="Profile picture"
+                          loading="lazy"
+                          width="48"
+                          height="48"
                         />
                         <div>
                           <h3 className="text-lg font-semibold text-white">
@@ -122,7 +134,11 @@ const HomeSectionThree = () => {
                         <img
                           src="https://pbs.twimg.com/profile_images/1276461929934942210/cqNhNk6v_400x400.jpg"
                           className="w-12 h-12 bg-center bg-cover border rounded-full"
-                          alt="random image"
+                          alt="Profile picture of a user"
+                          title="Profile picture"
+                          loading="lazy"
+                          width="48"
+                          height="48"
                         />
                         <div>
                           <h3 className="text-lg font-semibold text-white">
@@ -154,7 +170,11 @@ const HomeSectionThree = () => {
                         <img
                           src="https://pbs.twimg.com/profile_images/1276461929934942210/cqNhNk6v_400x400.jpg"
                           className="w-12 h-12 bg-center bg-cover border rounded-full"
-                          alt="random image"
+                          alt="Profile picture of a user"
+                          title="Profile picture"
+                          loading="lazy"
+                          width="48"
+                          height="48"
                         />
                         <div>
                           <h3 className="text-lg font-semibold text-white">
@@ -181,7 +201,11 @@ const HomeSectionThree = () => {
                         <img
                           src="https://pbs.twimg.com/profile_images/1276461929934942210/cqNhNk6v_400x400.jpg"
                           className="w-12 h-12 bg-center bg-cover border rounded-full"
-                          alt="random image"
+                          alt="Profile picture of a user"
+                          title="Profile picture"
+                          loading="lazy"
+                          width="48"
+                          height="48"
                         />
                         <div>
                           <h3 className="text-lg font-semibold text-white">
@@ -209,7 +233,11 @@ const HomeSectionThree = () => {
                         <img
                           src="https://pbs.twimg.com/profile_images/1276461929934942210/cqNhNk6v_400x400.jpg"
                           className="w-12 h-12 bg-center bg-cover border rounded-full"
-                          alt="random image"
+                          alt="Profile picture of a user"
+                          title="Profile picture"
+                          loading="lazy"
+                          width="48"
+                          height="48"
                         />
                         <div>
                           <h3 className="text-lg font-semibold text-white">
@@ -238,7 +266,11 @@ const HomeSectionThree = () => {
                         <img
                           src="https://pbs.twimg.com/profile_images/1276461929934942210/cqNhNk6v_400x400.jpg"
                           className="w-12 h-12 bg-center bg-cover border rounded-full"
-                          alt="random image"
+                          alt="Profile picture of a user"
+                          title="Profile picture"
+                          loading="lazy"
+                          width="48"
+                          height="48"
                         />
                         <div>
                           <h3 className="text-lg font-semibold text-white">
@@ -272,7 +304,11 @@ const HomeSectionThree = () => {
                         <img
                           src="https://pbs.twimg.com/profile_images/1276461929934942210/cqNhNk6v_400x400.jpg"
                           className="w-12 h-12 bg-center bg-cover border rounded-full"
-                          alt="random image"
+                          alt="Profile picture of a user"
+                          title="Profile picture"
+                          loading="lazy"
+                          width="48"
+                          height="48"
                         />
                         <div>
                           <h3 className="text-lg font-semibold text-white">
@@ -301,7 +337,11 @@ const HomeSectionThree = () => {
                         <img
                           src="https://pbs.twimg.com/profile_images/1276461929934942210/cqNhNk6v_400x400.jpg"
                           className="w-12 h-12 bg-center bg-cover border rounded-full"
-                          alt="random image"
+                          alt="Profile picture of a user"
+                          title="Profile picture"
+                          loading="lazy"
+                          width="48"
+                          height="48"
                         />
                         <div>
                           <h3 className="text-lg font-semibold text-white">
@@ -329,7 +369,11 @@ const HomeSectionThree = () => {
                         <img
                           src="https://pbs.twimg.com/profile_images/1276461929934942210/cqNhNk6v_400x400.jpg"
                           className="w-12 h-12 bg-center bg-cover border rounded-full"
-                          alt="random image"
+                          alt="Profile picture of a user"
+                          title="Profile picture"
+                          loading="lazy"
+                          width="48"
+                          height="48"
                         />
                         <div>
                           <h3 className="text-lg font-semibold text-white">
@@ -358,7 +402,11 @@ const HomeSectionThree = () => {
                         <img
                           src="https://pbs.twimg.com/profile_images/1276461929934942210/cqNhNk6v_400x400.jpg"
                           className="w-12 h-12 bg-center bg-cover border rounded-full"
-                          alt="random image"
+                          alt="Profile picture of a user"
+                          title="Profile picture"
+                          loading="lazy"
+                          width="48"
+                          height="48"
                         />
                         <div>
                           <h3 className="text-lg font-semibold text-white">
