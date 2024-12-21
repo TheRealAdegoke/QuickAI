@@ -1,4 +1,11 @@
-import { WebButtonsArray } from "./WebButtonsArray";
+import HeroComponentEight from "./ArrayComponentsForDesigns/HeroSectionArrayComponentFolder/HeroComponentEight";
+import HeroComponentFive from "./ArrayComponentsForDesigns/HeroSectionArrayComponentFolder/HeroComponentFive";
+import HeroComponentFour from "./ArrayComponentsForDesigns/HeroSectionArrayComponentFolder/HeroComponentFour";
+import HeroComponentOne from "./ArrayComponentsForDesigns/HeroSectionArrayComponentFolder/HeroComponentOne";
+import HeroComponentSeven from "./ArrayComponentsForDesigns/HeroSectionArrayComponentFolder/HeroComponentSeven";
+import HeroComponentSix from "./ArrayComponentsForDesigns/HeroSectionArrayComponentFolder/HeroComponentSix";
+import HeroComponentThree from "./ArrayComponentsForDesigns/HeroSectionArrayComponentFolder/HeroComponentThree";
+import HeroComponentTwo from "./ArrayComponentsForDesigns/HeroSectionArrayComponentFolder/HeroComponentTwo";
 
 export const heroComponents = ({
   text,
@@ -16,902 +23,135 @@ export const heroComponents = ({
   handleDivButtonClick,
   handleCardClick,
 }) => {
-  const buttonElement = WebButtonsArray({
-    text,
-    buttonIndex,
-    handleTextClick,
-    getElementStyle,
-    getStyle,
-    index,
-    isEdited,
-    uniqueId,
-    elementContent,
-    handleDivButtonClick,
-  })[buttonIndex];
 
   return [
-    <section
-      onClick={handleDivClick}
-      id={`hero-section-${index + 1}-${uniqueId}`}
-      style={getStyle(`hero-section-${index + 1}`, uniqueId)}
-    >
-      <div className="py-24 px-5">
-        <div className="flex justify-center gap-10 max-lg:flex-col">
-          <div className={`${isMobile ? "hidden" : ""} max-lg:hidden w-[50%]`}>
-            <h1
-              id={`hero-heading-${index + 1}-${uniqueId}`}
-              style={getElementStyle(`hero-heading-${index + 1}`, uniqueId)}
-              className={`hero-heading-${
-                index + 1
-              }-${uniqueId} text-6xl font-bold max-w-[500px] break-words`}
-              data-text="Heading"
-              data-uses-dangerously-set-inner-html="true"
-              contentEditable={false}
-              onClick={handleTextClick}
-              dangerouslySetInnerHTML={{
-                __html: isEdited[`hero-heading-${index + 1}-${uniqueId}`]
-                  ? elementContent[`hero-heading-${index + 1}-${uniqueId}`]
-                  : elementContent[`hero-heading-${index + 1}-${uniqueId}`] ||
-                    text.heroHeaderText,
-              }}
-            ></h1>
-
-            <div className="w-[85%] grid grid-cols-3 gap-4 my-10">
-              <div
-                id={`hero-image-card-${index + 1}-${uniqueId}`}
-                className="shadow-md h-[250px] p-3 rounded-[8px] col-span-3"
-                onClick={handleCardClick}
-                style={getStyle(
-                  `hero-image-card-${index + 1}`,
-                  uniqueId,
-                  "rgba(0,0,0,0.5)"
-                )}
-              >
-                <img
-                  id={`hero-image-${index + 1}-${uniqueId}`}
-                  src={
-                    elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
-                    text.images[0]
-                  }
-                  alt="quickui-lib-image"
-                  className="rounded-[8px] w-full h-full object-cover"
-                  onClick={() =>
-                    handleImageClick(
-                      elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
-                        text.images[0],
-                      `hero-image-${index + 1}-${uniqueId}`
-                    )
-                  }
-                />
-              </div>
-              <div
-                id={`hero-image-card-${index + 1}-${uniqueId}`}
-                className="shadow-md h-[200px] p-3 rounded-[8px]"
-                onClick={handleCardClick}
-                style={getStyle(
-                  `hero-image-card-${index + 1}`,
-                  uniqueId,
-                  "rgba(0,0,0,0.5)"
-                )}
-              >
-                <img
-                  id={`hero-image-${index + 2}-${uniqueId}`}
-                  src={
-                    elementContent[`hero-image-${index + 2}-${uniqueId}`] ||
-                    text.images[1]
-                  }
-                  alt="quickui-lib-image"
-                  className="rounded-[8px] w-full h-full object-cover"
-                  onClick={() =>
-                    handleImageClick(
-                      elementContent[`hero-image-${index + 2}-${uniqueId}`] ||
-                        text.images[1],
-                      `hero-image-${index + 2}-${uniqueId}`
-                    )
-                  }
-                />
-              </div>
-              <div
-                id={`hero-image-card-${index + 1}-${uniqueId}`}
-                className="shadow-md h-[200px] p-3 rounded-[8px]"
-                onClick={handleCardClick}
-                style={getStyle(
-                  `hero-image-card-${index + 1}`,
-                  uniqueId,
-                  "rgba(0,0,0,0.5)"
-                )}
-              >
-                <img
-                  id={`hero-image-${index + 3}-${uniqueId}`}
-                  src={
-                    elementContent[`hero-image-${index + 3}-${uniqueId}`] ||
-                    text.images[2]
-                  }
-                  alt="quickui-lib-image"
-                  className="rounded-[8px] w-full h-full object-cover"
-                  onClick={() =>
-                    handleImageClick(
-                      elementContent[`hero-image-${index + 3}-${uniqueId}`] ||
-                        text.images[2],
-                      `hero-image-${index + 3}-${uniqueId}`
-                    )
-                  }
-                />
-              </div>
-              <div
-                id={`hero-image-card-${index + 1}-${uniqueId}`}
-                className="shadow-md h-[200px] p-3 rounded-[8px]"
-                onClick={handleCardClick}
-                style={getStyle(
-                  `hero-image-card-${index + 1}`,
-                  uniqueId,
-                  "rgba(0,0,0,0.5)"
-                )}
-              >
-                <img
-                  id={`hero-image-${index + 4}-${uniqueId}`}
-                  src={
-                    elementContent[`hero-image-${index + 4}-${uniqueId}`] ||
-                    text.images[3]
-                  }
-                  alt="quickui-lib-image"
-                  className="rounded-[8px] w-full h-full object-cover"
-                  onClick={() =>
-                    handleImageClick(
-                      elementContent[`hero-image-${index + 4}-${uniqueId}`] ||
-                        text.images[3],
-                      `hero-image-${index + 4}-${uniqueId}`
-                    )
-                  }
-                />
-              </div>
-              <div
-                id={`hero-image-card-${index + 1}-${uniqueId}`}
-                className="shadow-md h-[200px] p-3 rounded-[8px] col-span-3"
-                style={getStyle(
-                  `hero-image-card-${index + 1}`,
-                  uniqueId,
-                  "rgba(0,0,0,0.5)"
-                )}
-              >
-                <img
-                  id={`hero-image-${index + 5}-${uniqueId}`}
-                  src={
-                    elementContent[`hero-image-${index + 5}-${uniqueId}`] ||
-                    text.images[4]
-                  }
-                  alt="quickui-lib-image"
-                  className="rounded-[8px] w-full h-full object-cover"
-                  onClick={() =>
-                    handleImageClick(
-                      elementContent[`hero-image-${index + 5}-${uniqueId}`] ||
-                        text.images[4],
-                      `hero-image-${index + 5}-${uniqueId}`
-                    )
-                  }
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            className={`${
-              isMobile ? "max-w-[800px] w-[95%] mx-auto" : ""
-            } max-lg:max-w-[800px] max-lg:w-[95%] max-lg:mx-auto w-[50%]`}
-          >
-            <img
-              id={`hero-image-${index + 6}-${uniqueId}`}
-              src={
-                elementContent[`hero-image-${index + 6}-${uniqueId}`] ||
-                text.images[5]
-              }
-              alt="quickui-lib-image"
-              className={`${
-                isMobile ? "max-w-[800px] w-[95%] h-[400px]" : ""
-              } block max-lg:w-[95%] w-full h-[600px] max-lg:h-[400px] max-lg:max-w-[800px]`}
-              onClick={() =>
-                handleImageClick(
-                  elementContent[`hero-image-${index + 6}-${uniqueId}`] ||
-                    text.images[5],
-                  `hero-image-${index + 6}-${uniqueId}`
-                )
-              }
-            />
-            <p
-              id={`hero-paragraph-${index + 1}-${uniqueId}`}
-              style={getElementStyle(`hero-paragraph-${index + 1}`, uniqueId)}
-              className={`hero-paragraph-${index + 1}-${uniqueId} ${
-                isMobile ? "max-w-[400px]" : ""
-              } my-5 max-lg:max-w-[400px] break-words`}
-              data-text="Type a paragraph"
-              data-uses-dangerously-set-inner-html="true"
-              contentEditable={false}
-              onClick={handleTextClick}
-              dangerouslySetInnerHTML={{
-                __html: isEdited[`hero-paragraph-${index + 1}-${uniqueId}`]
-                  ? elementContent[`hero-paragraph-${index + 1}-${uniqueId}`]
-                  : elementContent[`hero-paragraph-${index + 1}-${uniqueId}`] ||
-                    text.description,
-              }}
-            ></p>
-            {buttonIndex !== undefined && buttonElement}
-          </div>
-        </div>
-      </div>
-    </section>,
-    <section
-      onClick={handleDivClick}
-      id={`hero-section-${index + 1}-${uniqueId}`}
-      style={getStyle(`hero-section-${index + 1}`, uniqueId)}
-    >
-      <div
-        className={`${
-          isMobile ? "h-[750px] flex-col" : ""
-        } min-h-[600px] max-lg:h-[750px] pt-10 flex lg:gap-8 lg:justify-evenly max-lg:flex-col max-w-[1200px] mx-auto lg:pl-5`}
-      >
-        <div
-          className={`${
-            isMobile ? "w-[90%]" : ""
-          } text-[rgb(33,37,41)] w-[40%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
-        >
-          <h1
-            id={`hero-heading-${index + 1}-${uniqueId}`}
-            style={getElementStyle(`hero-heading-${index + 1}`, uniqueId)}
-            className={`hero-heading-${
-              index + 1
-            }-${uniqueId} font-bold xl:text-5xl text-3xl mb-4 break-words`}
-            data-text="Heading"
-            data-uses-dangerously-set-inner-html="true"
-            contentEditable={false}
-            onClick={handleTextClick}
-            dangerouslySetInnerHTML={{
-              __html: isEdited[`hero-heading-${index + 1}-${uniqueId}`]
-                ? elementContent[`hero-heading-${index + 1}-${uniqueId}`]
-                : elementContent[`hero-heading-${index + 1}-${uniqueId}`] ||
-                  text.heroHeaderText,
-            }}
-          ></h1>
-          <p
-            id={`hero-paragraph-${index + 1}-${uniqueId}`}
-            style={getElementStyle(`hero-paragraph-${index + 1}`, uniqueId)}
-            className={`hero-paragraph-${
-              index + 1
-            }-${uniqueId} font-medium break-words`}
-            data-text="Type a paragraph"
-            data-uses-dangerously-set-inner-html="true"
-            contentEditable={false}
-            onClick={handleTextClick}
-            dangerouslySetInnerHTML={{
-              __html: isEdited[`hero-paragraph-${index + 1}-${uniqueId}`]
-                ? elementContent[`hero-paragraph-${index + 1}-${uniqueId}`]
-                : elementContent[`hero-paragraph-${index + 1}-${uniqueId}`] ||
-                  text.description,
-            }}
-          ></p>
-          {buttonIndex !== undefined && buttonElement}
-        </div>
-        <div
-          className={`${
-            isMobile ? "w-full max-w-[500px] mx-auto" : ""
-          } relative w-[55%] h-full max-lg:w-full max-lg:max-w-[500px] max-lg:mx-auto`}
-        >
-          <div
-            id={`hero-image-card-${index + 1}-${uniqueId}`}
-            className={`${
-              isMobile ? "left-[35%] transform -translate-x-1/2" : ""
-            } w-[250px] h-[400px] rounded-[35px] px-3 pt-3 mb-4 absolute top-2 max-lg:left-[35%] max-lg:transform max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:top-1/2 max-xl:top-2 max-xl:right-32 z-20`}
-            onClick={handleCardClick}
-            style={getStyle(
-              `hero-image-card-${index + 1}`,
-              uniqueId,
-              "rgb(33,37,41)"
-            )}
-          >
-            <img
-              id={`hero-image-${index + 1}-${uniqueId}`}
-              src={
-                elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
-                text.images[0]
-              }
-              alt="quickui-lib-image"
-              className="h-[350px] rounded-[35px] object-cover"
-              onClick={() =>
-                handleImageClick(
-                  elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
-                    text.images[0],
-                  `hero-image-${index + 1}-${uniqueId}`
-                )
-              }
-            />
-          </div>
-          <div
-            id={`hero-image-card-${index + 1}-${uniqueId}`}
-            className={`${
-              isMobile ? "left-[60%] transform -translate-x-1/2" : ""
-            } w-[260px] h-[480px] rounded-[35px] px-3 pt-3 absolute max-lg:left-[60%] max-lg:transform max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 max-lg:top-1/2 top-[7%] right-0 xl:right-[28%] z-10`}
-            onClick={handleCardClick}
-            style={getStyle(
-              `hero-image-card-${index + 1}`,
-              uniqueId,
-              "rgb(33,37,41)"
-            )}
-          >
-            <img
-              id={`hero-image-${index + 2}-${uniqueId}`}
-              src={
-                elementContent[`hero-image-${index + 2}-${uniqueId}`] ||
-                text.images[1]
-              }
-              alt="quickui-lib-image"
-              className="h-[420px] rounded-[35px] object-cover"
-              onClick={() =>
-                handleImageClick(
-                  elementContent[`hero-image-${index + 2}-${uniqueId}`] ||
-                    text.images[1],
-                  `hero-image-${index + 2}-${uniqueId}`
-                )
-              }
-            />
-          </div>
-          <div
-            id={`hero-image-card-${index + 1}-${uniqueId}`}
-            className={`${
-              isMobile ? "hidden" : ""
-            } w-[260px] h-[450px] rounded-[35px] px-3 py-3 absolute top-14 right-5 max-xl:hidden`}
-            onClick={handleCardClick}
-            style={getStyle(
-              `hero-image-card-${index + 1}`,
-              uniqueId,
-              "rgb(33,37,41)"
-            )}
-          >
-            <img
-              id={`hero-image-${index + 3}-${uniqueId}`}
-              src={
-                elementContent[`hero-image-${index + 3}-${uniqueId}`] ||
-                text.images[2]
-              }
-              alt="quickui-lib-image"
-              className="h-full rounded-[35px] object-cover"
-              onClick={() =>
-                handleImageClick(
-                  elementContent[`hero-image-${index + 3}-${uniqueId}`] ||
-                    text.images[2],
-                  `hero-image-${index + 3}-${uniqueId}`
-                )
-              }
-            />
-          </div>
-        </div>
-      </div>
-    </section>,
-    <section
-      onClick={handleDivClick}
-      id={`hero-section-${index + 1}-${uniqueId}`}
-      style={getStyle(`hero-section-${index + 1}`, uniqueId)}
-    >
-      <div
-        className={`${
-          isMobile ? "flex-col" : ""
-        } py-24 max-w-[1000px] mx-auto flex justify-center max-lg:flex-col`}
-      >
-        <div
-          className={`${
-            isMobile ? "w-[90%]" : ""
-          } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
-        >
-          <h1
-            id={`hero-heading-${index + 1}-${uniqueId}`}
-            style={getElementStyle(`hero-heading-${index + 1}`, uniqueId)}
-            className={`hero-heading-${
-              index + 1
-            }-${uniqueId} font-bold xl:text-5xl text-3xl mb-4 break-words`}
-            data-text="Heading"
-            data-uses-dangerously-set-inner-html="true"
-            contentEditable={false}
-            onClick={handleTextClick}
-            dangerouslySetInnerHTML={{
-              __html: isEdited[`hero-heading-${index + 1}-${uniqueId}`]
-                ? elementContent[`hero-heading-${index + 1}-${uniqueId}`]
-                : elementContent[`hero-heading-${index + 1}-${uniqueId}`] ||
-                  text.heroHeaderText,
-            }}
-          ></h1>
-          <p
-            id={`hero-paragraph-${index + 1}-${uniqueId}`}
-            style={getElementStyle(`hero-paragraph-${index + 1}`, uniqueId)}
-            className={`hero-paragraph-${
-              index + 1
-            }-${uniqueId} font-medium break-words`}
-            data-text="Type a paragraph"
-            data-uses-dangerously-set-inner-html="true"
-            contentEditable={false}
-            onClick={handleTextClick}
-            dangerouslySetInnerHTML={{
-              __html: isEdited[`hero-paragraph-${index + 1}-${uniqueId}`]
-                ? elementContent[`hero-paragraph-${index + 1}-${uniqueId}`]
-                : elementContent[`hero-paragraph-${index + 1}-${uniqueId}`] ||
-                  text.description,
-            }}
-          ></p>
-          {buttonIndex !== undefined && buttonElement}
-        </div>
-
-        <div
-          className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full mt-10`}
-        >
-          <div
-            id={`hero-image-card-${index + 1}-${uniqueId}`}
-            className="w-[260px] mx-auto h-[480px] rounded-[35px] px-3 pt-3"
-            onClick={handleCardClick}
-            style={getStyle(
-              `hero-image-card-${index + 1}`,
-              uniqueId,
-              "rgb(33,37,41)"
-            )}
-          >
-            <img
-              id={`hero-image-${index + 1}-${uniqueId}`}
-              src={
-                elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
-                text.images[0]
-              }
-              alt="quickui-lib-image"
-              className="h-[420px] rounded-[35px] object-cover"
-              onClick={() =>
-                handleImageClick(
-                  elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
-                    text.images[0],
-                  `hero-image-${index + 1}-${uniqueId}`
-                )
-              }
-            />
-          </div>
-        </div>
-      </div>
-    </section>,
-    <section
-      onClick={handleDivClick}
-      id={`hero-section-${index + 1}-${uniqueId}`}
-      style={getStyle(`hero-section-${index + 1}`, uniqueId)}
-    >
-      <div
-        className={`${
-          isMobile ? "flex-col" : ""
-        } py-24 max-w-[1000px] mx-auto flex flex-row-reverse justify-center max-lg:flex-col`}
-      >
-        <div
-          className={`${
-            isMobile ? "w-[90%]" : ""
-          } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
-        >
-          <h1
-            id={`hero-heading-${index + 1}-${uniqueId}`}
-            style={getElementStyle(`hero-heading-${index + 1}`, uniqueId)}
-            className={`hero-heading-${
-              index + 1
-            }-${uniqueId} font-bold xl:text-5xl text-3xl mb-4 break-words`}
-            data-text="Heading"
-            data-uses-dangerously-set-inner-html="true"
-            contentEditable={false}
-            onClick={handleTextClick}
-            dangerouslySetInnerHTML={{
-              __html: isEdited[`hero-heading-${index + 1}-${uniqueId}`]
-                ? elementContent[`hero-heading-${index + 1}-${uniqueId}`]
-                : elementContent[`hero-heading-${index + 1}-${uniqueId}`] ||
-                  text.heroHeaderText,
-            }}
-          ></h1>
-          <p
-            id={`hero-paragraph-${index + 1}-${uniqueId}`}
-            style={getElementStyle(`hero-paragraph-${index + 1}`, uniqueId)}
-            className={`hero-paragraph-${
-              index + 1
-            }-${uniqueId} font-medium break-words`}
-            data-text="Type a paragraph"
-            data-uses-dangerously-set-inner-html="true"
-            contentEditable={false}
-            onClick={handleTextClick}
-            dangerouslySetInnerHTML={{
-              __html: isEdited[`hero-paragraph-${index + 1}-${uniqueId}`]
-                ? elementContent[`hero-paragraph-${index + 1}-${uniqueId}`]
-                : elementContent[`hero-paragraph-${index + 1}-${uniqueId}`] ||
-                  text.description,
-            }}
-          ></p>
-          {buttonIndex !== undefined && buttonElement}
-        </div>
-
-        <div
-          className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full mt-10`}
-        >
-          <div
-            id={`hero-image-card-${index + 1}-${uniqueId}`}
-            className="w-[260px] mx-auto h-[480px] rounded-[35px] px-3 pt-3"
-            onClick={handleCardClick}
-            style={getStyle(
-              `hero-image-card-${index + 1}`,
-              uniqueId,
-              "rgb(33,37,41)"
-            )}
-          >
-            <img
-              id={`hero-image-${index + 1}-${uniqueId}`}
-              src={
-                elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
-                text.images[0]
-              }
-              alt="quickui-lib-image"
-              className="h-[420px] w-full rounded-[35px] object-cover"
-              onClick={() =>
-                handleImageClick(
-                  elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
-                    text.images[0],
-                  `hero-image-${index + 1}-${uniqueId}`
-                )
-              }
-            />
-          </div>
-        </div>
-      </div>
-    </section>,
-    <section
-      onClick={handleDivClick}
-      id={`hero-section-${index + 1}-${uniqueId}`}
-      style={getStyle(`hero-section-${index + 1}`, uniqueId)}
-    >
-      <div
-        className={`${
-          isMobile ? "flex-col-reverse" : ""
-        } py-24 max-w-[1200px] mx-auto flex justify-center max-lg:flex-col-reverse`}
-      >
-        <div
-          className={`${
-            isMobile ? "w-[90%]" : ""
-          } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
-        >
-          <h1
-            id={`hero-heading-${index + 1}-${uniqueId}`}
-            style={getElementStyle(`hero-heading-${index + 1}`, uniqueId)}
-            className={`hero-heading-${
-              index + 1
-            }-${uniqueId} font-bold xl:text-5xl text-3xl mb-4 break-words`}
-            data-text="Heading"
-            data-uses-dangerously-set-inner-html="true"
-            contentEditable={false}
-            onClick={handleTextClick}
-            dangerouslySetInnerHTML={{
-              __html: isEdited[`hero-heading-${index + 1}-${uniqueId}`]
-                ? elementContent[`hero-heading-${index + 1}-${uniqueId}`]
-                : elementContent[`hero-heading-${index + 1}-${uniqueId}`] ||
-                  text.heroHeaderText,
-            }}
-          ></h1>
-          <p
-            id={`hero-paragraph-${index + 1}-${uniqueId}`}
-            style={getElementStyle(`hero-paragraph-${index + 1}`, uniqueId)}
-            className={`hero-paragraph-${
-              index + 1
-            }-${uniqueId} font-medium break-words`}
-            data-text="Type a paragraph"
-            data-uses-dangerously-set-inner-html="true"
-            contentEditable={false}
-            onClick={handleTextClick}
-            dangerouslySetInnerHTML={{
-              __html: isEdited[`hero-paragraph-${index + 1}-${uniqueId}`]
-                ? elementContent[`hero-paragraph-${index + 1}-${uniqueId}`]
-                : elementContent[`hero-paragraph-${index + 1}-${uniqueId}`] ||
-                  text.description,
-            }}
-          ></p>
-          {buttonIndex !== undefined && buttonElement}
-        </div>
-
-        <div
-          className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full mb-10`}
-        >
-          <div
-            id={`hero-image-card-${index + 1}-${uniqueId}`}
-            className="mx-auto w-[90%] max-w-[500px] h-[500px] px-3 py-3"
-            onClick={handleCardClick}
-            style={getStyle(
-              `hero-image-card-${index + 1}`,
-              uniqueId,
-              "rgb(33,37,41)"
-            )}
-          >
-            <img
-              id={`hero-image-${index + 1}-${uniqueId}`}
-              src={
-                elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
-                text.images[0]
-              }
-              alt="quickui-lib-image"
-              className="object-cover h-full w-full"
-              onClick={() =>
-                handleImageClick(
-                  elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
-                    text.images[0],
-                  `hero-image-${index + 1}-${uniqueId}`
-                )
-              }
-            />
-          </div>
-        </div>
-      </div>
-    </section>,
-    <section
-      onClick={handleDivClick}
-      id={`hero-section-${index + 1}-${uniqueId}`}
-      style={getStyle(`hero-section-${index + 1}`, uniqueId)}
-    >
-      <div
-        className={`${
-          isMobile ? "flex-col-reverse" : ""
-        } py-24 max-w-[1200px] mx-auto flex flex-row-reverse justify-center max-lg:flex-col-reverse`}
-      >
-        <div
-          className={`${
-            isMobile ? "w-[90%]" : ""
-          } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16`}
-        >
-          <h1
-            id={`hero-heading-${index + 1}-${uniqueId}`}
-            style={getElementStyle(`hero-heading-${index + 1}`, uniqueId)}
-            className={`hero-heading-${
-              index + 1
-            }-${uniqueId} font-bold xl:text-5xl text-3xl mb-4 break-words`}
-            data-text="Heading"
-            data-uses-dangerously-set-inner-html="true"
-            contentEditable={false}
-            onClick={handleTextClick}
-            dangerouslySetInnerHTML={{
-              __html: isEdited[`hero-heading-${index + 1}-${uniqueId}`]
-                ? elementContent[`hero-heading-${index + 1}-${uniqueId}`]
-                : elementContent[`hero-heading-${index + 1}-${uniqueId}`] ||
-                  text.heroHeaderText,
-            }}
-          ></h1>
-          <p
-            id={`hero-paragraph-${index + 1}-${uniqueId}`}
-            style={getElementStyle(`hero-paragraph-${index + 1}`, uniqueId)}
-            className={`hero-paragraph-${
-              index + 1
-            }-${uniqueId} font-medium break-words`}
-            data-text="Type a paragraph"
-            data-uses-dangerously-set-inner-html="true"
-            contentEditable={false}
-            onClick={handleTextClick}
-            dangerouslySetInnerHTML={{
-              __html: isEdited[`hero-paragraph-${index + 1}-${uniqueId}`]
-                ? elementContent[`hero-paragraph-${index + 1}-${uniqueId}`]
-                : elementContent[`hero-paragraph-${index + 1}-${uniqueId}`] ||
-                  text.description,
-            }}
-          ></p>
-          {buttonIndex !== undefined && buttonElement}
-        </div>
-
-        <div
-          className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full mb-10`}
-        >
-          <div
-            id={`hero-image-card-${index + 1}-${uniqueId}`}
-            className="mx-auto w-[90%] max-w-[500px] h-[500px] px-3 py-3"
-            onClick={handleCardClick}
-            style={getStyle(
-              `hero-image-card-${index + 1}`,
-              uniqueId,
-              "rgb(33,37,41)"
-            )}
-          >
-            <img
-              id={`hero-image-${index + 1}-${uniqueId}`}
-              src={
-                elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
-                text.images[0]
-              }
-              alt="quickui-lib-image"
-              className="object-cover h-full w-full"
-              onClick={() =>
-                handleImageClick(
-                  elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
-                    text.images[0],
-                  `hero-image-${index + 1}-${uniqueId}`
-                )
-              }
-            />
-          </div>
-        </div>
-      </div>
-    </section>,
-    <section
-      onClick={handleDivClick}
-      id={`hero-section-${index + 1}-${uniqueId}`}
-      style={getStyle(`hero-section-${index + 1}`, uniqueId)}
-    >
-      <div
-        className={`${
-          isMobile ? "flex-col" : ""
-        } max-w-[1200px] mx-auto flex justify-center gap-5 max-lg:flex-col py-24`}
-      >
-        <div className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full`}>
-          <div
-            id={`hero-image-card-${index + 1}-${uniqueId}`}
-            className="mx-auto w-[90%] max-w-[500px] h-[500px] px-3 py-3"
-            onClick={handleCardClick}
-            style={getStyle(
-              `hero-image-card-${index + 1}`,
-              uniqueId,
-              "rgb(33,37,41)"
-            )}
-          >
-            <img
-              id={`hero-image-${index + 1}-${uniqueId}`}
-              src={
-                elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
-                text.images[0]
-              }
-              alt="quickui-lib-image"
-              className="object-cover h-full w-full"
-              onClick={() =>
-                handleImageClick(
-                  elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
-                    text.images[0],
-                  `hero-image-${index + 1}-${uniqueId}`
-                )
-              }
-            />
-          </div>
-        </div>
-
-        <div
-          className={`${
-            isMobile ? "w-[90%] my-10" : ""
-          } text-[rgb(33,37,41)] w-[45%] max-lg:w-[90%] max-w-[500px] mx-auto lg:pt-16 max-lg:my-10`}
-        >
-          <h1
-            id={`hero-heading-${index + 1}-${uniqueId}`}
-            style={getElementStyle(`hero-heading-${index + 1}`, uniqueId)}
-            className={`hero-heading-${
-              index + 1
-            }-${uniqueId} font-bold xl:text-4xl xl:text-center text-3xl mb-4 break-words`}
-            data-text="Heading"
-            data-uses-dangerously-set-inner-html="true"
-            contentEditable={false}
-            onClick={handleTextClick}
-            dangerouslySetInnerHTML={{
-              __html: isEdited[`hero-heading-${index + 1}-${uniqueId}`]
-                ? elementContent[`hero-heading-${index + 1}-${uniqueId}`]
-                : elementContent[`hero-heading-${index + 1}-${uniqueId}`] ||
-                  text.heroHeaderText,
-            }}
-          ></h1>
-          <p
-            id={`hero-paragraph-${index + 1}-${uniqueId}`}
-            style={getElementStyle(`hero-paragraph-${index + 1}`, uniqueId)}
-            className={`hero-paragraph-${
-              index + 1
-            }-${uniqueId} font-medium break-words`}
-            data-text="Type a paragraph"
-            data-uses-dangerously-set-inner-html="true"
-            contentEditable={false}
-            onClick={handleTextClick}
-            dangerouslySetInnerHTML={{
-              __html: isEdited[`hero-paragraph-${index + 1}-${uniqueId}`]
-                ? elementContent[`hero-paragraph-${index + 1}-${uniqueId}`]
-                : elementContent[`hero-paragraph-${index + 1}-${uniqueId}`] ||
-                  text.description,
-            }}
-          ></p>
-          <div className={`${isMobile ? "mt-10" : ""} max-lg:mt-10 mt-5`}>
-            {buttonIndex !== undefined && buttonElement}
-          </div>
-        </div>
-
-        <div className={`${isMobile ? "w-full" : ""} w-[45%] max-lg:w-full`}>
-          <div
-            id={`hero-image-card-${index + 1}-${uniqueId}`}
-            className="mx-auto w-[90%] max-w-[500px] h-[500px] px-3 py-3"
-            onClick={handleCardClick}
-            style={getStyle(
-              `hero-image-card-${index + 1}`,
-              uniqueId,
-              "rgb(33,37,41)"
-            )}
-          >
-            <img
-              id={`hero-image-${index + 2}-${uniqueId}`}
-              src={
-                elementContent[`hero-image-${index + 2}-${uniqueId}`] ||
-                text.images[1]
-              }
-              alt="quickui-lib-image"
-              className="object-cover h-full w-full"
-              onClick={() =>
-                handleImageClick(
-                  elementContent[`hero-image-${index + 2}-${uniqueId}`] ||
-                    text.images[1],
-                  `hero-image-${index + 2}-${uniqueId}`
-                )
-              }
-            />
-          </div>
-        </div>
-      </div>
-    </section>,
-    <section
-      onClick={handleDivClick}
-      id={`hero-section-${index + 1}-${uniqueId}`}
-      style={getStyle(`hero-section-${index + 1}`, uniqueId)}
-    >
-      <div
-        className={`${
-          isMobile ? "flex-col w-[90%] max-w-[600px]" : ""
-        } py-24 flex max-lg:flex-col max-lg:w-[90%] items-center justify-between lg:px-5 max-w-[1000px] mx-auto max-lg:max-w-[600px]`}
-      >
-        <div
-          className={`${isMobile ? "w-full" : ""} mb-10 w-[50%] max-lg:w-full`}
-        >
-          <h1
-            id={`hero-heading-${index + 1}-${uniqueId}`}
-            style={getElementStyle(`hero-heading-${index + 1}`, uniqueId)}
-            className={`hero-heading-${index + 1}-${uniqueId} ${
-              isMobile ? "text-center mx-auto" : ""
-            } text-[#231e41] max-lg:text-center text-6xl max-sm:text-5xl max-w-[650px] max-sm:max-w-[400px] font-semibold mb-6 max-lg:mx-auto break-words`}
-            data-text="Heading"
-            data-uses-dangerously-set-inner-html="true"
-            contentEditable={false}
-            onClick={handleTextClick}
-            dangerouslySetInnerHTML={{
-              __html: isEdited[`hero-heading-${index + 1}-${uniqueId}`]
-                ? elementContent[`hero-heading-${index + 1}-${uniqueId}`]
-                : elementContent[`hero-heading-${index + 1}-${uniqueId}`] ||
-                  text.heroHeaderText,
-            }}
-          ></h1>
-          <p
-            id={`hero-paragraph-${index + 1}-${uniqueId}`}
-            style={getElementStyle(`hero-paragraph-${index + 1}`, uniqueId)}
-            className={`hero-paragraph-${index + 1}-${uniqueId} ${
-              isMobile ? "text-center mx-auto" : ""
-            } text-[#231e41] text-sm max-lg:text-center max-w-[350px] max-lg:mx-auto font-medium mb-6 break-words`}
-            data-text="Type a paragraph"
-            data-uses-dangerously-set-inner-html="true"
-            contentEditable={false}
-            onClick={handleTextClick}
-            dangerouslySetInnerHTML={{
-              __html: isEdited[`hero-paragraph-${index + 1}-${uniqueId}`]
-                ? elementContent[`hero-paragraph-${index + 1}-${uniqueId}`]
-                : elementContent[`hero-paragraph-${index + 1}-${uniqueId}`] ||
-                  text.description,
-            }}
-          ></p>
-          {buttonIndex !== undefined && buttonElement}
-        </div>
-
-        <div
-          className={`${
-            isMobile ? "w-full" : ""
-          } w-[45%] max-lg:w-full relative`}
-        >
-          <img
-            id={`hero-image-${index + 1}-${uniqueId}`}
-            src={
-              elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
-              text.images[0]
-            }
-            alt="quickui-lib-image"
-            className="block rounded-full w-[350px] h-[350px] mx-auto object-cover"
-            onClick={() =>
-              handleImageClick(
-                elementContent[`hero-image-${index + 1}-${uniqueId}`] ||
-                  text.images[0],
-                `hero-image-${index + 1}-${uniqueId}`
-              )
-            }
-          />
-        </div>
-      </div>
-    </section>,
+    <HeroComponentOne
+      text={text}
+      buttonIndex={buttonIndex}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <HeroComponentTwo
+      text={text}
+      buttonIndex={buttonIndex}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <HeroComponentThree
+      text={text}
+      buttonIndex={buttonIndex}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <HeroComponentFour
+      text={text}
+      buttonIndex={buttonIndex}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <HeroComponentFive
+      text={text}
+      buttonIndex={buttonIndex}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <HeroComponentSix
+      text={text}
+      buttonIndex={buttonIndex}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <HeroComponentSeven
+      text={text}
+      buttonIndex={buttonIndex}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <HeroComponentEight
+      text={text}
+      buttonIndex={buttonIndex}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
   ];
 };

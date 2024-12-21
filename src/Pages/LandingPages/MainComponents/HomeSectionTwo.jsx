@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import QuickUIGallery from "../../../assets/QuickUI-Gallery.webp";
@@ -8,11 +8,11 @@ import WhySolution from "../../../assets/Why QuickUI/Why-Solution.webp";
 import WhyTestimonial from "../../../assets/Why QuickUI/Why-Testimonial.webp";
 
 const HomeSectionTwo = () => {
-    useEffect(() => {
-      AOS.init({
-        duration: 1500,
-      });
-    }, []);
+  useEffect(() => {
+    AOS.init({
+      duration: 1500,
+    });
+  }, []);
 
   return (
     <>
@@ -33,9 +33,13 @@ const HomeSectionTwo = () => {
             <div className="flex justify-evenly max-lg:flex-col max-lg:gap-5">
               <div className="w-[45%] max-lg:w-full mx-auto">
                 <img
-                  className="w-full mx-auto"
+                  className="w-full mx-auto rounded-xl"
                   src={WhyHero}
-                  alt="QuickUIGallery-Image"
+                  alt="QuickUI Gallery Image"
+                  title="QuickUI Gallery Image"
+                  loading="lazy"
+                  width="1920"
+                  height="1080"
                 />
               </div>
 
@@ -47,9 +51,9 @@ const HomeSectionTwo = () => {
                   Your landing page's hero section is the first thing visitors
                   see—it sets the tone and grabs attention. A strong,
                   captivating hero section can communicate your brand's value in
-                  seconds. QuickUI makes it easy to select a hero
-                  design that reflects your brand, ensuring visitors are hooked
-                  from the very first glance.
+                  seconds. QuickUI makes it easy to select a hero design that
+                  reflects your brand, ensuring visitors are hooked from the
+                  very first glance.
                 </p>
               </div>
             </div>
@@ -57,13 +61,17 @@ const HomeSectionTwo = () => {
             <div className="flex flex-row-reverse justify-evenly max-lg:flex-col max-lg:gap-5">
               <div className="w-[45%] max-lg:w-full mx-auto">
                 <img
-                  className="w-full mx-auto"
+                  className="w-full mx-auto rounded-xl"
                   src={WhyProblem}
-                  alt="QuickUIGallery-Image"
+                  alt="QuickUI Gallery Image"
+                  title="QuickUI Gallery Image"
+                  loading="lazy"
+                  width="1920"
+                  height="1080"
                 />
               </div>
 
-              <div className="w-[45%] max-lg:w-full mx-auto lg:pt-10 border border-[#33a9ff] border-t-0 border-r-0 rounded-br-xl lg:pl-5 max-lg:border-none">
+              <div className="w-[45%] max-lg:w-full mx-auto lg:pt-10 border border-[#33a9ff] border-t-0 border-r-0 rounded-bl-xl lg:pl-5 max-lg:border-none">
                 <h3 className="text-3xl max-sm:text-xl font-semibold text-white mb-4 max-sm:mb-2">
                   Visualizing the Problem
                 </h3>
@@ -81,9 +89,13 @@ const HomeSectionTwo = () => {
             <div className="flex justify-evenly max-lg:flex-col max-lg:gap-5">
               <div className="w-[45%] max-lg:w-full mx-auto">
                 <img
-                  className="w-full mx-auto"
+                  className="w-full mx-auto rounded-xl"
                   src={WhySolution}
-                  alt="QuickUIGallery-Image"
+                  alt="QuickUI Gallery Image"
+                  title="QuickUI Gallery Image"
+                  loading="lazy"
+                  width="1920"
+                  height="1080"
                 />
               </div>
 
@@ -104,13 +116,17 @@ const HomeSectionTwo = () => {
             <div className="flex flex-row-reverse justify-evenly max-lg:flex-col max-lg:gap-5">
               <div className="w-[45%] max-lg:w-full mx-auto">
                 <img
-                  className="w-full mx-auto"
+                  className="w-full mx-auto rounded-xl"
                   src={WhyTestimonial}
-                  alt="QuickUIGallery-Image"
+                  alt="QuickUI Gallery Image"
+                  title="QuickUI Gallery Image"
+                  loading="lazy"
+                  width="1920"
+                  height="1080"
                 />
               </div>
 
-              <div className="w-[45%] max-lg:w-full mx-auto lg:pt-10 border border-[#33a9ff] border-t-0 border-r-0 rounded-br-xl lg:pl-5 max-lg:border-none">
+              <div className="w-[45%] max-lg:w-full mx-auto lg:pt-10 border border-[#33a9ff] border-t-0 border-r-0 rounded-bl-xl lg:pl-5 max-lg:border-none">
                 <h3 className="text-3xl max-sm:text-xl font-semibold text-white mb-4 max-sm:mb-2">
                   Building Trust with Testimonials
                 </h3>
@@ -129,6 +145,6 @@ const HomeSectionTwo = () => {
       </section>
     </>
   );
-}
+};
 
-export default HomeSectionTwo
+export default HomeSectionTwo;

@@ -99,8 +99,11 @@ const Nav = () => {
               <div className="flex justify-center lg:hidden my-2">
                 <img
                   src={transparentQ}
-                  alt="Quick UI Image"
+                  alt="QuickUI Logo"
+                  title="QuickUI Logo"
                   className="block select-none cursor-pointer"
+                  width="40"
+                  height="40"
                 />
               </div>
 
@@ -134,9 +137,7 @@ const Nav = () => {
                   to="/blog"
                   className="block text-center border border-[rgba(255,255,255,0.2)] py-2 px-8 rounded-[8px] transition-all duration-300 ease-in-out hover:bg-[rgba(255,255,255,0.2)] lg:hidden"
                 >
-                  <span>
-                    Blog
-                  </span>
+                  <span>Blog</span>
                 </Link>
               </div>
             </div>

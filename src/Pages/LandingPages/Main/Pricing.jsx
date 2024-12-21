@@ -50,7 +50,9 @@ const Pricing = () => {
         <Nav />
         <div data-aos="fade-up" className="pt-[150px] ">
           <div className="flex flex-col items-center justify-center mb-10 gap-2">
-            <h1 className="text-4xl font-semibold">Pricing</h1>
+            <h1 className="text-4xl font-semibold">
+              Explore Our Pricing Plans
+            </h1>
             <p className="text-xl text-[rgba(189,189,189)]">
               Upgrade your plan
             </p>
