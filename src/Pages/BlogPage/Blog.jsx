@@ -53,9 +53,10 @@ const Blog = () => {
         <meta property="og:image" content={latestArticle.imageUrl} />
         <meta
           property="og:url"
-          content={`https://yourwebsite.com/blog/article/${latestArticle.slug}`}
+          content={`https://quickui.co/blog/article/${latestArticle.slug}`}
         />
         <meta name="twitter:card" content="summary_large_image" />
+        <link rel="canonical" href={`https://quickui.co/blog`} />
       </Helmet>
       <Nav />
       <main className="radial min-h-screen overflow-y-hidden pt-[100px]">
@@ -115,6 +116,10 @@ const Blog = () => {
                       src={article.imageUrl}
                       alt={article.title}
                       className="w-full h-auto my-5 block rounded-lg shadow-md"
+                      title="Blog image"
+                      loading="lazy"
+                      width="40"
+                      height="40"
                     />
                   </div>
                 </div>
@@ -171,6 +176,10 @@ const Blog = () => {
                       src={article.imageUrl}
                       alt={article.title}
                       className="w-full rounded-t-xl mb-5 block shadow-md"
+                      title="Blog image"
+                      loading="lazy"
+                      width="40"
+                      height="40"
                     />
                     <div className="px-3">
                       <h3 className="text-lg max-sm:text-xl font-bold mb-2">

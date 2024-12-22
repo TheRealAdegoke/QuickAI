@@ -63,7 +63,15 @@ const Article = () => {
       <li className="text-gray-300 text-lg my-5 max-md:text-sm">{children}</li>
     ),
     img: ({ src, alt }) => (
-      <img src={src} alt={alt} className="w-full h-auto my-5 block rounded-lg shadow-md" />
+      <img
+        src={src}
+        alt={alt}
+        className="w-full h-auto my-5 block rounded-lg shadow-md"
+        title="Blog image"
+        loading="lazy"
+        width="40"
+        height="40"
+      />
     ),
   };
 
@@ -125,7 +133,10 @@ const Article = () => {
             src={article.imageUrl}
             alt={article.title}
             className="w-full h-auto my-5"
+            title="Blog image"
             loading="lazy"
+            width="40"
+            height="40"
           />
           <div className="mb-20">
             <Markdown components={components}>{article.content}</Markdown>

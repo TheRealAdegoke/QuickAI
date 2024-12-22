@@ -18,16 +18,13 @@ const Pricing = () => {
   return (
     <>
       <Helmet>
-        <title>QuickUI - Effortless Landing Page Creation</title>
+        <title>Create a landing page ai</title>
         <meta
           name="description"
           content="QuickUI lets you easily create landing pages without coding. Build your next project faster with our intuitive platform."
         />
-        <meta name="keywords" content="" create a landing page ai />
-        <meta
-          property="og:title"
-          content="QuickUI - Effortless Landing Page Creation"
-        />
+        <meta name="keywords" content="" Create a landing page ai />
+        <meta property="og:title" content="Create a landing page ai" />
         <meta
           property="og:description"
           content="QuickUI helps you build and customize landing pages easily. No coding skills needed!"
@@ -35,10 +32,7 @@ const Pricing = () => {
         <meta property="og:image" content="https://i.imgur.com/HSA0Pbh.png" />
         <meta property="og:url" content="https://quickui.co/pricing" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="QuickUI - Effortless Landing Page Creation"
-        />
+        <meta name="twitter:title" content="Create a landing page ai" />
         <meta
           name="twitter:description"
           content="Create and customize landing pages easily with QuickUI!"
