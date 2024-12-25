@@ -55,7 +55,7 @@ async function generateSitemap() {
   ];
 
   blogPosts.forEach((slug) => {
-    sitemap += `<url><loc>https://quickui.co/blog/${slug}</loc><lastmod>2024-10-23T00:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>\n`;
+    sitemap += `<url><loc>https://quickui.co/blog/article/${slug}</loc><lastmod>2024-10-23T00:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>\n`;
   });
 
   // Dynamic blog URLs from countryCityData
