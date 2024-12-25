@@ -8,6 +8,7 @@ import { FaChevronUp } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { IoIosUndo } from "react-icons/io";
+import ReactDOMServer from "react-dom/server";
 
 const EditAndSaveDesignModal = ({ elements, handleSaveElements }) => {
   const {
@@ -33,7 +34,17 @@ const EditAndSaveDesignModal = ({ elements, handleSaveElements }) => {
   // }, [elements, navigate]);
 
   const handleElementClick = (item, index) => {
-    let elementString = reactElementToJSXString(item, { showFunctions: false });
+    const element = item.type({
+      ...item.props,
+      ref: null, // Remove ref prop as it can't be rendered
+    });
+
+    let elementString = reactElementToJSXString(element, {
+      showFunctions: false,
+    });
+
+    // Remove fragments
+    elementString = elementString.replace(/<>|<\/>/g, "");
 
     // Remove onClick attributes and their values, including the closing brace
     elementString = elementString.replace(/\s*onClick={[^}]+}}/g, "");

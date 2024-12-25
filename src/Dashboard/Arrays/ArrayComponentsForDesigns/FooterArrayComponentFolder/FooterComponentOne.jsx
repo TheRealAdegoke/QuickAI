@@ -23,7 +23,7 @@ const FooterComponentOne = ({
           } border-t-[1px] py-14 flex max-md:flex-col max-md:items-start max-md:gap-10 justify-center items-center max-md:pl-5`}
         >
           <div className="flex flex-col justify-start items-start w-[20%]">
-            <h1
+            <p
               id={`footer-first-heading-${index + 1}-${uniqueId}`}
               className={`footer-first-heading-${
                 index + 1
@@ -43,7 +43,7 @@ const FooterComponentOne = ({
                 : elementContent[
                     `footer-first-heading-${index + 1}-${uniqueId}`
                   ] || "© 2024 Your Company"}
-            </h1>
+            </p>
             <h2
               id={`footer-second-heading-${index + 1}-${uniqueId}`}
               className={`footer-second-heading-${
