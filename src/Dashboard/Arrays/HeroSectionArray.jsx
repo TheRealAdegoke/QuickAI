@@ -26,134 +26,134 @@ export const heroComponents = ({
 }) => {
 
   return [
-    // <HeroComponentOne
-    //   text={text}
-    //   buttonIndex={buttonIndex}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleImageClick={handleImageClick}
-    //   handleDivButtonClick={handleDivButtonClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <HeroComponentTwo
-    //   text={text}
-    //   buttonIndex={buttonIndex}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleImageClick={handleImageClick}
-    //   handleDivButtonClick={handleDivButtonClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <HeroComponentThree
-    //   text={text}
-    //   buttonIndex={buttonIndex}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleImageClick={handleImageClick}
-    //   handleDivButtonClick={handleDivButtonClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <HeroComponentFour
-    //   text={text}
-    //   buttonIndex={buttonIndex}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleImageClick={handleImageClick}
-    //   handleDivButtonClick={handleDivButtonClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <HeroComponentFive
-    //   text={text}
-    //   buttonIndex={buttonIndex}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleImageClick={handleImageClick}
-    //   handleDivButtonClick={handleDivButtonClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <HeroComponentSix
-    //   text={text}
-    //   buttonIndex={buttonIndex}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleImageClick={handleImageClick}
-    //   handleDivButtonClick={handleDivButtonClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <HeroComponentSeven
-    //   text={text}
-    //   buttonIndex={buttonIndex}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleImageClick={handleImageClick}
-    //   handleDivButtonClick={handleDivButtonClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <HeroComponentEight
-    //   text={text}
-    //   buttonIndex={buttonIndex}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleImageClick={handleImageClick}
-    //   handleDivButtonClick={handleDivButtonClick}
-    //   handleCardClick={handleCardClick}
-    // />,
+    <HeroComponentOne
+      text={text}
+      buttonIndex={buttonIndex}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <HeroComponentTwo
+      text={text}
+      buttonIndex={buttonIndex}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <HeroComponentThree
+      text={text}
+      buttonIndex={buttonIndex}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <HeroComponentFour
+      text={text}
+      buttonIndex={buttonIndex}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <HeroComponentFive
+      text={text}
+      buttonIndex={buttonIndex}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <HeroComponentSix
+      text={text}
+      buttonIndex={buttonIndex}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <HeroComponentSeven
+      text={text}
+      buttonIndex={buttonIndex}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <HeroComponentEight
+      text={text}
+      buttonIndex={buttonIndex}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
     <HeroComponentNine
       text={text}
       buttonIndex={buttonIndex}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { axiosInstance } from "../../../Pages/AuthPages/AuthChecker/axiosInstance";
 import { FaChevronLeft } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
@@ -12,6 +12,9 @@ import { DashContext } from "../../DashboardChecker/DashboardContext";
 import reactElementToJSXString from "react-element-to-jsx-string";
 import JsxParser from "react-jsx-parser";
 import Cookies from "js-cookie";
+import { IoClose } from "react-icons/io5";
+import { HiMiniBars2 } from "react-icons/hi2";
+import { TiArrowRightOutline } from "react-icons/ti";
 
 const WebPreview = () => {
   const { userData } = useContext(DashContext);
@@ -20,6 +23,14 @@ const WebPreview = () => {
   const [loading, setLoading] = useState(true);
   const [itemsDropdown, setItemsDropdown] = useState(false);
   const modalRef = useRef(null);
+  const [toggleNav, setToggleNav] = useState(false);
+  const [active, setActive] = useState(1);
+  const homeSidebarRef = useRef(null);
+  const location = useLocation();
+
+  const handleToggleNav = () => {
+    setToggleNav((prev) => !prev);
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -52,6 +63,22 @@ const WebPreview = () => {
     };
     fetchHistoryItem();
   }, [id]);
+
+  const bindings = {
+    toggleNav: toggleNav,
+    setToggleNav: handleToggleNav,
+    active: active,
+    setActive: setActive,
+    homeSidebarRef: homeSidebarRef,
+    location: location,
+  };
+
+  const components = {
+    Link,
+    IoClose,
+    HiMiniBars2,
+    TiArrowRightOutline,
+  };
 
   return (
     <>
@@ -108,9 +135,17 @@ const WebPreview = () => {
                 <div key={index}>
                   {/* {parse(styles)} */}
                   {/* {styles} */}
-                  <JsxParser jsx={styles} />
+                  <JsxParser
+                    jsx={styles}
+                    bindings={bindings}
+                    components={components}
+                    renderInWrapper={false}
+                    blacklistedAttrs={[]}
+                    showWarnings={true}
+                  />
                 </div>
               ))}
+            {/* <TestingWeb historyData={historyData} /> */}
           </div>
         </main>
       )}
