@@ -22,90 +22,90 @@ export const featuresComponents = ({
   handleImageClick,
 }) => {
   return [
-    // <FeatureComponentOne
-    //   text={text}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleDivButtonClick={handleDivButtonClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <FeatureComponentTwo
-    //   text={text}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleDivButtonClick={handleDivButtonClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <FeatureComponentThree
-    //   text={text}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleDivButtonClick={handleDivButtonClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <FeatureComponentFour
-    //   text={text}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleDivButtonClick={handleDivButtonClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <FeatureComponentFive
-    //   text={text}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleDivButtonClick={handleDivButtonClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <FeatureComponentSix
-    //   text={text}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleDivButtonClick={handleDivButtonClick}
-    //   handleCardClick={handleCardClick}
-    // />,
+    <FeatureComponentOne
+      text={text}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <FeatureComponentTwo
+      text={text}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <FeatureComponentThree
+      text={text}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <FeatureComponentFour
+      text={text}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <FeatureComponentFive
+      text={text}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <FeatureComponentSix
+      text={text}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
     <FeatureComponentSeven
       text={text}
       isMobile={isMobile}

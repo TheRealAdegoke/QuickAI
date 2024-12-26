@@ -21,81 +21,81 @@ export const featuresWithCardsComponent = ({
   handleDivButtonClick,
 }) => {
   return [
-    // <FeatureWithCardComponentOne
-    //   text={text}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleImageClick={handleImageClick}
-    //   handleDivButtonClick={handleDivButtonClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <FeatureWithCardComponentTwo
-    //   text={text}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleImageClick={handleImageClick}
-    //   handleDivButtonClick={handleDivButtonClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <FeatureWithCardComponentThree
-    //   text={text}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleImageClick={handleImageClick}
-    //   handleDivButtonClick={handleDivButtonClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <FeatureWithCardComponentFour
-    //   text={text}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleImageClick={handleImageClick}
-    //   handleDivButtonClick={handleDivButtonClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <FeatureWithCardComponentFive
-    //   text={text}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleImageClick={handleImageClick}
-    //   handleDivButtonClick={handleDivButtonClick}
-    //   handleCardClick={handleCardClick}
-    // />,
+    <FeatureWithCardComponentOne
+      text={text}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <FeatureWithCardComponentTwo
+      text={text}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <FeatureWithCardComponentThree
+      text={text}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <FeatureWithCardComponentFour
+      text={text}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
+    <FeatureWithCardComponentFive
+      text={text}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
     <FeatureWithCardComponentSix
       text={text}
       isMobile={isMobile}

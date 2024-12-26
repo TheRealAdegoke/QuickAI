@@ -23,118 +23,118 @@ export const testimonialComponent = ({
   handleCardClick,
 }) => {
   return [
-    // <TestimonialComponentOne
-    //   text={text}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleImageClick={handleImageClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <TestimonialComponentTwo
-    //   text={text}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleImageClick={handleImageClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <TestimonialComponentThree
-    //   text={text}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleImageClick={handleImageClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <TestimonialComponentFour
-    //   text={text}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleImageClick={handleImageClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <TestimonialComponentFive
-    //   text={text}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleImageClick={handleImageClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <TestimonialComponentSix
-    //   text={text}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleImageClick={handleImageClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <TestimonialComponentSeven
-    //   text={text}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleImageClick={handleImageClick}
-    //   handleCardClick={handleCardClick}
-    // />,
-    // <TestimonialComponentEight
-    //   text={text}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleImageClick={handleImageClick}
-    //   handleCardClick={handleCardClick}
-    // />,
+    <TestimonialComponentOne
+      text={text}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleCardClick={handleCardClick}
+    />,
+    <TestimonialComponentTwo
+      text={text}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleCardClick={handleCardClick}
+    />,
+    <TestimonialComponentThree
+      text={text}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleCardClick={handleCardClick}
+    />,
+    <TestimonialComponentFour
+      text={text}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleCardClick={handleCardClick}
+    />,
+    <TestimonialComponentFive
+      text={text}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleCardClick={handleCardClick}
+    />,
+    <TestimonialComponentSix
+      text={text}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleCardClick={handleCardClick}
+    />,
+    <TestimonialComponentSeven
+      text={text}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleCardClick={handleCardClick}
+    />,
+    <TestimonialComponentEight
+      text={text}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleCardClick={handleCardClick}
+    />,
     <TestimonialComponentNine
       text={text}
       isMobile={isMobile}

@@ -14,18 +14,18 @@ export const footerComponent = ({
   elementContent,
 }) => {
   return [
-    // <FooterComponentOne
-    //   text={text}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    // />,
+    <FooterComponentOne
+      text={text}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+    />,
     <FooterComponentTwo
       text={text}
       isMobile={isMobile}
