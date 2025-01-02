@@ -192,43 +192,118 @@ const EditAndSave = () => {
     }
   };
 
-  const handleSaveElements = () => {
-    const formattedElements = elements.map((item) => {
-      let elementString = reactElementToJSXString(item.element, {
-        showFunctions: false,
-      });
+  const handleSaveElements = (item, index) => {
+     const updatedElements = elements.map((element, idx) => {
+       const currentElement = element.element.type({
+         ...element.element.props,
+         ref: null,
+       });
 
-      // Remove onClick attributes and their values, including the closing brace
-      elementString = elementString.replace(/\s*onClick={[^}]+}}/g, "");
+       let elementString = reactElementToJSXString(currentElement, {
+         showFunctions: false,
+       });
 
-      // Remove id attributes and their values
-      elementString = elementString.replace(/\s*id="[^"]*"/g, "");
+       // Remove fragments
+       elementString = elementString.replace(/<>|<\/>/g, "");
 
-      elementString = elementString.replace(
-        /\s*data-uses-dangerously-set-inner-html="[^"]*"/g,
-        ""
-      );
+       // Save the toggle button's content
+       const toggleButtonMatch = elementString.match(
+         /<button[^>]*data-allows-toggle-for-button="true"[^>]*>[\s\S]*?<\/button>/
+       );
 
-      elementString = elementString.replace(/\s*data-text="[^"]*"/g, "");
+       if (toggleButtonMatch) {
+         // Temporarily replace the entire toggle button with a placeholder
+         elementString = elementString.replace(
+           toggleButtonMatch[0],
+           "PRESERVE_TOGGLE_BUTTON"
+         );
+       }
 
-      elementString = elementString.replace(
-        /<(\w+)([^>]*)dangerouslySetInnerHTML={{\s*__html:\s*'([^']*)'\s*}}([^>]*)\/?>/g,
-        (_, tagName, beforeAttributes, content, afterAttributes) =>
-          `<${tagName}${beforeAttributes}${afterAttributes}>${content}</${tagName}>`
-      );
+       // Remove onClick attributes and their values
+       elementString = elementString.replace(/\s*onClick={[^}]+}}/g, "");
 
-      elementString = elementString.replace(/\/>/g, ">");
-      elementString = elementString.replace(/<br>/g, "<br />");
-      elementString = elementString.replace(/<img([^>]*)>/g, "<img$1 />");
-      elementString = elementString.replace(/<input([^>]*)>/g, "<input$1 />");
-      elementString = elementString.replace(
-        /<path([^>]*)>/g,
-        "<path$1></path>"
-      );
-      return elementString;
-    });
-    console.log(formattedElements);
-    setDesignElements(formattedElements);
+       // Also remove any remaining onClick handlers with different patterns
+       elementString = elementString.replace(
+         /\s*onClick={\([^}]*\)\s*=>\s*{[\s\S]*?}}/g,
+         ""
+       );
+       elementString = elementString.replace(
+         /\s*onClick={\s*\([^)]*\)\s*=>\s*{[\s\S]*?}}/g,
+         ""
+       );
+       elementString = elementString.replace(
+         /\s*onClick={\s*function\s*\([^)]*\)\s*{[\s\S]*?}}/g,
+         ""
+       );
+       elementString = elementString.replace(/\s*onClick={\([^}]*\)}/g, "");
+
+       // Restore the toggle button
+       if (toggleButtonMatch) {
+         elementString = elementString.replace(
+           "PRESERVE_TOGGLE_BUTTON",
+           `<button
+            data-allows-toggle-for-button="true"
+            className="border-[1px] px-3 py-2 rounded-lg"
+            onClick={() => setToggleNav(!toggleNav)}
+          >
+                          <FaBarsStaggered />
+                        </button>`
+         );
+       }
+
+       // Remove id attributes
+       elementString = elementString.replace(/\s*id="[^"]*"/g, "");
+
+       // Remove data attributes except data-allows-toggle
+       elementString = elementString.replace(
+         /\s*data-uses-dangerously-set-inner-html="[^"]*"/g,
+         ""
+       );
+       elementString = elementString.replace(/\s*data-text="[^"]*"/g, "");
+
+       // Handle elements with data-allows-toggle
+       elementString = elementString.replace(
+         /className="([^"]*)"\s*data-allows-toggle="true"/g,
+         (match, classContent) => {
+           // Extract all classes except hidden/block
+           const otherClasses = classContent
+             .replace(/\bhidden\b/, "")
+             .replace(/\bblock\b/, "")
+             .trim();
+
+           return `
+          data-allows-toggle="true"
+          className={\`\${
+            toggleNav ? "block" : "hidden"
+          } ${otherClasses}\`}`;
+         }
+       );
+
+       // Handle dangerouslySetInnerHTML
+       elementString = elementString.replace(
+         /<(\w+)([^>]*)dangerouslySetInnerHTML={{\s*__html:\s*'([^']*)'\s*}}([^>]*)\/?>/g,
+         (_, tagName, beforeAttributes, content, afterAttributes) =>
+           `<${tagName}${beforeAttributes}${afterAttributes}>${content}</${tagName}>`
+       );
+
+       // Fix self-closing tags
+       elementString = elementString.replace(/\/>/g, ">");
+       elementString = elementString.replace(/<br>/g, "<br />");
+       elementString = elementString.replace(
+         /<FaBarsStaggered >/g,
+         "<FaBarsStaggered />"
+       );
+       elementString = elementString.replace(/<img([^>]*)>/g, "<img$1 />");
+       elementString = elementString.replace(/<input([^>]*)>/g, "<input$1 />");
+       elementString = elementString.replace(
+         /<path([^>]*)>/g,
+         "<path$1></path>"
+       );
+
+       return elementString;
+     });
+    console.log(updatedElements);
+    setDesignElements(updatedElements);
   };
 
   const saveDesign = async () => {
@@ -261,6 +336,8 @@ const EditAndSave = () => {
         },
       });
 
+      console.log("Data from design elements: ", designElements);
+      
       handleUserData();
     } catch (error) {
       console.error(error);
@@ -388,7 +465,7 @@ const EditAndSave = () => {
           <div
             className={`${
               enabled && window.innerWidth > 1000
-                ? "w-[64%] max-w-[64%] min-[1350px]:max-w-[64%] min-[1350px]:w-[64%]"
+                ? "w-[60%] max-w-[60%] min-[1350px]:max-w-[60%] min-[1350px]:w-[60%]"
                 : "w-[75%] mx-auto"
             } max-md:w-[95%]`}
           >
@@ -416,6 +493,8 @@ const EditAndSave = () => {
                 <EditAndSaveDesignModal
                   elements={elements}
                   handleSaveElements={handleSaveElements}
+                  setDesignElements={setDesignElements}
+                  designElements={designElements}
                   photoRef={photoRef}
                 />
               </div>
@@ -427,7 +506,7 @@ const EditAndSave = () => {
           <div
             className={`${
               enabled && window.innerWidth > 1000 ? "right-0" : "right-[-999px]"
-            } w-[35%] min-w-[35%] max-w-[35%] min-[1350px]:w-[35%] min-[1350px]:min-w-[35%] min-[1350px]:max-w-[35%] absolute  h-[90vh] bg-[rgb(9,11,14)] border-[1px] rounded-[8px] border-[rgba(255,255,255,0.3)] transition-all ease-in-out duration-150`}
+            } w-[38%] min-w-[38%] max-w-[38%] min-[1350px]:w-[38%] min-[1350px]:min-w-[38%] min-[1350px]:max-w-[38%] absolute  h-[90vh] bg-[rgb(9,11,14)] border-[1px] rounded-[8px] border-[rgba(255,255,255,0.3)] transition-all ease-in-out duration-150`}
           >
             <ComponentCode
               displayCode={displayCode}

@@ -8,9 +8,9 @@ import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
 const ComponentCode = ({ displayCode }) => {
   const { userData } = useContext(DashContext);
-    const [isCodeFull, setIsCodeFull] = useState(true)
-    const [copied, setCopied] = useState(false)
-    const premiumUserFullCode = `import React from 'react'
+  const [isCodeFull, setIsCodeFull] = useState(true);
+  const [copied, setCopied] = useState(false);
+  const premiumUserFullCode = `import React from 'react'
 
 const Component = () => {
   
@@ -23,7 +23,7 @@ const Component = () => {
 
 export default Component`;
 
-const freeTrialFullCode = `import React from 'react'
+  const freeTrialFullCode = `import React from 'react'
 
 const Component = () => {
   
@@ -36,31 +36,32 @@ const Component = () => {
 
 export default Component`;
 
-const premiumUserShortCode = `${displayCode}`
-const freeTrialShortCode = `Subscribe to get code`;
+  const premiumUserShortCode = `${displayCode}`;
+  const freeTrialShortCode = `Subscribe to get code`;
 
-const fullCode =
-  userData.status === "free" && userData.trial === 0
-    ? freeTrialFullCode
-    : premiumUserFullCode
+  const fullCode =
+    userData.status === "free" && userData.trial === 0
+      ? freeTrialFullCode
+      : premiumUserFullCode;
 
   const shortCode =
     userData.status === "free" && userData.trial === 0
       ? freeTrialShortCode
-      : premiumUserShortCode
+      : premiumUserShortCode;
 
-const handleCopy = () => {
-    navigator.clipboard.writeText(isCodeFull ? fullCode : shortCode)
-    .then(() => {
-        setCopied(true)
+  const handleCopy = () => {
+    navigator.clipboard
+      .writeText(isCodeFull ? fullCode : shortCode)
+      .then(() => {
+        setCopied(true);
         setTimeout(() => {
-            setCopied(false)
+          setCopied(false);
         }, 2000);
-    })
-    .catch(err => {
+      })
+      .catch((err) => {
         console.error("Failed to copy", err);
-    })
-}
+      });
+  };
 
   return (
     <>
@@ -74,9 +75,7 @@ const handleCopy = () => {
           {copied ? (
             <span className="text-sm font-medium">Copied</span>
           ) : (
-            <div
-              className={`flex items-center justify-center gap-2`}
-            >
+            <div className={`flex items-center justify-center gap-2`}>
               <span className="text-sm font-medium">Copy Code</span>{" "}
               <FaRegClipboard />
             </div>

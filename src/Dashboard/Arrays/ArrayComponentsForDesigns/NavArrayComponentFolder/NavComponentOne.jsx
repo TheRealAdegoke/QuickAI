@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const NavComponentOne = ({
   text,
   isMobile,
@@ -37,7 +39,7 @@ const NavComponentOne = ({
                 )
               }
             />
-            <h1
+            <Link
               id={`nav-name-${index + 1}-${uniqueId}`}
               className={`nav-name-${
                 index + 1
@@ -51,7 +53,7 @@ const NavComponentOne = ({
                 ? elementContent[`nav-name-${index + 1}-${uniqueId}`]
                 : elementContent[`nav-name-${index + 1}-${uniqueId}`] ||
                   text.webLogo}
-            </h1>
+            </Link>
           </div>
 
           <label
