@@ -118,6 +118,7 @@ export const DashboardProvider = ({ children }) => {
   const lastClickedDivRef = useRef(null);
   const lastClickedCardRef = useRef(null);
   const lastClickedButtonRef = useRef(null);
+  const [toggleNav, setToggleNav] = useState(false);
 
   useEffect(() => {
     if (geminiResponses && Object.keys(geminiResponses).length > 0) {
@@ -261,6 +262,8 @@ export const DashboardProvider = ({ children }) => {
           elementContent,
           handleImageClick,
           handleDivButtonClick,
+          toggleNav,
+          setToggleNav,
         }).length
     );
     const randomHeroIndex = Math.floor(
@@ -828,6 +831,8 @@ export const DashboardProvider = ({ children }) => {
         handleDivButtonClick,
         lastClickedCardRef,
         lastClickedButtonRef,
+        toggleNav,
+        setToggleNav,
       }}
     >
       {children}

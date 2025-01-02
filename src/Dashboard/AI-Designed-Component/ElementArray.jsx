@@ -51,6 +51,8 @@ const ElementArray = () => {
     selectedOption,
     handleCardClick,
     handleDivButtonClick,
+    toggleNav,
+    setToggleNav,
   } = useContext(DashContext);
 
   const componentMap = {
@@ -94,6 +96,8 @@ const ElementArray = () => {
       selectedOption,
       handleCardClick,
       handleDivButtonClick,
+      toggleNav,
+      setToggleNav,
     })[index],
   });
 
@@ -131,6 +135,8 @@ const ElementArray = () => {
           handleImageClick,
           selectedOption,
           handleDivButtonClick,
+          toggleNav,
+          setToggleNav,
         })[navIndex],
       },
       ...renderedElements,

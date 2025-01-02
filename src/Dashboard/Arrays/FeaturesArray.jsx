@@ -106,20 +106,20 @@ export const featuresComponents = ({
       handleDivButtonClick={handleDivButtonClick}
       handleCardClick={handleCardClick}
     />,
-    <FeatureComponentSeven
-      text={text}
-      isMobile={isMobile}
-      handleDivClick={handleDivClick}
-      handleTextClick={handleTextClick}
-      getStyle={getStyle}
-      getElementStyle={getElementStyle}
-      index={index}
-      isEdited={isEdited}
-      uniqueId={uniqueId}
-      elementContent={elementContent}
-      handleDivButtonClick={handleDivButtonClick}
-      handleCardClick={handleCardClick}
-      handleImageClick={handleImageClick}
-    />,
+    // <FeatureComponentSeven
+    //   text={text}
+    //   isMobile={isMobile}
+    //   handleDivClick={handleDivClick}
+    //   handleTextClick={handleTextClick}
+    //   getStyle={getStyle}
+    //   getElementStyle={getElementStyle}
+    //   index={index}
+    //   isEdited={isEdited}
+    //   uniqueId={uniqueId}
+    //   elementContent={elementContent}
+    //   handleDivButtonClick={handleDivButtonClick}
+    //   handleCardClick={handleCardClick}
+    //   handleImageClick={handleImageClick}
+    // />,
   ];
 };

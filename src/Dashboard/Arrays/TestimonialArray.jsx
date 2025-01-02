@@ -135,19 +135,19 @@ export const testimonialComponent = ({
       handleImageClick={handleImageClick}
       handleCardClick={handleCardClick}
     />,
-    <TestimonialComponentNine
-      text={text}
-      isMobile={isMobile}
-      handleDivClick={handleDivClick}
-      handleTextClick={handleTextClick}
-      getStyle={getStyle}
-      getElementStyle={getElementStyle}
-      index={index}
-      isEdited={isEdited}
-      uniqueId={uniqueId}
-      elementContent={elementContent}
-      handleImageClick={handleImageClick}
-      handleCardClick={handleCardClick}
-    />,
+    // <TestimonialComponentNine
+    //   text={text}
+    //   isMobile={isMobile}
+    //   handleDivClick={handleDivClick}
+    //   handleTextClick={handleTextClick}
+    //   getStyle={getStyle}
+    //   getElementStyle={getElementStyle}
+    //   index={index}
+    //   isEdited={isEdited}
+    //   uniqueId={uniqueId}
+    //   elementContent={elementContent}
+    //   handleImageClick={handleImageClick}
+    //   handleCardClick={handleCardClick}
+    // />,
   ];
 };

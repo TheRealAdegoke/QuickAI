@@ -15,6 +15,7 @@ import Cookies from "js-cookie";
 import { IoClose } from "react-icons/io5";
 import { HiMiniBars2 } from "react-icons/hi2";
 import { TiArrowRightOutline } from "react-icons/ti";
+import { FaBarsStaggered } from "react-icons/fa6";
 
 const WebPreview = () => {
   const { userData } = useContext(DashContext);
@@ -56,6 +57,8 @@ const WebPreview = () => {
         });
         setHistoryData(response.data);
         setLoading(false);
+        console.log(response.data);
+        
       } catch (error) {
         console.error("Error:", error);
         setLoading(false);
@@ -78,6 +81,7 @@ const WebPreview = () => {
     IoClose,
     HiMiniBars2,
     TiArrowRightOutline,
+    FaBarsStaggered,
   };
 
   return (
