@@ -33,8 +33,10 @@ const Nav = () => {
       setActive(2);
     } else if (location.pathname === "/") {
       setActive(1);
-    } else {
+    } else if (location.pathname === "/blog") {
       setActive(3);
+    } else {
+      setActive(4);
     }
   }, [location]);
 
@@ -75,6 +77,16 @@ const Nav = () => {
               onClick={() => setActive(3)}
             >
               Blog
+            </Link>
+
+            <Link
+              to="/free-tool"
+              className={`${
+                active === 4 ? "border-b-[2px] h-[60px]" : ""
+              } block text-center text-xl py-2`}
+              onClick={() => setActive(4)}
+            >
+              Free Tool
             </Link>
           </div>
 
@@ -138,6 +150,13 @@ const Nav = () => {
                   className="block text-center border border-[rgba(255,255,255,0.2)] py-2 px-8 rounded-[8px] transition-all duration-300 ease-in-out hover:bg-[rgba(255,255,255,0.2)] lg:hidden"
                 >
                   <span>Blog</span>
+                </Link>
+
+                <Link
+                  to="/free-tool"
+                  className="block text-center border border-[rgba(255,255,255,0.2)] py-2 px-8 rounded-[8px] transition-all duration-300 ease-in-out hover:bg-[rgba(255,255,255,0.2)] lg:hidden"
+                >
+                  Free Tool
                 </Link>
               </div>
             </div>

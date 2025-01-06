@@ -36,6 +36,16 @@ async function generateSitemap() {
       priority: "0.8",
       lastmod: new Date().toISOString(),
     },
+    {
+      url: "https://quickui.co/free-tool",
+      priority: "0.8",
+      lastmod: new Date().toISOString(),
+    },
+    {
+      url: "https://quickui.co/free-tool/background-text-color-generator",
+      priority: "0.8",
+      lastmod: new Date().toISOString(),
+    },
   ];
 
   staticPages.forEach((page) => {

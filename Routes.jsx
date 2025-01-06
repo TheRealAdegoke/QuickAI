@@ -17,6 +17,8 @@ import AccountSettings from "./src/Dashboard/DashBoardChildren/AccountSettings/A
 import Blog from "./src/Pages/BlogPage/Blog";
 import Article from "./src/Pages/BlogPage/Article";
 import BusinessBlog from "./src/Pages/BlogPage/BusinessBlog";
+import BackgroundAndTextColorPicker from "./src/Pages/FreeTool/background-text-color-picker";
+import FreeTool from "./src/Pages/FreeTool/free-tool";
 
 function ScrollToTopOnMount() {
   const { pathname } = useLocation();
@@ -53,6 +55,11 @@ const AppRoutes = () => {
           <Route
             path="/blog/article/:location/:city"
             element={<BusinessBlog />}
+          />
+          <Route path="/free-tool" element={<FreeTool/>} />
+          <Route
+            path="/free-tool/background-text-color-generator"
+            element={<BackgroundAndTextColorPicker />}
           />
         </Routes>
       </BrowserRouter>
