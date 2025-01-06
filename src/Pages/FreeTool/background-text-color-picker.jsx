@@ -66,19 +66,19 @@ const BackgroundAndTextColorPicker = () => {
   return (
     <>
       <Helmet>
-        <title>{`random color generator`}</title>
-        <meta name="description" content={``} />
+        <title>{`Random color generator`}</title>
+        <meta name="description" content={`Generate random colors`} />
         <meta name="keywords" content={`random color generator`} />
-        <meta property="og:title" content={`random color generator`} />
-        <meta property="og:description" content={``} />
+        <meta property="og:title" content={`Random Color Generator`} />
+        <meta property="og:description" content={`Generate random colors`} />
         <meta property="og:image" content="https://i.imgur.com/HSA0Pbh.png" />
         <meta
           property="og:url"
           content={`https://quickui.co/free-tool/background-text-color-generator`}
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`random color generator`} />
-        <meta name="twitter:description" content={``} />
+        <meta name="twitter:title" content={`Random Color Generator`} />
+        <meta name="twitter:description" content={`Generate random colors`} />
         <meta name="twitter:image" content="https://i.imgur.com/HSA0Pbh.png" />
         <link
           rel="canonical"
@@ -101,7 +101,7 @@ const BackgroundAndTextColorPicker = () => {
 
           <div className="bg-white w-[250px] h-[400px] absolute top-[20px] rounded-xl left-5 shadow-md p-5">
             <h1 className="font-bold mb-2">Random Color Generator</h1>
-            <p>Free tool to generate a  text and background color.</p>
+            <p>Free tool to generate a text and background color.</p>
 
             <div className="my-3">
               <div>
