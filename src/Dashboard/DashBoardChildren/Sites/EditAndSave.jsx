@@ -46,7 +46,7 @@ const EditAndSave = () => {
     userInput,
     selectedIdea,
     userData,
-    handleUserData
+    handleUserData,
   } = useContext(DashContext);
   const navigate = useNavigate();
   const { elements } = ElementArray();
@@ -193,115 +193,145 @@ const EditAndSave = () => {
   };
 
   const handleSaveElements = (item, index) => {
-     const updatedElements = elements.map((element, idx) => {
-       const currentElement = element.element.type({
-         ...element.element.props,
-         ref: null,
-       });
+    const updatedElements = elements.map((element, idx) => {
+      const currentElement = element.element.type({
+        ...element.element.props,
+        ref: null,
+      });
 
-       let elementString = reactElementToJSXString(currentElement, {
-         showFunctions: false,
-       });
+      let elementString = reactElementToJSXString(currentElement, {
+        showFunctions: false,
+      });
 
-       // Remove fragments
-       elementString = elementString.replace(/<>|<\/>/g, "");
+      // Remove fragments
+      elementString = elementString.replace(/<>|<\/>/g, "");
 
-       // Save the toggle button's content
-       const toggleButtonMatch = elementString.match(
-         /<button[^>]*data-allows-toggle-for-button="true"[^>]*>[\s\S]*?<\/button>/
-       );
+      // Save the toggle button's content
+      const toggleButtonMatch = elementString.match(
+        /<button[^>]*data-allows-toggle-for-button="true"[^>]*>[\s\S]*?<\/button>/
+      );
 
-       if (toggleButtonMatch) {
-         // Temporarily replace the entire toggle button with a placeholder
-         elementString = elementString.replace(
-           toggleButtonMatch[0],
-           "PRESERVE_TOGGLE_BUTTON"
-         );
-       }
+      if (toggleButtonMatch) {
+        // Temporarily replace the entire toggle button with a placeholder
+        elementString = elementString.replace(
+          toggleButtonMatch[0],
+          "PRESERVE_TOGGLE_BUTTON"
+        );
+      }
 
-       // Remove onClick attributes and their values
-       elementString = elementString.replace(/\s*onClick={[^}]+}}/g, "");
+      // Remove onClick attributes and their values
+      elementString = elementString.replace(/\s*onClick={[^}]+}}/g, "");
 
-       // Also remove any remaining onClick handlers with different patterns
-       elementString = elementString.replace(
-         /\s*onClick={\([^}]*\)\s*=>\s*{[\s\S]*?}}/g,
-         ""
-       );
-       elementString = elementString.replace(
-         /\s*onClick={\s*\([^)]*\)\s*=>\s*{[\s\S]*?}}/g,
-         ""
-       );
-       elementString = elementString.replace(
-         /\s*onClick={\s*function\s*\([^)]*\)\s*{[\s\S]*?}}/g,
-         ""
-       );
-       elementString = elementString.replace(/\s*onClick={\([^}]*\)}/g, "");
+      // Also remove any remaining onClick handlers with different patterns
+      elementString = elementString.replace(
+        /\s*onClick={\([^}]*\)\s*=>\s*{[\s\S]*?}}/g,
+        ""
+      );
+      elementString = elementString.replace(
+        /\s*onClick={\s*\([^)]*\)\s*=>\s*{[\s\S]*?}}/g,
+        ""
+      );
+      elementString = elementString.replace(
+        /\s*onClick={\s*function\s*\([^)]*\)\s*{[\s\S]*?}}/g,
+        ""
+      );
+      elementString = elementString.replace(/\s*onClick={\([^}]*\)}/g, "");
 
-       // Restore the toggle button
-       if (toggleButtonMatch) {
-         elementString = elementString.replace(
-           "PRESERVE_TOGGLE_BUTTON",
-           `<button
+      // Restore the toggle button
+      if (toggleButtonMatch) {
+        elementString = elementString.replace(
+          "PRESERVE_TOGGLE_BUTTON",
+          `<button
             data-allows-toggle-for-button="true"
             className="border-[1px] px-3 py-2 rounded-lg"
             onClick={() => setToggleNav(!toggleNav)}
           >
                           <FaBarsStaggered />
                         </button>`
-         );
-       }
+        );
+      }
 
-       // Remove id attributes
-       elementString = elementString.replace(/\s*id="[^"]*"/g, "");
+      // Remove id attributes
+      elementString = elementString.replace(/\s*id="[^"]*"/g, "");
 
-       // Remove data attributes except data-allows-toggle
-       elementString = elementString.replace(
-         /\s*data-uses-dangerously-set-inner-html="[^"]*"/g,
-         ""
-       );
-       elementString = elementString.replace(/\s*data-text="[^"]*"/g, "");
+      // Remove data attributes except data-allows-toggle
+      elementString = elementString.replace(
+        /\s*data-uses-dangerously-set-inner-html="[^"]*"/g,
+        ""
+      );
+      elementString = elementString.replace(/\s*data-text="[^"]*"/g, "");
 
-       // Handle elements with data-allows-toggle
-       elementString = elementString.replace(
-         /className="([^"]*)"\s*data-allows-toggle="true"/g,
-         (match, classContent) => {
-           // Extract all classes except hidden/block
-           const otherClasses = classContent
-             .replace(/\bhidden\b/, "")
-             .replace(/\bblock\b/, "")
-             .trim();
+      // Handle elements with data-allows-toggle
+      elementString = elementString.replace(
+        /className="([^"]*)"\s*data-allows-toggle="true"/g,
+        (match, classContent) => {
+          // Extract all classes except hidden/block
+          const otherClasses = classContent
+            .replace(/\bhidden\b/, "")
+            .replace(/\bblock\b/, "")
+            .trim();
 
-           return `
+          return `
           data-allows-toggle="true"
           className={\`\${
             toggleNav ? "block" : "hidden"
           } ${otherClasses}\`}`;
-         }
-       );
+        }
+      );
 
-       // Handle dangerouslySetInnerHTML
-       elementString = elementString.replace(
-         /<(\w+)([^>]*)dangerouslySetInnerHTML={{\s*__html:\s*'([^']*)'\s*}}([^>]*)\/?>/g,
-         (_, tagName, beforeAttributes, content, afterAttributes) =>
-           `<${tagName}${beforeAttributes}${afterAttributes}>${content}</${tagName}>`
-       );
+      // Handle dangerouslySetInnerHTML
+      elementString = elementString.replace(
+        /<(\w+)([^>]*)dangerouslySetInnerHTML={{\s*__html:\s*'([^']*)'\s*}}([^>]*)\/?>/g,
+        (_, tagName, beforeAttributes, content, afterAttributes) =>
+          `<${tagName}${beforeAttributes}${afterAttributes}>${content}</${tagName}>`
+      );
 
-       // Fix self-closing tags
-       elementString = elementString.replace(/\/>/g, ">");
-       elementString = elementString.replace(/<br>/g, "<br />");
-       elementString = elementString.replace(
-         /<FaBarsStaggered >/g,
-         "<FaBarsStaggered />"
-       );
-       elementString = elementString.replace(/<img([^>]*)>/g, "<img$1 />");
-       elementString = elementString.replace(/<input([^>]*)>/g, "<input$1 />");
-       elementString = elementString.replace(
-         /<path([^>]*)>/g,
-         "<path$1></path>"
-       );
+      // Helper function for icons with dynamic attributes
+      const createIconRegexWithDynamicProps = (componentName) => {
+        return new RegExp(
+          `<${componentName}\\s+([^>]*)>(?![\\s\\S]*?<\\/${componentName}>)`,
+          "g"
+        );
+      };
 
-       return elementString;
-     });
+      // Fix self-closing tags and icons
+      elementString = elementString.replace(/\/>/g, ">"); // First convert all self-closing tags
+      elementString = elementString.replace(/<br>/g, "<br />");
+
+      // Handle icon components with preserved attributes
+      const iconComponents = [
+        "FaBarsStaggered",
+        "FaCheck",
+        "FaEye",
+        "IoLocationSharp",
+        "FaPhoneAlt",
+        "FaEnvelope",
+        "FaXTwitter",
+        "GrFacebookOption",
+        "FaInstagram",
+        "FaLinkedinIn",
+        "MdChevronRight",
+      ];
+
+      iconComponents.forEach((componentName) => {
+        elementString = elementString.replace(
+          createIconRegexWithDynamicProps(componentName),
+          (match, attributes) => `<${componentName} ${attributes.trim()} />`
+        );
+      });
+
+      // Handle other self-closing elements
+      elementString = elementString.replace(/<img([^>]*)>/g, "<img$1 />");
+      elementString = elementString.replace(/<input([^>]*)>/g, "<input$1 />");
+
+      // Handle path elements that need closing tags
+      elementString = elementString.replace(
+        /<path([^>]*)>/g,
+        "<path$1></path>"
+      );
+
+      return elementString;
+    });
     console.log(updatedElements);
     setDesignElements(updatedElements);
   };
@@ -337,7 +367,7 @@ const EditAndSave = () => {
       });
 
       console.log("Data from design elements: ", designElements);
-      
+
       handleUserData();
     } catch (error) {
       console.error(error);

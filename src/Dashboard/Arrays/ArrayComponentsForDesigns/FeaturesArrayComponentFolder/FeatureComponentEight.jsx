@@ -1,6 +1,6 @@
 import { FaEye } from "react-icons/fa";
 
-const FeatureComponentSeven = ({
+const FeatureComponentEight = ({
   text,
   handleDivClick,
   handleTextClick,
@@ -22,7 +22,7 @@ const FeatureComponentSeven = ({
         style={getStyle(`features-section-${index + 1}`, uniqueId)}
       >
         <div className="py-24 text-black">
-          <div className="text-center">
+          <div className="text-center mb-20">
             <p
               id={`features-paragraph-${index + 1}-${uniqueId}`}
               style={getElementStyle(
@@ -43,7 +43,7 @@ const FeatureComponentSeven = ({
                     ]
                   : elementContent[
                       `features-paragraph-${index + 1}-${uniqueId}`
-                    ] || text.description,
+                    ] || "Screenshot",
               }}
             ></p>
             <h1
@@ -66,10 +66,10 @@ const FeatureComponentSeven = ({
             ></h1>
           </div>
 
-          <div className="flex justify-center flex-wrap gap-6 w-[90%] max-w-[1200px] mx-auto max-md:flex-col">
+          <div className="flex justify-center flex-wrap gap-6 w-[90%] max-w-[1200px] mx-auto max-md:flex-col max-md:gap-y-14">
             <div
               id={`features-section-card-${index + 1}-${uniqueId}`}
-              className="w-[30%] max-md:w-[95%] mx-auto px-3 py-8 rounded-lg flex flex-col items-start justify-center gap-y-4"
+              className="w-[30%] max-md:w-[95%] mx-auto px-3 py-8 rounded-lg flex flex-col items-center justify-center gap-y-4 relative text-center"
               onClick={handleCardClick}
               style={getStyle(
                 `features-section-card-${index + 1}`,
@@ -79,7 +79,7 @@ const FeatureComponentSeven = ({
             >
               <div
                 id={`features-button-${index + 1}-${uniqueId}`}
-                className="text-xl text-white inline-block p-5 rounded-full"
+                className="text-4xl text-white inline-block p-5 rounded-full absolute left-1/2 -translate-x-1/2 top-[-30px]"
                 onClick={handleDivButtonClick}
                 style={getStyle(
                   `features-button-${index + 1}`,
@@ -97,7 +97,7 @@ const FeatureComponentSeven = ({
                 )}
                 className={`features-sub-heading-${
                   index + 1
-                }-${uniqueId} text-xl font-semibold`}
+                }-${uniqueId} text-xl font-semibold mt-10`}
                 data-text="Heading"
                 data-uses-dangerously-set-inner-html="true"
                 contentEditable={false}
@@ -143,7 +143,7 @@ const FeatureComponentSeven = ({
 
             <div
               id={`features-section-card-${index + 1}-${uniqueId}`}
-              className="w-[30%] max-md:w-[95%] mx-auto px-3 py-8 rounded-lg flex flex-col items-start justify-center gap-y-4"
+              className="w-[30%] max-md:w-[95%] mx-auto px-3 py-8 rounded-lg flex flex-col items-center justify-center gap-y-4 relative text-center"
               onClick={handleCardClick}
               style={getStyle(
                 `features-section-card-${index + 1}`,
@@ -153,7 +153,7 @@ const FeatureComponentSeven = ({
             >
               <div
                 id={`features-button-${index + 1}-${uniqueId}`}
-                className="text-xl text-white inline-block p-5 rounded-full"
+                className="text-4xl text-white inline-block p-5 rounded-full absolute left-1/2 -translate-x-1/2 top-[-30px]"
                 onClick={handleDivButtonClick}
                 style={getStyle(
                   `features-button-${index + 1}`,
@@ -171,7 +171,7 @@ const FeatureComponentSeven = ({
                 )}
                 className={`features-sub-heading-${
                   index + 1
-                }-${uniqueId} text-xl font-semibold`}
+                }-${uniqueId} text-xl font-semibold mt-10`}
                 data-text="Heading"
                 data-uses-dangerously-set-inner-html="true"
                 contentEditable={false}
@@ -217,7 +217,7 @@ const FeatureComponentSeven = ({
 
             <div
               id={`features-section-card-${index + 1}-${uniqueId}`}
-              className="w-[30%] max-md:w-[95%] mx-auto px-3 py-8 rounded-lg flex flex-col items-start justify-center gap-y-4"
+              className="w-[30%] max-md:w-[95%] mx-auto px-3 py-8 rounded-lg flex flex-col items-center justify-center gap-y-4 relative text-center"
               onClick={handleCardClick}
               style={getStyle(
                 `features-section-card-${index + 1}`,
@@ -227,7 +227,7 @@ const FeatureComponentSeven = ({
             >
               <div
                 id={`features-button-${index + 1}-${uniqueId}`}
-                className="text-xl text-white inline-block p-5 rounded-full"
+                className="text-4xl text-white inline-block p-5 rounded-full absolute left-1/2 -translate-x-1/2 top-[-30px]"
                 onClick={handleDivButtonClick}
                 style={getStyle(
                   `features-button-${index + 1}`,
@@ -245,7 +245,7 @@ const FeatureComponentSeven = ({
                 )}
                 className={`features-sub-heading-${
                   index + 1
-                }-${uniqueId} text-xl font-semibold`}
+                }-${uniqueId} text-xl font-semibold mt-10`}
                 data-text="Heading"
                 data-uses-dangerously-set-inner-html="true"
                 contentEditable={false}
@@ -288,228 +288,6 @@ const FeatureComponentSeven = ({
                 }}
               ></p>
             </div>
-
-            <div
-              id={`features-section-card-${index + 1}-${uniqueId}`}
-              className="w-[30%] max-md:w-[95%] mx-auto px-3 py-8 rounded-lg flex flex-col items-start justify-center gap-y-4"
-              onClick={handleCardClick}
-              style={getStyle(
-                `features-section-card-${index + 1}`,
-                uniqueId,
-                "rgb(240,246,255)"
-              )}
-            >
-              <div
-                id={`features-button-${index + 1}-${uniqueId}`}
-                className="text-xl text-white inline-block p-5 rounded-full"
-                onClick={handleDivButtonClick}
-                style={getStyle(
-                  `features-button-${index + 1}`,
-                  uniqueId,
-                  "#4294E3"
-                )}
-              >
-                <FaEye />
-              </div>
-              <h2
-                id={`features-sub-heading-text-4-${index + 1}-${uniqueId}`}
-                style={getElementStyle(
-                  `features-sub-heading-${index + 1}`,
-                  uniqueId
-                )}
-                className={`features-sub-heading-${
-                  index + 1
-                }-${uniqueId} text-xl font-semibold`}
-                data-text="Heading"
-                data-uses-dangerously-set-inner-html="true"
-                contentEditable={false}
-                onClick={handleTextClick}
-                dangerouslySetInnerHTML={{
-                  __html: isEdited[
-                    `features-sub-heading-text-4-${index + 1}-${uniqueId}`
-                  ]
-                    ? elementContent[
-                        `features-sub-heading-text-4-${index + 1}-${uniqueId}`
-                      ]
-                    : elementContent[
-                        `features-sub-heading-text-4-${index + 1}-${uniqueId}`
-                      ] || "High Resolution",
-                }}
-              ></h2>
-              <p
-                id={`features-sub-paragraph-text-4-${index + 1}-${uniqueId}`}
-                style={getElementStyle(
-                  `features-sub-paragraph-${index + 1}`,
-                  uniqueId
-                )}
-                className={`features-sub-paragraph-${
-                  index + 1
-                }-${uniqueId} font-medium`}
-                data-text="Type a paragraph"
-                data-uses-dangerously-set-inner-html="true"
-                contentEditable={false}
-                onClick={handleTextClick}
-                dangerouslySetInnerHTML={{
-                  __html: isEdited[
-                    `features-sub-paragraph-text-4-${index + 1}-${uniqueId}`
-                  ]
-                    ? elementContent[
-                        `features-sub-paragraph-text-4-${index + 1}-${uniqueId}`
-                      ]
-                    : elementContent[
-                        `features-sub-paragraph-text-4-${index + 1}-${uniqueId}`
-                      ] || text.description,
-                }}
-              ></p>
-            </div>
-
-            <div
-              id={`features-section-card-${index + 1}-${uniqueId}`}
-              className="w-[30%] max-md:w-[95%] mx-auto px-3 py-8 rounded-lg flex flex-col items-start justify-center gap-y-4"
-              onClick={handleCardClick}
-              style={getStyle(
-                `features-section-card-${index + 1}`,
-                uniqueId,
-                "rgb(240,246,255)"
-              )}
-            >
-              <div
-                id={`features-button-${index + 1}-${uniqueId}`}
-                className="text-xl text-white inline-block p-5 rounded-full"
-                onClick={handleDivButtonClick}
-                style={getStyle(
-                  `features-button-${index + 1}`,
-                  uniqueId,
-                  "#4294E3"
-                )}
-              >
-                <FaEye />
-              </div>
-              <h2
-                id={`features-sub-heading-text-5-${index + 1}-${uniqueId}`}
-                style={getElementStyle(
-                  `features-sub-heading-${index + 1}`,
-                  uniqueId
-                )}
-                className={`features-sub-heading-${
-                  index + 1
-                }-${uniqueId} text-xl font-semibold`}
-                data-text="Heading"
-                data-uses-dangerously-set-inner-html="true"
-                contentEditable={false}
-                onClick={handleTextClick}
-                dangerouslySetInnerHTML={{
-                  __html: isEdited[
-                    `features-sub-heading-text-5-${index + 1}-${uniqueId}`
-                  ]
-                    ? elementContent[
-                        `features-sub-heading-text-5-${index + 1}-${uniqueId}`
-                      ]
-                    : elementContent[
-                        `features-sub-heading-text-5-${index + 1}-${uniqueId}`
-                      ] || "High Resolution",
-                }}
-              ></h2>
-              <p
-                id={`features-sub-paragraph-text-5-${index + 1}-${uniqueId}`}
-                style={getElementStyle(
-                  `features-sub-paragraph-${index + 1}`,
-                  uniqueId
-                )}
-                className={`features-sub-paragraph-${
-                  index + 1
-                }-${uniqueId} font-medium`}
-                data-text="Type a paragraph"
-                data-uses-dangerously-set-inner-html="true"
-                contentEditable={false}
-                onClick={handleTextClick}
-                dangerouslySetInnerHTML={{
-                  __html: isEdited[
-                    `features-sub-paragraph-text-5-${index + 1}-${uniqueId}`
-                  ]
-                    ? elementContent[
-                        `features-sub-paragraph-text-5-${index + 1}-${uniqueId}`
-                      ]
-                    : elementContent[
-                        `features-sub-paragraph-text-5-${index + 1}-${uniqueId}`
-                      ] || text.description,
-                }}
-              ></p>
-            </div>
-
-            <div
-              id={`features-section-card-${index + 1}-${uniqueId}`}
-              className="w-[30%] max-md:w-[95%] mx-auto px-3 py-8 rounded-lg flex flex-col items-start justify-center gap-y-4"
-              onClick={handleCardClick}
-              style={getStyle(
-                `features-section-card-${index + 1}`,
-                uniqueId,
-                "rgb(240,246,255)"
-              )}
-            >
-              <div
-                id={`features-button-${index + 1}-${uniqueId}`}
-                className="text-xl text-white inline-block p-5 rounded-full"
-                onClick={handleDivButtonClick}
-                style={getStyle(
-                  `features-button-${index + 1}`,
-                  uniqueId,
-                  "#4294E3"
-                )}
-              >
-                <FaEye />
-              </div>
-              <h2
-                id={`features-sub-heading-text-6-${index + 1}-${uniqueId}`}
-                style={getElementStyle(
-                  `features-sub-heading-${index + 1}`,
-                  uniqueId
-                )}
-                className={`features-sub-heading-${
-                  index + 1
-                }-${uniqueId} text-xl font-semibold`}
-                data-text="Heading"
-                data-uses-dangerously-set-inner-html="true"
-                contentEditable={false}
-                onClick={handleTextClick}
-                dangerouslySetInnerHTML={{
-                  __html: isEdited[
-                    `features-sub-heading-text-6-${index + 1}-${uniqueId}`
-                  ]
-                    ? elementContent[
-                        `features-sub-heading-text-6-${index + 1}-${uniqueId}`
-                      ]
-                    : elementContent[
-                        `features-sub-heading-text-6-${index + 1}-${uniqueId}`
-                      ] || "High Resolution",
-                }}
-              ></h2>
-              <p
-                id={`features-sub-paragraph-text-6-${index + 1}-${uniqueId}`}
-                style={getElementStyle(
-                  `features-sub-paragraph-${index + 1}`,
-                  uniqueId
-                )}
-                className={`features-sub-paragraph-${
-                  index + 1
-                }-${uniqueId} font-medium`}
-                data-text="Type a paragraph"
-                data-uses-dangerously-set-inner-html="true"
-                contentEditable={false}
-                onClick={handleTextClick}
-                dangerouslySetInnerHTML={{
-                  __html: isEdited[
-                    `features-sub-paragraph-text-6-${index + 1}-${uniqueId}`
-                  ]
-                    ? elementContent[
-                        `features-sub-paragraph-text-6-${index + 1}-${uniqueId}`
-                      ]
-                    : elementContent[
-                        `features-sub-paragraph-text-6-${index + 1}-${uniqueId}`
-                      ] || text.description,
-                }}
-              ></p>
-            </div>
           </div>
         </div>
       </section>
@@ -517,4 +295,4 @@ const FeatureComponentSeven = ({
   );
 };
 
-export default FeatureComponentSeven;
+export default FeatureComponentEight;

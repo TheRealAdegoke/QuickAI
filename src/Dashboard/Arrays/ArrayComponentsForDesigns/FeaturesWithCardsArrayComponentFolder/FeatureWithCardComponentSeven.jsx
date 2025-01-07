@@ -1,8 +1,9 @@
 import ScreenShotFrame from "../../../../assets/screenshot-frame.png";
-import { FaGears } from "react-icons/fa6";
+import { FaCheck } from "react-icons/fa6";
 
-const FeatureWithCardComponentSix = ({
+const FeatureWithCardComponentSeven = ({
   text,
+  isMobile,
   handleDivClick,
   handleTextClick,
   getStyle,
@@ -33,7 +34,7 @@ const FeatureWithCardComponentSix = ({
                   `features-with-card-sub-paragraph-${index + 1}`,
                   uniqueId
                 )}
-                className={`features-with-card-paragraph-${
+                className={`features-with-card-sub-paragraph-${
                   index + 1
                 }-${uniqueId} font-semibold mb-3`}
                 data-text="Type a paragraph"
@@ -55,7 +56,7 @@ const FeatureWithCardComponentSix = ({
                         `features-with-card-sub-paragraph-text-1-${
                           index + 1
                         }-${uniqueId}`
-                      ] || "About App",
+                      ] || "Screenshot",
                 }}
               ></p>
               <h1
@@ -106,149 +107,116 @@ const FeatureWithCardComponentSix = ({
                       ] || text.description,
                 }}
               ></p>
-              <div className="mb-20 flex max-lg:flex-col max-lg:gap-y-6 gap-x-14">
+              <div className="mb-10 flex flex-col gap-y-3">
                 <div className="flex items-center gap-3">
-                  <FaGears className="text-5xl" />
-                  <div className="flex flex-col">
-                    <span
-                      id={`features-with-card-span-text-1-${
-                        index + 1
-                      }-${uniqueId}`}
-                      style={getElementStyle(
-                        `features-with-card-span-${index + 1}`,
-                        uniqueId
-                      )}
-                      className={`features-with-card-span-${
-                        index + 1
-                      }-${uniqueId} text-3xl font-bold`}
-                      data-text="Type a paragraph"
-                      data-uses-dangerously-set-inner-html="true"
-                      contentEditable={false}
-                      onClick={handleTextClick}
-                      dangerouslySetInnerHTML={{
-                        __html: isEdited[
-                          `features-with-card-span-text-1-${
-                            index + 1
-                          }-${uniqueId}`
-                        ]
-                          ? elementContent[
-                              `features-with-card-span-text-1-${
-                                index + 1
-                              }-${uniqueId}`
-                            ]
-                          : elementContent[
-                              `features-with-card-span-text-1-${
-                                index + 1
-                              }-${uniqueId}`
-                            ] || "1234",
-                      }}
-                    ></span>
-                    <span
-                      id={`features-with-card-span-text-2-${
-                        index + 1
-                      }-${uniqueId}`}
-                      style={getElementStyle(
-                        `features-with-card-span-${index + 1}`,
-                        uniqueId
-                      )}
-                      className={`features-with-card-span-${
-                        index + 1
-                      }-${uniqueId} text-lg font-medium`}
-                      data-text="Type a paragraph"
-                      data-uses-dangerously-set-inner-html="true"
-                      contentEditable={false}
-                      onClick={handleTextClick}
-                      dangerouslySetInnerHTML={{
-                        __html: isEdited[
-                          `features-with-card-span-text-2-${
-                            index + 1
-                          }-${uniqueId}`
-                        ]
-                          ? elementContent[
-                              `features-with-card-span-text-2-${
-                                index + 1
-                              }-${uniqueId}`
-                            ]
-                          : elementContent[
-                              `features-with-card-span-text-2-${
-                                index + 1
-                              }-${uniqueId}`
-                            ] || "Active Install",
-                      }}
-                    ></span>
-                  </div>
+                  <FaCheck className="text-xl" />
+                  <span
+                    id={`features-with-card-span-text-1-${
+                      index + 1
+                    }-${uniqueId}`}
+                    style={getElementStyle(
+                      `features-with-card-span-${index + 1}`,
+                      uniqueId
+                    )}
+                    className={`features-with-card-span-${
+                      index + 1
+                    }-${uniqueId} text-xl`}
+                    data-text="Type a paragraph"
+                    data-uses-dangerously-set-inner-html="true"
+                    contentEditable={false}
+                    onClick={handleTextClick}
+                    dangerouslySetInnerHTML={{
+                      __html: isEdited[
+                        `features-with-card-span-text-1-${
+                          index + 1
+                        }-${uniqueId}`
+                      ]
+                        ? elementContent[
+                            `features-with-card-span-text-1-${
+                              index + 1
+                            }-${uniqueId}`
+                          ]
+                        : elementContent[
+                            `features-with-card-span-text-1-${
+                              index + 1
+                            }-${uniqueId}`
+                          ] || "Diam dolor diam ipsum et tempor sit",
+                    }}
+                  ></span>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <FaGears className="text-5xl" />
-                  <div className="flex flex-col">
-                    <span
-                      id={`features-with-card-span-text-3-${
-                        index + 1
-                      }-${uniqueId}`}
-                      style={getElementStyle(
-                        `features-with-card-span-${index + 1}`,
-                        uniqueId
-                      )}
-                      className={`features-with-card-span-${
-                        index + 1
-                      }-${uniqueId} text-3xl font-bold`}
-                      data-text="Type a paragraph"
-                      data-uses-dangerously-set-inner-html="true"
-                      contentEditable={false}
-                      onClick={handleTextClick}
-                      dangerouslySetInnerHTML={{
-                        __html: isEdited[
-                          `features-with-card-span-text-3-${
-                            index + 1
-                          }-${uniqueId}`
-                        ]
-                          ? elementContent[
-                              `features-with-card-span-text-3-${
-                                index + 1
-                              }-${uniqueId}`
-                            ]
-                          : elementContent[
-                              `features-with-card-span-text-3-${
-                                index + 1
-                              }-${uniqueId}`
-                            ] || "1234",
-                      }}
-                    ></span>
-                    <span
-                      id={`features-with-card-span-text-4-${
-                        index + 1
-                      }-${uniqueId}`}
-                      style={getElementStyle(
-                        `features-with-card-span-${index + 1}`,
-                        uniqueId
-                      )}
-                      className={`features-with-card-span-${
-                        index + 1
-                      }-${uniqueId} text-lg font-medium`}
-                      data-text="Type a paragraph"
-                      data-uses-dangerously-set-inner-html="true"
-                      contentEditable={false}
-                      onClick={handleTextClick}
-                      dangerouslySetInnerHTML={{
-                        __html: isEdited[
-                          `features-with-card-span-text-4-${
-                            index + 1
-                          }-${uniqueId}`
-                        ]
-                          ? elementContent[
-                              `features-with-card-span-text-4-${
-                                index + 1
-                              }-${uniqueId}`
-                            ]
-                          : elementContent[
-                              `features-with-card-span-text-4-${
-                                index + 1
-                              }-${uniqueId}`
-                            ] || "Active Install",
-                      }}
-                    ></span>
-                  </div>
+                  <FaCheck className="text-xl" />
+                  <span
+                    id={`features-with-card-span-text-2-${
+                      index + 1
+                    }-${uniqueId}`}
+                    style={getElementStyle(
+                      `features-with-card-span-${index + 1}`,
+                      uniqueId
+                    )}
+                    className={`features-with-card-span-${
+                      index + 1
+                    }-${uniqueId} text-xl`}
+                    data-text="Type a paragraph"
+                    data-uses-dangerously-set-inner-html="true"
+                    contentEditable={false}
+                    onClick={handleTextClick}
+                    dangerouslySetInnerHTML={{
+                      __html: isEdited[
+                        `features-with-card-span-text-2-${
+                          index + 1
+                        }-${uniqueId}`
+                      ]
+                        ? elementContent[
+                            `features-with-card-span-text-2-${
+                              index + 1
+                            }-${uniqueId}`
+                          ]
+                        : elementContent[
+                            `features-with-card-span-text-2-${
+                              index + 1
+                            }-${uniqueId}`
+                          ] || "Diam dolor diam ipsum et tempor sit",
+                    }}
+                  ></span>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <FaCheck className="text-xl" />
+                  <span
+                    id={`features-with-card-span-text-3-${
+                      index + 1
+                    }-${uniqueId}`}
+                    style={getElementStyle(
+                      `features-with-card-span-${index + 1}`,
+                      uniqueId
+                    )}
+                    className={`features-with-card-span-${
+                      index + 1
+                    }-${uniqueId} text-xl`}
+                    data-text="Type a paragraph"
+                    data-uses-dangerously-set-inner-html="true"
+                    contentEditable={false}
+                    onClick={handleTextClick}
+                    dangerouslySetInnerHTML={{
+                      __html: isEdited[
+                        `features-with-card-span-text-3-${
+                          index + 1
+                        }-${uniqueId}`
+                      ]
+                        ? elementContent[
+                            `features-with-card-span-text-3-${
+                              index + 1
+                            }-${uniqueId}`
+                          ]
+                        : elementContent[
+                            `features-with-card-span-text-3-${
+                              index + 1
+                            }-${uniqueId}`
+                          ] || "Diam dolor diam ipsum et tempor sit",
+                    }}
+                  ></span>
                 </div>
               </div>
               <div className="">
@@ -308,7 +276,7 @@ const FeatureWithCardComponentSix = ({
                     ] || text.images[7]
                   }
                   alt="quickui-lib-image"
-                  className="w-[223px] h-[470px] rounded-3xl object-cover"
+                  className="w-[223px] h-[470px] rounded-3xl"
                   onClick={() =>
                     handleImageClick(
                       elementContent[
@@ -327,4 +295,4 @@ const FeatureWithCardComponentSix = ({
   );
 };
 
-export default FeatureWithCardComponentSix;
+export default FeatureWithCardComponentSeven;
