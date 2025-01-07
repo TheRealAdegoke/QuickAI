@@ -154,21 +154,21 @@ export const heroComponents = ({
       handleDivButtonClick={handleDivButtonClick}
       handleCardClick={handleCardClick}
     />,
-    // <HeroComponentNine
-    //   text={text}
-    //   buttonIndex={buttonIndex}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleImageClick={handleImageClick}
-    //   handleDivButtonClick={handleDivButtonClick}
-    //   handleCardClick={handleCardClick}
-    // />,
+    <HeroComponentNine
+      text={text}
+      buttonIndex={buttonIndex}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleImageClick={handleImageClick}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+    />,
   ];
 };

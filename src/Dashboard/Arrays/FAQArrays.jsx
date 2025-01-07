@@ -71,19 +71,20 @@ export const faqComponent = ({
       elementContent={elementContent}
       handleCardClick={handleCardClick}
     />,
-    <FAQComponentFive
-      text={text}
-      isMobile={isMobile}
-      handleDivClick={handleDivClick}
-      handleTextClick={handleTextClick}
-      getStyle={getStyle}
-      getElementStyle={getElementStyle}
-      index={index}
-      isEdited={isEdited}
-      uniqueId={uniqueId}
-      elementContent={elementContent}
-      handleCardClick={handleCardClick}
-      handleDivButtonClick={handleDivButtonClick}
-    />,
+    // ! Replace the below
+    // <FAQComponentFive
+    //   text={text}
+    //   isMobile={isMobile}
+    //   handleDivClick={handleDivClick}
+    //   handleTextClick={handleTextClick}
+    //   getStyle={getStyle}
+    //   getElementStyle={getElementStyle}
+    //   index={index}
+    //   isEdited={isEdited}
+    //   uniqueId={uniqueId}
+    //   elementContent={elementContent}
+    //   handleCardClick={handleCardClick}
+    //   handleDivButtonClick={handleDivButtonClick}
+    // />,
   ];
 };

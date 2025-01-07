@@ -1,3 +1,4 @@
+import FeatureComponentEight from "./ArrayComponentsForDesigns/FeaturesArrayComponentFolder/FeatureComponentEight";
 import FeatureComponentFive from "./ArrayComponentsForDesigns/FeaturesArrayComponentFolder/FeatureComponentFive";
 import FeatureComponentFour from "./ArrayComponentsForDesigns/FeaturesArrayComponentFolder/FeatureComponentFour";
 import FeatureComponentOne from "./ArrayComponentsForDesigns/FeaturesArrayComponentFolder/FeatureComponentOne";
@@ -106,20 +107,35 @@ export const featuresComponents = ({
       handleDivButtonClick={handleDivButtonClick}
       handleCardClick={handleCardClick}
     />,
-    // <FeatureComponentSeven
-    //   text={text}
-    //   isMobile={isMobile}
-    //   handleDivClick={handleDivClick}
-    //   handleTextClick={handleTextClick}
-    //   getStyle={getStyle}
-    //   getElementStyle={getElementStyle}
-    //   index={index}
-    //   isEdited={isEdited}
-    //   uniqueId={uniqueId}
-    //   elementContent={elementContent}
-    //   handleDivButtonClick={handleDivButtonClick}
-    //   handleCardClick={handleCardClick}
-    //   handleImageClick={handleImageClick}
-    // />,
+    <FeatureComponentSeven
+      text={text}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+      handleImageClick={handleImageClick}
+    />,
+    <FeatureComponentEight
+      text={text}
+      isMobile={isMobile}
+      handleDivClick={handleDivClick}
+      handleTextClick={handleTextClick}
+      getStyle={getStyle}
+      getElementStyle={getElementStyle}
+      index={index}
+      isEdited={isEdited}
+      uniqueId={uniqueId}
+      elementContent={elementContent}
+      handleDivButtonClick={handleDivButtonClick}
+      handleCardClick={handleCardClick}
+      handleImageClick={handleImageClick}
+    />,
   ];
 };

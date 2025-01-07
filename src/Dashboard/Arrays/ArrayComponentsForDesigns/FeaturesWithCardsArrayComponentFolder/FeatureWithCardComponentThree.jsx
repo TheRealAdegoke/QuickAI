@@ -31,7 +31,7 @@ const FeatureWithCardComponentThree = ({
             } w-[50%] flex flex-col items-start gap-3 max-lg:w-full`}
           >
             <div className="">
-              <h1
+              <h2
                 id={`features-with-card-heading-${index + 1}-${uniqueId}`}
                 style={getElementStyle(
                   `features-with-card-heading-${index + 1}`,
@@ -54,7 +54,7 @@ const FeatureWithCardComponentThree = ({
                         `features-with-card-heading-${index + 1}-${uniqueId}`
                       ] || text.featureHeader[0],
                 }}
-              ></h1>
+              ></h2>
               <p
                 id={`features-with-card-paragraph-${index + 1}-${uniqueId}`}
                 style={getElementStyle(

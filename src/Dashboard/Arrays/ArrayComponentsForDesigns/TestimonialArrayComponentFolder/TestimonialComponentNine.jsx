@@ -18,9 +18,34 @@ const TestimonialComponentNine = ({
         id={`testimonial-section-${index + 1}-${uniqueId}`}
         style={getStyle(`testimonial-section-${index + 1}`, uniqueId)}
       >
-        <div className="py-24 lg:px-10 px-5 flex max-lg:flex-col gap-24 w-[95%] max-w-[1300px] mx-auto">
-          <div className="w-2/5 max-lg:w-full">
-            <h2
+        <div className="py-24 text-black">
+          <div className="text-center mb-20">
+            <p
+              id={`testimonial-paragraph-text-1-${index + 1}-${uniqueId}`}
+              style={getElementStyle(
+                `testimonial-paragraph-${index + 1}`,
+                uniqueId
+              )}
+              className={`testimonial-paragraph-${
+                index + 1
+              }-${uniqueId} font-semibold mb-3`}
+              data-text="Type a paragraph"
+              data-uses-dangerously-set-inner-html="true"
+              contentEditable={false}
+              onClick={handleTextClick}
+              dangerouslySetInnerHTML={{
+                __html: isEdited[
+                  `testimonial-paragraph-text-1-${index + 1}-${uniqueId}`
+                ]
+                  ? elementContent[
+                      `testimonial-paragraph-text-1-${index + 1}-${uniqueId}`
+                    ]
+                  : elementContent[
+                      `testimonial-paragraph-text-1-${index + 1}-${uniqueId}`
+                    ] || "Testimonial",
+              }}
+            ></p>
+            <h1
               id={`testimonial-heading-${index + 1}-${uniqueId}`}
               style={getElementStyle(
                 `testimonial-heading-${index + 1}`,
@@ -28,9 +53,8 @@ const TestimonialComponentNine = ({
               )}
               className={`testimonial-heading-${
                 index + 1
-              }-${uniqueId} text-5xl max-lg:text-4xl text-[rgba(22,38,23,1)] font-extrabold`}
+              }-${uniqueId} text-3xl font-bold mb-5`}
               data-text="Heading"
-              data-uses-dangerously-set-inner-html="true"
               contentEditable={false}
               onClick={handleTextClick}
               dangerouslySetInnerHTML={{
@@ -40,157 +64,482 @@ const TestimonialComponentNine = ({
                     ]
                   : elementContent[
                       `testimonial-heading-${index + 1}-${uniqueId}`
-                    ] || text.featureHeader[2],
+                    ] || text.customerHeader[0],
               }}
-            ></h2>
-            <div
-              id={`header-underline-${index + 1}-${uniqueId}`}
-              className="h-[6px] w-[100px] my-5"
-              onClick={handleCardClick}
-              style={getStyle(
-                `header-underline-${index + 1}`,
-                uniqueId,
-                "rgba(22,38,23,1)"
-              )}
-            ></div>
-            <p
-              id={`testimonial-paragraph-${index + 1}-${uniqueId}`}
-              style={getElementStyle(
-                `testimonial-paragraph-${index + 1}`,
-                uniqueId
-              )}
-              className={`testimonial-paragraph-${
-                index + 1
-              }-${uniqueId} text-[rgba(22,38,23,1)]`}
-              data-text="Type a paragraph"
-              data-uses-dangerously-set-inner-html="true"
-              contentEditable={false}
-              onClick={handleTextClick}
-              dangerouslySetInnerHTML={{
-                __html: isEdited[
-                  `testimonial-paragraph-${index + 1}-${uniqueId}`
-                ]
-                  ? elementContent[
-                      `testimonial-paragraph-${index + 1}-${uniqueId}`
-                    ]
-                  : elementContent[
-                      `testimonial-paragraph-${index + 1}-${uniqueId}`
-                    ] || text.description,
-              }}
-            ></p>
+            ></h1>
           </div>
 
-          <div
-            className="h-[450px] bg-[rgba(0,0,0,0.6)] w-2/6 max-lg:w-full rounded-3xl pr-2 pt-1 pb-2 relative"
-          >
-            <img
-              id={`testimonial-image-${index + 2}-${uniqueId}`}
-              src={
-                elementContent[`testimonial-image-${index + 2}-${uniqueId}`] ||
-                text.images[9]
-              }
-              alt="quickui-lib-image"
-              onClick={() =>
-                handleImageClick(
-                  elementContent[
-                    `testimonial-image-${index + 2}-${uniqueId}`
-                  ] || text.images[4],
-                  `testimonial-image-${index + 2}-${uniqueId}`
-                )
-              }
-              className="h-full w-full rounded-3xl object-cover"
-            />
-            <span
-              id={`testimonial-image-card-2-${index + 1}-${uniqueId}`}
-              className="px-10 py-5 rounded-xl shadow-[4px_4px_0px_0px_rgba(22,38,23,1)] max-lg:w-[80%] w-[100%] absolute top-[25%] right-[-40%] max-lg:top-[60%] max-lg:right-[11%] flex flex-col gap-3 text-black"
+          <div className="flex justify-center flex-wrap gap-6 w-[90%] max-w-[1200px] mx-auto max-md:flex-col max-md:gap-y-14">
+            <div
+              id={`testimonial-section-card-${index + 1}-${uniqueId}`}
+              className="w-[30%] max-md:w-[95%] mx-auto px-3 py-8 rounded-lg flex flex-col items-start justify-center gap-y-4 relative"
               onClick={handleCardClick}
               style={getStyle(
-                `testimonial-image-card-2-${index + 1}`,
+                `testimonial-section-card-${index + 1}`,
                 uniqueId,
-                "white"
+                "rgb(240,246,255)"
               )}
             >
-              <p
-                id={`testimonial-star-${index + 1}-${uniqueId}`}
-                style={getElementStyle(
-                  `testimonial-star-${index + 1}`,
-                  uniqueId
-                )}
-                className={`testimonial-star-${index + 1}-${uniqueId}`}
-                data-text="Type a paragraph"
-                contentEditable={false}
-                onClick={handleTextClick}
-              >
-                {isEdited[`testimonial-star-${index + 1}-${uniqueId}`]
-                  ? elementContent[`testimonial-star-${index + 1}-${uniqueId}`]
-                  : elementContent[
-                      `testimonial-star-${index + 1}-${uniqueId}`
-                    ] || "★★★★★"}
-              </p>
-              <p
-                id={`testimonial-desc-1-${index + 1}-${uniqueId}`}
-                style={getElementStyle(
-                  `testimonial-desc-1-${index + 1}`,
-                  uniqueId
-                )}
-                className={`testimonial-desc-1-${index + 1}-${uniqueId}`}
-                data-text="Type a paragraph"
-                contentEditable={false}
-                onClick={handleTextClick}
-              >
-                {isEdited[`testimonial-desc-1-${index + 1}-${uniqueId}`]
-                  ? elementContent[
-                      `testimonial-desc-1-${index + 1}-${uniqueId}`
-                    ]
-                  : elementContent[
-                      `testimonial-desc-1-${index + 1}-${uniqueId}`
-                    ] ||
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias et architecto voluptate distinctio. Maxime consectetur placeat ipsum voluptatibus blanditiis cum iure."}
-              </p>
+              <div className="flex gap-x-5">
+                <div className="size-[70px]">
+                  <img
+                    id={`testimonial-image-1-${index + 1}-${uniqueId}`}
+                    src={
+                      elementContent[
+                        `testimonial-image-1-${index + 1}-${uniqueId}`
+                      ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                    }
+                    alt=""
+                    className="block rounded-lg w-full h-full object-cover"
+                    onClick={() =>
+                      handleImageClick(
+                        elementContent[
+                          `testimonial-image-1-${index + 1}-${uniqueId}`
+                        ] ||
+                          "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                        `testimonial-image-1-${index + 1}-${uniqueId}`
+                      )
+                    }
+                  />
+                </div>
 
-              <div>
-                <h2
-                  id={`testimonial-name-desc-${index + 1}-${uniqueId}`}
-                  style={getElementStyle(
-                    `testimonial-name-desc-${index + 1}`,
-                    uniqueId
-                  )}
-                  className={`testimonial-name-desc-${
-                    index + 1
-                  }-${uniqueId} font-bold`}
-                  data-text="Type a paragraph"
-                  contentEditable={false}
-                  onClick={handleTextClick}
-                >
-                  {isEdited[`testimonial-name-desc-${index + 1}-${uniqueId}`]
-                    ? elementContent[
-                        `testimonial-name-desc-${index + 1}-${uniqueId}`
+                <div>
+                  <h2
+                    id={`testimonial-sub-heading-text-1-${
+                      index + 1
+                    }-${uniqueId}`}
+                    style={getElementStyle(
+                      `testimonial-sub-heading-${index + 1}`,
+                      uniqueId
+                    )}
+                    className={`testimonial-sub-heading-${
+                      index + 1
+                    }-${uniqueId} text-xl font-semibold`}
+                    data-text="Heading"
+                    data-uses-dangerously-set-inner-html="true"
+                    contentEditable={false}
+                    onClick={handleTextClick}
+                    dangerouslySetInnerHTML={{
+                      __html: isEdited[
+                        `testimonial-sub-heading-text-1-${
+                          index + 1
+                        }-${uniqueId}`
                       ]
-                    : elementContent[
-                        `testimonial-name-desc-${index + 1}-${uniqueId}`
-                      ] || "John Doe"}
-                </h2>
-                <p
-                  id={`testimonial-desc-2${index + 1}-${uniqueId}`}
-                  style={getElementStyle(
-                    `testimonial-desc-2${index + 1}`,
-                    uniqueId
-                  )}
-                  className={`testimonial-desc-2${index + 1}-${uniqueId}`}
-                  data-text="Type a paragraph"
-                  contentEditable={false}
-                  onClick={handleTextClick}
-                >
-                  {isEdited[`testimonial-desc-2${index + 1}-${uniqueId}`]
-                    ? elementContent[
-                        `testimonial-desc-2${index + 1}-${uniqueId}`
+                        ? elementContent[
+                            `testimonial-sub-heading-text-1-${
+                              index + 1
+                            }-${uniqueId}`
+                          ]
+                        : elementContent[
+                            `testimonial-sub-heading-text-1-${
+                              index + 1
+                            }-${uniqueId}`
+                          ] || "Client Name",
+                    }}
+                  ></h2>
+                  <p
+                    id={`testimonial-name-header-paragraph-text-1-${
+                      index + 1
+                    }-${uniqueId}`}
+                    style={getElementStyle(
+                      `testimonial-name-header-paragraph-${index + 1}`,
+                      uniqueId
+                    )}
+                    className={`testimonial-name-header-paragraph-${
+                      index + 1
+                    }-${uniqueId} font-semibold`}
+                    data-text="Type a paragraph"
+                    data-uses-dangerously-set-inner-html="true"
+                    contentEditable={false}
+                    onClick={handleTextClick}
+                    dangerouslySetInnerHTML={{
+                      __html: isEdited[
+                        `testimonial-name-header-paragraph-text-1-${
+                          index + 1
+                        }-${uniqueId}`
                       ]
-                    : elementContent[
-                        `testimonial-desc-2${index + 1}-${uniqueId}`
-                      ] || "Founder"}
-                </p>
+                        ? elementContent[
+                            `testimonial-name-header-paragraph-text-1-${
+                              index + 1
+                            }-${uniqueId}`
+                          ]
+                        : elementContent[
+                            `testimonial-name-header-paragraph-text-1-${
+                              index + 1
+                            }-${uniqueId}`
+                          ] || "Profession",
+                    }}
+                  ></p>
+                  <p
+                    id={`testimonial-icon-text-1-${index + 1}-${uniqueId}`}
+                    style={getElementStyle(
+                      `testimonial-icon-${index + 1}`,
+                      uniqueId
+                    )}
+                    className={`testimonial-icon-${index + 1}-${uniqueId}`}
+                    data-text="Type a paragraph"
+                    data-uses-dangerously-set-inner-html="true"
+                    contentEditable={false}
+                    onClick={handleTextClick}
+                    dangerouslySetInnerHTML={{
+                      __html: isEdited[
+                        `testimonial-icon-text-1-${index + 1}-${uniqueId}`
+                      ]
+                        ? elementContent[
+                            `testimonial-icon-text-1-${index + 1}-${uniqueId}`
+                          ]
+                        : elementContent[
+                            `testimonial-icon-text-1-${index + 1}-${uniqueId}`
+                          ] || "★★★★★★",
+                    }}
+                  ></p>
+                </div>
               </div>
-            </span>
+              <p
+                id={`testimonial-sub-paragraph-text-1-${index + 1}-${uniqueId}`}
+                style={getElementStyle(
+                  `testimonial-sub-paragraph-${index + 1}`,
+                  uniqueId
+                )}
+                className={`testimonial-sub-paragraph-${
+                  index + 1
+                }-${uniqueId} font-medium text-[rgba(0,0,0,0.5)]`}
+                data-text="Type a paragraph"
+                data-uses-dangerously-set-inner-html="true"
+                contentEditable={false}
+                onClick={handleTextClick}
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[
+                    `testimonial-sub-paragraph-text-1-${index + 1}-${uniqueId}`
+                  ]
+                    ? elementContent[
+                        `testimonial-sub-paragraph-text-1-${
+                          index + 1
+                        }-${uniqueId}`
+                      ]
+                    : elementContent[
+                        `testimonial-sub-paragraph-text-1-${
+                          index + 1
+                        }-${uniqueId}`
+                      ] || text.customerReviewText[0],
+                }}
+              ></p>
+            </div>
+
+            <div
+              id={`testimonial-section-card-${index + 1}-${uniqueId}`}
+              className="w-[30%] max-md:w-[95%] mx-auto px-3 py-8 rounded-lg flex flex-col items-start justify-center gap-y-4 relative"
+              onClick={handleCardClick}
+              style={getStyle(
+                `testimonial-section-card-${index + 1}`,
+                uniqueId,
+                "rgb(240,246,255)"
+              )}
+            >
+              <div className="flex gap-x-5">
+                <div className="size-[70px]">
+                  <img
+                    id={`testimonial-image-2-${index + 1}-${uniqueId}`}
+                    src={
+                      elementContent[
+                        `testimonial-image-2-${index + 1}-${uniqueId}`
+                      ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                    }
+                    alt=""
+                    className="block rounded-lg w-full h-full object-cover"
+                    onClick={() =>
+                      handleImageClick(
+                        elementContent[
+                          `testimonial-image-2-${index + 1}-${uniqueId}`
+                        ] ||
+                          "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                        `testimonial-image-2-${index + 1}-${uniqueId}`
+                      )
+                    }
+                  />
+                </div>
+
+                <div>
+                  <h2
+                    id={`testimonial-sub-heading-text-2-${
+                      index + 1
+                    }-${uniqueId}`}
+                    style={getElementStyle(
+                      `testimonial-sub-heading-${index + 1}`,
+                      uniqueId
+                    )}
+                    className={`testimonial-sub-heading-${
+                      index + 1
+                    }-${uniqueId} text-xl font-semibold`}
+                    data-text="Heading"
+                    data-uses-dangerously-set-inner-html="true"
+                    contentEditable={false}
+                    onClick={handleTextClick}
+                    dangerouslySetInnerHTML={{
+                      __html: isEdited[
+                        `testimonial-sub-heading-text-2-${
+                          index + 1
+                        }-${uniqueId}`
+                      ]
+                        ? elementContent[
+                            `testimonial-sub-heading-text-2-${
+                              index + 1
+                            }-${uniqueId}`
+                          ]
+                        : elementContent[
+                            `testimonial-sub-heading-text-2-${
+                              index + 1
+                            }-${uniqueId}`
+                          ] || "Client Name",
+                    }}
+                  ></h2>
+                  <p
+                    id={`testimonial-name-header-paragraph-text-2-${
+                      index + 1
+                    }-${uniqueId}`}
+                    style={getElementStyle(
+                      `testimonial-name-header-paragraph-${index + 1}`,
+                      uniqueId
+                    )}
+                    className={`testimonial-name-header-paragraph-${
+                      index + 1
+                    }-${uniqueId} font-semibold`}
+                    data-text="Type a paragraph"
+                    data-uses-dangerously-set-inner-html="true"
+                    contentEditable={false}
+                    onClick={handleTextClick}
+                    dangerouslySetInnerHTML={{
+                      __html: isEdited[
+                        `testimonial-name-header-paragraph-text-2-${
+                          index + 1
+                        }-${uniqueId}`
+                      ]
+                        ? elementContent[
+                            `testimonial-name-header-paragraph-text-2-${
+                              index + 1
+                            }-${uniqueId}`
+                          ]
+                        : elementContent[
+                            `testimonial-name-header-paragraph-text-2-${
+                              index + 1
+                            }-${uniqueId}`
+                          ] || "Profession",
+                    }}
+                  ></p>
+                  <p
+                    id={`testimonial-icon-text-2-${index + 1}-${uniqueId}`}
+                    style={getElementStyle(
+                      `testimonial-icon-${index + 1}`,
+                      uniqueId
+                    )}
+                    className={`testimonial-icon-${index + 1}-${uniqueId}`}
+                    data-text="Type a paragraph"
+                    data-uses-dangerously-set-inner-html="true"
+                    contentEditable={false}
+                    onClick={handleTextClick}
+                    dangerouslySetInnerHTML={{
+                      __html: isEdited[
+                        `testimonial-icon-text-2-${index + 1}-${uniqueId}`
+                      ]
+                        ? elementContent[
+                            `testimonial-icon-text-2-${index + 1}-${uniqueId}`
+                          ]
+                        : elementContent[
+                            `testimonial-icon-text-2-${index + 1}-${uniqueId}`
+                          ] || "★★★★★★",
+                    }}
+                  ></p>
+                </div>
+              </div>
+              <p
+                id={`testimonial-sub-paragraph-text-2-${index + 1}-${uniqueId}`}
+                style={getElementStyle(
+                  `testimonial-sub-paragraph-${index + 1}`,
+                  uniqueId
+                )}
+                className={`testimonial-sub-paragraph-${
+                  index + 1
+                }-${uniqueId} font-medium text-[rgba(0,0,0,0.5)]`}
+                data-text="Type a paragraph"
+                data-uses-dangerously-set-inner-html="true"
+                contentEditable={false}
+                onClick={handleTextClick}
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[
+                    `testimonial-sub-paragraph-text-2-${index + 1}-${uniqueId}`
+                  ]
+                    ? elementContent[
+                        `testimonial-sub-paragraph-text-2-${
+                          index + 1
+                        }-${uniqueId}`
+                      ]
+                    : elementContent[
+                        `testimonial-sub-paragraph-text-2-${
+                          index + 1
+                        }-${uniqueId}`
+                      ] || text.customerReviewText[0],
+                }}
+              ></p>
+            </div>
+
+            <div
+              id={`testimonial-section-card-${index + 1}-${uniqueId}`}
+              className="w-[30%] max-md:w-[95%] mx-auto px-3 py-8 rounded-lg flex flex-col items-start justify-center gap-y-4 relative"
+              onClick={handleCardClick}
+              style={getStyle(
+                `testimonial-section-card-${index + 1}`,
+                uniqueId,
+                "rgb(240,246,255)"
+              )}
+            >
+              <div className="flex gap-x-5">
+                <div className="size-[70px]">
+                  <img
+                    id={`testimonial-image-3-${index + 1}-${uniqueId}`}
+                    src={
+                      elementContent[
+                        `testimonial-image-3-${index + 1}-${uniqueId}`
+                      ] ||
+                      "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png"
+                    }
+                    alt=""
+                    className="block rounded-lg w-full h-full object-cover"
+                    onClick={() =>
+                      handleImageClick(
+                        elementContent[
+                          `testimonial-image-3-${index + 1}-${uniqueId}`
+                        ] ||
+                          "https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_640.png",
+                        `testimonial-image-3-${index + 1}-${uniqueId}`
+                      )
+                    }
+                  />
+                </div>
+
+                <div>
+                  <h2
+                    id={`testimonial-sub-heading-text-3-${
+                      index + 1
+                    }-${uniqueId}`}
+                    style={getElementStyle(
+                      `testimonial-sub-heading-${index + 1}`,
+                      uniqueId
+                    )}
+                    className={`testimonial-sub-heading-${
+                      index + 1
+                    }-${uniqueId} text-xl font-semibold`}
+                    data-text="Heading"
+                    data-uses-dangerously-set-inner-html="true"
+                    contentEditable={false}
+                    onClick={handleTextClick}
+                    dangerouslySetInnerHTML={{
+                      __html: isEdited[
+                        `testimonial-sub-heading-text-3-${
+                          index + 1
+                        }-${uniqueId}`
+                      ]
+                        ? elementContent[
+                            `testimonial-sub-heading-text-3-${
+                              index + 1
+                            }-${uniqueId}`
+                          ]
+                        : elementContent[
+                            `testimonial-sub-heading-text-3-${
+                              index + 1
+                            }-${uniqueId}`
+                          ] || "Client Name",
+                    }}
+                  ></h2>
+                  <p
+                    id={`testimonial-name-header-paragraph-text-3-${
+                      index + 1
+                    }-${uniqueId}`}
+                    style={getElementStyle(
+                      `testimonial-name-header-paragraph-${index + 1}`,
+                      uniqueId
+                    )}
+                    className={`testimonial-name-header-paragraph-${
+                      index + 1
+                    }-${uniqueId} font-semibold`}
+                    data-text="Type a paragraph"
+                    data-uses-dangerously-set-inner-html="true"
+                    contentEditable={false}
+                    onClick={handleTextClick}
+                    dangerouslySetInnerHTML={{
+                      __html: isEdited[
+                        `testimonial-name-header-paragraph-text-3-${
+                          index + 1
+                        }-${uniqueId}`
+                      ]
+                        ? elementContent[
+                            `testimonial-name-header-paragraph-text-3-${
+                              index + 1
+                            }-${uniqueId}`
+                          ]
+                        : elementContent[
+                            `testimonial-name-header-paragraph-text-3-${
+                              index + 1
+                            }-${uniqueId}`
+                          ] || "Profession",
+                    }}
+                  ></p>
+                  <p
+                    id={`testimonial-icon-text-3-${index + 1}-${uniqueId}`}
+                    style={getElementStyle(
+                      `testimonial-icon-${index + 1}`,
+                      uniqueId
+                    )}
+                    className={`testimonial-icon-${index + 1}-${uniqueId}`}
+                    data-text="Type a paragraph"
+                    data-uses-dangerously-set-inner-html="true"
+                    contentEditable={false}
+                    onClick={handleTextClick}
+                    dangerouslySetInnerHTML={{
+                      __html: isEdited[
+                        `testimonial-icon-text-3-${index + 1}-${uniqueId}`
+                      ]
+                        ? elementContent[
+                            `testimonial-icon-text-3-${index + 1}-${uniqueId}`
+                          ]
+                        : elementContent[
+                            `testimonial-icon-text-3-${index + 1}-${uniqueId}`
+                          ] || "★★★★★★",
+                    }}
+                  ></p>
+                </div>
+              </div>
+              <p
+                id={`testimonial-sub-paragraph-text-3-${index + 1}-${uniqueId}`}
+                style={getElementStyle(
+                  `testimonial-sub-paragraph-${index + 1}`,
+                  uniqueId
+                )}
+                className={`testimonial-sub-paragraph-${
+                  index + 1
+                }-${uniqueId} font-medium text-[rgba(0,0,0,0.5)]`}
+                data-text="Type a paragraph"
+                data-uses-dangerously-set-inner-html="true"
+                contentEditable={false}
+                onClick={handleTextClick}
+                dangerouslySetInnerHTML={{
+                  __html: isEdited[
+                    `testimonial-sub-paragraph-text-3-${index + 1}-${uniqueId}`
+                  ]
+                    ? elementContent[
+                        `testimonial-sub-paragraph-text-3-${
+                          index + 1
+                        }-${uniqueId}`
+                      ]
+                    : elementContent[
+                        `testimonial-sub-paragraph-text-3-${
+                          index + 1
+                        }-${uniqueId}`
+                      ] || text.customerReviewText[0],
+                }}
+              ></p>
+            </div>
           </div>
         </div>
       </section>
