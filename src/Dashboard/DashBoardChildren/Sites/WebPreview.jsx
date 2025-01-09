@@ -16,6 +16,21 @@ import { IoClose } from "react-icons/io5";
 import { HiMiniBars2 } from "react-icons/hi2";
 import { TiArrowRightOutline } from "react-icons/ti";
 import { FaBarsStaggered } from "react-icons/fa6";
+import BGBottom from "../../../assets/bg-bottom.png";
+import BGTop from "../../../assets/bg-top.png";
+import ScreenShotFrame from "../../../assets/screenshot-frame.png";
+import ScreenShotImage from "../../../assets/screenshot-1.png";
+import { FaGears } from "react-icons/fa6";
+import { FaCheck } from "react-icons/fa6";
+import { FaEye } from "react-icons/fa";
+import { IoLocationSharp } from "react-icons/io5";
+import { FaEnvelope } from "react-icons/fa";
+import { FaPhoneAlt } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { GrFacebookOption } from "react-icons/gr";
+import { FaInstagram } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa";
+import { MdChevronRight } from "react-icons/md";
 
 const WebPreview = () => {
   const { userData } = useContext(DashContext);
@@ -78,10 +93,25 @@ const WebPreview = () => {
 
   const components = {
     Link,
+    BGBottom,
+    BGTop,
+    ScreenShotFrame,
+    ScreenShotImage,
     IoClose,
     HiMiniBars2,
     TiArrowRightOutline,
     FaBarsStaggered,
+    FaGears,
+    FaCheck,
+    FaEye,
+    IoLocationSharp,
+    FaEnvelope,
+    FaPhoneAlt,
+    FaXTwitter,
+    GrFacebookOption,
+    FaInstagram,
+    FaLinkedinIn,
+    MdChevronRight,
   };
 
   return (

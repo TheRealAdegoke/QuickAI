@@ -4,6 +4,8 @@ import CardFeatureImage1 from "../../../../assets/CardFeatureImage/CardFeatureIm
 import CardFeatureImage2 from "../../../../assets/CardFeatureImage/CardFeatureImage2.webp";
 import CardFeatureImage3 from "../../../../assets/CardFeatureImage/CardFeatureImage3.webp";
 import CardFeatureImage4 from "../../../../assets/CardFeatureImage/CardFeatureImage4.webp";
+import CardFeatureImage5 from "../../../../assets/CardFeatureImage/CardFeatureImage5.webp";
+import CardFeatureImage6 from "../../../../assets/CardFeatureImage/CardFeatureImage6.webp";
 import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
 export const CardFeaturesImages = () => {
@@ -28,6 +30,14 @@ export const CardFeaturesImages = () => {
     {
       index: 4,
       image: CardFeatureImage4,
+    },
+    {
+      index: 5,
+      image: CardFeatureImage5,
+    },
+    {
+      index: 6,
+      image: CardFeatureImage6,
     },
   ];
 

@@ -7,6 +7,7 @@ import HeroImage4 from "../../../../assets/HeroImages/HeroImage4.webp";
 import HeroImage5 from "../../../../assets/HeroImages/HeroImage5.webp";
 import HeroImage6 from "../../../../assets/HeroImages/HeroImage6.webp";
 import HeroImage7 from "../../../../assets/HeroImages/HeroImage7.webp";
+import HeroImage8 from "../../../../assets/HeroImages/HeroImage8.webp";
 import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
 export const HeroImages = () => {
@@ -44,6 +45,10 @@ export const HeroImages = () => {
     {
       index: 7,
       image: HeroImage7,
+    },
+    {
+      index: 8,
+      image: HeroImage8,
     },
   ];
 

@@ -1,5 +1,7 @@
 import { useContext } from "react";
-import FooterImage0 from "../../../../assets/FooterImage/FooterImage1.webp";
+import FooterImage0 from "../../../../assets/FooterImage/FooterImage0.webp";
+import FooterImage1 from "../../../../assets/FooterImage/FooterImage1.webp";
+import FooterImage2 from "../../../../assets/FooterImage/FooterImage2.webp";
 import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
 const FooterImages = () => {
@@ -9,6 +11,14 @@ const FooterImages = () => {
     {
       index: 0,
       image: FooterImage0,
+    },
+    {
+      index: 1,
+      image: FooterImage1,
+    },
+    {
+      index: 2,
+      image: FooterImage2,
     },
   ];
 

@@ -16,6 +16,10 @@ export const HeaderImages = () => {
       index: 1,
       image: NavImage1,
     },
+    {
+      index: 2,
+      image: NavImage2,
+    },
   ];
 
 
