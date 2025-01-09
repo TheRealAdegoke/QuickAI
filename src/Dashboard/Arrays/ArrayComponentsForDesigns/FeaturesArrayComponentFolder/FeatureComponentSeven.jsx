@@ -43,7 +43,7 @@ const FeatureComponentSeven = ({
                     ]
                   : elementContent[
                       `features-paragraph-${index + 1}-${uniqueId}`
-                    ] || text.description,
+                    ] || "Screenshot",
               }}
             ></p>
             <h1

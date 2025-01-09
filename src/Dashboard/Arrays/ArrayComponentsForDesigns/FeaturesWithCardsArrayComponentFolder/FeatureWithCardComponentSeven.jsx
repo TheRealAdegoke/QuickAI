@@ -273,15 +273,15 @@ const FeatureWithCardComponentSeven = ({
                   src={
                     elementContent[
                       `features-with-card-image-${index + 2}-${uniqueId}`
-                    ] || text.images[7]
+                    ] || text.images[5]
                   }
                   alt="quickui-lib-image"
-                  className="w-[223px] h-[470px] rounded-3xl"
+                  className="w-[223px] h-[470px] rounded-3xl object-cover"
                   onClick={() =>
                     handleImageClick(
                       elementContent[
                         `features-with-card-image-${index + 2}-${uniqueId}`
-                      ] || text.images[7],
+                      ] || text.images[5],
                       `features-with-card-image-${index + 2}-${uniqueId}`
                     )
                   }

@@ -7,6 +7,7 @@ import TestimonialImage4 from "../../../../assets/TestimonialImage/TestimonialIm
 import TestimonialImage5 from "../../../../assets/TestimonialImage/TestimonialImage5.webp";
 import TestimonialImage6 from "../../../../assets/TestimonialImage/TestimonialImage6.webp";
 import TestimonialImage7 from "../../../../assets/TestimonialImage/TestimonialImage7.webp";
+import TestimonialImage8 from "../../../../assets/TestimonialImage/TestimonialImage8.webp";
 import { DashContext } from "../../../DashboardChecker/DashboardContext";
 
 export const TestimonialImages = () => {
@@ -43,6 +44,10 @@ export const TestimonialImages = () => {
     {
       index: 7,
       image: TestimonialImage7,
+    },
+    {
+      index: 8,
+      image: TestimonialImage8,
     },
   ];
 
