@@ -1,4 +1,4 @@
-import BGTop from "../../../../assets/bg-top.png";
+import BGTop from "https://quickui.co/assets/bg-top-6DQqHRlI.png";
 import { IoLocationSharp } from "react-icons/io5";
 import { FaEnvelope } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";

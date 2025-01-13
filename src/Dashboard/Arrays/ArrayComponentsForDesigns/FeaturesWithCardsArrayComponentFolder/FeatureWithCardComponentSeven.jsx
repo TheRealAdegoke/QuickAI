@@ -1,4 +1,4 @@
-import ScreenShotFrame from "../../../../assets/screenshot-frame.png";
+import ScreenShotFrame from "https://quickui.co/assets/screenshot-frame-DqZaIl2V.png";
 import { FaCheck } from "react-icons/fa6";
 
 const FeatureWithCardComponentSeven = ({
