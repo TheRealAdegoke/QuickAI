@@ -1,6 +1,4 @@
-import BGBottom from "https://quickui.co/assets/bg-bottom-DVEVYhXn.png";
 import { Link } from "react-router-dom";
-import ScreenShotFrame from "https://quickui.co/assets/screenshot-frame-DqZaIl2V.png";
 
 const HeroComponentNine = ({
   text,
@@ -130,7 +128,9 @@ const HeroComponentNine = ({
             <div className="w-[30%] max-lg:w-full max-lg:flex max-lg:justify-center">
               <div
                 className="w-[253px] h-[500px] p-[15px] lg:mr-[30px]"
-                style={{ backgroundImage: `url(${ScreenShotFrame})` }}
+                style={{
+                  backgroundImage: `url('https://quickui.co/assets/screenshot-frame-DqZaIl2V.png')`,
+                }}
               >
                 <img
                   id={`hero-image-${index + 1}-${uniqueId}`}
@@ -153,7 +153,11 @@ const HeroComponentNine = ({
           </div>
         </div>
         <div className="w-full">
-          <img src={BGBottom} alt="" className="w-full" />
+          <img
+            src="https://quickui.co/assets/bg-bottom-DVEVYhXn.png"
+            alt=""
+            className="w-full"
+          />
         </div>
       </section>
     </>
