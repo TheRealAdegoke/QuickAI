@@ -1,4 +1,3 @@
-import ScreenShotFrame from "https://quickui.co/assets/screenshot-frame-DqZaIl2V.png";
 import { FaGears } from "react-icons/fa6";
 
 const FeatureWithCardComponentSix = ({
@@ -298,7 +297,9 @@ const FeatureWithCardComponentSix = ({
             <div className="w-[30%] max-lg:w-full max-lg:flex max-lg:justify-center">
               <div
                 className="w-[253px] h-[500px] p-[15px] lg:mr-[30px]"
-                style={{ backgroundImage: `url(${ScreenShotFrame})` }}
+                style={{
+                  backgroundImage: `url('https://quickui.co/assets/screenshot-frame-DqZaIl2V.png')`,
+                }}
               >
                 <img
                   id={`features-with-card-image-${index + 2}-${uniqueId}`}

@@ -1,4 +1,3 @@
-import BGTop from "https://quickui.co/assets/bg-top-6DQqHRlI.png";
 import { IoLocationSharp } from "react-icons/io5";
 import { FaEnvelope } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
@@ -29,7 +28,11 @@ const FooterComponentThree = ({
         style={getStyle(`footer-section-${index + 1}`, uniqueId, "#4294E3")}
       >
         <div className="w-full">
-          <img src={BGTop} alt="" className="w-full" />
+          <img
+            src="https://quickui.co/assets/bg-top-6DQqHRlI.png"
+            alt=""
+            className="w-full"
+          />
         </div>
         <div className="flex justify-between max-lg:gap-y-14 flex-wrap max-w-[1100px] mx-auto pb-24 p-5 text-white">
           <div className="flex flex-col gap-y-5 w-1/5 max-lg:w-2/5 max-md:w-full">
