@@ -45,15 +45,16 @@ const EditAndSaveDesignModal = ({
 
     let elementString = reactElementToJSXString(element, {
       showFunctions: false,
-      displayName: (element) => {
-        // Provide a fallback for components with no display name
-        return element.type.displayName || element.type.name || "Component";
-      },
-      filterProps: ["ref"], // Remove ref as it's not serializable
     });
 
     // Remove fragments
     elementString = elementString.replace(/<>|<\/>/g, "");
+
+    // Replace <No display name></No display name> with <Link></Link>
+    elementString = elementString.replace(
+      /<No display name><\/No display name>/g,
+      "<Link></Link>"
+    );
 
     // Save the toggle button's content
     const toggleButtonMatch = elementString.match(
@@ -135,39 +136,39 @@ const EditAndSaveDesignModal = ({
         `<${tagName}${beforeAttributes}${afterAttributes}>${content}</${tagName}>`
     );
 
-    // Helper function for icons with dynamic attributes
-    const createIconRegexWithDynamicProps = (componentName) => {
-      return new RegExp(
-        `<${componentName}\\s+([^>]*)>(?![\\s\\S]*?<\\/${componentName}>)`,
-        "g"
-      );
-    };
+    // // Helper function for icons with dynamic attributes
+    // const createIconRegexWithDynamicProps = (componentName) => {
+    //   return new RegExp(
+    //     `<${componentName}\\s+([^>]*)>(?![\\s\\S]*?<\\/${componentName}>)`,
+    //     "g"
+    //   );
+    // };
 
     // Fix self-closing tags and icons
     elementString = elementString.replace(/\/>/g, ">"); // First convert all self-closing tags
     elementString = elementString.replace(/<br>/g, "<br />");
 
-    // Handle icon components with preserved attributes
-    const iconComponents = [
-      "FaBarsStaggered",
-      "FaCheck",
-      "FaEye",
-      "IoLocationSharp",
-      "FaPhoneAlt",
-      "FaEnvelope",
-      "FaXTwitter",
-      "GrFacebookOption",
-      "FaInstagram",
-      "FaLinkedinIn",
-      "MdChevronRight",
-    ];
+    // // Handle icon components with preserved attributes
+    // const iconComponents = [
+    //   "FaBarsStaggered",
+    //   "FaCheck",
+    //   "FaEye",
+    //   "IoLocationSharp",
+    //   "FaPhoneAlt",
+    //   "FaEnvelope",
+    //   "FaXTwitter",
+    //   "GrFacebookOption",
+    //   "FaInstagram",
+    //   "FaLinkedinIn",
+    //   "MdChevronRight",
+    // ];
 
-    iconComponents.forEach((componentName) => {
-      elementString = elementString.replace(
-        createIconRegexWithDynamicProps(componentName),
-        (match, attributes) => `<${componentName} ${attributes.trim()} />`
-      );
-    });
+    // iconComponents.forEach((componentName) => {
+    //   elementString = elementString.replace(
+    //     createIconRegexWithDynamicProps(componentName),
+    //     (match, attributes) => `<${componentName} ${attributes.trim()} />`
+    //   );
+    // });
 
     // Handle other self-closing elements
     elementString = elementString.replace(/<img([^>]*)>/g, "<img$1 />");
