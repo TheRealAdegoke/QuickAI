@@ -413,7 +413,13 @@ const FooterComponentThree = ({
                   ] || "Popular Link"}
             </h2>
             <Link to="" className="flex items-center gap-x-1 font-semibold">
-              <MdChevronRight />
+              <MdChevronRight
+                className={`footer-paragraph-${index + 1}-${uniqueId} text-xl`}
+                style={getElementStyle(
+                  `footer-paragraph-${index + 1}`,
+                  uniqueId
+                )}
+              />
               <p
                 id={`footer-third-paragraph-first-text-1-${
                   index + 1
@@ -444,7 +450,13 @@ const FooterComponentThree = ({
             </Link>
 
             <Link to="" className="flex items-center gap-x-1 font-semibold">
-              <MdChevronRight />
+              <MdChevronRight
+                className={`footer-paragraph-${index + 1}-${uniqueId} text-xl`}
+                style={getElementStyle(
+                  `footer-paragraph-${index + 1}`,
+                  uniqueId
+                )}
+              />
               <p
                 id={`footer-third-paragraph-first-text-2-${
                   index + 1
@@ -475,7 +487,13 @@ const FooterComponentThree = ({
             </Link>
 
             <Link to="" className="flex items-center gap-x-1 font-semibold">
-              <MdChevronRight />
+              <MdChevronRight
+                className={`footer-paragraph-${index + 1}-${uniqueId} text-xl`}
+                style={getElementStyle(
+                  `footer-paragraph-${index + 1}`,
+                  uniqueId
+                )}
+              />
               <p
                 id={`footer-third-paragraph-first-text-3-${
                   index + 1
@@ -506,7 +524,13 @@ const FooterComponentThree = ({
             </Link>
 
             <Link to="" className="flex items-center gap-x-1 font-semibold">
-              <MdChevronRight />
+              <MdChevronRight
+                className={`footer-paragraph-${index + 1}-${uniqueId} text-xl`}
+                style={getElementStyle(
+                  `footer-paragraph-${index + 1}`,
+                  uniqueId
+                )}
+              />
               <p
                 id={`footer-third-paragraph-first-text-4-${
                   index + 1
