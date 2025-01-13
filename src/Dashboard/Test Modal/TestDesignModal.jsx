@@ -69,7 +69,9 @@ const TestDesignModal = () => {
 
   return (
     <main className="bg-white w-full mt-5 max-md:mt-0 mx-10 h-[89vh] max-md:h-[89vh] max-[499px]:mx-4 overflow-scroll overflow-x-hidden">
-      <main></main>
+      <main>
+        
+      </main>
     </main>
   );
 };

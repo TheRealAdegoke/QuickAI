@@ -1,6 +1,6 @@
-import BGBottom from "../../../../assets/bg-bottom.png";
+import BGBottom from "https://quickui.co/assets/bg-bottom-DVEVYhXn.png";
 import { Link } from "react-router-dom";
-import ScreenShotFrame from "../../../../assets/screenshot-frame.png";
+import ScreenShotFrame from "https://quickui.co/assets/screenshot-frame-DqZaIl2V.png";
 
 const HeroComponentNine = ({
   text,
