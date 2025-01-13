@@ -45,6 +45,11 @@ const EditAndSaveDesignModal = ({
 
     let elementString = reactElementToJSXString(element, {
       showFunctions: false,
+      displayName: (element) => {
+        // Provide a fallback for components with no display name
+        return element.type.displayName || element.type.name || "Component";
+      },
+      filterProps: ["ref"], // Remove ref as it's not serializable
     });
 
     // Remove fragments
