@@ -60,7 +60,7 @@ const HeroComponentNine = ({
                 }}
               ></p>
               <div className="flex gap-x-5 max-lg:justify-center">
-                <Link
+                <button
                   to=""
                   id={`hero-link-${index + 1}-${uniqueId}`}
                   style={getStyle(
@@ -90,8 +90,8 @@ const HeroComponentNine = ({
                           `hero-link-text-1-${index + 1}-${uniqueId}`
                         ] || text.buttonTexts[5]}
                   </span>
-                </Link>
-                <Link
+                </button>
+                <button
                   to=""
                   id={`hero-link-${index + 1}-${uniqueId}`}
                   style={getStyle(
@@ -121,7 +121,7 @@ const HeroComponentNine = ({
                           `hero-link-text-2-${index + 1}-${uniqueId}`
                         ] || text.buttonTexts[5]}
                   </span>
-                </Link>
+                </button>
               </div>
             </div>
 

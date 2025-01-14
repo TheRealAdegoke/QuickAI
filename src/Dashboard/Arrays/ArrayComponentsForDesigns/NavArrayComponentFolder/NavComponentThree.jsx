@@ -28,7 +28,7 @@ const NavComponentThree = ({
         >
           <div className="flex justify-between items-center">
             <div className="lg:w-[55%]">
-              <Link to="">
+              <span>
                 <span
                   id={`nav-name-${index + 1}-${uniqueId}`}
                   className={`nav-name-${
@@ -44,7 +44,7 @@ const NavComponentThree = ({
                     : elementContent[`nav-name-${index + 1}-${uniqueId}`] ||
                       text.webLogo}
                 </span>
-              </Link>
+              </span>
             </div>
 
             <div className="hidden max-lg:block">
@@ -59,7 +59,7 @@ const NavComponentThree = ({
 
             <div className="flex justify-between lg:w-full items-center max-lg:hidden font-semibold">
               <div className="flex gap-8">
-                <Link to="">
+                <span>
                   <span
                     id={`list-link-text-1-${index + 1}-${uniqueId}`}
                     className={`list-link-text-${index + 1}-${uniqueId}`}
@@ -79,8 +79,8 @@ const NavComponentThree = ({
                           `list-link-text-1-${index + 1}-${uniqueId}`
                         ] || text.buttonTexts[2]}
                   </span>
-                </Link>
-                <Link to="">
+                </span>
+                <span>
                   <span
                     id={`list-link-text-2-${index + 1}-${uniqueId}`}
                     className={`list-link-text-${index + 1}-${uniqueId}`}
@@ -100,8 +100,8 @@ const NavComponentThree = ({
                           `list-link-text-2-${index + 1}-${uniqueId}`
                         ] || text.buttonTexts[3]}
                   </span>
-                </Link>
-                <Link to="">
+                </span>
+                <span>
                   <span
                     id={`list-link-text-3-${index + 1}-${uniqueId}`}
                     className={`list-link-text-${index + 1}-${uniqueId}`}
@@ -121,8 +121,8 @@ const NavComponentThree = ({
                           `list-link-text-3-${index + 1}-${uniqueId}`
                         ] || text.buttonTexts[4]}
                   </span>
-                </Link>
-                <Link to="">
+                </span>
+                <span>
                   <span
                     id={`list-link-text-4-${index + 1}-${uniqueId}`}
                     className={`list-link-text-${index + 1}-${uniqueId}`}
@@ -142,7 +142,7 @@ const NavComponentThree = ({
                           `list-link-text-4-${index + 1}-${uniqueId}`
                         ] || text.buttonTexts[5]}
                   </span>
-                </Link>
+                </span>
               </div>
 
               <div className="">
@@ -188,7 +188,7 @@ const NavComponentThree = ({
           } transition-all duration-500 ease-in-out overflow-hidden lg:hidden text-black border-t-[1px] px-5 py-4 mx-auto font-semibold`}
         >
           <div className="flex flex-col gap-8">
-            <Link to="">
+            <span>
               <span
                 id={`list-link-text-1-${index + 1}-${uniqueId}`}
                 className={`list-link-text-${index + 1}-${uniqueId}`}
@@ -203,8 +203,8 @@ const NavComponentThree = ({
                       `list-link-text-1-${index + 1}-${uniqueId}`
                     ] || text.buttonTexts[2]}
               </span>
-            </Link>
-            <Link to="">
+            </span>
+            <span>
               <span
                 id={`list-link-text-2-${index + 1}-${uniqueId}`}
                 className={`list-link-text-${index + 1}-${uniqueId}`}
@@ -219,8 +219,8 @@ const NavComponentThree = ({
                       `list-link-text-2-${index + 1}-${uniqueId}`
                     ] || text.buttonTexts[3]}
               </span>
-            </Link>
-            <Link to="">
+            </span>
+            <span>
               <span
                 id={`list-link-text-3-${index + 1}-${uniqueId}`}
                 className={`list-link-text-${index + 1}-${uniqueId}`}
@@ -235,8 +235,8 @@ const NavComponentThree = ({
                       `list-link-text-3-${index + 1}-${uniqueId}`
                     ] || text.buttonTexts[4]}
               </span>
-            </Link>
-            <Link to="">
+            </span>
+            <span>
               <span
                 id={`list-link-text-4-${index + 1}-${uniqueId}`}
                 className={`list-link-text-${index + 1}-${uniqueId}`}
@@ -251,7 +251,7 @@ const NavComponentThree = ({
                       `list-link-text-4-${index + 1}-${uniqueId}`
                     ] || text.buttonTexts[5]}
               </span>
-            </Link>
+            </span>
           </div>
         </div>
       </header>

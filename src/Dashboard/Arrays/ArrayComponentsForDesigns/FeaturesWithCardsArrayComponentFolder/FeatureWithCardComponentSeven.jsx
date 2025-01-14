@@ -1,5 +1,3 @@
-import { FaCheck } from "react-icons/fa6";
-
 const FeatureWithCardComponentSeven = ({
   text,
   isMobile,
@@ -108,7 +106,6 @@ const FeatureWithCardComponentSeven = ({
               ></p>
               <div className="mb-10 flex flex-col gap-y-3">
                 <div className="flex items-center gap-3">
-                  <FaCheck className="text-xl" />
                   <span
                     id={`features-with-card-span-text-1-${
                       index + 1
@@ -145,7 +142,6 @@ const FeatureWithCardComponentSeven = ({
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <FaCheck className="text-xl" />
                   <span
                     id={`features-with-card-span-text-2-${
                       index + 1
@@ -182,7 +178,6 @@ const FeatureWithCardComponentSeven = ({
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <FaCheck className="text-xl" />
                   <span
                     id={`features-with-card-span-text-3-${
                       index + 1
