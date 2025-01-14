@@ -1,5 +1,3 @@
-import { FaGears } from "react-icons/fa6";
-
 const FeatureWithCardComponentSix = ({
   text,
   handleDivClick,
@@ -105,9 +103,8 @@ const FeatureWithCardComponentSix = ({
                       ] || text.description,
                 }}
               ></p>
-              <div className="mb-20 flex max-lg:flex-col max-lg:gap-y-6 gap-x-14">
+              <div className="mb-10 flex max-lg:flex-col max-lg:gap-y-6 gap-x-14">
                 <div className="flex items-center gap-3">
-                  <FaGears className="text-5xl" />
                   <div className="flex flex-col">
                     <span
                       id={`features-with-card-span-text-1-${
@@ -179,7 +176,6 @@ const FeatureWithCardComponentSix = ({
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <FaGears className="text-5xl" />
                   <div className="flex flex-col">
                     <span
                       id={`features-with-card-span-text-3-${
