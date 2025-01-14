@@ -286,43 +286,17 @@ const EditAndSave = () => {
           `<${tagName}${beforeAttributes}${afterAttributes}>${content}</${tagName}>`
       );
 
-      // Helper function for icons with dynamic attributes
-      const createIconRegexWithDynamicProps = (componentName) => {
-        return new RegExp(
-          `<${componentName}\\s+([^>]*)>(?![\\s\\S]*?<\\/${componentName}>)`,
-          "g"
-        );
-      };
-
       // Fix self-closing tags and icons
       elementString = elementString.replace(/\/>/g, ">"); // First convert all self-closing tags
       elementString = elementString.replace(/<br>/g, "<br />");
 
-      // Handle icon components with preserved attributes
-      const iconComponents = [
-        "FaBarsStaggered",
-        "FaCheck",
-        "FaEye",
-        "IoLocationSharp",
-        "FaPhoneAlt",
-        "FaEnvelope",
-        "FaXTwitter",
-        "GrFacebookOption",
-        "FaInstagram",
-        "FaLinkedinIn",
-        "MdChevronRight",
-      ];
-
-      iconComponents.forEach((componentName) => {
-        elementString = elementString.replace(
-          createIconRegexWithDynamicProps(componentName),
-          (match, attributes) => `<${componentName} ${attributes.trim()} />`
-        );
-      });
-
       // Handle other self-closing elements
       elementString = elementString.replace(/<img([^>]*)>/g, "<img$1 />");
       elementString = elementString.replace(/<input([^>]*)>/g, "<input$1 />");
+      elementString = elementString.replace(
+        /<FaBarsStaggered([^>]*)>/g,
+        "<FaBarsStaggered$1 />"
+      );
 
       // Handle path elements that need closing tags
       elementString = elementString.replace(
