@@ -18,6 +18,7 @@ import { GrFacebookOption } from "react-icons/gr";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { MdChevronRight } from "react-icons/md";
+import { fontAwesomeIcons } from "../Arrays/Arrays";
 
 const TestDesignModal = () => {
   const {
@@ -211,8 +212,13 @@ const TestDesignModal = () => {
 
   return (
     <main className="bg-white w-full mt-5 max-md:mt-0 mx-10 h-[89vh] max-md:h-[89vh] max-[499px]:mx-4 overflow-scroll overflow-x-hidden">
-      <main>
-        
+      <main className="text-black">
+        <h1>Hello</h1>
+        {fontAwesomeIcons.map((icon) => {
+          return <div>
+            <span className="text-sm">{icon}</span>
+          </div>;
+        })}
       </main>
     </main>
   );
